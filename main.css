@@ -1,0 +1,196 @@
+/*
+# CyTube Plus global layout enhancement file
+# Attention: try not to change this file, it sets global layout properties
+*/
+
+/* global "btn" class */
+
+.btn {text-shadow:none; box-shadow:none}
+
+/* global "badge" class */
+
+.badge {text-shadow:none; box-shadow:none}
+
+/* global "well" class */
+
+.well {box-shadow:none}
+
+/* global "alert" class */
+
+.alert {text-shadow:none; margin-bottom:0px}
+
+/* chat "command" class */
+
+.command {background-color:white; padding:5px; margin:5px; border:solid 1px black}
+
+/* "brand" class */
+
+.brand {cursor:default}
+
+/* header links */
+
+.navbar-inverse .brand,
+.navbar-inverse .nav > li > a {text-shadow:none}
+
+/* default top logo box properties */
+
+#azukirowwrap {
+padding-left:5px;
+padding-right:5px;
+border-left:solid 2px transparent;
+border-right:solid 2px transparent;
+}
+
+/* common "row" responsive layout elements */
+
+#toprow,
+#annrow,
+#titlerow,
+#main,
+#playlistrow,
+#modrow,
+#footerrow {margin-top:5px}
+
+/* common main visible rows */
+
+#motd,
+#announcements,
+#titlerow-outer,
+#main-outer,
+#playlist-outer,
+#channelsettingswrap3 {
+border:solid 2px #eeeeee;
+border-radius:6px;
+-moz-border-radius:6px;
+-webkit-border-radius:6px;
+padding:5px;
+}
+
+/* MOTD */
+
+#motd {background-color:#f5f5f5; margin-bottom:0px}
+
+/* userlist item */
+
+.userlist_item {cursor:pointer}
+
+/* default "emptytop" box */
+
+#emptytop {color:#333333; border-width:1px 1px medium; border-style:solid solid none; border-color:#aaaaaa}
+
+/* video title */
+
+#currenttitle {padding-left:4px}
+#currenttitle:before {content:"♪ "}
+
+/* default full-width title */
+
+#titlerow-outer {
+background-image:linear-gradient(to right, #dddddd, #dddddd);
+background-position:0px center;
+background-size:0% 100%;
+background-repeat:no-repeat;
+}
+#titlerow-outer #currenttitle {border:solid 1px #aaaaaa !important}
+
+/* fonts and emotes panels */
+
+#fontspanel, #emotespanel {border:solid 2px #eeeeee}
+
+/* fonts panel buttons */
+
+#fontspanel button {width:28px; height:28px; padding:4px 6px; margin-bottom:10px; line-height:16px}
+
+/* "Show/Hide" boxes */
+
+#leftpane-inner .well,
+#playlisttogglewrap {margin-bottom:5px; padding-bottom:0px}
+
+/* extended playlist controls */
+
+#extended_controls {min-height:0px}
+
+/* queue */
+
+#queue {max-height:450px}
+
+/* common videolist titles */
+
+.qe_title,
+.db-title {color:inherit}
+.qe_title:hover {color:inherit}
+
+/* common playlist items title */
+
+.qe_title {margin-left:4px}
+
+/* poll boxes */
+
+#pollwrap {min-height:0px}
+.poll-menu .btn-block {margin-bottom:5px}
+#pollwrap .well {padding-bottom:5px}
+
+/* channel database link */
+
+.db-link {margin-left:5px}
+
+/* moderation outer box */
+
+#channelsettingswrap3 {margin-top:0px !important}
+
+/* moderation inner box */
+
+#channelsettingswrap2 {border:none; margin-bottom:0px !important}
+
+/* moderation "hr" element */
+
+#channelsettingswrap hr {margin-bottom:0px}
+
+/* default footer */
+
+#footerwrap {
+padding:5px;
+border-left:solid 2px transparent;
+border-right:solid 2px transparent;
+border-top:solid 2px #eeeeee;
+}
+
+/* sitefooter */
+
+#sitefooter {padding:5px}
+
+/* closing "x" element */
+
+.close {opacity:0.4}
+.close:hover {opacity:0.6}
+
+/* player transformations classes */
+
+.mX {
+-webkit-transform:scaleX(-1);
+-moz-transform:scaleX(-1);
+transform:scaleX(-1);
+-ms-transform:scaleX(-1);
+-o-transform:scaleX(-1);
+}
+.mY {
+-webkit-transform:scaleY(-1);
+-moz-transform:scaleY(-1);
+transform:scaleY(-1);
+-ms-transform:scaleY(-1);
+-o-transform:scaleY(-1);
+}
+.rotate {
+-webkit-transform:rotate(180deg);
+-moz-transform:rotate(180deg);
+transform:rotate(180deg);
+-ms-transform:rotate(180deg);
+-o-transform:rotate(180deg);
+}
+.vertical {
+-webkit-transform:rotate(270deg);
+-moz-transform:rotate(270deg);
+transform:rotate(270deg);
+-ms-transform:rotate(270deg);
+-o-transform:rotate(270deg);
+}
