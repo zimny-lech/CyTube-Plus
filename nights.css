@@ -1,0 +1,207 @@
+/* ---------- GLOBAL STYLES ---------- */
+
+body {background-color:black}
+
+.dropdown-menu {background-color:black}
+
+.dropdown-menu > li > a {color:white}
+.dropdown-menu > li > a:hover {color:black; background-image:none; background-color:white}
+
+.nav-header {color:white}
+
+input[type="text"],
+textarea {}
+input[type="text"]:focus,
+textarea:focus {
+border-color: red;
+box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(255, 0, 0, 0.6);
+}
+
+.alert {background-color:black; color:white; border:solid 1px white}
+
+#playlistrow .span12.row-fluid,
+#playlisttogglewrap,
+.poll-menu, 
+#pollwrap .well {background-color:black; color:#eeeeee}
+
+
+/* ----- LINKS ----- */
+
+.alert a {color:#dddddd}
+.alert a:hover {}
+
+
+/* ---------- BUTTONS ---------- */
+
+.btn-primary {background-image:none; background-color:red; color:white}
+.btn-primary:hover, .btn-primary:focus {background-color:white; color:red}
+
+.btn-success {background-image:none; background-color:red}
+.btn-success:hover, .btn-success:focus {background-color:white; color:black}
+
+.btn-danger {background-image:none; background-color:white; color:black}
+.btn-danger:hover, .btn-danger:focus {background-color:#dddddd; color:black}
+
+
+/* ---------- MODAL WINDOWS ---------- */
+
+.modal,
+.modal-footer {background-color:black; color:white}
+
+.text-error {color:red}
+
+
+/* ---------- HEADER ---------- */
+
+#welcome {color:#eeeeee}
+
+
+/* ---------- MAIN ROWS ---------- */
+
+#motd,
+#announcements,
+#titlerow-outer,
+#main-outer,
+#playlist-outer,
+#channelsettingswrap3 {
+background-color:#333333;
+border-radius:12px;
+-moz-border-radius:12px;
+-webkit-border-radius:12px;
+}
+
+#motd {color:#eeeeee}
+
+#titlerow-outer {background-image:linear-gradient(to right, #cccccc, #cccccc)}
+
+
+/* ---------- ANNOUNCEMENTS ---------- */
+
+#rulespanel {color:white}
+
+#drinkbar {background-color:black; color:#eeeeee}
+
+
+/* ---------- TITLES ---------- */
+
+#currenttitle, #emptytop, #usercountwrap {color:#eeeeee; background:black}
+
+#titlerow-outer #currenttitle {
+color:white;
+background:transparent;
+border:none !important;
+text-align:center;
+font-style:italic;
+font-size:14pt;
+text-shadow:3px 3px 6px #888888;
+}
+
+
+/* ---------- USERLIST ---------- */
+
+#userlist {background-color:#dddddd}
+
+.userlist_item {color:black}
+
+.userlist_guest {color:gray}
+
+.userlist_siteadmin,
+.userlist_owner,
+.userlist_op {color:red}
+
+.profile-box {color:black}
+
+
+/* ---------- CHAT ---------- */
+
+#messagebuffer {background-color:#dddddd}
+
+#chatline {background-color:white}
+
+.poll-notify {color:red}
+
+.greentext {color:green}
+
+.nick-highlight {background-color:pink}
+
+.nick-hover {background-color:pink}
+
+
+/* ---------- CHAT SERVER MESSAGES ---------- */
+
+.drink {border:solid 2px silver}
+
+
+/* ---------- FILTERS GRAPHIC INTERFACE ---------- */
+
+#fontspanel,
+#emotespanel {background-color:#333333}
+
+
+/* ---------- VIDEOLISTS (QUEUE, LIBRARY/YOUTUBE, CHANNEL DATABASE) ---------- */
+
+.videolist li {background-color:#111111; color:white}
+.videolist li:hover {}
+
+.queue_active {background-color:#eeeeee !important; color:black}
+
+.queue_active .qe_title {color:black}
+.queue_active .qe_title:hover {color:black}
+
+.qe_time {font-family:arial}
+
+.queue_active .qe_time {color:black}
+
+.queue_entry .btn {font-family:arial}
+
+
+/* ---------- QUEUE ---------- */
+
+#plmeta {background-color:#111111; color:white}
+
+
+/* ---------- PLAYLIST MANAGER ---------- */
+
+#userpl_list li {color:black}
+
+
+/* ---------- CHANNEL DATABASE ---------- */
+
+.db-break {background-image:none; text-shadow:none; box-shadow:none}
+.db-break:hover {background-color:white; color:#111111}
+
+
+/* ---------- MODERATION MENU ---------- */
+
+#channelsettingswrap2 {background-color:white}
+
+
+/* ---------- FOOTERS ---------- */
+
+#footerwrap {color:white}
+
+#sitefooter {color:white}
+
+
+/* ---------- GLYPHICONS ---------- */
+
+.icon-chevron-up {
+background-image:url("https://raw.github.com/calzoneman/sync/master/www/assets/img/glyphicons-halflings-white.png");
+}
+.icon-plus {
+background-image:url("https://raw.github.com/calzoneman/sync/master/www/assets/img/glyphicons-halflings-white.png");
+}
+.icon-minus {
+background-image:url("https://raw.github.com/calzoneman/sync/master/www/assets/img/glyphicons-halflings-white.png");
+}
+.icon-ok {
+background-image:url("https://raw.github.com/calzoneman/sync/master/www/assets/img/glyphicons-halflings-white.png");
+}
+
+
+/* ---------- CLOSING X ---------- */
+
+#annclose {color:white}
+.alert .close {color:white}
+#pollwrap .close {color:white}
+.modal .close {color:white}
