@@ -1,0 +1,693 @@
+/*
+# CyTube Plus blank CSS file
+# Attention: try not to change attributes sequence due to CyTube properties inheritance
+# Note: if element is marked as "DEFAULT: background-image", you must set {background-image:none}
+#       to change background colour
+# Note 2: all attributes marked as "IMPORTANT" must be set as "!important" if changed
+*/
+
+
+/* ---------- GLOBAL STYLES ---------- */
+
+/* channel global */
+
+body {}
+
+/* dropdown menu */
+
+.dropdown-menu {}
+
+/* dropdown menu item */
+
+.dropdown-menu > li > a {}
+/* DEFAULT: background-image */
+.dropdown-menu > li > a:hover {}
+
+/* dropdown menu header */
+
+.nav-header {}
+
+/* code text */
+
+code {}
+
+/* common badge */
+
+.badge {}
+
+/* input and textarea */
+
+input[type="text"],
+textarea {}
+input[type="text"]:focus,
+textarea:focus {}
+
+/* form selector */
+
+select {}
+
+/* common alert box */
+
+/* DEFAULT deleted in 'main.css': text-shadow */
+.alert {}
+
+/* common toggled boxes */
+
+#playlistrow .span12.row-fluid,
+#playlisttogglewrap,
+.poll-menu, 
+#pollwrap .well {}
+
+/* common toggled box header */
+
+#playlistrow .span12.pointer,
+#playlisttoggle {}
+
+/* ----- LINKS ----- */
+
+/* global links */
+
+a {}
+a:hover {}
+
+/* following links: MOTD, rules panel, announcements alerts, chat, footer, sitefooter */
+/* inherit global links */
+
+#motd a {}
+#motd a:hover {}
+
+#rulespanel a {}
+#rulespanel a:hover {}
+
+.alert a {}
+.alert a:hover {}
+
+#messagebuffer a {}
+#messagebuffer a:hover {}
+
+#footerwrap a {}
+#footerwrap a:hover {}
+
+#sitefooter a {}
+#sitefooter a:hover {}
+
+
+/* ---------- BUTTONS ---------- */
+
+/* common button */
+
+/* DEFAULT: background-image */
+/* DEFAULT deleted in 'main.css': text-shadow, box-shadow */
+.btn {}
+.btn:hover {}
+.btn:focus {}
+
+/* primary button */
+
+/* DEFAULT: text-shadow, background-image */
+.btn-primary {}
+.btn-primary:hover,
+.btn-primary:focus {}
+
+/* success button */
+
+/* DEFAULT: text-shadow, background-image */
+.btn-success {}
+.btn-success:hover,
+.btn-success:focus {}
+
+/* danger button */
+
+/* DEFAULT: text-shadow, background-image */
+.btn-danger {}
+.btn-danger:hover,
+.btn-danger:focus {}
+
+
+/* ---------- MODAL WINDOWS ---------- */
+
+/* common modal window */
+
+.modal,
+.modal-footer {}
+
+/* modal footer */
+
+/* inherit common modal style */
+.modal-footer {}
+
+/* modal window error text */
+
+.text-error {}
+
+
+/* ---------- HEADER ---------- */
+
+/* header + fitting active menu dropdown */
+
+/* DEFAULT: background-image */
+.navbar-inverse .navbar-inner,
+.navbar-inverse .nav li.dropdown.open > .dropdown-toggle {}
+
+/* header links, including brand */
+
+/* DEFAULT: text-shadow set as none in 'main.css', IMPORTANT: color */
+.navbar-inverse .brand,
+.navbar-inverse .nav > li > a {}
+/* IMPORTANT: color */
+.navbar-inverse .brand:hover,
+.navbar-inverse .nav > li > a:hover, .navbar-inverse .nav > li > a:active {}
+
+/* brand */
+
+/* DEFAULT: text-shadow, IMPORTANT: color */
+.navbar-inverse .brand {}
+
+/* welcome message */
+
+#welcome {}
+
+
+/* ---------- MAIN ROWS ---------- */
+
+/* common main visible rows */
+
+#motd,
+#announcements,
+#titlerow-outer,
+#main-outer,
+#playlist-outer,
+#channelsettingswrap3 {}
+
+/* MOTD row */
+
+#motd {}
+
+/* following main rows: announcements + full-width title + player + playlist + moderation */
+
+#announcements {}
+
+/* Progress bar MUST BE: {background-image:linear-gradient(to right, color, color)} or URL */
+#titlerow-outer {}
+
+#main-outer {}
+
+#playlist-outer {}
+
+#channelsettingswrap3 {}
+
+
+/* ---------- TOP BACKGROUND LOGO ---------- */
+
+/* best fitting left/right padding: same as in common main visible rows */
+/* best fitting left/right borders: same as in main footer */
+#azukirowwrap {}
+
+
+/* ---------- MOTD ---------- */
+
+/* MOTD code */
+
+#motd code {}
+
+
+/* ---------- ANNOUNCEMENTS ---------- */
+
+/* channel rules box */
+
+/* IMPORTANT: border */
+#rulespanel {}
+
+/* drinkbar */
+
+#drinkbar {}
+
+
+/* ---------- TITLES ---------- */
+
+/* common chat and video titles */
+
+#currenttitle, #emptytop, #usercountwrap {}
+
+/* full-width video title */
+
+/* IMPORTANT: border */
+/* inherit #currenttitle style */
+#titlerow-outer #currenttitle {}
+
+
+/* ---------- USERLIST ---------- */
+
+/* common userlist */
+
+#userlist {}
+
+/* userlist item */
+
+.userlist_item {}
+
+/* following userlist ranking items: guest + common mods + moderator + channel owner + site admin */
+
+.userlist_guest {}
+
+.userlist_siteadmin,
+.userlist_owner,
+.userlist_op {}
+
+.userlist_op {}
+
+.userlist_owner {}
+
+.userlist_siteadmin {}
+
+/* userlist dropdown menu */
+
+.userlist_item .user-dropdown {}
+
+/* profile box */
+
+.profile-box {}
+
+/* usercount info */
+
+/* inherit from .profile-box and #usercountwrap */
+#usercountwrap .profile-box {}
+
+
+/* ---------- CHAT ---------- */
+
+/* common chat window */
+
+#messagebuffer {}
+
+/* chat input */
+
+#chatline {}
+
+/* all chat messages */
+
+#messagebuffer div {}
+
+/* poll notify message */
+
+/* inherit common chat message style with IMPORTANT: font-size */
+.poll-notify {}
+
+/* spoiler message */
+
+.spoiler {}
+.spoiler:hover {}
+
+/* action [/me] message */
+
+.action {}
+
+/* shout [/say] message */
+
+.shout {}
+
+/* greentext [>] message */
+
+.greentext {}
+
+/* nick highlighting */
+
+.nick-highlight {}
+
+/* nick hovering */
+
+.nick-hover {}
+
+/* filters graphic interface buttons */
+
+#fontsbtn,
+#emotesbtn {}
+
+
+/* ---------- CHAT SERVER MESSAGES ---------- */
+
+/* join message */
+
+.server-whisper {}
+
+/* all boxed messages */
+
+.server-msg-reconnect,
+.server-msg-disconnect,
+.drink,
+.command {}
+
+/* connect message */
+
+.server-msg-reconnect {}
+
+/* disconnect message */
+
+.server-msg-disconnect {}
+
+/* drink message */
+
+.drink {}
+
+/* command message */
+
+.command {}
+
+
+/* ---------- FILTERS GRAPHIC INTERFACE ---------- */
+
+/* fonts and emotes panel */
+
+#fontspanel,
+#emotespanel {}
+
+/* fonts buttons */
+
+#fontspanel button {}
+
+
+/* ---------- TOGGLED BOXES ---------- */
+
+/* common toggled box */
+
+#playlistrow .span12.row-fluid,
+playlisttogglewrap {}
+
+/* common toggled box header */
+
+#playlistrow .span12.pointer,
+#playlisttoggle {}
+
+/* playlist row common inputs and textareas */
+
+#playlistrow input[type="text"],
+#playlistrow textarea {}
+#playlistrow input[type="text"]:focus,
+#playlistrow textarea:focus {}
+
+
+/* ---------- VIDEOLISTS (QUEUE, LIBRARY/YOUTUBE, CHANNEL DATABASE) ---------- */
+
+/* common videolist */
+
+/* background almost invisible between items */
+.videolist {}
+
+/* basic common videolist item */
+
+.videolist li {}
+.videolist li:hover {}
+
+/* videolist temporary item */
+
+/* DEFAULT: background-image, IMPORTANT: background-color, background-image */
+/* inherit common videolist item style */
+.queue_temp {}
+
+/* videolist active item */
+
+/* IMPORTANT: background-color, background-image */
+/* inherit common and temporary videolist item style */
+.queue_active {}
+
+/* following item title: default, temporary, active */
+
+/* IMPORTANT: margin-left for .db-title */
+/* set as inherit in 'main.css' */
+.qe_title,
+.db-title {}
+.qe_title:hover {}
+
+/* inherit default item title style */
+.queue_temp .qe_title {}
+.queue_temp .qe_title:hover {}
+
+/* inherit default and temporary item title style */
+.queue_active .qe_title {}
+.queue_active .qe_title:hover {}
+
+/* following item time: default, temporary, active */
+
+.qe_time {}
+
+/* inherit default item time style */
+.queue_temp .qe_time {}
+
+/* inherit default and temporary item time style */
+.queue_active .qe_time {}
+
+/* videolist buttons */
+
+.queue_entry .btn {}
+
+
+/* ---------- PLAYLIST CONTROLS ---------- */
+
+/* common playlist controls box */
+
+#playlisttogglewrap {}
+
+/* media input */
+
+/* IMPORTANT: background-color */
+#mediaurl {}
+
+/* embed help text */
+
+#customembed_entry {}
+
+/* embed textarea */
+
+#playlist_controls code {}
+
+/* embed title */
+
+#customembed_title {}
+
+
+/* ---------- QUEUE ---------- */
+
+/* common queue */
+
+/* inherit videolist style */
+#queue {}
+
+/* queue statistics */
+
+#plmeta {}
+
+
+/* ---------- POLLS ---------- */
+
+/* poll title */
+
+#pollwrap h3 {}
+
+/* poll option text */
+
+#pollwrap .option {}
+
+/* poll option button */
+
+/* DEFAULT: background-image */
+#pollwrap .option button {}
+
+/* polls boxes */
+
+.poll-menu, #pollwrap .well {}
+
+/* creating poll input */
+
+.poll-menu input {}
+
+
+/* ---------- LAYOUT CONFIGURATION ---------- */
+
+/* common layout configuration box */
+
+#layouttoggle-outer {}
+
+
+/* ---------- LIBRARY/SEARCH ---------- */
+
+/* common library/search box */
+#librarytoggle-outer {}
+
+/* search input */
+
+/* IMPORTANT: background-color */
+#library_query {}
+
+/* common library/YouTube list */
+
+/* inherit videolist style */
+#library {}
+
+
+/* ---------- PLAYLIST MANAGER ---------- */
+
+/* common playlist manager box */
+
+#userpltogglewrap {}
+
+/* playlist title input */
+
+/* IMPORTANT: background-color */
+#userpl_name {}
+
+/* common playlists list */
+#userpl_list {}
+
+/* playlists item */
+
+#userpl_list li {}
+
+
+/* ---------- CHANNEL DATABASE ---------- */
+
+/* common channel database box */
+
+#dbtoggle-outer {}
+
+/* common database sections */
+
+/* inherit videolist style */
+#dbwrap .videolist {}
+
+/* channel DB section buttons */
+
+/* inherit .btn style with DEFAULT: background-image, text-shadow, box-shadow */
+.db-break {}
+.db-break:hover {}
+
+/* channel DB item numbers */
+
+.db-badge {}
+
+/* channel DB item text */
+
+/* inherit videolist item style */
+#dbwrap .queue_entry {}
+
+/* channel DB item link */
+
+/* inherit videolist item style */
+.db-link {}
+
+
+/* ---------- CHANNEL GALLERIES ---------- */
+
+/* common channel galleries box */
+
+#gallerytoggle-outer {}
+
+/* gallery frame */
+
+#galleryFrame {}
+
+
+/* ---------- MODERATION MENU ---------- */
+
+/* moderation menu inner box */
+
+/* IMPORTANT: background-color */
+#channelsettingswrap2 {}
+
+/* moderation menu common inputs and textareas */
+
+#modrow input[type="text"],
+#modrow textarea {}
+#modrow input[type="text"]:focus,
+#modrow textarea:focus {}
+
+/* odd table rows */
+
+/* IMPORTANT: background-color */
+.table-striped tbody > tr:nth-child(2n+1) > td {}
+
+/* permissions titles */
+
+#channelsettingswrap2 h3 {}
+
+/* filters codes */
+
+#channelsettingswrap2 code {}
+
+/* channel log box */
+
+#chanlog_contents {}
+
+
+/* ---------- FOOTERS ---------- */
+
+/* main footer */
+
+/* DEFAULT: border-top */
+#footerwrap {}
+
+/* footer visits and online time */
+
+.footer-badge {}
+
+/* custom footer */
+
+#sitefooter {}
+
+
+/* ---------- GLYPHICONS ---------- */
+
+/*
+MUST BE:
+for dark backgrounds - background-image:url("https://raw.github.com/calzoneman/sync/master/www/assets/img/glyphicons-halflings-white.png")
+for light backgrounds - background-image:url("https://raw.github.com/calzoneman/sync/master/www/assets/img/glyphicons-halflings.png")
+*/
+
+/* global icons */
+
+.icon-chevron-up,
+.icon-font,
+.icon-picture,
+.icon-star-empty,
+.icon-time,
+.icon-plus,
+.icon-minus,
+.icon-ok,
+.icon-lock,
+.icon-play,
+.icon-share-alt,
+.icon-flag,
+.icon-trash {}
+
+/* following icons for: usercounter, fonts button, emotes button, leader, afk, 
+show box, hide box, play now, play next, set as temp, delete */
+
+.icon-chevron-up {}
+.icon-font {}
+.icon-picture {}
+.icon-star-empty {}
+.icon-time {}
+.icon-plus {}
+.icon-minus {}
+.icon-ok {}
+.icon-lock {}
+.icon-play {}
+.icon-share-alt {}
+.icon-flag {}
+.icon-trash {}
+
+
+/* ---------- CLOSING X ---------- */
+
+/*
+MUST BE:
+for dark backgrounds - color:white (or any light colour)
+for light backgrounds - color:black (or any dark colour)
+*/
+
+/* following closes for: announcements, alert messages, polls, moderation, modal window */
+
+#annclose {}
+.alert .close {}
+#pollwrap .close {}
+#hide_settings {}
+.modal .close {}
