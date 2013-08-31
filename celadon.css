@@ -1,0 +1,163 @@
+/* ---------- GLOBAL STYLES ---------- */
+
+body {background-color:#789922; background-image:linear-gradient(to bottom, #ABCC56, #9DCCF5)}
+
+.dropdown-menu {background-color:#ABCC56}
+
+.nav-header {color:white}
+
+.badge {background-color:#0088cc}
+
+.alert {background-color:#ABCC56; color:white}
+
+#playlistrow .span12.row-fluid,
+#playlisttogglewrap,
+.poll-menu, 
+#pollwrap .well {background-color:#ABCC56; border:solid 1px black}
+
+/* ----- LINKS ----- */
+
+#messagebuffer a {color:#cccccc}
+#messagebuffer a:hover {}
+
+
+/* ---------- BUTTONS ---------- */
+
+.btn {background-color:#9DCCF5; background-image:linear-gradient(to bottom, #9DCCF5, #ABCC56)}
+.btn:hover {background-image:none; background-color:white}
+.btn:focus {background-image:none; background-color:#9DCCF5}
+
+.btn-primary {}
+.btn-primary:hover,
+.btn-primary:focus {background-image:none; background-color:black}
+
+.btn-success {background-image:none; background-color:#ABCC56}
+.btn-success:hover,
+.btn-success:focus {background-color:white}
+
+.btn-danger {background-image:none; background-color:#9DCCF5; color:black}
+.btn-danger:hover,
+.btn-danger:focus {color:black}
+
+
+/* ---------- MODAL WINDOWS ---------- */
+
+.modal,
+.modal-footer {background-color:#789922; background-image:linear-gradient(to bottom, #ABCC56, #9DCCF5)}
+
+.modal-footer {background-color:#dddddd; background-image:none}
+
+.text-error {color:blue}
+
+
+/* ---------- HEADER ---------- */
+
+.navbar-inverse .navbar-inner,
+.navbar-inverse .nav li.dropdown.open > .dropdown-toggle {background-image:none; background-color:#e5e5e5}
+
+.navbar-inverse .brand,
+.navbar-inverse .nav > li > a {color:#888888 !important}
+.navbar-inverse .brand:hover,
+.navbar-inverse .nav > li > a:hover, .navbar-inverse .nav > li > a:active {color:#333333 !important}
+
+#welcome {color:#888888; font-size:12pt}
+
+
+/* ---------- MAIN ROWS ---------- */
+
+#motd,
+#announcements,
+#titlerow-outer,
+#main-outer,
+#playlist-outer,
+#channelsettingswrap3 {background-color:#9DCCF5; border:solid 2px black}
+
+#titlerow-outer {
+background-image:linear-gradient(to right, #ABCC56, #ABCC56);
+color:black;
+letter-spacing:3px;
+font-size:14pt;
+text-align:right;
+}
+
+
+/* ---------- ANNOUNCEMENTS ---------- */
+
+#rulespanel {background-color:white; color:#4488ff; border:solid 2px #ABCC56 !important}
+
+#drinkbar {background:transparent; color:black}
+
+
+/* ---------- TITLES ---------- */
+
+#currenttitle, #emptytop, #usercountwrap {background-color:#ABCC56}
+
+#titlerow-outer #currenttitle {background:transparent; border:none !important; padding-top:8px; padding-bottom:8px}
+
+
+/* ---------- USERLIST ---------- */
+
+#userlist {background-color:#0088cc}
+
+.userlist_item {color:#ABCC56}
+
+.userlist_guest {color:white}
+
+.userlist_siteadmin,
+.userlist_owner,
+.userlist_op {color:blue}
+
+.profile-box {background-color:#ABCC56; color:black}
+
+
+/* ---------- CHAT ---------- */
+
+#messagebuffer {background-color:#0088cc; color:white}
+
+.poll-notify {color:#ABCC56}
+
+.spoiler {background-color:white; color:white}
+.spoiler:hover {background-color:blue}
+
+.action {color:white; font-size:10pt}
+
+.shout {color:#ABCC56}
+
+.greentext {color:#ABCC56}
+
+.nick-highlight {background-color:#ABCC56}
+
+.nick-hover {background-color:blue}
+
+
+/* ---------- CHAT SERVER MESSAGES ---------- */
+
+.server-whisper {color:white}
+
+.server-msg-reconnect {border-color:white; color:white}
+
+.server-msg-disconnect {border-color:white; color:white}
+
+.command {color:black}
+
+
+/* ---------- VIDEOLISTS (QUEUE, LIBRARY/YOUTUBE, CHANNEL DATABASE) ---------- */
+
+.videolist {background-color:#0088cc}
+
+.videolist li {background-color:#ABCC56}
+.videolist li:hover {background-color:#0088cc; color:white}
+
+.queue_active {background-color:#9DCCF5 !important; border:solid 2px black; font-size:12px; letter-spacing:2px}
+
+
+/* ---------- QUEUE ---------- */
+
+#plmeta {background-color:#0088cc; color:white}
+
+
+/* ---------- MODERATION MENU ---------- */
+
+#channelsettingswrap2 {background-color:#ABCC56}
+
+.table-striped tbody > tr:nth-child(2n+1) > td {background-color:#9DCCF5 !important}
