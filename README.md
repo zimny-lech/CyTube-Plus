@@ -12,7 +12,7 @@
 
 ### Q: Something is not working, what to do?
 
-**A:** See [Troubleshooting](https://github.com/zimny-lech/CyTube-Plus/wiki/Troubleshooting) page. If you will not find the answer, open a new [issue](https://github.com/uchigawa/test/issues).
+**A:** See [Troubleshooting](https://github.com/zimny-lech/CyTube-Plus/wiki/Troubleshooting) page. If you will not find the answer, open a new [issue](https://github.com/zimny-lech/CyTube-Plus/issues).
 
 ### Q: Where can I read more about it?
 
@@ -20,7 +20,7 @@
 
 ### Q: Is it free?
 
-**A:** Yes. CyTube Plus is licensed under MIT License (see [LICENSE](https://github.com/uchigawa/test/blob/master/LICENSE) for the full text).
+**A:** Yes. CyTube Plus is licensed under MIT License (see [LICENSE](https://github.com/zimny-lech/CyTube-Plus/blob/master/LICENSE) for the full text).
 
 ## Installation
 
@@ -51,7 +51,7 @@
 
 ## Feedback
 
-Go to the [Issues](https://github.com/uchigawa/test/issues) page.
+Go to the [Issues](https://github.com/zimny-lech/CyTube-Plus/issues) page.
 
 Just **create a new issue**. If you have problems with configurating or using CyTube Plus read [Troubleshooting](https://github.com/zimny-lech/CyTube-Plus/wiki/Troubleshooting) first.
 
