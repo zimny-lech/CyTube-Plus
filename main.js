@@ -346,16 +346,16 @@ themeCSS=[
 ['# default', 'assets/css/ytsync.css'],
 ['# dark', 'assets/css/darkstrap.css'],
 ['# semidark', 'assets/css/semidark.css'],
-['pastel-white', 'https://raw.github.com/zimny-lech/CyTube-Plus/master/white.css'],
-['ice-cirno', 'https://raw.github.com/zimny-lech/CyTube-Plus/master/cirno.css'],
-['jungle', 'https://raw.github.com/zimny-lech/CyTube-Plus/master/jungle.css'],
-['celadon', 'https://raw.github.com/zimny-lech/CyTube-Plus/master/celadon.css'],
-['sakura', 'https://raw.github.com/zimny-lech/CyTube-Plus/master/sakura.css'],
-['fuchsia', 'https://raw.github.com/zimny-lech/CyTube-Plus/master/fuchsia.css'],
-['cool-kim', 'https://raw.github.com/zimny-lech/CyTube-Plus/master/kim.css'],
-['contrast', 'https://raw.github.com/zimny-lech/CyTube-Plus/master/contrast.css'],
-['nights', 'https://raw.github.com/zimny-lech/CyTube-Plus/master/nights.css'],
-['cosmos', 'https://raw.github.com/zimny-lech/CyTube-Plus/master/cosmos.css'],
+['pastel-white', 'https://dl.dropboxusercontent.com/s/1knuft5wbvy7dhm/white.css'],
+['ice-cirno', 'https://dl.dropboxusercontent.com/s/s15zul92aeo41pk/cirno.css'],
+['jungle', 'https://dl.dropboxusercontent.com/s/h8q8qml44zoo2pc/jungle.css'],
+['celadon', 'https://dl.dropboxusercontent.com/s/cduxlsx3j76b4hr/celadon.css'],
+['sakura', 'https://dl.dropboxusercontent.com/s/qxyuag1idqxhujz/sakura.css'],
+['fuchsia', 'https://dl.dropboxusercontent.com/s/shr7krrrn20pnii/fuchsia.css'],
+['cool-kim', 'https://dl.dropboxusercontent.com/s/4ulsaj782txokaw/kim.css'],
+['contrast', 'https://dl.dropboxusercontent.com/s/ea9e3v9yphqvjo6/contrast.css'],
+['nights', 'https://dl.dropboxusercontent.com/s/pnsnsoooxec1of6/nights.css'],
+['cosmos', 'https://dl.dropboxusercontent.com/s/ztj5yia9j2qfqmp/cosmos.css'],
 ],
 
 // DESCRIPTION: CSS themes array
@@ -367,7 +367,7 @@ defaultLayoutURL='assets/css/ytsync.css';
 // NOTE: if you select URL out of themeCSS array, user will not be able to select this theme again after change
 // ^ default theme is visible until user will not change layout configuration, or if cookies are disabled
 
-mainCSS='https://raw.github.com/zimny-lech/CyTube-Plus/master/main.css';
+mainCSS='https://dl.dropboxusercontent.com/s/c5nkaqcli74tgdl/main.css';
 
 // DESCRIPTION: default script layout CSS properties file URL
 // WARNING! this file is required for correct channel layout, wrong URL may cause unexpected effects
