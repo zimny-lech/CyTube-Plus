@@ -16,7 +16,7 @@
 
 ### Q: Where can I read more about it?
 
-**A:** You can find many detailed informations on the [CyTube Plus Wiki](https://github.com/zimny-lech/Better-CyTube/wiki).
+**A:** You can find many detailed informations on the [CyTube Plus Wiki](https://github.com/zimny-lech/CyTube-Plus/wiki).
 
 ### Q: Is it free?
 
