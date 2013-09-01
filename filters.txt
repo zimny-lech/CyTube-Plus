@@ -1,0 +1,80 @@
+Formatted codes for CyTube Plus filters.
+
+Use if you have problems with installing with special buttons, or if you want to do it manually.
+
+1. Go to "Moderation Menu" and click "Chat Filters".
+2. Scroll down to "Multi-Filter Editor".
+   WARNING! You should see "Install Fonts" and "Install Emotes" buttons.
+   ^ I recommend you just click them to prepare the code automatically.
+   ^ If you don't see those buttons, you must paste the code manually.
+3. Copy appropriate code from below (be careful and do not include comments!).
+4. Paste the code.
+5. Click "Add/Update" button.
+
+Note: You can install both sets of filters separately, together, or selected set if you want to enable only one.
+
+/* ----- FONTS FILTERS ----- */
+gold\ colour \[gold\] g <span\ style="color:gold">
+orange\ colour \[orange\] g <span\ style="color:orange">
+red\ colour \[red\] g <span\ style="color:red">
+green\ colour \[green\] g <span\ style="color:green">
+blue\ colour \[blue\] g <span\ style="color:blue">
+brown\ colour \[brown\] g <span\ style="color:brown">
+silver\ colour \[silver\] g <span\ style="color:silver">
+white\ colour \[white\] g <span\ style="color:white;\ background-color:silver">
+bold\ text \[b\] g <span\ style="font-weight:bold">
+italic\ text \[i\] g <span\ style="font-style:italic">
+underlined\ text \[u\] g <span\ style="text-decoration:underline">
+short\ spoiler \[sp\] g <span\ class="spoiler">
+closing\ font\ style \[/\] g </span>
+/* ----- END OF SET ----- */
+
+/* ----- EMOTES FILTERS ----- */
+:happy: :happy: g <img\ src="https://dl.dropboxusercontent.com/s/4bz8gdcjyekj2wh/happy.jpg"\ width="35"\ height="35"\ alt=":happy:"\ />
+:awesome: :awesome: g <img\ src="https://dl.dropboxusercontent.com/s/gz1k8oto90n16v6/awesome.png"\ width="35"\ height="35"\ alt=":awesome:"\ />
+:sad: :sad: g <img\ src="https://dl.dropboxusercontent.com/s/3jrfsd3hcxj3r5s/sad.png"\ width="35"\ height="35"\ alt=":sad:"\ />
+:heart: :heart: g <img\ src="https://dl.dropboxusercontent.com/s/fr9131zgnai0kix/heart.png"\ width="35"\ height="35"\ alt=":heart:"\ />
+:karol: :karol: g <img\ src="https://dl.dropboxusercontent.com/s/ekqwktwvus6ptgy/karol.jpg"\ width="30"\ height="42"\ alt=":karol:"\ />
+:lalka: :lalka: g <img\ src="https://dl.dropboxusercontent.com/s/8j25s36v0np59lh/lalka.jpg"\ width="30"\ height="42"\ alt=":lalka:"\ />
+:tongue: :tongue: g <img\ src="https://dl.dropboxusercontent.com/s/tvyjzr1q2ek4sd3/tongue.png"\ width="35"\ height="35"\ alt=":tongue:"\ />
+:freddy: :freddy: g <img\ src="https://dl.dropboxusercontent.com/s/4a8p5wdq14wvgce/freddy.png"\ width="26"\ height="55"\ alt=":freddy:"\ />
+:obama: :obama: g <img\ src="https://dl.dropboxusercontent.com/s/5ltj2y0jc6j43o8/obama.jpg"\ width="35"\ height="42"\ alt=":obama:"\ />
+:yao: :yao: g <img\ src="https://dl.dropboxusercontent.com/s/l7kb1wjdfinq0d4/yao.jpg"\ width="35"\ height="42"\ alt=":yao:"\ />
+:dolan: :dolan: g <img\ src="https://dl.dropboxusercontent.com/s/o9h40w9a1wxidl8/dolan.png"\ width="30"\ height="37"\ alt=":dolan:"\ />
+:foreveralone: :foreveralone: g <img\ src="https://dl.dropboxusercontent.com/s/4v8w6l27g6s03vs/foreveralone.png"\ width="30"\ height="36"\ alt=":foreveralone:"\ />
+:lol: :lol: g <img\ src="https://dl.dropboxusercontent.com/s/bccukprxs01er3f/lol.png"\ width="28"\ height="34"\ alt=":lol:"\ />
+:3: :3: g <img\ src="https://dl.dropboxusercontent.com/s/eewtklt6ftvcjoe/3.png"\ width="35"\ height="35"\ alt=":3:"\ />
+:megusta: :megusta: g <img\ src="https://dl.dropboxusercontent.com/s/vxdkrrof1bnaa80/megusta.png"\ width="30"\ height="31"\ alt=":megusta:"\ />
+:datass: :datass: g <img\ src="https://dl.dropboxusercontent.com/s/c22vrxa9lfcncr9/datass.png"\ width="30"\ height="30"\ alt=":datass:"\ />
+:yoba: :yoba: g <img\ src="https://dl.dropboxusercontent.com/s/464m6opdjfc5cx8/yoba.png"\ width="25"\ height="25"\ alt=":yoba:"\ />
+:facepalm: :facepalm: g <img\ src="https://dl.dropboxusercontent.com/s/7m7a7k0n581tqzb/facepalm.jpg"\ width="40"\ height="30"\ alt=":facepalm:"\ />
+:pokerface: :pokerface: g <img\ src="https://dl.dropboxusercontent.com/s/069cqh9z3hp06kc/pokerface.png"\ width="30"\ height="33"\ alt=":pokerface:"\ />
+:imok: :imok: g <img\ src="https://dl.dropboxusercontent.com/s/vjumtehl3mhzv0u/imok.png"\ width="34"\ height="35"\ alt=":imok:"\ />
+:ok: :ok: g <img\ src="https://dl.dropboxusercontent.com/s/r1qrkxjwhbgvg0x/ok.png"\ width="21"\ height="30"\ alt=":ok:"\ />
+:troll: :troll: g <img\ src="https://dl.dropboxusercontent.com/s/k1zglg2z5ctmhd1/troll.png"\ width="30"\ height="25"\ alt=":troll:"\ />
+:pedo: :pedo: g <img\ src="https://dl.dropboxusercontent.com/s/awbujbc0lqoccjv/pedo.png"\ width="18"\ height="25"\ alt=":pedo:"\ />
+:slowpoke: :slowpoke: g <img\ src="https://dl.dropboxusercontent.com/s/t4b5456jadx0yem/slowpoke.png"\ width="35"\ height="35"\ alt=":slowpoke:"\ />
+:israel: :israel: g <img\ src="https://dl.dropboxusercontent.com/s/3ptd8d8ymdgb6uw/israel.jpg"\ width="35"\ height="35"\ alt=":israel:"\ />
+:fluttershy: :fluttershy: g <img\ src="https://dl.dropboxusercontent.com/s/jasmla33zu2a0no/fluttershy.jpg"\ width="57"\ height="40"\ alt=":fluttershy:"\ />
+:bloom: :bloom: g <img\ src="https://dl.dropboxusercontent.com/s/i8ea12vuc4fyr6g/bloom.jpg"\ width="31"\ height="40"\ alt=":bloom:"\ />
+:aralka: :aralka: g <img\ src="https://dl.dropboxusercontent.com/s/4ud8ydbot521se3/aralka.jpg"\ width="40"\ height="40"\ alt=":aralka:"\ />
+:hakase: :hakase: g <img\ src="https://dl.dropboxusercontent.com/s/bik0nqsll3txde1/hakase.jpg"\ width="32"\ height="42"\ alt=":hakase:"\ />
+:cirno: :cirno: g <img\ src="https://dl.dropboxusercontent.com/s/xqfb3bfg2ulmj02/cirno.jpg"\ width="31"\ height="42"\ alt=":cirno:"\ />
+:tsumiki: :tsumiki: g <img\ src="https://dl.dropboxusercontent.com/s/p5deizps4p47btj/tsumiki.gif"\ width="42"\ height="42"\ alt=":tsumiki:"\ />
+:dance: :dance: g <img\ src="https://dl.dropboxusercontent.com/s/bz6l7ug750aqq93/dance.gif"\ width="40"\ height="40"\ alt=":dance:"\ />
+:fukkireta: :fukkireta: g <img\ src="https://dl.dropboxusercontent.com/s/jhmw5xspu24v625/fukkireta.gif"\ width="50"\ height="37"\ alt=":fukkireta:"\ />
+:konata: :konata: g <img\ src="https://dl.dropboxusercontent.com/s/jr1z96mmqtnpehc/konata.gif"\ width="40"\ height="40"\ alt=":konata:"\ />
+:teto: :teto: g <img\ src="https://dl.dropboxusercontent.com/s/l5tdta5lq98bsl6/teto.gif"\ width="40"\ height="40"\ alt=":teto:"\ />
+:caramell: :caramell: g <img\ src="https://dl.dropboxusercontent.com/s/7ngrsym9uxnkhjm/caramell.gif"\ width="40"\ height="40"\ alt=":caramell:"\ />
+:gangnam: :gangnam: g <img\ src="https://dl.dropboxusercontent.com/s/l2exq8ru34ynrep/gangnam.gif"\ width="30"\ height="40"\ alt=":gangnam:"\ />
+:bird: :bird: g <img\ src="https://dl.dropboxusercontent.com/s/21ix5hssgmbr2p8/bird.gif"\ width="44"\ height="33"\ alt=":bird:"\ />
+:funk: :funk: g <img\ src="https://dl.dropboxusercontent.com/s/xci6nt68u4swkqc/funk.gif"\ width="40"\ height="40"\ alt=":funk:"\ />
+:frog: :frog: g <img\ src="https://dl.dropboxusercontent.com/s/58unfk9r3j8yktg/frog.gif"\ width="50"\ height="40"\ alt=":frog:"\ />
+:dog: :dog: g <img\ src="https://dl.dropboxusercontent.com/s/mawc9ug01f434m5/dog.gif"\ width="36"\ height="42"\ alt=":dog:"\ />
+:omnom: :omnom: g <img\ src="https://dl.dropboxusercontent.com/s/ffo0cmc1nvtszh2/omnom.gif"\ width="45"\ height="45"\ alt=":omnom:"\ />
+:burt: :burt: g <img\ src="https://dl.dropboxusercontent.com/s/w13hn68wkdm1lyr/burt.gif"\ width="45"\ height="45"\ alt=":burt:"\ />
+:bravo: :bravo: g <img\ src="https://dl.dropboxusercontent.com/s/avkdekl0c7bnv2a/bravo.gif"\ width="60"\ height="40"\ alt=":bravo:"\ />
+:deal: :deal: g <img\ src="https://dl.dropboxusercontent.com/s/7at1fke4c3phwse/deal.gif"\ width="55"\ height="34"\ alt=":deal:"\ />
+:umad: :umad: g <img\ src="https://dl.dropboxusercontent.com/s/vgl3zcdebmf9ja7/umad.gif"\ width="60"\ height="40"\ alt=":umad:"\ />
+custom\ image \[img\]([^\*]+)\[\/img\] g <a\ href="http://$1"\ target="_blank"><img\ src="http://$1"\ width="100"\ alt="custom\ image"\ /></a>
+/* ----- END OF SET ----- */
