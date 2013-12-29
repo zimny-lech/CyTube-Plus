@@ -22,8 +22,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 // CyTube Plus - JavaScript and CSS library for CyTube channels enhancements
-// Version: 2.0
-// Modified: 2013-08-31
+// Version: 2.5
+// Modified: 2013-12-29
 // Project URL: https://github.com/zimny-lech/CyTube-Plus
 // Wiki URL: https://github.com/zimny-lech/CyTube-Plus/wiki
 
@@ -45,9 +45,9 @@ If all fails, copy default "main.js" file, and try to change variables one by on
 
 1. Open this file in a text editor or get default file from the link below:
    https://raw.github.com/zimny-lech/CyTube-Plus/master/main.js
-2. Scroll down to CONFIGURATION sections and configure library according to your wishes.
+2. Scroll down to configuration sections and configure library according to your wishes.
    Note: all options are explained for non-advanced users.
-   Note 2: I highly recommend you to change default "cookiePrefix" variable (for not interfere
+   Note 2: I highly recommend you to change default "CookiePrefix" variable (for not interfere
            with other CyTube Plus channels).
 3. Save customized library to your file hosting (e.g. Dropbox), project hosting (e.g. GitHub) or to your own server.
    Warning! You must be able to access .js file directly (browser's URL must contain .js extension, not .php etc.).
@@ -64,39 +64,93 @@ If all fails, copy default "main.js" file, and try to change variables one by on
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/* ----- BASIC CONFIGURATION ----- */
+// CONFIGURE BELOW BEFORE INSTALLING IF YOU WANT TO CUSTOMIZE THIS LIBRARY
 
-// CONFIGURE BEFORE INSTALLING IF YOU WANT TO CUSTOMIZE THIS LIBRARY
-// WARNING! apostrophe sign (') in variables values must be prepend with "\" sign (e.g. "\'")
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-favIcon='https://dl.dropboxusercontent.com/s/xgefazzyhs8xncp/icon.png';
+/* ----- STARTING CONFIGURATION - USER INTERFACE (UI) ----- */
+
+/* '1' = option enabled, change to '0' to disable */
+/* most options has detailed configuration in the next section */
+
+UI_Favicon = 0; // channel favicon
+UI_MiniLogo = 0; // small channel logo in the top navbar
+UI_ChannelName = 1; // channel custom brand name
+UI_HeaderDropMenu = 1; // additional header dropdown menu
+UI_CustomHelp = 0; // custom help file
+UI_AttentionBar = 0; // imageboard-style attention bar
+UI_MOTDAutoLogo = 0; // big channel logo inserted into MOTD
+UI_RulesBtn = 0; // button displaying channel rules
+UI_ChannelAnnouncement = 1; // additional custom channel announcement
+UI_FullTitleBar = 1; // full-width video title bar
+UI_ProgressBar = 1; // YouTube progress bar; REQUIRE: UI_FullTitleBar enabled
+UI_TitleBarDescription = 0; // custom title bar description
+UI_UserCommands = 1; // additional commands in the chat window
+UI_TemporaryFilters = 1; // default emotes and fonts filters in current chat session, if disabled you must install                            // filters in channel's 'Multi-Filter Editor' to work (recommended, see FILTERS INSTALLATION)
+UI_IndependentFilters = 1; // additional filters visible only in current chat session
+UI_UserSpecialSigns = 0; // special signs prepending messages in the chat window for selected users
+UI_ChatSuffix = 0; // text added to random chat messages
+UI_FontsBtn = 1; // button displaying box with clickable chat fonts
+UI_UnicodeChars = 1; // additional buttons in the fonts panel with unicode characters; REQUIRE: UI_FontsBtn enabled
+UI_EmotesBtn = 1; // button displaying box with clickable chat emotes
+UI_CommandsBtn = 1; // button displaying modal window with chat commands help
+UI_PlayerMenu = 1; // player transformations dropdown menu
+UI_VoteskipCaption = 0; // custom 'Voteskip' button caption
+UI_ExtendedGetURLs = 1; // extended 'Get URLs' function
+UI_MinimizeBtn = 1; // layout minimizing button
+UI_DisplayModeSel = 1; // selector with player display modes
+UI_LayoutThemeSel = 1; // selector with channel themes
+UI_LayoutDefaultThemes = 1; // default CyTube themes added to themes selector; REQUIRE: UI_LayoutThemeSel enabled
+UI_FastCommandsBtns = 1; // buttons with '/clear' and '/afk' functions
+UI_YTVolumeBtns = 1; // additional volume buttons for YouTube player
+UI_ChannelDatabase = 0; // box with embed additional media database
+UI_ChannelGalleries = 0; // box with embed galleries
+UI_CustomFooter = 0; // custom channel footer
+UI_UserStatistics = 1; // displaying in the footer user visits number and current online time
+UI_CustomRightFooter = 0; // channel right-sided footer box
+UI_AdditionalScript = 0; // additional script file
+UI_DefaultSynchtube = 1; // default Synchtube layout
+UI_DefaultPlaylistMenu = 1; // default 'menu' mode of the 'Playlist Controls'
+UI_ChannelCache = 1; // caching script emotes, additional media database and default gallery, 
+                     // REQUIRE: one of respective options enabled
+
+// below: user cookie prefix
+// ATTENTION! use unique, random name using basic letters and numbers to prevent using cookies from other channels
+
+CookiePrefix='a45345kljhh345g';
+
+// FILTERS INSTALLATION
+// go to Moderation Menu > click Chat Filters > scroll down to Multi-Filter Editor...
+// ... click Install Fonts / Install Emotes > click Add/Update
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* ----- DETAILED BASIC CONFIGURATION ----- */
+
+// WARNING! apostrophe sign (') in variables values must be prepend with "\" sign (e.g. "don\'t")
+
+Favicon_URL = '';
 
 // DESCRIPTION: channel favicon URL (best size: 16x16 px)
-// IGNORE: leave empty ''
+// REQUIRE: UI_Favicon enabled
 
-channelAvatar='https://dl.dropboxusercontent.com/s/xgefazzyhs8xncp/icon.png';
+MiniLogo_URL = '';
 
 // DESCRIPTION: URL of small channel logo displaying next to the channel name (best size: max. 30px height)
-// NOTE: you can use the same URL as above favIcon file
-// IGNORE: leave empty ''
+// NOTE: you can use the same URL as above favicon file
+// REQUIRE: UI_MiniLogo enabled
 
-channelName='MyTube';
+ChannelName_Caption = 'CyTube Plus';
 
-// DESCRIPTION: channel name in the header
-// IGNORE: leave empty '' (will display default server name)
+// DESCRIPTION: channel name in the top navbar
+// REQUIRE: UI_ChannelName enabled
 
-headerDropMenu=1;
-
-// DESCRIPTION: additional header dropdown menu
-// VALUES: 0 = disable, 1 = enable
-
-headerDropMenuTitle='Synch';
+HeaderDropMenu_Title = 'Synch';
 
 // DESCRIPTION: header dropdown menu title
-// IGNORE: leave empty '' (will display default name)
-// REQUIRE: headerDropMenu enabled
+// REQUIRE: UI_HeaderDropMenu enabled
 
-headerDropMenuItems=[
+HeaderDropMenu_Items = [
 ['CyTube Servers', ''],
 ['Calzoneman CyTube', 'http://cytu.be/'],
 ['6irc Synchtube', 'http://synchtube.6irc.net/'],
@@ -109,160 +163,110 @@ headerDropMenuItems=[
 
 // DESCRIPTION: elements of the header dropdown menu array
 // ARRAY SYNTAX: ['link_name', 'URL'],
-// REQUIRE: headerDropMenu enabled
-// NOTE: leave empty '' URL field to create section title
+// REQUIRE: UI_HeaderDropMenu enabled
+// NOTE: leave empty '' in the "URL" field to create section title
 
-helpLinkURL='https://github.com/calzoneman/sync/wiki/Beginner%27s-Guide-and-FAQ';
+CustomHelp_URL = '';
 
 // DESCRIPTION: custom help file URL
-// IGNORE: leave empty '' (will display default link)
+// REQUIRE: UI_CustomHelp enabled
 
-adminMessageHTML='This channel has been creating with <a href="https://github.com/zimny-lech/CyTube-Plus" target="_blank">CyTube Plus 2.0</a>.';
+AttentionBar_URL = '';
 
-// DESCRIPTION: additional channel message set by script admin
-// IGNORE: leave empty ''
+// DESCRIPTION: imageboard-style attention bar URL
+// REQUIRE: UI_AttentionBar enabled
 
-adminMessageTitle='';
+MOTDAutoLogo_Mode = 0;
 
-// DESCRIPTION: title of the additional channel message
-// IGNORE: leave empty '' (will display default title)
-// REQUIRE: adminMessageHTML not empty
+// DESCRIPTION: MOTD channel logo displaying mode
+// OPTIONS: 1 = first logo from array; 2 = random logo from array; 3 = logo random rotation; 7 = 7 weekdays logos
+// REQUIRE: UI_MOTDAutoLogo enabled
 
-rulesButton=0;
+MOTDAutoLogo_Array = [];
 
-// DESCRIPTION: additional button displaying channel rules
-// VALUES: 0 = disable, 1 = enable
+// DESCRIPTION: MOTD channel logo array
+// OPTIONS: 1 = first logo from array; 2 = random logo from array; 3 = logo random rotation; 4 = 7 weekdays logos
+// ARRAY SYNTAX: ['logo_URL'],
+// REQUIRE: UI_MOTDAutoLogo enabled
+// NOTE: 1st element = sunday, 2nd = monday etc.
 
-rulesHTML='';
+MOTDAutoLogo_Timeout = 20;
+
+// DESCRIPTION: MOTD channel logo random change interval (in seconds)
+// REQUIRE: UI_MOTDAutoLogo enabled
+
+RulesBtn_Caption = '';
+
+// DESCRIPTION: channel rules button caption
+// REQUIRE: UI_RulesBtn enabled
+
+RulesBtn_HTML = '';
 
 // DESCRIPTION: channel rules HTML
-// REQUIRE: rulesButton enabled
+// REQUIRE: UI_RulesBtn enabled
 
-fullVideoTitle=1;
+ChannelAnnouncement_Title = 'Administration Message';
+// DESCRIPTION: custom channel announcement title
+// REQUIRE: UI_ChannelAnnouncement enabled
 
-// DESCRIPTION: full-width video title row
-// VALUES: 0 = disable (will display title in the default location), 1 = enable
+ChannelAnnouncement_HTML = 'This channel has been creating with <a href="https://github.com/zimny-lech/CyTube-Plus" target="_blank">CyTube Plus 2.5</a>.';
 
-progressBar=1;
+// DESCRIPTION: custom channel announcement HTML
+// REQUIRE: UI_ChannelAnnouncement enabled
 
-// DESCRIPTION: YouTube video progress bar in the background of the full-width video title
-// VALUES: 0 = disable, 1 = enable
-// REQUIRE: fullVideoTitle enabled
+TitleBarDescription_Caption = '';
 
-videoDescription='Now Playing:';
+// DESCRIPTION: title bar description (default: "Currently Playing:")
+// REQUIRE: UI_TitleBarDescription enabled
 
-// DESCRIPTION: video title description (default: "Currently Playing:")
-// IGNORE: leave empty '' (will display default description)
-
-fontsPanel=0;
-
-// DESCRIPTION: button displaying box with clickable buttons to enter various codes for chat colours and fonts
-// VALUES: 0 = disable, 1 = enable
-// REQUIRE: INSTALLATION REQUIRED
-// ^ To install: go to Moderation Menu > click Chat Filters > scroll down to Multi-Filter Editor...
-// ^ ... click Install Fonts > click Add/Update
-
-emotesPanel=0;
-
-// DESCRIPTION: button displaying box with clickable images to enter various codes for chat pictures
-// VALUES: 0 = disable, 1 = enable
-// REQUIRE: INSTALLATION REQUIRED
-// ^ To install: go to Moderation Menu > click Chat Filters > scroll down to Multi-Filter Editor...
-// ^ ... click Install Emotes > click Add/Update
-
-channelDatabase=0;
-
-// DESCRIPTION: owner-defined video database (see VIDEO DATABASE CONFIGURATION below)
-// VALUES: 0 = disable, 1 = enable
-
-galleryTab=0;
-
-// DESCRIPTION: additional box with embed galleries
-// VALUES: 0 = disable, 1 = enable
-
-galleryTabURL=[];
-
-// DESCRIPTION: galleries names and URLs array (gallery must allow to embed code, e.g. imgur)
-// ARRAY SYNTAX: ['gallery_name', 'gallery_URL'],
-// REQUIRE: galleryTab enabled
-
-volumeButtons=1;
-
-// DESCRIPTION: additional volume buttons for YouTube player
-// VALUES: 0 = disable, 1 = enable
-
-rightFooterHTML='';
-
-// DESCRIPTION: additional right-sided footer box HTML (for graphic counters etc.)
-// IGNORE: leave empty ''
-
-footerHTML='';
-
-// DESCRIPTION: main footer HTML
-// IGNORE: leave empty '' (will display only default footer)
-
-additionalScriptURL='';
-
-// DESCRIPTION: additional external JS file URL
-// IGNORE: leave empty ''
-
-userCommands=1;
-
-// DESCRIPTION: special commands in the chat window
-// VALUES: 0 = disable, 1 = enable
-// LIST OF COMMANDS:
-// ^ !pick - choosing a random option from a list separated by commas (e.g. "!choose japan,korea,china")
-// ^ !ask - asking a question with yes/no type answer (e.g. "!ask Will be this channel popular?")
-// ^ !dice - rolling dice (e.g. "!dice")
-// ^ !q - displaying random quote from the array defined below (e.g. "!q")
-// ^ !time - displaying current time (e.g. "!time")
-// ^ !random - adding random video if channelDatabase is enabled (e.g. "!random")
-// ^ !calc - calculating a math operation (all JavaScript math methods allowed)
-
-randomQuotes=[
-'I like the Pope dancing', 'No quotes today', 'O rly?', 
-'People have the right to be stupid. You abuse that privilege', 'Don\'t play stupid with me', 
-'Roses are red violets are blue, God made me pretty, what happened to you?', 
-'Please don\'t interupt me while im ignoring you', 
-'Are you always this stupid, or are you making a special effort today?', 
-'I like you. You remind me of when I was young and stupid.', 'Go and buy me a beer', 
-'The door of this channel is always open for you... so feel free to leave!', 
-];
-
-// DESCRIPTION: random quotes array for "!q" command
-// ARRAY SYNTAX: 'quote', 
-// REQUIRE: userCommands enabled
-
-userSpecialSign=0;
-
-// DESCRIPTION: special signs prepending messages in the chat window for selected users
-// VALUES: 0 = disable, 1 = enable
-
-userSigns={};
+UserSpecialSigns_Array = {}
 
 // DESCRIPTION: user special signs array
 // ARRAY SYNTAX: 'username':'sign', 
-// REQUIRE: userSpecialSign enabled
+// REQUIRE: UI_UserSpecialSigns enabled
 // NOTE: example signs - ★ ☆ ▲ ▼ ♥ ♪ ♠ ☯ Ⓐ
 
-cookiePrefix='f45tjhth435g';
+ChatSuffix_Text = '';
 
-// DESCRIPTION: cookies name prefix
-// ATTENTION! use unique, random name to prevent using cookies from other channels
+// DESCRIPTION: text added to random chat messages
+// REQUIRE: UI_ChatSuffix enabled
 
-channelCache=1;
+ChatSuffix_Percentage = 5;
 
-// DESCRIPTION: caching all script emotes and default gallery
-// VALUES: 0 = disable, 1 = enable
-// REQUIRE: emotesPanel or galleryTab enabled
-// NOTE: if enabled, all emotes and gallery are temporary loading during script work
-// ^ if not - elements loading respectively after showing gallery box or sending a chat emote
+// DESCRIPTION: percentage of chat messages with added text
+// REQUIRE: UI_ChatSuffix enabled
+
+VoteskipCaption_Text = '';
+
+// DESCRIPTION: voteskip button caption (default: "Voteskip")
+// REQUIRE: UI_VoteskipCaption enabled
+
+ChannelGalleries_Array = [];
+
+// DESCRIPTION: galleries names and URLs array (gallery must allow to embed code, e.g. imgur)
+// ARRAY SYNTAX: ['gallery_name', 'gallery_URL'],
+// REQUIRE: UI_ChannelGalleries enabled
+
+CustomFooter_HTML = '';
+
+// DESCRIPTION: main footer HTML
+// REQUIRE: UI_CustomFooter enabled
+
+CustomRightFooter_HTML = '';
+
+// DESCRIPTION: additional right-sided footer box HTML (for graphic counters etc.)
+// REQUIRE: UI_CustomRightFooter enabled
+
+AdditionalScriptURL = '';
+
+// DESCRIPTION: additional external JS file URL
+// REQUIRE: UI_AdditionalScript enabled
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- ADVANCED CONFIGURATION ----- */
 
-imgCodes={
+EmotesArray = {
 ':happy:':['https://dl.dropboxusercontent.com/s/4bz8gdcjyekj2wh/happy.jpg',35,35],
 ':awesome:':['https://dl.dropboxusercontent.com/s/gz1k8oto90n16v6/awesome.png',35,35],
 ':sad:':['https://dl.dropboxusercontent.com/s/3jrfsd3hcxj3r5s/sad.png',35,35],
@@ -313,33 +317,36 @@ imgCodes={
 
 // DESCRIPTION: chat emotes array
 // ARRAY SYNTAX: 'replacing_code':['image_URL',image_width,image_height],
-// REQUIRE: emotesPanel enabled
+// REQUIRE: INSTALLATION REQUIRED (see above in the Starting Configuration section)
+// WARNING! "replacing_code" must be unique one-word name without special characters
 
-emotesBasicURL='';
+EmotesBasicURL = '';
 
 // DESCRIPTION: repeating server URL path for all imgCodes entries
-// IGNORE: leave empty '' (if you want to use full URL paths or various servers)
+// IGNORE: leave empty '' (if you want to use full URL paths or images from various servers)
 // REQUIRE: INSTALLATION REQUIRED
 // ^ To install: from the imgCodes array you must remove all emotesBasicURL entries
 // ^ and leave only file names (or catalogs if needed, e.g. Dropbox),
 // ^ e.g. delete all "https://dl.dropboxusercontent.com/s/" in the imgCodes if you use default set
 // WARNING! USE ONLY if all your images are stored on the same server
 
-uniChars=[
+CustomImageURL = 'https://dl.dropboxusercontent.com/s/evwscyflzddc92p/custom.png';
+
+// DESCRIPTION: 'custom image' picture in the emotes panel
+// REQUIRE: UI_EmotesBtn enabled
+
+UnicodeChars_Array = [
 '★', '☆', '▲', '▼', '♥', '♪', '♿', '⚒', '♕', '✉', '☏', '♠', '→', 
 '☑', '☒', '✡', '☪', '✝', '☭', '☯', 'Ⓐ', '☕', '♨', '¥', '©', '∞', 
 ];
 
-// DESCRIPTION: chat unicode signs buttons array
+// DESCRIPTION: unicode characters buttons array
 // ARRAY SYNTAX: 'sign', 
 // IGNORE: leave empty []
-// REQUIRE: fontsPanel enabled
+// REQUIRE: UI_FontsBtn and UI_UnicodeChars enabled
 // NOTE: use 1 character in every array item for the best effect (although it's not the limitation)
 
-themeCSS=[
-['# default', 'assets/css/ytsync.css'],
-['# dark', 'assets/css/darkstrap.css'],
-['# semidark', 'assets/css/semidark.css'],
+ThemesCSS = [
 ['pastel-white', 'https://dl.dropboxusercontent.com/s/1knuft5wbvy7dhm/white.css'],
 ['ice-cirno', 'https://dl.dropboxusercontent.com/s/s15zul92aeo41pk/cirno.css'],
 ['jungle', 'https://dl.dropboxusercontent.com/s/h8q8qml44zoo2pc/jungle.css'],
@@ -350,23 +357,29 @@ themeCSS=[
 ['contrast', 'https://dl.dropboxusercontent.com/s/ea9e3v9yphqvjo6/contrast.css'],
 ['nights', 'https://dl.dropboxusercontent.com/s/pnsnsoooxec1of6/nights.css'],
 ['cosmos', 'https://dl.dropboxusercontent.com/s/ztj5yia9j2qfqmp/cosmos.css'],
-],
+];
 
-// DESCRIPTION: CSS themes array
+// DESCRIPTION: themes CSS files array
 // ARRAY SYNTAX: ['layout_name', 'layout_URL'],
+// REQUIRE: UI_LayoutThemeSel enabled
 
-defaultLayoutURL='assets/css/ytsync.css';
+PatchesCSS = [
+'https://dl.dropboxusercontent.com/s/daj815ibfgr142y/ytsync.css',
+'https://dl.dropboxusercontent.com/s/jk7qi6u6gofesyc/darkstrap.css',
+'https://dl.dropboxusercontent.com/s/utokys7ogvyt90a/altdark.css',
+];
 
-// DESCRIPTION: default channel CSS theme file URL
-// NOTE: if you select URL out of themeCSS array, user will not be able to select this theme again after change
-// ^ default theme is visible until user will not change layout configuration, or if cookies are disabled
+// DESCRIPTION: CSS patches array for default CyTube themes
+// ARRAY SYNTAX: ['layout_URL'], 3 patches respectively: default, dark, alternative dark
+// REQUIRE: UI_LayoutThemeSel and UI_LayoutDefaultThemes enabled
+// NOTE: these are important files, without them default themes may seems not fitting
 
-mainCSS='https://dl.dropboxusercontent.com/s/c5nkaqcli74tgdl/main.css';
+MainCSS = 'https://dl.dropboxusercontent.com/s/qb1g9q0dieg6b1k/main.css';
 
 // DESCRIPTION: default script layout CSS properties file URL
-// WARNING! this file is required for correct channel layout, wrong URL may cause unexpected effects
+// WARNING! this file is required for correct channel layout, be careful if you change URL or content of the file
 
-topUserLogo={
+TopUserLogo = {
 'cytube':['cytube plus', 'https://dl.dropboxusercontent.com/s/7mrz85gl29eiiks/logo.png', 90],
 'azuki':['anime girl', 'https://dl.dropboxusercontent.com/s/knxd7dpup1u8lm3/azuki.png', 200],
 'cosmos':['cosmos', 'https://dl.dropboxusercontent.com/s/v6dx49yqk5e3i2d/cosmos.jpg', 200],
@@ -381,27 +394,34 @@ topUserLogo={
 // ARRAY SYNTAX: 'code_name':['image_description', 'image_URL', imgae_height],
 // WARNING! "code_name" must be unique one-word name without special characters
 
-defaultLogo='';
+RandomQuotes = [
+'I like the Pope dancing', 'No quotes today', 'O rly?', 
+'People have the right to be stupid. You abuse that privilege', 'Don\'t play stupid with me', 
+'Roses are red violets are blue, God made me pretty, what happened to you?', 
+'Please don\'t interrupt me while I\'m ignoring you', 
+'Are you always this stupid, or are you making a special effort today?', 
+'I like you. You remind me of when I was young and stupid.', 'Go and buy me a beer', 
+'The door of this channel is always open for you... so feel free to leave!', 
+];
 
-// DESCRIPTION: default logo name from topUserLogo array, displaying if user didn't set any logo or no logo
-// IGNORE: leave empty ''
-// NOTE: logo is displayed until user will not change layout configuration, or if cookies are disabled
+// DESCRIPTION: random quotes array for "!q" command
+// ARRAY SYNTAX: 'quote', 
+// REQUIRE: UI_UserCommands enabled
 
-independentFilters=1;
+AskAnswers = [
+'100% for sure', 'definitely yes', 'yes', 'probably', 'not any chance', 'definitely no', 
+'a little chance', 'no', '50/50', 'fairy is tired and will not answer', 'I refuse to answer',
+];
 
-// DESCRIPTION: additional filters visible only in current chat session (see INDEPENDENT FILTERS CONFIGURATION below)
-// WARNING! filters duplicated with default filters on the channel may not work
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// NOTE: every function required 0/1 value MUST be 1 to enable it
-// ^ actually doesn't have to be 0 to disable, it can be anything but 1
+// DESCRIPTION: random answers array for "!ask" command
+// ARRAY SYNTAX: 'answer', 
+// REQUIRE: UI_UserCommands enabled
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- INDEPENDENT FILTERS CONFIGURATION ----- */
 
-independentCodes=[
+IndependentFilters_Array=[
 {before:/\[mq\]([^\*]+)\[\/mq\]/, after:'<marquee scrollamount="10" behavior="alternate">$1</marquee>'},
 // fast scrolling text, example: [mq]text[/mq]
 {before:/\[mq0\]([^\*]+)\[\/(mq0|mq)\]/, after:'<marquee scrollamount="5" behavior="alternate">$1</marquee>'},
@@ -430,6 +450,7 @@ after:'<a href="https://pl.vichan.net/$1/src/$2" target="_blank"><img src="https
 
 // DESCRIPTION: additional filters array
 // SYNTAX: {before:'expression_before',	after:'expression_after'},
+// REQUIRE: UI_IndependentFilters enabled
 // NOTE: if you use plain words as expression, you must put it between '' signs
 // ^ if you use regular expression, you must put it between // signs
 
@@ -437,22 +458,24 @@ after:'<a href="https://pl.vichan.net/$1/src/$2" target="_blank"><img src="https
 
 /* ----- VIDEO DATABASE CONFIGURATION ----- */
 
-videos=[];
+ChannelDatabase_Array=[];
 
-// DESCRIPTION: videos database array (additional set of categorized videos/songs)
+// DESCRIPTION: videos database array (additional set of categorized media)
 // ARRAY SYNTAX: ['video_URL', 'title'],
-// REQUIRE: channelDatabase enabled
-// NOTE: leave empty '' video_URL field to create section button
+// REQUIRE: UI_ChannelDatabase enabled
+// NOTE: leave empty '' in the "video_URL" field to create section button
 
-channelDatabaseURL='';
+ChannelDatabase_URL='';
 
 // DESCRIPTION: external video database file URL
-// REQUIRE: channelDatabase enabled, INSTALLATION REQUIRED
-// ^ To install: copy file from the link below and configure videos array in it:
+// REQUIRE: UI_ChannelDatabase enabled, INSTALLATION REQUIRED
+// ^ To install: copy file from the link below and configure ChannelDatabase_Array in it:
 // ^ https://raw.github.com/zimny-lech/CyTube-Plus/master/external-db.js
-// ^ Save a new .js file in selected channelDatabaseURL location.
+// ^ Save a new .js file in selected ChannelDatabase_URL location above.
 // WARNING! You must be able to access .js file directly (browser's URL must contain .js extension, not .php etc.).
 // NOTE: leave empty '' if you don't want to use external file instead of database above
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- END OF CONFIGURATION ----- */
 
@@ -460,19 +483,22 @@ channelDatabaseURL='';
 
 /* ----- BEGIN OF LIBRARY ----- */
 
+var notLoaded = (typeof notLoaded==="undefined" ? true : false);
+
 /* ----- removing previously created elements, wraps and intervals in case of server restart ----- */
 
-$("#chanavatar, #dropmenu, #azukirow, #attbarrow, #anntop, #anntop-align, #annclose").remove();
-$("#emptytop, #fontsbtn, #emotesbtn, #pl-pinup, #mediacaret, #minplrow, #mirrorcaret").remove();
+$("#chanavatar, #dropmenu, #azukirow, #zerorow, #anntop, #anntop-align, #annclose, #attbarrow-outer").remove();
+$("#emptytop, #fontsbtn, #emotesbtn, #chathelpbtn, #pl-tooltip").remove();
+$("#pl-pinup, #mediacaret, #minplrow, #mirrorcaret").remove();
 $("#layouttoggle-outer, #gallerytoggle-outer, #dbtoggle-outer, #installfonts, #installemotes, #footerrow").remove();
 
 $("#anntop-align").unwrap;
-if(!(typeof success==="undefined")) {
-	$("#announcements").unwrap();
-}
+!notLoaded ? $("#announcements").unwrap() : '';
 
-clearInterval(intervalA);
-clearInterval(intervalB);
+typeof intervalA==="undefined" ? '' : clearInterval(intervalA);
+typeof intervalB==="undefined" ? '' : clearInterval(intervalB);
+typeof intervalC==="undefined" ? '' : clearInterval(intervalC);
+_chatBuffer=null;
 
 /* ----- additional elements #id and attributes ----- */
 
@@ -482,108 +508,86 @@ $("#headermenu li:nth-child(1)").attr('id', 'link-home');
 $("#link-home a").attr('target', '_blank');
 $("#headermenu li:nth-child(2)").attr('id', 'link-help');
 $("#librarytoggle").parent().attr('id', 'librarytoggle-outer');
+$("#voteskip").parent().attr('id', 'voteskipwrap');
 
 /* ----- removing and changing CSS unnecessary classes and layout elements ----- */
 
 $("#link-home").removeClass('active');
 $("#headermenu li:nth-child(5)").remove();
-$("#toprow, #announcements, #main, #main-inner, #playlistrow, #playlist-inner").removeClass('row-fluid')
-  .addClass('row');
+$("#toprow, #announcements, #main").removeClass('row-fluid').addClass('row');
+$("#main-inner, #playlistrow, #playlist-inner").removeClass('row-fluid').addClass('row');
 $(".container-fluid").removeClass('container-fluid').addClass('container');
-$("#motd").removeClass('well');
-$("#videowrap #ytapiplayer").addClass('vplayer');
+$("#motdwrap").removeClass('well').addClass('span12');
+$("#ytapiplayer").addClass('vplayer');
 $("#queue_align2").remove();
-$("#customembed_entry").parent().css('min-height', '0px');
 $(".push").remove();
-$("#channelsettingswrap3").css('margin-left', '');
 $("#sitefooter .well").removeClass('well');
 
 /* ----- wrapping announcements content ----- */
 
-$("#announcements").wrap('<div id="annrow" class="row"/>');
-$("#announcements").removeClass('row').addClass('span12').css('margin-bottom', '0px');
+$("#announcements").wrap('<div id="annrow" class="row" />');
+$("#announcements").removeClass('row').addClass('span12');
 
 /* ----- detaching moderation menu ----- */
 
-if(typeof success==="undefined") {
+if (notLoaded) {
 	$("#playlistrow").after('<div id="modrow" class="row"></div>');
 	$("#modrow").append($("#channelsettingswrap3").detach());
 }
 
 /* ----- changing style-proof "caret" class to text unicode signs ----- */
 
-if(typeof success==="undefined") {
-	$("#channelsettingswrap a .caret").remove();
+if (notLoaded) {
+	$("#channelsettingswrap .caret").remove();
 	$("#csdropdown_title").after(' ▴');
-	$("#qualitywrap a .caret").remove();
-	$("#qualitywrap a.btn").append(' ▾');
+	$("#qualitywrap .caret").remove();
+	$("#qualitywrap .btn").append(' ▾');
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/* ----- global functions ----- */
+/* ----- GLOBAL FUNCTIONS ----- */
 
-// function: add link to playlist
+// toggle elements
 
-function addToPlaylist(a,b) {
-	parsed=parseMediaLink(a);
-	if(parsed["id"]!=null) {
-		socket.emit("queue", {id: parsed["id"], pos: b, type: parsed["type"]});
+function toggleDiv(a) {
+	$(a).css('display')=="none" ? $(a).show() : $(a).hide();
+}
+
+// add link to playlist
+
+function addToPlaylist(link,position) {
+	parsed=parseMediaLink(link);
+	if (parsed["id"]!=null) {
+		socket.emit("queue", {id: parsed["id"], pos: position, type: parsed["type"]});
 		$("#mediaurl").val('');
 	}
 }
 
-// function: YouTube progress bar
-
-var prevTime=0;
-function pBar() {
-	if(PLAYER.type=="yt") {
-		a=PLAYER.player.getCurrentTime();
-		if(a!=prevTime) {
-			b=a/PLAYER.player.getDuration()*100;
-			$("#titlerow-outer").css('background-size',b+'% 100%');
-		} else {
-			$("#titlerow-outer").css('background-size','0% 0%');
-		}
-		prevTime=a;
-	} else {
-		$("#titlerow-outer").css('background-size','0% 0%');
-	}
-}
-
-// function: check if any of optional chat button is enable
-
-function checkButtons() {
-	if(emotesPanel=="1" || fontsPanel=="1") {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-// function: refresh player
+// refresh player
 
 function refreshPlayer() {
 	PLAYER.type="";
 	PLAYER.id="";
 	socket.emit("playerReady");
+	setTimeout(function() {$("#ytapiplayer").addClass('vplayer')}, 3000);
 }
 
-// function: create modal window
+// create modal window
 
-function createModal(a,b) {
+function createModal(title,button) {
 	hidePlayer();
 	modal=$("<div/>").addClass('modal hide fade').appendTo($("body"));
 	head=$("<div/>").addClass('modal-header').appendTo(modal);
 	$("<button/>").addClass('close').attr('data-dismiss', 'modal').attr('aria-hidden', 'true')
 	  .appendTo(head)[0].innerHTML="&times;";
-	$("<h3/>").text(a).appendTo(head);
+	$("<h3/>").text(title).appendTo(head);
 	body=$("<div/>").addClass('modal-body').appendTo(modal);
 
 	footer=$("<div/>").addClass('modal-footer').appendTo(modal);
-	submit=$("<button/>").addClass('btn btn-primary pull-right').text(b).appendTo(footer);
+	submit=$("<button/>").addClass('btn btn-primary pull-right').text(button).appendTo(footer);
 
-	submit.click(function() {
+	submit.on("click", function() {
 		modal.modal("hide");
 	});
 
@@ -594,331 +598,1193 @@ function createModal(a,b) {
 	modal.modal();
 }
 
-// function: set basic CSS
+// set MOTD logo
+
+function changeMOTD() {
+	nr=0;
+	a=MOTDAutoLogo_Array.length;
+	if (a<1) {
+		MOTDAutoLogo_Array=['https://dl.dropboxusercontent.com/s/7mrz85gl29eiiks/logo.png'];
+		a=1;
+	}
+	if (MOTDAutoLogo_Mode=="2" || MOTDAutoLogo_Mode=="3") {
+		nr=Math.floor(Math.random()*a);
+	} else if (MOTDAutoLogo_Mode=="7") {
+		nr=new Date().getDay();
+		typeof MOTDAutoLogo_Array[nr]==="undefined" ? nr=0 : '';
+	}
+	$("#motd").prepend('<br /><center><img src="'+MOTDAutoLogo_Array[nr]+'" id="motdlogo" /></center>');
+}
+
+// rotate MOTD logo
+
+function rotateLogo() {
+	nr=Math.floor(Math.random()*MOTDAutoLogo_Array.length);
+	$("#motdlogo").attr('src', MOTDAutoLogo_Array[nr]);
+}
+
+// YouTube progress bar
+
+function progressBar() {
+	a=0;
+	if (PLAYER.type=="yt") {
+		b=PLAYER.player.getCurrentTime();
+		b!=prevTime ? a=b/PLAYER.player.getDuration()*100 : '';
+		prevTime=b;
+	}
+	$("#titlerow-outer").css('background-size', a+'% 100%');
+}
+
+// change title bar description
+
+function changeTitle() {
+	a=$("#currenttitle").text();
+	$("#currenttitle").text(a.replace(/Currently Playing:/, TitleBarDescription_Caption));
+}
+
+// show info about current or next items
+
+function showInfo() {
+	if (isDefaultDescr) {
+		addedby=$(".queue_active").attr("title");
+		duration=$(".queue_active .qe_time").html();
+		$("#emptytop").html(addedby+' ['+duration+']');	
+	} else {
+		text='Playing Next: ';
+		li1=$(".queue_active").next();
+		if (li1.length>0) {
+			text+='• [1]▸ '+li1.children("a").html();
+			li2=li1.next();
+			if (li2.length>0) {
+				text+=' • [2]▸ '+li2.children("a").html();
+				li3=li2.next();
+				text+=(li3.length>0 ? ' • [3]▸ '+li3.children("a").html() : ' • END OF PLAYLIST');
+			} else {
+				text+=' • END OF PLAYLIST';
+			}
+		} else {
+			text+='• END OF PLAYLIST';
+		}
+		$("#emptytop").html('<marquee scrollamount="5">'+text+'</marquee>');
+	}	
+}
+
+// insert code into chatline
+
+function insertText(a) {
+	$("#chatline").val($("#chatline").val()+a).focus();
+}
+
+// display list of emotes
+
+function showEmotes() {
+	$.each(EmotesArray, function(a,b) {
+		img=$('<img src="'+EmotesBasicURL+''+b[0]+'" onclick="insertText(\''+a+'\')" />')
+		  .attr('width', b[1]).attr('height', b[2])
+		  .css('cursor', 'pointer');
+		$("#emotespanel").append(img).append(' ');
+	});
+	if (UI_TemporaryFilters!="1") {
+		CustomImageURL=="" ? CustomImageURL='https://dl.dropboxusercontent.com/s/evwscyflzddc92p/custom.png' : '';
+		img=$('<img src="'+CustomImageURL+'" onclick="enterCustomImg()" />')
+		  .attr('width', 60).attr('height', 45)
+		  .css('cursor', 'pointer');
+		$("#emotespanel").append(img).append(' ');
+	}
+}
+
+// enter custom image URL
+
+function enterCustomImg() {
+	img=prompt('Enter image URL', '');
+	img!=null ? insertText('[img]'+img+'[/img]') : '';
+}
+
+// add events to player dropdown menu
+
+function bindPlayerMenu() {
+	if (PLAYER.type!=PLAYER_TYPE) {
+		setTimeout(function() {$("#ytapiplayer").addClass('vplayer')}, 3000);
+		PLAYER_TYPE=PLAYER.type;
+		selValue=$("#mode-sel").val();
+		if (selValue=="chMode" || selValue=="rMode") {
+			$("#videowidth").removeClass().addClass('span1');
+			$("#ytapiplayer").attr("width", '1').attr("height", '1');
+		}
+
+	}
+}
+
+// toggle playlist PinUp
+
+function togglePinUp() {
+	if (!isPlPin) {
+		if (userconfig["player"]=="center" || userconfig["queue"]=="center") {
+			alert('You can\'t pin playlist if player or playlist are centered.');
+		} else {
+			if (userconfig["player"]=="left") {
+				$("#videowrap").after($("#rightpane-outer").detach());
+			} else if (userconfig["player"]=="right") {
+				$("#videowrap").before($("#rightpane-outer").detach());
+			}
+			if (userconfig["queue"]=="left") {
+				$("#leftpane-outer").before($("#chatwrap").detach());
+			} else if (userconfig["queue"]=="right") {
+				$("#leftpane-outer").after($("#chatwrap").detach());
+			}
+			$("#rightpane-outer").removeClass().addClass('span5');
+			if (userconfig["qsize"]=="wide") {
+				$("#chatwrap, #chatline").removeClass().addClass('span7');
+			} else {
+				$("#chatwrap, #chatline").removeClass().addClass('span5');
+			}
+			$("#pl-pinup").text('UnPin Playlist');
+			$("#minplrow, #userConfig, #modewrap").hide();
+			$("#mode-sel option[value='chMode']").hide();
+			isPlPin=true;
+			scrollQueue();
+		}
+	} else {
+		if (userconfig["queue"]=="left") {
+			$("#leftpane-outer").before($("#rightpane-outer").detach());
+		} else if (userconfig["queue"]=="right") {
+			$("#leftpane-outer").after($("#rightpane-outer").detach());
+		}
+		if (userconfig["player"]=="left") {
+			$("#videowrap").after($("#chatwrap").detach());
+		} else if (userconfig["player"]=="right") {
+			$("#videowrap").before($("#chatwrap").detach());
+		}
+		$("#chatwrap, #chatline").removeClass().addClass('span5');
+		if (userconfig["qsize"]=="wide") {
+			$("#rightpane-outer").removeClass().addClass('span7');
+		} else {
+			$("#rightpane-outer").removeClass().addClass('span5');
+		}
+		$("#pl-pinup").text('PinUp Playlist');
+		$("#minplrow, #userConfig, #modewrap").show();
+		$("#mode-sel option[value='chMode']").show();
+		isPlPin=false;
+		scrollQueue();
+	}
+}
+
+// toggle video description
+
+function toggleDescr() {
+	if (isDescr) {
+		$("#videowrap p").hide();
+		$("#vid-descr").text('Show Description');
+		isDescr=false;
+	} else {
+		$("#videowrap p").show();
+		$("#vid-descr").text('Hide Description');
+		isDescr=true;
+	}
+}
+
+// change voteskip button caption
+
+function changeSkipText() {
+	$("#voteskip").text($("#voteskip").text().replace(/Voteskip/, VoteskipCaption_Text));
+}
+
+// get playlist helper functions
+
+function formatRawList() {
+	a=$("#queue .queue_entry").length+1;
+	var list=new Array();
+	for (i=1; i<a; i++) {
+		item=$("#queue .queue_entry:nth-child("+i+")").data("media");
+		list.push(formatURL(item));
+	}
+	return list.join(",");
+}
+
+function formatPlainTextList() {
+	a=$("#queue .queue_entry").length+1;
+	var list=new Array();
+	for (i=1; i<a; i++) {
+		item=$("#queue .queue_entry:nth-child("+i+")").data("media");
+		list.push(i+'. '+formatURL(item)+' '+item.title+' ['+item.duration+']');
+	}
+	return list.join('\n');
+}
+
+function formatHTMLList() {
+	a=$("#queue .queue_entry").length+1;
+	var list=new Array();
+	for (i=1; i<a; i++) {
+		item=$("#queue .queue_entry:nth-child("+i+")").data("media");
+		title=item.title;
+		duration=item.duration;
+		link=formatURL(item);
+		list.push('<li>'+title+' ['+duration+'] - <a href="'+link+'" target="_blank">'+link+'</a></li>');
+	}
+	return list.join('\n');
+}
+
+// display mode helper functions
+
+function bigPlayer() {
+	$("#videowrap, #videowidth").removeClass().addClass('span12');
+	VWIDTH=$("#videowidth").css('width').replace('px', '');
+	VHEIGHT=''+parseInt(parseInt(VWIDTH)*9/16);
+	$("#ytapiplayer").attr('width', VWIDTH).attr('height', VHEIGHT);
+}
+
+function bigChat() {
+	$("#chatwrap, #chatline, #videowidth").removeClass().addClass('span12');
+	VWIDTH2=$("#messagebuffer").parent().css('width').replace('px', '');
+	$("#messagebuffer").attr('width', VWIDTH2).css('height', '500px');
+	$("#userlist").css('height', '500px');
+}
+
+function normalPlayer() {
+	$("#videowrap, #videowidth").removeClass().addClass('span7');
+	VWIDTH=$("#videowidth").css('width').replace('px', '');
+	VHEIGHT=''+parseInt(parseInt(VWIDTH)*9/16);
+	$("#ytapiplayer").attr("width", VWIDTH).attr("height", VHEIGHT);
+}
+
+function normalChat() {
+	if (isPlPin && userconfig["qsize"]=="wide") {
+		$("#chatwrap").removeClass().addClass('span7');
+	} else {
+		$("#chatwrap").removeClass().addClass('span5');
+	}
+	VWIDTH2=$("#messagebuffer").parent().css('width').replace('px', '');
+	$("#messagebuffer").attr('width', VWIDTH2).css('height', '347px');
+	$("#userlist").css('height', '347px');
+	if (isPlPin && userconfig["qsize"]=="wide") {
+		$("#chatline").removeClass().addClass('span7');
+	} else {
+		$("#chatline").removeClass().addClass('span5');
+	}
+}
+
+// layout configuration helper functions
+
+function setConfigValues(a,b,c,d,e,f,g,h,i) {
+	playerlocation.val(a);
+	userlistlocation.val(b);
+	queuelocation.val(c);
+	queuesize.val(d);
+	mainlocation.val(e);
+	motdlocation.val(f);
+	logoinsert.val(g);
+	headermode.val(h);
+	plcontrolsmode.val(i);
+}
+
+function setLayout(a,b,c,d,e,f,g,h,i) {
+	playerLocation(a);
+	userlistLocation(b);
+	queueLocation(c);
+	queueSize(d);
+	mainLocation(e);
+	motdLocation(f);
+	logoInsert(g);
+	headerMode(h);
+	plControlsMode(i);
+}
+
+// layout elements settings
+
+function playerLocation(a) {
+	if (a=="left") {
+		$("#videowrap").after($("#chatwrap").detach());
+	}
+	else {
+		$("#videowrap").before($("#chatwrap").detach());
+	}
+	switch (a) {
+		case "left":
+		normalPlayer();
+		normalChat();
+		break;
+
+		case "right":
+		normalPlayer();
+		normalChat();
+		break;
+
+		case "center":
+		$("#videowrap").after($("#chatwrap").detach());
+		$("#videowrap, #videowidth").removeClass().addClass('span8 offset2');
+		VWIDTH=$("#videowidth").css("width").replace('px', '');
+		VHEIGHT=''+parseInt(parseInt(VWIDTH)*9/16);
+		$("#ytapiplayer").attr('width', VWIDTH).attr('height', VHEIGHT);
+		$("#chatwrap").removeClass().addClass('span8 offset2');
+		$("#chatline").removeClass().addClass('span8');
+		VWIDTH2=$("#messagebuffer").parent().css('width').replace('px', '');
+		$("#messagebuffer").attr('width', VWIDTH2).css('height', '200px');
+		$("#userlist").css('height', '200px');
+		break;
+	}
+	isWebkit ? refreshPlayer() : '';
+}
+
+function userlistLocation(a) {
+	if (a=="left") {
+		$("#userlist").css('float', 'left');
+	} else if (a=="right") {
+		$("#userlist").css('float', 'right');
+	}
+}
+
+function queueLocation(a) {
+	if (a=="right") {
+		$("#rightpane-outer").before($("#leftpane-outer").detach());
+		normalPlaylist();
+	} else if (a=="left") {
+		$("#rightpane-outer").after($("#leftpane-outer").detach());
+		normalPlaylist();
+	} else if (a=="center") {
+		$("#rightpane-outer").after($("#leftpane-outer").detach())
+		  .removeClass().addClass('span8 offset2').css('margin-bottom', '10px');
+		$("#leftpane-outer").removeClass().addClass('span8 offset2');
+	}
+}
+
+function queueSize(a) {
+	if (userconfig["queue"]!="center") {
+		if (a=="wide") {
+			$("#leftpane-outer").removeClass().addClass('span5');
+			$("#rightpane-outer").removeClass().addClass('span7');
+		} else if (a=="narrow") {
+			$("#leftpane-outer").removeClass().addClass('span7');
+			$("#rightpane-outer").removeClass().addClass('span5');
+		}
+	}
+}
+
+function mainLocation(a) {
+	if (a=="top") {
+		$("#modrow").before($("#playlistrow").detach());
+	} else if (a=="bottom") {
+		$("#titlerow").before($("#playlistrow").detach());
+	}
+}
+
+function motdLocation(a) {
+	if (a=="top") {
+		$("#zerorow").after($("#annrow").detach()).after($("#toprow").detach());
+	} else if (a=="bottom") {
+		$("#modrow").before($("#toprow").detach()).before($("#annrow").detach());
+	}
+}
+
+function logoInsert(a) {
+	if (a=="no") {
+		$("#azukirow").remove();
+	} else {
+		if (a!="user") {
+			link=TopUserLogo[a][1];
+			ht=TopUserLogo[a][2];
+		} else {
+			link=USER_LOGO;
+			ht=USER_LOGO_HT;
+		}
+		$("#azukirow").remove();
+		$("#zerorow").before('<div id="azukirow" class="row" />');
+		$("#azukirow").append('<div id="azukirowwrap" style="background-image:url('+link+')" />');
+		$("#azukirowwrap").addClass('span12').css('min-height', ht+'px');
+
+	}
+}
+
+function headerMode(a) {
+	if (a=="fixed") {
+		$(".navbar-fixed-top").css('position', 'fixed');
+		$("body").css('padding-top', '40px');
+	} else if (a=="detach") {
+		$(".navbar-fixed-top").css('position', 'inherit');
+		$("body").css('padding-top', '0px');
+	}
+}
+
+var isFullPl=false;
+function plControlsMode(a) {
+	if (a=="default") {
+		$("#queue_end").before($("#queue_next").detach());
+		$("#customembed_entry").before($("#customembed_btn").detach());
+		$("#extended_controls").append($("#clearplaylist").detach())
+		  .append($("#shuffleplaylist").detach());
+		$("#mediacaret").remove();
+		$("#moreopt").remove();
+		$("#queue_next").css('width', '');
+	} else if (a=="menu") {
+		plControlsMode("default");
+		$("#queue_end").after('<button id="mediacaret" class="btn dropdown-toggle" data-toggle="dropdown">');
+		$("#mediacaret").after('<ul id="moreopt" class="dropdown-menu" />').text('▾');
+
+		$("#moreopt").append('<li id="opt1" />')
+		  .append('<li class="divider" />')
+		  .append('<li id="opt2" />')
+		  .append('<li id="opt3" />')
+		  .append('<li id="opt4" />')
+		  .append('<li class="divider" />')
+		  .append('<li id="opt5" />')
+	  	  .append('<li id="opt6" />')
+		  .append('<li id="opt7" />')
+		  .append('<li id="opt8" />')
+	  	  .append('<li id="opt9" />')
+		  .append('<li class="divider" />')
+		  .append('<li id="opt10" />')
+		  .append('<li id="opt11" />')
+		  .append('<li id="opt12" />')
+		  .append('<li class="divider" />')
+		  .append('<li id="opt13" />');
+		$("#opt1").html($("#queue_next").detach());
+		$("#opt2").html('<a tabindex="-1" href="javascript:void(0)">Expand Playlist</a>');
+		$("#opt3").html('<a tabindex="-1" href="javascript:void(0)">Download Current Video</a>');
+		$("#opt4").html('<a tabindex="-1" href="javascript:void(0)">Contributors List</a>');
+		$("#opt5").html('<a tabindex="-1" href="javascript:void(0)">Play Next</a>');
+		$("#opt6").html('<a tabindex="-1" href="javascript:void(0)">Add Random Video</a>');
+		$("#opt7").html('<a tabindex="-1" href="javascript:void(0)">Move Random Video</a>');
+		$("#opt8").html('<a tabindex="-1" href="javascript:void(0)">Move First Video To End</a>');
+		$("#opt9").html('<a tabindex="-1" href="javascript:void(0)">Delete Last Video</a>');
+		$("#opt10").html($("#clearplaylist").detach());
+		$("#opt11").html($("#shuffleplaylist").detach());
+		$("#opt12").html($("#customembed_btn").detach());
+		$("#opt13").html('<a tabindex="-1" href="javascript:void(0)">Reload Menu</a>');
+
+		$("#queue_next").css('width', '100%');
+		isFullPl ? $("#opt2 a").text('Collapse Playlist') : '';
+		!hasPermission("playlistjump") ? $("#opt5").hide() : '';
+		(!hasPermission("playlistadd") || UI_ChannelDatabase!="1") ? $("#opt6").hide() : '';
+		!hasPermission("playlistmove") ? $("#opt7, #opt8").hide() : '';
+		!hasPermission("playlistdelete") ? $("#opt9").hide() : '';
+		plDropMenu();
+	}
+}
+
+// create channel database
+
+function createDatabase() {
+	var addedLinks=new Array();
+	html='<button id="la1" class="btn btn-small db-break" onclick="toggleCat(1)" style="width:100%">'
+	  + ChannelDatabase_Array[0][1]
+	  + '</button>'
+	  + '<ul id="l1" class="videolist db-cat">';
+
+	for (i=1; i<ChannelDatabase_Array.length; i++) {
+		if (ChannelDatabase_Array[i][0]=="") {
+			html+='</ul>';
+			item_count[layer_nr-1]=count_nr;
+			opening[layer_nr-1]=0;
+			layer_nr++;
+			count_nr=0;
+			html+='<button id="la'+layer_nr+'" class="btn btn-small db-break" onclick="toggleCat('+layer_nr+')" style="width:100%">'
+	 		  + ChannelDatabase_Array[i][1]
+	  		  + '</button>'
+	  		  + '<ul id="l'+layer_nr+'" class="videolist db-cat">';
+		} else {
+			item_nr++;
+			count_nr++;
+			link=ChannelDatabase_Array[i][0];
+			html+='<li class="queue_entry">'
+			  + '<button class="btn btn-mini qe_btn pull-right" onclick="addVideo(\''+link+'\')">'
+			  + 'End'
+			  + '</button>';
+			parsed=parseMediaLink(link);
+			if (parsed["type"]=="yt") {
+				a=parsed["id"];
+				html+='<button class="btn btn-mini qe_btn pull-right" onclick="prevVideo(\''+a+'\')">'
+				  + '<i class="icon-film"></i>'
+				  + '</button>';
+			}
+			html+='<span class="badge db-badge">'
+			  + item_nr
+			  + '</span><span class="db-title" style="margin-left:4px">'
+			  + ChannelDatabase_Array[i][1]
+			  + '</span><br /><span class="db-link">'
+			  + link
+			  + '</span>';
+		}
+	}
+
+	html+='</ul><br /><br /><div style="text-align:center">'
+	  + '<button id="clearDBCache" class="btn btn-small">Reload Data (if channel seems working slow)</button>'
+	  + '</div>';
+	item_count[layer_nr-1]=count_nr;
+	opening[layer_nr-1]=0;
+	$_dbwrap.html(html);
+	for(i=1;i<=item_count.length;i++) {
+		$("#la"+i).append(' ['+item_count[i-1]+']');
+	}
+	isDB=true;
+
+	$(".db-cat").hide();
+	for (i=0; i<opening.length; i++) {
+		opening[i]=0;
+	}
+
+	$("#clearDBCache").on("click", function() {
+		$("#dbwrap").html('').hide();
+		$("#dbtoggle").html($("#dbtoggle").html().replace(/Hide/, "Show"));
+		$("#dbtoggle i").removeClass("icon-minus").addClass("icon-plus");
+		isDB=false;
+
+	});
+}
+
+// toggle database sections
+
+function toggleCat(a) {
+	b=a-1;
+	if (opening[b]==0) {
+		$(".db-cat").hide();
+		for (i=0; i<opening.length; i++) {
+			opening[i]=0;
+		}
+		$("#l"+a).show();
+		opening[b]=1;
+	} else {
+		$("#l"+a).hide();
+		opening[b]=0;
+	}
+}
+
+// add database link to playlist
+
+function addVideo(link) {
+	parsed=parseMediaLink(link);
+	idx=parsed["id"];
+	if (idx!=null) {
+		a=(new Date()).getTime();
+		if (!hasPermission("playlistadd")) {
+			alert('You have no permission to add a link.');
+		} else if (addedLinks[idx]!=undefined && a-addedLinks[idx]<120000) {
+			alert('You have just added this link.');
+		} else {
+			socket.emit("queue", {id: idx, pos: "end", type: parsed["type"]});
+			addedLinks[idx]=a;
+		}
+	}
+}
+
+// preview YT video in modal window
+
+function prevVideo(a) {
+	createModal('Preview Video', 'Close');
+
+	player=$('<iframe/>').appendTo(body)
+	  .attr('src', 'http://www.youtube.com/embed/'+a+'?enablejsapi=1')
+	  .attr('width', '530').attr('height', '323').attr('frameborder', '0');
+}
+
+// create channel gallery
+
+function createGallery() {
+	$_galleryFrame=$('<iframe id="galleryFrame" src='+ChannelGalleries_Array[0][1]+' width="100%" />')
+	  .attr('frameborder', '0').attr('scrolling', 'no').attr('height', '415px')
+	  .appendTo($_gallerywrap);
+	$_gallerywrap.append('<br /><span id="galtitle" class="conf-opt">Select Gallery</span><br />')
+	  .append('<select id="gal-sel" style="width:150px" />');
+
+	for (i=0; i<ChannelGalleries_Array.length ;i++) {
+		$("#gal-sel").append('<option value="'+ChannelGalleries_Array[i][1]+'">'+ChannelGalleries_Array[i][0]+'</option>');
+	}
+
+	$("#gal-sel").on("change", function() {
+		galValue=$("#gal-sel").val();
+		$_galleryFrame.attr('src', galValue);
+	});
+
+	text='Reload Galleries (if channel seems working slow)';
+	$_gallerywrap.append('<br /><button id="clearGalleryCache" class="btn btn-small">'+text+'</button>');
+	isLoadedGallery=true;
+
+	$("#clearGalleryCache").on("click", function() {
+		$("#gallerywrap").html('').hide();
+		$("#gallerytoggle").html($("#gallerytoggle").html().replace(/Hide/, "Show"));
+		$("#gallerytoggle i").removeClass("icon-minus").addClass("icon-plus");
+		isLoadedGallery=false;
+
+	});
+}
+
+// queue size helper function
+
+function normalPlaylist() {
+	$("#rightpane-outer").removeClass().addClass('span7');
+	$("#leftpane-outer").removeClass().addClass('span5');
+}
+
+// global playlist dropdown menu actions
+
+function plDropMenu() {
+
+	// click: expand and collapse playlist
+
+	$("#opt2").on("click", function() {
+		if (!isFullPl) {
+			$("#queue").css('max-height', '100000px');
+			$("#opt2 a").text('Collapse playlist');
+			isFullPl=true;
+		} else {
+			$("#queue").css('max-height', '450px');
+			$("#opt2 a").text('Expand playlist');
+			isFullPl=false;
+			scrollQueue();
+		}
+	});
+
+	// mouseover: download video link
+
+	$("#opt3").on("mouseover", function() {
+		a=PL_CURRENT+1;
+		b=$("#queue .queue_entry:nth-child("+a+")").data("media");
+		c={
+			'yt':'http://youtube.com/watch?v=', 'vi':'http://vimeo.com/',
+			'dm':'http://dailymotion.com/video/', 'sc':''
+		}
+		link=(b.type in c ? c[b.type]+''+b.id : '');
+		if (link=="") {
+			$("#opt3 a").attr('href', 'javascript:void(0)');
+			$("#opt3 a").attr('target', '');
+			$("#opt3 a").attr('onClick', 'alert(\'This link is not supported. Try YouTube, Vimeo, Dailymotion or SoundCloud.\')');
+		}
+		else {
+			link2='http://keepvid.com/?url='+link;
+			$("#opt3 a").attr('href', link2);
+			$("#opt3 a").attr('target', '_blank');
+			$("#opt3 a").attr('onClick', '');
+		}
+	});
+
+	// click: show contributors list
+
+	$("#opt4").on("click", function() {
+		createModal("Contributors List", "Close");
+		a=$("#queue li").length+1;
+		var list=[];
+		for (i=1; i<a; i++) {
+			item=$("#queue li:nth-child("+i+")").attr('title');
+			user=item.split("by: ")[1];
+			user in list ? list[user]++ : list[user]=1;
+		}
+		var list2=[];
+		for (key in list) {
+			list2.push([key, list[key]]);
+		}
+		list2.sort(function(a,b) {return a[1]-b[1]});
+		list2.reverse();
+		var list3=[];
+		for (i=0; i<list2.length; i++) {
+			list3.push((i+1)+". "+list2[i].join(": "));
+		}
+		body.append('<strong>Number of added playlist items:</strong><br /><br />'+list3.join("<br />"));
+	});
+
+	// click: play next video
+
+	$("#opt5").on("click", function() {
+		socket.emit("playNext");
+	});
+
+	// click: add random video
+
+	var lastAdd=0;
+	$("#opt6").on("click", function() {
+		a=(new Date()).getTime();
+		if ((a-lastAdd)<120000) {
+			alert('You can add random video every 2 minutes.');
+		} else {
+			b="";
+			while (b=="") {
+				c=Math.round(Math.random()*(ChannelDatabase_Array.length-1));
+				b=ChannelDatabase_Array[c][0];
+			}
+			addToPlaylist(b, "end");
+			lastAdd=a;
+		}
+	});
+
+	// click: move random video
+
+	$("#opt7").on("click", function() {
+		a=$("#queue").children().length;
+		b=Math.floor(Math.random()*a)+1;
+		c=Math.floor(Math.random()*a)+1;
+		d=$("#queue .queue_entry:nth-child("+b+")").data("uid");
+		e=$("#queue .queue_entry:nth-child("+c+")").data("uid");
+		socket.emit("moveMedia", {from: d, after: e, moveby: null});
+	});
+
+	// click: move video from start to end
+
+	$("#opt8").on("click", function() {
+		a=$("#queue").children().length;
+		b=$("#queue .queue_entry:nth-child(1)").data("uid");
+		c=$("#queue .queue_entry:nth-child("+a+")").data("uid");
+		socket.emit("moveMedia", {from: b, after: c, moveby: null});
+	});
+
+	// click: delete last video
+
+	$("#opt9").on("click", function() {
+		a=$("#queue").children().length;
+		b=$("#queue .queue_entry:nth-child("+a+")").data("uid");
+		socket.emit("delete", b);
+	});
+
+	// click: rebuild menu
+
+	$("#opt13").on("click", function() {
+		plControlsMode("menu");
+	});
+}
+
+// default layout patch
+
+function defaultLayoutPatch() {
+	if (UI_DefaultSynchtube=="1") {
+		userconfig["player"]="left";
+		userconfig["userlist"]="right";
+		userconfig["queue"]="left";
+	}
+	UI_DefaultPlaylistMenu=="1" ? userconfig["menu"]="menu" : '';
+}
+
+// set user online time
+
+function onlineTime() {
+	USER_ONLINE++;
+	hours=Math.floor(USER_ONLINE/60);
+	minutes=USER_ONLINE-hours*60;
+	minutes<10 ? minutes="0"+minutes : '';
+	$("#onlinetime").html(hours+":"+minutes);
+}
+
+// set basic CSS
 
 function setCSS() {
+	MainCSS=="" ? MainCSS='https://dl.dropboxusercontent.com/s/qb1g9q0dieg6b1k/main.css' : '';
 	$("#maincss").remove();
-	$("head").append('<link href="'+mainCSS+'" rel="stylesheet" id="maincss">');
+	$("head").append('<link href="'+MainCSS+'" rel="stylesheet" id="maincss">');
+
 	$("#chanexternalcss").remove();
-	if(CHANNEL_CSS!="") {
+	if (CHANNEL_CSS!="") {
 		$("head").append('<link href="'+CHANNEL_CSS+'" rel="stylesheet" id="chanexternalcss">');
 	}
+
 	$("#chancss").remove();
-	if(CHAN_CSS!="") {
+	if (CHAN_CSS!="") {
 		$("head").append('<link href="'+CHAN_CSS+'" rel="stylesheet" id="chancss">');
 	}
 }
 
-// function: set user CSS
+// set user CSS
 
 function setUserCSS() {
 	$("#usertheme").remove();
 	$("head").append('<link href="'+USER_THEME+'" rel="stylesheet" id="usertheme">');
+
 	$("#themepatch").remove();
-	if(USER_THEME=="assets/css/darkstrap.css") {
-		$("head").append('<link href="https://dl.dropboxusercontent.com/s/jk7qi6u6gofesyc/darkstrap.css" rel="stylesheet" id="themepatch">');
-	} else if(USER_THEME=="assets/css/semidark.css") {
-		$("head").append('<link href="https://dl.dropboxusercontent.com/s/6128onscsc8oi4z/semidark.css" rel="stylesheet" id="themepatch">');
-	} else if(USER_THEME=="assets/css/ytsync.css") {
-		$("head").append('<link href="https://dl.dropboxusercontent.com/s/daj815ibfgr142y/ytsync.css" rel="stylesheet" id="themepatch">');
+	if (USER_THEME=="assets/css/ytsync.css") {
+		$("head").append('<link href="'+PatchesCSS[0]+'" rel="stylesheet" id="themepatch">');
+	} else if (USER_THEME=="assets/css/darkstrap.css") {
+		$("head").append('<link href="'+PatchesCSS[1]+'" rel="stylesheet" id="themepatch">');
+	} else if (USER_THEME=="assets/css/altdark.css") {
+		$("head").append('<link href="'+PatchesCSS[2]+'" rel="stylesheet" id="themepatch">');
 	}
+
 	$("#usercss").remove();
-	if(USEROPTS.css!="") {
+	if (USEROPTS.css!="") {
 		$("head").append('<link href="'+USEROPTS.css+'" rel="stylesheet" id="usercss">');
 	}
 }
 
-// function: toggle elements
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function toggleDiv(a) {
-	if($(a).css('display')=="none") {
-		$(a).show();
-	} else {
-		$(a).hide();
-	}
-}
+/* ----- SETTING LAYOUT CONFIGURATION ----- */
 
 // detecting Webkit browsers (Chrome, Safari etc.)
 
 var isWebkit="webkitRequestAnimationFrame" in window;
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// cookie: getting CSS user themes
 
-// cookie: getting CSS user theme
+_cookie=readCookie(CookiePrefix+"_theme");
 
-pie=readCookie(cookiePrefix+"_theme");
-if(pie==null) {
-	if(defaultLayoutURL=="") defaultLayoutURL='assets/css/ytsync.css';
-	pie=defaultLayoutURL;
+var CHANNEL_CSS = ($("#chanexternalcss").length>0 ? $("#chanexternalcss").attr('href') : '');
+var CHAN_CSS = ($("#chancss").length>0 ? $("#chancss").attr('href') : '');
+var USER_CSS = USEROPTS.css;
+
+if (_cookie!=null) {
+	USER_THEME = _cookie;
+	(ThemesCSS.length<1 && UI_LayoutDefaultThemes!="1") ? USER_THEME='assets/css/ytsync.css' : '';
+	(ThemesCSS.length=="1" && UI_LayoutDefaultThemes!="1") ? USER_THEME=ThemesCSS[0] : '';
+} else {
+	USER_THEME = 'assets/css/ytsync.css';
+	$("#usertheme").length>0 ? USER_THEME=$("#usertheme").attr('href') : '';
+	$("#chanexternalcss").length>0 ? USER_THEME=$("#chanexternalcss").attr('href') : '';
 }
-var USER_THEME=pie;
-var USER_CSS=USEROPTS.css;
 
-// checking if other channel CSS is set and setting some variables
+// cookie: getting CSS user logo
 
-var CHANNEL_CSS="";
-if($("#chanexternalcss").length>0) {
-	CHANNEL_CSS=$("#chanexternalcss").attr('href');
+_cookie=readCookie(CookiePrefix+"_logo");
+if (_cookie!=null) {
+	a=_cookie.split("|");
+	USER_LOGO=a[0];
+	USER_LOGO_HT=a[1]*1;
+	(isNaN(USER_LOGO_HT) || USER_LOGO_HT<1) ? USER_LOGO_HT='200' : '';
 }
 
-var CHAN_CSS="";
-if($("#chancss").length>0) {
-	CHAN_CSS=$("#chancss").attr('href');
+// cookie: getting number of visits
+
+if (notLoaded) {
+	_cookie=readCookie(CookiePrefix+"_visits");
+	_cookie==null ? _cookie=1 : '';
+	var USER_VISITS=_cookie;
+	_cookie++;
+	createCookie(CookiePrefix+"_visits", _cookie, 365);
+}
+
+// cookie: getting layout configuration
+
+_cookie=readCookie(CookiePrefix+"_config");
+if (_cookie==null) {
+	userconfig={
+	"player":"right", "userlist":"left", "queue":"right", 
+	"qsize":"wide", "main":"top", "motd":"top", 
+	"image":"no", "header":"detach", "menu":"default"
+	}
+	defaultLayoutPatch();
+} else {
+	a=_cookie.split(",");
+	userconfig={
+	"player":a[0], "userlist":a[1], "queue":a[2], 
+	"qsize":a[3], "main":a[4], "motd":a[5], 
+	"image":a[6], "header":a[7], "menu":a[8]
+	}
 }
 
 // setting CSS files in proper order
 
-if(mainCSS=="") mainCSS='https://dl.dropboxusercontent.com/s/c5nkaqcli74tgdl/main.css';
 setCSS();
-setUserCSS();
+UI_LayoutThemeSel=="1" ? setUserCSS() : '';
 
-// cookie: getting CSS user logo
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-pie=readCookie(cookiePrefix+"_logo");
-if(pie!=null) {
-	a=pie.split("|");
-	USER_LOGO=a[0];
-	USER_LOGO_HT=a[1];
-}
+/* ----- USER INTERFACE ----- */
 
 // adding fake video player layer if "Hide Video" option is enabled
 
-if(USEROPTS.hidevid) {
+if (USEROPTS.hidevid) {
 	USEROPTS.hidevid=false;
-	$("#chatwrap").removeClass('span12').addClass('span5');
-	$("#chatwrap").before('<div id="videowrap" class="span7"/>');
-	$("#videowrap").append('<p id="currenttitle"><i>Wait for a next song to see a title</i></p>');
-	$("#videowrap").append('<div id="ytapiplayer" class="vplayer"></div>');
+	isHiddenPlayer=true;
+	$("#chatwrap, #chatline").removeClass('span12').addClass('span5');
+	$("#chatwrap").after('<div id="videowrap" class="span7" />');
+	$("#videowrap").append('<p id="currenttitle" />')
+	  .append('<div id="ytapiplayer" class="vplayer" />');
+	$("#currenttitle").html('Currently Playing: '+$(".queue_active a").html());
 	text='According to your User Options, video player is hidden. '
-	  + 'Click \"Refresh Media\" button to show player in this session.';
-	makeAlert("No player", text).appendTo("#ytapiplayer");
-	$("#qualitywrap").html('<button id="mediarefresh2" class="btn btn-small">Refresh Media</button>');
-	$("#mediarefresh2").click(function() {
+	  + 'Click \"Refresh / Fix Player\" button to show player in this session.';
+	makeAlert("No Player", text).appendTo("#ytapiplayer");
+	$("#qualitywrap").html('<button id="mediarefresh" class="btn btn-small">Refresh / Fix Player</button>');
+	$("#mediarefresh").on("click", function() {
 		refreshPlayer();
 	});
 }
 
-// configuration: adding favicon
+// adding favicon
 
-if(favIcon!="") {
+if (UI_Favicon=="1") {
 	$(document).ready(function() {
-		$("head").append('<link href="'+favIcon+'" rel="shortcut icon" type="image/x-icon"/>');
+		$("head").append('<link href="'+Favicon_URL+'" rel="shortcut icon" type="image/x-icon" />');
 	});
 }
 
-// configuration: setting channel name
+// changing channel name
 
-if(channelName!="") {
-	$(".brand").html(channelName);
+if (UI_ChannelName=="1") {
+	$(".brand").html(ChannelName_Caption);
 }
 
-// configuration: adding channel avatar
+// adding channel small logo
 
-if(channelAvatar!="") {
-	$(".brand").prepend('<img id="chanavatar" src="'+channelAvatar+'" style="margin-right:10px"/>');
+if (UI_MiniLogo=="1" && MiniLogo_URL!="") {
+	$(".brand").prepend('<img id="chanavatar" src="'+MiniLogo_URL+'" style="margin-right:10px" />');
 }
 
-// configuration: adding header dropdown menu
+// adding header dropdown menu
 
-if(headerDropMenu=="1") {
-	if(headerDropMenuTitle=="") headerDropMenuTitle="Menu";
-	$("#link-home").after('<li id="dropmenu" class="dropdown"/>');
-	menu=$('<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"/>');
-	menu.html(headerDropMenuTitle+' ▾');
-	$("#dropmenu").append(menu);
-	$("#dropmenu").append('<ul id="hmenu" class="dropdown-menu header-dropdown"/>');
-	for (i=0; i<headerDropMenuItems.length; i++) {
-		title=headerDropMenuItems[i][0];
-		link=headerDropMenuItems[i][1];
-		if(link=="") {
+if (UI_HeaderDropMenu=="1") {
+	HeaderDropMenu_Title=="" ? HeaderDropMenu_Title='Menu' : '';
+	$("#link-home").after('<li id="dropmenu" class="dropdown" />');
+	menu=$('<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" />')
+	  .html(HeaderDropMenu_Title+' ▾');
+	$("#dropmenu").append(menu)
+	  .append('<ul id="hmenu" class="dropdown-menu header-dropdown" />');
+	HeaderDropMenu_Items.length<1 ? HeaderDropMenu_Items=[['no menu available', '']] : '';
+	for (i=0; i<HeaderDropMenu_Items.length; i++) {
+		title=HeaderDropMenu_Items[i][0];
+		link=HeaderDropMenu_Items[i][1];
+		if (link=="") {
 			$("#hmenu").append('<li class="nav-header" style="text-shadow:none">'+title+'</li>');
 		} else {
-			li=$('<li class="header-drop-link"/>');
-			li.append('<a href="'+link+'" target="_blank">'+title+'</a>');
-			$("#hmenu").append(li);
+			li=$('<li class="header-drop-link" />')
+			  .append('<a href="'+link+'" target="_blank">'+title+'</a>')
+			  .appendTo("#hmenu");
 		}
 	}
 }
 
-// configuration: changing header help link
-if(helpLinkURL!="") {
-	$("#link-help a").attr('href', helpLinkURL);
+// changing top navbar help file link
+
+if (UI_CustomHelp=="1" && CustomHelp_URL!="") {
+	$("#link-help a").attr('href', CustomHelp_URL);
 }
 
-// click: set some necessary things in the "Options" modal window 
+// adding important reference row
 
-$("#optlink").click(function() {
-	USEROPTS.layout="default";
-	$(".modal").on("hidden", function() {
-		setUserCSS();
-	});
-});
+$("#toprow").before('<div id="zerorow" class="row" />');
 
-// adding empty attention bar row
-// WARNING! This is key element in layout configuration, do not remove!
+// adding MOTD logo
 
-$("#toprow").before('<div id="attbarrow" style="height:0px; margin:0px"/>');
+if (UI_MOTDAutoLogo=="1") {
+	(MOTDAutoLogo_Mode!="1" && MOTDAutoLogo_Mode!="2" && MOTDAutoLogo_Mode!="3" && MOTDAutoLogo_Mode!="7") ? MOTDAutoLogo_Mode='1' : '';
+	$("#motdwrap, #motd").show();
+	socket.on("setMotd", changeMOTD);
+	changeMOTD();
+	if (MOTDAutoLogo_Mode=="3") {
+		(typeof MOTDAutoLogo_Timeout!=="number" || MOTDAutoLogo_Timeout<1) ? MOTDAutoLogo_Timeout='20' : '';
+		var intervalC=setInterval(function() {rotateLogo()}, MOTDAutoLogo_Timeout*1000);
+	}
+}
 
-// configuration: adding channel rules button and box, detaching drinkbar
+// adding rules button
 
-if(rulesButton=="1") {
+if (UI_RulesBtn=="1") {
+	RulesBtn_Caption=="" ? RulesBtn_Caption='Read Channel Rules' : '';
 	$("#annrow").show();
-	$("#announcements").prepend('<div id="anntop" style="width:100%; text-align:center"/>');
+	$_anntop=$('<div id="anntop" />')
+	  .prependTo("#announcements")
+	  .html('<button id="rulesbtn" class="btn">'+RulesBtn_Caption+' ▸</button>')
+	  .append('<div id="rulespanel-outer" />')
+	  .append($("#drinkbar").detach())
+	  .after('<div id="anntop-align" />')
 	$("#announcements").prepend('<button id="annclose" class="close pull-right">×</button>');
-	$("#anntop").append('<button id="rulesbtn" class="btn">Read Channel Rules ▸</button>');
-	$("#anntop").append('<div id="rulespanel-outer" style="width:100%; padding:0"/>');
-	$("#rulespanel-outer").html('<div id="rulespanel">'+rulesHTML+'</div>');
-	$("#rulespanel").css('max-width', '700px').css('margin', '0 auto').css('display', 'none').css('padding', '4px')
-	  .css('border', 'solid 2px #eeeeee').css('border-radius', '8px').css('-moz-border-radius', '8px')
-	  .css('-webkit-border-radius', '8px').css('margin-top', '0px').css('text-align', 'left');
-	$("#anntop").append($("#drinkbar").detach());
-	$("#anntop").after('<div id="anntop-align" style="width:100%; height:5px"/>');
-} else if(adminMessageHTML=="" && $("#announcements .alert").length<1) {
+	$("#rulespanel-outer").html('<div id="rulespanel" style="display:none">'+RulesBtn_HTML+'</div>');
+} else if (UI_ChannelAnnouncement!="1" && $("#announcements .alert").length<1) {
 	$("#annrow").hide();
 }
 
-// click: toggle channel rules
+// adding attention bar
 
-$("#rulesbtn").click(function() {
-	toggleDiv("#rulespanel");
-});
-
-// click: close all announcements
-
-$("#annclose").click(function() {
-	$("#annrow").hide();
-});
-
-// adding additional channel message
-
-if(adminMessageHTML!="" && typeof success==="undefined") {
+if (UI_AttentionBar=="1" && AttentionBar_URL!="") {
 	$("#annrow").show();
-	if(adminMessageTitle=="") adminMessageTitle="Channel Message";
-	makeAlert(adminMessageTitle, adminMessageHTML).appendTo("#announcements");
-}
-
-// configuration: adding full-width title bar and progress bar
-
-if(fullVideoTitle=="1") {
-	if(typeof success==="undefined") {
-		$("#main").before('<div id="titlerow" class="row"/>');
-	}
-	$("#videowrap").prepend('<p id="emptytop" style="margin:0px; padding-left:2px">&nbsp;</p>');
-	if(channelName!="") {
-		$("#emptytop").html(channelName);
+	if (UI_RulesBtn=="1") {
+		$("#anntop-align").after('<div id="attbarrow-outer" />');
 	} else {
-		$("#emptytop").html($(".brand").html());
+		$("#announcements").prepend('<div id="attbarrow-outer" />')
+		  .prepend('<button id="annclose" class="close pull-right">×</button>');
 	}
-	$("#titlerow").append('<div id="titlerow-outer" class="span12"/>');
-	$("#titlerow-outer").html($("#currenttitle").detach());
-	if(progressBar=="1") {
-		var intervalA=setInterval(function() {pBar()},2000);
+	$("#attbarrow-outer").append('<iframe id="attBar" width="100%" height="22px" />');
+	$("#attBar").attr('frameborder', '0').attr('scrolling', 'no').attr('src', AttentionBar_URL);
+}
+
+// adding custom channel announcement
+
+if (UI_ChannelAnnouncement=="1" && notLoaded) {
+	ChannelAnnouncement_Title=="" ? ChannelAnnouncement_Title='Administration Message' : '';
+	ChannelAnnouncement_HTML=="" ? ChannelAnnouncement_HTML='<i>no messages</i>' : '';
+	$("#annrow").show();
+	makeAlert(ChannelAnnouncement_Title, ChannelAnnouncement_HTML).appendTo("#announcements");
+}
+
+// adding full-width title bar and progress bar
+
+if (UI_FullTitleBar=="1") {
+	var isDefaultDescr=true;
+	if (notLoaded) {
+		$("#main").before('<div id="titlerow" class="row" />');
+		$_titlerowouter=$('<div id="titlerow-outer" class="span12" />')
+		  .appendTo("#titlerow")
+		  .html($("#currenttitle").detach());
+	}
+	if (UI_ProgressBar=="1") {
+		var prevTime=0;
+		var intervalA=setInterval(function() {progressBar()}, 2000);
+	}
+	$("#videowrap").prepend('<p id="emptytop" />');
+	socket.on("changeMedia", showInfo);
+	showInfo();
+}
+
+// changing title bar description
+
+if (UI_TitleBarDescription=="1") {
+	socket.on("changeMedia", changeTitle);
+	changeTitle();
+}
+
+// chat extension: additional user commands, independent chat filters and user special signs
+
+_chatBuffer=addChatMessage;
+addChatMessage=function(data) {
+	RandomQuotes.length<1 ? RandomQuotes=['error: no quotes available'] : '';
+	AskAnswers.length<1 ? AskAnswers=['yes', 'no'] : '';
+	((typeof ChatSuffix_Percentage!=="number") || ChatSuffix_Percentage<0) ? ChatSuffix_Percentage='10' : '';
+
+	if (UI_IndependentFilters=="1") {
+		for (i=0; i<IndependentFilters_Array.length; i++) {		
+			data.msg=data.msg.replace(IndependentFilters_Array[i].before, IndependentFilters_Array[i].after);
+		}
+	}
+
+	snr=0;
+	if (UI_UserSpecialSigns=="1") {
+		if (UserSpecialSigns_Array[data.username]!=undefined) {
+			snr=UserSpecialSigns_Array[data.username].length+1;
+			data.msg=UserSpecialSigns_Array[data.username]+' '+data.msg;
+		}
+	}
+
+	if (UI_TemporaryFilters=="1") {
+		for (emotes in EmotesArray) {
+			link=EmotesArray[emotes][0];
+			wd=EmotesArray[emotes][1];
+			ht=EmotesArray[emotes][2];
+			code='<img src="'+EmotesBasicURL+''+link+'" width="'+wd+'" height="'+ht+'" onclick="insertText(\''+emotes+'\')" style="cursor:pointer" />';
+			re=new RegExp(emotes, 'g');
+			data.msg=data.msg.replace(re, code);
+		}
+		for (i=0; i<fontsBtn.length; i++) {
+			a=fontsBtn[i][4];
+			a=a.replace(/\\/g, '');
+			b='['+fontsBtn[i][1]+']';
+			data.msg=data.msg.replace(b, a);
+			data.msg=data.msg.replace(/\[\/\]/, '</span>');
+		}
+	}
+	if (UI_ChatSuffix=="1") {
+		Math.random()<(ChatSuffix_Percentage/100) ? data.msg+=' '+ChatSuffix_Text : '';
+	}
+	_chatBuffer(data);
+
+	if (UI_UserCommands=="1" && data.msg.indexOf("!")===snr) {
+		var isCommand=true;
+		if (data.msg.indexOf("!pick ")===snr) {
+			temp=data.msg.split("!pick ");
+			arr=temp[1].split(",");
+			a=Math.round(Math.random()*(arr.length-1));
+			data.msg=arr[a];
+		} else if (data.msg.indexOf("!ask ")===snr) {
+			a=Math.round(Math.random()*(AskAnswers.length-1));
+			data.msg=AskAnswers[a];
+		} else if (data.msg.indexOf("!time")===snr) {
+			a=new Date();
+			b=a.getHours();
+			b<10 ? b='0'+b : false;
+			c=a.getMinutes();
+			c<10 ? c='0'+c : false;
+			data.msg='current time: '+b+':'+c;
+			} else if (data.msg.indexOf("!dice")>-1) {
+			a=Math.round(Math.random()*5)+1;
+			data.msg=a;
+		} else if (data.msg.indexOf("!q")===snr) {
+			a=Math.round(Math.random()*(RandomQuotes.length-1));
+			data.msg=RandomQuotes[a];
+		} else if (data.msg.indexOf("!random")===snr) {
+			if (UI_ChannelDatabase=="1") {
+				a="";
+				while (a=="") {
+				b=Math.round(Math.random()*(ChannelDatabase_Array.length-1));
+					a=ChannelDatabase_Array[b][0];
+					c=ChannelDatabase_Array[b][1];
+				}
+				addToPlaylist(a, "end");
+				data.msg='added random video: '+c;
+			} else {
+				data.msg='error: channel database is not enabled';
+			}
+		} else if (data.msg.indexOf("!calc ")===snr) {
+			temp=data.msg.split("!calc ");
+			data.msg=eval(temp[1]);
+		} else if (data.msg.indexOf("!skip")===snr) {
+			socket.emit("voteskip");
+			data.msg='current video has been voteskipped';
+		} else if (data.msg.indexOf("!add ")===snr) {
+			temp=data.msg.split("!add ");
+			parsed=parseMediaLink(temp[1]);
+			if (parsed["id"]===null) {
+				data.msg='error: wrong video link, video has not been added';
+			} else {
+				socket.emit("queue", {id: parsed["id"], pos: "end", type: parsed["type"]});
+				data.msg='video has been added';
+			}
+		} else if (data.msg.indexOf("!now")===snr) {
+			a=$(".queue_active a").html();
+			data.msg='Now playing: '+a;
+		} else if (data.msg.indexOf("!CO ZJE TEH?")===snr) {
+			data.msg='TEH ZJE HUJ';
+		} else {
+			isCommand=false;
+		}
+		if (isCommand) {
+			data.msg='<div class="command">'+data.msg+'</div>';
+			_chatBuffer(data);
+		}
 	}
 }
-$("#titlerow-outer:nth-child(2)").remove();
 
-// function: change video title description
- 
-function changeTitle() {
-        $("#currenttitle").text($("#currenttitle").text().replace(/Currently Playing:/, videoDescription));
+// adding chat buttons wrapping
+
+$("#chatwrap").append('<div id="chatbtn-outer" />');
+$("#chatbtn-outer").append('<div id="chatbtnwrap" class="btn-group" />');
+
+// adding chat fonts button
+
+if (UI_FontsBtn=="1") {
+	$("#chatbtnwrap").append('<button id="fontsbtn" class="btn btn-small"><i class="icon-font"></i></button>');
 }
 
-socket.on("changeMedia", changeTitle);
-changeTitle();
+// adding chat emotes button
 
-// optional shortening chatline input
-
-if(checkButtons()) {
-	$("#chatline").removeClass().addClass('span4');
+if (UI_EmotesBtn=="1") {
+	var isEmotesLoaded=false;
+	$("#chatbtnwrap").append('<button id="emotesbtn" class="btn btn-small"><i class="icon-picture"></i></button>');
 }
 
-// configuration: adding fonts panel button
+// adding chat commands help button
 
-if(fontsPanel=="1") {
-	$("#chatline").after('<button id="fontsbtn" class="btn pull-right"><i class="icon-font"></i></button>');
-	$("#fontsbtn").css('display', 'inline-block').css('width', '28px').css('height', '28px')
-	  .css('padding', '4px 6px').css('margin-bottom', '10px').css('line-height', '16px');
+if (UI_CommandsBtn=="1") {
+	$("#chatbtnwrap").append('<button id="chathelpbtn" class="btn btn-small">Chat Commands</button>');
 }
 
-// click: toggle fonts panel
+// detaching player control buttons
 
-$("#fontsbtn").click(function() {
-	toggleDiv("#fontspanel");
-	$("#chatline").focus();
-});
+$("#videowrap").append($("#qualitywrap").detach().removeClass());
+$("#mediarefresh").text('Refresh / Fix Player');
 
-// configuration: adding emotes panel button
+// adding player transformations dropdown menu
 
-if(emotesPanel=="1") {
-	$("#chatline").after('<button id="emotesbtn" class="btn pull-right"><i class="icon-picture"></i></button>');
-	$("#emotesbtn").css('display', 'inline-block').css('width', '28px').css('height', '28px')
-	  .css('padding', '4px 6px').css('margin-bottom', '10px').css('line-height', '16px');
-}
-
-// click: toggle emotes panel
-
-var isEmotesLoaded=false;
-$("#emotesbtn").click(function() {
-	toggleDiv("#emotespanel");
-	if(channelCache!="1" && isEmotesLoaded==false) {
-		showEmotes();
-		isEmotesLoaded=true;
-	}
-	$("#chatline").focus();
-});
-
-// function: show images in emotes panel
-
-function showEmotes() {
-	$.each(imgCodes, function(a,b) {
-		img=$('<img src="'+emotesBasicURL+''+b[0]+'" onclick="insertText(\''+a+'\')"/>');
-		img.attr('width', b[1]).attr('height', b[2]);
-		img.css('cursor', 'pointer');
-		$("#emotespanel").append(img);
-		$("#emotespanel").append(" ");
-	});
-	img=$('<img src="https://dl.dropboxusercontent.com/s/evwscyflzddc92p/custom.png" onclick="enterCustomImg()"/>');
-	img.attr('width', 60).attr('height', 45);
-	img.css('cursor', 'pointer');
-	$("#emotespanel").append(img);
-	$("#emotespanel").append(" ");
-}
-
-// function: enter custom image URL
-
-function enterCustomImg() {
-	img=prompt('Enter image URL (without "http://"!)', '');
-	if(img!=null) {
-		insertText('[img]'+img+'[/img]');
-	}
-}
-
-// function: insert code after clicking an image
-
-function insertText(a) {
-	$("#chatline").val($("#chatline").val()+a);
-	$("#chatline").focus();
-}
-
-// adding emotes panel
-
-$("#main").after('<div id="emotespanel"/>');
-$("#emotespanel").css('max-width', '700px').css('margin', '0 auto').css('display', 'none')
-  .css('text-align', 'center').css('margin-top', '1px').css('padding', '4px')
-  .css('border-radius', '8px').css('-moz-border-radius', '8px').css('-webkit-border-radius', '8px');
-
-// configuration: caching emotes
-
-if(channelCache=="1") {
-	showEmotes();
+if (UI_PlayerMenu=="1") {
+	var isDescr=true;
+	PLAYER_TYPE=PLAYER.type;
+	$("#mediarefresh").after('<div id="mirrorcaret-outer" class="btn-group" />');
+	$("#mirrorcaret-outer").append('<button id="mirrorcaret" class="btn btn-small dropdown-toggle" data-toggle="dropdown" />');
+	$("#mirrorcaret").text('Controls ▾')
+	  .after('<ul id="trmenu" class="dropdown-menu" />');
+	$("#trmenu").append('<li><a id="plX" href="javascript:void(0)">Mirror X Player</a></li>')
+	  .append('<li><a id="plY" href="javascript:void(0)">Mirror Y Player</a></li>')
+	  .append('<li><a id="plR" href="javascript:void(0)">Rotate Player</a></li>')
+	  .append('<li><a id="plV" href="javascript:void(0)">Vertical Player</a></li>')
+	  .append('<li><a id="plH" href="javascript:void(0)">Hide Player</a></li>')
+	  .append('<li><a id="vid-descr" href="javascript:void(0)">Hide Description</a></li>')
+	  .append('<li><a id="descr-mode" href="javascript:void(0)">Switch Description</a></li>')
+	  .append('<li><a id="pl-pinup" href="javascript:void(0)">PinUp Playlist</a></li>');
+	socket.on("changeMedia", bindPlayerMenu);
 }
 
 // adding fonts panel
 
-$("#main").after('<div id="fontspanel"/>');
-$("#fontspanel").css('max-width', '700px').css('margin', '0 auto').css('display', 'none')
-  .css('text-align', 'center').css('margin-top', '1px').css('padding', '4px')
-  .css('border-radius', '8px').css('-moz-border-radius', '8px').css('-webkit-border-radius', '8px');
+$("#main").after('<div id="fontspanel" />');
 
 // adding fonts buttons to fonts panel
 
@@ -937,326 +1803,424 @@ fontsBtn=[
 ['background:white; text-decoration:underline', 'u', 'U', 'underlined\\ text', '<span\\ style="text-decoration:underline">'],
 ['background:black; color:white', 'sp', 'sp', 'short\\ spoiler', '<span\\ class="spoiler">'],
 ['background:white', '\/', '\[\/\]', 'closing\\ font\\ style', '<\/span>'],
-]
+];
 
-for(i=0; i<fontsBtn.length; i++) {
-	btn=$('<button class="btn" style="'+fontsBtn[i][0]+'" onclick="insertText(\'['+fontsBtn[i][1]+']\')"/>');
-	btn.text(fontsBtn[i][2]);
-	$("#fontspanel").append(btn);
-	$("#fontspanel").append(" ");
+for (i=0; i<fontsBtn.length; i++) {
+	btn=$('<button id="cbtn'+i+'" class="btn" style="'+fontsBtn[i][0]+'" onclick="insertText(\'['+fontsBtn[i][1]+']\')" />')
+	  .text(fontsBtn[i][2]);
+	$("#fontspanel").append(btn).append(" ");
 }
-$("#fontspanel").append('<br/><div style="height:10px"/>');
 
-// adding unicode buttons to fonts panel
+// adding additional unicode characters buttons
 
-for(i=0; i<uniChars.length; i++) {
-	btn=$('<button class="btn unibtn" style="background:white" onclick="insertText(\''+uniChars[i]+'\')"/>');
-	if(uniChars[i].length>1) {
-		btn.css('width', 'auto');
-	}
-	btn.text(uniChars[i]);
-	$("#fontspanel").append(btn);
-	$("#fontspanel").append(" ");
-	if(i%13==12) {
-		$("#fontspanel").append('<br/>');
-	}
+if (UI_UnicodeChars=="1" && UnicodeChars_Array.length>0) {
+	$("#fontspanel").append('<br /><div style="height:10px" />');
+	for (i=0; i<UnicodeChars_Array.length; i++) {
+		btn=$('<button class="btn unibtn" style="background:white" onclick="insertText(\''+UnicodeChars_Array[i]+'\')" />')
+		  .text(UnicodeChars_Array[i]);
+		UnicodeChars_Array[i].length>1 ? btn.css('width', 'auto') : false;
+		$("#fontspanel").append(btn).append(" ");
+		i%13==12 ? $("#fontspanel").append('<br />') : false;
+}
+}
+
+// adding emotes panel
+
+$("#main").after('<div id="emotespanel" />');
+if (UI_ChannelCache=="1") {
+	showEmotes();
+	isEmotesLoaded=true;
 }
 
 // adding playlist row minimizing button
 
-$("#pollbtnwrap").prepend('<button id="minplrow" class="btn btn-small pull-right">Minimize</button>');
+if (UI_MinimizeBtn=="1") {
+	var isMinimized=false;
+	$("#pollbtnwrap").prepend('<button id="minplrow" class="btn btn-small pull-right">Minimize</button>');
+}
 
-// click: minimize playlist row
+// adding playlist tooltip
 
-var isMinimized=false;
-$("#minplrow").click(function() {
-	if(!isMinimized) {
-		if(!isPlPin) {
+$("#playlisttoggle").prepend('<div id="pl-tooltip" class="pull-right" style="width:50%; text-align:right; font-size:8pt">Add link here</div>');
+
+// changing voteskip button caption
+
+if (UI_VoteskipCaption=="1" && VoteskipCaption_Text!="") {
+	socket.on("voteskip", changeSkipText);
+	changeSkipText();
+}
+
+// adding Layout Configuration box
+
+$_layouttoggleouter=$('<div id="layouttoggle-outer" class="well well-small span12 row-fluid" />')
+  .insertAfter("#pollwrap");
+$_layouttoggle=$('<div id="layouttoggle" class="span12 pointer" />')
+  .html('<i class="icon-minus pull-left"></i><p>Hide Layout Configuration</p>')
+  .appendTo($_layouttoggleouter);
+$_layoutwrap=$('<div id="layoutwrap" class="span12" />')
+  .css('margin-left', '0').css('text-align', 'center')
+  .insertAfter($_layouttoggle);
+generateToggle("#layouttoggle", "#layoutwrap");
+
+// adding selector with player display modes
+
+if (UI_DisplayModeSel=="1") {
+	$_modewrap=$('<div id="modewrap" class="span12" />')
+	  .css('text-align', 'center')
+ 	  .appendTo($_layoutwrap);
+	$_modetitle=$('<span id="modetitle" class="conf-opt">Display Mode</span><br />')
+	  .appendTo($_modewrap);
+	$_modesel=$('<select id="mode-sel" style="width:150px" />')
+	  .append('<option value="syMode">synchtube mode</option>')
+	  .append('<option value="kMode">cinema mode</option>')
+	  .append('<option value="chMode">chatroom mode</option>')
+	  .append('<option value="rMode">radio mode</option>')
+	  .append('<br />')
+ 	  .appendTo($_modewrap);
+}
+
+// adding layout configuration button
+
+$_userconfig=$('<button id="userConfig" class="btn btn-small">Layout Configuration</button>')
+  .css('margin-top', '10px').css('margin-bottom', '10px')
+  .appendTo($_layoutwrap);
+
+// adding layout themes selector
+
+if (UI_LayoutThemeSel=="1") {
+	$_themewrap=$('<div id="themewrap" class="span12" />')
+	  .css('text-align', 'center')
+ 	  .appendTo($_layoutwrap);
+	$_themetitle=$('<span id="themetitle" class="conf-opt">Layout Theme</span><br />')
+	  .appendTo($_themewrap);
+	$_themesel=$('<select id="theme-sel" style="width:150px" />')
+ 	  .appendTo($_themewrap);
+	if ($("#chanexternalcss").length>0) {
+		link=$("#chanexternalcss").attr('href');
+		$_themesel.append('<option value="'+link+'">## channel default</option>');
+	}
+	if (UI_LayoutDefaultThemes=="1") {
+		$_themesel.append('<option value="assets/css/ytsync.css"># default</option>');
+		$_themesel.append('<option value="assets/css/darkstrap.css"># dark</option>');
+		$_themesel.append('<option value="assets/css/altdark.css"># alternate dark</option>');
+	}
+	for (i=0; i<ThemesCSS.length; i++) {
+		$_themesel.append('<option value="'+ThemesCSS[i][1]+'">'+ThemesCSS[i][0]+'</option>');
+	}
+	if (ThemesCSS.length<1 && UI_LayoutDefaultThemes!="1") {
+		$_themesel.append('<option value="assets/css/ytsync.css"># default</option>');
+		USER_THEME="assets/css/ytsync.css";
+	}
+	$_themesel.val(USER_THEME);
+}
+
+// adding commands and volume buttons
+
+if (UI_FastCommandsBtns=="1" || UI_YTVolumeBtns=="1") {
+	$_btnswrap=$('<div id="btnswrap" class="span12 btn-group" />')
+	  .css('text-align', 'center')
+ 	  .appendTo($_layoutwrap);
+	if (UI_FastCommandsBtns=="1") {
+		$_btnswrap.append('<button id="clearbtn" class="btn btn-small">/clear</button>')
+		  .append('<button id="afkbtn" class="btn btn-small">/afk</button>');
+	}
+	if (UI_YTVolumeBtns=="1") {
+		$_btnswrap.append('<button id="vDown" class="btn btn-small">vol -</button>')
+		  .append('<button id="vUp" class="btn btn-small">vol +</button>')
+	}
+}
+
+// adding Channel Database box
+
+if (UI_ChannelDatabase=="1" && ChannelDatabase_URL=="") {
+	$_dbtoggleouter=$('<div id="dbtoggle-outer" class="well well-small span12 row-fluid" />')
+	  .appendTo("#leftpane-inner");
+	$_dbtoggle=$('<div id="dbtoggle" class="span12 pointer" />')
+	  .html('<i class="icon-plus pull-left"></i><p>Show Channel Database</p>')
+	  .appendTo($_dbtoggleouter);
+	$_dbwrap=$('<div id="dbwrap" class="span12" />')
+	  .css('display', 'none').css('margin-left', '0')
+	  .insertAfter($_dbtoggle);
+
+	var isDB=false;
+	var item_nr=0;
+	var layer_nr=1;
+	var opening=new Array();
+	var item_count=new Array(0);
+	var count_nr=0;
+
+	if (ChannelDatabase_Array.length<1 || ChannelDatabase_Array[0][0]!="") {
+		ChannelDatabase_Array.unshift(['', '<i>non-classified</i>']);
+	}
+	UI_ChannelCache=="1" ? createDatabase() : '';
+
+} else if (UI_ChannelDatabase=="1" && ChannelDatabase_URL!="") {
+	$.getScript(ChannelDatabase_URL);
+}
+
+// adding Channel Galleries box
+
+if (UI_ChannelGalleries=="1") {
+	$_gallerytoggleouter=$('<div id="gallerytoggle-outer" class="well well-small span12 row-fluid" />')
+	  .appendTo("#leftpane-inner");
+	$_gallerytoggle=$('<div id="gallerytoggle" class="span12 pointer" />')
+	  .html('<i class="icon-plus pull-left"></i><p>Show Channel Galleries</p>')
+	  .appendTo($_gallerytoggleouter)
+	$_gallerywrap=$('<div id="gallerywrap" class="span12" />')
+	  .css('display', 'none').css('margin-left', '0').css('text-align', 'center')
+	  .insertAfter($_gallerytoggle);
+	var isLoadedGallery=false;
+	ChannelGalleries_Array.length<1 ? ChannelGalleries_Array=[['Japan gallery', 'http://imgur.com/a/185S2/embed']] : '';
+	UI_ChannelCache=="1" ? createGallery() : '';
+}
+
+// adding fonts and emotes install filters buttons
+
+if (UI_TemporaryFilters!="1") {
+	$("#multifiltersubmit").after('<button id="installfonts" class="btn">Install Fonts</button>')
+	  .after('<button id="installemotes" class="btn">Install Emotes</button>');
+}
+
+// re-arranging footer
+
+$("#modrow").after('<div id="footerrow" class="row" style="margin-top:5px"/>');
+$("#footerrow").append('<div id="footerwrap" class="span12" style="font-size:9pt"/>');
+notLoaded ? defFooter=$("#footer p").html() : '';
+$("#footer").remove();
+
+if (UI_CustomRightFooter=="1") {
+	$("#footerwrap").append('<span style="float:right; margin-left:15px">'+CustomRightFooter_HTML+'</span>');
+}
+$("#footerwrap").append(defFooter+'<br />')
+  .append('CyTube Plus Copyright &copy; 2013 Zimny Lech · ')
+  .append('Free source on <a href="http://github.com/zimny-lech/CyTube-Plus" target="_blank">GitHub</a> · ')
+  .append('<a href="http://github.com/zimny-lech/CyTube-Plus/wiki" target="_blank">Help</a>');
+if (UI_UserStatistics=="1") {
+	notLoaded ? USER_ONLINE = 0 : '';
+	$("#footerwrap").append('<br />My visits: <span class="badge footer-badge">'+USER_VISITS+'</span> / ')
+	  .append('Current online time: <span id="onlinetime" class="badge footer-badge">0:00</span>');
+	var intervalB=setInterval(function() {onlineTime()}, 60000);
+}
+if (UI_CustomFooter=="1") {
+	$("#footerwrap").append('<br /><br />'+CustomFooter_HTML);
+}
+
+$("#sitefooter p").html()=="" ? $("#sitefooter").remove() : $("#mainpage").after($("#sitefooter").detach());
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* ----- USER INTERFACE EVENTS ----- */
+
+// click: set some necessary things in the "Options" modal window 
+
+$("#optlink").on("click", function() {
+	USEROPTS.layout="default";
+	$(".modal").on("hidden", function() {
+		isHiddenPlayer ? USEROPTS.hidevid=true : '';
+		setUserCSS();
+	});
+});
+
+// click: toggle channel rules
+
+$("#rulesbtn").on("click", function() {
+	toggleDiv("#rulespanel");
+});
+
+// click: close all announcements
+
+$("#annclose").on("click", function() {
+	$("#annrow").hide();
+});
+
+// click: toggle fonts panel
+
+$("#fontsbtn").on("click", function() {
+	toggleDiv("#fontspanel");
+});
+
+// click: toggle emotes panel
+
+$("#emotesbtn").on("click", function() {
+	toggleDiv("#emotespanel");
+	if (UI_ChannelCache!="1" && isEmotesLoaded==false) {
+		showEmotes();
+		isEmotesLoaded=true;
+	}
+});
+
+// click: chat commands help
+
+$("#chathelpbtn").on("click", function() {
+	createModal('Chat Commands', 'Close');
+
+	if (UI_UserCommands=="1") {
+		scrCmd={
+		'pick':'choosing a random option from a list separated by commas (e.g. <i>!pick japan,korea,china</i>)',
+		'ask':'asking a question with yes/no type answer (e.g. <i>!ask Will this channel be popular?</i>)',
+		'q':'displaying random quote (<i>!q</i>)',
+		'dice':'rolling dice (<i>!dice</i>)',
+		'time':'displaying current time (<i>!time</i>)',
+		'now':'displaying current playing title (<i>!now</i>)',
+		'calc':'calculating a math operation (all JavaScript Math methods and constants allowed, e.g. <i>!calc Math.PI*10</i>)',
+		'skip':'vote down current video to skip (<i>!skip</i>)',
+		'random':'adding random video if Channel Database is enabled (<i>!random</i>)',
+		'add':'adding a link to the end of playlist (e.g. <i>!add http://www.youtube.com/watch?v=YLNH_Fqj4DE</i>)'
+		}
+		body.append('<strong>New chat commands are ON</strong><br /><br />')
+		  .append('<ul id="cmdlist" />').append('<br />');
+		for (cmd in scrCmd) {
+			$("#cmdlist").append('<li><code>!'+cmd+'</code> - '+scrCmd[cmd]+'</li>');
+		}
+	}
+	defCmd={
+	'me':'showing an action-style message (username does something, e.g. <i>/me is dancing</i>)',
+	'sp':'hiding a message in a hover-to-show spoiler box (e.g. <i>/sp This message is hidden</i>)',
+	'afk':'toggling your AFK (away from keyboard) status (<i>/afk</i>)',
+	}
+	body.append('<strong>Default CyTube commands</strong><br /><br />')
+	  .append('<ul id="cmdlist2" />');
+	for (cmd in defCmd) {
+		$("#cmdlist2").append('<li><code>/'+cmd+'</code> - '+defCmd[cmd]+'</li>');
+	}
+});
+
+// clicks: refresh player improvement
+
+$("#mediarefresh").on("click", function() {
+	refreshPlayer();
+});
+
+// clicks: player transformations
+
+$("#plX").on("click", function() {
+	if ($(".vplayer").hasClass('mX')) $(".vplayer").removeClass('mX');
+	else $(".vplayer").addClass('mX');
+});
+
+$("#plY").on("click", function() {
+	if ($(".vplayer").hasClass('mY')) $(".vplayer").removeClass('mY');
+	else $(".vplayer").addClass('mY');
+});
+
+$("#plR").on("click", function() {
+	if ($(".vplayer").hasClass('rotate')) $(".vplayer").removeClass('rotate');
+	else $(".vplayer").addClass('rotate');
+});
+
+$("#plV").on("click", function() {
+	if ($(".vplayer").hasClass('vertical')) {
+		$(".vplayer").removeClass('vertical');
+		$("#plV").text('Vertical Player');
+	} else {
+		$(".vplayer").addClass('vertical');
+		$("#plV").text('Horizontal Player');
+	}
+});
+
+$("#plH").on("click", function() {
+	if ($(".vplayer").css('visibility')=="hidden") {
+		$("#videowrap .vplayer").css('visibility', 'visible').css('opacity', '100');
+		$("#plH").text('Hide Player');
+	} else {
+		$("#videowrap .vplayer").css('visibility', 'hidden').css('opacity', '0');
+		$("#plH").text('Show Player');
+	}
+});
+
+// click: toggle video description
+
+$("#vid-descr").on("click", function() {
+	toggleDescr();
+});
+
+// click: switch video description mode
+
+$("#descr-mode").on("click", function() {
+	isDefaultDescr ? isDefaultDescr=false : isDefaultDescr=true;
+	showInfo();
+});
+
+// click: pin-up playlist to player
+
+var isPlPin=false;
+$("#pl-pinup").on("click", function() {
+	togglePinUp();
+});
+
+// minimize playlist row
+
+isPlPin=false;
+$("#minplrow").on("click", function() {
+	if (!isMinimized) {
+		if (!isPlPin) {
 			$("#leftpane-inner .well, #extended_controls, #queue, #plmeta").hide();
-			$("#voteskip").parent().hide();
+			$("#voteskipwrap").hide();
 		} else {
 			$("#messagebuffer, #userlist, #chatline, #fontsbtn, #emotesbtn").hide();
 		}
 		$("#minplrow").text('Maximize');
-		$("#pl-pinup").hide();
+		$("#azukirow, #toprow, #annrow, #pl-pinup").hide();
 		isMinimized=true;
 	} else {
-		if(!isPlPin) {
+		if (!isPlPin) {
 			$("#leftpane-inner .well, #extended_controls, #queue, #plmeta").show();
-			$("#voteskip").parent().show();
+			$("#voteskipwrap").show();
 		} else {
 			$("#messagebuffer, #userlist, #chatline, #fontsbtn, #emotesbtn").show();
 		}
 		$("#minplrow").text('Minimize');
-		$("#pl-pinup").show();
+		$("#azukirow, #toprow, #annrow, #pl-pinup").show();
 		isMinimized=false;
 	}
 });
 
-// adding player transformations menu
-
-$("#minplrow").after('<div id="mirrorcaret" class="btn-group pull-right"/>');
-menu=$('<a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"/>');
-menu.text('▾');
-$("#mirrorcaret").append(menu);
-$("#mirrorcaret").append('<ul id="trmenu" class="dropdown-menu"/>');
-$("#trmenu").append('<li><a id="mX" href="javascript:void(0)">Mirror X Player</a></li>');
-$("#trmenu").append('<li><a id="mY" href="javascript:void(0)">Mirror Y Player</a></li>');
-$("#trmenu").append('<li><a id="rotate" href="javascript:void(0)">Rotate Player</a></li>');
-if(!isWebkit) {
-	$("#trmenu").append('<li><a id="vertical" href="javascript:void(0)">Vertical Player</a></li>');
-}
-$("#trmenu").append('<li><a id="hide" href="javascript:void(0)">Hide Player</a></li>');
-
-// clicks: player transformations
-
-$("#mX").click(function() {
-	if($(".vplayer").hasClass('mX')) $(".vplayer").removeClass('mX');
-	else $(".vplayer").addClass('mX');
-});
-
-$("#mY").click(function() {
-	if($(".vplayer").hasClass('mY')) $(".vplayer").removeClass('mY');
-	else $(".vplayer").addClass('mY');
-});
-
-$("#rotate").click(function() {
-	if($(".vplayer").hasClass('rotate')) $(".vplayer").removeClass('rotate');
-	else $(".vplayer").addClass('rotate');
-});
-
-$("#vertical").click(function() {
-	if($(".vplayer").hasClass('vertical')) $(".vplayer").removeClass('vertical');
-	else $(".vplayer").addClass('vertical');
-});
-
-$("#hide").click(function() {
-	if($("#videowrap").css('visibility')=="hidden") {
-		$("#videowrap").css('visibility', 'visible');
-		$("#videowrap").css('opacity', '100');
-		$("#hide").text('Hide Player');
-	} else {
-		$("#videowrap").css('visibility', 'hidden');
-		$("#videowrap").css('opacity', '0');
-		$("#hide").text('Show Player');
-	}
-});
-
-// adding Layout Configuration box
-
-$("#pollwrap").after('<div id="layouttoggle-outer" class="well well-small span12 row-fluid"/>');
-$("#layouttoggle-outer").append('<div id="layouttoggle" class="span12 pointer"/>');
-$("#layouttoggle").html('<i class="icon-minus pull-left"></i><p>Hide Layout Configuration</p>');
-
-$("#layouttoggle").after('<div id="layoutwrap" class="span12"/>');
-$("#layoutwrap").css('display', 'none').css('margin-left', '0').css('text-align', 'center');
-generateToggle("#layouttoggle", "#layoutwrap");
-
-// adding display mode selector
-
-$("#layoutwrap").append('<span id="modetitle" class="conf-opt">Display Mode</span><br/>');
-$("#layoutwrap").append('<select id="mode-sel" style="width:150px"/>');
-$("#mode-sel").append('<option value="syMode">synchtube mode</option>');
-$("#mode-sel").append('<option value="kMode">cinema mode</option>');
-$("#mode-sel").append('<option value="chMode">chatroom mode</option>');
-$("#mode-sel").append('<option value="rMode">radio mode</option>');
-
 // select: display mode
 
-var isHiddenMode=false;
-$("#mode-sel").change(function() {
+$("#mode-sel").on("change", function() {
 	selValue=$("#mode-sel").val();
 	$("#userConfig").hide();
-	if(selValue=="syMode") {
-		$("#main, #videowrap, #chatwrap, #rightpane-outer, #pl-pinup").show();
+	if (selValue=="syMode") {
+		$("#main, #videowrap, #chatwrap, #rightpane-outer, #pl-pinup, #userConfig").show();
+		if (!isWebkit) {
+			$("#videowrap p, #qualitywrap").show();
+			$("#videowrap").removeClass().addClass('span7');
+		}
 		normalPlayer();
 		normalChat();
-		if(!isPlPin) {
-			$("#userConfig").show();
-		}
 		playerLocation(userconfig["player"]);
-		if(isHiddenMode && !isWebkit) {
-			refreshPlayer();
-		}
-		isHiddenMode=false;
-	} else if(selValue=="kMode") {
+	} else if (selValue=="kMode") {
 		$("#main, #videowrap").show();
-		$("#pl-pinup").hide();
-		if(!isPlPin) {
-			$("#chatwrap").hide();
-		} else {
-			$("#rightpane-outer").hide();
-		}
+		$("#chatwrap, #pl-pinup").hide();
 		bigPlayer();
-		if(isHiddenMode && !isWebkit) {
-			refreshPlayer();
-		}
-		isHiddenMode=false;
-	} else if(selValue=="chMode") {
+	} else if (selValue=="chMode") {
 		$("#main, #chatwrap").show();
-		$("#videowrap, #pl-pinup").hide();
-		bigChat();
-		isHiddenMode=true;
-	} else if(selValue=="rMode") {
-		$("#pl-pinup").show();
-		$("#main").hide();
-		if(!isPlPin) {
-			$("#userConfig").show();
+		$("#videowidth").removeClass().addClass('span1');
+		if (isWebkit) {
+			$("#videowrap").hide();
+		} else {
+			$("#videowrap p, #qualitywrap").hide();
+			$("#ytapiplayer").attr("width", '1').attr("height", '1');
 		}
-		isHiddenMode=true;
+		bigChat();
+	} else if (selValue=="rMode") {
+		$("#videowidth").removeClass().addClass('span1');
+		if (isWebkit) {
+			$("#main").hide();
+		} else {
+			$("#main, #videowrap").show();
+			$("#chatwrap, #videowrap p, #qualitywrap").hide();
+			$("#ytapiplayer").attr("width", '1').attr("height", '1');
+		}
+		$("#userConfig").show();
 	}
 	scrollQueue();
 	scrollChat();
 });
 
-// functions: display mode helper functions
-
-function bigPlayer() {
-	$("#videowrap").removeClass().addClass('span12');
-	VWIDTH=$("#ytapiplayer").parent().css('width').replace('px', '');
-    	VHEIGHT="658";
-	$("#ytapiplayer").attr('width', VWIDTH).attr('height', '658');
-}
-
-function bigChat() {
-	$("#chatwrap").removeClass().addClass('span12');
-	VWIDTH2=$("#messagebuffer").parent().css('width').replace('px', '');
-	$("#messagebuffer").attr('width', VWIDTH2);
-	$("#userlist").css('height', '500px');
-	$("#messagebuffer").css('height', '500px');
-	if(checkButtons()) {
-		$("#chatline").removeClass().addClass('span11');
-	} else {
-		$("#chatline").removeClass().addClass('span12');
-	}
-}
-
-function normalPlayer() {
-	$("#videowrap").removeClass().addClass('span7');
-	VWIDTH=$("#ytapiplayer").parent().css('width').replace('px', '');
-    	VHEIGHT="377";
-	$("#ytapiplayer").attr('width', VWIDTH).attr('height', '377');
-}
-
-function normalChat() {
-	if(isPlPin && userconfig["qsize"]=="wide") {
-		$("#chatwrap").removeClass().addClass('span7');
-	} else {
-		$("#chatwrap").removeClass().addClass('span5');
-	}
-	VWIDTH2=$("#messagebuffer").parent().css('width').replace('px', '');
-	$("#messagebuffer").attr('width', VWIDTH2);
-	$("#userlist").css('height', '347px');
-	$("#messagebuffer").css('height', '347px');
-	if(isPlPin && userconfig["qsize"]=="wide") {
-		if(checkButtons()) {
-			$("#chatline").removeClass().addClass('span6');
-		} else {
-			$("#chatline").removeClass().addClass('span7');
-		}
-	} else {
-		if(checkButtons()) {
-			$("#chatline").removeClass().addClass('span4');
-		}
-		else {
-			$("#chatline").removeClass().addClass('span5');
-		}
-	}
-}
-
-// adding layout configuration button
-
-$("#layoutwrap").append('<br/><button id="userConfig" class="btn btn-small">Layout Configuration</button>');
-$("#userConfig").css('margin-top', '10px').css('margin-bottom', '10px');
-
-// configuration: adding themes selector
-
-if(themeCSS.length>0) {
-	$("#layoutwrap").append('<br/><span id="themetitle" class="conf-opt">Theme</span><br/>');
-	$("#layoutwrap").append('<select id="theme-sel" style="width:150px"/>');
-	for(i=0; i<themeCSS.length; i++) {
-		$("#theme-sel").append('<option value="'+themeCSS[i][1]+'">'+themeCSS[i][0]+'</option>');
-	}
-	$("#theme-sel").val(USER_THEME);
-	$("#layoutwrap").append('<br/>');
-}
-
-// configuration: adding commands and YouTube volume buttons
-
-layer=$('<div class="btn-group" style="width:100%; text-align:center; margin-top:15px; margin-bottom:10px"/>');
-layer.append('<button id="clearbtn" class="btn btn-small">/clear</button>');
-layer.append('<button id="afkbtn" class="btn btn-small">/afk</button>');
-if(volumeButtons=="1") {
-	layer.append('<button id="vDown" class="btn btn-small">vol -</button>');
-	layer.append('<button id="vUp" class="btn btn-small">vol +</button>');
-}
-$("#layoutwrap").append(layer);
-
-// click: /clear command
-
-$("#clearbtn").click(function() {
-	if(hasPermission("playlistclear")) {
-		if(confirm('Are you sure to clear the chat window?')) {
-			socket.emit("chatMsg", {msg: '/clear'});
-		}
-	}
-	else {
-		alert('You have no permission to clear the chat window.');
-	}
-});
-
-// click: /afk command
-
-$("#afkbtn").click(function() {
-	socket.emit("chatMsg", {msg: '/afk'});
-});
-
-// clicks: YouTube volume regulation
-
-$("#vDown").click(function() {
-	if(PLAYER.type=="yt") {
-		a=PLAYER.player.getVolume();
-		PLAYER.player.setVolume(a-1);
-	} else {
-		alert('You can change only YouTube volume level due to limited player functionality.');
-	}
-});
-
-$("#vUp").click(function() {
-	if(PLAYER.type=="yt") {
-		a=PLAYER.player.getVolume();
-		PLAYER.player.setVolume(a+1);
-	} else {
-		alert('You can change only YouTube volume level due to limited player functionality.');
-	}
-});
-
-// default showing Layout Configuration box
-
-$("#layoutwrap").show();
-
-// cookie: getting layout configuration
-
-pie=readCookie(cookiePrefix+"_config");
-if(pie==null) {
-	if(defaultLogo=="" || topUserLogo[defaultLogo]=="undefined") defaultLogo="no";
-	userconfig={
-	"player":"left", "userlist":"right", "queue":"left", 
-	"qsize":"wide", "main":"top", "motd":"top", 
-	"image":defaultLogo, "header":"detach", "menu":"menu"
-	}
-} else {
-	a=pie.split(",");
-	userconfig={
-	"player":a[0], "userlist":a[1], "queue":a[2], 
-	"qsize":a[3], "main":a[4], "motd":a[5], 
-	"image":a[6], "header":a[7], "menu":a[8]
-	}
-}
-
 // click: layout configuration modal window
 
-$("#userConfig").click(function() {
+$("#userConfig").on("click", function() {
 	createModal('Layout Configuration', 'Save');
 
 	form=$("<form/>").addClass('form-horizontal').appendTo(body);
@@ -1309,8 +2273,8 @@ $("#userConfig").click(function() {
 	logoinsert=$("<select/>");
 	$("<option/>").attr('value', 'no').text('no image').appendTo(logoinsert);
 	$("<option/>").attr('value', 'user').text('user image').appendTo(logoinsert);
-	for(name in topUserLogo) {
-		$("<option/>").attr('value', name).text(topUserLogo[name][0]).appendTo(logoinsert);
+	for (name in TopUserLogo) {
+		$("<option/>").attr('value', name).text(TopUserLogo[name][0]).appendTo(logoinsert);
 	}
 	logoinsert.val(userconfig["image"]);
 	addOption('Top logo', logoinsert);
@@ -1323,7 +2287,7 @@ $("#userConfig").click(function() {
 	userlogoht.val('');
 	addOption('User logo height', userlogoht);
 
-	if(userconfig["image"]!="user") {
+	if (userconfig["image"]!="user") {
 		userlogo.parent().parent().hide();
 		userlogoht.parent().parent().hide();
 	} else {
@@ -1346,17 +2310,19 @@ $("#userConfig").click(function() {
 	reset=$("<button/>").addClass('btn pull-left').text('Default').appendTo(footer);
 	column=$("<button/>").addClass('btn pull-left').text('Vertical').appendTo(footer);
 
-	logoinsert.change(function() {
-		if(logoinsert.val()=="user") {
+	logoinsert.on("change", function() {
+		if (logoinsert.val()=="user") {
 			userlogo.parent().parent().show();
 			userlogoht.parent().parent().show();
+			userlogo.val(USER_LOGO);
+			userlogoht.val(USER_LOGO_HT);
 		} else {
 			userlogo.parent().parent().hide();
 			userlogoht.parent().parent().hide();
 		}
 	});
 
-	submit.click(function() {
+	submit.on("click", function() {
 		userconfig["player"]=playerlocation.val();
 		userconfig["userlist"]=userlistlocation.val();
 		userconfig["queue"]=queuelocation.val();
@@ -1366,39 +2332,48 @@ $("#userConfig").click(function() {
 		userconfig["image"]=logoinsert.val();
 		userconfig["header"]=headermode.val();
 		userconfig["menu"]=plcontrolsmode.val();
-		if(logoinsert.val()=="user") {
+		if (logoinsert.val()=="user") {
+			if (userlogo.val()=="") {
+				logoinsert.val("no");
+				userconfig["image"]='no';
+			} else if (userlogoht.val()=="") {
+				USER_LOGO_HT='200';
+			} else {
+				USER_LOGO_HT=userlogoht.val()*1;
+				(isNaN(USER_LOGO_HT) || USER_LOGO_HT<1) ? USER_LOGO_HT='200' : '';
+			}
 			USER_LOGO=userlogo.val();
-			USER_LOGO_HT=userlogoht.val();
-			eraseCookie(cookiePrefix+"_logo");
-			createCookie(cookiePrefix+"_logo", userlogo.val()+"|"+userlogoht.val(), 365)
+			eraseCookie(CookiePrefix+"_logo");
+			createCookie(CookiePrefix+"_logo", userlogo.val()+"|"+userlogoht.val(), 365)
 		}
 		setLayout(
 		  playerlocation.val(), userlistlocation.val(), queuelocation.val(), 
 		  queuesize.val(), mainlocation.val(), motdlocation.val(), 
 		  logoinsert.val(),headermode.val(),plcontrolsmode.val()
 		);
-		eraseCookie(cookiePrefix+"_config");
+		eraseCookie(CookiePrefix+"_config");
 		a=userconfig["player"]+","+userconfig["userlist"]+","+userconfig["queue"]+","+userconfig["qsize"]
 		  +","+userconfig["main"]+","+userconfig["motd"]+","+userconfig["image"]+","+userconfig["header"]
 		  +","+userconfig["menu"];
-		createCookie(cookiePrefix+"_config", a, 365);
+		createCookie(CookiePrefix+"_config", a, 365);
 	});
 
-	reset.click(function() {
+	reset.on("click", function() {
 		userconfig={
-		"player":"left", "userlist":"right", "queue":"left", 
+		"player":"right", "userlist":"left", "queue":"right", 
 		"qsize":"wide", "main":"top", "motd":"top", 
-		"image":"no", "header":"detach", "menu":"menu"
+		"image":"no", "header":"detach", "menu":"default"
 		}
-		setConfigValues("left","right","left","wide","top","top","no","detach","menu");
+		defaultLayoutPatch();
+		setConfigValues(userconfig["player"],userconfig["userlist"],userconfig["queue"],"wide","top","top","no","detach",userconfig["menu"]);
 		modal.modal("hide");
-		setLayout("left","right","left","wide","top","top","no","detach","menu");
-		eraseCookie(cookiePrefix+"_config");
-		a="left,right,left,wide,top,top,no,detach,menu";
-		createCookie(cookiePrefix+"_config", a, 365);
+		setLayout(userconfig["player"],userconfig["userlist"],userconfig["queue"],"wide","top","top","no","detach",userconfig["menu"]);
+		eraseCookie(CookiePrefix+"_config");
+		a=userconfig["player"]+","+userconfig["userlist"]+","+userconfig["queue"]+",wide,top,top,no,detach,"+userconfig["menu"];
+		createCookie(CookiePrefix+"_config", a, 365);
 	});
 
-	column.click(function() {
+	column.on("click", function() {
 		userconfig={
 		"player":"center", "userlist":"left", "queue":"center", 
 		"qsize":"wide", "main":"top", "motd":"bottom", 
@@ -1407,9 +2382,9 @@ $("#userConfig").click(function() {
 		setConfigValues("center","left","center","wide","top","bottom","no","detach","menu");
 		modal.modal("hide");
 		setLayout("center","left","center","wide","top","bottom","no","detach","menu");
-		eraseCookie(cookiePrefix+"_config");
+		eraseCookie(CookiePrefix+"_config");
 		a="center,left,center,wide,top,bottom,no,detach,menu";
-		createCookie(cookiePrefix+"_config", a, 365);
+		createCookie(CookiePrefix+"_config", a, 365);
 	});
 
 	modal.on("hidden", function() {
@@ -1418,830 +2393,134 @@ $("#userConfig").click(function() {
 	});
 });
 
-// functions: layout configuration helper functions
+// select: change layout theme
 
-function setConfigValues(a,b,c,d,e,f,g,h,i) {
-	playerlocation.val(a);
-	userlistlocation.val(b);
-	queuelocation.val(c);
-	queuesize.val(d);
-	mainlocation.val(e);
-	motdlocation.val(f);
-	logoinsert.val(g);
-	headermode.val(h);
-	plcontrolsmode.val(i);
-}
-
-function setLayout(a,b,c,d,e,f,g,h,i) {
-	playerLocation(a);
-	userlistLocation(b);
-	queueLocation(c);
-	queueSize(d);
-	mainLocation(e);
-	motdLocation(f);
-	logoInsert(g);
-	headerMode(h);
-	plControlsMode(i);
-}
-
-// functions: layout setting
-
-function playerLocation(a) {
-	if(a=="left") {
-		$("#videowrap").after($("#chatwrap").detach());
-	}
-	else {
-		$("#videowrap").before($("#chatwrap").detach());
-	}
-	switch (a) {
-		case "left":
-		normalPlayer();
-		normalChat();
-		break;
-
-		case "right":
-		normalPlayer();
-		normalChat();
-		break;
-
-		case "center":
-		$("#videowrap").after($("#chatwrap").detach());
-		$("#videowrap").removeClass().addClass('span8');
-		$("#videowrap").addClass('offset2');
-		VWIDTH=$("#ytapiplayer").parent().css("width").replace('px', '');
-    		VHEIGHT="430";
-		$("#ytapiplayer").attr('width', VWIDTH).attr('height', '430');
-		if(checkButtons()) {
-			$("#chatline").removeClass().addClass('span7');
-		} else {
-			$("#chatline").removeClass().addClass('span8');
-		}
-		$("#chatwrap").removeClass().addClass('span8');
-		$("#chatwrap").addClass('offset2');
-		VWIDTH2=$("#messagebuffer").parent().css('width').replace('px', '');
-		$("#messagebuffer").attr('width', VWIDTH2);
-		$("#messagebuffer").css('height', '200px');
-		$("#userlist").css('height', '200px');
-		break;
-	}
-}
-
-function userlistLocation(a) {
-	if(a=="left") {
-		$("#userlist").css('float', 'left');
-	} else if(a=="right") {
-		$("#userlist").css('float', 'right');
-	}
-}
-
-function queueLocation(a) {
-	if(a=="right") {
-		$("#rightpane-outer").before($("#leftpane-outer").detach());
-		normalPlaylist();
-	} else if(a=="left") {
-		$("#rightpane-outer").after($("#leftpane-outer").detach());
-		normalPlaylist();
-	} else if(a=="center") {
-		$("#rightpane-outer").after($("#leftpane-outer").detach());
-		$("#leftpane-outer").removeClass().addClass('span8');
-		$("#leftpane-outer").addClass('offset2');
-		$("#rightpane-outer").removeClass().addClass('span8');
-		$("#rightpane-outer").addClass('offset2');
-		$("#rightpane-outer").css('margin-bottom', '10px');
-	}
-}
-
-function queueSize(a) {
-	if(userconfig["queue"]!="center") {
-		if(a=="wide") {
-			$("#leftpane-outer").removeClass().addClass('span5');
-			$("#rightpane-outer").removeClass().addClass('span7');
-		} else if(a=="narrow") {
-			$("#leftpane-outer").removeClass().addClass('span7');
-			$("#rightpane-outer").removeClass().addClass('span5');
-		}
-	}
-}
-
-function mainLocation(a) {
-	if(a=="top") {
-		$("#modrow").before($("#playlistrow").detach());
-	} else if(a=="bottom") {
-		$("#titlerow").before($("#playlistrow").detach());
-	}
-}
-
-function motdLocation(a) {
-	if(a=="top") {
-		$("#attbarrow").after($("#annrow").detach());
-		$("#attbarrow").after($("#toprow").detach());
-	} else if(a=="bottom") {
-		$("#modrow").before($("#toprow").detach());
-		$("#modrow").before($("#annrow").detach());
-	}
-}
-
-function logoInsert(a) {
-	if(a=="no") {
-		$("#azukirow").remove();
-	} else {
-		if(a!="user") {
-			link=topUserLogo[a][1];
-			ht=topUserLogo[a][2];
-		} else {
-			link=USER_LOGO;
-			ht=USER_LOGO_HT;
-		}
-		$("#azukirow").remove();
-		$("#attbarrow").before('<div id="azukirow" class="row"/>');
-		$("#azukirow").append('<div id="azukirowwrap" style="background:transparent; background-image:url('+link+')"/>');
-		$("#azukirowwrap").addClass('span12');
-		$("#azukirowwrap").css('background-repeat', 'no-repeat').css('background-position', 'center center')
-		  .css('min-height', ht+'px').css('margin-top', '0px');
-	}
-}
-
-function headerMode(a) {
-	if(a=="fixed") {
-		$(".navbar-fixed-top").css('position', 'fixed');
-		$("body").css('padding-top', '40px');
-	} else if(a=="detach") {
-		$(".navbar-fixed-top").css('position', 'inherit');
-		$("body").css('padding-top', '0px');
-	}
-}
-
-var isFullPl=false;
-function plControlsMode(a) {
-	if(a=="default") {
-		$("#queue_end").before($("#queue_next").detach());
-		$("#customembed_entry").before($("#customembed_btn").detach());
-		$("#extended_controls").append($("#clearplaylist").detach());
-		$("#extended_controls").append($("#shuffleplaylist").detach());
-		$("#mediacaret").remove();
-		$("#moreopt").remove();
-		$("#queue_next").css('width', '');
-	} else if(a=="menu") {
-		plControlsMode("default");
-		$("#queue_end").after('<button id="mediacaret" class="btn dropdown-toggle" data-toggle="dropdown">');
-		$("#mediacaret").text('▾');
-		$("#mediacaret").after('<ul id="moreopt" class="dropdown-menu"/>');
-		$("#moreopt").css('padding-left', '5px').css('padding-right', '5px');
-
-		$("#moreopt").append('<li id="opt1"/>');
-		$("#opt1").html($("#queue_next").detach());
-		$("#queue_next").css('width', '100%');
-		$("#queue_next").html('At Next');
-		$("#moreopt").append('<li class="divider"/>');
-
-		$("#moreopt").append('<li id="opt2"/>');
-		$("#opt2").html('<a tabindex="-1" href="javascript:void(0)">Expand Playlist</a>');
-		if(isFullPl) {
-			$("#opt2 a").html('Collapse Playlist');
-		}
-		$("#moreopt").append('<li id="opt3"/>');
-		$("#opt3").html('<a tabindex="-1" href="javascript:void(0)" target="">Download Current Video</a>');
-		$("#moreopt").append('<li id="opt4"/>');
-		$("#opt4").html('<a tabindex="-1" href="javascript:void(0)" target="">Contributors List</a>');
-		$("#moreopt").append('<li class="divider"/>');
-
-		$("#moreopt").append('<li id="opt5"/>');
-		$("#opt5").html('<a tabindex="-1" href="javascript:void(0)">Play Next</a>');
-		if(channelDatabase=="1") {
-			$("#moreopt").append('<li id="opt6"/>');
-			$("#opt6").html('<a tabindex="-1" href="javascript:void(0)">Add Random Video</a>');
-		}
-		$("#moreopt").append('<li id="opt7"/>');
-		$("#opt7").html('<a tabindex="-1" href="javascript:void(0)">Move Random Video</a>');
-		$("#moreopt").append('<li id="opt8"/>');
-		$("#opt8").html('<a tabindex="-1" href="javascript:void(0)">Move First Video To End</a>');
-		$("#moreopt").append('<li id="opt9"/>');
-		$("#opt9").html('<a tabindex="-1" href="javascript:void(0)">Delete Last Video</a>');
-		$("#moreopt").append('<li class="divider"/>');
-
-		$("#moreopt").append('<li id="opt10"/>');
-		$("#opt10").html($("#clearplaylist").detach());
-		$("#moreopt").append('<li id="opt11"/>');
-		$("#opt11").html($("#shuffleplaylist").detach());
-		$("#moreopt").append('<li id="opt12"/>');
-		$("#opt12").html($("#customembed_btn").detach());
-		$("#moreopt").append('<li class="divider"/>');
-
-		$("#moreopt").append('<li id="opt13"/>');
-		$("#opt13").html('<a tabindex="-1" href="javascript:void(0)">Reload Menu</a>');
-
-		if(!hasPermission("playlistjump")) {
-			$("#opt5").hide();
-		}
-		if(!hasPermission("playlistadd")) {
-			$("#opt6").hide();
-		}
-		if(!hasPermission("playlistmove")) {
-			$("#opt7, #opt8").hide();
-		}
-		if(!hasPermission("playlistdelete")) {
-			$("#opt9").hide();
-		}
-		plDropMenu();
-	}
-}
-
-// function: queue size helper function
-
-function normalPlaylist() {
-	$("#rightpane-outer").removeClass().addClass('span7');
-	$("#leftpane-outer").removeClass().addClass('span5');
-}
-
-// function: global playlist dropdown menu actions
-
-function plDropMenu() {
-
-	// click: expand and collapse playlist
-
-	$("#opt2").click(function() {
-		if(!isFullPl) {
-			$("#queue").css('max-height', '100000px');
-			$("#opt2 a").html('Collapse playlist');
-			isFullPl=true;
-		} else {
-			$("#queue").css('max-height', '450px');
-			$("#opt2 a").html('Expand playlist');
-			isFullPl=false;
-			scrollQueue();
-		}
-	});
-
-	// mouseover: download video link
-
-	$("#opt3").mouseover(function() {
-		a=PL_CURRENT+1;
-		b=$("#queue .queue_entry:nth-child("+a+")").data("media");
-		if(b.type=="yt") {
-			link='http://youtube.com/watch?v='+b.id;
-		} else if(b.type=="vi") {
-			link='http://vimeo.com/'+b.id;
-		} else if(b.type=="dm") {
-			link='http://dailymotion.com/video/'+b.id;
-		} else if(b.type=="sc") {
-			link=b.id;
-		} else {
-			link='';
-		}
-		if(link=="") {
-			$("#opt3 a").attr('href', 'javascript:void(0)');
-			$("#opt3 a").attr('target', '');
-			alert('This link is not supported. Try YouTube, Vimeo, Dailymotion or SoundCloud.');
-		}
-		else {
-			link2='http://keepvid.com/?url='+link;
-			$("#opt3 a").attr('href', link2);
-			$("#opt3 a").attr('target', '_blank');
-		}
-	});
-
-	// click: show contributors list
-
-	$("#opt4").click(function() {
-		createModal("Contributors List", "Close");
-		a=$("#queue li").length+1;
-		var list=[];
-		for(i=1; i<a; i++) {
-			item=$("#queue li:nth-child("+i+")").attr('title');
-			user=item.split("by: ")[1];
-			if(user in list) {
-				list[user]++;
-			} else {
-				list[user]=1;
-			}
-		}
-		var list2=[];
-		for(key in list) {
-      			list2.push([key, list[key]]);
-		}
-		list2.sort(function(a,b) {return a[1]-b[1]});
-		list2.reverse();
-		var list3=[];
-		for(i=0; i<list2.length; i++) {
-			list3.push((i+1)+". "+list2[i].join(": "));
-		}
-		body.append('<strong>Number of added playlist items:</strong><br/><br/>'+list3.join("<br/>"));
-	});
-
-	// click: play next video
-
-	$("#opt5").click(function() {
-		socket.emit("playNext");
-	});
-
-	// click: add random video
-
-	var lastAdd=0;
-	$("#opt6").click(function() {
-		a=(new Date()).getTime();
-		if((a-lastAdd)<120000) {
-			alert('You can add random video every 2 minutes.');
-		} else {
-			b="";
-			while(b=="") {
-				c=Math.round(Math.random()*(videos.length-1));
-				b=videos[c][0];
-			}
-			addToPlaylist(b, "end");
-			lastAdd=a;
-		}
-	});
-
-	// click: move random video
-
-	$("#opt7").click(function() {
-		a=$("#queue").children().length;
-		b=Math.floor(Math.random()*a)+1;
-		c=Math.floor(Math.random()*a)+1;
-		d=$("#queue .queue_entry:nth-child("+b+")").data("uid");
-		e=$("#queue .queue_entry:nth-child("+c+")").data("uid");
-		socket.emit("moveMedia", {from: d, after: e, moveby: null});
-	});
-
-	// click: move video from start to end
-
-	$("#opt8").click(function() {
-		a=$("#queue").children().length;
-		b=$("#queue .queue_entry:nth-child(1)").data("uid");
-		c=$("#queue .queue_entry:nth-child("+a+")").data("uid");
-		socket.emit("moveMedia", {from: b, after: c, moveby: null});
-	});
-
-	// click: delete last video
-
-	$("#opt9").click(function() {
-		a=$("#queue").children().length;
-		b=$("#queue .queue_entry:nth-child("+a+")").data("uid");
-		socket.emit("delete", b);
-	});
-
-	// click: rebuild menu
-
-	$("#opt13").click(function() {
-		plControlsMode("menu");
-	});
-}
-
-// select: change layout CSS
-$("#theme-sel").change(function() {
+$("#theme-sel").on("change", function() {
 	setCSS();
 	selValue=$("#theme-sel").val();
 	USER_THEME=selValue;
 	setUserCSS();
-	eraseCookie(cookiePrefix+"_theme");
-	createCookie(cookiePrefix+"_theme", selValue, 365);
+	eraseCookie(CookiePrefix+"_theme");
+	createCookie(CookiePrefix+"_theme", selValue, 365);
 });
 
-// configuration: adding Channel Galleries box
+// click: /clear command
 
-if(galleryTab=="1") {
-	$("#userpltogglewrap").after('<div id="gallerytoggle-outer" class="well well-small span12 row-fluid"/>');
-	$("#gallerytoggle-outer").append('<div id="gallerytoggle" class="span12 pointer"/>');
-	$("#gallerytoggle").html('<i class="icon-plus pull-left"></i><p>Show Channel Galleries</p>');
-
-	$("#gallerytoggle").after('<div id="gallerywrap" class="span12"/>');
-	$("#gallerywrap").css('display', 'none').css('margin-left', '0').css('text-align', 'center');
-	generateToggle("#gallerytoggle", "#gallerywrap");
-}
-
-// function: load channel gallery
-
-function loadGallery() {
-	$("#gallerywrap").append('<iframe id="galleryFrame" src='+galleryTabURL[0][1]+' width="100%"/>');
-	$("#galleryFrame").attr('frameborder', '0').attr('scrolling', 'no').attr('height', '415px');
-	if(galleryTabURL.length>1) {
-		$("#gallerywrap").append('<br/><span id="galtitle" class="conf-opt">Select Gallery</span><br/>');
-		$("#gallerywrap").append('<select id="gal-sel" style="width:150px"/>');
-		for(i=0; i<galleryTabURL.length ;i++) {
-			$("#gal-sel").append('<option value="'+galleryTabURL[i][1]+'">'+galleryTabURL[i][0]+'</option>');
+$("#clearbtn").on("click", function() {
+	if (hasPermission("playlistclear")) {
+		if (confirm('Are you sure to clear the chat window?')) {
+			socket.emit("chatMsg", {msg: '/clear'});
 		}
 	}
-}
-
-// configuration: caching gallery
-if(galleryTab=="1" && channelCache=="1") {
-	loadGallery();
-}
-
-// select: change gallery
-
-$("#gal-sel").change(function() {
-	galValue=$("#gal-sel").val();
-	$("#galleryFrame").attr('src', galValue);
+	else {
+		alert('You have no permission to clear the chat window.');
+	}
 });
 
-// configuration: adding Channel Database box
+// click: /afk command
 
-if(channelDatabase=="1" && channelDatabaseURL=="") {
+$("#afkbtn").on("click", function() {
+	socket.emit("chatMsg", {msg: '/afk'});
+});
 
-	/* IF YOU USE EXTERNAL DATABASE FILE, IT MUST CONTAINS CODE BELOW */
+// clicks: YouTube volume regulation
 
-	$("#userpltogglewrap").after('<div id="dbtoggle-outer" class="well well-small span12 row-fluid"/>');
-	$("#dbtoggle-outer").append('<div id="dbtoggle" class="span12 pointer"/>');
-	$("#dbtoggle").html('<i class="icon-plus pull-left"></i><p>Show Channel Database</p>');
-
-	$("#dbtoggle").after('<div id="dbwrap" class="span12"/>');
-	$("#dbwrap").css('display', 'none').css('margin-left', '0').css('margin-bottom', '5px');
-	generateToggle("#dbtoggle", "#dbwrap");
-
-	var item_nr=0;
-	var layer_nr=0;
-	var opening=new Array();
-	for(i=0; i<videos.length; i++) {
-		if(videos[i][0]=="") {
-			if(layer_nr>0) {
-				$("#dbwrap").append(list);
-				$("#la"+layer_nr).append(' <span class="songs-count">['+count_nr+']</span>');
-				opening[layer_nr-1]=0;
-			}
-			layer_nr++;
-			count_nr=0;
-			btn=$('<button id="la'+layer_nr+'" style="width:100%" onClick="toggleCat('+layer_nr+')"/>');
-			btn.addClass('btn btn-small db-break');
-			btn.text(videos[i][1]);
-			$("#dbwrap").append(btn);
-			list=$('<ul id="l'+layer_nr+'" style="max-height:450px; overflow:auto; margin-bottom:0px"/>');
-			list.addClass('videolist db-cat');
-		} else {
-			item_nr++;
-			count_nr++;
-			item=$('<li class="queue_entry"/>');
-			btn=$('<button onClick="addVideo(\''+videos[i][0]+'\')"/>');
-			btn.addClass('btn btn-mini qe_btn pull-right');
-			btn.text('End');
-			item.append(btn);
-			parsed=parseMediaLink(videos[i][0]);
-			if(parsed["type"]=="yt") {
-				a=parsed["id"];
-				btn2=$('<button onClick="prevVideo(\''+a+'\')"/>');
-				btn2.addClass('btn btn-mini qe_btn pull-right');
-				btn2.append('<i class="icon-film"></i>');
-				item.append(btn2);
-			}
-			item.append('<span class="badge db-badge">'+item_nr+'</span>');
-			item.append('<span class="db-title" style="margin-left:4px">'+videos[i][1]+'</span><br/>');
-			item.append('<span class="db-link">'+videos[i][0]+'</span>');
-			list.append(item);
-		}
-	}
-	$("#dbwrap").append(list);
-	$("#la"+layer_nr).append(' <span class="songs-count">['+count_nr+']</span>');
-	opening[layer_nr-1]=0;
-
-	// function: toggle database sections
-
-	function toggleCat(a) {
-		b=a-1;
-		if(opening[b]==0) {
-			closeAll();
-			$("#l"+a).show();
-			opening[b]=1;
-		} else {
-			$("#l"+a).hide();
-			opening[b]=0;
-		}
-	}
-
-	// function: close all database sections
-
-	function closeAll() {
-		$(".db-cat").hide();
-		for(i=0; i<opening.length; i++) {
-			opening[i]=0;
-		}
-	}
-	closeAll();
-
-	// function: add database link to playlist
-
-	var addedLinks=new Array();
-	function addVideo(link) {
-		parsed=parseMediaLink(link);
-		idx=parsed["id"];
-		if(idx!=null) {
-			a=(new Date()).getTime();
-			if(!hasPermission("playlistadd")) {
-				alert('You have no permission to add a link.');
-			} else if(addedLinks[idx]!=undefined && a-addedLinks[idx]<120000) {
-				alert('You have just added this link.');
-			} else {
-				socket.emit("queue", {id: idx, pos: "end", type: parsed["type"]});
-				addedLinks[idx]=a;
-			}
-		}
-	}
-
-	// function: preview video
-
-	function prevVideo(a) {
-		createModal('Preview Video', 'Close');
-
-		player=$('<iframe/>');
-		player.attr('src', 'http://www.youtube.com/embed/'+a+'?enablejsapi=1')
-		  .attr('width', '530').attr('height', '323').attr('frameborder', '0');
-		player.appendTo(body);
-	}
-
-	/* END OF NECESSARY CODE */
-
-} else if(channelDatabase=="1" && channelDatabaseURL!="") {
-	$.getScript(channelDatabaseURL);
-}
-
-// adding playlist pin-up button
-
-$("#qualitywrap").prepend('<button id="pl-pinup" class="btn btn-small pull-right">PinUp ▴</button>');
-
-// click: pin-up playlist to player
-
-var isPlPin=false;
-$("#pl-pinup").click(function() {
-	if(!isPlPin) {
-		if(userconfig["player"]=="center" || userconfig["queue"]=="center") {
-			alert('You can\'t pin playlist if player or library are centered.');
-		} else {
-			if(userconfig["player"]=="left") {
-				$("#videowrap").after($("#rightpane-outer").detach());
-			} else if(userconfig["player"]=="right") {
-				$("#videowrap").before($("#rightpane-outer").detach());
-			}
-			if(userconfig["queue"]=="left") {
-				$("#leftpane-outer").before($("#chatwrap").detach());
-			} else if(userconfig["queue"]=="right") {
-				$("#leftpane-outer").after($("#chatwrap").detach());
-			}
-			$("#rightpane-outer").removeClass().addClass('span5');
-			if(userconfig["qsize"]=="wide") {
-				$("#chatwrap").removeClass().addClass('span7');
-				if(checkButtons()) {
-					$("#chatline").removeClass().addClass('span6');
-				} else {
-					$("#chatline").removeClass().addClass('span7');
-				}
-			} else {
-				$("#chatwrap").removeClass().addClass('span5');
-				if(checkButtons()) {
-					$("#chatline").removeClass().addClass('span4');
-				} else {
-					$("#chatline").removeClass().addClass('span5');
-				}
-			}
-			$("#pl-pinup").text('UnPin ▾');
-			$("#minplrow").hide();
-			$("#userConfig").hide();
-			$("#mode-sel option[value='chMode']").hide();
-			isPlPin=true;
-			scrollQueue();
-		}
+$("#vDown").on("click", function() {
+	if (PLAYER.type=="yt") {
+		a=PLAYER.player.getVolume();
+		PLAYER.player.setVolume(a-1);
 	} else {
-		if(userconfig["queue"]=="left") {
-			$("#leftpane-outer").before($("#rightpane-outer").detach());
-		} else if(userconfig["queue"]=="right") {
-			$("#leftpane-outer").after($("#rightpane-outer").detach());
-		}
-		if(userconfig["player"]=="left") {
-			$("#videowrap").after($("#chatwrap").detach());
-		} else if(userconfig["player"]=="right") {
-			$("#videowrap").before($("#chatwrap").detach());
-		}
-		$("#chatwrap").removeClass().addClass('span5');
-		if(checkButtons()) {
-			$("#chatline").removeClass().addClass('span4');
-		} else {
-			$("#chatline").removeClass().addClass('span5');
-		}
-		if(userconfig["qsize"]=="wide") {
-			$("#rightpane-outer").removeClass().addClass('span7');
-		} else {
-			$("#rightpane-outer").removeClass().addClass('span5');
-		}
-		$("#pl-pinup").text('PinUp ▴');
-		$("#minplrow").show();
-		$("#userConfig").show();
-		$("#mode-sel option[value='chMode']").show();
-		isPlPin=false;
-		scrollQueue();
+		alert('You can change only YouTube volume level due to limited player functionality.');
 	}
 });
 
-// click: improved getting playlist URLs
-
-$("#getplaylist").unbind();
-$("#getplaylist").click(function() {
-	createModal('Playlist URLs', 'Close');
-
-	data=$("<textarea/>").attr('rows', '8').css('width', '97%').val(formatRawList()).appendTo(body);
-	rlist=$("<button/>").addClass('btn pull-left').text('Raw List').appendTo(footer);
-	tlist=$("<button/>").addClass('btn pull-left').text('Plain Text').appendTo(footer);
-	hlist=$("<button/>").addClass('btn pull-left').text('HTML Code').appendTo(footer);
-
-	rlist.click(function() {
-		data.val(formatRawList());
-	});
-
-	tlist.click(function() {
-		data.val(formatPlainTextList());
-	});
-
-	hlist.click(function() {
-		data.val('<ol>\n'+formatHTMLList()+'\n</ol>');
-	});	
+$("#vUp").on("click", function() {
+	if (PLAYER.type=="yt") {
+		a=PLAYER.player.getVolume();
+		PLAYER.player.setVolume(a+1);
+	} else {
+		alert('You can change only YouTube volume level due to limited player functionality.');
+	}
 });
 
-// functions: get playlist helper functions
+// click: toggle channel database
 
-function formatRawList() {
-	a=$("#queue .queue_entry").length+1;
-	var list=new Array();
-	for(i=1; i<a; i++) {
-		item=$("#queue .queue_entry:nth-child("+i+")").data("media");
-		link=formatURL(item);
-		list.push(link);
+$("#dbtoggle").on("click", function() {
+	if ($("#dbwrap").css("display")=="none") {
+		$("#dbwrap").show();
+		!isDB ? createDatabase() : '';
+		$("#dbtoggle").html($("#dbtoggle").html().replace(/Show/, "Hide"));
+		$("#dbtoggle i").removeClass("icon-plus").addClass("icon-minus");
+	} else {
+		$("#dbwrap").hide();
+		$("#dbtoggle").html($("#dbtoggle").html().replace(/Hide/, "Show"));
+		$("#dbtoggle i").removeClass("icon-minus").addClass("icon-plus");
 	}
-	return list.join(",");
-}
+});
 
-function formatPlainTextList() {
-	a=$("#queue .queue_entry").length+1;
-	var list=new Array();
-	for(i=1; i<a; i++) {
-		item=$("#queue .queue_entry:nth-child("+i+")").data("media");
-		link=formatURL(item);
-		title=item.title;
-		duration=item.duration;
-		list.push(i+'. '+link+' '+title+' ['+duration+']');
+// click: toggle channel galleries
+
+$("#gallerytoggle").on("click", function() {
+	if ($("#gallerywrap").css("display")=="none") {
+		$("#gallerywrap").show();
+		!isLoadedGallery ? createGallery() : '';
+		$("#gallerytoggle").html($("#gallerytoggle").html().replace(/Show/, "Hide"));
+		$("#gallerytoggle i").removeClass("icon-plus").addClass("icon-minus");
+	} else {
+		$("#gallerywrap").hide();
+		$("#gallerytoggle").html($("#gallerytoggle").html().replace(/Hide/, "Show"));
+		$("#gallerytoggle i").removeClass("icon-minus").addClass("icon-plus");
 	}
-	return list.join('\n');
+});
+
+// extending 'Get URLs' function
+
+if (UI_ExtendedGetURLs=="1") {
+	$("#getplaylist").unbind()
+	  .text('Copy or Export Playlist')
+	  .on("click", function() {
+		createModal('Playlist URLs', 'Close');
+
+		data=$("<textarea/>").attr('rows', '8').css('width', '97%').val(formatRawList()).appendTo(body);
+		rlist=$("<button/>").addClass('btn pull-left').text('Raw List').appendTo(footer);
+		tlist=$("<button/>").addClass('btn pull-left').text('Plain Text').appendTo(footer);
+		hlist=$("<button/>").addClass('btn pull-left').text('HTML Code').appendTo(footer);
+
+		rlist.on("click", function() {
+			data.val(formatRawList());
+		});
+
+		tlist.on("click", function() {
+			data.val(formatPlainTextList());
+		});
+
+		hlist.on("click", function() {
+			data.val('<ol>\n'+formatHTMLList()+'\n</ol>');
+		});
+	});
 }
-
-function formatHTMLList() {
-	a=$("#queue .queue_entry").length+1;
-	var list=new Array();
-	for(i=1; i<a; i++) {
-		item=$("#queue .queue_entry:nth-child("+i+")").data("media");
-		title=item.title;
-		duration=item.duration;
-		link=formatURL(item);
-		list.push('<li>'+title+' ['+duration+'] - <a href="'+link+'" target="_blank">'+link+'</a></li>');
-	}
-	return list.join('\n');
-}
-
-// adding fonts and emotes install filters buttons
-
-$("#multifiltersubmit").after('<button id="installfonts" class="btn">Install Fonts</button>');
-$("#installfonts").after('<button id="installemotes" class="btn">Install Emotes</button>');
 
 // clicks: install filters
 
-$("#installfonts").click(function() {
-	arr=new Array();
-	for(i=0; i<fontsBtn.length; i++) {
+$("#installfonts").on("click", function() {
+	var arr=new Array();
+	for (i=0; i<fontsBtn.length; i++) {
 		arr.push(fontsBtn[i][3]+" \\["+fontsBtn[i][1]+"\\] g "+fontsBtn[i][4]);
 	}
 	$("#multifiltereditor").val(arr.join("\n"));
 });
 
-$("#installemotes").click(function() {
+$("#installemotes").on("click", function() {
 	var arr=new Array();
-	$.each(imgCodes, function(a,b) {
+	$.each(EmotesArray, function(a,b) {
 		a=a.replace(RegExp(" ","g"),"\\ ");
-		arr.push(a+' '+a+' '+'g'+' '+'<img\\ src="'+emotesBasicURL+''+b[0]+'"\\ width="'+b[1]+'"\\ height="'+b[2]+'"\\ alt="'+a+'"\\ />');
+		arr.push(a+' '+a+' '+'g'+' '+'<img\\ src="'+EmotesBasicURL+''+b[0]+'"\\ width="'+b[1]+'"\\ height="'+b[2]+'"\\ alt="'+a+'"\\ />');
 	});
-	arr.push('custom\\ image \\[img\\]([^\\*]+)\\[\\/img\\] g <a\\ href="http://$1"\\ target="_blank"><img\\ src="http://$1"\\ width="100"\\ alt="custom\\ image"\\ /></a>');
+	arr.push('custom\\ image \\[img\\]([^\\*]+)\\[\\/img\\] g <a\\ href="$1"\\ target="_blank"><img\\ src="$1"\\ width="100"\\ alt="custom\\ image"\\ /></a>');
 	$("#multifiltereditor").val(arr.join("\n"));
 });
 
-// cookie: getting number of visits
-
-pie=readCookie(cookiePrefix+"_visits");
-if(pie==null) pie=1;
-var USER_VISITS=pie;
-pie++;
-createCookie(cookiePrefix+"_visits", pie, 365);
-
-// footer improvement
-
-$("#modrow").after('<div id="footerrow" class="row" style="margin-top:5px"/>');
-$("#footerrow").append('<div id="footerwrap" class="span12" style="font-size:9pt"/>');
-if(typeof success==="undefined") defFooter=$("#footer .muted").html();
-$("#footer").remove();
-
-$("#footerwrap").append('<span style="float:right; margin-left:15px">'+rightFooterHTML+'</span>'+defFooter+'<br/>');
-$("#footerwrap").append('CyTube Plus Copyright &copy; 2013 Zimny Lech · ');
-$("#footerwrap").append('Free source on <a href="http://github.com/zimny-lech/CyTube-Plus" target="_blank">GitHub</a> · ');
-$("#footerwrap").append('<a href="http://github.com/zimny-lech/CyTube-Plus/wiki" target="_blank">Help</a><br/>');
-$("#footerwrap").append('My Visits: <span class="badge footer-badge">'+USER_VISITS+'</span> / ');
-$("#footerwrap").append('Online: <span id="onlinetime" class="badge footer-badge">0:00</span><br/><br/>');
-$("#footerwrap").append(footerHTML);
-
-$("#mainpage").after($("#sitefooter").detach());
-if($("#sitefooter").html()=="") {
-	$("#sitefooter").remove();
-}
-
-// function: set user online time
-
-var USER_ONLINE=0;
-function onlineTime() {
-	USER_ONLINE++;
-	hours=Math.floor(USER_ONLINE/60);
-	minutes=USER_ONLINE-hours*60;
-	if(minutes<10) minutes="0"+minutes;
-	$("#onlinetime").html(hours+":"+minutes);
-}
-var intervalB=setInterval(function() {onlineTime()}, 60000);
-
-// configuration: creating user chat commands, signs and optional filters
-
-if((userCommands=="1" || independentFilters=="1" || userSpecialSign=="1") && (typeof success==="undefined")) {
-	_chatBuffer=addChatMessage;
-	addChatMessage=function(data) {
-		if(independentFilters=="1") {
-			for(i=0; i<independentCodes.length; i++) {		
-				data.msg=data.msg.replace(independentCodes[i].before, independentCodes[i].after);
-			}
-		}
-		if(userSpecialSign=="1") {
-			if(userSigns[data.username]!=undefined) {
-				data.msg=userSigns[data.username]+' '+data.msg;
-			}
-		}
-		_chatBuffer(data);
-
-		if(userCommands=="1") {
-			var isCommand=false;
-			if(data.msg.indexOf("!pick ")>-1) {
-				isCommand=true;
-				temp=data.msg.split("!pick ");
-				arr=temp[1].split(",");
-				a=Math.round(Math.random()*(arr.length-1));
-				data.msg=arr[a];
-			} else if(data.msg.indexOf("!ask ")>-1) {
-				isCommand=true;
-				answers=[
-				"100% for sure", "definitely yes", "yes", "probably", 
-				"not any chance", "definitely no", "a little chance", "no", 
-				"50/50", "fairy is tired and will not answer", "I refuse to answer"
-				];
-				a=Math.round(Math.random()*(answers.length-1));
-				data.msg=answers[a];
-			} else if(data.msg.indexOf("!time")>-1) {
-				isCommand=true;
-				a=new Date();
-				b=a.getHours();
-				if(b<10) {
-					b='0'+b;
-				}
-				c=a.getMinutes();
-				if(c<10) {
-					c='0'+c;
-				}
-				data.msg='<i>current time:</i> '+b+':'+c;
-			} else if(data.msg.indexOf("!dice")>-1) {
-				isCommand=true;
-				a=Math.round(Math.random()*5)+1;
-				data.msg=a;
-			} else if(data.msg.indexOf("!q")>-1) {
-				isCommand=true;
-				a=Math.round(Math.random()*(randomQuotes.length-1));
-				data.msg='"'+randomQuotes[a]+'"';
-			} else if(data.msg.indexOf("!random")>-1 && channelDatabase=="1") {
-				isCommand=true;
-				a="";
-				while(a=="") {
-					b=Math.round(Math.random()*(videos.length-1));
-					a=videos[b][0];
-					c=videos[b][1];
-				}
-				addToPlaylist(a, "end");
-				data.msg='<i>added random video:</i> '+c;
-			} else if(data.msg.indexOf("!random")>-1 && channelDatabase!="1") {
-				isCommand=true;
-				data.msg='channel database is not enabled';
-			} else if(data.msg.indexOf("!calc ")>-1) {
-				isCommand=true;
-				temp=data.msg.split("!calc ");
-				data.msg=eval(temp[1]);
-			}
-			if(isCommand) {
-				data.msg='<div class="command">'+data.msg+'</div>';
-				_chatBuffer(data);
-			}
-		}
-	}
-}
-
-// configuration: adding additional script file
-
-if(additionalScriptURL!="") {
-	$.getScript(additionalScriptURL);
-}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // setting layout after loading channel
 
@@ -2260,6 +2539,12 @@ plControlsMode(userconfig["menu"]);
 scrollQueue();
 scrollChat();
 
-var success=true;
+notLoaded=false;
+
+// adding additional script file
+
+if (UI_AdditionalScript=="1" && AdditionalScript_URL!="") {
+	$.getScript(AdditionalScript_URL);
+}
 
 /* ----- END OF LIBRARY ----- */
