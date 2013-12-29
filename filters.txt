@@ -1,6 +1,10 @@
 Formatted codes for CyTube Plus filters.
 
-Use if you have problems with installing with special buttons, or if you want to do it manually.
+WARNING!
+If you want to use CyTube Plus filters only in current session, set 'UI_TemporaryFilters' as '1'.
+
+Use instruction below if you want to set filters on the channel permanently (you can delete them anyway later).
+Remember to set 'UI_TemporaryFilters' as '0' before.
 
 1. Go to "Moderation Menu" and click "Chat Filters".
 2. Scroll down to "Multi-Filter Editor".
