@@ -4,7 +4,7 @@
 
 ### Q: What is CyTube Plus?
 
-**A:** It's an easy to configure, powerful <b>JavaScript/CSS library</b> for [CyTube](https://github.com/calzoneman/sync) channels administrators, adding new features and enhancements. It works with _2.4 - 2.4.2_ versions.
+**A:** It's an easy to configure, powerful <b>JavaScript library</b> for [CyTube](https://github.com/calzoneman/sync) channels administrators, adding new features and enhancements. Current code works with **2.4.5** CyTube version.
 
 ### Q: What this library exactly does?
 
@@ -38,11 +38,11 @@
 > Note: don't be afraid to configure! Go to [Wiki](https://github.com/zimny-lech/CyTube-Plus/wiki) for help. If all fails, copy default `main.js` file, and try to change variables one by one - this way you will find what's wrong.
 
 1. Open content of `main.js` file in a text editor.
-2. Scroll down to CONFIGURATION sections and configure library according to your wishes<sup>1</sup>. All options are explained for non-advanced users.
+2. Scroll down to configuration sections and configure library according to your wishes<sup>1</sup>. All options are explained for non-advanced users.
 3. Save customized library to your file hosting (e.g. <i>Dropbox</i><sup>2</sup>), project hosting (e.g. <i>GitHub</i><sup>3</sup>) or to your own server<sup>4</sup>.
 4. Enter your library file location in "Channel Options", and save.
 
-<sup>1</sup><i>Note: I highly recommend you to change default `cookiePrefix` variable (for not to interfere with other CyTube Plus channels).</i><br/><sup>2</sup><i>Warning! Always use `dl.dropboxusercontent.com` URL instead of `www.dropbox.com`.</i><br/><sup>3</sup><i>Warning! Always use `raw.github.com` URL instead of `github.com`.</i><br/><sup>4</sup><i>Warning! You must be able to **access .js file directly** (browser's URL must contain `.js` extension, not `.php` etc.).</i>
+<sup>1</sup><i>Note: I highly recommend you to change default `CookiePrefix` variable (to prevent from using cookies from other channels).</i><br/><sup>2</sup><i>Warning! Always use `dl.dropboxusercontent.com` URL instead of `www.dropbox.com`.</i><br/><sup>3</sup><i>Warning! Always use `raw.github.com` URL instead of `github.com`.</i><br/><sup>4</sup><i>Warning! You must be able to **access .js file directly** (browser's URL must contain `.js` extension, not `.php` etc.).</i>
 
 **Additional recommended actions for more advanced users:**
 
