@@ -78,7 +78,7 @@ UI_MiniLogo = 1; // small channel logo in the top navbar
 UI_ChannelName = 1; // channel custom brand name
 UI_HeaderDropMenu = 1; // additional header dropdown menu
 UI_CustomHelp = 1; // custom help file
-UI_AttentionBar = 1; // imageboard-style attention bar
+UI_AttentionBar = 0; // imageboard-style attention bar
 UI_MOTDAutoLogo = 0; // big channel logo inserted into MOTD
 UI_RulesBtn = 1; // button displaying channel rules
 UI_ChannelAnnouncement = 1; // additional custom channel announcement
@@ -510,7 +510,7 @@ ChannelDatabase_Array=[
 // REQUIRE: UI_ChannelDatabase enabled
 // NOTE: leave empty '' in the "video_URL" field to create section button
 
-ChannelDatabase_URL='https://dl.dropboxusercontent.com/s/wk5x4tesqa8a46j/external-db.js';
+ChannelDatabase_URL='';
 
 // DESCRIPTION: external video database file URL
 // REQUIRE: UI_ChannelDatabase enabled, INSTALLATION REQUIRED
