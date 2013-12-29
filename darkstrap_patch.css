@@ -1,6 +1,6 @@
 .alert a {color:#eeeeee}
 select {background-color:black}
-#motd {background-color:#333333}
+#motdwrap {background-color:#333333}
 #currenttitle {background:transparent}
 #titlerow-outer {background-image:linear-gradient(to right, #666666, #666666)}
 #rulespanel, .currenttitle, #emptytop, #footerwrap {color:#C6C6C6}
