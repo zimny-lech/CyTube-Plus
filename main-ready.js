@@ -374,7 +374,7 @@ PatchesCSS = [
 // REQUIRE: UI_LayoutThemeSel and UI_LayoutDefaultThemes enabled
 // NOTE: these are important files, without them default themes may seems not fitting
 
-MainCSS = 'https://raw.github.com/zimny-lech/CyTube-Plus/master/main.css';
+MainCSS = 'https://dl.dropboxusercontent.com/s/qb1g9q0dieg6b1k/main.css';
 
 // DESCRIPTION: default script layout CSS properties file URL
 // WARNING! this file is required for correct channel layout, be careful if you change URL or content of the file
