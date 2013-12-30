@@ -4,11 +4,11 @@
 
 ### Q: What is CyTube Plus?
 
-**A:** It's an easy to configure, powerful <b>JavaScript library</b> for [CyTube](https://github.com/calzoneman/sync) channels administrators, adding new features and enhancements. Current code works with **2.4.5** CyTube version.
+**A:** It's an easy to configure, powerful <b>JavaScript/CSS library</b> for [CyTube](https://github.com/calzoneman/sync) channels administrators, adding new features and enhancements. Latest release works with **2.4.5** CyTube version.
 
 ### Q: What this library exactly does?
 
-**A:** See detailed list on the [Features](https://github.com/zimny-lech/CyTube-Plus/wiki/Features) page. Currently script administrators can set up **41 options**.
+**A:** See detailed list on the [Features](https://github.com/zimny-lech/CyTube-Plus/wiki/Features) page. Currently script administrators can set up **48 options**.
 
 ### Q: Something is not working, what to do?
 
