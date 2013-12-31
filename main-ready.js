@@ -22,7 +22,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 // CyTube Plus - JavaScript and CSS library for CyTube channels enhancements
-// Version: 2.5.1
+// Version: 2.5.2
 // Modified: 2013-12-31
 // Project URL: https://github.com/zimny-lech/CyTube-Plus
 // Wiki URL: https://github.com/zimny-lech/CyTube-Plus/wiki
@@ -1063,7 +1063,6 @@ function plControlsMode(a) {
 // create channel database
 
 function createDatabase() {
-	var addedLinks=new Array();
 	html='<button id="la1" class="btn btn-small db-break" onclick="toggleCat(1)" style="width:100%">'
 	  + ChannelDatabase_Array[0][1]
 	  + '</button>'
@@ -1149,6 +1148,7 @@ function toggleCat(a) {
 
 // add database link to playlist
 
+var addedLinks=new Array();
 function addVideo(link) {
 	parsed=parseMediaLink(link);
 	idx=parsed["id"];
