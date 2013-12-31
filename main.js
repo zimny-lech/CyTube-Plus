@@ -22,8 +22,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 // CyTube Plus - JavaScript and CSS library for CyTube channels enhancements
-// Version: 2.5
-// Modified: 2013-12-29
+// Version: 2.5.1
+// Modified: 2013-12-31
 // Project URL: https://github.com/zimny-lech/CyTube-Plus
 // Wiki URL: https://github.com/zimny-lech/CyTube-Plus/wiki
 
@@ -47,8 +47,8 @@ If all fails, copy default "main.js" file, and try to change variables one by on
    https://raw.github.com/zimny-lech/CyTube-Plus/master/main.js
 2. Scroll down to configuration sections and configure library according to your wishes.
    Note: all options are explained for non-advanced users.
-   Note 2: I highly recommend you to change default "CookiePrefix" variable (for not interfere
-           with other CyTube Plus channels).
+   Note 2: I highly recommend you to change default "CookiePrefix" variable (to prevent from using cookies
+           from other CyTube Plus channels).
 3. Save customized library to your file hosting (e.g. Dropbox), project hosting (e.g. GitHub) or to your own server.
    Warning! You must be able to access .js file directly (browser's URL must contain .js extension, not .php etc.).
    Warning for Dropbox users! Always use "dl.dropboxusercontent.com" URL instead "www.dropbox.com".
@@ -76,6 +76,7 @@ If all fails, copy default "main.js" file, and try to change variables one by on
 UI_Favicon = 1; // channel favicon
 UI_MiniLogo = 1; // small channel logo in the top navbar
 UI_ChannelName = 1; // channel custom brand name
+UI_RemoveChatOnly = 1; // removing 'Chat Only' link from the header
 UI_HeaderDropMenu = 1; // additional header dropdown menu
 UI_CustomHelp = 1; // custom help file
 UI_AttentionBar = 0; // imageboard-style attention bar
@@ -120,6 +121,7 @@ UI_ChannelCache = 1; // caching script emotes, additional media database and def
 CookiePrefix='g7tr8hgryrtyutr8u97';
 
 // FILTERS INSTALLATION
+// set UI_TemporaryFilters to 0, save, reload channel
 // go to Moderation Menu > click Chat Filters > scroll down to Multi-Filter Editor...
 // ... click Install Fonts / Install Emotes > click Add/Update
 
@@ -532,9 +534,9 @@ var notLoaded = (typeof notLoaded==="undefined" ? true : false);
 
 /* ----- removing previously created elements, wraps and intervals in case of server restart ----- */
 
-$("#chanavatar, #dropmenu, #azukirow, #zerorow, #anntop, #anntop-align, #annclose, #attbarrow-outer").remove();
-$("#emptytop, #fontsbtn, #emotesbtn, #chathelpbtn, #pl-tooltip").remove();
-$("#pl-pinup, #mediacaret, #minplrow, #mirrorcaret").remove();
+$("#chanfavicon, #chanavatar, #dropmenu, #azukirow, #zerorow, #anntop").remove();
+$("#anntop-align, #annclose, #attbarrow-outer, #emptytop, #fontsbtn, #emotesbtn").remove();
+$("#chathelpbtn, #pl-tooltip, #pl-pinup, #mediacaret, #minplrow, #mirrorcaret").remove();
 $("#layouttoggle-outer, #gallerytoggle-outer, #dbtoggle-outer, #installfonts, #installemotes, #footerrow").remove();
 
 $("#anntop-align").unwrap;
@@ -558,7 +560,6 @@ $("#voteskip").parent().attr('id', 'voteskipwrap');
 /* ----- removing and changing CSS unnecessary classes and layout elements ----- */
 
 $("#link-home").removeClass('active');
-$("#headermenu li:nth-child(5)").remove();
 $("#toprow, #announcements, #main").removeClass('row-fluid').addClass('row');
 $("#main-inner, #playlistrow, #playlist-inner").removeClass('row-fluid').addClass('row');
 $(".container-fluid").removeClass('container-fluid').addClass('container');
@@ -1014,9 +1015,9 @@ function mainLocation(a) {
 
 function motdLocation(a) {
 	if (a=="top") {
-		$("#zerorow").after($("#annrow").detach()).after($("#toprow").detach());
+		$("#zerorow").after($("#annrow").detach()).after($("#drinkrow").detach()).after($("#toprow").detach());
 	} else if (a=="bottom") {
-		$("#modrow").before($("#toprow").detach()).before($("#annrow").detach());
+		$("#modrow").before($("#toprow").detach()).before($("#drinkrow").detach()).before($("#annrow").detach());
 	}
 }
 
@@ -1071,10 +1072,10 @@ function plControlsMode(a) {
 		  .append('<li id="opt4" />')
 		  .append('<li class="divider" />')
 		  .append('<li id="opt5" />')
-	  	  .append('<li id="opt6" />')
+		  .append('<li id="opt6" />')
 		  .append('<li id="opt7" />')
 		  .append('<li id="opt8" />')
-	  	  .append('<li id="opt9" />')
+		  .append('<li id="opt9" />')
 		  .append('<li class="divider" />')
 		  .append('<li id="opt10" />')
 		  .append('<li id="opt11" />')
@@ -1122,9 +1123,9 @@ function createDatabase() {
 			layer_nr++;
 			count_nr=0;
 			html+='<button id="la'+layer_nr+'" class="btn btn-small db-break" onclick="toggleCat('+layer_nr+')" style="width:100%">'
-	 		  + ChannelDatabase_Array[i][1]
-	  		  + '</button>'
-	  		  + '<ul id="l'+layer_nr+'" class="videolist db-cat">';
+			  + ChannelDatabase_Array[i][1]
+			  + '</button>'
+			  + '<ul id="l'+layer_nr+'" class="videolist db-cat">';
 		} else {
 			item_nr++;
 			count_nr++;
@@ -1426,17 +1427,17 @@ function setCSS() {
 
 function setUserCSS() {
 	$("#usertheme").remove();
-	$("head").append('<link href="'+USER_THEME+'" rel="stylesheet" id="usertheme">');
-
-	$("#themepatch").remove();
-	if (USER_THEME=="assets/css/ytsync.css") {
-		$("head").append('<link href="'+PatchesCSS[0]+'" rel="stylesheet" id="themepatch">');
-	} else if (USER_THEME=="assets/css/darkstrap.css") {
-		$("head").append('<link href="'+PatchesCSS[1]+'" rel="stylesheet" id="themepatch">');
-	} else if (USER_THEME=="assets/css/altdark.css") {
-		$("head").append('<link href="'+PatchesCSS[2]+'" rel="stylesheet" id="themepatch">');
+	if (UI_LayoutThemeSel=="1") {
+		$("head").append('<link href="'+USER_THEME+'" rel="stylesheet" id="usertheme">');
+		$("#themepatch").remove();
+		if (USER_THEME=="assets/css/ytsync.css") {
+			$("head").append('<link href="'+PatchesCSS[0]+'" rel="stylesheet" id="themepatch">');
+		} else if (USER_THEME=="assets/css/darkstrap.css") {
+			$("head").append('<link href="'+PatchesCSS[1]+'" rel="stylesheet" id="themepatch">');
+		} else if (USER_THEME=="assets/css/altdark.css") {
+			$("head").append('<link href="'+PatchesCSS[2]+'" rel="stylesheet" id="themepatch">');
+		}
 	}
-
 	$("#usercss").remove();
 	if (USEROPTS.css!="") {
 		$("head").append('<link href="'+USEROPTS.css+'" rel="stylesheet" id="usercss">');
@@ -1511,7 +1512,7 @@ if (_cookie==null) {
 // setting CSS files in proper order
 
 setCSS();
-UI_LayoutThemeSel=="1" ? setUserCSS() : '';
+setUserCSS();
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1540,7 +1541,7 @@ if (USEROPTS.hidevid) {
 
 if (UI_Favicon=="1") {
 	$(document).ready(function() {
-		$("head").append('<link href="'+Favicon_URL+'" rel="shortcut icon" type="image/x-icon" />');
+		$("head").append('<link id="chanfavicon" href="'+Favicon_URL+'" rel="shortcut icon" type="image/x-icon" />');
 	});
 }
 
@@ -1554,6 +1555,12 @@ if (UI_ChannelName=="1") {
 
 if (UI_MiniLogo=="1" && MiniLogo_URL!="") {
 	$(".brand").prepend('<img id="chanavatar" src="'+MiniLogo_URL+'" style="margin-right:10px" />');
+}
+
+// optional removing of "Chat Only" link
+
+if (UI_RemoveChatOnly=="1") {
+	$("#headermenu li:nth-child(5)").remove();
 }
 
 // adding header dropdown menu
@@ -1602,6 +1609,14 @@ if (UI_MOTDAutoLogo=="1") {
 	}
 }
 
+// detaching drinkbar
+
+$_drinkrow=$('<div id="drinkrow" class="row" />')
+	.insertAfter("#toprow");
+$_drinkbarwrap=$('<div id="drinkbarwrap" class="span12" />')
+	.appendTo($_drinkrow)
+	.append($("#drinkbar").detach());
+
 // adding rules button
 
 if (UI_RulesBtn=="1") {
@@ -1611,7 +1626,6 @@ if (UI_RulesBtn=="1") {
 	  .prependTo("#announcements")
 	  .html('<button id="rulesbtn" class="btn">'+RulesBtn_Caption+' ▸</button>')
 	  .append('<div id="rulespanel-outer" />')
-	  .append($("#drinkbar").detach())
 	  .after('<div id="anntop-align" />')
 	$("#announcements").prepend('<button id="annclose" class="close pull-right">×</button>');
 	$("#rulespanel-outer").html('<div id="rulespanel" style="display:none">'+RulesBtn_HTML+'</div>');
@@ -1912,7 +1926,7 @@ generateToggle("#layouttoggle", "#layoutwrap");
 if (UI_DisplayModeSel=="1") {
 	$_modewrap=$('<div id="modewrap" class="span12" />')
 	  .css('text-align', 'center')
- 	  .appendTo($_layoutwrap);
+	  .appendTo($_layoutwrap);
 	$_modetitle=$('<span id="modetitle" class="conf-opt">Display Mode</span><br />')
 	  .appendTo($_modewrap);
 	$_modesel=$('<select id="mode-sel" style="width:150px" />')
@@ -1921,25 +1935,28 @@ if (UI_DisplayModeSel=="1") {
 	  .append('<option value="chMode">chatroom mode</option>')
 	  .append('<option value="rMode">radio mode</option>')
 	  .append('<br />')
- 	  .appendTo($_modewrap);
+	  .appendTo($_modewrap);
 }
 
 // adding layout configuration button
 
+$_userconfigwrap=$('<div id="userconfigwrap" class="span12" />')
+  .css('text-align', 'center')
+  .appendTo($_layoutwrap);
 $_userconfig=$('<button id="userConfig" class="btn btn-small">Layout Configuration</button>')
   .css('margin-top', '10px').css('margin-bottom', '10px')
-  .appendTo($_layoutwrap);
+  .appendTo($_userconfigwrap);
 
 // adding layout themes selector
 
 if (UI_LayoutThemeSel=="1") {
 	$_themewrap=$('<div id="themewrap" class="span12" />')
 	  .css('text-align', 'center')
- 	  .appendTo($_layoutwrap);
+	  .appendTo($_layoutwrap);
 	$_themetitle=$('<span id="themetitle" class="conf-opt">Layout Theme</span><br />')
 	  .appendTo($_themewrap);
 	$_themesel=$('<select id="theme-sel" style="width:150px" />')
- 	  .appendTo($_themewrap);
+	  .appendTo($_themewrap);
 	if ($("#chanexternalcss").length>0) {
 		link=$("#chanexternalcss").attr('href');
 		$_themesel.append('<option value="'+link+'">## channel default</option>');
@@ -1964,7 +1981,7 @@ if (UI_LayoutThemeSel=="1") {
 if (UI_FastCommandsBtns=="1" || UI_YTVolumeBtns=="1") {
 	$_btnswrap=$('<div id="btnswrap" class="span12 btn-group" />')
 	  .css('text-align', 'center')
- 	  .appendTo($_layoutwrap);
+	  .appendTo($_layoutwrap);
 	if (UI_FastCommandsBtns=="1") {
 		$_btnswrap.append('<button id="clearbtn" class="btn btn-small">/clear</button>')
 		  .append('<button id="afkbtn" class="btn btn-small">/afk</button>');
