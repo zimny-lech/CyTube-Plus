@@ -22,7 +22,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 // CyTube Plus - JavaScript and CSS library for CyTube channels enhancements
-// Version: 2.5.1
+// Version: 2.5.2
 // Modified: 2013-12-31
 // Project URL: https://github.com/zimny-lech/CyTube-Plus
 // Wiki URL: https://github.com/zimny-lech/CyTube-Plus/wiki
