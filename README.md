@@ -8,7 +8,7 @@
 
 ### Q: What this library exactly does?
 
-**A:** See detailed list on the [Features](https://github.com/zimny-lech/CyTube-Plus/wiki/Features) page. Currently script administrators can set up **48 options**.
+**A:** See detailed list on the [Features](https://github.com/zimny-lech/CyTube-Plus/wiki/Features) page. Currently script administrators can set up **49 options**.
 
 ### Q: Something is not working, what to do?
 
