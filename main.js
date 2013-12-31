@@ -1109,7 +1109,6 @@ function plControlsMode(a) {
 // create channel database
 
 function createDatabase() {
-	var addedLinks=new Array();
 	html='<button id="la1" class="btn btn-small db-break" onclick="toggleCat(1)" style="width:100%">'
 	  + ChannelDatabase_Array[0][1]
 	  + '</button>'
@@ -1195,6 +1194,7 @@ function toggleCat(a) {
 
 // add database link to playlist
 
+var addedLinks=new Array();
 function addVideo(link) {
 	parsed=parseMediaLink(link);
 	idx=parsed["id"];
