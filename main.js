@@ -1,7 +1,7 @@
 /*
 The MIT License (MIT)
 
-Copyright (c) 2013 Zimny Lech
+Copyright (c) 2013-2014 Zimny Lech
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -22,8 +22,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 // CyTube Plus - JavaScript and CSS library for CyTube channels enhancements
-// Version: 2.5.2
-// Modified: 2013-12-31
+// Version: 2.5.4
+// Modified: 2014-01-01
 // Project URL: https://github.com/zimny-lech/CyTube-Plus
 // Wiki URL: https://github.com/zimny-lech/CyTube-Plus/wiki
 
@@ -79,7 +79,7 @@ UI_ChannelName = 1; // channel custom brand name
 UI_RemoveChatOnly = 1; // removing 'Chat Only' link from the header
 UI_HeaderDropMenu = 1; // additional header dropdown menu
 UI_CustomHelp = 1; // custom help file
-UI_AttentionBar = 0; // imageboard-style attention bar
+UI_AttentionBar = 1; // imageboard-style attention bar
 UI_MOTDAutoLogo = 0; // big channel logo inserted into MOTD
 UI_RulesBtn = 1; // button displaying channel rules
 UI_ChannelAnnouncement = 1; // additional custom channel announcement
@@ -91,6 +91,7 @@ UI_TemporaryFilters = 1; // default emotes and fonts filters in current chat ses
 UI_IndependentFilters = 1; // additional filters visible only in current chat session
 UI_UserSpecialSigns = 1; // special signs prepending messages in the chat window for selected users
 UI_ChatSuffix = 1; // text added to random chat messages
+UI_ChatSound = 1; // custom sound for chat notifications
 UI_FontsBtn = 1; // button displaying box with clickable chat fonts
 UI_UnicodeChars = 1; // additional buttons in the fonts panel with unicode characters; REQUIRE: UI_FontsBtn enabled
 UI_EmotesBtn = 1; // button displaying box with clickable chat emotes
@@ -219,7 +220,7 @@ ChannelAnnouncement_Title = 'Administration Message';
 // DESCRIPTION: custom channel announcement title
 // REQUIRE: UI_ChannelAnnouncement enabled
 
-ChannelAnnouncement_HTML = 'This channel has been creating with <a href="https://github.com/zimny-lech/CyTube-Plus" target="_blank">CyTube Plus 2.5</a>.';
+ChannelAnnouncement_HTML = 'This channel has been created with <a href="https://github.com/zimny-lech/CyTube-Plus" target="_blank">CyTube Plus 2.5.4</a>.';
 
 // DESCRIPTION: custom channel announcement HTML
 // REQUIRE: UI_ChannelAnnouncement enabled
@@ -247,6 +248,11 @@ ChatSuffix_Percentage = 5;
 
 // DESCRIPTION: percentage of chat messages with added text
 // REQUIRE: UI_ChatSuffix enabled
+
+ChatSound_URL = 'https://dl.dropboxusercontent.com/s/0qtsttblgmkewnv/beep.wav';
+
+// DESCRIPTION: chat notifications sound URL
+// REQUIRE: UI_ChatSound enabled
 
 VoteskipCaption_Text = 'Sage';
 
@@ -363,6 +369,7 @@ UnicodeChars_Array = [
 // NOTE: use 1 character in every array item for the best effect (although it's not the limitation)
 
 ThemesCSS = [
+['semidark', 'https://dl.dropboxusercontent.com/s/3pwsdl4jtn2ust2/semidark.css'],
 ['pastel-white', 'https://dl.dropboxusercontent.com/s/1knuft5wbvy7dhm/white.css'],
 ['ice-cirno', 'https://dl.dropboxusercontent.com/s/s15zul92aeo41pk/cirno.css'],
 ['jungle', 'https://dl.dropboxusercontent.com/s/h8q8qml44zoo2pc/jungle.css'],
@@ -785,7 +792,7 @@ function togglePinUp() {
 				$("#chatwrap, #chatline").removeClass().addClass('span5');
 			}
 			$("#pl-pinup").text('UnPin Playlist');
-			$("#minplrow, #userConfig, #modewrap").hide();
+			$("#minplrow, #userconfigwrap, #modewrap").hide();
 			$("#mode-sel option[value='chMode']").hide();
 			isPlPin=true;
 			scrollQueue();
@@ -808,7 +815,7 @@ function togglePinUp() {
 			$("#rightpane-outer").removeClass().addClass('span5');
 		}
 		$("#pl-pinup").text('PinUp Playlist');
-		$("#minplrow, #userConfig, #modewrap").show();
+		$("#minplrow, #userconfigwrap, #modewrap").show();
 		$("#mode-sel option[value='chMode']").show();
 		isPlPin=false;
 		scrollQueue();
@@ -868,6 +875,53 @@ function formatHTMLList() {
 		list.push('<li>'+title+' ['+duration+'] - <a href="'+link+'" target="_blank">'+link+'</a></li>');
 	}
 	return list.join('\n');
+}
+
+// set display mode
+
+function setMode(a) {
+	switch (a) {
+		case "syMode":
+		$("#main, #videowrap, #chatwrap, #rightpane-outer, #pl-pinup, #userconfigwrap").show();
+		if (!isWebkit) {
+			$("#videowrap p, #qualitywrap").show();
+			$("#videowrap").removeClass().addClass('span7');
+		}
+		normalPlayer();
+		normalChat();
+		playerLocation(userconfig["player"]);
+		break;
+
+		case "kMode":
+		$("#main, #videowrap").show();
+		$("#chatwrap, #pl-pinup").hide();
+		bigPlayer();
+		break;
+
+		case "chMode":
+		$("#main, #chatwrap").show();
+		$("#videowidth").removeClass().addClass('span1');
+		if (isWebkit) {
+			$("#videowrap").hide();
+		} else {
+			$("#videowrap p, #qualitywrap").hide();
+			$("#ytapiplayer").attr("width", '1').attr("height", '1');
+		}
+		bigChat();
+		break;
+
+		case "rMode":
+		$("#videowidth").removeClass().addClass('span1');
+		if (isWebkit) {
+			$("#main").hide();
+		} else {
+			$("#main, #videowrap").show();
+			$("#chatwrap, #videowrap p, #qualitywrap").hide();
+			$("#ytapiplayer").attr("width", '1').attr("height", '1');
+		}
+		$("#userconfigwrap").show();
+		break;
+	}
 }
 
 // display mode helper functions
@@ -1063,7 +1117,7 @@ function plControlsMode(a) {
 	} else if (a=="menu") {
 		plControlsMode("default");
 		$("#queue_end").after('<button id="mediacaret" class="btn dropdown-toggle" data-toggle="dropdown">');
-		$("#mediacaret").after('<ul id="moreopt" class="dropdown-menu" />').text('▾');
+		$("#mediacaret").after('<ul id="moreopt" class="dropdown-menu pull-right" />').text('▾');
 
 		$("#moreopt").append('<li id="opt1" />')
 		  .append('<li class="divider" />')
@@ -1219,6 +1273,11 @@ function prevVideo(a) {
 	player=$('<iframe/>').appendTo(body)
 	  .attr('src', 'http://www.youtube.com/embed/'+a+'?enablejsapi=1')
 	  .attr('width', '530').attr('height', '323').attr('frameborder', '0');
+
+	PLAYER.type=="yt" ? PLAYER.player.mute() : '';
+	modal.on("hidden", function() {
+		PLAYER.type=="yt" ? PLAYER.player.unMute() : '';
+	});
 }
 
 // create channel gallery
@@ -1592,6 +1651,15 @@ if (UI_CustomHelp=="1" && CustomHelp_URL!="") {
 	$("#link-help a").attr('href', CustomHelp_URL);
 }
 
+// click: do not overwrite user themes and layout after closing "Options" modal window
+
+$("#optlink").click(function() {
+	USEROPTS.layout="default";
+	$(".modal").on("hidden", function() {
+		setUserCSS();
+	});
+});
+
 // adding important reference row
 
 $("#toprow").before('<div id="zerorow" class="row" />');
@@ -1792,6 +1860,12 @@ addChatMessage=function(data) {
 	}
 }
 
+// customizing chat notifications sound
+
+if (UI_ChatSound=="1") {
+	CHATSOUND = new Audio(ChatSound_URL);
+}
+
 // adding chat buttons wrapping
 
 $("#chatwrap").append('<div id="chatbtn-outer" />');
@@ -1826,10 +1900,10 @@ $("#mediarefresh").text('Refresh / Fix Player');
 if (UI_PlayerMenu=="1") {
 	var isDescr=true;
 	PLAYER_TYPE=PLAYER.type;
-	$("#mediarefresh").after('<div id="mirrorcaret-outer" class="btn-group" />');
-	$("#mirrorcaret-outer").append('<button id="mirrorcaret" class="btn btn-small dropdown-toggle" data-toggle="dropdown" />');
+	$("#mediarefresh").wrap('<div class="btn-group" />')
+	  .after('<button id="mirrorcaret" class="btn btn-small dropdown-toggle" data-toggle="dropdown" />');
 	$("#mirrorcaret").text('Controls ▾')
-	  .after('<ul id="trmenu" class="dropdown-menu" />');
+	  .after('<ul id="trmenu" class="dropdown-menu pull-right"/>');
 	$("#trmenu").append('<li><a id="plX" href="javascript:void(0)">Mirror X Player</a></li>')
 	  .append('<li><a id="plY" href="javascript:void(0)">Mirror Y Player</a></li>')
 	  .append('<li><a id="plR" href="javascript:void(0)">Rotate Player</a></li>')
@@ -2241,41 +2315,8 @@ $("#minplrow").on("click", function() {
 
 $("#mode-sel").on("change", function() {
 	selValue=$("#mode-sel").val();
-	$("#userConfig").hide();
-	if (selValue=="syMode") {
-		$("#main, #videowrap, #chatwrap, #rightpane-outer, #pl-pinup, #userConfig").show();
-		if (!isWebkit) {
-			$("#videowrap p, #qualitywrap").show();
-			$("#videowrap").removeClass().addClass('span7');
-		}
-		normalPlayer();
-		normalChat();
-		playerLocation(userconfig["player"]);
-	} else if (selValue=="kMode") {
-		$("#main, #videowrap").show();
-		$("#chatwrap, #pl-pinup").hide();
-		bigPlayer();
-	} else if (selValue=="chMode") {
-		$("#main, #chatwrap").show();
-		$("#videowidth").removeClass().addClass('span1');
-		if (isWebkit) {
-			$("#videowrap").hide();
-		} else {
-			$("#videowrap p, #qualitywrap").hide();
-			$("#ytapiplayer").attr("width", '1').attr("height", '1');
-		}
-		bigChat();
-	} else if (selValue=="rMode") {
-		$("#videowidth").removeClass().addClass('span1');
-		if (isWebkit) {
-			$("#main").hide();
-		} else {
-			$("#main, #videowrap").show();
-			$("#chatwrap, #videowrap p, #qualitywrap").hide();
-			$("#ytapiplayer").attr("width", '1').attr("height", '1');
-		}
-		$("#userConfig").show();
-	}
+	$("#userconfigwrap").hide();
+	setMode(selValue);
 	scrollQueue();
 	scrollChat();
 });
@@ -2600,6 +2641,13 @@ plControlsMode(userconfig["menu"]);
 
 scrollQueue();
 scrollChat();
+
+// fixing window resizing in cinema and radio mode
+
+$(window).resize(function() {
+	selValue=$("#mode-sel").val();
+	(selValue=="chMode" || selValue=="rMode") ? setMode(selValue) : '';
+});
 
 notLoaded=false;
 
