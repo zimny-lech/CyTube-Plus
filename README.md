@@ -10,6 +10,8 @@
 
 Latest release includes links from my personal example set of channel themes, logos and emotes. During library customization you can leave it, remove any element, or expand it by adding your own links.
 
+Technically, this library collects ideas from old Synchtube various rooms plus my own enhancements. You can recognize some elements, if you were an administrator. Those old fragments of code has been rewrited and adapted to CyTube API and layout, and supplemented with the new features.
+
 ### Q: Where can I see CyTube Plus in action?
 
 **A:** Go to example http://cytu.be/r/plus channel. All library options in this room are enabled by default.
@@ -18,7 +20,7 @@ Latest release includes links from my personal example set of channel themes, lo
 
 ### Q: What this library exactly does?
 
-**A:** See detailed list on the [Features](https://github.com/zimny-lech/CyTube-Plus/wiki/Features) page. Currently script administrators can set up **49 options**.
+**A:** See detailed list on the [Features](https://github.com/zimny-lech/CyTube-Plus/wiki/Features) page. Currently script administrators can set up **50 options**.
 
 ### Q: Something is not working, what to do?
 
