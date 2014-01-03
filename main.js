@@ -22,8 +22,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 // CyTube Plus - JavaScript and CSS library for CyTube channels enhancements
-// Version: 2.5.4
-// Modified: 2014-01-01
+// Version: 2.6
+// Modified: 2014-01-03
 // Project URL: https://github.com/zimny-lech/CyTube-Plus
 // Wiki URL: https://github.com/zimny-lech/CyTube-Plus/wiki
 
@@ -33,9 +33,11 @@ INSTALLATION
 # Simple installation (note: some advanced features are disabled)
 
 1. Go to your channel's "Moderation Menu" and select "Channel Options".
-2. In "External Javascript" field enter ready-to-use library URL given below, and save:
-   https://raw.github.com/zimny-lech/CyTube-Plus/master/main-ready.js
-3. Congratulations, your have just installed basic version of CyTube Plus!
+2. In "External Javascript" field enter javascript library URL given below:
+   https://dl.dropboxusercontent.com/s/j41bicaoh0wx0ug/main.js
+3. In "External CSS" field enter CSS library URL given below:
+   https://dl.dropboxusercontent.com/s/wqtksqgwmrguen8/main.css
+4. Save changes - congratulations, your have just installed basic version of CyTube Plus!
 
 # Advanced installation
 
@@ -49,10 +51,9 @@ If all fails, copy default "main.js" file, and try to change variables one by on
    Note: all options are explained for non-advanced users.
    Note 2: I highly recommend you to change default "CookiePrefix" variable (to prevent from using cookies
            from other CyTube Plus channels).
-3. Save customized library to your file hosting (e.g. Dropbox), project hosting (e.g. GitHub) or to your own server.
+3. Save customized library to your file hosting (e.g. Dropbox) or to your own server.
    Warning! You must be able to access .js file directly (browser's URL must contain .js extension, not .php etc.).
    Warning for Dropbox users! Always use "dl.dropboxusercontent.com" URL instead "www.dropbox.com".
-   Warning for Github users! Always use "raw.github.com" URL instead "github.com".
 4. Enter your library file location in "Channel Options", and save.
 
 # Additional recommended actions for more advanced users:
@@ -76,10 +77,10 @@ If all fails, copy default "main.js" file, and try to change variables one by on
 UI_Favicon = 1; // channel favicon
 UI_MiniLogo = 1; // small channel logo in the top navbar
 UI_ChannelName = 1; // channel custom brand name
-UI_RemoveChatOnly = 1; // removing 'Chat Only' link from the header
+UI_RemoveChatOnly = 0; // removing 'Chat Only' link from the header
 UI_HeaderDropMenu = 1; // additional header dropdown menu
 UI_CustomHelp = 1; // custom help file
-UI_AttentionBar = 1; // imageboard-style attention bar
+UI_AttentionBar = 0; // imageboard-style attention bar
 UI_MOTDAutoLogo = 0; // big channel logo inserted into MOTD
 UI_RulesBtn = 1; // button displaying channel rules
 UI_ChannelAnnouncement = 1; // additional custom channel announcement
@@ -87,11 +88,13 @@ UI_FullTitleBar = 1; // full-width video title bar
 UI_ProgressBar = 1; // YouTube progress bar; REQUIRE: UI_FullTitleBar enabled
 UI_TitleBarDescription = 1; // custom title bar description
 UI_UserCommands = 1; // additional commands in the chat window
-UI_TemporaryFilters = 1; // default emotes and fonts filters in current chat session, if disabled you must install                            // filters in channel's 'Multi-Filter Editor' to work (recommended, see FILTERS INSTALLATION)
+UI_LocalFilters = 1; // default emotes and fonts filters in current chat session, if disabled you must install                            // filters in channel's 'Multi-Filter Editor' to work (recommended, see FILTERS INSTALLATION)
 UI_IndependentFilters = 1; // additional filters visible only in current chat session
-UI_UserSpecialSigns = 1; // special signs prepending messages in the chat window for selected users
+UI_UserSpecialSigns = 1; // special signs preceding messages in the chat window for selected users
 UI_ChatSuffix = 1; // text added to random chat messages
 UI_ChatSound = 1; // custom sound for chat notifications
+UI_JoinText = 1; // chat message after user joining
+UI_LeaveText = 1; // chat message after user leaving
 UI_FontsBtn = 1; // button displaying box with clickable chat fonts
 UI_UnicodeChars = 1; // additional buttons in the fonts panel with unicode characters; REQUIRE: UI_FontsBtn enabled
 UI_EmotesBtn = 1; // button displaying box with clickable chat emotes
@@ -103,6 +106,7 @@ UI_MinimizeBtn = 1; // layout minimizing button
 UI_DisplayModeSel = 1; // selector with player display modes
 UI_LayoutThemeSel = 1; // selector with channel themes
 UI_LayoutDefaultThemes = 1; // default CyTube themes added to themes selector; REQUIRE: UI_LayoutThemeSel enabled
+UI_ChannelTheme = 1; // additional default theme channel
 UI_FastCommandsBtns = 1; // buttons with '/clear' and '/afk' functions
 UI_YTVolumeBtns = 1; // additional volume buttons for YouTube player
 UI_ChannelDatabase = 1; // box with embed additional media database
@@ -119,10 +123,10 @@ UI_ChannelCache = 1; // caching script emotes, additional media database and def
 // below: user cookie prefix
 // ATTENTION! use unique, random name using basic letters and numbers to prevent using cookies from other channels
 
-CookiePrefix='g7tr8hgryrtyutr8u97';
+CookiePrefix='b5435jwerk543kk';
 
 // FILTERS INSTALLATION
-// set UI_TemporaryFilters to 0, save, reload channel
+// set UI_LocalFilters to 0, save, reload channel
 // go to Moderation Menu > click Chat Filters > scroll down to Multi-Filter Editor...
 // ... click Install Fonts / Install Emotes > click Add/Update
 
@@ -179,7 +183,7 @@ AttentionBar_URL = '';
 // DESCRIPTION: imageboard-style attention bar URL
 // REQUIRE: UI_AttentionBar enabled
 
-MOTDAutoLogo_Mode = 3;
+MOTDAutoLogo_Mode = 2;
 
 // DESCRIPTION: MOTD channel logo displaying mode
 // OPTIONS: 1 = first logo from array; 2 = random logo from array; 3 = logo random rotation; 7 = 7 weekdays logos
@@ -220,7 +224,7 @@ ChannelAnnouncement_Title = 'Administration Message';
 // DESCRIPTION: custom channel announcement title
 // REQUIRE: UI_ChannelAnnouncement enabled
 
-ChannelAnnouncement_HTML = 'This channel has been created with <a href="https://github.com/zimny-lech/CyTube-Plus" target="_blank">CyTube Plus 2.5.4</a>.';
+ChannelAnnouncement_HTML = 'This channel has been created with <a href="https://github.com/zimny-lech/CyTube-Plus" target="_blank">CyTube Plus 2.6</a>.';
 
 // DESCRIPTION: custom channel announcement HTML
 // REQUIRE: UI_ChannelAnnouncement enabled
@@ -253,6 +257,18 @@ ChatSound_URL = 'https://dl.dropboxusercontent.com/s/0qtsttblgmkewnv/beep.wav';
 
 // DESCRIPTION: chat notifications sound URL
 // REQUIRE: UI_ChatSound enabled
+
+JoinText_Message = 'joined';
+
+// DESCRIPTION: chat message after user joining
+// REQUIRE: UI_JoinText enabled
+// NOTE: every joining message is preceding with user name by default
+
+LeaveText_Message = 'left';
+
+// DESCRIPTION: chat message after user leaving
+// REQUIRE: UI_LeaveText enabled
+// NOTE: every leaving message is preceding with user name by default
 
 VoteskipCaption_Text = 'Sage';
 
@@ -288,59 +304,96 @@ AdditionalScriptURL = '';
 
 /* ----- ADVANCED CONFIGURATION ----- */
 
-EmotesArray = {
-':happy:':['https://dl.dropboxusercontent.com/s/4bz8gdcjyekj2wh/happy.jpg',35,35],
-':awesome:':['https://dl.dropboxusercontent.com/s/gz1k8oto90n16v6/awesome.png',35,35],
-':sad:':['https://dl.dropboxusercontent.com/s/3jrfsd3hcxj3r5s/sad.png',35,35],
-':heart:':['https://dl.dropboxusercontent.com/s/fr9131zgnai0kix/heart.png',35,35],
-':karol:':['https://dl.dropboxusercontent.com/s/ekqwktwvus6ptgy/karol.jpg',30,42],
-':lalka:':['https://dl.dropboxusercontent.com/s/8j25s36v0np59lh/lalka.jpg',30,42],
-':tongue:':['https://dl.dropboxusercontent.com/s/tvyjzr1q2ek4sd3/tongue.png',35,35],
-':freddy:':['https://dl.dropboxusercontent.com/s/4a8p5wdq14wvgce/freddy.png',26,55],
-':obama:':['https://dl.dropboxusercontent.com/s/5ltj2y0jc6j43o8/obama.jpg',35,42],
-':yao:':['https://dl.dropboxusercontent.com/s/l7kb1wjdfinq0d4/yao.jpg',35,42],
-':dolan:':['https://dl.dropboxusercontent.com/s/o9h40w9a1wxidl8/dolan.png',30,37],
-':foreveralone:':['https://dl.dropboxusercontent.com/s/4v8w6l27g6s03vs/foreveralone.png',30,36],
-':lol:':['https://dl.dropboxusercontent.com/s/bccukprxs01er3f/lol.png',28,34],
-':3:':['https://dl.dropboxusercontent.com/s/eewtklt6ftvcjoe/3.png',35,35],
-':megusta:':['https://dl.dropboxusercontent.com/s/vxdkrrof1bnaa80/megusta.png',30,31],
-':datass:':['https://dl.dropboxusercontent.com/s/c22vrxa9lfcncr9/datass.png',30,30],
-':yoba:':['https://dl.dropboxusercontent.com/s/464m6opdjfc5cx8/yoba.png',25,25],
-':facepalm:':['https://dl.dropboxusercontent.com/s/7m7a7k0n581tqzb/facepalm.jpg',40,30],
-':pokerface:':['https://dl.dropboxusercontent.com/s/069cqh9z3hp06kc/pokerface.png',30,33],
-':imok:':['https://dl.dropboxusercontent.com/s/vjumtehl3mhzv0u/imok.png',34,35],
-':ok:':['https://dl.dropboxusercontent.com/s/r1qrkxjwhbgvg0x/ok.png',21,30],
-':troll:':['https://dl.dropboxusercontent.com/s/k1zglg2z5ctmhd1/troll.png',30,25],
-':pedo:':['https://dl.dropboxusercontent.com/s/awbujbc0lqoccjv/pedo.png',18,25],
-':slowpoke:':['https://dl.dropboxusercontent.com/s/t4b5456jadx0yem/slowpoke.png',35,35],
-':israel:':['https://dl.dropboxusercontent.com/s/3ptd8d8ymdgb6uw/israel.jpg',35,35],
-':fluttershy:':['https://dl.dropboxusercontent.com/s/jasmla33zu2a0no/fluttershy.jpg',57,40],
-':bloom:':['https://dl.dropboxusercontent.com/s/i8ea12vuc4fyr6g/bloom.jpg',31,40],
-':aralka:':['https://dl.dropboxusercontent.com/s/4ud8ydbot521se3/aralka.jpg',40,40],
-':hakase:':['https://dl.dropboxusercontent.com/s/bik0nqsll3txde1/hakase.jpg',32,42],
-':cirno:':['https://dl.dropboxusercontent.com/s/xqfb3bfg2ulmj02/cirno.jpg',31,42],
-':tsumiki:':['https://dl.dropboxusercontent.com/s/p5deizps4p47btj/tsumiki.gif',42,42],
-':dance:':['https://dl.dropboxusercontent.com/s/bz6l7ug750aqq93/dance.gif',40,40],
-':fukkireta:':['https://dl.dropboxusercontent.com/s/jhmw5xspu24v625/fukkireta.gif',50,37],
-':konata:':['https://dl.dropboxusercontent.com/s/jr1z96mmqtnpehc/konata.gif',40,40],
-':teto:':['https://dl.dropboxusercontent.com/s/l5tdta5lq98bsl6/teto.gif',40,40],
-':caramell:':['https://dl.dropboxusercontent.com/s/7ngrsym9uxnkhjm/caramell.gif',40,40],
-':gangnam:':['https://dl.dropboxusercontent.com/s/l2exq8ru34ynrep/gangnam.gif',30,40],
-':bird:':['https://dl.dropboxusercontent.com/s/21ix5hssgmbr2p8/bird.gif',44,33],
-':funk:':['https://dl.dropboxusercontent.com/s/xci6nt68u4swkqc/funk.gif',40,40],
-':frog:':['https://dl.dropboxusercontent.com/s/58unfk9r3j8yktg/frog.gif',50,40],
-':dog:':['https://dl.dropboxusercontent.com/s/mawc9ug01f434m5/dog.gif',36,42],
-':omnom:':['https://dl.dropboxusercontent.com/s/ffo0cmc1nvtszh2/omnom.gif',45,45],
-':burt:':['https://dl.dropboxusercontent.com/s/w13hn68wkdm1lyr/burt.gif',45,45],
-':bravo:':['https://dl.dropboxusercontent.com/s/avkdekl0c7bnv2a/bravo.gif',60,40],
-':deal:':['https://dl.dropboxusercontent.com/s/7at1fke4c3phwse/deal.gif',55,34],
-':umad:':['https://dl.dropboxusercontent.com/s/vgl3zcdebmf9ja7/umad.gif',60,40],
-}
+ThemesCSS = [
+['semidark', 'https://dl.dropboxusercontent.com/s/3pwsdl4jtn2ust2/semidark.css'],
+['pastel-white', 'https://dl.dropboxusercontent.com/s/1knuft5wbvy7dhm/white.css'],
+['ice-cirno', 'https://dl.dropboxusercontent.com/s/s15zul92aeo41pk/cirno.css'],
+['jungle', 'https://dl.dropboxusercontent.com/s/h8q8qml44zoo2pc/jungle.css'],
+['celadon', 'https://dl.dropboxusercontent.com/s/cduxlsx3j76b4hr/celadon.css'],
+['sakura', 'https://dl.dropboxusercontent.com/s/qxyuag1idqxhujz/sakura.css'],
+['fuchsia', 'https://dl.dropboxusercontent.com/s/shr7krrrn20pnii/fuchsia.css'],
+['cool-kim', 'https://dl.dropboxusercontent.com/s/4ulsaj782txokaw/kim.css'],
+['soft-pattern', 'https://dl.dropboxusercontent.com/s/lw0hwbzqoe4u2i2/pattern.css'],
+['contrast', 'https://dl.dropboxusercontent.com/s/ea9e3v9yphqvjo6/contrast.css'],
+['nights', 'https://dl.dropboxusercontent.com/s/pnsnsoooxec1of6/nights.css'],
+['cosmos', 'https://dl.dropboxusercontent.com/s/ztj5yia9j2qfqmp/cosmos.css'],
+];
+
+// DESCRIPTION: themes CSS files array
+// ARRAY SYNTAX: ['layout_name', 'layout_URL'],
+// REQUIRE: UI_LayoutThemeSel enabled
+
+ChannelThemeURL = 'https://dl.dropboxusercontent.com/s/8ylmazvfbauy3s0/chinska.css';
+
+// DESCRIPTION: additional default channel theme URL
+// REQUIRE: UI_ChannelTheme enabled
+// NOTE: this theme will be used if user didn't select one of the other themes
+
+TopUserLogo = [
+['cytube plus', 'https://dl.dropboxusercontent.com/s/7mrz85gl29eiiks/logo.png', 90],
+['anime girl', 'https://dl.dropboxusercontent.com/s/knxd7dpup1u8lm3/azuki.png', 200],
+['cosmos', 'https://dl.dropboxusercontent.com/s/v6dx49yqk5e3i2d/cosmos.jpg', 200],
+['disco ball', 'https://dl.dropboxusercontent.com/s/ahpfm25pglc8j01/disco.jpg', 162],
+['japanese landscape', 'https://dl.dropboxusercontent.com/s/llylt832evxrp6e/japan.jpg', 200],
+['korean collage', 'https://dl.dropboxusercontent.com/s/qud9adhs183dq30/korea.jpg', 160],
+['my little pony', 'https://dl.dropboxusercontent.com/s/r4ozo8oj8lmerec/mlp.jpg', 190],
+];
+
+// DESCRIPTION: array of the top layout image files names and URLs, max. 1170 width
+// ^ (bigger images will be cropped and centered)
+// ARRAY SYNTAX: ['image_description', 'image_URL', image_height],
+
+EmotesArray = [
+[':happy:', 'https://dl.dropboxusercontent.com/s/4bz8gdcjyekj2wh/happy.jpg',35,35],
+[':awesome:', 'https://dl.dropboxusercontent.com/s/gz1k8oto90n16v6/awesome.png',35,35],
+[':sad:', 'https://dl.dropboxusercontent.com/s/3jrfsd3hcxj3r5s/sad.png',35,35],
+[':heart:', 'https://dl.dropboxusercontent.com/s/fr9131zgnai0kix/heart.png',35,35],
+[':karol:', 'https://dl.dropboxusercontent.com/s/ekqwktwvus6ptgy/karol.jpg',30,42],
+[':lalka:', 'https://dl.dropboxusercontent.com/s/8j25s36v0np59lh/lalka.jpg',30,42],
+[':tongue:', 'https://dl.dropboxusercontent.com/s/tvyjzr1q2ek4sd3/tongue.png',35,35],
+[':freddy:', 'https://dl.dropboxusercontent.com/s/4a8p5wdq14wvgce/freddy.png',26,55],
+[':obama:', 'https://dl.dropboxusercontent.com/s/5ltj2y0jc6j43o8/obama.jpg',35,42],
+[':yao:', 'https://dl.dropboxusercontent.com/s/l7kb1wjdfinq0d4/yao.jpg',35,42],
+[':dolan:', 'https://dl.dropboxusercontent.com/s/o9h40w9a1wxidl8/dolan.png',30,37],
+[':foreveralone:', 'https://dl.dropboxusercontent.com/s/4v8w6l27g6s03vs/foreveralone.png',30,36],
+[':lol:', 'https://dl.dropboxusercontent.com/s/bccukprxs01er3f/lol.png',28,34],
+[':3:', 'https://dl.dropboxusercontent.com/s/eewtklt6ftvcjoe/3.png',35,35],
+[':megusta:', 'https://dl.dropboxusercontent.com/s/vxdkrrof1bnaa80/megusta.png',30,31],
+[':datass:', 'https://dl.dropboxusercontent.com/s/c22vrxa9lfcncr9/datass.png',30,30],
+[':yoba:', 'https://dl.dropboxusercontent.com/s/464m6opdjfc5cx8/yoba.png',25,25],
+[':facepalm:', 'https://dl.dropboxusercontent.com/s/7m7a7k0n581tqzb/facepalm.jpg',40,30],
+[':pokerface:', 'https://dl.dropboxusercontent.com/s/069cqh9z3hp06kc/pokerface.png',30,33],
+[':imok:', 'https://dl.dropboxusercontent.com/s/vjumtehl3mhzv0u/imok.png',34,35],
+[':ok:', 'https://dl.dropboxusercontent.com/s/r1qrkxjwhbgvg0x/ok.png',21,30],
+[':troll:', 'https://dl.dropboxusercontent.com/s/k1zglg2z5ctmhd1/troll.png',30,25],
+[':pedo:', 'https://dl.dropboxusercontent.com/s/awbujbc0lqoccjv/pedo.png',18,25],
+[':slowpoke:', 'https://dl.dropboxusercontent.com/s/t4b5456jadx0yem/slowpoke.png',35,35],
+[':israel:', 'https://dl.dropboxusercontent.com/s/3ptd8d8ymdgb6uw/israel.jpg',35,35],
+[':fluttershy:', 'https://dl.dropboxusercontent.com/s/jasmla33zu2a0no/fluttershy.jpg',57,40],
+[':bloom:', 'https://dl.dropboxusercontent.com/s/i8ea12vuc4fyr6g/bloom.jpg',31,40],
+[':aralka:', 'https://dl.dropboxusercontent.com/s/4ud8ydbot521se3/aralka.jpg',40,40],
+[':hakase:', 'https://dl.dropboxusercontent.com/s/bik0nqsll3txde1/hakase.jpg',32,42],
+[':cirno:', 'https://dl.dropboxusercontent.com/s/xqfb3bfg2ulmj02/cirno.jpg',31,42],
+[':tsumiki:', 'https://dl.dropboxusercontent.com/s/p5deizps4p47btj/tsumiki.gif',42,42],
+[':dance:', 'https://dl.dropboxusercontent.com/s/bz6l7ug750aqq93/dance.gif',40,40],
+[':fukkireta:', 'https://dl.dropboxusercontent.com/s/jhmw5xspu24v625/fukkireta.gif',50,37],
+[':konata:', 'https://dl.dropboxusercontent.com/s/jr1z96mmqtnpehc/konata.gif',40,40],
+[':teto:', 'https://dl.dropboxusercontent.com/s/l5tdta5lq98bsl6/teto.gif',40,40],
+[':caramell:', 'https://dl.dropboxusercontent.com/s/7ngrsym9uxnkhjm/caramell.gif',40,40],
+[':gangnam:', 'https://dl.dropboxusercontent.com/s/l2exq8ru34ynrep/gangnam.gif',30,40],
+[':bird:', 'https://dl.dropboxusercontent.com/s/21ix5hssgmbr2p8/bird.gif',44,33],
+[':funk:', 'https://dl.dropboxusercontent.com/s/xci6nt68u4swkqc/funk.gif',40,40],
+[':frog:', 'https://dl.dropboxusercontent.com/s/58unfk9r3j8yktg/frog.gif',50,40],
+[':dog:', 'https://dl.dropboxusercontent.com/s/mawc9ug01f434m5/dog.gif',36,42],
+[':omnom:', 'https://dl.dropboxusercontent.com/s/ffo0cmc1nvtszh2/omnom.gif',45,45],
+[':burt:', 'https://dl.dropboxusercontent.com/s/w13hn68wkdm1lyr/burt.gif',45,45],
+[':bravo:', 'https://dl.dropboxusercontent.com/s/avkdekl0c7bnv2a/bravo.gif',60,40],
+[':deal:', 'https://dl.dropboxusercontent.com/s/7at1fke4c3phwse/deal.gif',55,34],
+[':umad:', 'https://dl.dropboxusercontent.com/s/vgl3zcdebmf9ja7/umad.gif',60,40],
+],
 
 // DESCRIPTION: chat emotes array
-// ARRAY SYNTAX: 'replacing_code':['image_URL',image_width,image_height],
-// REQUIRE: INSTALLATION REQUIRED (see above in the Starting Configuration section)
-// WARNING! "replacing_code" must be unique one-word name without special characters
+// ARRAY SYNTAX: ['replacing_code', 'image_URL',image_width,image_height],
 
 EmotesBasicURL = '';
 
@@ -367,55 +420,6 @@ UnicodeChars_Array = [
 // IGNORE: leave empty []
 // REQUIRE: UI_FontsBtn and UI_UnicodeChars enabled
 // NOTE: use 1 character in every array item for the best effect (although it's not the limitation)
-
-ThemesCSS = [
-['semidark', 'https://dl.dropboxusercontent.com/s/3pwsdl4jtn2ust2/semidark.css'],
-['pastel-white', 'https://dl.dropboxusercontent.com/s/1knuft5wbvy7dhm/white.css'],
-['ice-cirno', 'https://dl.dropboxusercontent.com/s/s15zul92aeo41pk/cirno.css'],
-['jungle', 'https://dl.dropboxusercontent.com/s/h8q8qml44zoo2pc/jungle.css'],
-['celadon', 'https://dl.dropboxusercontent.com/s/cduxlsx3j76b4hr/celadon.css'],
-['sakura', 'https://dl.dropboxusercontent.com/s/qxyuag1idqxhujz/sakura.css'],
-['fuchsia', 'https://dl.dropboxusercontent.com/s/shr7krrrn20pnii/fuchsia.css'],
-['cool-kim', 'https://dl.dropboxusercontent.com/s/4ulsaj782txokaw/kim.css'],
-['contrast', 'https://dl.dropboxusercontent.com/s/ea9e3v9yphqvjo6/contrast.css'],
-['nights', 'https://dl.dropboxusercontent.com/s/pnsnsoooxec1of6/nights.css'],
-['cosmos', 'https://dl.dropboxusercontent.com/s/ztj5yia9j2qfqmp/cosmos.css'],
-];
-
-// DESCRIPTION: themes CSS files array
-// ARRAY SYNTAX: ['layout_name', 'layout_URL'],
-// REQUIRE: UI_LayoutThemeSel enabled
-
-PatchesCSS = [
-'https://dl.dropboxusercontent.com/s/daj815ibfgr142y/ytsync.css',
-'https://dl.dropboxusercontent.com/s/jk7qi6u6gofesyc/darkstrap.css',
-'https://dl.dropboxusercontent.com/s/utokys7ogvyt90a/altdark.css',
-];
-
-// DESCRIPTION: CSS patches array for default CyTube themes
-// ARRAY SYNTAX: ['layout_URL'], 3 patches respectively: default, dark, alternative dark
-// REQUIRE: UI_LayoutThemeSel and UI_LayoutDefaultThemes enabled
-// NOTE: these are important files, without them default themes may seems not fitting
-
-MainCSS = 'https://dl.dropboxusercontent.com/s/qb1g9q0dieg6b1k/main.css';
-
-// DESCRIPTION: default script layout CSS properties file URL
-// WARNING! this file is required for correct channel layout, be careful if you change URL or content of the file
-
-TopUserLogo = {
-'cytube':['cytube plus', 'https://dl.dropboxusercontent.com/s/7mrz85gl29eiiks/logo.png', 90],
-'azuki':['anime girl', 'https://dl.dropboxusercontent.com/s/knxd7dpup1u8lm3/azuki.png', 200],
-'cosmos':['cosmos', 'https://dl.dropboxusercontent.com/s/v6dx49yqk5e3i2d/cosmos.jpg', 200],
-'disco':['disco ball', 'https://dl.dropboxusercontent.com/s/ahpfm25pglc8j01/disco.jpg', 162],
-'japan':['japanese landscape', 'https://dl.dropboxusercontent.com/s/llylt832evxrp6e/japan.jpg', 200],
-'korea':['korean collage', 'https://dl.dropboxusercontent.com/s/qud9adhs183dq30/korea.jpg', 160],
-'mlp':['my little pony', 'https://dl.dropboxusercontent.com/s/r4ozo8oj8lmerec/mlp.jpg', 190],
-}
-
-// DESCRIPTION: array of the top layout image files names and URLs, max. 1170 width
-// ^ (bigger images will be cropped and centered)
-// ARRAY SYNTAX: 'code_name':['image_description', 'image_URL', imgae_height],
-// WARNING! "code_name" must be unique one-word name without special characters
 
 RandomQuotes = [
 'I like the Pope dancing', 'No quotes today', 'O rly?', 
@@ -538,6 +542,7 @@ ChannelDatabase_URL='';
 /* ----- BEGIN OF LIBRARY ----- */
 
 var notLoaded = (typeof notLoaded==="undefined" ? true : false);
+CHATSOUND.volume=0.8;
 
 /* ----- removing previously created elements, wraps and intervals in case of server restart ----- */
 
@@ -571,7 +576,6 @@ $("#toprow, #announcements, #main").removeClass('row-fluid').addClass('row');
 $("#main-inner, #playlistrow, #playlist-inner").removeClass('row-fluid').addClass('row');
 $(".container-fluid").removeClass('container-fluid').addClass('container');
 $("#motdwrap").removeClass('well').addClass('span12');
-$("#ytapiplayer").addClass('vplayer');
 $("#queue_align2").remove();
 $(".push").remove();
 $("#sitefooter .well").removeClass('well');
@@ -623,7 +627,6 @@ function refreshPlayer() {
 	PLAYER.type="";
 	PLAYER.id="";
 	socket.emit("playerReady");
-	setTimeout(function() {$("#ytapiplayer").addClass('vplayer')}, 3000);
 }
 
 // create modal window
@@ -703,21 +706,16 @@ function showInfo() {
 		duration=$(".queue_active .qe_time").html();
 		$("#emptytop").html(addedby+' ['+duration+']');	
 	} else {
-		text='Playing Next: ';
+		var arr = new Array();
+		text='Playing Next:';
 		li1=$(".queue_active").next();
-		if (li1.length>0) {
-			text+='• [1]▸ '+li1.children("a").html();
-			li2=li1.next();
-			if (li2.length>0) {
-				text+=' • [2]▸ '+li2.children("a").html();
-				li3=li2.next();
-				text+=(li3.length>0 ? ' • [3]▸ '+li3.children("a").html() : ' • END OF PLAYLIST');
-			} else {
-				text+=' • END OF PLAYLIST';
-			}
-		} else {
-			text+='• END OF PLAYLIST';
-		}
+		li2=li1.next();
+		li3=li2.next();
+		li1.length>0 ? arr.push(' • [1]▸ '+li1.children("a").html()) : '';
+		li2.length>0 ? arr.push(' • [2]▸ '+li2.children("a").html()) : '';
+		li3.length>0 ? arr.push(' • [3]▸ '+li3.children("a").html()) : '';
+		text+=arr.join("");
+		arr.length<3 ? text+=' • END OF PLAYLIST' : '';
 		$("#emptytop").html('<marquee scrollamount="5">'+text+'</marquee>');
 	}	
 }
@@ -731,16 +729,17 @@ function insertText(a) {
 // display list of emotes
 
 function showEmotes() {
-	$.each(EmotesArray, function(a,b) {
-		img=$('<img src="'+EmotesBasicURL+''+b[0]+'" onclick="insertText(\''+a+'\')" />')
-		  .attr('width', b[1]).attr('height', b[2])
+	for(i in EmotesArray) {
+		img=$('<img src="'+EmotesBasicURL+''+EmotesArray[i][1]+'" onclick="insertText(\''+EmotesArray[i][0]+'\')" />')
+		  .attr('width', EmotesArray[i][2]).attr('height', EmotesArray[i][3])
+		  .attr('title', EmotesArray[i][0])
 		  .css('cursor', 'pointer');
-		$("#emotespanel").append(img).append(' ');
-	});
-	if (UI_TemporaryFilters!="1") {
+		$("#emotespanel").append(img).append(' ');	
+	}
+	if (UI_LocalFilters!="1") {
 		CustomImageURL=="" ? CustomImageURL='https://dl.dropboxusercontent.com/s/evwscyflzddc92p/custom.png' : '';
 		img=$('<img src="'+CustomImageURL+'" onclick="enterCustomImg()" />')
-		  .attr('width', 60).attr('height', 45)
+		  .attr('width', 60).attr('height', 45).attr('title', 'custom image')
 		  .css('cursor', 'pointer');
 		$("#emotespanel").append(img).append(' ');
 	}
@@ -753,11 +752,25 @@ function enterCustomImg() {
 	img!=null ? insertText('[img]'+img+'[/img]') : '';
 }
 
+// easter egg
+
+var BGCHANGE = 0;
+function inba() {
+	BGCHANGE++;
+	if (BGCHANGE%2==0) {
+		$("body").css('background-image', 'none');
+		$("body").css('background-color', 'gold');
+	} else {
+		$("body").css('background-image', 'none');
+		$("body").css('background-color', 'blue');
+	}
+}
+
+
 // add events to player dropdown menu
 
 function bindPlayerMenu() {
 	if (PLAYER.type!=PLAYER_TYPE) {
-		setTimeout(function() {$("#ytapiplayer").addClass('vplayer')}, 3000);
 		PLAYER_TYPE=PLAYER.type;
 		selValue=$("#mode-sel").val();
 		if (selValue=="chMode" || selValue=="rMode") {
@@ -1157,6 +1170,31 @@ function plControlsMode(a) {
 		!hasPermission("playlistmove") ? $("#opt7, #opt8").hide() : '';
 		!hasPermission("playlistdelete") ? $("#opt9").hide() : '';
 		plDropMenu();
+
+		socket.on("rank", function() {
+			hasPermission("playlistjump") ? $("#opt5").show() : '';
+			(hasPermission("playlistadd") || UI_ChannelDatabase!="1") ? $("#opt6").show() : '';
+			hasPermission("playlistmove") ? $("#opt7, #opt8").show() : '';
+			hasPermission("playlistdelete") ? $("#opt9").show() : '';
+		});
+	}
+}
+
+// toggle "/clear" button depends on rank
+
+function toggleClearBtn() {
+	hasPermission("playlistclear") ? $("#clearbtn").show() : '$("#clearbtn").hide()';
+}
+
+// toggle YT volume buttons depends on player type
+
+function toggleVolBtn() {
+	if (PLAYER.type=="yt") {
+		$("#vDown").show();
+		$("#vUp").show();
+	} else {
+		$("#vDown").hide();
+		$("#vUp").hide();
 	}
 }
 
@@ -1443,6 +1481,41 @@ function plDropMenu() {
 	});
 }
 
+// add filter installing buttons
+
+function toggleInstallBtn() {
+	$("#installbtnwrap").remove();
+	if (hasPermission("filteredit")) {
+		$_installbtnwrap=$('<div id="installbtnwrap" class="btn-group" style="margin-left:5px" />')
+		  .insertAfter("#multifiltersubmit")
+		  .append('<button id="installfonts" class="btn">Install Fonts</button>')
+		  .append('<button id="installemotes" class="btn">Install Emotes</button>');
+
+		$("#installfonts").on("click", function() {
+			var arr=new Array();
+			for (i=0; i<fontsBtn.length; i++) {
+				arr.push(fontsBtn[i][3]+" \\["+fontsBtn[i][1]+"\\] g "+fontsBtn[i][4]);
+			}
+			$("#multifiltereditor").val(arr.join("\n"));
+		});
+		$("#installemotes").on("click", function() {
+			var arr=new Array();
+			for(i in EmotesArray) {
+				a=EmotesArray[i][0].replace(RegExp(" ","g"),"\\ ");
+				arr.push(a+' '+a+' '+'g'+' '+'<img\\ src="'+EmotesBasicURL+''+EmotesArray[i][1]+'"\\ width="'+EmotesArray[i][2]+'"\\ height="'+EmotesArray[i][3]+'"\\ alt="'+EmotesArray[i][0]+'"\\ />');
+			}
+			arr.push('custom\\ image \\[img\\]([^\\*]+)\\[\\/img\\] g <a\\ href="$1"\\ target="_blank"><img\\ src="$1"\\ width="100"\\ alt="custom\\ image"\\ /></a>');
+			$("#multifiltereditor").val(arr.join("\n"));
+		});
+	}
+}
+
+// set timeout for installing buttons because Moderation Menu loading
+
+function tickBtn() {
+	setTimeout(function() {toggleInstallBtn()}, 3000);
+}
+
 // default layout patch
 
 function defaultLayoutPatch() {
@@ -1467,34 +1540,59 @@ function onlineTime() {
 // set basic CSS
 
 function setCSS() {
-	MainCSS=="" ? MainCSS='https://dl.dropboxusercontent.com/s/qb1g9q0dieg6b1k/main.css' : '';
-	$("#maincss").remove();
-	$("head").append('<link href="'+MainCSS+'" rel="stylesheet" id="maincss">');
-
-	$("#chanexternalcss").remove();
-	if (CHANNEL_CSS!="") {
-		$("head").append('<link href="'+CHANNEL_CSS+'" rel="stylesheet" id="chanexternalcss">');
-	}
-
-	$("#chancss").remove();
-	if (CHAN_CSS!="") {
-		$("head").append('<link href="'+CHAN_CSS+'" rel="stylesheet" id="chancss">');
+	if ($("#chanexternalcss").length<1) {
+		url='https://dl.dropboxusercontent.com/s/wqtksqgwmrguen8/main.css';
+		$("head").append('<link id="chanexternalcss" href="'+url+'" rel="stylesheet" type="text/css">');
+		$("#chancss").remove();
+		if (CHAN_CSS!="") {
+			$("head").append('<style id="chancss" type="text/css">'+CHAN_CSS+'</style>');
+		}
 	}
 }
 
 // set user CSS
 
 function setUserCSS() {
-	$("#usertheme").remove();
 	if (UI_LayoutThemeSel=="1") {
+		$("#usertheme").remove();
 		$("head").append('<link href="'+USER_THEME+'" rel="stylesheet" id="usertheme">');
 		$("#themepatch").remove();
 		if (USER_THEME=="assets/css/ytsync.css") {
-			$("head").append('<link href="'+PatchesCSS[0]+'" rel="stylesheet" id="themepatch">');
+			$("head").append('<style id="themepatch" type="text/css" />');
+			html='#videowrap {background:transparent} '
+			  + '.qe_title, .db-title {color:#0088CC} '
+			  + '.qe_title:hover {color:#005580}';
+			$("#themepatch").html(html);
 		} else if (USER_THEME=="assets/css/darkstrap.css") {
-			$("head").append('<link href="'+PatchesCSS[1]+'" rel="stylesheet" id="themepatch">');
+			$("head").append('<style id="themepatch" type="text/css" />');
+			html='.alert a {color:#eeeeee} '
+			  + 'select {background-color:black} '
+			  + '#motdwrap {background-color:#333333} '
+			  + '#currenttitle {background:transparent} '
+			  + '#titlerow-outer {background-image:linear-gradient(to right, #666666, #666666)} '
+			  + '#rulespanel, .currenttitle, #emptytop, #footerwrap {color:#C6C6C6} '
+			  + '.queue_entry {color:#C6C6C6} '
+			  + '.command {background-color:black; border:solid 1px white} '
+			  + '.badge {text-shadow:none; box-shadow:none} '
+			  + '#annclose {color:white}';
+			$("#themepatch").html(html);
 		} else if (USER_THEME=="assets/css/altdark.css") {
-			$("head").append('<link href="'+PatchesCSS[2]+'" rel="stylesheet" id="themepatch">');
+			$("head").append('<style id="themepatch" type="text/css" />');
+			html='#motdwrap {background-color:#333333; color:white} '
+			  + '#titlerow-outer {background-image:linear-gradient(to right, #666666, #666666)} '
+			  + '#rulespanel, .currenttitle, #emptytop, #footerwrap {color:white} '
+			  + '.queue_entry {color:#F5F5F5} '
+			  + '.command {background-color:white; border:solid 1px black; color:black} '
+			  + '#sitefooter {color:#CCCCCC} '
+			  + '#cbtn0 {background:gold !important} '
+			  + '#cbtn1 {background:orange !important} '
+			  + '#cbtn2 {background:red !important} '
+			  + '#cbtn3 {background:green !important} '
+			  + '#cbtn4 {background:blue !important} '
+			  + '#cbtn5 {background:brown !important} '
+			  + '#cbtn6 {background:silver !important} '
+			  + '#cbtn7 {background:white !important; color:silver !important} ';
+			$("#themepatch").html(html);
 		}
 	}
 	$("#usercss").remove();
@@ -1515,18 +1613,28 @@ var isWebkit="webkitRequestAnimationFrame" in window;
 
 _cookie=readCookie(CookiePrefix+"_theme");
 
-var CHANNEL_CSS = ($("#chanexternalcss").length>0 ? $("#chanexternalcss").attr('href') : '');
-var CHAN_CSS = ($("#chancss").length>0 ? $("#chancss").attr('href') : '');
+var CHAN_CSS = ($("#chancss").length>0 ? $("#chancss").html() : '');
 var USER_CSS = USEROPTS.css;
 
 if (_cookie!=null) {
-	USER_THEME = _cookie;
-	(ThemesCSS.length<1 && UI_LayoutDefaultThemes!="1") ? USER_THEME='assets/css/ytsync.css' : '';
-	(ThemesCSS.length=="1" && UI_LayoutDefaultThemes!="1") ? USER_THEME=ThemesCSS[0] : '';
+	var USER_THEME = _cookie;
+	if (UI_LayoutDefaultThemes!="1" && ThemesCSS.length<2) {
+		if (UI_ChannelTheme=="1" && ChannelThemeURL!="") {
+			if (ThemesCSS.length>0 && ThemesCSS[0]==USER_THEME) {
+				USER_THEME=ThemesCSS[0];
+			} else {
+				USER_THEME=ChannelThemeURL;
+			}
+		} else {
+			USER_THEME = (ThemesCSS.length<1 ? 'assets/css/ytsync.css' : ThemesCSS[0]);
+		}
+	}
 } else {
-	USER_THEME = 'assets/css/ytsync.css';
-	$("#usertheme").length>0 ? USER_THEME=$("#usertheme").attr('href') : '';
-	$("#chanexternalcss").length>0 ? USER_THEME=$("#chanexternalcss").attr('href') : '';
+	if (UI_ChannelTheme=="1" && ChannelThemeURL!="") {
+		var USER_THEME = ChannelThemeURL;
+	} else {
+		var USER_THEME = 'assets/css/ytsync.css';
+	}
 }
 
 // cookie: getting CSS user logo
@@ -1585,12 +1693,18 @@ if (USEROPTS.hidevid) {
 	$("#chatwrap, #chatline").removeClass('span12').addClass('span5');
 	$("#chatwrap").after('<div id="videowrap" class="span7" />');
 	$("#videowrap").append('<p id="currenttitle" />')
-	  .append('<div id="ytapiplayer" class="vplayer" />');
+	  .append('<div id="ytapiplayer" />');
 	$("#currenttitle").html('Currently Playing: '+$(".queue_active a").html());
 	text='According to your User Options, video player is hidden. '
-	  + 'Click \"Refresh / Fix Player\" button to show player in this session.';
+	  + 'Click \"Refresh / Fix Player\" button to show player in this session.'
+	  + '<br /><button id="staybtn" class="btn">Stay In "Chat Only" Mode</button>';
 	makeAlert("No Player", text).appendTo("#ytapiplayer");
 	$("#qualitywrap").html('<button id="mediarefresh" class="btn btn-small">Refresh / Fix Player</button>');
+	$("#staybtn").on("click", function() {
+        	$("#qualitywrap").html("");
+        	$("#videowrap").remove();
+		$("#chatwrap, #chatline").removeClass().addClass("span12");
+	});
 	$("#mediarefresh").on("click", function() {
 		refreshPlayer();
 	});
@@ -1620,6 +1734,10 @@ if (UI_MiniLogo=="1" && MiniLogo_URL!="") {
 
 if (UI_RemoveChatOnly=="1") {
 	$("#headermenu li:nth-child(5)").remove();
+} else {
+	$("#chatonly").on("click", function() {
+		$("#azukirow, #drinkrow, #titlerow").remove();
+	});
 }
 
 // adding header dropdown menu
@@ -1772,13 +1890,13 @@ addChatMessage=function(data) {
 		}
 	}
 
-	if (UI_TemporaryFilters=="1") {
-		for (emotes in EmotesArray) {
-			link=EmotesArray[emotes][0];
-			wd=EmotesArray[emotes][1];
-			ht=EmotesArray[emotes][2];
-			code='<img src="'+EmotesBasicURL+''+link+'" width="'+wd+'" height="'+ht+'" onclick="insertText(\''+emotes+'\')" style="cursor:pointer" />';
-			re=new RegExp(emotes, 'g');
+	if (UI_LocalFilters=="1") {
+		for (i in EmotesArray) {
+			link=EmotesArray[i][1];
+			wd=EmotesArray[i][2];
+			ht=EmotesArray[i][3];
+			code='<img src="'+EmotesBasicURL+''+link+'" width="'+wd+'" height="'+ht+'" onclick="insertText(\''+EmotesArray[i][0]+'\')" style="cursor:pointer" />';
+			re=new RegExp(EmotesArray[i][0], 'g');
 			data.msg=data.msg.replace(re, code);
 		}
 		for (i=0; i<fontsBtn.length; i++) {
@@ -1850,6 +1968,21 @@ addChatMessage=function(data) {
 			data.msg='Now playing: '+a;
 		} else if (data.msg.indexOf("!CO ZJE TEH?")===snr) {
 			data.msg='TEH ZJE HUJ';
+		} else if (data.msg.indexOf("!inba")===snr) {
+			setTimeout(function() {
+				imba=new Audio("https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg");
+				imba.volume=0.8;
+				imba.play();
+				var intervalD=setInterval(function() {inba()}, 200);
+				setTimeout(function() {
+					clearInterval(intervalD);
+					$("body").css('background-image', '').css('background-color', '');
+					//setCSS();
+					setUserCSS();
+					BGCHANGE=0;
+				}, 12000);
+			}, 2000);
+			data.msg='JP2GMD';
 		} else {
 			isCommand=false;
 		}
@@ -2031,9 +2164,8 @@ if (UI_LayoutThemeSel=="1") {
 	  .appendTo($_themewrap);
 	$_themesel=$('<select id="theme-sel" style="width:150px" />')
 	  .appendTo($_themewrap);
-	if ($("#chanexternalcss").length>0) {
-		link=$("#chanexternalcss").attr('href');
-		$_themesel.append('<option value="'+link+'">## channel default</option>');
+	if (ChannelThemeURL!="") {
+		$_themesel.append('<option value="'+ChannelThemeURL+'">## channel theme</option>');
 	}
 	if (UI_LayoutDefaultThemes=="1") {
 		$_themesel.append('<option value="assets/css/ytsync.css"># default</option>');
@@ -2045,7 +2177,6 @@ if (UI_LayoutThemeSel=="1") {
 	}
 	if (ThemesCSS.length<1 && UI_LayoutDefaultThemes!="1") {
 		$_themesel.append('<option value="assets/css/ytsync.css"># default</option>');
-		USER_THEME="assets/css/ytsync.css";
 	}
 	$_themesel.val(USER_THEME);
 }
@@ -2059,10 +2190,15 @@ if (UI_FastCommandsBtns=="1" || UI_YTVolumeBtns=="1") {
 	if (UI_FastCommandsBtns=="1") {
 		$_btnswrap.append('<button id="clearbtn" class="btn btn-small">/clear</button>')
 		  .append('<button id="afkbtn" class="btn btn-small">/afk</button>');
+		!hasPermission("playlistclear") ? $("#clearbtn").hide() : '';
+		socket.on("rank", toggleClearBtn);
+		toggleClearBtn();
 	}
 	if (UI_YTVolumeBtns=="1") {
 		$_btnswrap.append('<button id="vDown" class="btn btn-small">vol -</button>')
-		  .append('<button id="vUp" class="btn btn-small">vol +</button>')
+		  .append('<button id="vUp" class="btn btn-small">vol +</button>');
+		socket.on("changeMedia", toggleVolBtn);
+		toggleVolBtn();
 	}
 }
 
@@ -2112,9 +2248,9 @@ if (UI_ChannelGalleries=="1") {
 
 // adding fonts and emotes install filters buttons
 
-if (UI_TemporaryFilters!="1") {
-	$("#multifiltersubmit").after('<button id="installfonts" class="btn">Install Fonts</button>')
-	  .after('<button id="installemotes" class="btn">Install Emotes</button>');
+if (UI_LocalFilters!="1") {
+	socket.on("rank", tickBtn);
+	toggleInstallBtn();
 }
 
 // re-arranging footer
@@ -2128,7 +2264,7 @@ if (UI_CustomRightFooter=="1") {
 	$("#footerwrap").append('<span style="float:right; margin-left:15px">'+CustomRightFooter_HTML+'</span>');
 }
 $("#footerwrap").append(defFooter+'<br />')
-  .append('CyTube Plus Copyright &copy; 2013 Zimny Lech · ')
+  .append('CyTube Plus Copyright &copy; 2013-2014 Zimny Lech · ')
   .append('Free source on <a href="http://github.com/zimny-lech/CyTube-Plus" target="_blank">GitHub</a> · ')
   .append('<a href="http://github.com/zimny-lech/CyTube-Plus/wiki" target="_blank">Help</a>');
 if (UI_UserStatistics=="1") {
@@ -2190,6 +2326,14 @@ $("#emotesbtn").on("click", function() {
 $("#chathelpbtn").on("click", function() {
 	createModal('Chat Commands', 'Close');
 
+	if (UI_LocalFilters=="1" || UI_FontsBtn=="1") {
+		body.append('<strong>Fonts commands are ON</strong><br /><br />')
+		  .append('<ul id="fontlist" />').append('<br />');
+		$("#fontlist").append('<li><code>[gold]</code>, <code>[orange]</code>, <code>[red]</code>, <code>[green]</code>, <code>[blue]</code>, <code>[brown]</code>, <code>[silver]</code>, <code>[white]</code> - begin of coloured text</li>')
+		  .append('<li><code>[b]</code>, <code>[i]</code>, <code>[u]</code> - begin of bold, italic or underlined text</li>')
+		  .append('<li><code>[sp]</code> - begin of inline spoiler</li>')
+		  .append('<li><code>[/]</code> - end of any colour, style or spoiler</li>');
+	}
 	if (UI_UserCommands=="1") {
 		scrCmd={
 		'pick':'choosing a random option from a list separated by commas (e.g. <i>!pick japan,korea,china</i>)',
@@ -2230,36 +2374,36 @@ $("#mediarefresh").on("click", function() {
 // clicks: player transformations
 
 $("#plX").on("click", function() {
-	if ($(".vplayer").hasClass('mX')) $(".vplayer").removeClass('mX');
-	else $(".vplayer").addClass('mX');
+	if ($("#ytapiplayer").hasClass('mX')) $("#ytapiplayer").removeClass('mX');
+	else $("#ytapiplayer").addClass('mX');
 });
 
 $("#plY").on("click", function() {
-	if ($(".vplayer").hasClass('mY')) $(".vplayer").removeClass('mY');
-	else $(".vplayer").addClass('mY');
+	if ($("#ytapiplayer").hasClass('mY')) $("#ytapiplayer").removeClass('mY');
+	else $("#ytapiplayer").addClass('mY');
 });
 
 $("#plR").on("click", function() {
-	if ($(".vplayer").hasClass('rotate')) $(".vplayer").removeClass('rotate');
-	else $(".vplayer").addClass('rotate');
+	if ($("#ytapiplayer").hasClass('rotate')) $("#ytapiplayer").removeClass('rotate');
+	else $("#ytapiplayer").addClass('rotate');
 });
 
 $("#plV").on("click", function() {
-	if ($(".vplayer").hasClass('vertical')) {
-		$(".vplayer").removeClass('vertical');
+	if ($("#ytapiplayer").hasClass('vertical')) {
+		$("#ytapiplayer").removeClass('vertical');
 		$("#plV").text('Vertical Player');
 	} else {
-		$(".vplayer").addClass('vertical');
+		$("#ytapiplayer").addClass('vertical');
 		$("#plV").text('Horizontal Player');
 	}
 });
 
 $("#plH").on("click", function() {
-	if ($(".vplayer").css('visibility')=="hidden") {
-		$("#videowrap .vplayer").css('visibility', 'visible').css('opacity', '100');
+	if ($("#ytapiplayer").css('visibility')=="hidden") {
+		$("#ytapiplayer").css('visibility', 'visible').css('opacity', '100');
 		$("#plH").text('Hide Player');
 	} else {
-		$("#videowrap .vplayer").css('visibility', 'hidden').css('opacity', '0');
+		$("#ytapiplayer").css('visibility', 'hidden').css('opacity', '0');
 		$("#plH").text('Show Player');
 	}
 });
@@ -2376,8 +2520,8 @@ $("#userConfig").on("click", function() {
 	logoinsert=$("<select/>");
 	$("<option/>").attr('value', 'no').text('no image').appendTo(logoinsert);
 	$("<option/>").attr('value', 'user').text('user image').appendTo(logoinsert);
-	for (name in TopUserLogo) {
-		$("<option/>").attr('value', name).text(TopUserLogo[name][0]).appendTo(logoinsert);
+	for (i in TopUserLogo) {
+		$("<option/>").attr('value', i).text(TopUserLogo[i][0]).appendTo(logoinsert);
 	}
 	logoinsert.val(userconfig["image"]);
 	addOption('Top logo', logoinsert);
@@ -2499,7 +2643,6 @@ $("#userConfig").on("click", function() {
 // select: change layout theme
 
 $("#theme-sel").on("change", function() {
-	setCSS();
 	selValue=$("#theme-sel").val();
 	USER_THEME=selValue;
 	setUserCSS();
@@ -2529,21 +2672,13 @@ $("#afkbtn").on("click", function() {
 // clicks: YouTube volume regulation
 
 $("#vDown").on("click", function() {
-	if (PLAYER.type=="yt") {
-		a=PLAYER.player.getVolume();
-		PLAYER.player.setVolume(a-1);
-	} else {
-		alert('You can change only YouTube volume level due to limited player functionality.');
-	}
+	a=PLAYER.player.getVolume();
+	PLAYER.player.setVolume(a-1);
 });
 
 $("#vUp").on("click", function() {
-	if (PLAYER.type=="yt") {
-		a=PLAYER.player.getVolume();
-		PLAYER.player.setVolume(a+1);
-	} else {
-		alert('You can change only YouTube volume level due to limited player functionality.');
-	}
+	a=PLAYER.player.getVolume();
+	PLAYER.player.setVolume(a+1);
 });
 
 // click: toggle channel database
@@ -2603,25 +2738,21 @@ if (UI_ExtendedGetURLs=="1") {
 	});
 }
 
-// clicks: install filters
+// optional join message
 
-$("#installfonts").on("click", function() {
-	var arr=new Array();
-	for (i=0; i<fontsBtn.length; i++) {
-		arr.push(fontsBtn[i][3]+" \\["+fontsBtn[i][1]+"\\] g "+fontsBtn[i][4]);
-	}
-	$("#multifiltereditor").val(arr.join("\n"));
-});
+if (UI_JoinText=="1") {
+	JoinText_Message=="" ? JoinText_Message="joined" : '';
+	socket.emit("chatMsg", {msg: '/me '+JoinText_Message});
+}
 
-$("#installemotes").on("click", function() {
-	var arr=new Array();
-	$.each(EmotesArray, function(a,b) {
-		a=a.replace(RegExp(" ","g"),"\\ ");
-		arr.push(a+' '+a+' '+'g'+' '+'<img\\ src="'+EmotesBasicURL+''+b[0]+'"\\ width="'+b[1]+'"\\ height="'+b[2]+'"\\ alt="'+a+'"\\ />');
+// optional leave message
+
+if (UI_LeaveText=="1") {
+	LeaveText_Message=="" ? LeaveText_Message="left" : '';
+	$(window).unload(function() {
+		socket.emit("chatMsg", {msg: '/me '+LeaveText_Message});
 	});
-	arr.push('custom\\ image \\[img\\]([^\\*]+)\\[\\/img\\] g <a\\ href="$1"\\ target="_blank"><img\\ src="$1"\\ width="100"\\ alt="custom\\ image"\\ /></a>');
-	$("#multifiltereditor").val(arr.join("\n"));
-});
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -2649,12 +2780,12 @@ $(window).resize(function() {
 	(selValue=="chMode" || selValue=="rMode") ? setMode(selValue) : '';
 });
 
-notLoaded=false;
-
 // adding additional script file
 
-if (UI_AdditionalScript=="1" && AdditionalScript_URL!="") {
+if (UI_AdditionalScript=="1" && AdditionalScript_URL!="" && notLoaded) {
 	$.getScript(AdditionalScript_URL);
 }
+
+notLoaded=false;
 
 /* ----- END OF LIBRARY ----- */
