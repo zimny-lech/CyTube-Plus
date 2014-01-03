@@ -41,7 +41,7 @@ Technically, this library collects ideas from old Synchtube various rooms plus m
 > Note: some features will be disabled.
 
 1. Go to your channel's "Moderation Menu" and select "Channel Options".
-2. In "External Javascript" field enter javascript library URL given below:
+2. In "External Javascript" field enter JavaScript library URL given below:
    `https://dl.dropboxusercontent.com/s/j41bicaoh0wx0ug/main.js`
 3. In "External CSS" field enter CSS library URL given below:
    `https://dl.dropboxusercontent.com/s/wqtksqgwmrguen8/main.css`
@@ -53,10 +53,10 @@ Technically, this library collects ideas from old Synchtube various rooms plus m
 
 1. Open content of `main.js` file in a text editor.
 2. Scroll down to configuration sections and configure library according to your wishes<sup>1</sup>. All options are explained for non-advanced users.
-3. Save customized library to your file hosting (e.g. <i>Dropbox</i><sup>2</sup>), project hosting (e.g. <i>GitHub</i><sup>3</sup>) or to your own server<sup>4</sup>.
-4. Enter your library file location in "Channel Options", and save.
+3. Save customized JS library as well as `main.css` file to your file hosting (e.g. <i>Dropbox</i><sup>2</sup>) or to your own server<sup>3</sup>.
+4. Enter your JS and CSS files location in "Channel Options", and save.
 
-<sup>1</sup><i>Note: I highly recommend you to change default `CookiePrefix` variable (to prevent from using cookies from other channels).</i><br/><sup>2</sup><i>Warning! Always use `dl.dropboxusercontent.com` URL instead of `www.dropbox.com`.</i><br/><sup>3</sup><i>Warning! Always use `raw.github.com` URL instead of `github.com`.</i><br/><sup>4</sup><i>Warning! You must be able to **access .js file directly** (browser's URL must contain `.js` extension, not `.php` etc.).</i>
+<sup>1</sup><i>Note: I highly recommend you to change default `CookiePrefix` variable (to prevent from using cookies from other channels).</i><br/><sup>2</sup><i>Warning! Always use `dl.dropboxusercontent.com` URL instead of `www.dropbox.com`.</i><br/><sup>3</sup><i>Warning! You must be able to **access .js file directly** (browser's URL must contain `.js` extension, not `.php` etc.).</i>
 
 **Additional recommended actions for more advanced users:**
 
