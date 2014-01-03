@@ -20,7 +20,7 @@ Technically, this library collects ideas from old Synchtube various rooms plus m
 
 ### Q: What this library exactly does?
 
-**A:** See detailed list on the [Features](https://github.com/zimny-lech/CyTube-Plus/wiki/Features) page. Currently script administrators can set up **50 options**.
+**A:** See detailed list on the [Features](https://github.com/zimny-lech/CyTube-Plus/wiki/Features) page. Currently script administrators can set up **52 options**.
 
 ### Q: Something is not working, what to do?
 
@@ -41,9 +41,11 @@ Technically, this library collects ideas from old Synchtube various rooms plus m
 > Note: some features will be disabled.
 
 1. Go to your channel's "Moderation Menu" and select "Channel Options".
-2. In "External Javascript" field enter ready-to-use library URL given below, and save:
-   `https://raw.github.com/zimny-lech/CyTube-Plus/master/main-ready.js`
-3. Congratulations, your have just installed basic version of CyTube Plus!
+2. In "External Javascript" field enter javascript library URL given below:
+   `https://dl.dropboxusercontent.com/s/j41bicaoh0wx0ug/main.js`
+3. In "External CSS" field enter CSS library URL given below:
+   `https://dl.dropboxusercontent.com/s/wqtksqgwmrguen8/main.css`
+4. Save changes - congratulations, your have just installed basic version of CyTube Plus!
 
 ### Customized, advanced installation
 
