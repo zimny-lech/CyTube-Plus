@@ -1,3 +1,10 @@
+/*
+This is external Channel Database configuration file.
+
+Copy this file into your location, configure, and insert URL into main.js 'EmotesBasicURL' variable.
+Do not remove anything below configuration array - without necessary functions Channel Database will not load.
+*/
+
 /* ----- VIDEO DATABASE CONFIGURATION ----- */
 
 ChannelDatabase_Array=[
