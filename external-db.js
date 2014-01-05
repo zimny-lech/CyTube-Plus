@@ -63,7 +63,6 @@ $_dbwrap=$('<div id="dbwrap" class="span12" />')
   .css('display', 'none').css('margin-left', '0')
   .insertAfter($_dbtoggle);
 
-var isDB=false;
 var item_nr=0;
 var layer_nr=1;
 var opening=new Array();
@@ -80,7 +79,7 @@ UI_ChannelCache=="1" ? createDatabase() : '';
 $("#dbtoggle").on("click", function() {
 	if ($("#dbwrap").css("display")=="none") {
 		$("#dbwrap").show();
-		!isDB ? createDatabase() : '';
+		!CHANDB ? createDatabase() : '';
 		$("#dbtoggle").html($("#dbtoggle").html().replace(/Show/, "Hide"));
 		$("#dbtoggle i").removeClass("icon-plus").addClass("icon-minus");
 	} else {
