@@ -86,27 +86,13 @@ padding:5px;
 
 #attbarrow {margin-top:2px}
 
-/* attention bar */
-
-#attBar {background-color: white}
-
 /* MOTD */
 
-#motdwrap {background-color:#f5f5f5; margin-bottom:0px}
+#motdwrap {position:relative; background-color:#F5F5F5; margin-bottom:0px; min-height:20px}
 
-/* drinkbar */
+/* rules button */
 
-#drinkbarwrap {
-padding-left:5px;
-padding-right:5px;
-border-left:solid 2px transparent;
-border-right:solid 2px transparent;
-}
-#drinkcount {margin-top:0px; margin-bottom:0px}
-
-/* announcements top box */
-
-#anntop {width:100%; text-align:center}
+#rulesbtn {margin-top:10px; margin-bottom:5px}
 
 /* rulespanel outer box */
 
@@ -126,13 +112,35 @@ border-radius:8px;
 text-align:left;
 }
 
-/* announcements align box */
+/* MOTD buttons */
 
-#anntop-align {width:100%; height:5px}
+#motdbtn {position:absolute; top:5px; right:5px}
+
+/* drinkbar */
+
+#drinkbarwrap {
+padding-left:5px;
+padding-right:5px;
+border-left:solid 2px transparent;
+border-right:solid 2px transparent;
+}
+#drinkcount {margin-top:0px; margin-bottom:0px}
 
 /* announcements */
 
-#announcements {margin-bottom:0px}
+#announcements {position:relative; margin-bottom:0px}
+
+/* attention bar */
+
+#attBar {background-color: white}
+
+/* announcements server error */
+
+#announcements .alert-error {margin-left:0px}
+
+/* announcements close button */
+
+#annclose {position:absolute; top:5px; right:5px}
 
 /* userlist item */
 
@@ -150,7 +158,7 @@ padding-left:2px;
 color:#333333;
 border-width:1px 1px medium;
 border-style:solid solid none;
-border-color:#aaaaaa;
+border-color:#AAAAAA;
 }
 
 /* video title */
@@ -161,12 +169,12 @@ border-color:#aaaaaa;
 /* default full-width title */
 
 #titlerow-outer {
-background-image:linear-gradient(to right, #dddddd, #dddddd);
+background-image:linear-gradient(to right, #DDDDDD, #DDDDDD);
 background-position:0px center;
 background-size:0% 100%;
 background-repeat:no-repeat;
 }
-#titlerow-outer #currenttitle {border:solid 1px #aaaaaa !important}
+#titlerow-outer #currenttitle {border:solid 1px #AAAAAA !important}
 
 /* player controls dropdown menu */
 
