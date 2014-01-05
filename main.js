@@ -22,8 +22,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 // CyTube Plus - JavaScript and CSS library for CyTube channels enhancements
-// Version: 2.6
-// Modified: 2014-01-03
+// Version: 2.6.2
+// Modified: 2014-01-05
 // Project URL: https://github.com/zimny-lech/CyTube-Plus
 // Wiki URL: https://github.com/zimny-lech/CyTube-Plus/wiki
 
@@ -34,9 +34,9 @@ INSTALLATION
 
 1. Go to your channel's "Moderation Menu" and select "Channel Options".
 2. In "External Javascript" field enter javascript library URL given below:
-   https://dl.dropboxusercontent.com/s/j41bicaoh0wx0ug/main.js
+   https://dl.dropboxusercontent.com/s/g0td1wn8rfdotsj/main.js
 3. In "External CSS" field enter CSS library URL given below:
-   https://dl.dropboxusercontent.com/s/wqtksqgwmrguen8/main.css
+   https://dl.dropboxusercontent.com/s/cpxosyfbdnn8qoc/main.css
 4. Save changes - congratulations, your have just installed basic version of CyTube Plus!
 
 # Advanced installation
@@ -88,7 +88,8 @@ UI_FullTitleBar = 1; // full-width video title bar
 UI_ProgressBar = 1; // YouTube progress bar; REQUIRE: UI_FullTitleBar enabled
 UI_TitleBarDescription = 1; // custom title bar description
 UI_UserCommands = 1; // additional commands in the chat window
-UI_LocalFilters = 1; // default emotes and fonts filters in current chat session, if disabled you must install                            // filters in channel's 'Multi-Filter Editor' to work (recommended, see FILTERS INSTALLATION)
+UI_LocalFilters = 1; // default emotes and fonts filters in current chat session, if disabled you must install
+                     // filters in channel's 'Multi-Filter Editor' to work (recommended, see FILTERS INSTALLATION)
 UI_IndependentFilters = 1; // additional filters visible only in current chat session
 UI_UserSpecialSigns = 1; // special signs preceding messages in the chat window for selected users
 UI_ChatSuffix = 1; // text added to random chat messages
@@ -123,7 +124,7 @@ UI_ChannelCache = 1; // caching script emotes, additional media database and def
 // below: user cookie prefix
 // ATTENTION! use unique, random name using basic letters and numbers to prevent using cookies from other channels
 
-CookiePrefix='b5435jwerk543kk';
+CookiePrefix='tur7e8jeue78ejekwm';
 
 // FILTERS INSTALLATION
 // set UI_LocalFilters to 0, save, reload channel
@@ -224,7 +225,7 @@ ChannelAnnouncement_Title = 'Administration Message';
 // DESCRIPTION: custom channel announcement title
 // REQUIRE: UI_ChannelAnnouncement enabled
 
-ChannelAnnouncement_HTML = 'This channel has been created with <a href="https://github.com/zimny-lech/CyTube-Plus" target="_blank">CyTube Plus 2.6</a>.';
+ChannelAnnouncement_HTML = 'This channel has been created with <a href="https://github.com/zimny-lech/CyTube-Plus" target="_blank">CyTube Plus 2.6.2</a>.';
 
 // DESCRIPTION: custom channel announcement HTML
 // REQUIRE: UI_ChannelAnnouncement enabled
@@ -317,13 +318,14 @@ ThemesCSS = [
 ['contrast', 'https://dl.dropboxusercontent.com/s/ea9e3v9yphqvjo6/contrast.css'],
 ['nights', 'https://dl.dropboxusercontent.com/s/pnsnsoooxec1of6/nights.css'],
 ['cosmos', 'https://dl.dropboxusercontent.com/s/ztj5yia9j2qfqmp/cosmos.css'],
+['kobato', 'https://dl.dropboxusercontent.com/s/4f1tx62gsdjoj3h/kobato.css'],
 ];
 
 // DESCRIPTION: themes CSS files array
 // ARRAY SYNTAX: ['layout_name', 'layout_URL'],
 // REQUIRE: UI_LayoutThemeSel enabled
 
-ChannelThemeURL = 'https://dl.dropboxusercontent.com/s/8ylmazvfbauy3s0/chinska.css';
+ChannelThemeURL = '';
 
 // DESCRIPTION: additional default channel theme URL
 // REQUIRE: UI_ChannelTheme enabled
@@ -344,56 +346,58 @@ TopUserLogo = [
 // ARRAY SYNTAX: ['image_description', 'image_URL', image_height],
 
 EmotesArray = [
-[':happy:', 'https://dl.dropboxusercontent.com/s/4bz8gdcjyekj2wh/happy.jpg',35,35],
-[':awesome:', 'https://dl.dropboxusercontent.com/s/gz1k8oto90n16v6/awesome.png',35,35],
-[':sad:', 'https://dl.dropboxusercontent.com/s/3jrfsd3hcxj3r5s/sad.png',35,35],
-[':heart:', 'https://dl.dropboxusercontent.com/s/fr9131zgnai0kix/heart.png',35,35],
-[':karol:', 'https://dl.dropboxusercontent.com/s/ekqwktwvus6ptgy/karol.jpg',30,42],
-[':lalka:', 'https://dl.dropboxusercontent.com/s/8j25s36v0np59lh/lalka.jpg',30,42],
-[':tongue:', 'https://dl.dropboxusercontent.com/s/tvyjzr1q2ek4sd3/tongue.png',35,35],
-[':freddy:', 'https://dl.dropboxusercontent.com/s/4a8p5wdq14wvgce/freddy.png',26,55],
-[':obama:', 'https://dl.dropboxusercontent.com/s/5ltj2y0jc6j43o8/obama.jpg',35,42],
-[':yao:', 'https://dl.dropboxusercontent.com/s/l7kb1wjdfinq0d4/yao.jpg',35,42],
-[':dolan:', 'https://dl.dropboxusercontent.com/s/o9h40w9a1wxidl8/dolan.png',30,37],
-[':foreveralone:', 'https://dl.dropboxusercontent.com/s/4v8w6l27g6s03vs/foreveralone.png',30,36],
-[':lol:', 'https://dl.dropboxusercontent.com/s/bccukprxs01er3f/lol.png',28,34],
-[':3:', 'https://dl.dropboxusercontent.com/s/eewtklt6ftvcjoe/3.png',35,35],
-[':megusta:', 'https://dl.dropboxusercontent.com/s/vxdkrrof1bnaa80/megusta.png',30,31],
-[':datass:', 'https://dl.dropboxusercontent.com/s/c22vrxa9lfcncr9/datass.png',30,30],
-[':yoba:', 'https://dl.dropboxusercontent.com/s/464m6opdjfc5cx8/yoba.png',25,25],
-[':facepalm:', 'https://dl.dropboxusercontent.com/s/7m7a7k0n581tqzb/facepalm.jpg',40,30],
-[':pokerface:', 'https://dl.dropboxusercontent.com/s/069cqh9z3hp06kc/pokerface.png',30,33],
-[':imok:', 'https://dl.dropboxusercontent.com/s/vjumtehl3mhzv0u/imok.png',34,35],
-[':ok:', 'https://dl.dropboxusercontent.com/s/r1qrkxjwhbgvg0x/ok.png',21,30],
-[':troll:', 'https://dl.dropboxusercontent.com/s/k1zglg2z5ctmhd1/troll.png',30,25],
-[':pedo:', 'https://dl.dropboxusercontent.com/s/awbujbc0lqoccjv/pedo.png',18,25],
-[':slowpoke:', 'https://dl.dropboxusercontent.com/s/t4b5456jadx0yem/slowpoke.png',35,35],
-[':israel:', 'https://dl.dropboxusercontent.com/s/3ptd8d8ymdgb6uw/israel.jpg',35,35],
-[':fluttershy:', 'https://dl.dropboxusercontent.com/s/jasmla33zu2a0no/fluttershy.jpg',57,40],
-[':bloom:', 'https://dl.dropboxusercontent.com/s/i8ea12vuc4fyr6g/bloom.jpg',31,40],
-[':aralka:', 'https://dl.dropboxusercontent.com/s/4ud8ydbot521se3/aralka.jpg',40,40],
-[':hakase:', 'https://dl.dropboxusercontent.com/s/bik0nqsll3txde1/hakase.jpg',32,42],
-[':cirno:', 'https://dl.dropboxusercontent.com/s/xqfb3bfg2ulmj02/cirno.jpg',31,42],
-[':tsumiki:', 'https://dl.dropboxusercontent.com/s/p5deizps4p47btj/tsumiki.gif',42,42],
-[':dance:', 'https://dl.dropboxusercontent.com/s/bz6l7ug750aqq93/dance.gif',40,40],
-[':fukkireta:', 'https://dl.dropboxusercontent.com/s/jhmw5xspu24v625/fukkireta.gif',50,37],
-[':konata:', 'https://dl.dropboxusercontent.com/s/jr1z96mmqtnpehc/konata.gif',40,40],
-[':teto:', 'https://dl.dropboxusercontent.com/s/l5tdta5lq98bsl6/teto.gif',40,40],
-[':caramell:', 'https://dl.dropboxusercontent.com/s/7ngrsym9uxnkhjm/caramell.gif',40,40],
-[':gangnam:', 'https://dl.dropboxusercontent.com/s/l2exq8ru34ynrep/gangnam.gif',30,40],
-[':bird:', 'https://dl.dropboxusercontent.com/s/21ix5hssgmbr2p8/bird.gif',44,33],
-[':funk:', 'https://dl.dropboxusercontent.com/s/xci6nt68u4swkqc/funk.gif',40,40],
-[':frog:', 'https://dl.dropboxusercontent.com/s/58unfk9r3j8yktg/frog.gif',50,40],
-[':dog:', 'https://dl.dropboxusercontent.com/s/mawc9ug01f434m5/dog.gif',36,42],
-[':omnom:', 'https://dl.dropboxusercontent.com/s/ffo0cmc1nvtszh2/omnom.gif',45,45],
-[':burt:', 'https://dl.dropboxusercontent.com/s/w13hn68wkdm1lyr/burt.gif',45,45],
-[':bravo:', 'https://dl.dropboxusercontent.com/s/avkdekl0c7bnv2a/bravo.gif',60,40],
-[':deal:', 'https://dl.dropboxusercontent.com/s/7at1fke4c3phwse/deal.gif',55,34],
-[':umad:', 'https://dl.dropboxusercontent.com/s/vgl3zcdebmf9ja7/umad.gif',60,40],
+[':happy:', 'https://dl.dropboxusercontent.com/s/4bz8gdcjyekj2wh/happy.jpg', 35, 35],
+[':awesome:', 'https://dl.dropboxusercontent.com/s/gz1k8oto90n16v6/awesome.png', 35, 35],
+[':sad:', 'https://dl.dropboxusercontent.com/s/3jrfsd3hcxj3r5s/sad.png', 35, 35],
+[':heart:', 'https://dl.dropboxusercontent.com/s/fr9131zgnai0kix/heart.png', 35, 35],
+[':karol:', 'https://dl.dropboxusercontent.com/s/ekqwktwvus6ptgy/karol.jpg', 30, 42],
+[':lalka:', 'https://dl.dropboxusercontent.com/s/8j25s36v0np59lh/lalka.jpg', 30, 42],
+[':tongue:', 'https://dl.dropboxusercontent.com/s/tvyjzr1q2ek4sd3/tongue.png', 35, 35],
+[':freddy:', 'https://dl.dropboxusercontent.com/s/4a8p5wdq14wvgce/freddy.png', 26, 55],
+[':obama:', 'https://dl.dropboxusercontent.com/s/5ltj2y0jc6j43o8/obama.jpg', 35, 42],
+[':yao:', 'https://dl.dropboxusercontent.com/s/l7kb1wjdfinq0d4/yao.jpg', 35, 42],
+[':dolan:', 'https://dl.dropboxusercontent.com/s/o9h40w9a1wxidl8/dolan.png', 30, 37],
+[':foreveralone:', 'https://dl.dropboxusercontent.com/s/4v8w6l27g6s03vs/foreveralone.png', 30, 36],
+[':lol:', 'https://dl.dropboxusercontent.com/s/bccukprxs01er3f/lol.png', 28, 34],
+[':3:', 'https://dl.dropboxusercontent.com/s/eewtklt6ftvcjoe/3.png', 35, 35],
+[':megusta:', 'https://dl.dropboxusercontent.com/s/vxdkrrof1bnaa80/megusta.png', 30, 31],
+[':datass:', 'https://dl.dropboxusercontent.com/s/c22vrxa9lfcncr9/datass.png', 30, 30],
+[':yoba:', 'https://dl.dropboxusercontent.com/s/464m6opdjfc5cx8/yoba.png', 25, 25],
+[':facepalm:', 'https://dl.dropboxusercontent.com/s/7m7a7k0n581tqzb/facepalm.jpg', 40, 30],
+[':pokerface:', 'https://dl.dropboxusercontent.com/s/069cqh9z3hp06kc/pokerface.png', 30, 33],
+[':imok:', 'https://dl.dropboxusercontent.com/s/vjumtehl3mhzv0u/imok.png', 34, 35],
+[':ok:', 'https://dl.dropboxusercontent.com/s/r1qrkxjwhbgvg0x/ok.png', 21, 30],
+[':troll:', 'https://dl.dropboxusercontent.com/s/k1zglg2z5ctmhd1/troll.png', 30, 25],
+[':pedo:', 'https://dl.dropboxusercontent.com/s/awbujbc0lqoccjv/pedo.png', 18, 25],
+[':slowpoke:', 'https://dl.dropboxusercontent.com/s/t4b5456jadx0yem/slowpoke.png', 35, 35],
+[':israel:', 'https://dl.dropboxusercontent.com/s/3ptd8d8ymdgb6uw/israel.jpg', 35, 35],
+[':fluttershy:', 'https://dl.dropboxusercontent.com/s/jasmla33zu2a0no/fluttershy.jpg', 57, 40],
+[':bloom:', 'https://dl.dropboxusercontent.com/s/i8ea12vuc4fyr6g/bloom.jpg', 31, 40],
+[':aralka:', 'https://dl.dropboxusercontent.com/s/4ud8ydbot521se3/aralka.jpg', 40, 40],
+[':hakase:', 'https://dl.dropboxusercontent.com/s/bik0nqsll3txde1/hakase.jpg', 32, 42],
+[':cirno:', 'https://dl.dropboxusercontent.com/s/xqfb3bfg2ulmj02/cirno.jpg', 31, 42],
+[':tsumiki:', 'https://dl.dropboxusercontent.com/s/p5deizps4p47btj/tsumiki.gif', 42, 42],
+[':dance:', 'https://dl.dropboxusercontent.com/s/bz6l7ug750aqq93/dance.gif', 40, 40],
+[':fukkireta:', 'https://dl.dropboxusercontent.com/s/jhmw5xspu24v625/fukkireta.gif', 50, 37],
+[':konata:', 'https://dl.dropboxusercontent.com/s/jr1z96mmqtnpehc/konata.gif', 40, 40],
+[':teto:', 'https://dl.dropboxusercontent.com/s/l5tdta5lq98bsl6/teto.gif', 40, 40],
+[':caramell:', 'https://dl.dropboxusercontent.com/s/7ngrsym9uxnkhjm/caramell.gif', 40, 40],
+[':gangnam:', 'https://dl.dropboxusercontent.com/s/l2exq8ru34ynrep/gangnam.gif', 30, 40],
+[':bird:', 'https://dl.dropboxusercontent.com/s/21ix5hssgmbr2p8/bird.gif', 44, 33],
+[':funk:', 'https://dl.dropboxusercontent.com/s/xci6nt68u4swkqc/funk.gif', 40, 40],
+[':frog:', 'https://dl.dropboxusercontent.com/s/58unfk9r3j8yktg/frog.gif', 50, 40],
+[':dog:', 'https://dl.dropboxusercontent.com/s/mawc9ug01f434m5/dog.gif', 36, 42],
+[':omnom:', 'https://dl.dropboxusercontent.com/s/ffo0cmc1nvtszh2/omnom.gif', 45, 45],
+[':burt:', 'https://dl.dropboxusercontent.com/s/w13hn68wkdm1lyr/burt.gif', 45, 45],
+[':bravo:', 'https://dl.dropboxusercontent.com/s/avkdekl0c7bnv2a/bravo.gif', 60, 40],
+[':deal:', 'https://dl.dropboxusercontent.com/s/7at1fke4c3phwse/deal.gif', 55, 34],
+[':umad:', 'https://dl.dropboxusercontent.com/s/vgl3zcdebmf9ja7/umad.gif', 60, 40],
 ],
 
 // DESCRIPTION: chat emotes array
-// ARRAY SYNTAX: ['replacing_code', 'image_URL',image_width,image_height],
+// ARRAY SYNTAX: 'replacing_code':['image_URL', image_width, image_height],
+// REQUIRE: INSTALLATION REQUIRED (see above in the Starting Configuration section)
+// WARNING! "replacing_code" must be unique one-word name without special characters
 
 EmotesBasicURL = '';
 
@@ -539,70 +543,6 @@ ChannelDatabase_URL='';
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/* ----- BEGIN OF LIBRARY ----- */
-
-var notLoaded = (typeof notLoaded==="undefined" ? true : false);
-CHATSOUND.volume=0.8;
-
-/* ----- removing previously created elements, wraps and intervals in case of server restart ----- */
-
-$("#chanfavicon, #chanavatar, #dropmenu, #azukirow, #zerorow, #anntop").remove();
-$("#anntop-align, #annclose, #attbarrow-outer, #emptytop, #fontsbtn, #emotesbtn").remove();
-$("#chathelpbtn, #pl-tooltip, #pl-pinup, #mediacaret, #minplrow, #mirrorcaret").remove();
-$("#layouttoggle-outer, #gallerytoggle-outer, #dbtoggle-outer, #installfonts, #installemotes, #footerrow").remove();
-
-$("#anntop-align").unwrap;
-!notLoaded ? $("#announcements").unwrap() : '';
-
-typeof intervalA==="undefined" ? '' : clearInterval(intervalA);
-typeof intervalB==="undefined" ? '' : clearInterval(intervalB);
-typeof intervalC==="undefined" ? '' : clearInterval(intervalC);
-_chatBuffer=null;
-
-/* ----- additional elements #id and attributes ----- */
-
-$(".navbar-inverse .navbar-inner").attr('id', 'header');
-$(".navbar-fixed-top .nav").attr('id', 'headermenu');
-$("#headermenu li:nth-child(1)").attr('id', 'link-home');
-$("#link-home a").attr('target', '_blank');
-$("#headermenu li:nth-child(2)").attr('id', 'link-help');
-$("#librarytoggle").parent().attr('id', 'librarytoggle-outer');
-$("#voteskip").parent().attr('id', 'voteskipwrap');
-
-/* ----- removing and changing CSS unnecessary classes and layout elements ----- */
-
-$("#link-home").removeClass('active');
-$("#toprow, #announcements, #main").removeClass('row-fluid').addClass('row');
-$("#main-inner, #playlistrow, #playlist-inner").removeClass('row-fluid').addClass('row');
-$(".container-fluid").removeClass('container-fluid').addClass('container');
-$("#motdwrap").removeClass('well').addClass('span12');
-$("#queue_align2").remove();
-$(".push").remove();
-$("#sitefooter .well").removeClass('well');
-
-/* ----- wrapping announcements content ----- */
-
-$("#announcements").wrap('<div id="annrow" class="row" />');
-$("#announcements").removeClass('row').addClass('span12');
-
-/* ----- detaching moderation menu ----- */
-
-if (notLoaded) {
-	$("#playlistrow").after('<div id="modrow" class="row"></div>');
-	$("#modrow").append($("#channelsettingswrap3").detach());
-}
-
-/* ----- changing style-proof "caret" class to text unicode signs ----- */
-
-if (notLoaded) {
-	$("#channelsettingswrap .caret").remove();
-	$("#csdropdown_title").after(' ▴');
-	$("#qualitywrap .caret").remove();
-	$("#qualitywrap .btn").append(' ▾');
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 /* ----- GLOBAL FUNCTIONS ----- */
 
 // toggle elements
@@ -678,6 +618,19 @@ function rotateLogo() {
 	nr=Math.floor(Math.random()*MOTDAutoLogo_Array.length);
 	$("#motdlogo").attr('src', MOTDAutoLogo_Array[nr]);
 }
+// add rules panel
+
+function rulesPanel() {
+	RulesBtn_Caption=="" ? RulesBtn_Caption='Read Channel Rules' : '';
+	$("#motdwrap").show();
+	$("#motd").append('<div style="text-align:center"><button id="rulesbtn" class="btn">'+RulesBtn_Caption+' ▸</button></div>')
+	  .append('<div id="rulespanel-outer" />');
+	$("#rulespanel-outer").html('<div id="rulespanel" style="display:none">'+RulesBtn_HTML+'</div>');
+
+	$("#rulesbtn").on("click", function() {
+		toggleDiv("#rulespanel");
+	});
+}
 
 // YouTube progress bar
 
@@ -685,8 +638,8 @@ function progressBar() {
 	a=0;
 	if (PLAYER.type=="yt") {
 		b=PLAYER.player.getCurrentTime();
-		b!=prevTime ? a=b/PLAYER.player.getDuration()*100 : '';
-		prevTime=b;
+		b!=PREVTIME ? a=b/PLAYER.player.getDuration()*100 : '';
+		PREVTIME=b;
 	}
 	$("#titlerow-outer").css('background-size', a+'% 100%');
 }
@@ -701,7 +654,7 @@ function changeTitle() {
 // show info about current or next items
 
 function showInfo() {
-	if (isDefaultDescr) {
+	if (DEFDESCR) {
 		addedby=$(".queue_active").attr("title");
 		duration=$(".queue_active .qe_time").html();
 		$("#emptytop").html(addedby+' ['+duration+']');	
@@ -754,7 +707,6 @@ function enterCustomImg() {
 
 // easter egg
 
-var BGCHANGE = 0;
 function inba() {
 	BGCHANGE++;
 	if (BGCHANGE%2==0) {
@@ -784,22 +736,22 @@ function bindPlayerMenu() {
 // toggle playlist PinUp
 
 function togglePinUp() {
-	if (!isPlPin) {
-		if (userconfig["player"]=="center" || userconfig["queue"]=="center") {
+	if (!PINNED) {
+		if (USERCONFIG.player=="center" || USERCONFIG.queue=="center") {
 			alert('You can\'t pin playlist if player or playlist are centered.');
 		} else {
-			if (userconfig["player"]=="left") {
+			if (USERCONFIG.player=="left") {
 				$("#videowrap").after($("#rightpane-outer").detach());
-			} else if (userconfig["player"]=="right") {
+			} else if (USERCONFIG.player=="right") {
 				$("#videowrap").before($("#rightpane-outer").detach());
 			}
-			if (userconfig["queue"]=="left") {
+			if (USERCONFIG.queue=="left") {
 				$("#leftpane-outer").before($("#chatwrap").detach());
-			} else if (userconfig["queue"]=="right") {
+			} else if (USERCONFIG.queue=="right") {
 				$("#leftpane-outer").after($("#chatwrap").detach());
 			}
 			$("#rightpane-outer").removeClass().addClass('span5');
-			if (userconfig["qsize"]=="wide") {
+			if (USERCONFIG.qsize=="wide") {
 				$("#chatwrap, #chatline").removeClass().addClass('span7');
 			} else {
 				$("#chatwrap, #chatline").removeClass().addClass('span5');
@@ -807,22 +759,22 @@ function togglePinUp() {
 			$("#pl-pinup").text('UnPin Playlist');
 			$("#minplrow, #userconfigwrap, #modewrap").hide();
 			$("#mode-sel option[value='chMode']").hide();
-			isPlPin=true;
+			PINNED=true;
 			scrollQueue();
 		}
 	} else {
-		if (userconfig["queue"]=="left") {
+		if (USERCONFIG.queue=="left") {
 			$("#leftpane-outer").before($("#rightpane-outer").detach());
-		} else if (userconfig["queue"]=="right") {
+		} else if (USERCONFIG.queue=="right") {
 			$("#leftpane-outer").after($("#rightpane-outer").detach());
 		}
-		if (userconfig["player"]=="left") {
+		if (USERCONFIG.player=="left") {
 			$("#videowrap").after($("#chatwrap").detach());
-		} else if (userconfig["player"]=="right") {
+		} else if (USERCONFIG.player=="right") {
 			$("#videowrap").before($("#chatwrap").detach());
 		}
 		$("#chatwrap, #chatline").removeClass().addClass('span5');
-		if (userconfig["qsize"]=="wide") {
+		if (USERCONFIG.qsize=="wide") {
 			$("#rightpane-outer").removeClass().addClass('span7');
 		} else {
 			$("#rightpane-outer").removeClass().addClass('span5');
@@ -830,22 +782,22 @@ function togglePinUp() {
 		$("#pl-pinup").text('PinUp Playlist');
 		$("#minplrow, #userconfigwrap, #modewrap").show();
 		$("#mode-sel option[value='chMode']").show();
-		isPlPin=false;
+		PINNED=false;
 		scrollQueue();
 	}
 }
 
-// toggle video description
+// toggle media description
 
 function toggleDescr() {
-	if (isDescr) {
+	if (DESCR) {
 		$("#videowrap p").hide();
 		$("#vid-descr").text('Show Description');
-		isDescr=false;
+		DESCR=false;
 	} else {
 		$("#videowrap p").show();
 		$("#vid-descr").text('Hide Description');
-		isDescr=true;
+		DESCR=true;
 	}
 }
 
@@ -896,13 +848,13 @@ function setMode(a) {
 	switch (a) {
 		case "syMode":
 		$("#main, #videowrap, #chatwrap, #rightpane-outer, #pl-pinup, #userconfigwrap").show();
-		if (!isWebkit) {
+		if (!WEBKIT) {
 			$("#videowrap p, #qualitywrap").show();
 			$("#videowrap").removeClass().addClass('span7');
 		}
 		normalPlayer();
 		normalChat();
-		playerLocation(userconfig["player"]);
+		playerLocation(USERCONFIG.player);
 		break;
 
 		case "kMode":
@@ -914,7 +866,7 @@ function setMode(a) {
 		case "chMode":
 		$("#main, #chatwrap").show();
 		$("#videowidth").removeClass().addClass('span1');
-		if (isWebkit) {
+		if (WEBKIT) {
 			$("#videowrap").hide();
 		} else {
 			$("#videowrap p, #qualitywrap").hide();
@@ -925,7 +877,7 @@ function setMode(a) {
 
 		case "rMode":
 		$("#videowidth").removeClass().addClass('span1');
-		if (isWebkit) {
+		if (WEBKIT) {
 			$("#main").hide();
 		} else {
 			$("#main, #videowrap").show();
@@ -961,7 +913,7 @@ function normalPlayer() {
 }
 
 function normalChat() {
-	if (isPlPin && userconfig["qsize"]=="wide") {
+	if (PINNED && USERCONFIG.qsize=="wide") {
 		$("#chatwrap").removeClass().addClass('span7');
 	} else {
 		$("#chatwrap").removeClass().addClass('span5');
@@ -969,7 +921,7 @@ function normalChat() {
 	VWIDTH2=$("#messagebuffer").parent().css('width').replace('px', '');
 	$("#messagebuffer").attr('width', VWIDTH2).css('height', '347px');
 	$("#userlist").css('height', '347px');
-	if (isPlPin && userconfig["qsize"]=="wide") {
+	if (PINNED && USERCONFIG.qsize=="wide") {
 		$("#chatline").removeClass().addClass('span7');
 	} else {
 		$("#chatline").removeClass().addClass('span5');
@@ -1035,7 +987,7 @@ function playerLocation(a) {
 		$("#userlist").css('height', '200px');
 		break;
 	}
-	isWebkit ? refreshPlayer() : '';
+	WEBKIT ? refreshPlayer() : '';
 }
 
 function userlistLocation(a) {
@@ -1047,6 +999,7 @@ function userlistLocation(a) {
 }
 
 function queueLocation(a) {
+	$("#rightpane-outer").css('margin-bottom', '');
 	if (a=="right") {
 		$("#rightpane-outer").before($("#leftpane-outer").detach());
 		normalPlaylist();
@@ -1061,7 +1014,7 @@ function queueLocation(a) {
 }
 
 function queueSize(a) {
-	if (userconfig["queue"]!="center") {
+	if (USERCONFIG.queue!="center") {
 		if (a=="wide") {
 			$("#leftpane-outer").removeClass().addClass('span5');
 			$("#rightpane-outer").removeClass().addClass('span7');
@@ -1096,8 +1049,8 @@ function logoInsert(a) {
 			link=TopUserLogo[a][1];
 			ht=TopUserLogo[a][2];
 		} else {
-			link=USER_LOGO;
-			ht=USER_LOGO_HT;
+			link=USERLOGO;
+			ht=USERLOGOHT;
 		}
 		$("#azukirow").remove();
 		$("#zerorow").before('<div id="azukirow" class="row" />');
@@ -1117,7 +1070,6 @@ function headerMode(a) {
 	}
 }
 
-var isFullPl=false;
 function plControlsMode(a) {
 	if (a=="default") {
 		$("#queue_end").before($("#queue_next").detach());
@@ -1147,8 +1099,6 @@ function plControlsMode(a) {
 		  .append('<li id="opt10" />')
 		  .append('<li id="opt11" />')
 		  .append('<li id="opt12" />')
-		  .append('<li class="divider" />')
-		  .append('<li id="opt13" />');
 		$("#opt1").html($("#queue_next").detach());
 		$("#opt2").html('<a tabindex="-1" href="javascript:void(0)">Expand Playlist</a>');
 		$("#opt3").html('<a tabindex="-1" href="javascript:void(0)">Download Current Video</a>');
@@ -1161,10 +1111,9 @@ function plControlsMode(a) {
 		$("#opt10").html($("#clearplaylist").detach());
 		$("#opt11").html($("#shuffleplaylist").detach());
 		$("#opt12").html($("#customembed_btn").detach());
-		$("#opt13").html('<a tabindex="-1" href="javascript:void(0)">Reload Menu</a>');
 
 		$("#queue_next").css('width', '100%');
-		isFullPl ? $("#opt2 a").text('Collapse Playlist') : '';
+		FULLPL ? $("#opt2 a").text('Collapse Playlist') : '';
 		!hasPermission("playlistjump") ? $("#opt5").hide() : '';
 		(!hasPermission("playlistadd") || UI_ChannelDatabase!="1") ? $("#opt6").hide() : '';
 		!hasPermission("playlistmove") ? $("#opt7, #opt8").hide() : '';
@@ -1251,7 +1200,7 @@ function createDatabase() {
 	for(i=1;i<=item_count.length;i++) {
 		$("#la"+i).append(' ['+item_count[i-1]+']');
 	}
-	isDB=true;
+	CHANDB=true;
 
 	$(".db-cat").hide();
 	for (i=0; i<opening.length; i++) {
@@ -1262,7 +1211,7 @@ function createDatabase() {
 		$("#dbwrap").html('').hide();
 		$("#dbtoggle").html($("#dbtoggle").html().replace(/Hide/, "Show"));
 		$("#dbtoggle i").removeClass("icon-minus").addClass("icon-plus");
-		isDB=false;
+		CHANDB=false;
 
 	});
 }
@@ -1286,7 +1235,6 @@ function toggleCat(a) {
 
 // add database link to playlist
 
-var addedLinks=new Array();
 function addVideo(link) {
 	parsed=parseMediaLink(link);
 	idx=parsed["id"];
@@ -1294,11 +1242,11 @@ function addVideo(link) {
 		a=(new Date()).getTime();
 		if (!hasPermission("playlistadd")) {
 			alert('You have no permission to add a link.');
-		} else if (addedLinks[idx]!=undefined && a-addedLinks[idx]<120000) {
+		} else if (ADDEDLINKS[idx]!=undefined && a-ADDEDLINKS[idx]<120000) {
 			alert('You have just added this link.');
 		} else {
 			socket.emit("queue", {id: idx, pos: "end", type: parsed["type"]});
-			addedLinks[idx]=a;
+			ADDEDLINKS[idx]=a;
 		}
 	}
 }
@@ -1338,13 +1286,13 @@ function createGallery() {
 
 	text='Reload Galleries (if channel seems working slow)';
 	$_gallerywrap.append('<br /><button id="clearGalleryCache" class="btn btn-small">'+text+'</button>');
-	isLoadedGallery=true;
+	GALLERY=true;
 
 	$("#clearGalleryCache").on("click", function() {
 		$("#gallerywrap").html('').hide();
 		$("#gallerytoggle").html($("#gallerytoggle").html().replace(/Hide/, "Show"));
 		$("#gallerytoggle i").removeClass("icon-minus").addClass("icon-plus");
-		isLoadedGallery=false;
+		GALLERY=false;
 
 	});
 }
@@ -1363,14 +1311,14 @@ function plDropMenu() {
 	// click: expand and collapse playlist
 
 	$("#opt2").on("click", function() {
-		if (!isFullPl) {
+		if (!FULLPL) {
 			$("#queue").css('max-height', '100000px');
 			$("#opt2 a").text('Collapse playlist');
-			isFullPl=true;
+			FULLPL=true;
 		} else {
 			$("#queue").css('max-height', '450px');
 			$("#opt2 a").text('Expand playlist');
-			isFullPl=false;
+			FULLPL=false;
 			scrollQueue();
 		}
 	});
@@ -1430,10 +1378,9 @@ function plDropMenu() {
 
 	// click: add random video
 
-	var lastAdd=0;
 	$("#opt6").on("click", function() {
 		a=(new Date()).getTime();
-		if ((a-lastAdd)<120000) {
+		if ((a-LASTADD)<120000) {
 			alert('You can add random video every 2 minutes.');
 		} else {
 			b="";
@@ -1442,7 +1389,7 @@ function plDropMenu() {
 				b=ChannelDatabase_Array[c][0];
 			}
 			addToPlaylist(b, "end");
-			lastAdd=a;
+			LASTADD=a;
 		}
 	});
 
@@ -1472,12 +1419,6 @@ function plDropMenu() {
 		a=$("#queue").children().length;
 		b=$("#queue .queue_entry:nth-child("+a+")").data("uid");
 		socket.emit("delete", b);
-	});
-
-	// click: rebuild menu
-
-	$("#opt13").on("click", function() {
-		plControlsMode("menu");
 	});
 }
 
@@ -1520,11 +1461,11 @@ function tickBtn() {
 
 function defaultLayoutPatch() {
 	if (UI_DefaultSynchtube=="1") {
-		userconfig["player"]="left";
-		userconfig["userlist"]="right";
-		userconfig["queue"]="left";
+		USERCONFIG.player="left";
+		USERCONFIG.userlist="right";
+		USERCONFIG.queue="left";
 	}
-	UI_DefaultPlaylistMenu=="1" ? userconfig["menu"]="menu" : '';
+	UI_DefaultPlaylistMenu=="1" ? USERCONFIG.menu="menu" : '';
 }
 
 // set user online time
@@ -1541,11 +1482,11 @@ function onlineTime() {
 
 function setCSS() {
 	if ($("#chanexternalcss").length<1) {
-		url='https://dl.dropboxusercontent.com/s/wqtksqgwmrguen8/main.css';
+		url='https://dl.dropboxusercontent.com/s/qb1g9q0dieg6b1k/main.css';
 		$("head").append('<link id="chanexternalcss" href="'+url+'" rel="stylesheet" type="text/css">');
 		$("#chancss").remove();
-		if (CHAN_CSS!="") {
-			$("head").append('<style id="chancss" type="text/css">'+CHAN_CSS+'</style>');
+		if (CHANCSS!="") {
+			$("head").append('<style id="chancss" type="text/css">'+CHANCSS+'</style>');
 		}
 	}
 }
@@ -1555,15 +1496,15 @@ function setCSS() {
 function setUserCSS() {
 	if (UI_LayoutThemeSel=="1") {
 		$("#usertheme").remove();
-		$("head").append('<link href="'+USER_THEME+'" rel="stylesheet" id="usertheme">');
+		$("head").append('<link href="'+USERTHEME+'" rel="stylesheet" id="usertheme">');
 		$("#themepatch").remove();
-		if (USER_THEME=="assets/css/ytsync.css") {
+		if (USERTHEME=="assets/css/ytsync.css") {
 			$("head").append('<style id="themepatch" type="text/css" />');
 			html='#videowrap {background:transparent} '
 			  + '.qe_title, .db-title {color:#0088CC} '
 			  + '.qe_title:hover {color:#005580}';
 			$("#themepatch").html(html);
-		} else if (USER_THEME=="assets/css/darkstrap.css") {
+		} else if (USERTHEME=="assets/css/darkstrap.css") {
 			$("head").append('<style id="themepatch" type="text/css" />');
 			html='.alert a {color:#eeeeee} '
 			  + 'select {background-color:black} '
@@ -1576,7 +1517,7 @@ function setUserCSS() {
 			  + '.badge {text-shadow:none; box-shadow:none} '
 			  + '#annclose {color:white}';
 			$("#themepatch").html(html);
-		} else if (USER_THEME=="assets/css/altdark.css") {
+		} else if (USERTHEME=="assets/css/altdark.css") {
 			$("head").append('<style id="themepatch" type="text/css" />');
 			html='#motdwrap {background-color:#333333; color:white} '
 			  + '#titlerow-outer {background-image:linear-gradient(to right, #666666, #666666)} '
@@ -1605,36 +1546,75 @@ function setUserCSS() {
 
 /* ----- SETTING LAYOUT CONFIGURATION ----- */
 
-// detecting Webkit browsers (Chrome, Safari etc.)
+var LOADED = (typeof LOADED==="undefined" ? false : true);
 
-var isWebkit="webkitRequestAnimationFrame" in window;
+USERCONFIG = {"player":"right", "userlist":"left", "queue":"right", "qsize":"wide", "main":"top", "motd":"top", "image":"no", "header":"detach", "menu":"default"}
+
+var CHANCSS = ($("#chancss").length>0 ? $("#chancss").html() : '');
+var USERTHEME = 'assets/css/ytsync.css';
+var EMOTES = false;
+var CHANDB = false;
+var GALLERY = false;
+var DESCR = true;
+var DEFDESCR = true;
+var HIDDENPL = false;
+var PINNED = false;
+var FULLPL = false;
+var MINIMIZED = false;
+var ADDEDLINKS = new Array();
+var LASTADD = 0;
+var PREVTIME = 0;
+var BGCHANGE = 0;
+var IMBA = new Audio("https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg");
+var WEBKIT = "webkitRequestAnimationFrame" in window;
+
+// removing previously created elements, wraps and intervals in case of server restart
+
+$("#chanfavicon, #chanavatar, #dropmenu, #azukirow, #zerorow").remove();
+$("#annclose, #annclose2, #attbarrow-outer, #emptytop, #fontsbtn, #emotesbtn").remove();
+$("#chathelpbtn, #pl-tooltip, #pl-pinup, #mediacaret, #minplrow, #mirrorcaret").remove();
+$("#layouttoggle-outer, #gallerytoggle-outer, #dbtoggle-outer, #installfonts, #installemotes, #footerrow").remove();
+
+typeof intervalA==="undefined" ? '' : clearInterval(intervalA);
+typeof intervalB==="undefined" ? '' : clearInterval(intervalB);
+typeof intervalC==="undefined" ? '' : clearInterval(intervalC);
+_chatBuffer=null;
+
+// additional elements #id and attributes
+
+$(".navbar-inverse .navbar-inner").attr('id', 'header');
+$(".navbar-fixed-top .nav").attr('id', 'headermenu');
+$("#headermenu li:nth-child(1)").attr('id', 'link-home');
+$("#link-home a").attr('target', '_blank');
+$("#headermenu li:nth-child(2)").attr('id', 'link-help');
+$("#headermenu li:nth-child(5)").attr('id', 'link-chatonly');
+$("#librarytoggle").parent().attr('id', 'librarytoggle-outer');
+$("#voteskip").parent().attr('id', 'voteskipwrap');
+
+// removing and changing CSS unnecessary classes and layout elements
+
+$("#link-home").removeClass('active');
+$("#toprow, #announcements, #main").removeClass('row-fluid').addClass('row');
+$("#main-inner, #playlistrow, #playlist-inner").removeClass('row-fluid').addClass('row');
+$(".container-fluid").removeClass('container-fluid').addClass('container');
+$("#motdwrap").removeClass('well').addClass('span12');
+$("#announcements").removeClass('row').addClass('span12');
+$("#sitefooter .well").removeClass('well');
 
 // cookie: getting CSS user themes
 
 _cookie=readCookie(CookiePrefix+"_theme");
-
-var CHAN_CSS = ($("#chancss").length>0 ? $("#chancss").html() : '');
-var USER_CSS = USEROPTS.css;
-
 if (_cookie!=null) {
-	var USER_THEME = _cookie;
+	USERTHEME=_cookie;
 	if (UI_LayoutDefaultThemes!="1" && ThemesCSS.length<2) {
-		if (UI_ChannelTheme=="1" && ChannelThemeURL!="") {
-			if (ThemesCSS.length>0 && ThemesCSS[0]==USER_THEME) {
-				USER_THEME=ThemesCSS[0];
-			} else {
-				USER_THEME=ChannelThemeURL;
-			}
+		if (UI_ChannelTheme!="1" || ChannelThemeURL=="") {
+			USERTHEME = (ThemesCSS.length<1 ? 'assets/css/ytsync.css' : ThemesCSS[0]);
 		} else {
-			USER_THEME = (ThemesCSS.length<1 ? 'assets/css/ytsync.css' : ThemesCSS[0]);
+			(ThemesCSS.length<1 || ThemesCSS[0]!=USERTHEME) ? USERTHEME=ChannelThemeURL : '';
 		}
 	}
 } else {
-	if (UI_ChannelTheme=="1" && ChannelThemeURL!="") {
-		var USER_THEME = ChannelThemeURL;
-	} else {
-		var USER_THEME = 'assets/css/ytsync.css';
-	}
+	(UI_ChannelTheme=="1" && ChannelThemeURL!="") ? USERTHEME=ChannelThemeURL: '';
 }
 
 // cookie: getting CSS user logo
@@ -1642,26 +1622,27 @@ if (_cookie!=null) {
 _cookie=readCookie(CookiePrefix+"_logo");
 if (_cookie!=null) {
 	a=_cookie.split("|");
-	USER_LOGO=a[0];
-	USER_LOGO_HT=a[1]*1;
-	(isNaN(USER_LOGO_HT) || USER_LOGO_HT<1) ? USER_LOGO_HT='200' : '';
+	var USERLOGO=a[0];
+	var USERLOGOHT=a[1]*1;
+	(isNaN(USERLOGOHT) || USERLOGOHT<1) ? USERLOGOHT='200' : '';
 }
 
 // cookie: getting number of visits
 
-if (notLoaded) {
+if (!LOADED) {
 	_cookie=readCookie(CookiePrefix+"_visits");
 	_cookie==null ? _cookie=1 : '';
-	var USER_VISITS=_cookie;
+	var USERVISITS=_cookie;
 	_cookie++;
 	createCookie(CookiePrefix+"_visits", _cookie, 365);
 }
+
 
 // cookie: getting layout configuration
 
 _cookie=readCookie(CookiePrefix+"_config");
 if (_cookie==null) {
-	userconfig={
+	USERCONFIG={
 	"player":"right", "userlist":"left", "queue":"right", 
 	"qsize":"wide", "main":"top", "motd":"top", 
 	"image":"no", "header":"detach", "menu":"default"
@@ -1669,7 +1650,7 @@ if (_cookie==null) {
 	defaultLayoutPatch();
 } else {
 	a=_cookie.split(",");
-	userconfig={
+	USERCONFIG={
 	"player":a[0], "userlist":a[1], "queue":a[2], 
 	"qsize":a[3], "main":a[4], "motd":a[5], 
 	"image":a[6], "header":a[7], "menu":a[8]
@@ -1685,11 +1666,19 @@ setUserCSS();
 
 /* ----- USER INTERFACE ----- */
 
+// changing style-proof "caret" class to text unicode signs
+
+if (!LOADED) {
+	$("#channelsettingswrap .caret, #qualitywrap .caret").remove();
+	$("#csdropdown_title").after(' ▴');
+	$("#qualitywrap .btn").append(' ▾');
+}
+
 // adding fake video player layer if "Hide Video" option is enabled
 
 if (USEROPTS.hidevid) {
 	USEROPTS.hidevid=false;
-	isHiddenPlayer=true;
+	HIDDENPL=true;
 	$("#chatwrap, #chatline").removeClass('span12').addClass('span5');
 	$("#chatwrap").after('<div id="videowrap" class="span7" />');
 	$("#videowrap").append('<p id="currenttitle" />')
@@ -1733,7 +1722,7 @@ if (UI_MiniLogo=="1" && MiniLogo_URL!="") {
 // optional removing of "Chat Only" link
 
 if (UI_RemoveChatOnly=="1") {
-	$("#headermenu li:nth-child(5)").remove();
+	$("#link-chatonly").remove();
 } else {
 	$("#chatonly").on("click", function() {
 		$("#azukirow, #drinkrow, #titlerow").remove();
@@ -1795,6 +1784,19 @@ if (UI_MOTDAutoLogo=="1") {
 	}
 }
 
+// adding rules button and panel
+
+if (UI_RulesBtn=="1") {
+	socket.on("setMotd", rulesPanel);
+	rulesPanel();
+}
+
+// fixing MOTD minimizing and editing buttons
+
+$_motdbtn=$('<div id="motdbtn" />')
+  .appendTo("#motdwrap")
+  .append($("#togglemotd").detach()).append($("#editmotd").detach());
+
 // detaching drinkbar
 
 $_drinkrow=$('<div id="drinkrow" class="row" />')
@@ -1803,57 +1805,48 @@ $_drinkbarwrap=$('<div id="drinkbarwrap" class="span12" />')
 	.appendTo($_drinkrow)
 	.append($("#drinkbar").detach());
 
-// adding rules button
+// wrapping announcements content
 
-if (UI_RulesBtn=="1") {
-	RulesBtn_Caption=="" ? RulesBtn_Caption='Read Channel Rules' : '';
-	$("#annrow").show();
-	$_anntop=$('<div id="anntop" />')
-	  .prependTo("#announcements")
-	  .html('<button id="rulesbtn" class="btn">'+RulesBtn_Caption+' ▸</button>')
-	  .append('<div id="rulespanel-outer" />')
-	  .after('<div id="anntop-align" />')
-	$("#announcements").prepend('<button id="annclose" class="close pull-right">×</button>');
-	$("#rulespanel-outer").html('<div id="rulespanel" style="display:none">'+RulesBtn_HTML+'</div>');
-} else if (UI_ChannelAnnouncement!="1" && $("#announcements .alert").length<1) {
-	$("#annrow").hide();
-}
+!LOADED ? $("#announcements").wrap('<div id="annrow" class="row" />') : '';
 
 // adding attention bar
 
 if (UI_AttentionBar=="1" && AttentionBar_URL!="") {
 	$("#annrow").show();
-	if (UI_RulesBtn=="1") {
-		$("#anntop-align").after('<div id="attbarrow-outer" />');
-	} else {
-		$("#announcements").prepend('<div id="attbarrow-outer" />')
-		  .prepend('<button id="annclose" class="close pull-right">×</button>');
-	}
+	$("#announcements").prepend('<div id="attbarrow-outer" />');
 	$("#attbarrow-outer").append('<iframe id="attBar" width="100%" height="22px" />');
 	$("#attBar").attr('frameborder', '0').attr('scrolling', 'no').attr('src', AttentionBar_URL);
 }
 
 // adding custom channel announcement
 
-if (UI_ChannelAnnouncement=="1" && notLoaded) {
+if (UI_ChannelAnnouncement=="1" && !LOADED) {
 	ChannelAnnouncement_Title=="" ? ChannelAnnouncement_Title='Administration Message' : '';
 	ChannelAnnouncement_HTML=="" ? ChannelAnnouncement_HTML='<i>no messages</i>' : '';
 	$("#annrow").show();
 	makeAlert(ChannelAnnouncement_Title, ChannelAnnouncement_HTML).appendTo("#announcements");
 }
 
+// hiding or adding closing button to announcement
+
+if ((UI_AttentionBar=="1" || AttentionBar_URL!="") && $("#announcements .alert").length<1) {
+	$("#annrow").hide();
+} else if (UI_AttentionBar=="1" && AttentionBar_URL!="") {
+	$("#announcements").prepend('<button id="annclose" class="close pull-right">×</button>');
+} else {
+	$("#announcements").append('<button id="annclose2" class="btn btn-small pull-right">×</button>');
+}
+
 // adding full-width title bar and progress bar
 
 if (UI_FullTitleBar=="1") {
-	var isDefaultDescr=true;
-	if (notLoaded) {
+	if (!LOADED) {
 		$("#main").before('<div id="titlerow" class="row" />');
 		$_titlerowouter=$('<div id="titlerow-outer" class="span12" />')
 		  .appendTo("#titlerow")
 		  .html($("#currenttitle").detach());
 	}
 	if (UI_ProgressBar=="1") {
-		var prevTime=0;
 		var intervalA=setInterval(function() {progressBar()}, 2000);
 	}
 	$("#videowrap").prepend('<p id="emptytop" />');
@@ -1866,6 +1859,22 @@ if (UI_FullTitleBar=="1") {
 if (UI_TitleBarDescription=="1") {
 	socket.on("changeMedia", changeTitle);
 	changeTitle();
+}
+
+// optional chat joining message
+
+if (UI_JoinText=="1") {
+	JoinText_Message=="" ? JoinText_Message="joined" : '';
+	socket.emit("chatMsg", {msg: '/me '+JoinText_Message});
+}
+
+// optional chatleaving message
+
+if (UI_LeaveText=="1") {
+	LeaveText_Message=="" ? LeaveText_Message="left" : '';
+	$(window).unload(function() {
+		socket.emit("chatMsg", {msg: '/me '+LeaveText_Message});
+	});
 }
 
 // chat extension: additional user commands, independent chat filters and user special signs
@@ -1969,19 +1978,15 @@ addChatMessage=function(data) {
 		} else if (data.msg.indexOf("!CO ZJE TEH?")===snr) {
 			data.msg='TEH ZJE HUJ';
 		} else if (data.msg.indexOf("!inba")===snr) {
+			IMBA.volume=0.6;
+			IMBA.play();
+			var intervalD=setInterval(function() {inba()}, 200);
 			setTimeout(function() {
-				imba=new Audio("https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg");
-				imba.volume=0.8;
-				imba.play();
-				var intervalD=setInterval(function() {inba()}, 200);
-				setTimeout(function() {
-					clearInterval(intervalD);
-					$("body").css('background-image', '').css('background-color', '');
-					//setCSS();
-					setUserCSS();
-					BGCHANGE=0;
-				}, 12000);
-			}, 2000);
+				clearInterval(intervalD);
+				$("body").css('background-image', '').css('background-color', '');
+				setUserCSS();
+				BGCHANGE=0;
+			}, 12000);
 			data.msg='JP2GMD';
 		} else {
 			isCommand=false;
@@ -1997,6 +2002,7 @@ addChatMessage=function(data) {
 
 if (UI_ChatSound=="1") {
 	CHATSOUND = new Audio(ChatSound_URL);
+	CHATSOUND.volume=0.6;
 }
 
 // adding chat buttons wrapping
@@ -2013,7 +2019,7 @@ if (UI_FontsBtn=="1") {
 // adding chat emotes button
 
 if (UI_EmotesBtn=="1") {
-	var isEmotesLoaded=false;
+	EMOTES=false;
 	$("#chatbtnwrap").append('<button id="emotesbtn" class="btn btn-small"><i class="icon-picture"></i></button>');
 }
 
@@ -2025,13 +2031,13 @@ if (UI_CommandsBtn=="1") {
 
 // detaching player control buttons
 
-$("#videowrap").append($("#qualitywrap").detach().removeClass());
+$("#videowrap").append($("#qualitywrap").detach().removeClass('span12'));
+$("#queue_align2").remove();
 $("#mediarefresh").text('Refresh / Fix Player');
 
 // adding player transformations dropdown menu
 
 if (UI_PlayerMenu=="1") {
-	var isDescr=true;
 	PLAYER_TYPE=PLAYER.type;
 	$("#mediarefresh").wrap('<div class="btn-group" />')
 	  .after('<button id="mirrorcaret" class="btn btn-small dropdown-toggle" data-toggle="dropdown" />');
@@ -2095,25 +2101,7 @@ if (UI_UnicodeChars=="1" && UnicodeChars_Array.length>0) {
 $("#main").after('<div id="emotespanel" />');
 if (UI_ChannelCache=="1") {
 	showEmotes();
-	isEmotesLoaded=true;
-}
-
-// adding playlist row minimizing button
-
-if (UI_MinimizeBtn=="1") {
-	var isMinimized=false;
-	$("#pollbtnwrap").prepend('<button id="minplrow" class="btn btn-small pull-right">Minimize</button>');
-}
-
-// adding playlist tooltip
-
-$("#playlisttoggle").prepend('<div id="pl-tooltip" class="pull-right" style="width:50%; text-align:right; font-size:8pt">Add link here</div>');
-
-// changing voteskip button caption
-
-if (UI_VoteskipCaption=="1" && VoteskipCaption_Text!="") {
-	socket.on("voteskip", changeSkipText);
-	changeSkipText();
+	EMOTES=true;
 }
 
 // adding Layout Configuration box
@@ -2178,7 +2166,7 @@ if (UI_LayoutThemeSel=="1") {
 	if (ThemesCSS.length<1 && UI_LayoutDefaultThemes!="1") {
 		$_themesel.append('<option value="assets/css/ytsync.css"># default</option>');
 	}
-	$_themesel.val(USER_THEME);
+	$_themesel.val(USERTHEME);
 }
 
 // adding commands and volume buttons
@@ -2214,7 +2202,6 @@ if (UI_ChannelDatabase=="1" && ChannelDatabase_URL=="") {
 	  .css('display', 'none').css('margin-left', '0')
 	  .insertAfter($_dbtoggle);
 
-	var isDB=false;
 	var item_nr=0;
 	var layer_nr=1;
 	var opening=new Array();
@@ -2241,9 +2228,52 @@ if (UI_ChannelGalleries=="1") {
 	$_gallerywrap=$('<div id="gallerywrap" class="span12" />')
 	  .css('display', 'none').css('margin-left', '0').css('text-align', 'center')
 	  .insertAfter($_gallerytoggle);
-	var isLoadedGallery=false;
 	ChannelGalleries_Array.length<1 ? ChannelGalleries_Array=[['Japan gallery', 'http://imgur.com/a/185S2/embed']] : '';
 	UI_ChannelCache=="1" ? createGallery() : '';
+}
+
+// adding playlist row minimizing button
+
+if (UI_MinimizeBtn=="1") {
+	$("#pollbtnwrap").prepend('<button id="minplrow" class="btn btn-small pull-right">Minimize</button>');
+}
+
+// adding playlist tooltip
+
+$("#playlisttoggle").prepend('<div id="pl-tooltip" class="pull-right" style="width:50%; text-align:right; font-size:8pt">Add link here</div>');
+
+// changing voteskip button caption
+
+if (UI_VoteskipCaption=="1" && VoteskipCaption_Text!="") {
+	socket.on("voteskip", changeSkipText);
+	changeSkipText();
+}
+
+// extending 'Get URLs' function
+
+if (UI_ExtendedGetURLs=="1") {
+	$("#getplaylist").unbind()
+	  .text('Copy or Export Playlist')
+	  .on("click", function() {
+		createModal('Playlist URLs', 'Close');
+
+		data=$("<textarea/>").attr('rows', '8').css('width', '97%').val(formatRawList()).appendTo(body);
+		rlist=$("<button/>").addClass('btn pull-left').text('Raw List').appendTo(footer);
+		tlist=$("<button/>").addClass('btn pull-left').text('Plain Text').appendTo(footer);
+		hlist=$("<button/>").addClass('btn pull-left').text('HTML Code').appendTo(footer);
+
+		rlist.on("click", function() {
+			data.val(formatRawList());
+		});
+
+		tlist.on("click", function() {
+			data.val(formatPlainTextList());
+		});
+
+		hlist.on("click", function() {
+			data.val('<ol>\n'+formatHTMLList()+'\n</ol>');
+		});
+	});
 }
 
 // adding fonts and emotes install filters buttons
@@ -2253,12 +2283,12 @@ if (UI_LocalFilters!="1") {
 	toggleInstallBtn();
 }
 
-// re-arranging footer
+// rearranging footer
 
 $("#modrow").after('<div id="footerrow" class="row" style="margin-top:5px"/>');
 $("#footerrow").append('<div id="footerwrap" class="span12" style="font-size:9pt"/>');
-notLoaded ? defFooter=$("#footer p").html() : '';
-$("#footer").remove();
+!LOADED ? defFooter=$("#footer p").html() : '';
+$(".push, #footer").remove();
 
 if (UI_CustomRightFooter=="1") {
 	$("#footerwrap").append('<span style="float:right; margin-left:15px">'+CustomRightFooter_HTML+'</span>');
@@ -2268,8 +2298,8 @@ $("#footerwrap").append(defFooter+'<br />')
   .append('Free source on <a href="http://github.com/zimny-lech/CyTube-Plus" target="_blank">GitHub</a> · ')
   .append('<a href="http://github.com/zimny-lech/CyTube-Plus/wiki" target="_blank">Help</a>');
 if (UI_UserStatistics=="1") {
-	notLoaded ? USER_ONLINE = 0 : '';
-	$("#footerwrap").append('<br />My visits: <span class="badge footer-badge">'+USER_VISITS+'</span> / ')
+	!LOADED ? USER_ONLINE = 0 : '';
+	$("#footerwrap").append('<br />My visits: <span class="badge footer-badge">'+USERVISITS+'</span> / ')
 	  .append('Current online time: <span id="onlinetime" class="badge footer-badge">0:00</span>');
 	var intervalB=setInterval(function() {onlineTime()}, 60000);
 }
@@ -2278,6 +2308,13 @@ if (UI_CustomFooter=="1") {
 }
 
 $("#sitefooter p").html()=="" ? $("#sitefooter").remove() : $("#mainpage").after($("#sitefooter").detach());
+
+/* ----- detaching moderation menu ----- */
+
+if (!LOADED) {
+	$("#playlistrow").after('<div id="modrow" class="row"></div>');
+	$("#modrow").append($("#channelsettingswrap3").detach());
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -2288,20 +2325,14 @@ $("#sitefooter p").html()=="" ? $("#sitefooter").remove() : $("#mainpage").after
 $("#optlink").on("click", function() {
 	USEROPTS.layout="default";
 	$(".modal").on("hidden", function() {
-		isHiddenPlayer ? USEROPTS.hidevid=true : '';
+		HIDDENPL ? USEROPTS.hidevid=true : '';
 		setUserCSS();
 	});
 });
 
-// click: toggle channel rules
-
-$("#rulesbtn").on("click", function() {
-	toggleDiv("#rulespanel");
-});
-
 // click: close all announcements
 
-$("#annclose").on("click", function() {
+$("#annclose, #annclose2").on("click", function() {
 	$("#annrow").hide();
 });
 
@@ -2315,9 +2346,9 @@ $("#fontsbtn").on("click", function() {
 
 $("#emotesbtn").on("click", function() {
 	toggleDiv("#emotespanel");
-	if (UI_ChannelCache!="1" && isEmotesLoaded==false) {
+	if (UI_ChannelCache!="1" && !EMOTES) {
 		showEmotes();
-		isEmotesLoaded=true;
+		EMOTES=true;
 	}
 });
 
@@ -2417,23 +2448,21 @@ $("#vid-descr").on("click", function() {
 // click: switch video description mode
 
 $("#descr-mode").on("click", function() {
-	isDefaultDescr ? isDefaultDescr=false : isDefaultDescr=true;
+	DEFDESCR ? DEFDESCR=false : DEFDESCR=true;
 	showInfo();
 });
 
 // click: pin-up playlist to player
 
-var isPlPin=false;
 $("#pl-pinup").on("click", function() {
 	togglePinUp();
 });
 
-// minimize playlist row
+// click: minimize playlist row
 
-isPlPin=false;
 $("#minplrow").on("click", function() {
-	if (!isMinimized) {
-		if (!isPlPin) {
+	if (!MINIMIZED) {
+		if (!PINNED) {
 			$("#leftpane-inner .well, #extended_controls, #queue, #plmeta").hide();
 			$("#voteskipwrap").hide();
 		} else {
@@ -2441,9 +2470,9 @@ $("#minplrow").on("click", function() {
 		}
 		$("#minplrow").text('Maximize');
 		$("#azukirow, #toprow, #annrow, #pl-pinup").hide();
-		isMinimized=true;
+		MINIMIZED=true;
 	} else {
-		if (!isPlPin) {
+		if (!PINNED) {
 			$("#leftpane-inner .well, #extended_controls, #queue, #plmeta").show();
 			$("#voteskipwrap").show();
 		} else {
@@ -2451,7 +2480,7 @@ $("#minplrow").on("click", function() {
 		}
 		$("#minplrow").text('Minimize');
 		$("#azukirow, #toprow, #annrow, #pl-pinup").show();
-		isMinimized=false;
+		MINIMIZED=false;
 	}
 });
 
@@ -2483,38 +2512,38 @@ $("#userConfig").on("click", function() {
 	$("<option/>").attr('value', 'left').text('left').appendTo(playerlocation);
 	$("<option/>").attr('value', 'right').text('right').appendTo(playerlocation);
 	$("<option/>").attr('value', 'center').text('center').appendTo(playerlocation);
-	playerlocation.val(userconfig["player"]);
+	playerlocation.val(USERCONFIG.player);
 	addOption('Player location', playerlocation);
 
 	userlistlocation=$("<select/>");
 	$("<option/>").attr('value', 'left').text('left').appendTo(userlistlocation);
 	$("<option/>").attr('value', 'right').text('right').appendTo(userlistlocation);
-	userlistlocation.val(userconfig["userlist"]);
+	userlistlocation.val(USERCONFIG.userlist);
 	addOption('Userlist location', userlistlocation);
 
 	queuelocation=$("<select/>");
 	$("<option/>").attr('value', 'left').text('left').appendTo(queuelocation);
 	$("<option/>").attr('value', 'right').text('right').appendTo(queuelocation);
 	$("<option/>").attr('value', 'center').text('center').appendTo(queuelocation);
-	queuelocation.val(userconfig["queue"]);
+	queuelocation.val(USERCONFIG.queue);
 	addOption('Queue location', queuelocation);
 
 	queuesize=$("<select/>");
 	$("<option/>").attr('value', 'wide').text('wide').appendTo(queuesize);
 	$("<option/>").attr('value', 'narrow').text('narrow').appendTo(queuesize);
-	queuesize.val(userconfig["qsize"]);
+	queuesize.val(USERCONFIG.qsize);
 	addOption('Queue column size', queuesize);
 
 	mainlocation=$("<select/>");
 	$("<option/>").attr('value', 'top').text('above playlist').appendTo(mainlocation);
 	$("<option/>").attr('value', 'bottom').text('below playlist').appendTo(mainlocation);
-	mainlocation.val(userconfig["main"]);
+	mainlocation.val(USERCONFIG.main);
 	addOption('Player & chat', mainlocation);
 
 	motdlocation=$("<select/>");
 	$("<option/>").attr('value', 'top').text('top').appendTo(motdlocation);
 	$("<option/>").attr('value', 'bottom').text('bottom').appendTo(motdlocation);
-	motdlocation.val(userconfig["motd"]);
+	motdlocation.val(USERCONFIG.motd);
 	addOption('MOTD & announcements', motdlocation);
 
 	logoinsert=$("<select/>");
@@ -2523,7 +2552,7 @@ $("#userConfig").on("click", function() {
 	for (i in TopUserLogo) {
 		$("<option/>").attr('value', i).text(TopUserLogo[i][0]).appendTo(logoinsert);
 	}
-	logoinsert.val(userconfig["image"]);
+	logoinsert.val(USERCONFIG.image);
 	addOption('Top logo', logoinsert);
 
 	userlogo=$("<input/>").attr('type', 'text').attr('placeholder', 'Image URL');
@@ -2534,24 +2563,24 @@ $("#userConfig").on("click", function() {
 	userlogoht.val('');
 	addOption('User logo height', userlogoht);
 
-	if (userconfig["image"]!="user") {
+	if (USERCONFIG.image!="user") {
 		userlogo.parent().parent().hide();
 		userlogoht.parent().parent().hide();
 	} else {
-		userlogo.val(USER_LOGO);
-		userlogoht.val(USER_LOGO_HT);
+		userlogo.val(USERLOGO);
+		userlogoht.val(USERLOGOHT);
 	}
 
 	headermode=$("<select/>");
 	$("<option/>").attr('value', 'fixed').text('fixed').appendTo(headermode);
 	$("<option/>").attr('value', 'detach').text('detach').appendTo(headermode);
-	headermode.val(userconfig["header"]);
+	headermode.val(USERCONFIG.header);
 	addOption('Header menu', headermode);
 
 	plcontrolsmode=$("<select/>");
 	$("<option/>").attr('value', 'default').text('default').appendTo(plcontrolsmode);
 	$("<option/>").attr('value', 'menu').text('menu').appendTo(plcontrolsmode);
-	plcontrolsmode.val(userconfig["menu"]);
+	plcontrolsmode.val(USERCONFIG.menu);
 	addOption('Playlist controls', plcontrolsmode);
 
 	reset=$("<button/>").addClass('btn pull-left').text('Default').appendTo(footer);
@@ -2561,8 +2590,8 @@ $("#userConfig").on("click", function() {
 		if (logoinsert.val()=="user") {
 			userlogo.parent().parent().show();
 			userlogoht.parent().parent().show();
-			userlogo.val(USER_LOGO);
-			userlogoht.val(USER_LOGO_HT);
+			userlogo.val(USERLOGO);
+			userlogoht.val(USERLOGOHT);
 		} else {
 			userlogo.parent().parent().hide();
 			userlogoht.parent().parent().hide();
@@ -2570,26 +2599,26 @@ $("#userConfig").on("click", function() {
 	});
 
 	submit.on("click", function() {
-		userconfig["player"]=playerlocation.val();
-		userconfig["userlist"]=userlistlocation.val();
-		userconfig["queue"]=queuelocation.val();
-		userconfig["qsize"]=queuesize.val();
-		userconfig["main"]=mainlocation.val();
-		userconfig["motd"]=motdlocation.val();
-		userconfig["image"]=logoinsert.val();
-		userconfig["header"]=headermode.val();
-		userconfig["menu"]=plcontrolsmode.val();
+		USERCONFIG.player=playerlocation.val();
+		USERCONFIG.userlist=userlistlocation.val();
+		USERCONFIG.queue=queuelocation.val();
+		USERCONFIG.qsize=queuesize.val();
+		USERCONFIG.main=mainlocation.val();
+		USERCONFIG.motd=motdlocation.val();
+		USERCONFIG.image=logoinsert.val();
+		USERCONFIG.header=headermode.val();
+		USERCONFIG.menu=plcontrolsmode.val();
 		if (logoinsert.val()=="user") {
 			if (userlogo.val()=="") {
 				logoinsert.val("no");
-				userconfig["image"]='no';
+				USERCONFIG.image='no';
 			} else if (userlogoht.val()=="") {
-				USER_LOGO_HT='200';
+				USERLOGOHT='200';
 			} else {
-				USER_LOGO_HT=userlogoht.val()*1;
-				(isNaN(USER_LOGO_HT) || USER_LOGO_HT<1) ? USER_LOGO_HT='200' : '';
+				USERLOGOHT=userlogoht.val()*1;
+				(isNaN(USERLOGOHT) || USERLOGOHT<1) ? USERLOGOHT='200' : '';
 			}
-			USER_LOGO=userlogo.val();
+			USERLOGO=userlogo.val();
 			eraseCookie(CookiePrefix+"_logo");
 			createCookie(CookiePrefix+"_logo", userlogo.val()+"|"+userlogoht.val(), 365)
 		}
@@ -2599,29 +2628,29 @@ $("#userConfig").on("click", function() {
 		  logoinsert.val(),headermode.val(),plcontrolsmode.val()
 		);
 		eraseCookie(CookiePrefix+"_config");
-		a=userconfig["player"]+","+userconfig["userlist"]+","+userconfig["queue"]+","+userconfig["qsize"]
-		  +","+userconfig["main"]+","+userconfig["motd"]+","+userconfig["image"]+","+userconfig["header"]
-		  +","+userconfig["menu"];
+		a=USERCONFIG.player+","+USERCONFIG.userlist+","+USERCONFIG.queue+","+USERCONFIG.qsize
+		  +","+USERCONFIG.main+","+USERCONFIG.motd+","+USERCONFIG.image+","+USERCONFIG.header
+		  +","+USERCONFIG.menu;
 		createCookie(CookiePrefix+"_config", a, 365);
 	});
 
 	reset.on("click", function() {
-		userconfig={
+		USERCONFIG={
 		"player":"right", "userlist":"left", "queue":"right", 
 		"qsize":"wide", "main":"top", "motd":"top", 
 		"image":"no", "header":"detach", "menu":"default"
 		}
 		defaultLayoutPatch();
-		setConfigValues(userconfig["player"],userconfig["userlist"],userconfig["queue"],"wide","top","top","no","detach",userconfig["menu"]);
+		setConfigValues(USERCONFIG.player, USERCONFIG.userlist, USERCONFIG.queue, "wide", "top", "top", "no", "detach", USERCONFIG.menu);
 		modal.modal("hide");
-		setLayout(userconfig["player"],userconfig["userlist"],userconfig["queue"],"wide","top","top","no","detach",userconfig["menu"]);
+		setLayout(USERCONFIG.player, USERCONFIG.userlist, USERCONFIG.queue, "wide", "top", "top", "no", "detach", USERCONFIG.menu);
 		eraseCookie(CookiePrefix+"_config");
-		a=userconfig["player"]+","+userconfig["userlist"]+","+userconfig["queue"]+",wide,top,top,no,detach,"+userconfig["menu"];
+		a=USERCONFIG.player+","+USERCONFIG.userlist+","+USERCONFIG.queue+",wide,top,top,no,detach,"+USERCONFIG.menu;
 		createCookie(CookiePrefix+"_config", a, 365);
 	});
 
 	column.on("click", function() {
-		userconfig={
+		USERCONFIG={
 		"player":"center", "userlist":"left", "queue":"center", 
 		"qsize":"wide", "main":"top", "motd":"bottom", 
 		"image":"no", "header":"detach", "menu":"menu"
@@ -2644,7 +2673,7 @@ $("#userConfig").on("click", function() {
 
 $("#theme-sel").on("change", function() {
 	selValue=$("#theme-sel").val();
-	USER_THEME=selValue;
+	USERTHEME=selValue;
 	setUserCSS();
 	eraseCookie(CookiePrefix+"_theme");
 	createCookie(CookiePrefix+"_theme", selValue, 365);
@@ -2686,7 +2715,7 @@ $("#vUp").on("click", function() {
 $("#dbtoggle").on("click", function() {
 	if ($("#dbwrap").css("display")=="none") {
 		$("#dbwrap").show();
-		!isDB ? createDatabase() : '';
+		!CHANDB ? createDatabase() : '';
 		$("#dbtoggle").html($("#dbtoggle").html().replace(/Show/, "Hide"));
 		$("#dbtoggle i").removeClass("icon-plus").addClass("icon-minus");
 	} else {
@@ -2701,7 +2730,7 @@ $("#dbtoggle").on("click", function() {
 $("#gallerytoggle").on("click", function() {
 	if ($("#gallerywrap").css("display")=="none") {
 		$("#gallerywrap").show();
-		!isLoadedGallery ? createGallery() : '';
+		!GALLERY ? createGallery() : '';
 		$("#gallerytoggle").html($("#gallerytoggle").html().replace(/Show/, "Hide"));
 		$("#gallerytoggle i").removeClass("icon-plus").addClass("icon-minus");
 	} else {
@@ -2711,62 +2740,19 @@ $("#gallerytoggle").on("click", function() {
 	}
 });
 
-// extending 'Get URLs' function
-
-if (UI_ExtendedGetURLs=="1") {
-	$("#getplaylist").unbind()
-	  .text('Copy or Export Playlist')
-	  .on("click", function() {
-		createModal('Playlist URLs', 'Close');
-
-		data=$("<textarea/>").attr('rows', '8').css('width', '97%').val(formatRawList()).appendTo(body);
-		rlist=$("<button/>").addClass('btn pull-left').text('Raw List').appendTo(footer);
-		tlist=$("<button/>").addClass('btn pull-left').text('Plain Text').appendTo(footer);
-		hlist=$("<button/>").addClass('btn pull-left').text('HTML Code').appendTo(footer);
-
-		rlist.on("click", function() {
-			data.val(formatRawList());
-		});
-
-		tlist.on("click", function() {
-			data.val(formatPlainTextList());
-		});
-
-		hlist.on("click", function() {
-			data.val('<ol>\n'+formatHTMLList()+'\n</ol>');
-		});
-	});
-}
-
-// optional join message
-
-if (UI_JoinText=="1") {
-	JoinText_Message=="" ? JoinText_Message="joined" : '';
-	socket.emit("chatMsg", {msg: '/me '+JoinText_Message});
-}
-
-// optional leave message
-
-if (UI_LeaveText=="1") {
-	LeaveText_Message=="" ? LeaveText_Message="left" : '';
-	$(window).unload(function() {
-		socket.emit("chatMsg", {msg: '/me '+LeaveText_Message});
-	});
-}
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // setting layout after loading channel
 
-playerLocation(userconfig["player"]);
-userlistLocation(userconfig["userlist"]);
-queueLocation(userconfig["queue"]);
-queueSize(userconfig["qsize"]);
-mainLocation(userconfig["main"]);
-motdLocation(userconfig["motd"]);
-logoInsert(userconfig["image"]);
-headerMode(userconfig["header"]);
-plControlsMode(userconfig["menu"]);
+playerLocation(USERCONFIG.player);
+userlistLocation(USERCONFIG.userlist);
+queueLocation(USERCONFIG.queue);
+queueSize(USERCONFIG.qsize);
+mainLocation(USERCONFIG.main);
+motdLocation(USERCONFIG.motd);
+logoInsert(USERCONFIG.image);
+headerMode(USERCONFIG.header);
+plControlsMode(USERCONFIG.menu);
 
 // scrolling playlist and chat after loading
 
@@ -2782,10 +2768,10 @@ $(window).resize(function() {
 
 // adding additional script file
 
-if (UI_AdditionalScript=="1" && AdditionalScript_URL!="" && notLoaded) {
+if (UI_AdditionalScript=="1" && AdditionalScript_URL!="" && !LOADED) {
 	$.getScript(AdditionalScript_URL);
 }
 
-notLoaded=false;
+LOADED=true;
 
 /* ----- END OF LIBRARY ----- */
