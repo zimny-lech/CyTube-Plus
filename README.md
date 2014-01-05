@@ -6,7 +6,7 @@
 
 ### Q: What is CyTube Plus?
 
-**A:** It's an easy to configure, powerful <b>JavaScript/CSS library</b> for [CyTube](https://github.com/calzoneman/sync) channels administrators, adding new features and enhancements. Latest release works with **2.4.5** CyTube version.
+**A:** It's an easy to configure, powerful <b>JavaScript/CSS library</b> for [CyTube](https://github.com/calzoneman/sync) channels administrators, adding new features and enhancements. Latest release works with **2.4.5** or **2.4.6** CyTube version.
 
 Latest release includes links from my personal example set of channel themes, logos and emotes. During library customization you can leave it, remove any element, or expand it by adding your own links.
 
@@ -42,9 +42,9 @@ Technically, this library collects ideas from old Synchtube various rooms plus m
 
 1. Go to your channel's "Moderation Menu" and select "Channel Options".
 2. In "External Javascript" field enter JavaScript library URL given below:
-   `https://dl.dropboxusercontent.com/s/j41bicaoh0wx0ug/main.js`
+   `https://dl.dropboxusercontent.com/s/g0td1wn8rfdotsj/main.js`
 3. In "External CSS" field enter CSS library URL given below:
-   `https://dl.dropboxusercontent.com/s/wqtksqgwmrguen8/main.css`
+   `https://dl.dropboxusercontent.com/s/cpxosyfbdnn8qoc/main.css`
 4. Save changes - congratulations, your have just installed basic version of CyTube Plus!
 
 ### Customized, advanced installation
