@@ -22,8 +22,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 // CyTube Plus - JavaScript and CSS library for CyTube channels enhancements
-// Version: 2.6.2
-// Modified: 2014-01-05
+// Version: 2.6.3
+// Modified: 2014-01-06
 // Project URL: https://github.com/zimny-lech/CyTube-Plus
 // Wiki URL: https://github.com/zimny-lech/CyTube-Plus/wiki
 
@@ -34,9 +34,9 @@ INSTALLATION
 
 1. Go to your channel's "Moderation Menu" and select "Channel Options".
 2. In "External Javascript" field enter javascript library URL given below:
-   https://dl.dropboxusercontent.com/s/g0td1wn8rfdotsj/main.js
+   https://dl.dropboxusercontent.com/s/l9lbkxf8qyj8lbb/main.js
 3. In "External CSS" field enter CSS library URL given below:
-   https://dl.dropboxusercontent.com/s/cpxosyfbdnn8qoc/main.css
+   https://dl.dropboxusercontent.com/s/ly2bkj9l1m8gem1/main.css
 4. Save changes - congratulations, your have just installed basic version of CyTube Plus!
 
 # Advanced installation
@@ -85,7 +85,7 @@ UI_MOTDAutoLogo = 0; // big channel logo inserted into MOTD
 UI_RulesBtn = 1; // button displaying channel rules
 UI_ChannelAnnouncement = 1; // additional custom channel announcement
 UI_FullTitleBar = 1; // full-width video title bar
-UI_ProgressBar = 1; // YouTube progress bar; REQUIRE: UI_FullTitleBar enabled
+UI_ProgressBar = 1; // YouTube/Dailymotion progress bar; REQUIRE: UI_FullTitleBar enabled
 UI_TitleBarDescription = 1; // custom title bar description
 UI_UserCommands = 1; // additional commands in the chat window
 UI_LocalFilters = 1; // default emotes and fonts filters in current chat session, if disabled you must install
@@ -124,7 +124,7 @@ UI_ChannelCache = 1; // caching script emotes, additional media database and def
 // below: user cookie prefix
 // ATTENTION! use unique, random name using basic letters and numbers to prevent using cookies from other channels
 
-CookiePrefix='tur7e8jeue78ejekwm';
+CookiePrefix='fruend7sdskaer45';
 
 // FILTERS INSTALLATION
 // set UI_LocalFilters to 0, save, reload channel
@@ -225,7 +225,7 @@ ChannelAnnouncement_Title = 'Administration Message';
 // DESCRIPTION: custom channel announcement title
 // REQUIRE: UI_ChannelAnnouncement enabled
 
-ChannelAnnouncement_HTML = 'This channel has been created with <a href="https://github.com/zimny-lech/CyTube-Plus" target="_blank">CyTube Plus 2.6.2</a>.';
+ChannelAnnouncement_HTML = 'This channel has been created with <a href="https://github.com/zimny-lech/CyTube-Plus" target="_blank">CyTube Plus 2.6.3</a>.';
 
 // DESCRIPTION: custom channel announcement HTML
 // REQUIRE: UI_ChannelAnnouncement enabled
@@ -239,7 +239,7 @@ UserSpecialSigns_Array = {
 'ZimnyLech':'★', 'calzoneman':'♠', 
 }
 
-// DESCRIPTION: user special signs array
+// DESCRIPTION: user special unicode signs array
 // ARRAY SYNTAX: 'username':'sign', 
 // REQUIRE: UI_UserSpecialSigns enabled
 // NOTE: example signs - ★ ☆ ▲ ▼ ♥ ♪ ♠ ☯ Ⓐ
@@ -312,13 +312,13 @@ ThemesCSS = [
 ['jungle', 'https://dl.dropboxusercontent.com/s/h8q8qml44zoo2pc/jungle.css'],
 ['celadon', 'https://dl.dropboxusercontent.com/s/cduxlsx3j76b4hr/celadon.css'],
 ['sakura', 'https://dl.dropboxusercontent.com/s/qxyuag1idqxhujz/sakura.css'],
+['kobato', 'https://dl.dropboxusercontent.com/s/4f1tx62gsdjoj3h/kobato.css'],
 ['fuchsia', 'https://dl.dropboxusercontent.com/s/shr7krrrn20pnii/fuchsia.css'],
 ['cool-kim', 'https://dl.dropboxusercontent.com/s/4ulsaj782txokaw/kim.css'],
 ['soft-pattern', 'https://dl.dropboxusercontent.com/s/lw0hwbzqoe4u2i2/pattern.css'],
 ['contrast', 'https://dl.dropboxusercontent.com/s/ea9e3v9yphqvjo6/contrast.css'],
 ['nights', 'https://dl.dropboxusercontent.com/s/pnsnsoooxec1of6/nights.css'],
 ['cosmos', 'https://dl.dropboxusercontent.com/s/ztj5yia9j2qfqmp/cosmos.css'],
-['kobato', 'https://dl.dropboxusercontent.com/s/4f1tx62gsdjoj3h/kobato.css'],
 ];
 
 // DESCRIPTION: themes CSS files array
@@ -395,9 +395,9 @@ EmotesArray = [
 ],
 
 // DESCRIPTION: chat emotes array
-// ARRAY SYNTAX: 'replacing_code':['image_URL', image_width, image_height],
+// ARRAY SYNTAX: ['replacing_code', 'image_URL', image_width, image_height],
 // REQUIRE: INSTALLATION REQUIRED (see above in the Starting Configuration section)
-// WARNING! "replacing_code" must be unique one-word name without special characters
+// NOTE: in the emotes panel all big images will be resized to fitting resolution
 
 EmotesBasicURL = '';
 
@@ -413,6 +413,7 @@ CustomImageURL = 'https://dl.dropboxusercontent.com/s/evwscyflzddc92p/custom.png
 
 // DESCRIPTION: 'custom image' picture in the emotes panel
 // REQUIRE: UI_EmotesBtn enabled
+// NOTE: use 45px height or less images for the best effect
 
 UnicodeChars_Array = [
 '★', '☆', '▲', '▼', '♥', '♪', '♿', '⚒', '♕', '✉', '☏', '♠', '→', 
@@ -543,6 +544,11 @@ ChannelDatabase_URL='';
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// reload channel after possible library change
+
+var LOADED = (typeof LOADED==="undefined" ? false : true);
+LOADED ? location.reload() : '';
+
 /* ----- GLOBAL FUNCTIONS ----- */
 
 // toggle elements
@@ -623,7 +629,7 @@ function rotateLogo() {
 function rulesPanel() {
 	RulesBtn_Caption=="" ? RulesBtn_Caption='Read Channel Rules' : '';
 	$("#motdwrap").show();
-	$("#motd").append('<div style="text-align:center"><button id="rulesbtn" class="btn">'+RulesBtn_Caption+' ▸</button></div>')
+	$("#motd").append('<div id="rulesbtnwrap" style="text-align:center"><button id="rulesbtn" class="btn">'+RulesBtn_Caption+' ▸</button></div>')
 	  .append('<div id="rulespanel-outer" />');
 	$("#rulespanel-outer").html('<div id="rulespanel" style="display:none">'+RulesBtn_HTML+'</div>');
 
@@ -632,13 +638,17 @@ function rulesPanel() {
 	});
 }
 
-// YouTube progress bar
+// YouTube/Dailymotion progress bar
 
 function progressBar() {
 	a=0;
 	if (PLAYER.type=="yt") {
 		b=PLAYER.player.getCurrentTime();
 		b!=PREVTIME ? a=b/PLAYER.player.getDuration()*100 : '';
+		PREVTIME=b;
+	} else if (PLAYER.type=="dm") {
+		b=PLAYER.player.currentTime;
+		b!=PREVTIME ? a=b/PLAYER.player.duration*100 : '';
 		PREVTIME=b;
 	}
 	$("#titlerow-outer").css('background-size', a+'% 100%');
@@ -683,17 +693,19 @@ function insertText(a) {
 
 function showEmotes() {
 	for(i in EmotesArray) {
-		img=$('<img src="'+EmotesBasicURL+''+EmotesArray[i][1]+'" onclick="insertText(\''+EmotesArray[i][0]+'\')" />')
-		  .attr('width', EmotesArray[i][2]).attr('height', EmotesArray[i][3])
-		  .attr('title', EmotesArray[i][0])
-		  .css('cursor', 'pointer');
-		$("#emotespanel").append(img).append(' ');	
+		w=EmotesArray[i][2];
+		h=EmotesArray[i][3];
+		if (h>45) {
+			w=Math.round(w*45/h);
+			h=45;
+		}
+		img=$('<img src="'+EmotesBasicURL+''+EmotesArray[i][1]+'" class="emote" onclick="insertText(\''+EmotesArray[i][0]+'\')" width="'+w+'" height="'+h+'" title="'+EmotesArray[i][0]+'" />')
+		$("#emotespanel").append(img).append(' ');
 	}
 	if (UI_LocalFilters!="1") {
 		CustomImageURL=="" ? CustomImageURL='https://dl.dropboxusercontent.com/s/evwscyflzddc92p/custom.png' : '';
-		img=$('<img src="'+CustomImageURL+'" onclick="enterCustomImg()" />')
-		  .attr('width', 60).attr('height', 45).attr('title', 'custom image')
-		  .css('cursor', 'pointer');
+		img=$('<img src="'+CustomImageURL+'" class="emote" onclick="enterCustomImg()" />')
+		  .attr('title', 'custom image')
 		$("#emotespanel").append(img).append(' ');
 	}
 }
@@ -1138,7 +1150,7 @@ function toggleClearBtn() {
 // toggle YT volume buttons depends on player type
 
 function toggleVolBtn() {
-	if (PLAYER.type=="yt") {
+	if (PLAYER.type=="yt" || PLAYER.type=="dm") {
 		$("#vDown").show();
 		$("#vUp").show();
 	} else {
@@ -1260,10 +1272,22 @@ function prevVideo(a) {
 	  .attr('src', 'http://www.youtube.com/embed/'+a+'?enablejsapi=1')
 	  .attr('width', '530').attr('height', '323').attr('frameborder', '0');
 
-	PLAYER.type=="yt" ? PLAYER.player.mute() : '';
+	mutePlayer();
 	modal.on("hidden", function() {
-		PLAYER.type=="yt" ? PLAYER.player.unMute() : '';
+		unmutePlayer();
 	});
+}
+
+// mute YT player
+
+function mutePlayer() {
+	PLAYER.type=="yt" ? PLAYER.player.mute() : '';
+}
+
+// unmute YT player
+
+function unmutePlayer() {
+	PLAYER.type=="yt" ? PLAYER.player.unMute() : '';
 }
 
 // create channel gallery
@@ -1471,9 +1495,9 @@ function defaultLayoutPatch() {
 // set user online time
 
 function onlineTime() {
-	USER_ONLINE++;
-	hours=Math.floor(USER_ONLINE/60);
-	minutes=USER_ONLINE-hours*60;
+	USERONLINE++;
+	hours=Math.floor(USERONLINE/60);
+	minutes=USERONLINE-hours*60;
 	minutes<10 ? minutes="0"+minutes : '';
 	$("#onlinetime").html(hours+":"+minutes);
 }
@@ -1513,7 +1537,7 @@ function setUserCSS() {
 			  + '#titlerow-outer {background-image:linear-gradient(to right, #666666, #666666)} '
 			  + '#rulespanel, .currenttitle, #emptytop, #footerwrap {color:#C6C6C6} '
 			  + '.queue_entry {color:#C6C6C6} '
-			  + '.command {background-color:black; border:solid 1px white} '
+			  + '.command {background-color:black; border-top:solid 1px white; border-bottom:solid 1px white} '
 			  + '.badge {text-shadow:none; box-shadow:none} '
 			  + '#annclose {color:white}';
 			$("#themepatch").html(html);
@@ -1523,7 +1547,7 @@ function setUserCSS() {
 			  + '#titlerow-outer {background-image:linear-gradient(to right, #666666, #666666)} '
 			  + '#rulespanel, .currenttitle, #emptytop, #footerwrap {color:white} '
 			  + '.queue_entry {color:#F5F5F5} '
-			  + '.command {background-color:white; border:solid 1px black; color:black} '
+			  + '.command {border-top:solid 1px white; border-bottom:solid 1px white} '
 			  + '#sitefooter {color:#CCCCCC} '
 			  + '#cbtn0 {background:gold !important} '
 			  + '#cbtn1 {background:orange !important} '
@@ -1546,9 +1570,7 @@ function setUserCSS() {
 
 /* ----- SETTING LAYOUT CONFIGURATION ----- */
 
-var LOADED = (typeof LOADED==="undefined" ? false : true);
-
-USERCONFIG = {"player":"right", "userlist":"left", "queue":"right", "qsize":"wide", "main":"top", "motd":"top", "image":"no", "header":"detach", "menu":"default"}
+var USERCONFIG = {"player":"right", "userlist":"left", "queue":"right", "qsize":"wide", "main":"top", "motd":"top", "image":"no", "header":"detach", "menu":"default"}
 
 var CHANCSS = ($("#chancss").length>0 ? $("#chancss").html() : '');
 var USERTHEME = 'assets/css/ytsync.css';
@@ -1561,6 +1583,7 @@ var HIDDENPL = false;
 var PINNED = false;
 var FULLPL = false;
 var MINIMIZED = false;
+var USERONLINE = 0;
 var ADDEDLINKS = new Array();
 var LASTADD = 0;
 var PREVTIME = 0;
@@ -1568,17 +1591,7 @@ var BGCHANGE = 0;
 var IMBA = new Audio("https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg");
 var WEBKIT = "webkitRequestAnimationFrame" in window;
 
-// removing previously created elements, wraps and intervals in case of server restart
-
-$("#chanfavicon, #chanavatar, #dropmenu, #azukirow, #zerorow").remove();
-$("#annclose, #annclose2, #attbarrow-outer, #emptytop, #fontsbtn, #emotesbtn").remove();
-$("#chathelpbtn, #pl-tooltip, #pl-pinup, #mediacaret, #minplrow, #mirrorcaret").remove();
-$("#layouttoggle-outer, #gallerytoggle-outer, #dbtoggle-outer, #installfonts, #installemotes, #footerrow").remove();
-
-typeof intervalA==="undefined" ? '' : clearInterval(intervalA);
-typeof intervalB==="undefined" ? '' : clearInterval(intervalB);
-typeof intervalC==="undefined" ? '' : clearInterval(intervalC);
-_chatBuffer=null;
+CHATSOUND.volume=0.6;
 
 // additional elements #id and attributes
 
@@ -1629,14 +1642,11 @@ if (_cookie!=null) {
 
 // cookie: getting number of visits
 
-if (!LOADED) {
-	_cookie=readCookie(CookiePrefix+"_visits");
-	_cookie==null ? _cookie=1 : '';
-	var USERVISITS=_cookie;
-	_cookie++;
-	createCookie(CookiePrefix+"_visits", _cookie, 365);
-}
-
+_cookie=readCookie(CookiePrefix+"_visits");
+_cookie==null ? _cookie=1 : '';
+var USERVISITS=_cookie;
+_cookie++;
+createCookie(CookiePrefix+"_visits", _cookie, 365);
 
 // cookie: getting layout configuration
 
@@ -1668,11 +1678,9 @@ setUserCSS();
 
 // changing style-proof "caret" class to text unicode signs
 
-if (!LOADED) {
-	$("#channelsettingswrap .caret, #qualitywrap .caret").remove();
-	$("#csdropdown_title").after(' ▴');
-	$("#qualitywrap .btn").append(' ▾');
-}
+$("#channelsettingswrap .caret, #qualitywrap .caret").remove();
+$("#csdropdown_title").after(' ▴');
+$("#qualitywrap .btn").append(' ▾');
 
 // adding fake video player layer if "Hide Video" option is enabled
 
@@ -1780,7 +1788,7 @@ if (UI_MOTDAutoLogo=="1") {
 	changeMOTD();
 	if (MOTDAutoLogo_Mode=="3") {
 		(typeof MOTDAutoLogo_Timeout!=="number" || MOTDAutoLogo_Timeout<1) ? MOTDAutoLogo_Timeout='20' : '';
-		var intervalC=setInterval(function() {rotateLogo()}, MOTDAutoLogo_Timeout*1000);
+		setInterval(function() {rotateLogo()}, MOTDAutoLogo_Timeout*1000);
 	}
 }
 
@@ -1807,7 +1815,7 @@ $_drinkbarwrap=$('<div id="drinkbarwrap" class="span12" />')
 
 // wrapping announcements content
 
-!LOADED ? $("#announcements").wrap('<div id="annrow" class="row" />') : '';
+$("#announcements").wrap('<div id="annrow" class="row" />');
 
 // adding attention bar
 
@@ -1820,7 +1828,7 @@ if (UI_AttentionBar=="1" && AttentionBar_URL!="") {
 
 // adding custom channel announcement
 
-if (UI_ChannelAnnouncement=="1" && !LOADED) {
+if (UI_ChannelAnnouncement=="1") {
 	ChannelAnnouncement_Title=="" ? ChannelAnnouncement_Title='Administration Message' : '';
 	ChannelAnnouncement_HTML=="" ? ChannelAnnouncement_HTML='<i>no messages</i>' : '';
 	$("#annrow").show();
@@ -1840,14 +1848,12 @@ if ((UI_AttentionBar=="1" || AttentionBar_URL!="") && $("#announcements .alert")
 // adding full-width title bar and progress bar
 
 if (UI_FullTitleBar=="1") {
-	if (!LOADED) {
-		$("#main").before('<div id="titlerow" class="row" />');
-		$_titlerowouter=$('<div id="titlerow-outer" class="span12" />')
-		  .appendTo("#titlerow")
-		  .html($("#currenttitle").detach());
-	}
+	$("#main").before('<div id="titlerow" class="row" />');
+	$_titlerowouter=$('<div id="titlerow-outer" class="span12" />')
+	  .appendTo("#titlerow")
+	  .html($("#currenttitle").detach());
 	if (UI_ProgressBar=="1") {
-		var intervalA=setInterval(function() {progressBar()}, 2000);
+		setInterval(function() {progressBar()}, 2000);
 	}
 	$("#videowrap").prepend('<p id="emptytop" />');
 	socket.on("changeMedia", showInfo);
@@ -1902,9 +1908,9 @@ addChatMessage=function(data) {
 	if (UI_LocalFilters=="1") {
 		for (i in EmotesArray) {
 			link=EmotesArray[i][1];
-			wd=EmotesArray[i][2];
-			ht=EmotesArray[i][3];
-			code='<img src="'+EmotesBasicURL+''+link+'" width="'+wd+'" height="'+ht+'" onclick="insertText(\''+EmotesArray[i][0]+'\')" style="cursor:pointer" />';
+			w=EmotesArray[i][2];
+			h=EmotesArray[i][3];
+			code='<img src="'+EmotesBasicURL+''+link+'" class="emote" width="'+w+'" height="'+h+'" onclick="insertText(\''+EmotesArray[i][0]+'\')" />';
 			re=new RegExp(EmotesArray[i][0], 'g');
 			data.msg=data.msg.replace(re, code);
 		}
@@ -1938,8 +1944,12 @@ addChatMessage=function(data) {
 			c=a.getMinutes();
 			c<10 ? c='0'+c : false;
 			data.msg='current time: '+b+':'+c;
-			} else if (data.msg.indexOf("!dice")>-1) {
+		} else if (data.msg.indexOf("!dice")>-1) {
 			a=Math.round(Math.random()*5)+1;
+			data.msg=a;
+		} else if (data.msg.indexOf("!roll")>-1) {
+			a=Math.round(Math.random()*999);
+			a<10 ? a="0"+a : '';
 			data.msg=a;
 		} else if (data.msg.indexOf("!q")===snr) {
 			a=Math.round(Math.random()*(RandomQuotes.length-1));
@@ -1980,19 +1990,21 @@ addChatMessage=function(data) {
 		} else if (data.msg.indexOf("!inba")===snr) {
 			IMBA.volume=0.6;
 			IMBA.play();
-			var intervalD=setInterval(function() {inba()}, 200);
+			mutePlayer();
+			var intervalA=setInterval(function() {inba()}, 200);
 			setTimeout(function() {
-				clearInterval(intervalD);
+				clearInterval(intervalA);
 				$("body").css('background-image', '').css('background-color', '');
 				setUserCSS();
 				BGCHANGE=0;
+				unmutePlayer();
 			}, 12000);
 			data.msg='JP2GMD';
 		} else {
 			isCommand=false;
 		}
 		if (isCommand) {
-			data.msg='<div class="command">'+data.msg+'</div>';
+			data.msg='<div class="command">* '+data.msg+'</div>';
 			_chatBuffer(data);
 		}
 	}
@@ -2283,11 +2295,16 @@ if (UI_LocalFilters!="1") {
 	toggleInstallBtn();
 }
 
+// detaching moderation menu
+
+$("#playlistrow").after('<div id="modrow" class="row"></div>');
+$("#modrow").append($("#channelsettingswrap3").detach());
+
 // rearranging footer
 
-$("#modrow").after('<div id="footerrow" class="row" style="margin-top:5px"/>');
-$("#footerrow").append('<div id="footerwrap" class="span12" style="font-size:9pt"/>');
-!LOADED ? defFooter=$("#footer p").html() : '';
+$("#modrow").after('<div id="footerrow" class="row" style="margin-top:5px" />');
+$("#footerrow").append('<div id="footerwrap" class="span12" style="font-size:9pt" />');
+defFooter=$("#footer p").html();
 $(".push, #footer").remove();
 
 if (UI_CustomRightFooter=="1") {
@@ -2298,23 +2315,15 @@ $("#footerwrap").append(defFooter+'<br />')
   .append('Free source on <a href="http://github.com/zimny-lech/CyTube-Plus" target="_blank">GitHub</a> · ')
   .append('<a href="http://github.com/zimny-lech/CyTube-Plus/wiki" target="_blank">Help</a>');
 if (UI_UserStatistics=="1") {
-	!LOADED ? USER_ONLINE = 0 : '';
 	$("#footerwrap").append('<br />My visits: <span class="badge footer-badge">'+USERVISITS+'</span> / ')
 	  .append('Current online time: <span id="onlinetime" class="badge footer-badge">0:00</span>');
-	var intervalB=setInterval(function() {onlineTime()}, 60000);
+	setInterval(function() {onlineTime()}, 60000);
 }
 if (UI_CustomFooter=="1") {
 	$("#footerwrap").append('<br /><br />'+CustomFooter_HTML);
 }
 
 $("#sitefooter p").html()=="" ? $("#sitefooter").remove() : $("#mainpage").after($("#sitefooter").detach());
-
-/* ----- detaching moderation menu ----- */
-
-if (!LOADED) {
-	$("#playlistrow").after('<div id="modrow" class="row"></div>');
-	$("#modrow").append($("#channelsettingswrap3").detach());
-}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -2768,7 +2777,7 @@ $(window).resize(function() {
 
 // adding additional script file
 
-if (UI_AdditionalScript=="1" && AdditionalScript_URL!="" && !LOADED) {
+if (UI_AdditionalScript=="1" && AdditionalScript_URL!="") {
 	$.getScript(AdditionalScript_URL);
 }
 
