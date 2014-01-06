@@ -25,7 +25,13 @@ body {padding-top:40px}
 
 /* chat "command" class */
 
-.command {background-color:white; padding:5px; margin:5px; border:solid 1px black}
+.command {
+padding:3px;
+margin:5px;
+border-top:solid 1px black;
+border-bottom:solid 1px black;
+font-style:italic;
+}
 
 /* "brand" class */
 
@@ -198,6 +204,10 @@ border-radius:8px;
 /* fonts panel buttons */
 
 #fontspanel button {width:28px; height:28px; padding:4px 6px; margin-bottom:10px; line-height:16px}
+
+/* emote */
+
+.emote {cursor:pointer}
 
 /* "Show/Hide" boxes */
 
