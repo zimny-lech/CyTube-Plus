@@ -42,9 +42,9 @@ Technically, this library collects ideas from old Synchtube various rooms plus m
 
 1. Go to your channel's "Moderation Menu" and select "Channel Options".
 2. In "External Javascript" field enter JavaScript library URL given below:
-   `https://dl.dropboxusercontent.com/s/l9lbkxf8qyj8lbb/main.js`
+   `https://dl.dropboxusercontent.com/s/fbdeierbw6u7asc/main.js`
 3. In "External CSS" field enter CSS library URL given below:
-   `https://dl.dropboxusercontent.com/s/ly2bkj9l1m8gem1/main.css`
+   `https://dl.dropboxusercontent.com/s/2rgjlsd0uoe8ooa/main.css`
 4. Save changes - congratulations, your have just installed basic version of CyTube Plus!
 
 ### Customized, advanced installation
