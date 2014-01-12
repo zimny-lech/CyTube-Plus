@@ -3,7 +3,9 @@
 # Attention: try not to change this file, it sets global layout properties
 */
 
-/* body padding */
+/* ----- GLOBAL PROPERTIES ----- */
+
+/* body */
 
 body {padding-top:40px}
 
@@ -23,82 +25,79 @@ body {padding-top:40px}
 
 .alert {text-shadow:none; margin-bottom:0px}
 
-/* chat "command" class */
-
-.command {
-padding:3px;
-margin:5px;
-border-top:solid 1px black;
-border-bottom:solid 1px black;
-font-style:italic;
-}
-
-/* "brand" class */
+/* global "brand" class */
 
 .brand {cursor:default}
 
-/* channel avatar */
+/* common responsive layout selectors */
 
-#chanavatar {margin-right:10px}
+#toprow, #annrow, #titlerow, #main, #playlistrow, #modrow, #footrow {margin-top:5px}
+
+/* common main visible sections */
+
+#motdwrap, #announcements, #titlerow-outer, #main-outer, #playlist-outer, #channelsettingswrap3 {
+	border:solid 2px white; border-radius:6px; -moz-border-radius:6px; -webkit-border-radius:6px; padding:5px;
+}
+
+/* "Show/Hide" boxes */
+
+#leftpane-inner .well, #playlisttogglewrap, #dbwrap, #gallerywrap {margin-bottom:5px; padding-bottom:0px}
+
+/* common videolist titles */
+
+.qe_title, .db-title {color:inherit}
+
+.qe_title:hover {color:inherit}
+
+/* closing "x" element */
+
+.close {opacity:0.4}
+
+.close:hover {opacity:0.7}
+
+/* ----- HEADER PROPERTIES ----- */
 
 /* header links */
 
-.navbar-inverse .brand,
-.navbar-inverse .nav > li > a {text-shadow:none}
+.navbar-inverse .brand, .navbar-inverse .nav > li > a {text-shadow:none}
 
 /* dropdown menu header */
 
 .nav-header {text-shadow:none}
 
-/* default top logo box properties */
+/* ----- SINGLE LAYOUT ELEMETS PROPERTIES ----- */
 
-#azukirowwrap {
-padding-left:5px;
-padding-right:5px;
-border-left:solid 2px transparent;
-border-right:solid 2px transparent;
-background:transparent;
-background-repeat:no-repeat !important;
-background-position:center center !important;
-margin-top:0px;
+/* channel avatar (mini-logo) */
+
+#chanavatar {margin-right:10px}
+
+/* top user logo box */
+
+#azukirow-outer {
+	padding-left:5px; padding-right:5px; border-left:solid 2px transparent; border-right:solid 2px transparent;
+	background:transparent; background-repeat:no-repeat !important; background-position:center center !important;
+	margin-top:0px;
 }
 
-/* common "row" responsive layout elements */
+/* attention bar */
 
-#toprow,
-#annrow,
-#titlerow,
-#main,
-#playlistrow,
-#modrow,
-#footerrow {margin-top:5px}
-
-/* common main visible rows */
-
-#motdwrap,
-#announcements,
-#titlerow-outer,
-#main-outer,
-#playlist-outer,
-#channelsettingswrap3 {
-border:solid 2px white;
-border-radius:6px;
--moz-border-radius:6px;
--webkit-border-radius:6px;
-padding:5px;
-}
-
-/* attention bar responsive "row" box */
-
-#attbarrow {margin-top:2px}
+#attbar {height:22px; background-color: white}
 
 /* MOTD */
 
-#motdwrap {position:relative; background-color:#F5F5F5; margin-bottom:0px; min-height:20px}
+#motdwrap {position:relative; background-color:#F5F5F5; margin-bottom:0px; min-height:18px}
+
+/* MOTD buttons */
+
+#motdbtnwrap {position:absolute; top:5px; right:5px}
+
+/* rules button wrap */
+
+#rulesbtnwrap {text-align:center}
 
 /* rules button */
 
-#rulesbtn {margin-top:10px; margin-bottom:5px}
+#rules-btn {margin-top:10px; margin-bottom:5px}
 
 /* rulespanel outer box */
 
@@ -107,48 +106,29 @@ padding:5px;
 /* rulespanel */
 
 #rulespanel {
-max-width:700px;
-margin:0 auto;
-margin-top:0px;
-padding:4px;
-border:solid 2px white;
-border-radius:8px;
--moz-border-radius:8px;
--webkit-border-radius:8px;
-text-align:left;
+	max-width:700px; margin:0 auto; margin-top:0px; padding:4px; border:solid 2px white; text-align:left;
+	border-radius:8px; -moz-border-radius:8px; -webkit-border-radius:8px;
 }
-
-/* MOTD buttons */
-
-#motdbtn {position:absolute; top:5px; right:5px}
 
 /* drinkbar */
 
 #drinkbarwrap {
-padding-left:5px;
-padding-right:5px;
-border-left:solid 2px transparent;
-border-right:solid 2px transparent;
+	padding-left:5px; padding-right:5px; border-left:solid 2px transparent; border-right:solid 2px transparent;
 }
+
 #drinkcount {margin-top:0px; margin-bottom:0px}
 
 /* announcements */
 
 #announcements {position:relative; margin-bottom:0px}
 
-/* attention bar */
+/* announcements close button */
 
-#attBar {background-color: white}
+#annclose-btn {position:absolute; top:5px; right:5px}
 
 /* announcements server error */
 
 #announcements .alert-error {margin-left:0px}
-
-/* announcements close button */
-
-#annclose {position:absolute; top:5px; right:5px}
-
-/* userlist item */
 
 .userlist_item {cursor:pointer}
 
@@ -156,105 +136,139 @@ border-right:solid 2px transparent;
 
 #chatline {margin-bottom:3px}
 
-/* default "emptytop" box */
+/* player covering box */
 
-#emptytop {
-margin:0px;
-padding-left:2px;
-color:#333333;
-border-width:1px 1px medium;
-border-style:solid solid none;
-border-color:#AAAAAA;
+#coverpl {
+	position:absolute; left:0px; top:0px; background-color:white;
+	background-repeat:no-repeat; background-position:center center;
 }
 
-/* video title */
+/* media info box */
+
+#mediainfo {
+	margin:0px; padding-left:2px; color:#333333; border-style:solid solid none;
+	border-width:1px 1px medium; border-color:#AAAAAA;
+}
+
+/* media title */
 
 #currenttitle {padding-left:4px}
+
 #currenttitle:before {content:"▶ "}
 
-/* default full-width title */
+/* full-width media title */
 
 #titlerow-outer {
-background-image:linear-gradient(to right, #DDDDDD, #DDDDDD);
-background-position:0px center;
-background-size:0% 100%;
-background-repeat:no-repeat;
+	background-image:linear-gradient(to right, #DDDDDD, #DDDDDD); background-position:0px center;
+	background-size:0% 100%; background-repeat:no-repeat;
 }
+
 #titlerow-outer #currenttitle {border:solid 1px #AAAAAA !important}
 
-/* player controls dropdown menu */
+/* player dropdown menu */
 
-#trmenu {text-align:right}
+#playermenu {text-align:right}
 
 /* fonts and emotes panels */
 
 #fontspanel, #emotespanel {
-border:solid 2px white;
-max-width:700px;
-margin:0 auto;
-display:none;
-text-align:center;
-margin-top:1px;
-padding:4px;
-border-radius:8px;
--moz-border-radius:8px;
--webkit-border-radius:8px;
+	display:none; max-width:700px; margin:0 auto; margin-top:1px; text-align:center; border:solid 2px white;
+	padding:4px; border-radius:8px; -moz-border-radius:8px; -webkit-border-radius:8px;
 }
+
+/* fonts panel wraps */
+
+#fontsbtnwrap, #unibtnwrap {width:100%; text-align:center}
+
+#unibtnwrap {margin-top:8px}
 
 /* fonts panel buttons */
 
-#fontspanel button {width:28px; height:28px; padding:4px 6px; margin-bottom:10px; line-height:16px}
+#fontspanel button {
+	width:28px; height:28px; padding:4px 6px; margin-bottom:10px; margin-right:10px; line-height:16px;
+}
 
-/* emote */
+/* unicode characters buttons */
 
-.emote {cursor:pointer}
+#unibtnwrap button {background-color:white}
 
-/* "Show/Hide" boxes */
+/* emotes displayed in the emotes panel */
 
-#leftpane-inner .well,
-#playlisttogglewrap,
-#dbwrap,
-#gallerywrap {margin-bottom:5px; padding-bottom:0px}
+.emote {cursor:pointer; margin-right:3px}
+
+/* side boxes main content */
+
+#layoutwrap, #gallerywrap {text-align:center}
+
+/* Layout Configuration wraps */
+
+#modewrap, #userconfigwrap, #themewrap, #funcbtnwrap {text-align:center}
+
+/* Layout Configuration and gallery selectors */
+
+#mode-sel, #theme-sel, #gal-sel {width:150px}
+
+/* playlist add tip */
+
+#addtip {font-size:8pt}
 
 /* extended playlist controls */
 
-#extended_controls {min-height:0px}
+#extended_controls {min-height:0px; margin-bottom:5px}
 
 /* playlist dropdown menu */
 
-#moreopt {padding-left:5px; padding-right:5px; text-align:center}
+#playlistmenu {padding-left:5px; padding-right:5px; text-align:center}
 
 /* queue */
 
 #queue {max-height:450px}
 
-/* common videolist titles */
-
-.qe_title,
-.db-title {color:inherit}
-.qe_title:hover {color:inherit}
-
-/* common playlist items title */
+/* playlist items title */
 
 .qe_title {margin-left:4px}
 
-/* poll boxes */
+/* polls wraps */
 
 #pollwrap {min-height:0px}
+
+/* polls layout elements */
+
 .poll-menu .btn-block {margin-bottom:5px}
+
 #pollwrap .well {padding-bottom:5px}
 
-/* channel database common properties */
+/* Channel Database box */
 
 .db-cat {max-height:450px; overflow:auto; margin-bottom:0px}
 
-/* channel database link */
+/* Channel Database section button */
+
+.db-break {width:100%}
+
+/* Channel Database link title */
+
+.db-title {margin-left:4px}
+
+/* Channel Database link URL */
 
 .db-link {margin-left:5px}
 
-/* playlist extended controls */
+/* Channel Database reload wrap */
 
-#extended_controls {margin-bottom:5px}
+#cleardbwrap {text-align:center}
+
+/* custom embed wrap */
+
+#customembedwrap {min-height:0px}
+
+/* custom embed layout elements */
+
+#customembed_btn, #extendedbtnwrap {margin-bottom:5px}
+
+/* download button */
+
+#download-btn {border-top-right-radius:0px; border-bottom-right-radius:0px}
 
 /* moderation outer box */
 
@@ -268,53 +282,53 @@ border-radius:8px;
 
 #channelsettingswrap hr {margin-bottom:0px}
 
-/* default footer */
+/* installing filters wrap */
 
-#footerwrap {
-padding:5px;
-border-left:solid 2px transparent;
-border-right:solid 2px transparent;
-border-top:solid 2px white;
+#installbtnwrap {margin-left:5px}
+
+/* footer wrap */
+
+#footer-outer {
+	border-left:solid 2px transparent; border-right:solid 2px transparent; border-top:solid 2px white;
+	padding:5px; font-size:9pt;
 }
 
-#footer {margin:10px 0 0 0}
+/* custom right footer box */
+
+#rightfooter {float:right; margin-left:15px}
 
 /* sitefooter */
 
 #sitefooter {padding:5px}
 
-/* closing "x" element */
+/* ----- JQUERY CLASSES ----- */
 
-.close {opacity:0.4}
-.close:hover {opacity:0.6}
+/* "relative" class */
 
-/* player transformations classes */
+.relative {position:relative}
+
+/* hiding player class */
+
+.covered {visibility:hidden; opacity:0}
+
+/* player transformations */
 
 .mX {
--webkit-transform:scaleX(-1);
--moz-transform:scaleX(-1);
-transform:scaleX(-1);
--ms-transform:scaleX(-1);
--o-transform:scaleX(-1);
+	-webkit-transform:scaleX(-1); -moz-transform:scaleX(-1); transform:scaleX(-1);
+	-ms-transform:scaleX(-1); -o-transform:scaleX(-1);
 }
+
 .mY {
--webkit-transform:scaleY(-1);
--moz-transform:scaleY(-1);
-transform:scaleY(-1);
--ms-transform:scaleY(-1);
--o-transform:scaleY(-1);
+	-webkit-transform:scaleY(-1); -moz-transform:scaleY(-1); transform:scaleY(-1);
+	-ms-transform:scaleY(-1); -o-transform:scaleY(-1);
 }
+
 .rotate {
--webkit-transform:rotate(180deg);
--moz-transform:rotate(180deg);
-transform:rotate(180deg);
--ms-transform:rotate(180deg);
--o-transform:rotate(180deg);
+	-webkit-transform:rotate(180deg); -moz-transform:rotate(180deg); transform:rotate(180deg);
+	-ms-transform:rotate(180deg); -o-transform:rotate(180deg);
 }
+
 .vertical {
--webkit-transform:rotate(270deg);
--moz-transform:rotate(270deg);
-transform:rotate(270deg);
--ms-transform:rotate(270deg);
--o-transform:rotate(270deg);
+	-webkit-transform:rotate(270deg); -moz-transform:rotate(270deg); transform:rotate(270deg);
+	-ms-transform:rotate(270deg); -o-transform:rotate(270deg);
 }
