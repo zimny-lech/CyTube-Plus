@@ -49,18 +49,24 @@ ChannelDatabase_Array=[
 
 // adding Channel Database box
 
-if (UI_ChannelGalleries=="1") {
-	$_dbtoggleouter=$('<div id="dbtoggle-outer" class="well well-small span12 row-fluid" />')
- 	 .insertBefore($_gallerytoggleouter);
-} else {
-	$_dbtoggleouter=$('<div id="dbtoggle-outer" class="well well-small span12 row-fluid" />')
-  	.appendTo("#leftpane-inner");
-}
-$_dbtoggle=$('<div id="dbtoggle" class="span12 pointer" />')
+$_dbtoggleouter = $('<div id="dbtoggle-outer" class="well well-small span12 row-fluid" />')
+  .appendTo($leftpaneinner);
+$_dbtoggle = $('<div id="dbtoggle" class="span12 pointer" />')
   .html('<i class="icon-plus pull-left"></i><p>Show Channel Database</p>')
-  .appendTo($_dbtoggleouter);
-$_dbwrap=$('<div id="dbwrap" class="span12" />')
-  .css('display', 'none').css('margin-left', '0')
+  .appendTo($_dbtoggleouter)
+  .on("click", function() {
+	if ($_dbwrap.css("display")=="none") {
+		$_dbwrap.show();
+		!CHANDB ? createDatabase() : '';
+		$_dbtoggle.html($_dbtoggle.html().replace(/Show/, "Hide"));
+		$_dbtoggle.find("i").removeClass("icon-plus").addClass("icon-minus");
+	} else {
+		$_dbwrap.hide();
+		$_dbtoggle.html($_dbtoggle.html().replace(/Hide/, "Show"));
+		$_dbtoggle.find("i").removeClass("icon-minus").addClass("icon-plus");
+	}
+  });
+$_dbwrap = $('<div id="dbwrap" class="span12" style="display:none" />')
   .insertAfter($_dbtoggle);
 
 var item_nr=0;
@@ -69,22 +75,7 @@ var opening=new Array();
 var item_count=new Array(0);
 var count_nr=0;
 
-if (ChannelDatabase_Array.length<1 || ChannelDatabase_Array[0][0]!="") {
-	ChannelDatabase_Array.unshift(['', '<i>non-classified</i>']);
+if (ChannelDatabase.length<1 || ChannelDatabase[0][0]!="") {
+	ChannelDatabase.unshift(['', '<i>non-classified</i>']);
 }
 UI_ChannelCache=="1" ? createDatabase() : '';
-
-// click: toggle channel database
-
-$("#dbtoggle").on("click", function() {
-	if ($("#dbwrap").css("display")=="none") {
-		$("#dbwrap").show();
-		!CHANDB ? createDatabase() : '';
-		$("#dbtoggle").html($("#dbtoggle").html().replace(/Show/, "Hide"));
-		$("#dbtoggle i").removeClass("icon-plus").addClass("icon-minus");
-	} else {
-		$("#dbwrap").hide();
-		$("#dbtoggle").html($("#dbtoggle").html().replace(/Hide/, "Show"));
-		$("#dbtoggle i").removeClass("icon-minus").addClass("icon-plus");
-	}
-});
