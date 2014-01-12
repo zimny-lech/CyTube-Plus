@@ -23,7 +23,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 // CyTube Plus - JavaScript and CSS library for CyTube channels enhancements
 // Version: 3.0
-// Modified: 2014-01-12
+// Modified: 2014-01-13
 // Project URL: https://github.com/zimny-lech/CyTube-Plus
 // Wiki URL: https://github.com/zimny-lech/CyTube-Plus/wiki
 
@@ -80,7 +80,7 @@ UI_ChannelName = 1; // channel custom brand name
 UI_RemoveChatOnly = 0; // removing 'Chat Only' link from the header
 UI_HeaderDropMenu = 1; // additional header dropdown menu
 UI_CustomHelp = 1; // custom help file
-UI_AttentionBar = 1; // imageboard-style attention bar
+UI_AttentionBar = 0; // imageboard-style attention bar
 UI_MOTDAutoLogo = 0; // big channel logo inserted into MOTD
 UI_RulesBtn = 1; // button displaying channel rules
 UI_ChannelAnnouncement = 1; // additional custom channel announcement
@@ -180,7 +180,7 @@ CustomHelp_URL = 'https://github.com/calzoneman/sync/wiki/Beginner%27s-Guide-and
 // DESCRIPTION: custom help file URL
 // REQUIRE: UI_CustomHelp enabled
 
-AttentionBar_URL = 'http://www.freedom77.ovh.org/atencja.php';
+AttentionBar_URL = '';
 
 // DESCRIPTION: imageboard-style attention bar URL
 // REQUIRE: UI_AttentionBar enabled
@@ -332,7 +332,7 @@ ThemesCSS = [
 // ARRAY SYNTAX: ['layout_name', 'layout_URL'],
 // REQUIRE: UI_LayoutThemeSel enabled
 
-ChannelThemeURL = 'https://dl.dropboxusercontent.com/s/8ylmazvfbauy3s0/chinska.css';
+ChannelThemeURL = '';
 
 // DESCRIPTION: additional default channel theme URL
 // REQUIRE: UI_ChannelTheme enabled
