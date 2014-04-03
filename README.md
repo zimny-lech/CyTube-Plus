@@ -1,14 +1,17 @@
 # CyTube Plus
 <p align="center"><img src="https://dl.dropboxusercontent.com/s/7mrz85gl29eiiks/logo.png"/></p>
+***
+<p align="center">Important: april 2014, update finished! Now working with latest CyTube release!</p>
+***
 ## About
 
 ***
 
 ### Q: What is CyTube Plus?
 
-**A:** It's an easy to configure, powerful <b>JavaScript/CSS library</b> for [CyTube](https://github.com/calzoneman/sync) channels administrators, adding new features and enhancements. Latest release works with **2.4.5** or **2.4.6** CyTube version.
+**A:** It's an easy to configure, powerful <b>JavaScript/CSS library</b> for [CyTube](https://github.com/calzoneman/sync) channels administrators, adding new features and enhancements. Latest release works with **3.0** CyTube version.
 
-Latest release includes links from my personal example set of channel themes, logos and emotes. During library customization you can leave it, remove any element, or expand it by adding your own links.
+Latest release includes links from my personal set of channel themes, backgrounds and logos. During library customization you can leave it, remove any element, or expand it by adding your own links.
 
 Technically, this library collects ideas from old Synchtube various rooms plus my own enhancements. You can recognize some elements, if you were an administrator. Those old fragments of code has been rewrited and adapted to CyTube API and layout, and supplemented with the new features.
 
@@ -20,7 +23,7 @@ Technically, this library collects ideas from old Synchtube various rooms plus m
 
 ### Q: What this library exactly does?
 
-**A:** See detailed list on the [Features](https://github.com/zimny-lech/CyTube-Plus/wiki/Features) page. Currently script administrators can set up **52 options**.
+**A:** See detailed list on the [Features](https://github.com/zimny-lech/CyTube-Plus/wiki/Features) page. Currently script administrators can set up **54 options**.
 
 ### Q: Something is not working, what to do?
 
@@ -40,11 +43,11 @@ Technically, this library collects ideas from old Synchtube various rooms plus m
 
 > Note: some features will be disabled.
 
-1. Go to your channel's "Moderation Menu" and select "Channel Options".
+1. Click "Channel Settings" header link and select "Admin Settings".
 2. In "External Javascript" field enter JavaScript library URL given below:
-   `https://dl.dropboxusercontent.com/s/fbdeierbw6u7asc/main.js`
+   `https://dl.dropboxusercontent.com/s/6bg3lo29fk1tlmo/main-ready.js`
 3. In "External CSS" field enter CSS library URL given below:
-   `https://dl.dropboxusercontent.com/s/2rgjlsd0uoe8ooa/main.css`
+   `https://dl.dropboxusercontent.com/s/adzglmczhmymv8h/main.css`
 4. Save changes - congratulations, your have just installed basic version of CyTube Plus!
 
 ### Customized, advanced installation
@@ -56,12 +59,7 @@ Technically, this library collects ideas from old Synchtube various rooms plus m
 3. Save customized JS library as well as `main.css` file to your file hosting (e.g. <i>Dropbox</i><sup>2</sup>) or to your own server<sup>3</sup>.
 4. Enter your JS and CSS files location in "Channel Options", and save.
 
-<sup>1</sup><i>Note: I highly recommend you to change default `CookiePrefix` variable (to prevent from using cookies from other channels).</i><br/><sup>2</sup><i>Warning! Always use `dl.dropboxusercontent.com` URL instead of `www.dropbox.com`.</i><br/><sup>3</sup><i>Warning! You must be able to **access .js file directly** (browser's URL must contain `.js` extension, not `.php` etc.).</i>
-
-**Additional recommended actions for more advanced users:**
-
-1. Copy all files used by CyTube Plus (JS, CSS, images) to your own location (using my default URLs by many users may increase library responding time).
-2. Change all necessary URL paths during library customization.
+<sup>1</sup><i>Note: I highly recommend you to change default `StoragePrefix` variable (to prevent from using settings from other channels).</i><br/><sup>2</sup><i>Warning! Always use `dl.dropboxusercontent.com` URL instead of `www.dropbox.com`.</i><br/><sup>3</sup><i>Warning! You must be able to **access .js file directly** (browser's URL must contain `.js` extension, not `.php` etc.).</i>
 
 ## Feedback
 
