@@ -1,13 +1,6 @@
-/*
-This is external Channel Database configuration file.
+/* ----- DATABASE CONFIGURATION ----- */
 
-Copy this file into your location, configure, and insert URL into main.js 'EmotesBasicURL' variable.
-Do not remove anything below configuration array - without necessary functions Channel Database will not load.
-*/
-
-/* ----- VIDEO DATABASE CONFIGURATION ----- */
-
-ChannelDatabase_Array=[
+ChannelDatabase=[
 ['', 'Japanese'],
 ['http://www.youtube.com/watch?v=Q3y-80HBM6Q', 'An Cafe - Smile Ichiban Ii Onna'],
 ['http://www.youtube.com/watch?v=nDqaTXqCN-Q', 'Babymetal - Ijime, Dame, Zettai'],
@@ -40,34 +33,12 @@ ChannelDatabase_Array=[
 ['http://www.youtube.com/watch?v=jehMXrY1q5I', 'Yui Makino - Yume No Tsubasa'],
 ];
 
-// DESCRIPTION: videos database array (additional set of categorized media)
-// ARRAY SYNTAX: ['video_URL', 'title'],
-// REQUIRE: UI_ChannelDatabase enabled
-// NOTE: leave empty '' in the "video_URL" field to create section button
+/* ----- CREATING DATABASE LAYOUT - DO NOT REMOVE ----- */
 
-/* ----- CODE BELOW MUST BE INCLUDED IN EXTERNAL FILE ----- */
-
-// adding Channel Database box
-
-$_dbtoggleouter = $('<div id="dbtoggle-outer" class="well well-small span12 row-fluid" />')
-  .appendTo($leftpaneinner);
-$_dbtoggle = $('<div id="dbtoggle" class="span12 pointer" />')
-  .html('<i class="icon-plus pull-left"></i><p>Show Channel Database</p>')
-  .appendTo($_dbtoggleouter)
-  .on("click", function() {
-	if ($_dbwrap.css("display")=="none") {
-		$_dbwrap.show();
-		!CHANDB ? createDatabase() : '';
-		$_dbtoggle.html($_dbtoggle.html().replace(/Show/, "Hide"));
-		$_dbtoggle.find("i").removeClass("icon-plus").addClass("icon-minus");
-	} else {
-		$_dbwrap.hide();
-		$_dbtoggle.html($_dbtoggle.html().replace(/Hide/, "Show"));
-		$_dbtoggle.find("i").removeClass("icon-minus").addClass("icon-plus");
-	}
-  });
-$_dbwrap = $('<div id="dbwrap" class="span12" style="display:none" />')
-  .insertAfter($_dbtoggle);
+dbwrap = $('<div id="dbwrap" class="col-lg-12 col-md-12" style="display:none" />')
+  .insertBefore(configwrap);
+dbwell = $('<div id="db-well" class="well" />')
+  .appendTo(dbwrap);
 
 var item_nr=0;
 var layer_nr=1;
@@ -79,3 +50,5 @@ if (ChannelDatabase.length<1 || ChannelDatabase[0][0]!="") {
 	ChannelDatabase.unshift(['', '<i>non-classified</i>']);
 }
 UI_ChannelCache=="1" ? createDatabase() : '';
+
+/* ----- END OF FILE ----- */
