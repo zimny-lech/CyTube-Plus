@@ -62,7 +62,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // FILTERS INSTALLATION: open 'Channel Settings' modal window, go to 'Edit' -> 'Chat Filters',
 //   click 'Prepare fonts filters' button, and import
 // WARNING! apostrophe sign (') in all text/html values must be prepend with "\" sign (e.g. "don\'t") 
-// If you need more explanations, go to https://github.com/zimny-lech/CyTube-Plus/wiki/FAQ
+// If you need more explanations, go to https://github.com/zimny-lech/CyTube-Plus/wiki/Library-settings
 
 UI_Favicon = 1;			// [&] channel favicon
 UI_MiniLogo = 1;		// [&] small channel logo/avatar in the top navbar
