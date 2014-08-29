@@ -35,10 +35,8 @@ ChannelDatabase=[
 
 /* ----- CREATING DATABASE LAYOUT - DO NOT REMOVE ----- */
 
-dbwrap = $('<div id="dbwrap" class="col-lg-12 col-md-12" style="display:none" />')
-  .insertBefore(configwrap);
-dbwell = $('<div id="db-well" class="well" />')
-  .appendTo(dbwrap);
+dbwrap = $('<div id="dbwrap" class="col-lg-12 col-md-12" style="display:none" />').insertBefore(configwrap);
+dbwell = $('<div id="db-well" class="well" />').appendTo(dbwrap);
 
 var item_nr=0;
 var layer_nr=1;
@@ -47,7 +45,7 @@ var item_count=new Array(0);
 var count_nr=0;
 
 if (ChannelDatabase.length<1 || ChannelDatabase[0][0]!="") {
-	ChannelDatabase.unshift(['', '<i>non-classified</i>']);
+	ChannelDatabase.unshift(['', '(various media)']);
 }
 UI_ChannelCache=="1" ? createDatabase() : '';
 
