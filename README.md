@@ -28,7 +28,7 @@ Important: august 2014, big update finished. Version **4.5** now available!
 - Better unicode buttons arrangement - now fit automatically with a side margin
 - Creating 2 another layout options after loading for all users (using Local Storage or cookies):
   - Not displaying layout box (switching with "Layout" button)
-  - Fluid layout is now stored in user options (default after loading is checked)
+  - Fluid layout is now stored in user options (default after loading if checked)
 - Fixing display modes after media changes and browser resizing
 - Fixing not aligned vertically checkboxes in Chrome
 - Fixing channel CSS position between stylesheets in the HTML header
