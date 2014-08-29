@@ -1,46 +1,46 @@
 # CyTube Plus
 <p align="center"><img src="https://dl.dropboxusercontent.com/s/7mrz85gl29eiiks/logo.png"/></p>
 ***
-<p align="center">Important: august 2014, big update finished. Version **4.5** now available!</p>
+Important: august 2014, big update finished. Version **4.5** now available!
 
 ### What has been changed in the newest version?
 
-* Adding possibility to embed images and videos such .webm on the chat, script admin can configure accepted filetypes and/or sources, user can easily toggle between embeddings and text links
-* Adding chat text speaking option with external "WebAnywhere" online application, supporting english ("!say" command) and polish ("!mow")
-* Adding MOTD tabs application to create homepage-like channel header, using simple HTML
-* Adding pagination option in the emotes panel with configurable number of displaying emotes
-* Adding switch ("Func" in the chat header) for channel admins with 2 buttons:
-** Auto Clear, automatically clearing chat window during spam attacks or raids, preventing room freezing
-** Anti AFK, preventing from AFK if you leave for a moment (and don't want to be excluded from voteskipping etc.)
-* Adding 5-way volume level regulation for both: sound filters and text speaking
-* Adding 2 modes in Playlist URLs modal window:
-** Ordered List - list alphabetically ordered by titles
-** Database Format - list specially prepared for script Channel Database
-* Adding option to automatic display of squavatars (2-colored square avatars) before every message
-* Adding option to change character adding to username on the chat messages (default ":")
-* Adding "!memestats" commands to display number of used channel memes by a user
-* Deleting necessity of the "StoragePrefix" manual setting, now auto-defined as room name
-* Deleting "/reload" command due to possibility to use it by people who deny permission to run script
-* Moving few CSS selectors from main CSS to JS for better compatibility with users who has not given permission to run script, due to necessary accepting external JS
-* Back to independent channel emotes with configurable size for some script admins who need additional mods-independent permanent emotes
-* Adding Google Analytics short code
-* Adding option for custom add/refresh/voteskip button captions, and custom welcome message
-* Better unicode buttons arrangement - now fit automatically with a side margin
-* Creating 2 another layout options after loading for all users (using Local Storage or cookies):
-** Not displaying layout box (switching with "Layout" button)
-** Fluid layout is now stored in user options (default after loading is checked)
-* Fixing display modes after media changes and browser resizing
-* Fixing not aligned vertically checkboxes in Chrome
-* Fixing channel CSS position between stylesheets in the HTML header
-* Fixing bad download links after move some items on the playlist
-* Fixing unability to show player again if refreshed after hiding
-* Fixing wrong sounds panel properties after mode and theme change - now automatically back to userlist
-* Fixing permission for displaying "/clear" button
-* Fixing reset layout option for channels with disabled "default old Synchtube layout" option
-* Fixing tooltips for chat voices button
-* Patching "#playlistmanagerwrap" hidden free space if user is unregistered
-* Deleting ".userlist_item" cursor from CSS - it is now implemented in default CyTube application
-* A few minor code changes not affecting functionality
+- Adding possibility to embed images and videos such .webm on the chat, script admin can configure accepted filetypes and/or sources, user can easily toggle between embeddings and text links
+- Adding chat text speaking option with external "WebAnywhere" online application, supporting english ("!say" command) and polish ("!mow")
+- Adding MOTD tabs application to create homepage-like channel header, using simple HTML
+- Adding pagination option in the emotes panel with configurable number of displaying emotes
+- Adding switch ("Func" in the chat header) for channel admins with 2 buttons:
+  - Auto Clear, automatically clearing chat window during spam attacks or raids, preventing room freezing
+  - Anti AFK, preventing from AFK if you leave for a moment (and don't want to be excluded from voteskipping etc.)
+- Adding 5-way volume level regulation for both: sound filters and text speaking
+- Adding 2 modes in Playlist URLs modal window:
+  - Ordered List - list alphabetically ordered by titles
+  - Database Format - list specially prepared for script Channel Database
+- Adding option to automatic display of squavatars (2-colored square avatars) before every message
+- Adding option to change character adding to username on the chat messages (default ":")
+- Adding "!memestats" commands to display number of used channel memes by a user
+- Deleting necessity of the "StoragePrefix" manual setting, now auto-defined as room name
+- Deleting "/reload" command due to possibility to use it by people who deny permission to run script
+- Moving few CSS selectors from main CSS to JS for better compatibility with users who has not given permission to run script, due to necessary accepting external JS
+- Back to independent channel emotes with configurable size for some script admins who need additional mods-independent permanent emotes
+- Adding Google Analytics short code
+- Adding option for custom add/refresh/voteskip button captions, and custom welcome message
+- Better unicode buttons arrangement - now fit automatically with a side margin
+- Creating 2 another layout options after loading for all users (using Local Storage or cookies):
+  - Not displaying layout box (switching with "Layout" button)
+  - Fluid layout is now stored in user options (default after loading is checked)
+- Fixing display modes after media changes and browser resizing
+- Fixing not aligned vertically checkboxes in Chrome
+- Fixing channel CSS position between stylesheets in the HTML header
+- Fixing bad download links after move some items on the playlist
+- Fixing unability to show player again if refreshed after hiding
+- Fixing wrong sounds panel properties after mode and theme change - now automatically back to userlist
+- Fixing permission for displaying "/clear" button
+- Fixing reset layout option for channels with disabled "default old Synchtube layout" option
+- Fixing tooltips for chat voices button
+- Patching "#playlistmanagerwrap" hidden free space if user is unregistered
+- Deleting ".userlist_item" cursor from CSS - it is now implemented in default CyTube application
+- A few minor code changes not affecting functionality
 
 ***
 ## About
@@ -91,6 +91,7 @@ It includes example links of channel themes, backgrounds and logos for easy test
 ### Customized, advanced installation
 
 > Note 1: don't be afraid to configure! Go to [Wiki](https://github.com/zimny-lech/CyTube-Plus/wiki) for help. If all fails, copy default `main.js` file, and try to change variables one by one - this way you will find what's wrong.
+
 > Note 2: Go to [FAQ](https://github.com/zimny-lech/CyTube-Plus/wiki/FAQ) to read detailed configuration options explanations.
 
 1. Open content of `main.js` file in a text editor.
