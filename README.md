@@ -3,7 +3,7 @@
 ***
 <p align="center">Important: august 2014, big update finished. Version **4.5** now available!</p>
 
-<p style="font-size:8pt">What has changed in the newsest version?
+### What has been changed in the newest version?
 
 * Adding possibility to embed images and videos such .webm on the chat, script admin can configure accepted filetypes and/or sources, user can easily toggle between embeddings and text links
 * Adding chat text speaking option with external "WebAnywhere" online application, supporting english ("!say" command) and polish ("!mow")
@@ -41,7 +41,6 @@
 * Patching "#playlistmanagerwrap" hidden free space if user is unregistered
 * Deleting ".userlist_item" cursor from CSS - it is now implemented in default CyTube application
 * A few minor code changes not affecting functionality
-</p>
 
 ***
 ## About
