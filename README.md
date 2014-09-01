@@ -40,7 +40,7 @@
 3. Save customized JS library as well as `main.css` file to your file hosting (e.g. <i>Dropbox</i><sup>1</sup>) or to your own server<sup>2</sup>.
 4. Enter your JS and CSS files location in "Channel Options", and save.
 
-<sup>1</sup><i>Warning! Always use `dl.dropboxusercontent.com` URL instead of `www.dropbox.com`.</i><br/><sup>2</sup><i>Warning! You must be able to **access .js file directly** (browser's URL must contain `.js` extension, other extensions such `.php` etc. sometimes cause problems).</i>
+<sup>1</sup><i>Warning! Always use `dl.dropboxusercontent.com` URL instead of `www.dropbox.com`.</i><br/><sup>2</sup><i>Warning! You must be able to **access .js file directly** (browser's URL must end with `.js` extension, other extensions such `.php` etc. sometimes cause problems).</i>
 
 ### Simple installation
 
