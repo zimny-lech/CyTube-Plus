@@ -163,7 +163,7 @@ ChannelName_Caption = 'CyDJ';
 
 
 
-Version_Now = 'CyDJBeta12.23.21.5';
+Version_Now = 'CyDJBeta12.26.21.0';
 
 HeaderDropMenu_Title = 'Information';
 
@@ -3090,20 +3090,20 @@ if (UI_CommandsBtn == "1" && (UI_UserCommands == "1" || UI_FontsBtn == "1" || UI
 		});
 }
 
-// adding the stupid report button to show up
+// adding the stupid context button to show up
 
 if (UI_ContextMenu == "1") {
-	chathelpbtn = $('<button id="chathelp-btn" class="btn btn-sm btn-default" title="Opens a menu with links" />')
+	chathelpbtn = $('<button id="context-btn" class="btn btn-sm btn-default" title="Opens a menu with links" />')
 		.text('Context Menu')
 		.appendTo(chatcontrols)
 		.on("click", function () {
-			UserReport();
+			showContextMenu();
 		});
 }
 
-//adding the user report button function (what it does!)
+//adding the context button function (what it does!)
 
-function UserReport() {
+function showContextMenu() {
 	createModal('Context Menu');
 	if (UI_ContextMenu == "1") {
 		body.append('<strong>Useful links</strong><br /><br />');
