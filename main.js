@@ -4820,9 +4820,8 @@ function fixRawVideoControls() {
     elem.style.removeProperty('display');
   }
 }
-sleep(3000).then(fixRawVideoControls);
 socket.on('changeMedia', fixRawVideoControls);
-socket.on('changeMedia', sleep(3000).then(fixRawVideoControls));
+socket.on('mediaUpdate', fixRawVideoControls);
 
 
 // Xaekai was here
