@@ -1,0 +1,63 @@
+Introduction to CyDJ Beta!!
+
+CyDJBeta12.23.21.1
+
+#Cytube changes:
+-Added animations to various elements such as - Message hovering, chat resizing, small menus (john)
+-Added new "Updates" button to the Context Menu (john and spintto)
+-Fixed chat not resizing with "Fluid" layout (john)
+-Fixed chat layout not functioning correctly with minimized layout (john)
+-Fixed various modes such as - Cinema mode, chatroom mode, radio mode (john)
+-Fixed various elements with classic layout (things such as colors, chat stuff, etc) (john)
+
+#Code quality:
+-Removed all instances of "NOPLAYER" (this caused a lot of stuff to break) (john)
+-Removed "Silent Mode", who actually wants that? (john)
+
+
+CyDJBeta12.23.21.2
+
+#Cytube changes:
+-Added "Woot!" and "Meh.." feature inspired by PlugDJ (john)
+-Added minor animations to hovering and buttons (john)
+
+#Code quality:
+-Added new button type "party-btn" to replace "chathelp-btn" (john)
+-Removed all instances of the old "userreports" variable used for the Context menu (john)
+-Renamed some old variables to fit newer features that go with it (john)
+
+CyDJBeta12.23.21.3
+
+#Cytube changes:
+-Community choice December is here! (john)
+
+
+CyDJBeta12.23.21.4
+
+#Cytube changes:
+-Made "Woot!" cancel a voteskip when pressed (john)
+
+
+CyDJBeta12.23.21.5
+
+#Cytube changes:
+-Changed "Woot!" sound (john)
+
+
+CyDJBeta12.26.21.0
+
+#Cytube changes:
+-Christmas is over
+-New Year's theme! 
+
+#Code Quality:
+-Gave the Context Menu a unique button id (john)
+
+
+CyDJBeta12.28.21.0
+
+#Cytube changes:
+-Added new "Watch Party" link in the information tab (john)
+
+Introducing SecretTwitchRoom! A room dedicated for watch parties and Twitch streams! Please keep in mind since it's on another CyTube site
+you need to make another account (same name preferred).

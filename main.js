@@ -165,7 +165,7 @@ ChannelName_Caption = 'CyDJ';
 
 
 
-Version_Now = 'CyDJBeta12.28.21.0';
+Version_Now = 'CyDJBeta12.28.21.1';
 
 HeaderDropMenu_Title = 'Information';
 
