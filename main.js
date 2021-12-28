@@ -163,7 +163,7 @@ ChannelName_Caption = 'CyDJ';
 
 
 
-Version_Now = 'CyDJBeta12.26.21.0';
+Version_Now = 'CyDJBeta12.28.21.0';
 
 HeaderDropMenu_Title = 'Information';
 
@@ -207,6 +207,7 @@ HeaderDropMenu_Array = [
 	['CyDJ Rooms', ''],
 	['Main Room', 'https://cytu.be/r/cydj'],
 	['Second Room', 'https://cytu.be/r/secretfbimeeting'],
+	['Watch Party', 'https://beta.synchtube.me/r/SecretTwitchRoom'],
 	['Test Room', 'https://cytu.be/r/testplacelilroc'],
 	['Test Room 2', 'https://cytu.be/r/emptyroomtestplace'],
 	['Community Related', ''],
@@ -871,7 +872,7 @@ IMBA = new Audio("https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg")
 DROPIT = new Audio("https://cdn.discordapp.com/attachments/915490680468561990/915773617005027398/dropit.mp3");
 HEY = new Audio("https://cdn.discordapp.com/attachments/904501042148958219/923798386874937436/menu-play-click.mp3");
 NAY = new Audio("https://cdn.discordapp.com/attachments/915490680468561990/923735825676656660/Spongebob_boowomp_sound_effect.mp3");
-CHATSOUND.volume = 0.6;
+CHATSOUND.volume = 0.4;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
