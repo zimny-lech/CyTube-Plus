@@ -67,3 +67,6 @@ CyDJBeta12.28.21.1
 
 #Cytube changes:
 -Fixed raw video embedded media being broken (airforce)
+
+#Code quality:
+-Migrated from Dropbox to GitHub (john & airforce)
