@@ -1,0 +1,50 @@
+body {
+  background-image: url("https://cdn.discordapp.com/attachments/915490680468561990/920136536241078312/snowbig.gif");
+  background-repeat: repeat;
+  background-size: 20%;
+  background-position: center;
+  background-attachment: fixed;
+  color: #d5e8ff;
+}
+
+.poll-notify {
+  color: #ff80b4;
+}
+
+.btn-default {
+  background-image: linear-gradient(#5c7a9d, #585858 60%, #505050);
+}
+
+#titlerow-outer {
+  text-shadow: 0px 0px 10px #000000, 0px 0px 10px #00a1ff;
+}
+
+#nav-collapsible {
+  background-color: #363c42;
+}
+
+.shout {
+  color: #bd76ff;
+}
+
+.userlist_owner {
+  color: rgb(113 196 255) !important;
+}
+
+.userlist_op {
+  color: #a5ffa5 !important;
+}
+
+.btn-danger {
+  background-image: linear-gradient(#ffafad, #ee5f5b 60%, #9d5151);
+}
+
+.alert-info {
+  background-color: #4a6ee0;
+  border-color: #4a6ee0;
+  color: #d6f7f7;
+}
+
+a {
+  color: #2a9fd6;
+}
