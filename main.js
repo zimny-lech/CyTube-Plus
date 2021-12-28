@@ -4794,6 +4794,34 @@ window.onbeforeunload = function () {
 	return false;
 };
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+/**
+ * Fix raw video controls being hidden.
+ * 
+ * Something else in this script is adding display: block
+ * (probably fucking jquery)
+ * but it's not clear which call's doing it.
+ * 
+ * So just remove it every time the media changes, as well as
+ * a couple seconds after. Just in case it takes a bit to load.
+ */
+function fixRawVideoControls() {
+  const spinner =
+      document.getElementsByClassName('vjs-loading-spinner').item(0);
+  const controlBar = document.getElementsByClassName('vjs-control-bar').item(0);
+
+  for (const elem of [spinner, controlBar]) {
+    if (elem == null) {
+      continue;
+    }
+    elem.style.removeProperty('display');
+  }
+}
+socket.on('changeMedia', fixRawVideoControls);
+socket.on('mediaUpdate', fixRawVideoControls);
 
 
 // Xaekai was here
