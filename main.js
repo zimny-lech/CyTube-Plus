@@ -165,7 +165,7 @@ ChannelName_Caption = 'CyDJ';
 
 
 
-Version_Now = 'CyDJBeta12.28.21.0';
+Version_Now = 'CyDJBeta12.28.21.1';
 
 HeaderDropMenu_Title = 'Information';
 
@@ -3110,7 +3110,7 @@ function showContextMenu() {
 	createModal('Context Menu');
 	if (UI_ContextMenu == "1") {
 		body.append('<strong>Useful links</strong><br /><br />');
-		html = '<li><a href="https://www.dropbox.com/s/x0yi8znudvhlicu/updates.txt?dl=0" target="_blank">Click here to view latest updates</a>!</li>'
+		html = '<li><a href="https://papertek.github.io/CyDJ/deploy/main/updates.txt" target="_blank">Click here to view latest updates</a>!</li>'
 		    + '<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdNlinbPb2Lr5qmtIPWg9gnVWr1US82CRf4X8bKmmLvj7NIhg/viewform" target="_blank">Click here to report a user</a>!</li>'
 			+ '<li><a href="https://docs.google.com/document/d/1X2TdR9hc2KK0WEBLjY06CZaY30QyKxsI_7CQ1qbSz0g/edit" target="_blank">Click here to open the CyDJ guide</a>!</li>'
 			+ '<li><a href="https://discord.gg/g8tCGSc2bx" target="_blank">Click here to join the Discord</a>!</li>'
