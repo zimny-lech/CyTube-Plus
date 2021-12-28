@@ -4795,6 +4795,27 @@ window.onbeforeunload = function () {
 };
 
 
+/**
+ * Fix raw video controls being hidden.
+ * Something else in this script is adding display: block
+ * (probably fucking jquery)
+ * but I can't find which call's doing it.
+ * So just remove it every time the media changes.
+ */
+function fixRawVideoControls() {
+  const spinner =
+      document.getElementsByClassName('vjs-loading-spinner').item(0);
+  const controlBar = document.getElementsByClassName('vjs-control-bar').item(0);
+
+  for (const elem of [spinner, controlBar]) {
+    if (elem == null) {
+      continue;
+    }
+    elem.style.removeProperty('display');
+  }
+}
+socket.on('changeMedia', fixRawVideoControls);
+
 
 // Xaekai was here
 $.getScript("https://resources.pink.horse/scripts/mjoc.requests.js")
