@@ -1064,7 +1064,7 @@ const ChannelDatabase_URL = '';
 
 // reload script after unexpected re-connection or script URL change
 
-let /** @type {boolean} */ LOADED = typeof LOADED !== 'undefined';
+let /** @type {boolean} */ LOADED = 'LOADED' in window;
 if (LOADED) {
   location.reload();
 }
@@ -1735,7 +1735,7 @@ function prepareMessage(msg) {
       rnd = Math.round(Math.random() * 5) + 1;
       msg = '' + rnd;
     } else if (msg.indexOf('!roll') == 0) {
-      var rnd = Math.round(Math.random() * 999);
+      let rnd = Math.round(Math.random() * 999);
       rnd < 100 ? rnd = '0' + rnd : '';
       rnd < 10 ? rnd = '0' + rnd : '';
       msg = '' + rnd;
@@ -1929,7 +1929,7 @@ function createDatabase() {
     CHANDB = false;
   });
 
-  for (i in opening) {
+  for (const i of opening.keys()) {
     opening[i] = 0;
   }
   dbcat = $('.db-cat').hide();
@@ -1945,7 +1945,7 @@ function toggleCat(a) {
   b = a - 1;
   if (opening[b] == 0) {
     dbcat.hide();
-    for (i in opening) {
+    for (const i of opening.keys()) {
       opening[i] = 0;
     }
     $(`#l${a}`).show();
@@ -1978,10 +1978,8 @@ function createGallery() {
                .appendTo(gallerywell)
                .on('change', () => galleryframe.attr('src', galsel.val()));
 
-  for (i in ChannelGalleries_Array) {
-    $(`<option value="${ChannelGalleries_Array[i][1]}" />`)
-        .html(ChannelGalleries_Array[i][0])
-        .appendTo(galsel);
+  for (const gallery of ChannelGalleries_Array) {
+    $(`<option value="${gallery[1]}" />`).html(gallery[0]).appendTo(galsel);
   }
 
   text = 'Reload Galleries (if problems or slow channel)';
@@ -2311,10 +2309,9 @@ function showEmotes() {
     makeAlert('No emotes available', 'Ask channel administrator.')
         .appendTo(emotespanel);
   } else if (UI_GroupEmotes != '1' || len <= GroupEmotes_Number) {
-    for (i in CHANNEL.emotes) {
-      $(`<img onclick="insertText('${CHANNEL.emotes[i].name} ')" />`)
-          .attr(
-              {'src': CHANNEL.emotes[i].image, 'title': CHANNEL.emotes[i].name})
+    for (const emote of CHANNEL.emotes) {
+      $(`<img onclick="insertText('${emote.name} ')" />`)
+          .attr({'src': emote.image, 'title': emote.name})
           .appendTo(emotespanel);
     }
   } else {
@@ -2422,8 +2419,8 @@ function showChatHelp() {
     }
     body.append('<strong>New chat commands</strong><br /><br />');
     ul = $('<ul />').appendTo(body);
-    for (cmd in arr) {
-      ul.append(`<li><code>!${cmd}</code> - ${arr[cmd]}</li>`);
+    for (const [cmd, desc] of Object.entries(arr)) {
+      ul.append(`<li><code>!${cmd}</code> - ${desc}</li>`);
     }
   }
   if (UI_ChatSpeak) {
@@ -2442,8 +2439,8 @@ function showChatHelp() {
   };
   body.append('<br /><strong>Default CyTube commands</strong><br /><br />');
   ul = $('<ul />').appendTo(body);
-  for (cmd in arr) {
-    ul.append(`<li><code>/${cmd}</code> - ${arr[cmd]}</li>`);
+  for (const [cmd, desc] of Object.entries(arr)) {
+    ul.append(`<li><code>/${cmd}</code> - ${desc}</li>`);
   }
 }
 
@@ -2526,9 +2523,9 @@ function showModPanel() {
   createModal('Moderators panel');
 
   html = '';
-  for (i in ModPanel_Array) {
-    name = ModPanel_Array[i][0];
-    mess = ModPanel_Array[i][1];
+  for (const panel of ModPanel_Array) {
+    const name = panel[0];
+    const mess = panel[1];
     if (name == '') {
       html += `<i class="glyphicon glyphicon-comment"></i> ${mess}<br /><br />`;
     } else if (name == CLIENT.name) {
@@ -2778,11 +2775,8 @@ function showConfig() {
   logoinsert = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'no').text('no image').appendTo(logoinsert);
   $('<option />').attr('value', 'user').text('user image').appendTo(logoinsert);
-  for (i in TopUserLogo) {
-    $('<option />')
-        .attr('value', i)
-        .text(TopUserLogo[i][0])
-        .appendTo(logoinsert);
+  for (const logo of TopUserLogo) {
+    $('<option />').attr('value', i).text(logo[0]).appendTo(logoinsert);
   }
   logoinsert.val(USERCONFIG.logo);
   addOption('Top logo', logoinsert);
@@ -3107,16 +3101,10 @@ function showContributors() {
     user = item.split('by: ')[1];
     user in list ? list[user]++ : list[user] = 1;
   }
-  const list2 = [];
-  for (key in list) {
-    list2.push([key, list[key]]);
-  }
+  const list2 = list.map((item, i) => [i, item]);
   list2.sort((a, b) => a[1] - b[1]);
   list2.reverse();
-  const list3 = [];
-  for (i in list2) {
-    list3.push((i * 1 + 1) + '. ' + list2[i].join(': '));
-  }
+  const list3 = list2.map((item, i) => (i * 1 + 1) + '. ' + item.join(': '));
   html = '<strong>Number of added playlist items:</strong>' +
       '<br /><br />' + list3.join('<br />');
   body.append(html);
@@ -3343,9 +3331,9 @@ if (UI_HeaderDropMenu) {
   HeaderDropMenu_Array.length < 1 ?
       HeaderDropMenu_Array = [['no menu available', '']] :
       '';
-  for (i in HeaderDropMenu_Array) {
-    title = HeaderDropMenu_Array[i][0];
-    link = HeaderDropMenu_Array[i][1];
+  for (const menu of HeaderDropMenu_Array) {
+    title = menu[0];
+    link = menu[1];
     if (link == '') {
       headermenu.append(`<li class="dropdown-header">${title}</li>`);
     } else {
@@ -3832,21 +3820,21 @@ if (UI_FontsBtn) {
     ['background:white; color:black; border:solid 2px red', '\\/', '\[\/\]'],
   ];
 
-  for (i in FontsArray) {
-    $(`<button id="cbtn${i}" onclick="insertText('[${FontsArray[i][1]}]')" />`)
+  for (const [i, font] of FontsArray.entries()) {
+    $(`<button id="cbtn${i}" onclick="insertText('[${font[1]}]')" />`)
         .addClass('btn btn-default')
-        .attr('style', FontsArray[i][0])
-        .text(FontsArray[i][2])
+        .attr('style', font[0])
+        .text(font[2])
         .appendTo(fontsbtnwrap);
     i % 13 == 12 ? fontsbtnwrap.append('<br />') : false;
   }
 
   if (UI_UnicodeChars && UnicodeChars_Array.length > 0) {
     unibtnwrap = $('<div id="unibtnwrap" />').appendTo(fontspanel);
-    for (i in UnicodeChars_Array) {
-      btn = $(`<button onclick="insertText('${UnicodeChars_Array[i]}')" />`)
+    for (const char of UnicodeChars_Array) {
+      btn = $(`<button onclick="insertText('${char}')" />`)
                 .addClass('btn btn-default')
-                .text(UnicodeChars_Array[i])
+                .text(char)
                 .appendTo(unibtnwrap);
     }
   }
@@ -4014,9 +4002,8 @@ themesel =
 if (ThemesCSS.length > 0) {
   themesel.append(
       '<option value="" class="theme-header" disabled>additional themes</option>');
-  for (i in ThemesCSS) {
-    themesel.append(
-        `<option value="${ThemesCSS[i][1]}">${ThemesCSS[i][0]}</option>`);
+  for (const css of ThemesCSS) {
+    themesel.append(`<option value="${css[1]}">${css[0]}</option>`);
   }
 }
 
@@ -4473,11 +4460,11 @@ if (ALTERCHATFORMAT) {
 
     if (UI_IndependentEmotes) {
       _div = div.html();
-      for (i in IndependentEmotes) {
-        filter = IndependentEmotes[i][0];
-        html = `<img src="${IndependentEmotes[i][1]}" title="${filter}" ` +
-            `style="width:${IndependentEmotes[i][2]}px; ` +
-            `height:${IndependentEmotes[i][3]}px; cursor:pointer" ` +
+      for (const emote of IndependentEmotes) {
+        filter = emote[0];
+        html = `<img src="${emote[1]}" title="${filter}" ` +
+            `style="width:${emote[2]}px; ` +
+            `height:${emote[3]}px; cursor:pointer" ` +
             `onclick="insertText('${filter}')" />`;
         re = new RegExp(filter, 'g');
         _div = _div.replace(re, html);
@@ -4486,9 +4473,8 @@ if (ALTERCHATFORMAT) {
     }
     if (UI_IndependentFilters) {
       _div = div.html();
-      for (i in IndependentFilters) {
-        _div = _div.replace(
-            IndependentFilters[i].before, IndependentFilters[i].after);
+      for (const filt of IndependentFilters) {
+        _div = _div.replace(filt.before, filt.after);
       }
       div.html(_div);
     }
@@ -4874,18 +4860,17 @@ const USERLIST_COLORS = {
 
 /* -----CONFIG----- */
 
-for (key in USERLIST_COLORS) {
-  const userType = USERLIST_COLORS[key].usertype ?
-      `.userlist_${USERLIST_COLORS[key].usertype}` :
-      '';
-  $(`div.userlist_item span${userType}:contains("${key}")`)
-      .css('cssText', USERLIST_COLORS[key].css);
+for (const [name, color] of Object.entries(USERLIST_COLORS)) {
+  const userType = color.usertype ? `.userlist_${color.usertype}` : '';
+  $(`div.userlist_item span${userType}:contains("${name}")`)
+      .css('cssText', color.css);
 }
 
-var CHAT_BACKGROUND =
+let CHAT_INIT = false;
+let CHAT_BACKGROUND =
     typeof CHAT_BACKGROUND === 'undefined' ? false : CHAT_BACKGROUND;
-if (typeof CHAT_INIT === 'undefined') {
-  var CHAT_INIT = true;
+if (!CHAT_INIT) {
+  CHAT_INIT = true;
   socket.on('chatMsg', (obj) => {
     const mb = document.getElementById('messagebuffer');
     if (mb && mb.lastChild &&
@@ -4958,15 +4943,19 @@ if (typeof CHAT_INIT === 'undefined') {
       'top:92%!important;left:84%!important;';
 }
 
+let CSS_INIT = false;
 const CSS_RAW = '';
-if (typeof CSS_INIT === 'undefined') {
-  var CSS_INIT = true;
+if (!CSS_INIT) {
+  CSS_INIT = true;
   $('head').append(`<style id="chancss2" type="text/css">${CSS_RAW}</style>`);
 } else {
   $('head #chancss2').html(CSS_RAW);
 }
 
-function TabCompletionRefresh() {
+let TabCompletionEmotes;
+let TabCompletion = {};
+
+function tabCompletionRefresh() {
   emotes = window.CHANNEL.emotes;
   TabCompletionEmotes = [];
   for (let i = 0; i < emotes.length; i++) {
@@ -4974,13 +4963,12 @@ function TabCompletionRefresh() {
   }
   TabCompletionEmotes = TabCompletionEmotes.sort();
 };
-if (typeof TabCompletionEmotes === 'undefined') {
-  var TabCompletionEmotes;
-  TabCompletionRefresh();
-  socket.on('emoteList', TabCompletionRefresh);
-  socket.on('updateEmote', TabCompletionRefresh);
-  socket.on('removeEmote', TabCompletionRefresh);
-  var TabCompletion = {
+if (TabCompletionEmotes === undefined) {
+  tabCompletionRefresh();
+  socket.on('emoteList', tabCompletionRefresh);
+  socket.on('updateEmote', tabCompletionRefresh);
+  socket.on('removeEmote', tabCompletionRefresh);
+  TabCompletion = {
     last: '',
     matches: [],
   };
@@ -5026,8 +5014,11 @@ function chatTabComplete() {
   return;
 };
 
-if (typeof emoteHover === 'undefined') {
-  var emoteHover = document.createElement('div');
+let emoteHover;
+let emoteHoverInner;
+
+if (typeof emoteHover === undefined) {
+  emoteHover = document.createElement('div');
   emoteHover.id = 'emote-hover';
   emoteHover.setAttribute(
       'style',
@@ -5035,7 +5026,7 @@ if (typeof emoteHover === 'undefined') {
   emoteHover.innerHTML =
       '<div id="emote-hover-inner" style="box-sizing: border-box;background-color: #000;color: #fff;max-width: 200px;padding: 5px 8px 4px;margin: 0px;text-align: center;font-family: Helvetica Neue,Helvetica,sans-serif;font-size: 1.2rem;line-height: 2rem;"></div>';
   document.querySelector('body').appendChild(emoteHover);
-  var emoteHoverInner = emoteHover.firstChild;
+  emoteHoverInner = emoteHover.firstChild;
 }
 const xOffset = 0;
 const yOffset = -23;
@@ -5141,8 +5132,10 @@ function cookieLoad() {
 const cookieSaveHooks = {};
 function cookieSave() {
   document.cookie = JSON.stringify(cookie);
-  for (key in cookieSaveHooks) {
-    typeof cookieSaveHooks[key] === 'function' && cookieSaveHooks[key]();
+  for (const hook of cookieSaveHooks) {
+    if (typeof hook === 'function') {
+      hook();
+    }
   }
 };
 function cookieUserlistToggle() {
@@ -5159,7 +5152,8 @@ function cookieUserlistSizeToggle() {
   userlistSizeToggleFn();
 };
 userlistToggle.onclick = cookieUserlistToggle;
-var audioFeedbackSound = audioFeedbackSound ||
+
+const audioFeedbackSound =
     new Audio('https://cdn.betterttv.net/assets/sounds/ts-tink.ogg');
 function audioFeedback() {
   if (cookie.audioFeedback) {
@@ -5167,60 +5161,72 @@ function audioFeedback() {
     audioFeedbackSound.currentTime = 0;
     audioFeedbackSound.play();
   }
-};
+}
+
 function audioFeedbackToggle() {
   cookie.audioFeedback = !cookie.audioFeedback;
   cookieSave();
   audioFeedbackToggleFn();
-};
+}
+
 function audioFeedbackToggleFn() {
   $('#audiofeedbacktoggle')
       .toggleClass('audio-feedback-on', !!cookie.audioFeedback);
-};
+}
+
 function playlistStyleToggle() {
   cookie.playlistStyle = (cookie.playlistStyle + 1) % 3;
   cookieSave();
   playlistStyleToggleFn();
-};
+}
+
 function compactToggle() {
   cookie.compact = !cookie.compact;
   cookieSave();
   compactToggleFn();
-};
+}
+
 function compactToggleFn() {
   compactToggleBtn.style.backgroundColor =
       !!cookie.compact ? '#CCFFCC' : '#FFCCCC';
   compactToggleCSS.innerHTML = !!cookie.compact ? togglesCSS_Compact : '';
-};
+}
+
 function titleToggle() {
   cookie.title = !cookie.title;
   cookieSave();
   titleToggleFn();
-};
+}
+
 const mainpage = document.querySelector('#mainpage');
 function titleToggleFn() {
   titleToggleBtn.style.backgroundColor = !!cookie.title ? '#CCFFCC' : '#FFCCCC';
   titleToggleCSS.innerHTML = !!cookie.title ? togglesCSS_Title : '';
   mainpage.setAttribute(
       'style', !!cookie.title ? 'padding-top: 45px !important;' : '');
-};
+}
+
 function playlistStyleToggleFn() {
   $('#queue').toggleClass('playlist-style-1', cookie.playlistStyle === 1);
   $('#queue').toggleClass('playlist-style-2', cookie.playlistStyle === 2);
   document.querySelector('#playliststyletoggle').innerHTML =
       cookie.playlistStyle || '';
-};
+}
+
 function timestampToggle() {
   cookie.timestamp = !cookie.timestamp;
   cookieSave();
   timestampToggleFn();
-};
+}
+
 function timestampToggleFn() {
   $('#timestamptoggle').toggleClass('timestamp-off', !!cookie.timestamp);
   timestampToggleCSS.innerHTML = !!cookie.timestamp ? togglesCSS_Timestamp : '';
-};
+}
+
+l
 if (typeof COOKIE_INIT === 'undefined') {
-  var COOKIE_INIT = true;
+  const COOKIE_INIT = true;
   setHover(document.querySelector('#userlisttoggle'));
   const userlistSizeToggle = document.createElement('i');
   userlistSizeToggle.id = 'userlistsizetoggle';
@@ -5233,7 +5239,7 @@ if (typeof COOKIE_INIT === 'undefined') {
           userlistSizeToggle, document.querySelector('#usercount'));
   userlistSizeToggle.onclick = cookieUserlistSizeToggle;
   setHover(userlistSizeToggle);
-  var userlistSizeToggleInner =
+  const userlistSizeToggleInner =
       document.querySelector('#userlistsizetoggle-inner');
   const audioFeedbackToggleBtn = document.createElement('i');
   audioFeedbackToggleBtn.id = 'audiofeedbacktoggle';
@@ -5257,7 +5263,7 @@ if (typeof COOKIE_INIT === 'undefined') {
           playlistStyleToggleBtn, document.querySelector('#usercount'));
   playlistStyleToggleBtn.onclick = playlistStyleToggle;
   setHover(playlistStyleToggleBtn);
-  var compactToggleBtn = document.createElement('i');
+  const compactToggleBtn = document.createElement('i');
   compactToggleBtn.id = 'compacttoggle';
   compactToggleBtn.setAttribute(
       'class', 'glyphicon pull-right pointer unselectable');
@@ -5268,7 +5274,7 @@ if (typeof COOKIE_INIT === 'undefined') {
           compactToggleBtn, document.querySelector('#usercount'));
   compactToggleBtn.onclick = compactToggle;
   setHover(compactToggleBtn);
-  var titleToggleBtn = document.createElement('i');
+  const titleToggleBtn = document.createElement('i');
   titleToggleBtn.id = 'titletoggle';
   titleToggleBtn.setAttribute(
       'class', 'glyphicon pull-right pointer unselectable');
@@ -5290,15 +5296,15 @@ if (typeof COOKIE_INIT === 'undefined') {
           timestampToggleBtn, document.querySelector('#usercount'));
   timestampToggleBtn.onclick = timestampToggle;
   setHover(timestampToggleBtn);
-  var compactToggleCSS = document.createElement('style');
+  const compactToggleCSS = document.createElement('style');
   compactToggleCSS.id = 'togglescss-compact';
   compactToggleCSS.setAttribute('type', 'text/css');
   document.querySelector('head').appendChild(compactToggleCSS);
-  var titleToggleCSS = document.createElement('style');
+  const titleToggleCSS = document.createElement('style');
   titleToggleCSS.id = 'togglescss-title';
   titleToggleCSS.setAttribute('type', 'text/css');
   document.querySelector('head').appendChild(titleToggleCSS);
-  var timestampToggleCSS = document.createElement('style');
+  const timestampToggleCSS = document.createElement('style');
   timestampToggleCSS.id = 'togglescss-timestamp';
   timestampToggleCSS.setAttribute('type', 'text/css');
   document.querySelector('head').appendChild(timestampToggleCSS);
@@ -5358,7 +5364,7 @@ function deleteMsgByUsername(username) {
   }
 };
 
-function MOTD_EVAL() {
+function evalMotd() {
   const motd = document.getElementById('motd');
   if (motd === null || motd.innerHTML.length === 0) {
     return false;
@@ -5371,15 +5377,17 @@ function MOTD_EVAL() {
   }
   return true;
 };
-if (!MOTD_EVAL()) {
+if (!evalMotd()) {
   const MOTD_TIMER_START = Date.now();
-  var MOTD_TIMER = setInterval(() => {
-    (MOTD_EVAL() || Date.now() - MOTD_TIMER_START > 1 * 60 * 1000) &&
-        clearInterval(MOTD_TIMER);
+  const MOTD_TIMER = setInterval(() => {
+    if (evalMotd() || Date.now() - MOTD_TIMER_START > 1 * 60 * 1000) {
+      clearInterval(MOTD_TIMER);
+    }
   }, 250);
 }
-if (typeof MOTD_INIT === 'undefined') {
-  var MOTD_INIT = true;
+let MOTD_INIT = false;
+if (!MOTD_INIT) {
+  MOTD_INIT = true;
   socket.on('setMotd', (str) => {
     const MOTD_JS = decodeURIComponent(str);
     try {
