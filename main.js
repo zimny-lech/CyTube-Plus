@@ -4867,8 +4867,7 @@ for (const [name, color] of Object.entries(USERLIST_COLORS)) {
 }
 
 let CHAT_INIT = false;
-let CHAT_BACKGROUND =
-    typeof CHAT_BACKGROUND === 'undefined' ? false : CHAT_BACKGROUND;
+let CHAT_BACKGROUND = 'CHAT_BACKGROUND' in window ? CHAT_BACKGROUND : false;
 if (!CHAT_INIT) {
   CHAT_INIT = true;
   socket.on('chatMsg', (obj) => {
