@@ -70,3 +70,20 @@ CyDJBeta12.28.21.1
 
 #Code quality:
 -Migrated from Dropbox to GitHub (john & airforce)
+
+
+CyDJBeta12.28.21.2
+
+#Cytube changes:
+-Added new image to the right corner (john & airforce)
+-Re-Add commented-out code for first timers alerts (not sure if this is still broken) (airforce)
+-Fixed load errors when refreshing the site (airforce)
+-Fixed multiple reference errors (airforce)
+-Fixed emote hovering (not sure if this is used or not?) (airforce)
+
+#Code quality:
+-Convert anonymous functions to arrow functions (known bug is pressing the up arrow and getting a blank message) (airforce)
+-Convert function comments to JSDoc (airforce)
+-Convert strong concats to template strings (airforce)
+-Removed all instances of "Silent Mode" (airforce)
+-Replaced all for/in loops (airforce)
