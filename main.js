@@ -1063,8 +1063,10 @@ const ChannelDatabase_URL = '';
 
 // reload script after unexpected re-connection or script URL change
 
-var LOADED = (typeof LOADED === 'undefined') ? false : true;
-LOADED ? location.reload() : '';
+let /** @type {boolean} */ LOADED = typeof LOADED !== 'undefined';
+if (LOADED) {
+  location.reload();
+}
 
 /* ----- getting and setting channel options ----- */
 
@@ -1184,20 +1186,30 @@ CHATSOUND.volume = 0.4;
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// toggle elements visibility
-
+/**
+ * Toggle elements visibility.
+ *
+ * @param {JQuery<HTMLElement>} div
+ */
 function toggleDiv(div) {
   $(div).css('display') == 'none' ? $(div).show() : $(div).hide();
 }
 
-// refresh player
+/**
+ * Refresh player.
+ */
 function refreshPlayer() {
   PLAYER.type = '';
   PLAYER.id = '';
   socket.emit('playerReady');
 }
 
-// add link to playlist
+/**
+ * Add link to playlist.
+ *
+ * @param {string} link
+ * @param {string} stand
+ */
 function addToPlaylist(link, stand) {
   parsed = parseMediaLink(link);
   parsed['id'] != null ?
@@ -1206,15 +1218,23 @@ function addToPlaylist(link, stand) {
       '';
 }
 
-// get text content from inner HTML
+/**
+ * Get text content from inner HTML.
+ *
+ * @param {string} html
+ * @return {string}
+ */
 function getText(html) {
-  div = document.createElement('div');
+  const div = document.createElement('div');
   div.innerHTML = html;
   return div.textContent || div.innerText;
 }
 
-// create modal window
-// test shizzz
+/**
+ * Create modal window.
+ *
+ * @param {string} title
+ */
 function createModal(title) {
   outer = $('<div class="modal fade" />').appendTo($('body'));
   modal = $('<div class="modal-dialog" />').appendTo(outer);
@@ -1233,7 +1253,11 @@ function createModal(title) {
   outer.modal();
 }
 
-// layout elements settings
+/**
+ * Layout elements settings.
+ *
+ * @param {string} a
+ */
 function playerLocation(a) {
   $('#pinup-btn').show();
   if (a == 'left') {
@@ -1354,7 +1378,9 @@ function customCSS(a) {
                '';
 }
 
-// set global layout according to user preferences
+/**
+ * Set global layout according to user preferences.
+ */
 function setLayout() {
   playerLocation(USERCONFIG.player);
   userlistLocation(USERCONFIG.userlist);
@@ -1367,14 +1393,20 @@ function setLayout() {
   customCSS(USERCONFIG.css);
 }
 
-// fit player height
+/**
+ * Fit player height.
+ */
 function fitPlayer() {
   VW = $('#videowrap').width() + '';
   VH = Math.floor(parseInt(VW) * 9 / 16 + 1) + '';
   $('#ytapiplayer').width(VW).height(VH);
 }
 
-// fit chat height
+/**
+ * Fit chat height.
+ *
+ * @param {string} a
+ */
 function fitChat(a) {
   if (a == 'auto') {
     VW = $('#messagebuffer').width();
@@ -1410,7 +1442,11 @@ function normalChat() {
   fitChat(338);
 }
 
-// set display mode
+/**
+ * Set display mode.
+ *
+ * @param {string} a
+ */
 function setMode(a) {
   $('#main').show();
   pinupbtn.hide();
@@ -1464,13 +1500,17 @@ function setMode(a) {
   }
 }
 
-// fix layout after changing media
+/**
+ * Fix layout after changing media.
+ */
 function setModeAfterVideoChange() {
   m = modesel.val();
   (m == 'syMode' || m == 'chMode' || m == 'rMode') ? setMode(m) : '';
 }
 
-// change welcome text
+/**
+ * Change welcome text.
+ */
 function changeWelcomeText() {
   if (CLIENT.rank > 0) {
     $('#welcome')
@@ -1480,7 +1520,9 @@ function changeWelcomeText() {
   }
 }
 
-// set MOTD
+/**
+ * Set MOTD.
+ */
 function changeMOTD() {
   if (UI_MOTDTabs && MOTDTabs_Array.length > 0) {
     // adding tabs application
@@ -1537,14 +1579,18 @@ function changeMOTD() {
   }
 }
 
-// change title bar description
+/**
+ * Change title bar description.
+ */
 function changeTitle() {
   title = $('#currenttitle').text();
   $('#currenttitle')
       .text(title.replace(/Currently Playing:/, TitleBarDescription_Caption));
 }
 
-// YouTube/Dailymotion progress bar
+/**
+ * YouTube/DailyMotion progress bar.
+ */
 function progressBar() {
   let a = 0;
   if (PLAYER.type == 'yt') {
@@ -1559,12 +1605,18 @@ function progressBar() {
   titlerow.css('background-size', a + '% 100%');
 }
 
-// toggle additional chat functions
+/**
+ * Toggle additional chat functions.
+ */
 function toggleChatFunctions() {
   CLIENT.rank > 2 ? chatflair.show() : chatflair.hide();
 }
 
-// set chat side panel properties
+/**
+ * Set chat side panel properties.
+ *
+ * @param {string} div
+ */
 function setPanelProperties(div) {
   bgcolor = $('body').css('background-color');
   color = $('body').css('color');
@@ -1578,14 +1630,23 @@ function setPanelProperties(div) {
   });
 }
 
-// refresh user chat statistics
+/**
+ * Refresh user chat statistics.
+ *
+ * @param {string} str
+ */
 function userChatStats(str) {
   CHATSTAT['n']++;
   CHATSTAT['l'] = CHATSTAT['l'] + str.length;
   CHATSTAT['m'].push(str);
 }
 
-// create squavatar
+/**
+ * Create squavatar.
+ *
+ * @param {string} str
+ * @return {string}
+ */
 function createSquavatar(str) {
   for (i = 0, hash = 0; i < str.length;
        hash = str.charCodeAt(i++) + ((hash << 5) - hash))
@@ -1605,7 +1666,12 @@ function createSquavatar(str) {
   return html;
 }
 
-// format chat messages before sending and execute commands
+/**
+ * Format chat messages before sending and execute commands.
+ *
+ * @param {string} msg
+ * @return {string}
+ */
 function prepareMessage(msg) {
   if (UI_MessagesSuffix) {
     if ((typeof MessagesSuffix_Percentage !== 'number') ||
@@ -1763,17 +1829,25 @@ function prepareMessage(msg) {
 }
 
 
-// insert code into chatline
+/**
+ * Insert code into chatline.
+ *
+ * @param {string} str
+ */
 function insertText(str) {
   $('#chatline').val($('#chatline').val() + str).focus();
 }
 
-// toggle YT mute button
+/**
+ * Toggle YT mute button.
+ */
 function toggleMuteBtn() {
   (PLAYER && PLAYER.type == 'yt') ? muteplayerbtn.show() : muteplayerbtn.hide();
 }
 
-// toggle mod panel button
+/**
+ * Toggle mod panel button.
+ */
 function toggleModPanel() {
   if (CLIENT.rank < 2) {
     modbtn.hide();
@@ -1792,7 +1866,9 @@ function toggleModPanel() {
   }
 }
 
-// create media database
+/**
+ * Create media database.
+ */
 function createDatabase() {
   html =
       '<button id="la1" class="btn btn-default btn-sm db-break" onclick="toggleCat(1)">' +
@@ -1866,7 +1942,11 @@ function createDatabase() {
   CHANDB = true;
 }
 
-// toggle database sections
+/**
+ * Toggle database sections.
+ *
+ * @param {number} a
+ */
 function toggleCat(a) {
   b = a - 1;
   if (opening[b] == 0) {
@@ -1882,12 +1962,16 @@ function toggleCat(a) {
   }
 }
 
-// patch layout for guest logins
+/**
+ * Patch layout for guest logins.
+ */
 function patchWrap() {
   setTimeout(() => $('#playlistmanagerwrap').show(), 1500);
 }
 
-// create channel gallery
+/**
+ * Create channel gallery.
+ */
 function createGallery() {
   galleryframe =
       $('<iframe id="galleryFrame" src=' + ChannelGalleries_Array[0][1] +
@@ -1919,14 +2003,18 @@ function createGallery() {
   GALLERY = true;
 }
 
-// toggle "/clear" button depends on rank
+/**
+ * Toggle "/clear" button depending on rank.
+ */
 function toggleClearBtn() {
-  hasPermission('chatclear') ? clearbtn.show() : 'clearbtn.hide()';
+  hasPermission('chatclear') ? clearbtn.show() : clearbtn.hide();
 }
 
-// toggle YT volume buttons depends on player type
+/**
+ * Toggle YT volume buttons depending on player type.
+ */
 function toggleVolBtn() {
-  if (PLAYER && PLAYER.type == 'yt') {
+  if (PLAYER && PLAYER.type === 'yt') {
     voldownbtn.show();
     volupbtn.show();
   } else {
@@ -1935,7 +2023,9 @@ function toggleVolBtn() {
   }
 }
 
-// toggle advanced playlist options buttons
+/**
+ * Toggle advanced playlist options buttons.
+ */
 function toggleAdvancedPl() {
   CLIENT.rank < 2 ? advplaylist.hide() : advplaylist.show();
   hasPermission('playlistjump') ? playnextbtn.show() : playnextbtn.hide();
@@ -1945,7 +2035,11 @@ function toggleAdvancedPl() {
   hasPermission('playlistdelete') ? deletelastbtn.show() : deletelastbtn.hide();
 }
 
-// get playlist helper functions
+/**
+ * Get playlist helper functions.
+ *
+ * @return {string}
+ */
 function formatRawList() {
   len = $('#queue .queue_entry').length + 1;
   list = [];
@@ -2008,13 +2102,19 @@ function formatDBList() {
   return list.join('\n');
 }
 
-// change voteskip caption
+/**
+ * Change voteskip caption.
+ */
 function changeSkipText() {
   $('#voteskip')
       .text(CustomCaptions_Array['voteskip'] + ' ' + $('#voteskip').text());
 }
 
-// add database link to playlist
+/**
+ * Add database link to playlist.
+ *
+ * @param {string} link
+ */
 function addVideo(link) {
   parsed = parseMediaLink(link);
   idp = parsed['id'];
@@ -2037,7 +2137,9 @@ function addVideo(link) {
   }
 }
 
-// set user online time
+/**
+ * Set user online time.
+ */
 function onlineTime() {
   USERONLINE++;
   const h = Math.floor(USERONLINE / 60);
@@ -2046,7 +2148,9 @@ function onlineTime() {
   onlinetime.html(h + ':' + m);
 }
 
-// set user CSS
+/**
+ * Set user CSS.
+ */
 function setUserCSS() {
   $('#chanexternalcss').detach().appendTo('head');
   $('#chanexternalcss-fix').remove();
@@ -2151,7 +2255,9 @@ function prepareFilters() {
   alert(txt);
 }
 
-// show chat additional functions
+/**
+ * Show chat additional functions.
+ */
 function showChatFunctions() {
   $('#userlist').append('<div id="chatfunc-dropdown" />');
   setPanelProperties('#chatfunc-dropdown');
@@ -2201,7 +2307,9 @@ function showChatFunctions() {
   ANTIAFK ? $('#antiafk-btn').addClass('btn-danger') : '';
 }
 
-// display list of emotes
+/**
+ * Display list of emotes.
+ */
 function showEmotes() {
   if (typeof GroupEmotes_Number !== 'number' || GroupEmotes_Number < 1) {
     GroupEmotes_Number = 100;
@@ -2264,7 +2372,9 @@ function showEmotes() {
   EMOTES = true;
 }
 
-// show chat commands modal window
+/**
+ * Show chat commands modal window.
+ */
 function showChatHelp() {
   createModal('Chat Commands');
   if (UI_FontsBtn) {
@@ -2343,7 +2453,9 @@ function showChatHelp() {
   }
 }
 
-// show chat sounds panel
+/**
+ * Show chat sounds panel.
+ */
 function showSoundsPanel() {
   $('#userlist').append('<div id="sounds-dropdown" />');
   setPanelProperties('#sounds-dropdown');
@@ -2413,7 +2525,9 @@ function showSoundsPanel() {
   });
 }
 
-// show moderators panel
+/**
+ * Show moderators panel.
+ */
 function showModPanel() {
   createModal('Moderators panel');
 
@@ -2437,7 +2551,9 @@ function showModPanel() {
   setOpt(CHANNEL.name + '_modhash', HASH);
 }
 
-// show info about current or next media
+/**
+ * Show info about current or next media.
+ */
 function showInfo() {
   if (DEFDESCR) {
     const arr = [];
@@ -2475,7 +2591,9 @@ function showInfo() {
   }
 }
 
-// hide and show player with covering image
+/**
+ * Hide and show player with covering image.
+ */
 function coverPlayer() {
   PlayerHiding_URL == '' ?
       PlayerHiding_URL =
@@ -2500,17 +2618,23 @@ function showPlayer() {
   $('#videowrap').removeClass('relative');
 }
 
-// mute YT player
+/**
+ * Mute YT player.
+ */
 function mutePlayer() {
   (PLAYER && PLAYER.type == 'yt') ? PLAYER.player.mute() : '';
 }
 
-// unmute YT player
+/**
+ * Unmute YT player.
+ */
 function unmutePlayer() {
   (PLAYER && PLAYER.type == 'yt') ? PLAYER.player.unMute() : '';
 }
 
-// download current item
+/**
+ * Download current item.
+ */
 function downloadCurrentItem() {
   uid = $('.pluid-' + PL_CURRENT).data('media');
   arr = {
@@ -2533,7 +2657,11 @@ function downloadCurrentItem() {
   }
 }
 
-// preview YT video in modal window
+/**
+ * Preview YT video in modal window.
+ *
+ * @param {string} a
+ */
 function prevVideo(a) {
   createModal('Preview Video');
 
@@ -2546,7 +2674,9 @@ function prevVideo(a) {
           .appendTo(body);
 }
 
-// toggle configuration panel
+/**
+ * Toggle configuration panel
+ */
 function toggleConfigPanel() {
   if (MINIMIZED) {
     $('#rightpane-inner').show();
@@ -2579,7 +2709,9 @@ function toggleConfigPanel() {
   }
 }
 
-// show layout configuration modal window
+/**
+ * Show layout configuration modal window.
+ */
 function showConfig() {
   createModal('Layout Configuration');
 
@@ -2866,7 +2998,9 @@ function showConfig() {
   });
 }
 
-// toggle fluid layout
+/**
+ * Toggle fluid layout.
+ */
 function toggleFluidLayout() {
   if (FLUID) {
     $('body').removeClass('fullscreen');
@@ -2888,7 +3022,9 @@ function toggleFluidLayout() {
   scrollChat();
 }
 
-// toggle minimized layout
+/**
+ * Toggle minimized layout.
+ */
 function toggleMinLayout() {
   if (!MINIMIZED) {
     $('#rightpane-inner').hide();
@@ -2908,7 +3044,9 @@ function toggleMinLayout() {
   }
 }
 
-// pin-up playlist to player
+/**
+ * Pin-up playlist to player.
+ */
 function pinUp() {
   if (USERCONFIG.player == 'left') {
     $('#videowrap').after($('#rightpane').detach());
@@ -2935,7 +3073,9 @@ function pinUp() {
   PINNED = true;
 }
 
-// un-pin playlist from player
+/**
+ * Un-pin playlist from player.
+ */
 function unPin() {
   if (USERCONFIG.queue == 'left') {
     $('#leftpane').before($('#rightpane').detach());
@@ -2962,7 +3102,9 @@ function unPin() {
   PINNED = false;
 }
 
-// show contributors list
+/**
+ * Show contributors list.
+ */
 function showContributors() {
   createModal('Contributors List');
 
@@ -2988,7 +3130,9 @@ function showContributors() {
   body.append(html);
 }
 
-// expand/collapse queue
+/**
+ * Expand/collapse queue.
+ */
 function expandQueue() {
   if (!FULLPL) {
     $('#queue').css('max-height', '100000px');
@@ -3002,7 +3146,9 @@ function expandQueue() {
   }
 }
 
-// get playlist URLS
+/**
+ * Get playlist URLs.
+ */
 function getPlaylistURLs() {
   createModal('Playlist URLs');
 
@@ -3028,7 +3174,9 @@ function getPlaylistURLs() {
   dlist.on('click', () => data.val(formatDBList()));
 }
 
-// add random item from channel database
+/**
+ * Add random item from channel database.
+ */
 function addRandomItem() {
   time = (new Date()).getTime();
   if ((time - LASTADD) < 120000) {
@@ -3339,7 +3487,9 @@ if (UI_TitleBarDescription) {
   changeTitle();
 }
 
-// easter egg
+/**
+ * Easter egg.
+ */
 function inba() {
   $('body').css('background-image', 'none');
   BGCHANGE++;
@@ -3347,7 +3497,9 @@ function inba() {
                       $('body').css('background-color', 'blue');
 }
 
-// dropit easter egg
+/**
+ * Dropit easter egg.
+ */
 function dropthebeat() {
   $('body').css('background-image', 'none');
   LOSERCHANGE++;
@@ -3438,7 +3590,9 @@ if (UI_ContextMenu) {
           .on('click', () => showContextMenu());
 }
 
-// adding the context button function (what it does!)
+/**
+ * Adding the context button function (what it does!).
+ */
 function showContextMenu() {
   createModal('Context Menu');
   if (UI_ContextMenu) {
@@ -3461,7 +3615,9 @@ if (UI_PartyButton) {
           .on('click', () => showDrop());
 }
 
-// easter egg drop button function
+/**
+ * Easter egg drop button function.
+ */
 function showDrop() {
   DROPIT.volume = 0.4;
   DROPIT.play();
@@ -3534,7 +3690,9 @@ if (UI_HeyNay) {
           });
 }
 
-// adding hey and nay sound
+/**
+ * Add hey and nay sound.
+ */
 function heySound() {
   HEY.volume = 0.4;
   HEY.play();
@@ -4605,7 +4763,9 @@ function fixSayMsg(event) {
 socket.on('chatMsg', fixSayMsg);
 
 // fix layout behaviour after resizing
-// DEV NOTE: this is extended function from CyTube "util.js" file
+/**
+ * DEV NOTE: this is extended function from CyTube "util.js" file
+ */
 function resizeStuff() {
   VWIDTH = $('#videowrap').width() + '';
   VHEIGHT = Math.floor(parseInt(VWIDTH) * 9 / 16 + 1) + '';
