@@ -1831,8 +1831,11 @@ function prepareMessage(msg) {
 /**
  * Insert code into chatline.
  *
+ * (used in injected html)
+ *
  * @param {string} str
  */
+// eslint-disable-next-line no-unused-vars
 function insertText(str) {
   $('#chatline').val($('#chatline').val() + str).focus();
 }
@@ -1939,8 +1942,11 @@ function createDatabase() {
 /**
  * Toggle database sections.
  *
+ * (used in injected html)
+ *
  * @param {number} a
  */
+// eslint-disable-next-line no-unused-vars
 function toggleCat(a) {
   b = a - 1;
   if (opening[b] == 0) {
@@ -2105,6 +2111,7 @@ function changeSkipText() {
  *
  * @param {string} link
  */
+// eslint-disable-next-line no-unused-vars
 function addVideo(link) {
   parsed = parseMediaLink(link);
   idp = parsed['id'];
@@ -2650,8 +2657,11 @@ function downloadCurrentItem() {
 /**
  * Preview YT video in modal window.
  *
+ * (used in injected html)
+ *
  * @param {string} a
  */
+// eslint-disable-next-line no-unused-vars
 function prevVideo(a) {
   createModal('Preview Video');
 
@@ -4509,7 +4519,7 @@ if (ALTERCHATFORMAT) {
                           }
                         } else {
                           $(this).prop('muted', !$(this).prop('muted'));
-                        };
+                        }
                         return false;
                       })
                   .on('dblclick', function() {
@@ -4821,6 +4831,7 @@ LOADED = true;
 (function(i, s, o, g, r, a, m) {
 i['GoogleAnalyticsObject'] = r;
 i[r] = i[r] || function() {
+  // eslint-disable-next-line prefer-rest-params
   (i[r].q = i[r].q || []).push(arguments);
 }, i[r].l = 1 * new Date();
 a = s.createElement(o), m = s.getElementsByTagName(o)[0];
@@ -4884,7 +4895,7 @@ if (!CHAT_INIT) {
       if (mb !== null &&
           mb.scrollHeight - (mb.clientHeight + mb.scrollTop) < 50) {
         mb.scrollTop = mb.scrollHeight - mb.clientHeight;
-      };
+      }
     }, 250);
     emoteHoverAll();
     if (CLIENT.name && obj.username !== CLIENT.name &&
@@ -4961,7 +4972,8 @@ function tabCompletionRefresh() {
     TabCompletionEmotes.push(emotes[i].name);
   }
   TabCompletionEmotes = TabCompletionEmotes.sort();
-};
+}
+
 if (TabCompletionEmotes === undefined) {
   tabCompletionRefresh();
   socket.on('emoteList', tabCompletionRefresh);
@@ -4984,12 +4996,8 @@ function chatTabComplete() {
   if (!current.match(/^[\w-():]{1,20}:?$/)) {
     return;
   }
-  const __slice = Array.prototype.slice;
-  const usersWithCap = __slice.call($('#userlist').children())
+  const usersWithCap = Array.prototype.slice.call($('#userlist').children())
                            .map((elem) => elem.children[1].innerHTML);
-  const users = __slice.call(usersWithCap)
-                    .map((user) => user.toLowerCase())
-                    .filter((name) => name.indexOf(current) === 0);
   if (currentWithCap === TabCompletion.last) {
     TabCompletion.last = current = TabCompletion.matches[(TabCompletion.matches.indexOf(currentWithCap) + 1) % TabCompletion.matches.length];
     current += ' ';
@@ -5011,29 +5019,25 @@ function chatTabComplete() {
   words[words.length - 1] = current;
   $('#chatline').val(words.join(' '));
   return;
-};
-
-let emoteHover;
-let emoteHoverInner;
-
-if (typeof emoteHover === undefined) {
-  emoteHover = document.createElement('div');
-  emoteHover.id = 'emote-hover';
-  emoteHover.setAttribute(
-      'style',
-      'visibility: hidden; top: 0px;left: 0px;box-sizing: border-box;display: block;position: absolute;padding: 5px;margin: 0px;color: #D3D3D3;line-height: 60px;text-align: center;z-index: 9999;');
-  emoteHover.innerHTML =
-      '<div id="emote-hover-inner" style="box-sizing: border-box;background-color: #000;color: #fff;max-width: 200px;padding: 5px 8px 4px;margin: 0px;text-align: center;font-family: Helvetica Neue,Helvetica,sans-serif;font-size: 1.2rem;line-height: 2rem;"></div>';
-  document.querySelector('body').appendChild(emoteHover);
-  emoteHoverInner = emoteHover.firstChild;
 }
+
+const emoteHover = document.createElement('div');
+emoteHover.id = 'emote-hover';
+emoteHover.setAttribute(
+    'style',
+    'visibility: hidden; top: 0px;left: 0px;box-sizing: border-box;display: block;position: absolute;padding: 5px;margin: 0px;color: #D3D3D3;line-height: 60px;text-align: center;z-index: 9999;');
+emoteHover.innerHTML =
+    '<div id="emote-hover-inner" style="box-sizing: border-box;background-color: #000;color: #fff;max-width: 200px;padding: 5px 8px 4px;margin: 0px;text-align: center;font-family: Helvetica Neue,Helvetica,sans-serif;font-size: 1.2rem;line-height: 2rem;"></div>';
+document.querySelector('body').appendChild(emoteHover);
+const emoteHoverInner = emoteHover.firstChild;
+
 const xOffset = 0;
 const yOffset = -23;
 function setHover(obj) {
   if (typeof obj !== 'object' || obj === null) {
     return;
   }
-  obj.onmouseenter = (e) => {
+  obj.onmouseenter = function(e) {
     emoteHoverInner.innerHTML = this.getAttribute('hover') || this.title;
     emoteHover.style.visibility = 'visible';
     emoteHover.style.top = (e.pageY - yOffset) + 'px';
@@ -5044,9 +5048,10 @@ function setHover(obj) {
   };
   obj.onmousemove = (e) => {
     emoteHover.style.top = (e.pageY - yOffset) + 'px';
-    emoteHover.style.left = (e.pageX - xOffset) + 'px';
+    emoteHover.style.left = (e.pageX - xOffset) + 'px';  // 47
   };
-};
+}
+
 function emoteHoverAll() {
   const emotes = document.querySelectorAll('img.channel-emote');
   for (let i = 0; i < emotes.length; i++) {
@@ -5054,12 +5059,12 @@ function emoteHoverAll() {
       setHover(emotes[i]);
     }
   }
-};
+}
 emoteHoverAll();
 
 function newPoll() {
   $('#pollwrap div.well').draggable();
-};
+}
 const newpollbtn = document.getElementById('newpollbtn');
 newpollbtn !== null && (newpollbtn.onclick = newPoll);
 $('#emotelist > div.modal-dialog > div.modal-content').draggable();
@@ -5092,7 +5097,7 @@ function userlistSizeToggleFn() {
       .toggleClass(
           'userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
   userlistSizeToggleInner.style.width = !!cookie.userlistLarge ? '100%' : '50%';
-};
+}
 let cookie;
 function cookieLoad() {
   const regex = /.*(?:(\{.*\})).*/.exec(document.cookie);
@@ -5128,7 +5133,7 @@ function cookieLoad() {
   playlistStyleToggleFn();
   compactToggleFn();
   titleToggleFn();
-};
+}
 const cookieSaveHooks = {};
 function cookieSave() {
   document.cookie = JSON.stringify(cookie);
@@ -5137,12 +5142,12 @@ function cookieSave() {
       hook();
     }
   }
-};
+}
 function cookieUserlistToggle() {
   cookie.userlistHidden = !cookie.userlistHidden;
   cookieSave();
   userlistSizeToggleFn();
-};
+}
 function cookieUserlistSizeToggle() {
   cookie.userlistLarge = !cookie.userlistLarge;
   if (!!cookie.userlistHidden) {
@@ -5150,7 +5155,7 @@ function cookieUserlistSizeToggle() {
   }
   cookieSave();
   userlistSizeToggleFn();
-};
+}
 userlistToggle.onclick = cookieUserlistToggle;
 
 const audioFeedbackSound =
@@ -5343,7 +5348,8 @@ function deleteMsg(messageDiv) {
     deletedMessageSpan.style.display = 'none';
   };
   messageDiv.appendChild(deletedMessageSpan);
-};
+}
+
 function undeleteMsg(obj) {
   const scrollDown = messagebuffer.scrollHeight -
           (messagebuffer.clientHeight + messagebuffer.scrollTop) <
@@ -5359,14 +5365,15 @@ function undeleteMsg(obj) {
     messagebuffer.scrollTop =
         messagebuffer.scrollHeight - messagebuffer.clientHeight;
   }
-};
+}
+
 function deleteMsgByUsername(username) {
   for (let i = 0; i < messagebuffer.children.length; i++) {
     if (messagebuffer.children[i].classList[0] === `chat-msg-${username}`) {
       deleteMsg(messagebuffer.children[i]);
     }
   }
-};
+}
 
 function evalMotd() {
   const motd = document.getElementById('motd');
@@ -5380,7 +5387,8 @@ function evalMotd() {
     console.error(e);
   }
   return true;
-};
+}
+
 if (!evalMotd()) {
   const MOTD_TIMER_START = Date.now();
   const MOTD_TIMER = setInterval(() => {

@@ -19,6 +19,8 @@
     "max-len": [
       "off"
     ],
-    "camelcase": "off"
+    "camelcase": "off", // TODO: re-enable
+    "no-invalid-this": "off", // TODO: re-enable when we eventually move off of jquery (if that ever happens)
+    "no-extra-semi": "error"
   }
 }
