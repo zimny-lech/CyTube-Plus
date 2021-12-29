@@ -8,6 +8,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
+    "clang-format": "^1.6.0",
     "eslint": "^8.5.0",
     "eslint-config-google": "^0.14.0"
   }
