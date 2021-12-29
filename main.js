@@ -4317,6 +4317,23 @@ if (UI_ExtendedGetURLs) {
   $('#getplaylist').unbind().on('click', () => getPlaylistURLs());
 }
 
+// altering message for the first-timers (uhhh fix later)
+
+/*
+  if ($("#plonotification").length > 0) {
+    repl = '"the old style" of playlist buttons (<b>recommended</b>) - more
+  compact playlist with nice icons '
+      + '(see image <a
+  href="https://dl.dropboxusercontent.com/s/4ya7i5vlyb3likk/oldpl.jpg"
+  target="_blank">'
+      + 'here</a>).';
+    html = $("#plonotification .alert").html().replace(/the old style of
+  playlist buttons./, repl); html = html.replace('right click). ', 'right
+  click).<br />');
+    $("#plonotification .alert").html(html);
+  }
+*/
+
 // rearranging footer
 
 html =
