@@ -5070,6 +5070,7 @@ const togglesCSS_Title =
     '#currenttitle{display: block !important; font-size: 16px !important; margin-top: -30px !important; margin-bottom: -5px;}#mainpage{/*padding-top: 45px !important;*/}';
 const togglesCSS_Timestamp = '#messagebuffer>div>span.timestamp{display:none;}';
 const userlistToggle = document.querySelector('#userlisttoggle');
+let userlistSizeToggleInner;
 function userlistSizeToggleFn() {
   $('#userlist').toggleClass('userlist-large', !!cookie.userlistLarge);
   $('#messagebuffer')
@@ -5223,9 +5224,9 @@ function timestampToggleFn() {
   timestampToggleCSS.innerHTML = !!cookie.timestamp ? togglesCSS_Timestamp : '';
 }
 
-l
-if (typeof COOKIE_INIT === 'undefined') {
-  const COOKIE_INIT = true;
+let COOKIE_INIT = false;
+if (!COOKIE_INIT) {
+  COOKIE_INIT = true;
   setHover(document.querySelector('#userlisttoggle'));
   const userlistSizeToggle = document.createElement('i');
   userlistSizeToggle.id = 'userlistsizetoggle';
@@ -5238,8 +5239,7 @@ if (typeof COOKIE_INIT === 'undefined') {
           userlistSizeToggle, document.querySelector('#usercount'));
   userlistSizeToggle.onclick = cookieUserlistSizeToggle;
   setHover(userlistSizeToggle);
-  const userlistSizeToggleInner =
-      document.querySelector('#userlistsizetoggle-inner');
+  userlistSizeToggleInner = document.querySelector('#userlistsizetoggle-inner');
   const audioFeedbackToggleBtn = document.createElement('i');
   audioFeedbackToggleBtn.id = 'audiofeedbacktoggle';
   audioFeedbackToggleBtn.setAttribute(
