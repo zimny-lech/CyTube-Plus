@@ -3584,7 +3584,7 @@ function showContextMenu() {
     body.append('<strong>Useful links</strong><br /><br />');
     html =
         [
-          '<a href="https://papertek.github.io/CyDJ/deploy/main/updates.txt" target="_blank">Click here to view latest updates</a>!',
+          '<a href="https://papertek.github.io/CyDJ/README.md#updates" target="_blank">Click here to view latest updates</a>!',
           '<a href="https://docs.google.com/forms/d/e/1FAIpQLSdNlinbPb2Lr5qmtIPWg9gnVWr1US82CRf4X8bKmmLvj7NIhg/viewform" target="_blank">Click here to report a user</a>!',
           '<a href="https://docs.google.com/document/d/1X2TdR9hc2KK0WEBLjY06CZaY30QyKxsI_7CQ1qbSz0g/edit" target="_blank">Click here to open the CyDJ guide</a>!',
           '<a href="https://discord.gg/g8tCGSc2bx" target="_blank">Click here to join the Discord</a>!',
