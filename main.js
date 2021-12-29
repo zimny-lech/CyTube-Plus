@@ -5186,10 +5186,12 @@ function compactToggle() {
   compactToggleFn();
 }
 
+let compactToggleBtn;
+let compactToggleCss;
 function compactToggleFn() {
   compactToggleBtn.style.backgroundColor =
       !!cookie.compact ? '#CCFFCC' : '#FFCCCC';
-  compactToggleCSS.innerHTML = !!cookie.compact ? togglesCSS_Compact : '';
+  compactToggleCss.innerHTML = !!cookie.compact ? togglesCSS_Compact : '';
 }
 
 function titleToggle() {
@@ -5199,9 +5201,11 @@ function titleToggle() {
 }
 
 const mainpage = document.querySelector('#mainpage');
+let titleToggleBtn;
+let titleToggleCss;
 function titleToggleFn() {
   titleToggleBtn.style.backgroundColor = !!cookie.title ? '#CCFFCC' : '#FFCCCC';
-  titleToggleCSS.innerHTML = !!cookie.title ? togglesCSS_Title : '';
+  titleToggleCss.innerHTML = !!cookie.title ? togglesCSS_Title : '';
   mainpage.setAttribute(
       'style', !!cookie.title ? 'padding-top: 45px !important;' : '');
 }
@@ -5219,9 +5223,10 @@ function timestampToggle() {
   timestampToggleFn();
 }
 
+let timestampToggleCss;
 function timestampToggleFn() {
   $('#timestamptoggle').toggleClass('timestamp-off', !!cookie.timestamp);
-  timestampToggleCSS.innerHTML = !!cookie.timestamp ? togglesCSS_Timestamp : '';
+  timestampToggleCss.innerHTML = !!cookie.timestamp ? togglesCSS_Timestamp : '';
 }
 
 let COOKIE_INIT = false;
@@ -5262,7 +5267,7 @@ if (!COOKIE_INIT) {
           playlistStyleToggleBtn, document.querySelector('#usercount'));
   playlistStyleToggleBtn.onclick = playlistStyleToggle;
   setHover(playlistStyleToggleBtn);
-  const compactToggleBtn = document.createElement('i');
+  compactToggleBtn = document.createElement('i');
   compactToggleBtn.id = 'compacttoggle';
   compactToggleBtn.setAttribute(
       'class', 'glyphicon pull-right pointer unselectable');
@@ -5273,7 +5278,7 @@ if (!COOKIE_INIT) {
           compactToggleBtn, document.querySelector('#usercount'));
   compactToggleBtn.onclick = compactToggle;
   setHover(compactToggleBtn);
-  const titleToggleBtn = document.createElement('i');
+  titleToggleBtn = document.createElement('i');
   titleToggleBtn.id = 'titletoggle';
   titleToggleBtn.setAttribute(
       'class', 'glyphicon pull-right pointer unselectable');
@@ -5295,18 +5300,18 @@ if (!COOKIE_INIT) {
           timestampToggleBtn, document.querySelector('#usercount'));
   timestampToggleBtn.onclick = timestampToggle;
   setHover(timestampToggleBtn);
-  const compactToggleCSS = document.createElement('style');
-  compactToggleCSS.id = 'togglescss-compact';
-  compactToggleCSS.setAttribute('type', 'text/css');
-  document.querySelector('head').appendChild(compactToggleCSS);
-  const titleToggleCSS = document.createElement('style');
-  titleToggleCSS.id = 'togglescss-title';
-  titleToggleCSS.setAttribute('type', 'text/css');
-  document.querySelector('head').appendChild(titleToggleCSS);
-  const timestampToggleCSS = document.createElement('style');
-  timestampToggleCSS.id = 'togglescss-timestamp';
-  timestampToggleCSS.setAttribute('type', 'text/css');
-  document.querySelector('head').appendChild(timestampToggleCSS);
+  compactToggleCss = document.createElement('style');
+  compactToggleCss.id = 'togglescss-compact';
+  compactToggleCss.setAttribute('type', 'text/css');
+  document.querySelector('head').appendChild(compactToggleCss);
+  titleToggleCss = document.createElement('style');
+  titleToggleCss.id = 'togglescss-title';
+  titleToggleCss.setAttribute('type', 'text/css');
+  document.querySelector('head').appendChild(titleToggleCss);
+  timestampToggleCss = document.createElement('style');
+  timestampToggleCss.id = 'togglescss-timestamp';
+  timestampToggleCss.setAttribute('type', 'text/css');
+  document.querySelector('head').appendChild(timestampToggleCss);
   cookieLoad();
 }
 
