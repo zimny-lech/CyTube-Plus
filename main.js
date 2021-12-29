@@ -1226,7 +1226,7 @@ function createModal(title) {
   $('<h3 />').text(title).appendTo(head);
   body = $('<div class="modal-body" />').appendTo(modal);
   footer = $('<div class="modal-footer" />').appendTo(modal);
-  outer.on('hidden', function() {
+  outer.on('hidden', () => {
     outer.remove();
     unhidePlayer();
   });
@@ -1340,13 +1340,8 @@ function headerMode(a) {
   } else if (a == 'mouseover') {
     $('.navbar-fixed-top')
         .css({'position': 'fixed', 'top': '-40px'})
-        .on('mouseover',
-            function() {
-              $('.navbar-fixed-top').css('top', '0px');
-            })
-        .on('mouseout', function() {
-          $('.navbar-fixed-top').css('top', '-40px');
-        });
+        .on('mouseover', () => $('.navbar-fixed-top').css('top', '0px'))
+        .on('mouseout', () => $('.navbar-fixed-top').css('top', '-40px'));
     $('#mainpage').css('margin-top', '-40px');
   }
 }
@@ -1494,7 +1489,7 @@ function changeMOTD() {
       btn = $('<button class="btn btn-default motdtabs-btn" tab="' + i + '">')
                 .text(MOTDTabs_Array[i][0])
                 .appendTo(motdtabswrap)
-                .on('click', function() {
+                .on('click', () => {
                   $('.motdtabs-btn').removeClass('btn-success');
                   $(this).addClass('btn-success');
                   nr = $(this).attr('tab');
@@ -1534,9 +1529,7 @@ function changeMOTD() {
     rulesbtn = $('<button id="rules-btn" class="btn btn-default btn-sm" />')
                    .text(RulesBtn_Caption + ' ▸')
                    .appendTo(rulesbtnwrap)
-                   .on('click', function() {
-                     toggleDiv(rulespanel);
-                   });
+                   .on('click', () => toggleDiv(rulespanel));
     rulespanelouter = $('<div id="rulespanel-outer" />').appendTo('#motd');
     rulespanel = $('<div id="rulespanel" style="display:none" />')
                      .html(RulesBtn_HTML)
@@ -1753,10 +1746,8 @@ function prepareMessage(msg) {
       IMBA.volume = 0.6;
       IMBA.play();
       mutePlayer();
-      inbix = setInterval(function() {
-        inba();
-      }, 200);
-      setTimeout(function() {
+      inbix = setInterval(() => inba(), 200);
+      setTimeout(() => {
         unmutePlayer();
         BGCHANGE = 0;
         clearInterval(inbix);
@@ -1862,7 +1853,7 @@ function createDatabase() {
     $('#la' + i).append(' [' + item_count[i - 1] + ']');
   }
 
-  cleardbbtn = $('#cleardb-btn').on('click', function() {
+  cleardbbtn = $('#cleardb-btn').on('click', () => {
     toggleDiv(dbwrap);
     dbwell.html('');
     CHANDB = false;
@@ -1893,9 +1884,7 @@ function toggleCat(a) {
 
 // patch layout for guest logins
 function patchWrap() {
-  setTimeout(function() {
-    $('#playlistmanagerwrap').show();
-  }, 1500);
+  setTimeout(() => $('#playlistmanagerwrap').show(), 1500);
 }
 
 // create channel gallery
@@ -1909,9 +1898,7 @@ function createGallery() {
                  .appendTo(gallerywell);
   galsel = $('<select id="gal-sel" class="form-control" />')
                .appendTo(gallerywell)
-               .on('change', function() {
-                 galleryframe.attr('src', galsel.val());
-               });
+               .on('change', () => galleryframe.attr('src', galsel.val()));
 
   for (i in ChannelGalleries_Array) {
     $('<option value="' + ChannelGalleries_Array[i][1] + '" />')
@@ -1924,7 +1911,7 @@ function createGallery() {
       $('<button id="cleargallery-btn" class="btn btn-default btn-sm">' + text +
         '</button>')
           .appendTo(gallerywell)
-          .on('click', function() {
+          .on('click', () => {
             toggleDiv(gallerywrap);
             gallerywell.html('');
             GALLERY = false;
@@ -2146,7 +2133,7 @@ function prepareFilters() {
       '{"name":"closing font style","source":"\\\\[\\\\/\\\\]","flags":"g",' +
       '"replace":"</span>","active":true,"filterlinks":false}]';
 
-  callback = function(data) {
+  callback = (data) => {
     socket.listeners('chatFilters')
         .splice(socket.listeners('chatFilters').indexOf(callback));
     json = JSON.stringify(data);
@@ -2177,9 +2164,8 @@ function showChatFunctions() {
           .on('click', function() {
             if (!CLEARING) {
               $(this).text('Stop Clearing').addClass('btn-danger');
-              CLEARING = setInterval(function() {
-                socket.emit('chatMsg', {msg: '/clear'});
-              }, 500);
+              CLEARING = setInterval(
+                  () => socket.emit('chatMsg', {msg: '/clear'}), 500);
             } else {
               $(this).text('Auto Clear').removeClass('btn-danger');
               clearInterval(CLEARING);
@@ -2543,9 +2529,7 @@ function downloadCurrentItem() {
     $('<a href="http://keepvid.com/?url=' + link +
       '" target="_blank">Click here to download</a>')
         .appendTo(body)
-        .on('click', function() {
-          outer.modal('hide');
-        });
+        .on('click', () => outer.modal('hide'));
   }
 }
 
@@ -2740,7 +2724,7 @@ function showConfig() {
                .text('One column')
                .appendTo(footer);
 
-  logoinsert.on('change', function() {
+  logoinsert.on('change', () => {
     if (logoinsert.val() == 'user') {
       userlogo.parent().parent().show();
       userlogoht.parent().parent().show();
@@ -2752,7 +2736,7 @@ function showConfig() {
     }
   });
 
-  customcss.on('change', function() {
+  customcss.on('change', () => {
     if (customcss.val() == 'yes') {
       usercss.parent().parent().show();
     } else {
@@ -2760,7 +2744,7 @@ function showConfig() {
     }
   });
 
-  submit.on('click', function() {
+  submit.on('click', () => {
     outer.modal('hide');
 
     USERCONFIG.player = playerlocation.val();
@@ -2817,7 +2801,7 @@ function showConfig() {
     scrollQueue();
   });
 
-  reset.on('click', function() {
+  reset.on('click', () => {
     outer.modal('hide');
 
     USERCONFIG.player = defplayer;
@@ -2852,7 +2836,7 @@ function showConfig() {
     scrollQueue();
   });
 
-  column.on('click', function() {
+  column.on('click', () => {
     outer.modal('hide');
 
     USERCONFIG.player = 'center';
@@ -2993,9 +2977,7 @@ function showContributors() {
   for (key in list) {
     list2.push([key, list[key]]);
   }
-  list2.sort(function(a, b) {
-    return a[1] - b[1];
-  });
+  list2.sort((a, b) => a[1] - b[1]);
   list2.reverse();
   const list3 = [];
   for (i in list2) {
@@ -3039,21 +3021,11 @@ function getPlaylistURLs() {
       $('<button class="btn btn-default pull-left">Database Format</button>')
           .appendTo(footer);
 
-  rlist.on('click', function() {
-    data.val(formatRawList());
-  });
-  tlist.on('click', function() {
-    data.val(formatPlainTextList());
-  });
-  hlist.on('click', function() {
-    data.val('<ol>\n' + formatHTMLList() + '\n</ol>');
-  });
-  olist.on('click', function() {
-    data.val(formatOrderedList());
-  });
-  dlist.on('click', function() {
-    data.val(formatDBList());
-  });
+  rlist.on('click', () => data.val(formatRawList()));
+  tlist.on('click', () => data.val(formatPlainTextList()));
+  hlist.on('click', () => data.val('<ol>\n' + formatHTMLList() + '\n</ol>'));
+  olist.on('click', () => data.val(formatOrderedList()));
+  dlist.on('click', () => data.val(formatDBList()));
 }
 
 // add random item from channel database
@@ -3107,7 +3079,7 @@ if (USEROPTS.hidevid) {
   staybtn =
       $('<button id="stay-btn" class="btn btn-default btn-sm">Stay In "Chat Only" Mode</button>')
           .appendTo('#ytapiplayer .alert')
-          .on('click', function() {
+          .on('click', () => {
             videowrap.remove();
             $('#chatwrap').removeClass().addClass('col-lg-12 col-md-12');
             $('#configform, #modeform, #pinup-btn').hide();
@@ -3144,11 +3116,9 @@ $('#leftpane').prepend($('#emotelistbtn').detach());
 $('#plcontrol').prepend($('#showmediaurl').detach());
 
 // header and footer links open in a new tab
-
 $('#home-link a, #account-link ul a, .credit a').attr('target', '_blank');
 
 // adding default CyTube Plus CSS if not set
-
 if ($('#chanexternalcss').length < 1) {
   url = 'https://dl.dropboxusercontent.com/s/hbhlrmys5piztgo/main.css';
   $('head').append(
@@ -3160,7 +3130,7 @@ setUserCSS();
 
 // adding favicon
 if (UI_Favicon && Favicon_URL != '') {
-  $(document).ready(function() {
+  $(document).ready(() => {
     $('<link id="chanfavicon" href="' + Favicon_URL +
       '" type="image/x-icon" rel="shortcut icon" />')
         .appendTo('head');
@@ -3192,12 +3162,10 @@ $('#us-layout')
 csfontsimport =
     $('<button id="cs-fonts-import" class="btn btn-default pull-right">Prepare fonts filters</button>')
         .insertAfter('#cs-chatfilters-import')
-        .on('click', function() {
-          prepareFilters();
-        });
+        .on('click', () => prepareFilters());
 
 // fixing layout after saving global user options
-$('#useroptions .modal-footer button:nth-child(1)').on('click', function() {
+$('#useroptions .modal-footer button:nth-child(1)').on('click', () => {
   USEROPTS.hidevid ? location.reload() : '';
   html =
       'All changes are applying globally, but this channel uses its own layout. ' +
@@ -3267,7 +3235,7 @@ if (UI_Version) {
 if (UI_RemoveLayoutMenu) {
   $('#layout-link').remove();
 } else {
-  $('#layout-link li:nth-child(2) a').on('click', function() {
+  $('#layout-link li:nth-child(2) a').on('click', () => {
     $('#configform, #modeform, #pinup-btn').hide();
     fitChat('auto');
   });
@@ -3312,7 +3280,7 @@ if (UI_MOTDAutoLogo) {
         MOTDAutoLogo_Interval < 1) {
       MOTDAutoLogo_Interval = 20;
     }
-    setInterval(function() {
+    setInterval(() => {
       nr = Math.floor(Math.random() * MOTDAutoLogo_Array.length);
       $('#motdlogo').attr('src', MOTDAutoLogo_Array[nr]);
     }, MOTDAutoLogo_Interval * 1000);
@@ -3351,9 +3319,7 @@ if (UI_FullTitleBar) {
                   .html('Nothing is playing')
                   .prependTo('#videowrap');
 
-  UI_ProgressBar ? setInterval(function() {
-    progressBar();
-  }, 2000) : '';
+  UI_ProgressBar ? setInterval(() => progressBar(), 2000) : '';
 
   socket.on('changeMedia', showInfo);
   showInfo();
@@ -3400,7 +3366,7 @@ if (UI_CustomPingSound && CustomPingSound_URL != '') {
 chatflair =
     $('<span id="chatflair" class="label label-success pull-right pointer">Func</span>')
         .insertAfter('#adminflair')
-        .on('click', function() {
+        .on('click', () => {
           if (!CHATFUNC) {
             $('#sounds-dropdown').remove();
             SOUNDSPANEL = false;
@@ -3423,9 +3389,8 @@ if (UI_JoinText) {
 // optional chat leaving message
 if (UI_LeaveText) {
   LeaveText_Message == '' ? LeaveText_Message = 'left' : '';
-  $(window).unload(function() {
-    socket.emit('chatMsg', {msg: '/me ' + LeaveText_Message});
-  });
+  $(window).unload(
+      () => socket.emit('chatMsg', {msg: '/me ' + LeaveText_Message}));
 }
 
 // adding chat buttons wrapping
@@ -3441,9 +3406,7 @@ if (UI_FontsBtn) {
       $('<button id="fonts-btn" class="btn btn-sm btn-default" title="Display fonts panel" />')
           .html('<i class="glyphicon glyphicon-font"></i>')
           .appendTo(chatcontrols)
-          .on('click', function() {
-            toggleDiv(fontspanel);
-          });
+          .on('click', () => toggleDiv(fontspanel));
 }
 
 // adding chat emotes button
@@ -3452,7 +3415,7 @@ if (UI_EmotesBtn) {
       $('<button id="emotes-btn" class="btn btn-sm btn-default" title="Display emotes panel" />')
           .html('<i class="glyphicon glyphicon-picture"></i>')
           .appendTo(chatcontrols)
-          .on('click', function() {
+          .on('click', () => {
             toggleDiv(emotespanel);
             (UI_ChannelCache != '1' && !EMOTES) ? showEmotes() : '';
           });
@@ -3463,9 +3426,7 @@ if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
   chathelpbtn = $('<button id="chathelp-btn" class="btn btn-sm btn-default" />')
                     .text('Chat Commands')
                     .appendTo(chatcontrols)
-                    .on('click', function() {
-                      showChatHelp();
-                    });
+                    .on('click', () => showChatHelp());
 }
 
 // adding the stupid context button to show up
@@ -3474,9 +3435,7 @@ if (UI_ContextMenu) {
       $('<button id="context-btn" class="btn btn-sm btn-default" title="Opens a menu with links" />')
           .text('Context Menu')
           .appendTo(chatcontrols)
-          .on('click', function() {
-            showContextMenu();
-          });
+          .on('click', () => showContextMenu());
 }
 
 // adding the context button function (what it does!)
@@ -3499,19 +3458,15 @@ if (UI_PartyButton) {
       $('<button id="party-btn" class="btn btn-sm btn-default" title="Party! Please do not spam the button." />')
           .text('Party!')
           .appendTo(chatcontrols)
-          .on('click', function() {
-            showDrop();
-          });
+          .on('click', () => showDrop());
 }
 
 // easter egg drop button function
 function showDrop() {
   DROPIT.volume = 0.4;
   DROPIT.play();
-  inbix = setInterval(function() {
-    dropthebeat();
-  }, 100);
-  setTimeout(function() {
+  inbix = setInterval(() => dropthebeat(), 100);
+  setTimeout(() => {
     LOSERCHANGE = 0;
     clearInterval(inbix);
     $('body').css({'background-image': '', 'background-color': ''});
@@ -3527,7 +3482,7 @@ if (UI_SoundFilters || UI_ChatSpeak) {
       $('<button id="voices-btn" class="btn btn-sm btn-default" title="Mute chat voices" />')
           .html('<i class="glyphicon glyphicon-volume-down"></i>')
           .appendTo(chatcontrols)
-          .on('click', function() {
+          .on('click', () => {
             if (!SOUNDSPANEL) {
               $('#chatfunc-dropdown').remove();
               CHATFUNC = false;
@@ -3547,9 +3502,7 @@ if (UI_ModPanel) {
       $('<button id="mod-btn" class="btn btn-sm btn-default" title="Show moderators panel" />')
           .html('<i class="glyphicon glyphicon-tasks"></i>')
           .appendTo(chatcontrols)
-          .on('click', function() {
-            showModPanel();
-          });
+          .on('click', () => showModPanel());
 
   socket.on('rank', toggleModPanel);
   toggleModPanel();
@@ -3561,7 +3514,7 @@ if (UI_HeyNay) {
       $('<button id="hey-btn" class="btn btn-sm btn-default" title="Woot!" />')
           .html('<i class="glyphicon glyphicon-headphones"></i>')
           .appendTo(chatcontrols)
-          .on('click', function() {
+          .on('click', () => {
             socket.emit('chatMsg', {msg: '/afk'});
             socket.emit('chatMsg', {msg: '[lime]Woot![/] PepePls'});
             heySound();
@@ -3574,7 +3527,7 @@ if (UI_HeyNay) {
       $('<button id="nay-btn" class="btn btn-sm btn-default" title="Meh.. (Voteskip)" />')
           .html('<i class="glyphicon glyphicon-thumbs-down"></i>')
           .appendTo(chatcontrols)
-          .on('click', function() {
+          .on('click', () => {
             socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
             socket.emit('voteskip');
             naySound();
@@ -3600,7 +3553,7 @@ if (UI_PlayerOptions) {
             .attr('title', 'Switch description')
             .html('<span class="glyphicon glyphicon-info-sign"></span>')
             .appendTo('#playercontrols')
-            .on('click', function() {
+            .on('click', () => {
               DEFDESCR = !DEFDESCR;
               showInfo();
             });
@@ -3635,9 +3588,7 @@ if (UI_PlayerOptions) {
       $('<button id="savemedia-btn" class="btn btn-sm btn-default" title="Download" />')
           .html('<span class="glyphicon glyphicon-floppy-save"></span>')
           .appendTo('#playercontrols')
-          .on('click', function() {
-            downloadCurrentItem();
-          });
+          .on('click', () => downloadCurrentItem());
 }
 
 // adding player transformation buttons
@@ -3649,7 +3600,7 @@ if (UI_TransformationBtns) {
       $('<button id="mirrorx-btn" class="btn btn-sm btn-default" title="Mirror X player" />')
           .html('<span class="glyphicon glyphicon-resize-horizontal"></span>')
           .appendTo(transcontrols)
-          .on('click', function() {
+          .on('click', () => {
             if ($('#ytapiplayer').hasClass('mX')) {
               $('#ytapiplayer').removeClass('mX');
             } else {
@@ -3661,7 +3612,7 @@ if (UI_TransformationBtns) {
       $('<button id="mirrory-btn" class="btn btn-sm btn-default" title="Mirror Y player" />')
           .html('<span class="glyphicon glyphicon-resize-vertical"></span>')
           .appendTo(transcontrols)
-          .on('click', function() {
+          .on('click', () => {
             if ($('#ytapiplayer').hasClass('mY')) {
               $('#ytapiplayer').removeClass('mY');
             } else {
@@ -3673,7 +3624,7 @@ if (UI_TransformationBtns) {
       $('<button id="rotate-btn" class="btn btn-sm btn-default" title="Rotate player" />')
           .html('<span class="glyphicon glyphicon-repeat"></span>')
           .appendTo(transcontrols)
-          .on('click', function() {
+          .on('click', () => {
             if ($('#ytapiplayer').hasClass('rotate')) {
               $('#ytapiplayer').removeClass('rotate');
             } else {
@@ -3776,9 +3727,7 @@ layoutbtn =
     $('<button id="layout-btn" class="btn btn-sm btn-default btn-success pull-right" />')
         .html('<span class="glyphicon glyphicon-cog"></span> Layout')
         .prependTo('#leftpane')
-        .on('click', function() {
-          toggleConfigPanel();
-        });
+        .on('click', () => toggleConfigPanel());
 $('#playlistmanagerwrap').show();
 
 // adding media database and gallery wrap
@@ -3794,7 +3743,7 @@ if (UI_ChannelDatabase) {
       $('<button id="db-btn" class="btn btn-sm btn-default" title="Display submitted songs in categories" />')
           .text('Public Playlists')
           .appendTo(leftpanecontrols)
-          .on('click', function() {
+          .on('click', () => {
             toggleDiv(dbwrap);
             !CHANDB ? createDatabase() : '';
           });
@@ -3805,7 +3754,7 @@ if (UI_ChannelGalleries) {
   gallerybtn =
       $('<button id="gallery-btn" class="btn btn-sm btn-default">Channel Galleries</button>')
           .appendTo(leftpanecontrols)
-          .on('click', function() {
+          .on('click', () => {
             toggleDiv(gallerywrap);
             !GALLERY ? createGallery() : '';
 
@@ -3844,26 +3793,20 @@ configbtnwrap = $('<div id="configbtnwrap" class="col-lg-7 col-md-7" />')
 configbtn =
     $('<button id="config-btn" class="btn btn-default">Click to configure</button>')
         .appendTo(configbtnwrap)
-        .on('click', function() {
-          showConfig();
-        });
+        .on('click', () => showConfig());
 
 configbtnwrap.append('<br />');
 
 fluidlayout = $('<label class="checkbox-inline" />').appendTo(configbtnwrap);
 cbox = $('<input type="checkbox" id="fluid-layout" value="no" />')
            .appendTo(fluidlayout)
-           .on('click', function() {
-             toggleFluidLayout();
-           });
+           .on('click', () => toggleFluidLayout());
 cbox.after(' Fluid');
 
 minlayout = $('<label class="checkbox-inline" />').appendTo(configbtnwrap);
 cbox = $('<input type="checkbox" id="min-layout" value="no" />')
            .appendTo(minlayout)
-           .on('click', function() {
-             toggleMinLayout();
-           });
+           .on('click', () => toggleMinLayout());
 cbox.after(' Minimized');
 
 // adding selector with player display modes
@@ -3954,23 +3897,19 @@ hidewrap =
 hidemotd = $('<label class="checkbox-inline" />').appendTo(hidewrap);
 cbox = $('<input type="checkbox" id="hide-motd" value="no" >')
            .appendTo(hidemotd)
-           .on('click', function() {
-             toggleDiv('#motdrow');
-           });
+           .on('click', () => toggleDiv('#motdrow'));
 cbox.after(' MOTD');
 
 hideann = $('<label class="checkbox-inline" />').appendTo(hidewrap);
 cbox = $('<input type="checkbox" id="hide-ann" value="no" />')
            .appendTo(hideann)
-           .on('click', function() {
-             toggleDiv('#announcements');
-           });
+           .on('click', () => toggleDiv('#announcements'));
 cbox.after(' Announcements');
 
 hidetitle = $('<label class="checkbox-inline" />').appendTo(hidewrap);
 cbox = $('<input type="checkbox" id="hide-title" value="no" />')
            .appendTo(hidetitle)
-           .on('click', function() {
+           .on('click', () => {
              toggleDiv('#titlerow');
              toggleDiv('#currenttitle');
            });
@@ -3979,7 +3918,7 @@ cbox.after(' Title');
 hidepl = $('<label class="checkbox-inline" />').appendTo(hidewrap);
 cbox = $('<input type="checkbox" id="hide-pl" value="no" />')
            .appendTo(hidepl)
-           .on('click', function() {
+           .on('click', () => {
              toggleDiv('#queue');
              toggleDiv('#plmeta');
            });
@@ -3988,7 +3927,7 @@ cbox.after(' Playlist');
 hidehf = $('<label class="checkbox-inline" />').appendTo(hidewrap);
 cbox = $('<input type="checkbox" id="hide-hf" value="no" />')
            .appendTo(hidehf)
-           .on('click', function() {
+           .on('click', () => {
              $('nav').css('display') != 'none' ? headerMode('fixed') :
                                                  headerMode(USERCONFIG.header);
              toggleDiv('nav');
@@ -4006,7 +3945,7 @@ if (UI_EmbeddingMedia &&
   embedwrap =
       $('<div id="embedwrap" class="col-lg-7 col-md-7" />').appendTo(embedform);
 
-  $('#embed-help').on('click', function() {
+  $('#embed-help').on('click', () => {
     txt =
         'This option lets you see images or videos directly on the chat, instead of links.\n' +
         'Click on image or double click on video to open in the new tab.\n' +
@@ -4023,7 +3962,7 @@ if (UI_EmbeddingMedia &&
     embedimg = $('<label class="checkbox-inline" />').appendTo(embedwrap);
     cbox = $('<input type="checkbox" id="embed-img" checked>')
                .appendTo(embedimg)
-               .on('click', function() {
+               .on('click', () => {
                  EMBEDIMG = !EMBEDIMG;
                  setOpt(CHANNEL.name + '_embedimg', EMBEDIMG);
                });
@@ -4035,7 +3974,7 @@ if (UI_EmbeddingMedia &&
     embedvid = $('<label class="checkbox-inline" />').appendTo(embedwrap);
     cbox = $('<input type="checkbox" id="embed-webm" checked>')
                .appendTo(embedvid)
-               .on('click', function() {
+               .on('click', () => {
                  EMBEDVID = !EMBEDVID;
                  setOpt(CHANNEL.name + '_embedvid', EMBEDVID);
                  EMBEDVID ? autovid.show() : autovid.hide();
@@ -4046,7 +3985,7 @@ if (UI_EmbeddingMedia &&
     autovid = $('<label class="checkbox-inline" />').appendTo(embedwrap);
     cbox = $('<input type="checkbox" id="auto-webm" checked>')
                .appendTo(autovid)
-               .on('click', function() {
+               .on('click', () => {
                  AUTOVID = !AUTOVID;
                  setOpt(CHANNEL.name + '_autovid', AUTOVID);
                });
@@ -4071,7 +4010,7 @@ if (UI_QuickCommandsBtns || UI_VolumeBtns) {
     clearbtn =
         $('<button id="clear-btn" class="btn btn-default btn-sm">/clear</button>')
             .appendTo(btnsgroup)
-            .on('click', function() {
+            .on('click', () => {
               if (confirm('Are you sure to clear the chat window?')) {
                 socket.emit('chatMsg', {msg: '/clear'});
               }
@@ -4079,9 +4018,7 @@ if (UI_QuickCommandsBtns || UI_VolumeBtns) {
     afkbtn =
         $('<button id="afk-btn" class="btn btn-default btn-sm">/afk</button>')
             .appendTo(btnsgroup)
-            .on('click', function() {
-              socket.emit('chatMsg', {msg: '/afk'});
-            });
+            .on('click', () => socket.emit('chatMsg', {msg: '/afk'}));
 
     socket.on('rank', toggleClearBtn);
     toggleClearBtn();
@@ -4091,14 +4028,14 @@ if (UI_QuickCommandsBtns || UI_VolumeBtns) {
     voldownbtn =
         $('<button id="voldown-btn" class="btn btn-default btn-sm">vol -</button>')
             .appendTo(btnsgroup)
-            .on('click', function() {
+            .on('click', () => {
               a = PLAYER.player.getVolume();
               PLAYER.player.setVolume(a - 1);
             });
     volupbtn =
         $('<button id="volup-btn" class="btn btn-default btn-sm">vol +</button>')
             .appendTo(btnsgroup)
-            .on('click', function() {
+            .on('click', () => {
               a = PLAYER.player.getVolume();
               PLAYER.player.setVolume(a + 1);
             });
@@ -4154,9 +4091,7 @@ advplaylist =
     $('<button id="advplaylist" class="btn btn-sm btn-default" title="Advanced options" />')
         .append('<span class="glyphicon glyphicon-wrench" />')
         .insertBefore('#qlockbtn')
-        .on('click', function() {
-          toggleDiv(advplcontrols);
-        });
+        .on('click', () => toggleDiv(advplcontrols));
 
 // adding advanced playlist options form
 
@@ -4171,21 +4106,17 @@ advplcontrols =
 playnextbtn =
     $('<button id="playnext-btn" class="btn btn-default">Play next</button>')
         .appendTo(advplcontrols)
-        .on('click', function() {
-          socket.emit('playNext');
-        });
+        .on('click', () => socket.emit('playNext'));
 
 addrandombtn =
     $('<button id="addrandom-btn" class="btn btn-default">Add random</button>')
         .appendTo(advplcontrols)
-        .on('click', function() {
-          addRandomItem();
-        });
+        .on('click', () => addRandomItem());
 
 bumplastbtn =
     $('<button id="bumplast-btn" class="btn btn-default">Bump last</button>')
         .appendTo(advplcontrols)
-        .on('click', function() {
+        .on('click', () => {
           len = $('#queue').children().length;
           uid = $('#queue .queue_entry:nth-child(' + len + ')').data('uid');
           socket.emit('moveMedia', {from: uid, after: PL_CURRENT});
@@ -4194,7 +4125,7 @@ bumplastbtn =
 deletelastbtn =
     $('<button id="deletelast-btn" class="btn btn-default">Delete last</button>')
         .appendTo(advplcontrols)
-        .on('click', function() {
+        .on('click', () => {
           if (confirm('Are you sure to delete last item?')) {
             len = $('#queue').children().length;
             uid = $('#queue .queue_entry:nth-child(' + len + ')').data('uid');
@@ -4209,34 +4140,28 @@ expandbtn =
     $('<button id="expand-btn" class="btn btn-sm btn-default" title="Expand playlist" />')
         .append('<span class="glyphicon glyphicon-resize-full" />')
         .prependTo('#videocontrols')
-        .on('click', function() {
-          expandQueue();
-        });
+        .on('click', () => expandQueue());
 
 // adding playlist scrolling button
 scrollbtn =
     $('<button id="scroll-btn" class="btn btn-sm btn-default" title="Scroll playlist to current item" />')
         .append('<span class="glyphicon glyphicon-hand-right" />')
         .prependTo('#videocontrols')
-        .on('click', function() {
-          scrollQueue();
-        });
+        .on('click', () => scrollQueue());
 
 // adding contributors button
 contribbtn =
     $('<button id="contrib-btn" class="btn btn-sm btn-default" title="Contributors list" />')
         .append('<span class="glyphicon glyphicon-user" />')
         .prependTo('#videocontrols')
-        .on('click', function() {
-          showContributors();
-        });
+        .on('click', () => showContributors());
 
 // adding pin-up button
 pinupbtn =
     $('<button id="pinup-btn" class="btn btn-sm btn-default" title="Pin playlist to player" />')
         .append('<span class="glyphicon glyphicon-pushpin" />')
         .prependTo('#videocontrols')
-        .on('click', function() {
+        .on('click', () => {
           !PINNED ? pinUp() : unPin();
           scrollQueue();
           scrollChat();
@@ -4244,9 +4169,7 @@ pinupbtn =
 
 // extending 'Get URLs' function
 if (UI_ExtendedGetURLs) {
-  $('#getplaylist').unbind().on('click', function() {
-    getPlaylistURLs();
-  });
+  $('#getplaylist').unbind().on('click', () => getPlaylistURLs());
 }
 
 // rearranging footer
@@ -4289,9 +4212,7 @@ if (UI_UserStatistics) {
   onlinetime = $('<span id="onlinetime" class="badge footer-badge">0:00</span>')
                    .appendTo(leftfooter);
 
-  setInterval(function() {
-    onlineTime();
-  }, 60000);
+  setInterval(() => onlineTime(), 60000);
 }
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -4415,12 +4336,10 @@ if (ALTERCHATFORMAT) {
 
     data.meta.addClass ? message.addClass(data.meta.addClass) : '';
     data.meta.shadow ? div.addClass('chat-shadow') : '';
-    div.find('img').load(function() {
-      SCROLLCHAT ? scrollChat() : '';
-    });
+    div.find('img').load(() => SCROLLCHAT ? scrollChat() : '');
 
     if (EMBEDIMG && UI_EmbeddingMedia) {
-      div.find(EmbeddingMedia_Images).each(function() {
+      div.find(EmbeddingMedia_Images).each(() => {
         img = $('<img class="embedimg" />')
                   .attr('src', this.href)
                   .load(function() {
@@ -4434,9 +4353,7 @@ if (ALTERCHATFORMAT) {
         vid = $('<video class="embedvid" />')
                   .attr('src', this.href)
                   .prop('loop', 'true')
-                  .load(function() {
-                    SCROLLCHAT ? scrollChat() : '';
-                  })
+                  .load(() => SCROLLCHAT ? scrollChat() : '')
                   .on('click',
                       function() {
                         if (!AUTOVID) {
@@ -4464,10 +4381,9 @@ if (ALTERCHATFORMAT) {
   }
 }
 
-
 // client-side chat buffer for playing sounds
 _chatBuffer = addChatMessage;
-addChatMessage = function(data) {
+addChatMessage = (data) => {
   if (UI_SoundFilters && VOICES &&
       (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
     for (i in SoundFilters_Array) {
@@ -4501,7 +4417,7 @@ addChatMessage = function(data) {
 
 $('#chatline, #chatbtn').unbind();
 
-$('#chatline').on('keydown', function(ev) {
+$('#chatline').on('keydown', (ev) => {
   if (ev.keyCode == 13) {
     if (CHATTHROTTLE) {
       return;
@@ -4561,7 +4477,7 @@ $('#chatline').on('keydown', function(ev) {
   }
 });
 
-$('#chatbtn').on('click', function() {
+$('#chatbtn').on('click', () => {
   _msg = $('#chatline').val();
   msg = $('#chatline').val();
   if (msg.trim()) {
@@ -4810,7 +4726,7 @@ var CHAT_BACKGROUND =
     typeof CHAT_BACKGROUND === 'undefined' ? false : CHAT_BACKGROUND;
 if (typeof CHAT_INIT === 'undefined') {
   var CHAT_INIT = true;
-  socket.on('chatMsg', function(obj) {
+  socket.on('chatMsg', (obj) => {
     const mb = document.getElementById('messagebuffer');
     if (mb && mb.lastChild &&
         $(mb.lastChild).attr('class').indexOf('chat-msg-') === 0 &&
@@ -4819,7 +4735,7 @@ if (typeof CHAT_INIT === 'undefined') {
       mb.lastChild.style.backgroundColor =
           CHAT_BACKGROUND ? CHAT_BACKGROUND_LIGHT : CHAT_BACKGROUND_DARK;
     }
-    setTimeout(function() {
+    setTimeout(() => {
       const mb = document.getElementById('messagebuffer');
       if (mb !== null &&
           mb.scrollHeight - (mb.clientHeight + mb.scrollTop) < 50) {
@@ -4836,7 +4752,7 @@ if (typeof CHAT_INIT === 'undefined') {
       deleteMsgByUsername(obj.username);
     }
   });
-  socket.on('addUser', function(obj) {
+  socket.on('addUser', (obj) => {
     if (USERLIST_COLORS[obj.name]) {
       $('div.userlist_item span' +
         (USERLIST_COLORS[obj.name].usertype ?
@@ -4846,7 +4762,7 @@ if (typeof CHAT_INIT === 'undefined') {
           .css('cssText', USERLIST_COLORS[obj.name].css);
       /* not sure if DOM is guaranteed to be updated yet when emit occurs, so
        * try again in 0.25 seconds for good measure */
-      setTimeout(function() {
+      setTimeout(() => {
         $('div.userlist_item span' +
           (USERLIST_COLORS[obj.name].usertype ?
                '.userlist_' + USERLIST_COLORS[obj.name].usertype :
@@ -4856,15 +4772,13 @@ if (typeof CHAT_INIT === 'undefined') {
       }, 250);
     }
   });
-  socket.on('newPoll', function(obj) {
-    newPoll();
-  });
-  socket.on('pm', function(obj) {
+  socket.on('newPoll', (obj) => newPoll());
+  socket.on('pm', (obj) => {
     if (obj.username !== CLIENT.name) {
       audioFeedback();
     }
   });
-  (function() {
+  (() => {
     const mbDiv = $('#messagebuffer div');
     let line;
     for (let i = 0; i < mbDiv.length; i++) {
@@ -4880,11 +4794,11 @@ if (typeof CHAT_INIT === 'undefined') {
       }
     }
   })();
-  $('#guestlogin')[0].onclick = function(e) {
-  e.target === document.querySelector('#guestlogin span') && socket.emit('login', {
-   name: $('#guestname').val(),
-  });
- };
+  $('#guestlogin')[0].onclick = (e) => {
+    e.target === document.querySelector('#guestlogin span') && socket.emit('login', {
+      name: $('#guestname').val(),
+    });
+  };
   document.querySelector('#guestlogin span').style =
       'top:92%!important;left:84%!important;';
 }
@@ -4917,7 +4831,7 @@ if (typeof TabCompletionEmotes === 'undefined') {
     matches: [],
   };
 }
-chatTabComplete = function() {
+function chatTabComplete() {
   const match = /(.*?) *$/.exec($('#chatline').val());
   if (match === null || match[1] === '') {
     return;
@@ -4930,17 +4844,11 @@ chatTabComplete = function() {
     return;
   }
   const __slice = Array.prototype.slice;
-  const usersWithCap =
-      __slice.call($('#userlist').children()).map(function(elem) {
-        return elem.children[1].innerHTML;
-      });
+  const usersWithCap = __slice.call($('#userlist').children())
+                           .map((elem) => elem.children[1].innerHTML);
   const users = __slice.call(usersWithCap)
-                    .map(function(user) {
-                      return user.toLowerCase();
-                    })
-                    .filter(function(name) {
-                      return name.indexOf(current) === 0;
-                    });
+                    .map((user) => user.toLowerCase())
+                    .filter((name) => name.indexOf(current) === 0);
   if (currentWithCap === TabCompletion.last) {
     TabCompletion.last = current = TabCompletion.matches[(TabCompletion.matches.indexOf(currentWithCap) + 1) % TabCompletion.matches.length];
     current += ' ';
@@ -4948,17 +4856,11 @@ chatTabComplete = function() {
     $('#chatline').val(words.join(' '));
     return;
   }
-  let matches = TabCompletionEmotes.filter(function(str) {
-    return str.toLowerCase().indexOf(current) === 0;
-  });
-  matches =
-      matches.concat(usersWithCap
-                         .filter(function(str) {
-                           return str.toLowerCase().indexOf(current) === 0;
-                         })
-                         .map(function(str) {
-                           return words.length === 1 ? str + ':' : str;
-                         }));
+  let matches = TabCompletionEmotes.filter(
+      (str) => str.toLowerCase().indexOf(current) === 0);
+  matches = matches.concat(
+      usersWithCap.filter((str) => str.toLowerCase().indexOf(current) === 0)
+          .map((str) => words.length === 1 ? str + ':' : str));
   if (matches.length === 0) {
     return;
   }
@@ -4987,16 +4889,16 @@ function setHover(obj) {
   if (typeof obj !== 'object' || obj === null) {
     return;
   }
-  obj.onmouseenter = function(e) {
+  obj.onmouseenter = (e) => {
     emoteHoverInner.innerHTML = this.getAttribute('hover') || this.title;
     emoteHover.style.visibility = 'visible';
     emoteHover.style.top = (e.pageY - yOffset) + 'px';
     emoteHover.style.left = (e.pageX - xOffset) + 'px';
   };
-  obj.onmouseleave = function(e) {
+  obj.onmouseleave = (e) => {
     emoteHover.style.visibility = 'hidden';
   };
-  obj.onmousemove = function(e) {
+  obj.onmousemove = (e) => {
     emoteHover.style.top = (e.pageY - yOffset) + 'px';
     emoteHover.style.left = (e.pageX - xOffset) + 'px';
   };
@@ -5317,14 +5219,14 @@ function MOTD_EVAL() {
 };
 if (!MOTD_EVAL()) {
   const MOTD_TIMER_START = Date.now();
-  var MOTD_TIMER = setInterval(function() {
+  var MOTD_TIMER = setInterval(() => {
     (MOTD_EVAL() || Date.now() - MOTD_TIMER_START > 1 * 60 * 1000) &&
         clearInterval(MOTD_TIMER);
   }, 250);
 }
 if (typeof MOTD_INIT === 'undefined') {
   var MOTD_INIT = true;
-  socket.on('setMotd', function(str) {
+  socket.on('setMotd', (str) => {
     const MOTD_JS = decodeURIComponent(str);
     try {
       eval(MOTD_JS);
@@ -5333,10 +5235,6 @@ if (typeof MOTD_INIT === 'undefined') {
     }
   });
 }
-
-window.onbeforeunload = function() {
-  return false;
-};
 
 /**
  * Fix raw video controls being hidden.
