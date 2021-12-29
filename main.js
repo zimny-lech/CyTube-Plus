@@ -1347,7 +1347,7 @@ function logoInsert(a) {
     link = (a != 'user') ? TopUserLogo[a][1] : USERCONFIG.logourl;
     ht = (a != 'user') ? TopUserLogo[a][2] : USERCONFIG.logoht;
     azukirow.css(
-        {'min-height': ht + 'px', 'background-image': 'url("' + link + '")'});
+        {'min-height': `${ht}px`, 'background-image': `url("${link}")`});
   } else if (a == 'no') {
     azukirow.css({'min-height': '5px', 'background-image': ''});
   }
@@ -1372,10 +1372,10 @@ function headerMode(a) {
 
 function customCSS(a) {
   $('#usercss').remove();
-  a == 'yes' ? $('head').append(
-                   '<style id="usercss" type="text/css">' + USERCONFIG.csscode +
-                   '</style>') :
-               '';
+  a == 'yes' ?
+      $('head').append(
+          `<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`) :
+      '';
 }
 
 /**
@@ -1528,7 +1528,7 @@ function changeMOTD() {
     // adding tabs application
     motdtabswrap = $('<div id="motdtabswrap" />').appendTo('#motd');
     for (i in MOTDTabs_Array) {
-      btn = $('<button class="btn btn-default motdtabs-btn" tab="' + i + '">')
+      btn = $(`<button class="btn btn-default motdtabs-btn" tab="${i}">`)
                 .text(MOTDTabs_Array[i][0])
                 .appendTo(motdtabswrap)
                 .on('click', () => {
@@ -1539,7 +1539,7 @@ function changeMOTD() {
                 });
     }
     motdtabscontent =
-        $('<div id="motdtabscontent">' + MOTDTabs_Array[0][1] + '</div>')
+        $(`<div id="motdtabscontent">${MOTDTabs_Array[0][1]}</div>`)
             .css(MOTDTabs_CSS)
             .appendTo('#motd');
     $('.motdtabs-btn:nth-child(1)').addClass('btn-success');
@@ -1559,8 +1559,8 @@ function changeMOTD() {
       logo = new Date().getDay();
       typeof MOTDAutoLogo_Array[logo] === 'undefined' ? logo = 0 : '';
     }
-    $('<center><img id="motdlogo" src="' + MOTDAutoLogo_Array[logo] +
-      '" /></center>')
+    $(`<center><img id="motdlogo" src="${MOTDAutoLogo_Array[logo]}" />` +
+      '</center>')
         .prependTo('#motd');
   }
   if (UI_RulesBtn) {
@@ -1660,9 +1660,9 @@ function createSquavatar(str) {
   r2 = 255 - r;
   g2 = 255 - g;
   b2 = 255 - b;
-  html = '<span class="squavatar" style="background-color:rgb(' + r + ',' + g +
-      ',' + b + '); ' +
-      'border-color:rgb(' + r2 + ',' + g2 + ',' + b2 + ')"></span>';
+  html =
+      `<span class="squavatar" style="background-color:rgb(${r},${g},${b}); ` +
+      `border-color:rgb(${r2},${g2},${b2})"></span>`;
   return html;
 }
 
@@ -1697,10 +1697,9 @@ function prepareMessage(msg) {
       }
       a = (num != 1) ? 's' : '';
       b = (avg != 1) ? 's' : '';
-      msg = 'you have sent ' + num + ' message' + a + ', ' +
-          'total length is ' + len + ' character' + b + ' (' + avg +
-          ' per message), ' +
-          'random message: ' + CHATSTAT['m'][rnd];
+      msg = `you have sent ${num} message${a}, ` +
+          `total length is ${len} character${b} (${avg} per message), ` +
+          `random message: ${CHATSTAT['m'][rnd]}`;
     } else if (msg.indexOf('!memestats') == 0) {
       num = CHATSTAT['n'];
       len = Memes_Array.length;
@@ -1713,8 +1712,7 @@ function prepareMessage(msg) {
       a = (num != 1) ? 's' : '';
       b = (mem != 1) ? 's' : '';
       if (len > 0) {
-        msg = 'in ' + num + ' message' + a + ' you have used ' + mem + ' meme' +
-            b;
+        msg = `in ${num} message${a} you have used ${mem} meme${b}`;
       } else {
         msg = 'error: no defined memes';
       }
@@ -1761,7 +1759,7 @@ function prepareMessage(msg) {
           type: parsed['type'],
           temp: $('.add-temp').prop('checked'),
         });
-        msg = 'random media added! - ' + title;
+        msg = `random media added! - ${title}`;
       }
     } else if (msg.indexOf('!blocked') == 0) {
       if (CLIENT.rank >= 2) {
@@ -1781,12 +1779,12 @@ function prepareMessage(msg) {
       msg = 'start playing next item';
     } else if (msg.indexOf('!bump') == 0 && hasPermission('playlistmove')) {
       last = $('#queue').children().length;
-      uid = $('#queue .queue_entry:nth-child(' + last + ')').data('uid');
-      title = $('#queue .queue_entry:nth-child(' + last + ') .qe_title').html();
+      uid = $(`#queue .queue_entry:nth-child(${last})`).data('uid');
+      title = $(`#queue .queue_entry:nth-child(${last}) .qe_title`).html();
       socket.emit(
           'moveMedia', {from: uid, after: PL_CURRENT},
           $('.add-temp').prop('checked'));
-      msg = 'last item bumped as next: ' + title;
+      msg = `last item bumped as next: ${title}`;
     } else if (msg.indexOf('!add ') == 0 && hasPermission('playlistadd')) {
       parsed = parseMediaLink(msg.split('!add ')[1]);
       if (parsed['id'] === null) {
@@ -1883,28 +1881,25 @@ function createDatabase() {
       layer_nr++;
       count_nr = 0;
 
-      html += '</ul>' +
-          '<button id="la' + layer_nr +
-          '" class="btn btn-default btn-sm db-break" ' +
-          'onclick="toggleCat(' + layer_nr + ')">' + ChannelDatabase[i][1] +
-          '</button>' +
-          '<ul id="l' + layer_nr + '" class="videolist db-cat">';
+      html += `</ul><button id="la${layer_nr}" ` +
+          `class="btn btn-default btn-sm db-break" ` +
+          `onclick="toggleCat(${layer_nr})">` +
+          `${ChannelDatabase[i][1]}</button>` +
+          `<ul id="l${layer_nr}" class="videolist db-cat">`;
     } else {
       item_nr++;
       count_nr++;
       link = ChannelDatabase[i][0];
 
       html += '<li class="queue_entry">' +
-          '<button class="btn btn-default btn-xs pull-right" onclick="addVideo (\'' +
-          link + '\')">' +
-          'End' +
-          '</button>';
+          `<button class="btn btn-default btn-xs pull-right" ` +
+          `onclick="addVideo('${link}')">End</button>`;
 
       parsed = parseMediaLink(link);
       if (parsed['type'] == 'yt') {
         a = parsed['id'];
         html += '<button class="btn btn-default btn-xs pull-right" ' +
-            'onclick="prevVideo(\'' + a + '\')">' +
+            `onclick="prevVideo('${a}')">` +
             '<i class="glyphicon glyphicon-film"></i>' +
             '</button>';
       }
@@ -1954,10 +1949,10 @@ function toggleCat(a) {
     for (i in opening) {
       opening[i] = 0;
     }
-    $('#l' + a).show();
+    $(`#l${a}`).show();
     opening[b] = 1;
   } else {
-    $('#l' + a).hide();
+    $(`#l${a}`).hide();
     opening[b] = 0;
   }
 }
@@ -1974,8 +1969,8 @@ function patchWrap() {
  */
 function createGallery() {
   galleryframe =
-      $('<iframe id="galleryFrame" src=' + ChannelGalleries_Array[0][1] +
-        ' width="100%" />')
+      $(`<iframe id="galleryFrame" src=${ChannelGalleries_Array[0][1]} ` +
+        'width="100%" />')
           .attr({'frameborder': '0', 'scrolling': 'no', 'height': '415px'})
           .appendTo(gallerywell);
   galtitle = $('<span id="galtitle" class="conf-opt">Select Gallery</span>')
@@ -1985,15 +1980,15 @@ function createGallery() {
                .on('change', () => galleryframe.attr('src', galsel.val()));
 
   for (i in ChannelGalleries_Array) {
-    $('<option value="' + ChannelGalleries_Array[i][1] + '" />')
+    $(`<option value="${ChannelGalleries_Array[i][1]}" />`)
         .html(ChannelGalleries_Array[i][0])
         .appendTo(galsel);
   }
 
   text = 'Reload Galleries (if problems or slow channel)';
   cleargallerybtn =
-      $('<button id="cleargallery-btn" class="btn btn-default btn-sm">' + text +
-        '</button>')
+      $('<button id="cleargallery-btn" class="btn btn-default btn-sm">' +
+        `${text}</button>`)
           .appendTo(gallerywell)
           .on('click', () => {
             toggleDiv(gallerywrap);
@@ -2044,7 +2039,7 @@ function formatRawList() {
   len = $('#queue .queue_entry').length + 1;
   list = [];
   for (i = 1; i < len; i++) {
-    item = $('#queue .queue_entry:nth-child(' + i + ')').data('media');
+    item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
     list.push(formatURL(item));
   }
   return list.join(',');
@@ -2054,10 +2049,8 @@ function formatPlainTextList() {
   len = $('#queue .queue_entry').length + 1;
   const list = [];
   for (i = 1; i < len; i++) {
-    item = $('#queue .queue_entry:nth-child(' + i + ')').data('media');
-    list.push(
-        i + '. ' + formatURL(item) + ' \/\/ ' + item.title + ' [' +
-        item.duration + ']');
+    item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
+    list.push(`${i}. ${formatURL(item)} // ${item.title} [${item.duration}]`);
   }
   return list.join('\n');
 }
@@ -2066,13 +2059,13 @@ function formatHTMLList() {
   len = $('#queue .queue_entry').length + 1;
   const list = [];
   for (i = 1; i < len; i++) {
-    item = $('#queue .queue_entry:nth-child(' + i + ')').data('media');
+    item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
     title = item.title;
     duration = item.duration;
     link = formatURL(item);
     list.push(
-        '<li>' + title + ' [' + duration + '] - <a href="' + link +
-        '" target="_blank">' + link + '</a></li>');
+        `<li>${title} [${duration}] - <a href="${link}" target="_blank">` +
+        `${link}</a></li>`);
   }
   return list.join('\n');
 }
@@ -2081,9 +2074,9 @@ function formatOrderedList() {
   len = $('#queue .queue_entry').length + 1;
   const list = [];
   for (i = 1; i < len; i++) {
-    item = $('#queue .queue_entry:nth-child(' + i + ')').data('media');
+    item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
     link = formatURL(item);
-    list.push(item.title + ' ■■ ' + link + ' ■■ [' + item.duration + ']');
+    list.push(`${item.title} ■■ ${link} ■■ [${item.duration}]`);
     list.sort();
   }
   return list.join('\n');
@@ -2093,11 +2086,11 @@ function formatDBList() {
   len = $('#queue .queue_entry').length + 1;
   const list = [];
   for (i = 1; i < len; i++) {
-    item = $('#queue .queue_entry:nth-child(' + i + ')').data('media');
+    item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
     re1 = new RegExp('\\\\', 'g');
     re2 = new RegExp('\'', 'g');
     title = item.title.replace(re1, '\\\\').replace(re2, '\\\'');
-    list.push('[\'' + formatURL(item) + '\', \'' + title + '\'],');
+    list.push(`['${formatURL(item)}', '${title}'],`);
   }
   return list.join('\n');
 }
@@ -2165,7 +2158,7 @@ function setUserCSS() {
       '#drinkcount {margin:0px}\n';
 
   $('head').append(
-      '<style id="chanexternalcss-fix" type="text/css">' + cssfix + '</style>');
+      `<style id="chanexternalcss-fix" type="text/css">${cssfix}</style>`);
   $('#usertheme').attr('href', '/css/themes/slate.css');
   $('#usertheme-fix').remove();
   if (USERTHEME.indexOf('/css/themes/') > -1) {
@@ -2178,8 +2171,7 @@ function setUserCSS() {
   $('#usercss').remove();
   if (USERCONFIG.css != 'no') {
     $('head').append(
-        '<style id="usercss" type="text/css">' + USERCONFIG.csscode +
-        '</style>');
+        `<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`);
   }
 }
 
@@ -2321,7 +2313,7 @@ function showEmotes() {
         .appendTo(emotespanel);
   } else if (UI_GroupEmotes != '1' || len <= GroupEmotes_Number) {
     for (i in CHANNEL.emotes) {
-      $('<img onclick="insertText(\'' + CHANNEL.emotes[i].name + ' \')" />')
+      $(`<img onclick="insertText('${CHANNEL.emotes[i].name} ')" />`)
           .attr(
               {'src': CHANNEL.emotes[i].image, 'title': CHANNEL.emotes[i].name})
           .appendTo(emotespanel);
@@ -2333,8 +2325,8 @@ function showEmotes() {
     html = '';
 
     for (i = 0; i < len; i++) {
-      html += '<img src="' + CHANNEL.emotes[i].image + '" ' +
-          'onclick="insertText(\'' + CHANNEL.emotes[i].name + ' \')" />';
+      html += `<img src="${CHANNEL.emotes[i].image}" ` +
+          `onclick="insertText(\'${CHANNEL.emotes[i].name} \')" />`;
       if (i % GroupEmotes_Number == stop) {
         arr.push(html);
         html = '';
@@ -2343,10 +2335,10 @@ function showEmotes() {
     len % GroupEmotes_Number != 0 ? arr.push(html) : '';
 
     for (i = 0; i < gr; i++) {
-      div = $('<div id="emotes-' + i +
-              '" class="groupemotes" style="display:none" />')
-                .html(arr[i])
-                .appendTo(emotespanel);
+      div =
+          $(`<div id="emotes-${i}" class="groupemotes" style="display:none" />`)
+              .html(arr[i])
+              .appendTo(emotespanel);
     }
     arr = '';
 
@@ -2355,15 +2347,15 @@ function showEmotes() {
                          .appendTo(emotesbtnwrap);
 
     for (i = 0; i < gr; i++) {
-      btn = $('<button class="btn btn-sm btn-default emotesbtn" group="' + i +
-              '">' + (i + 1) + '</button>')
+      btn = $(`<button class="btn btn-sm btn-default emotesbtn" group="${i}">` +
+              `${i + 1}</button>`)
                 .appendTo(emotesbtngroup)
                 .on('click', function() {
                   $('.emotesbtn').removeClass('active');
                   $(this).addClass('active');
                   $('.groupemotes').hide();
                   nr = $(this).attr('group');
-                  $('#emotes-' + nr).show();
+                  $(`#emotes-${nr}`).show();
                 });
     }
     $('#emotes-0').show();
@@ -2380,23 +2372,26 @@ function showChatHelp() {
   if (UI_FontsBtn) {
     body.append('<strong>Fonts commands</strong><br /><br />');
     html =
-        '<li><code>[white]</code>, <code>[yellow]</code>, <code>[orange]</code>, <code>[pink]</code>, ' +
-        '<code>[red]</code>, <code>[lime]</code>, <code>[green]</code>, <code>[aqua]</code>, ' +
-        '<code>[blue]</code>, <code>[violet]</code>, <code>[brown]</code>, <code>[silver]</code>, ' +
-        '<code>[black]</code> - begin of colored text</li>' +
-        '<li><code>[bw]</code> - begin of white text on the black background</li>' +
-        '<li><code>[b]</code>, <code>[i]</code>, <code>[u]</code>, <code>[s]</code> - ' +
-        'begin of bold, italic, underlined, striked or underlined text</li>' +
-        '<li><code>[d]</code> - begin of a distinguished text (red on yelllow background)</li>' +
-        '<li><code>[f]</code> - begin of a text with a fire effect</li>' +
-        '<li><code>[sp]</code> - begin of an inline spoiler</li>' +
-        '<li><code>[/]</code> - <b>end of any color, style or spoiler</b></li><br />' +
-        '<li><code>[f]</code> - begin of a text with a fire effect</li>' +
-        '<li><code>@</code> - beginning and end of continuous text scrolling</li>' +
-        '<li><code>@@</code> - beginning and end of bounce text scrolling</li>' +
-        '<li><code>@@@</code> - beginning and end of buggy text scrolling (still fun!)</li>' +
-        '<li><code>!</code> - beginning and end of faster bounce text scrolling</li>' +
-        '<li><code>!!</code> - beginning and end of fastest bounce text scrolling!</li>' +
+        [
+          '<code>[white]</code>, <code>[yellow]</code>, <code>[orange]</code>, <code>[pink]</code>, ' +
+              '<code>[red]</code>, <code>[lime]</code>, <code>[green]</code>, <code>[aqua]</code>, ' +
+              '<code>[blue]</code>, <code>[violet]</code>, <code>[brown]</code>, <code>[silver]</code>, ' +
+              '<code>[black]</code> - begin of colored text',
+          '<code>[bw]</code> - begin of white text on the black background',
+          '<code>[b]</code>, <code>[i]</code>, <code>[u]</code>, <code>[s]</code> - ' +
+              'begin of bold, italic, underlined, striked or underlined text',
+          '<code>[d]</code> - begin of a distinguished text (red on yellow background)',
+          '<code>[f]</code> - begin of a text with a fire effect',
+          '<code>[sp]</code> - begin of an inline spoiler',
+          '<code>[/]</code> - <b>end of any color, style or spoiler</b>',
+          '<code>[f]</code> - begin of a text with a fire effect',
+          '<code>@</code> - beginning and end of continuous text scrolling',
+          '<code>@@</code> - beginning and end of bounce text scrolling',
+          '<code>@@@</code> - beginning and end of buggy text scrolling (still fun!)',
+          '<code>!</code> - beginning and end of faster bounce text scrolling',
+          '<code>!!</code> - beginning and end of fastest bounce text scrolling!',
+        ].map((line) => `<li>${line}</li>`)
+            .join('') +
         'For a quick CyDJ guide check out this Google Doc <a href="https://docs.google.com/document/d/1X2TdR9hc2KK0WEBLjY06CZaY30QyKxsI_7CQ1qbSz0g/edit" target="_blank">here</a>.';
     $('<ul />').html(html).appendTo(body);
   }
@@ -2429,7 +2424,7 @@ function showChatHelp() {
     body.append('<strong>New chat commands</strong><br /><br />');
     ul = $('<ul />').appendTo(body);
     for (cmd in arr) {
-      ul.append('<li><code>!' + cmd + '</code> - ' + arr[cmd] + '</li>');
+      ul.append(`<li><code>!${cmd}</code> - ${arr[cmd]}</li>`);
     }
   }
   if (UI_ChatSpeak) {
@@ -2449,7 +2444,7 @@ function showChatHelp() {
   body.append('<br /><strong>Default CyTube commands</strong><br /><br />');
   ul = $('<ul />').appendTo(body);
   for (cmd in arr) {
-    ul.append('<li><code>/' + cmd + '</code> - ' + arr[cmd] + '</li>');
+    ul.append(`<li><code>/${cmd}</code> - ${arr[cmd]}</li>`);
   }
 }
 
@@ -2486,18 +2481,18 @@ function showSoundsPanel() {
                  .appendTo('#sounds-dropdown');
 
   for (i = 1; i <= 5; i++) {
-    btn = $('<button class="btn btn-xs btn-default" id="lvlvol' + i +
-            '" level="' + i + '" />')
+    btn = $(`<button class="btn btn-xs btn-default" id="lvlvol${i}" ` +
+            `level="${i}" />`)
               .html(i)
               .appendTo(lvlgroup)
               .on('click', function() {
-                $('#lvlvol' + SOUNDSLVL).removeClass('btn-success');
+                $(`#lvlvol${SOUNDSLVL}`).removeClass('btn-success');
                 SOUNDSLVL = $(this).attr('level');
                 setOpt(CHANNEL.name + '_soundslvl', SOUNDSLVL);
                 $(this).addClass('btn-success');
               });
   }
-  $('#lvlvol' + SOUNDSLVL).addClass('btn-success');
+  $(`#lvlvol${SOUNDSLVL}`).addClass('btn-success');
 
   $('#sounds-dropdown').append('<div>Select users to mute sounds:</div>');
 
@@ -2506,7 +2501,7 @@ function showSoundsPanel() {
 
   $('.userlist_item').each(function() {
     user = $(this).find('span:nth-child(2)').html();
-    btn = $('<button class="btn btn-xs btn-default" name="' + user + '" />')
+    btn = $(`<button class="btn btn-xs btn-default" name="${user}" />`)
               .html(user)
               .appendTo(mutegroup)
               .on('click', function() {
@@ -2536,12 +2531,11 @@ function showModPanel() {
     name = ModPanel_Array[i][0];
     mess = ModPanel_Array[i][1];
     if (name == '') {
-      html += '<i class="glyphicon glyphicon-comment"></i> ' + mess +
-          '<br /><br />';
+      html += `<i class="glyphicon glyphicon-comment"></i> ${mess}<br /><br />`;
     } else if (name == CLIENT.name) {
-      html += '<i class="glyphicon glyphicon-comment"></i> ' +
+      html = '<i class="glyphicon glyphicon-comment"></i> ' +
           '<i class="glyphicon glyphicon-user"></i> ' +
-          '(to: ' + CLIENT.name + ') → ' + mess + '<br /><br />';
+          `(to: ${CLIENT.name}) → ${mess}<br /><br />`;
     }
   }
   body.append(html);
@@ -2566,27 +2560,27 @@ function showInfo() {
     li6 = li5.next();
     li7 = li6.next();
     li8 = li7.next();
-    li1.length > 0 ? arr.push(' 1▸ ' + li1.children('a').html()) : '';
-    li2.length > 0 ? arr.push(' // 2▸ ' + li2.children('a').html()) : '';
-    li3.length > 0 ? arr.push(' // 3▸ ' + li3.children('a').html()) : '';
-    li4.length > 0 ? arr.push(' // 4▸ ' + li4.children('a').html()) : '';
-    li5.length > 0 ? arr.push(' // 5▸ ' + li5.children('a').html()) : '';
-    li6.length > 0 ? arr.push(' // 6▸ ' + li6.children('a').html()) : '';
-    li7.length > 0 ? arr.push(' // 7▸ ' + li7.children('a').html()) : '';
-    li8.length > 0 ? arr.push(' // 8▸ ' + li8.children('a').html()) : '';
+    li1.length > 0 ? arr.push(` 1▸ ${li1.children('a').html()}`) : '';
+    li2.length > 0 ? arr.push(` // 2▸ ${li2.children('a').html()}`) : '';
+    li3.length > 0 ? arr.push(` // 3▸ ${li3.children('a').html()}`) : '';
+    li4.length > 0 ? arr.push(` // 4▸ ${li4.children('a').html()}`) : '';
+    li5.length > 0 ? arr.push(` // 5▸ ${li5.children('a').html()}`) : '';
+    li6.length > 0 ? arr.push(` // 6▸ ${li6.children('a').html()}`) : '';
+    li7.length > 0 ? arr.push(` // 7▸ ${li7.children('a').html()}`) : '';
+    li8.length > 0 ? arr.push(` // 8▸ ${li8.children('a').html()}`) : '';
     text += arr.join('');
     arr.length < 8 ? text += ' // END OF PLAYLIST //' : '';
     arr.length > 7 ? text += ' // AND MORE! //' : '';
-    mediainfo.html('<marquee scrollamount="7.5">' + text + '</marquee>');
+    mediainfo.html(`<marquee scrollamount="7.5">${text}</marquee>`);
   } else {
     contr = $('.queue_active').attr('title');
     if (typeof contr === 'undefined') {
       text = 'Please add media to the playlist to begin listening.';
-      mediainfo.html('<marquee scrollamount="7.5">' + text + '</marquee>');
+      mediainfo.html(`<marquee scrollamount="7.5">${text}</marquee>`);
     } else {
       duration = $('.queue_active .qe_time').html();
-      text = contr + ' [' + duration + ']';
-      mediainfo.html('<marquee scrollamount="7.5">' + text + '</marquee>');
+      text = `${contr} [${duration}]`;
+      mediainfo.html(`<marquee scrollamount="7.5">${text}</marquee>`);
     }
   }
 }
@@ -2606,7 +2600,7 @@ function coverPlayer() {
                 .css({
                   'width': w,
                   'height': h + 'px',
-                  'background-image': 'url(' + PlayerHiding_URL + ')',
+                  'background-image': `url(${PlayerHiding_URL})`,
                 })
                 .appendTo($('#videowrap'));
   hideplayerbtn.addClass('btn-danger').attr('title', 'Show player');
@@ -2636,7 +2630,7 @@ function unmutePlayer() {
  * Download current item.
  */
 function downloadCurrentItem() {
-  uid = $('.pluid-' + PL_CURRENT).data('media');
+  uid = $(`.pluid-${PL_CURRENT}`).data('media');
   arr = {
     'yt': 'http://youtube.com/watch?v=',
     'vi': 'http://vimeo.com/',
@@ -2650,8 +2644,8 @@ function downloadCurrentItem() {
   } else {
     createModal('Download current item');
 
-    $('<a href="http://keepvid.com/?url=' + link +
-      '" target="_blank">Click here to download</a>')
+    $(`<a href="http://keepvid.com/?url=${link}" ` +
+      'target="_blank">Click here to download</a>')
         .appendTo(body)
         .on('click', () => outer.modal('hide'));
   }
@@ -2669,8 +2663,7 @@ function prevVideo(a) {
       $('<iframe id="previewFrame" width="558" height="314" frameborder="0" />')
           .attr(
               'src',
-              'http://www.youtube.com/embed/' + a +
-                  '?wmode=transparent&enablejsapi')
+              `http://www.youtube.com/embed/${a}?wmode=transparent&enablejsapi`)
           .appendTo(body);
 }
 
@@ -3111,7 +3104,7 @@ function showContributors() {
   len = $('#queue li').length + 1;
   const list = [];
   for (i = 1; i < len; i++) {
-    item = $('#queue li:nth-child(' + i + ')').attr('title');
+    item = $(`#queue li:nth-child(${i})`).attr('title');
     user = item.split('by: ')[1];
     user in list ? list[user]++ : list[user] = 1;
   }
@@ -3169,7 +3162,7 @@ function getPlaylistURLs() {
 
   rlist.on('click', () => data.val(formatRawList()));
   tlist.on('click', () => data.val(formatPlainTextList()));
-  hlist.on('click', () => data.val('<ol>\n' + formatHTMLList() + '\n</ol>'));
+  hlist.on('click', () => data.val(`<ol>\n${formatHTMLList()}\n</ol>`));
   olist.on('click', () => data.val(formatOrderedList()));
   dlist.on('click', () => data.val(formatDBList()));
 }
@@ -3270,8 +3263,8 @@ $('#home-link a, #account-link ul a, .credit a').attr('target', '_blank');
 if ($('#chanexternalcss').length < 1) {
   url = 'https://dl.dropboxusercontent.com/s/hbhlrmys5piztgo/main.css';
   $('head').append(
-      '<link id="chanexternalcss" href="' + url +
-      '" rel="stylesheet" type="text/css">');
+      `<link id="chanexternalcss" href="${url}" ` +
+      'rel="stylesheet" type="text/css">');
 }
 
 setUserCSS();
@@ -3279,8 +3272,8 @@ setUserCSS();
 // adding favicon
 if (UI_Favicon && Favicon_URL != '') {
   $(document).ready(() => {
-    $('<link id="chanfavicon" href="' + Favicon_URL +
-      '" type="image/x-icon" rel="shortcut icon" />')
+    $(`<link id="chanfavicon" href="${Favicon_URL}" type="image/x-icon" ` +
+      'rel="shortcut icon" />')
         .appendTo('head');
   });
 }
@@ -3298,13 +3291,9 @@ text3 =
     'If you want to make global changes, please go to another channel, or make changes before accepting ' +
     'special features.';
 $('#us-theme').hide();
-$('#us-theme')
-    .parent()
-    .append('<p class="text-danger">' + text1 + '' + text3 + '</p>');
+$('#us-theme').parent().append(`<p class="text-danger">${text1}${text3}</p>`);
 $('#us-layout').hide();
-$('#us-layout')
-    .parent()
-    .append('<p class="text-danger">' + text2 + '' + text3 + '</p>');
+$('#us-layout').parent().append(`<p class="text-danger">${text2}${text3}</p>`);
 
 // creating channel settings filters preparation button
 csfontsimport =
@@ -3338,8 +3327,7 @@ if (UI_ChannelName && ChannelName_Caption != '') {
 
 // adding channel small logo
 if (UI_MiniLogo && MiniLogo_URL != '') {
-  $('<img id="chanavatar" src="' + MiniLogo_URL + '" />')
-      .prependTo('.navbar-brand');
+  $(`<img id="chanavatar" src="${MiniLogo_URL}" />`).prependTo('.navbar-brand');
 }
 
 // adding header dropdown menu
@@ -3360,10 +3348,10 @@ if (UI_HeaderDropMenu) {
     title = HeaderDropMenu_Array[i][0];
     link = HeaderDropMenu_Array[i][1];
     if (link == '') {
-      headermenu.append('<li class="dropdown-header">' + title + '</li>');
+      headermenu.append(`<li class="dropdown-header">${title}</li>`);
     } else {
       $('<li class="header-drop-link" />')
-          .append('<a href="' + link + '" target="_blank">' + title + '</a>')
+          .append(`<a href="${link}" target="_blank">${title}</a>`)
           .appendTo(headermenu);
     }
   }
@@ -3375,7 +3363,7 @@ if (UI_Version) {
   headerdrop = $('<li id="headerdrop" class="dropdown" />')
                    .insertAfter('#channelset-link');
   $('<a class="dropdown-toggle" data-toggle="dropdown" href="#" />')
-      .html('Running ' + Version_Now)
+      .html(`Running ${Version_Now}`)
       .appendTo(headerdrop);
 }
 
@@ -3474,7 +3462,7 @@ if (UI_FullTitleBar) {
 
   if (UI_TitleIcon && TitleIcon_URL != '') {
     $('#titlerow #currenttitle').css({
-      'background-image': 'url("' + TitleIcon_URL + '")',
+      'background-image': `url("${TitleIcon_URL}")`,
       'background-repeat': 'no-repeat',
       'background-position': 'left center',
     });
@@ -3535,14 +3523,14 @@ toggleChatFunctions();
 // optional chat joining message
 if (UI_JoinText) {
   JoinText_Message == '' ? JoinText_Message = 'hello!' : '';
-  socket.emit('chatMsg', {msg: '/me ' + JoinText_Message});
+  socket.emit('chatMsg', {msg: `/me ${JoinText_Message}`});
 }
 
 // optional chat leaving message
 if (UI_LeaveText) {
   LeaveText_Message == '' ? LeaveText_Message = 'left' : '';
   $(window).unload(
-      () => socket.emit('chatMsg', {msg: '/me ' + LeaveText_Message}));
+      () => socket.emit('chatMsg', {msg: `/me ${LeaveText_Message}`}));
 }
 
 // adding chat buttons wrapping
@@ -3598,10 +3586,13 @@ function showContextMenu() {
   if (UI_ContextMenu) {
     body.append('<strong>Useful links</strong><br /><br />');
     html =
-        '<li><a href="https://papertek.github.io/CyDJ/deploy/main/updates.txt" target="_blank">Click here to view latest updates</a>!</li>' +
-        '<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdNlinbPb2Lr5qmtIPWg9gnVWr1US82CRf4X8bKmmLvj7NIhg/viewform" target="_blank">Click here to report a user</a>!</li>' +
-        '<li><a href="https://docs.google.com/document/d/1X2TdR9hc2KK0WEBLjY06CZaY30QyKxsI_7CQ1qbSz0g/edit" target="_blank">Click here to open the CyDJ guide</a>!</li>' +
-        '<li><a href="https://discord.gg/g8tCGSc2bx" target="_blank">Click here to join the Discord</a>!</li>';
+        [
+          '<a href="https://papertek.github.io/CyDJ/deploy/main/updates.txt" target="_blank">Click here to view latest updates</a>!',
+          '<a href="https://docs.google.com/forms/d/e/1FAIpQLSdNlinbPb2Lr5qmtIPWg9gnVWr1US82CRf4X8bKmmLvj7NIhg/viewform" target="_blank">Click here to report a user</a>!',
+          '<a href="https://docs.google.com/document/d/1X2TdR9hc2KK0WEBLjY06CZaY30QyKxsI_7CQ1qbSz0g/edit" target="_blank">Click here to open the CyDJ guide</a>!',
+          '<a href="https://discord.gg/g8tCGSc2bx" target="_blank">Click here to join the Discord</a>!',
+        ].map((item) => `<li>${item}</li>`)
+            .join('');
     $('<ul />').html(html).appendTo(body);
   }
 }
@@ -3843,8 +3834,7 @@ if (UI_FontsBtn) {
   ];
 
   for (i in FontsArray) {
-    $('<button id="cbtn' + i + '" onclick="insertText(\'[' + FontsArray[i][1] +
-      ']\')" />')
+    $(`<button id="cbtn${i}" onclick="insertText('[${FontsArray[i][1]}]')" />`)
         .addClass('btn btn-default')
         .attr('style', FontsArray[i][0])
         .text(FontsArray[i][2])
@@ -3855,8 +3845,7 @@ if (UI_FontsBtn) {
   if (UI_UnicodeChars && UnicodeChars_Array.length > 0) {
     unibtnwrap = $('<div id="unibtnwrap" />').appendTo(fontspanel);
     for (i in UnicodeChars_Array) {
-      btn = $('<button onclick="insertText(\'' + UnicodeChars_Array[i] +
-              '\')" />')
+      btn = $(`<button onclick="insertText('${UnicodeChars_Array[i]}')" />`)
                 .addClass('btn btn-default')
                 .text(UnicodeChars_Array[i])
                 .appendTo(unibtnwrap);
@@ -3875,7 +3864,7 @@ if (UI_EmotesBtn) {
 if (UI_EmptyCornerBackground && EmptyCornerBackground.length > 0) {
   rnd = Math.round(Math.random() * (EmptyCornerBackground.length - 1));
   $('#playlistrow').css({
-    'background-image': 'url("' + EmptyCornerBackground[rnd] + '")',
+    'background-image': `url("${EmptyCornerBackground[rnd]}")`,
     'background-repeat': 'no-repeat',
   });
 }
@@ -4029,15 +4018,13 @@ if (ThemesCSS.length > 0) {
       '<option value="" class="theme-header" disabled>additional themes</option>');
   for (i in ThemesCSS) {
     themesel.append(
-        '<option value="' + ThemesCSS[i][1] + '">' + ThemesCSS[i][0] +
-        '</option>');
+        `<option value="${ThemesCSS[i][1]}">${ThemesCSS[i][0]}</option>`);
   }
 }
 
 if (UI_ChannelTheme && ChannelThemeURL != '') {
   themesel
-      .prepend(
-          '<option value="' + ChannelThemeURL + '"># Channel Theme</option>')
+      .prepend(`<option value="${ChannelThemeURL}"># Channel Theme</option>`)
       .prepend(
           '<option value="" class="theme-header" disabled>main theme</option>');
 }
@@ -4276,7 +4263,7 @@ bumplastbtn =
         .appendTo(advplcontrols)
         .on('click', () => {
           len = $('#queue').children().length;
-          uid = $('#queue .queue_entry:nth-child(' + len + ')').data('uid');
+          uid = $(`#queue .queue_entry:nth-child(${len})`).data('uid');
           socket.emit('moveMedia', {from: uid, after: PL_CURRENT});
         });
 
@@ -4286,7 +4273,7 @@ deletelastbtn =
         .on('click', () => {
           if (confirm('Are you sure to delete last item?')) {
             len = $('#queue').children().length;
-            uid = $('#queue .queue_entry:nth-child(' + len + ')').data('uid');
+            uid = $(`#queue .queue_entry:nth-child(${len})`).data('uid');
             socket.emit('delete', uid);
           }
         });
@@ -4339,9 +4326,8 @@ html =
 $('.credit').append(html);
 
 if (UI_CustomRightFooter) {
-  rightfooter =
-      $('<span id="rightfooter">' + CustomRightFooter_HTML + '</span>')
-          .appendTo('footer .container');
+  rightfooter = $(`<span id="rightfooter">${CustomRightFooter_HTML}</span>`)
+                    .appendTo('footer .container');
 }
 
 if (UI_CustomFooter || UI_UserStatistics) {
@@ -4363,8 +4349,9 @@ if (UI_UserStatistics) {
       $('<br /><br />').appendTo(leftfooter) :
       '';
 
-  $('<span>My visits: </span><span class="badge footer-badge">' + USERVISITS +
-    '</span><span> / </span>')
+  $('<span>My visits: </span>' +
+    `<span class="badge footer-badge">${USERVISITS}</span>` +
+    '<span> / </span>')
       .appendTo(leftfooter);
   $('<span>Current online time: </span>').appendTo(leftfooter);
   onlinetime = $('<span id="onlinetime" class="badge footer-badge">0:00</span>')
@@ -4414,7 +4401,7 @@ if (ALTERCHATFORMAT) {
     if (USEROPTS.show_timestamps) {
       time = $('<span class="timestamp" />').appendTo(div);
       timestamp = new Date(data.time).toTimeString().split(' ')[0];
-      time.text('[' + timestamp + '] ');
+      time.text(`[${timestamp}] `);
       if (data.meta.addClass && data.meta.addClassToNameAndTimestamp) {
         time.addClass(data.meta.addClass);
       }
@@ -4473,11 +4460,10 @@ if (ALTERCHATFORMAT) {
       _div = div.html();
       for (i in IndependentEmotes) {
         filter = IndependentEmotes[i][0];
-        html = '<img src="' + IndependentEmotes[i][1] + '" title="' + filter +
-            '" ' +
-            'style="width:' + IndependentEmotes[i][2] + 'px; ' +
-            'height:' + IndependentEmotes[i][3] + 'px; ' +
-            'cursor:pointer" onclick="insertText(\'' + filter + '\')" />';
+        html = `<img src="${IndependentEmotes[i][1]}" title="${filter}" ` +
+            `style="width:${IndependentEmotes[i][2]}px; ` +
+            `height:${IndependentEmotes[i][3]}px; cursor:pointer" ` +
+            `onclick="insertText('${filter}')" />`;
         re = new RegExp(filter, 'g');
         _div = _div.replace(re, html);
       }
@@ -4557,12 +4543,12 @@ addChatMessage = (data) => {
     msg = getText(data.msg);
     if (msg.indexOf('!mow ') >= 0) {
       str = msg.split('!mow ');
-      aud = new Audio(SPEAKLINK + '?lang=polish&text=' + encodeURI(str[1]));
+      aud = new Audio(`${SPEAKLINK}?lang=polish&text=${encodeURI(str[1])}`);
       aud.volume = SOUNDSVALUES[SOUNDSLVL];
       aud.play();
     } else if (msg.indexOf('!say ') >= 0) {
       str = msg.split('!say ');
-      aud = new Audio(SPEAKLINK + '?lang=english&text=' + encodeURI(str[1]));
+      aud = new Audio(`${SPEAKLINK}?lang=english&text=${encodeURI(str[1])}`);
       aud.volume = SOUNDSVALUES[SOUNDSLVL];
       aud.play();
     }
@@ -4587,11 +4573,11 @@ $('#chatline').on('keydown', (ev) => {
       meta = {};
       if (COMMAND) {
         socket.emit('chatMsg', {msg: _msg});
-        msg = '➥ ' + msg;
+        msg = `➥ ${msg}`;
         COMMAND = false;
       }
       if (USEROPTS.adminhat && CLIENT.rank >= 255) {
-        msg = '/a ' + msg;
+        msg = `/a ${msg}`;
       } else if (USEROPTS.modhat && CLIENT.rank >= Rank.Moderator) {
         meta.modflair = CLIENT.rank;
       }
@@ -4642,7 +4628,7 @@ $('#chatbtn').on('click', () => {
     msg = prepareMessage(msg.trim());
     if (COMMAND) {
       socket.emit('chatMsg', {msg: _msg});
-      msg = '➥ ' + msg;
+      msg = `➥ ${msg}`;
       COMMAND = false;
     }
     socket.emit('chatMsg', {msg: msg});
@@ -4874,11 +4860,10 @@ const USERLIST_COLORS = {
 /* -----CONFIG----- */
 
 for (key in USERLIST_COLORS) {
-  $('div.userlist_item span' +
-    (USERLIST_COLORS[key].usertype ?
-         '.userlist_' + USERLIST_COLORS[key].usertype :
-         '') +
-    ':contains("' + key + '")')
+  const userType = USERLIST_COLORS[key].usertype ?
+      `.userlist_${USERLIST_COLORS[key].usertype}` :
+      '';
+  $(`div.userlist_item span${userType}:contains("${key}")`)
       .css('cssText', USERLIST_COLORS[key].css);
 }
 
@@ -4914,20 +4899,18 @@ if (typeof CHAT_INIT === 'undefined') {
   });
   socket.on('addUser', (obj) => {
     if (USERLIST_COLORS[obj.name]) {
-      $('div.userlist_item span' +
-        (USERLIST_COLORS[obj.name].usertype ?
-             '.userlist_' + USERLIST_COLORS[obj.name].usertype :
-             '') +
-        ':contains("' + obj.name + '")')
+      const userType = USERLIST_COLORS[obj.name].usertype ?
+          `.userlist_${USERLIST_COLORS[obj.name].usertype}` :
+          '';
+      $(`div.userlist_item span${userType}:contains("${obj.name}")`)
           .css('cssText', USERLIST_COLORS[obj.name].css);
       /* not sure if DOM is guaranteed to be updated yet when emit occurs, so
        * try again in 0.25 seconds for good measure */
       setTimeout(() => {
-        $('div.userlist_item span' +
-          (USERLIST_COLORS[obj.name].usertype ?
-               '.userlist_' + USERLIST_COLORS[obj.name].usertype :
-               '') +
-          ':contains("' + obj.name + '")')
+        const userType = USERLIST_COLORS[obj.name].usertype ?
+            `.userlist_${USERLIST_COLORS[obj.name].usertype}` :
+            '';
+        $(`div.userlist_item span${userType}:contains("${obj.name}")`)
             .css('cssText', USERLIST_COLORS[obj.name].css);
       }, 250);
     }
@@ -4945,12 +4928,9 @@ if (typeof CHAT_INIT === 'undefined') {
       if (mbDiv && (line = $(mbDiv[i]))[0] &&
           line.attr('class').indexOf('chat-msg-') === 0) {
         CHAT_BACKGROUND = !CHAT_BACKGROUND;
-        $(mbDiv[i]).attr(
-            'style',
-            'background-color:' +
-                (CHAT_BACKGROUND ? CHAT_BACKGROUND_LIGHT :
-                                   CHAT_BACKGROUND_DARK) +
-                ';');
+        const color =
+            CHAT_BACKGROUND ? CHAT_BACKGROUND_LIGHT : CHAT_BACKGROUND_DARK;
+        $(mbDiv[i]).attr('style', `background-color:${color};`);
       }
     }
   })();
@@ -4966,8 +4946,7 @@ if (typeof CHAT_INIT === 'undefined') {
 const CSS_RAW = '';
 if (typeof CSS_INIT === 'undefined') {
   var CSS_INIT = true;
-  $('head').append(
-      '<style id="chancss2" type="text/css">' + CSS_RAW + '</style>');
+  $('head').append(`<style id="chancss2" type="text/css">${CSS_RAW}</style>`);
 } else {
   $('head #chancss2').html(CSS_RAW);
 }
@@ -5358,7 +5337,7 @@ function undeleteMsg(obj) {
 };
 function deleteMsgByUsername(username) {
   for (let i = 0; i < messagebuffer.children.length; i++) {
-    if (messagebuffer.children[i].classList[0] === 'chat-msg-' + username) {
+    if (messagebuffer.children[i].classList[0] === `chat-msg-${username}`) {
       deleteMsg(messagebuffer.children[i]);
     }
   }
