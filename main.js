@@ -797,6 +797,7 @@ const EmptyCornerBackground = [
   'https://media.discordapp.net/attachments/828331546658340905/914594224614277212/unknown.png',
   'https://media.discordapp.net/attachments/904501042148958219/914593675445690468/unknown.png',
   'https://media.discordapp.net/attachments/904501042148958219/914594852182831165/pacific.gif',
+  'https://media.discordapp.net/attachments/915415328496951316/925616111242842122/unknown.png',
 ];
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1527,9 +1528,9 @@ function changeMOTD() {
   if (UI_MOTDTabs && MOTDTabs_Array.length > 0) {
     // adding tabs application
     motdtabswrap = $('<div id="motdtabswrap" />').appendTo('#motd');
-    for (i in MOTDTabs_Array) {
+    for (const [i, tab] of MOTDTabs_Array.entries()) {
       btn = $(`<button class="btn btn-default motdtabs-btn" tab="${i}">`)
-                .text(MOTDTabs_Array[i][0])
+                .text(tab[0])
                 .appendTo(motdtabswrap)
                 .on('click', () => {
                   $('.motdtabs-btn').removeClass('btn-success');
@@ -1852,11 +1853,9 @@ function toggleModPanel() {
   } else {
     modbtn.show();
     HASH = '';
-    for (i in ModPanel_Array) {
-      const name = ModPanel_Array[i][0];
-      (name == '' || name == CLIENT.name) ?
-          HASH += '' + ModPanel_Array[i][1].length :
-          '';
+    for (const row of ModPanel_Array) {
+      const name = row[0];
+      (name == '' || name == CLIENT.name) ? HASH += '' + row[1].length : '';
     }
     if (HASH != USERCONFIG.modhash) {
       modbtn.addClass('btn-danger').html(modbtn.html() + ' (New Mess.)');
