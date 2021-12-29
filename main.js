@@ -3967,7 +3967,6 @@ if (UI_DisplayModeSel) {
                 .append('<option value="syMode">synchtube mode</option>')
                 .append('<option value="kMode">cinema mode</option>')
                 .append('<option value="chMode">chatroom mode</option>')
-                // .append('<option value="sMode">silent mode</option>')
                 .append('<option value="rMode">radio mode</option>')
                 .appendTo(modewrap)
                 .on('change', function() {
