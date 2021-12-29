@@ -1,0 +1,14 @@
+{
+  "author": "papertek",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/papertek/CyDJ.git"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "^8.5.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}
