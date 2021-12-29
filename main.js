@@ -1,16 +1,14 @@
 /*
 The MIT License (MIT)
 //
-Copyright (c) 2013-2014 Zimny Lech
-
-// this is a test to see if im not that pepega -john
+Copyright (c) 2013-2014 Zimny Lech, 2021 CyDJ developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
 the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies off
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+off the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
