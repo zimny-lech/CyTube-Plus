@@ -89,7 +89,7 @@ const UI_SoundFilters = false;
 // text speaking after '!say' and '!mow' commands (english and polish)
 const UI_ChatSpeak = false;
 // [&] additional settings-independent emotes
-const UI_IndependentEmotes = false;
+const UI_IndependentEmotes = true;
 // [&] additional settings-independent filters
 const UI_IndependentFilters = true;
 // button displaying box with clickable chat fonts
