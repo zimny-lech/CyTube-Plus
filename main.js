@@ -4573,7 +4573,7 @@ addChatMessage = (data) => {
 
 $('#chatline, #chatbtn').unbind();
 
-let /** @type {string} */ unsentMsg = '';
+let /** @type {string} */ unsentMsg = null;
 
 $('#chatline').on('keydown', (ev) => {
   if (ev.key === 'Enter') {
@@ -4624,7 +4624,7 @@ $('#chatline').on('keydown', (ev) => {
     ev.preventDefault();
     return false;
   } else if (ev.key === 'ArrowDown') {
-    if (CHATHISTIDX === CHATHIST.length && unsentMsg) {
+    if (CHATHISTIDX === CHATHIST.length && unsentMsg !== null) {
       $('#chatline').val(unsentMsg);
       unsentMsg = null;
     }
