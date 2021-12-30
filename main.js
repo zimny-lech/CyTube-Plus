@@ -4624,11 +4624,11 @@ $('#chatline').on('keydown', (ev) => {
     ev.preventDefault();
     return false;
   } else if (ev.key === 'ArrowDown') {
-    if (CHATHISTIDX === CHATHIST.length && unsentMsg !== null) {
+    if (CHATHISTIDX === CHATHIST.length - 1 && unsentMsg !== null) {
+      CHATHISTIDX++;
       $('#chatline').val(unsentMsg);
       unsentMsg = null;
-    }
-    if (CHATHISTIDX < CHATHIST.length - 1) {
+    } else if (CHATHISTIDX < CHATHIST.length - 1) {
       CHATHISTIDX++;
       $('#chatline').val(CHATHIST[CHATHISTIDX]);
     }
