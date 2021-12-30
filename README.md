@@ -4,6 +4,13 @@
 
 ## Updates
 
+
+### CyDJBeta12.29.21.0
+
+**Cytube changes:**
+
+- Enhanced "Woot" sound to include an audible "woot" (john)
+
 ### CyDJBeta12.28.21.2
 
 **Cytube changes:**
