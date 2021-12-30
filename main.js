@@ -182,7 +182,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJBeta12.29.21.1';
+const Version_Now = 'CyDJBeta12.30.21.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -5355,23 +5355,6 @@ function deleteMsg(messageDiv) {
   messageDiv.appendChild(deletedMessageSpan);
 }
 
-function undeleteMsg(obj) {
-  const scrollDown = messagebuffer.scrollHeight -
-          (messagebuffer.clientHeight + messagebuffer.scrollTop) <
-      50;
-  const offset =
-      obj.parentElement.children[1].firstChild.className === 'username' ? 0 :
-                                                                          -1;
-  if (obj.parentElement.children[3 + offset]) {
-    obj.parentElement.children[2 + offset].style.display = '';
-    obj.parentElement.children[3 + offset].style.display = 'none';
-  }
-  if (scrollDown) {
-    messagebuffer.scrollTop =
-        messagebuffer.scrollHeight - messagebuffer.clientHeight;
-  }
-}
-
 function deleteMsgByUsername(username) {
   for (let i = 0; i < messagebuffer.children.length; i++) {
     if (messagebuffer.children[i].classList[0] === `chat-msg-${username}`) {
@@ -5441,5 +5424,5 @@ socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
 
 
-// Xaekai was here
+// Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
