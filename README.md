@@ -5,6 +5,11 @@
 ## Updates
 
 
+### CyDJBeta12.30.21.0
+
+**Code quality:**
+- Removed unused function (john)
+
 ### CyDJBeta12.29.21.1
 
 **Cytube changes:**
