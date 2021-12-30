@@ -5,6 +5,15 @@
 ## Updates
 
 
+### CyDJBeta12.29.21.1
+
+**Cytube changes:**
+- Changed independent emotes to true
+
+**Code quality:**
+- Commented out code for testing purposes
+- Broke calculator function even more
+
 ### CyDJBeta12.29.21.0
 
 **Cytube changes:**

@@ -89,7 +89,7 @@ const UI_SoundFilters = false;
 // text speaking after '!say' and '!mow' commands (english and polish)
 const UI_ChatSpeak = false;
 // [&] additional settings-independent emotes
-const UI_IndependentEmotes = false;
+const UI_IndependentEmotes = true;
 // [&] additional settings-independent filters
 const UI_IndependentFilters = true;
 // button displaying box with clickable chat fonts
@@ -182,7 +182,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJBeta12.29.21.0';
+const Version_Now = 'CyDJBeta12.29.21.1';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -1762,16 +1762,16 @@ function prepareMessage(msg) {
         });
         msg = `random media added! - ${title}`;
       }
-    } else if (msg.indexOf('!blocked') == 0) {
+    /* } else if (msg.indexOf('!blocked') == 0) {
       if (CLIENT.rank >= 2) {
         msg = 'testing 1 2 3 ig';
       } else {
         msg =
             'You do not have permission to use this command! Please contact an admin to use this command.';
-      }
+      }*/
     } else if (msg.indexOf('!calc ') == 0) {
       func = msg.split('!calc ');
-      msg = '' + eval(func[1]);
+      msg = '' + eval(func[0]);
     } else if (msg.indexOf('!skip') == 0 && hasPermission('voteskip')) {
       socket.emit('voteskip');
       msg = 'current item has been voteskipped';
