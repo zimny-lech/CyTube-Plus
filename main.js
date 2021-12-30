@@ -4390,13 +4390,6 @@ if (UI_UserStatistics) {
 // alter chat messages formatting
 // DEV NOTE: this is extended function from CyTube "util.js" file
 if (ALTERCHATFORMAT) {
-  function formatChatMessage(data, last) {
-    if (!data.meta || data.msgclass) {
-      data.meta = {
-        addClass: data.msgclass,
-        addClassToNameAndTimestamp: data.msgclass,
-      };
-    }
 
     skip = data.username === last.name;
     data.meta.addClass === 'server-whisper' ? skip = true : '';
