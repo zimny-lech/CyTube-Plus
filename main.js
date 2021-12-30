@@ -1762,16 +1762,16 @@ function prepareMessage(msg) {
         });
         msg = `random media added! - ${title}`;
       }
-    } else if (msg.indexOf('!blocked') == 0) {
+    /* } else if (msg.indexOf('!blocked') == 0) {
       if (CLIENT.rank >= 2) {
         msg = 'testing 1 2 3 ig';
       } else {
         msg =
             'You do not have permission to use this command! Please contact an admin to use this command.';
-      }
+      }*/
     } else if (msg.indexOf('!calc ') == 0) {
       func = msg.split('!calc ');
-      msg = '' + eval(func[1]);
+      msg = '' + eval(func[0]);
     } else if (msg.indexOf('!skip') == 0 && hasPermission('voteskip')) {
       socket.emit('voteskip');
       msg = 'current item has been voteskipped';
