@@ -7,17 +7,20 @@
 
 ### CyDJBeta12.30.21.0
 
+**Cytube changes:**
+- Fixed up arrow bug (airforce)
+
 **Code quality:**
 - Removed unused function (john)
 
 ### CyDJBeta12.29.21.1
 
 **Cytube changes:**
-- Changed independent emotes to true
+- Changed independent emotes to true (john)
 
 **Code quality:**
-- Commented out code for testing purposes
-- Broke calculator function even more
+- Commented out code for testing purposes (john)
+- Broke calculator function even more (john)
 
 ### CyDJBeta12.29.21.0
 
