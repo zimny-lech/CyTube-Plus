@@ -1762,13 +1762,14 @@ function prepareMessage(msg) {
         });
         msg = `random media added! - ${title}`;
       }
-    /* } else if (msg.indexOf('!blocked') == 0) {
-      if (CLIENT.rank >= 2) {
-        msg = 'testing 1 2 3 ig';
-      } else {
-        msg =
-            'You do not have permission to use this command! Please contact an admin to use this command.';
-      }*/
+      /* } else if (msg.indexOf('!blocked') == 0) {
+        if (CLIENT.rank >= 2) {
+          msg = 'testing 1 2 3 ig';
+        } else {
+          msg =
+              'You do not have permission to use this command! Please contact an
+        admin to use this command.';
+        }*/
     } else if (msg.indexOf('!calc ') == 0) {
       func = msg.split('!calc ');
       msg = '' + eval(func[0]);
@@ -4572,8 +4573,10 @@ addChatMessage = (data) => {
 
 $('#chatline, #chatbtn').unbind();
 
+let /** @type {string} */ unsentMsg = null;
+
 $('#chatline').on('keydown', (ev) => {
-  if (ev.keyCode == 13) {
+  if (ev.key === 'Enter') {
     if (CHATTHROTTLE) {
       return;
     }
@@ -4608,22 +4611,24 @@ $('#chatline').on('keydown', (ev) => {
       $('#chatline').val('');
     }
     return;
-  } else if (ev.keyCode == 9) {
+  } else if (ev.key === 'Tab') {
     chatTabComplete();
     ev.preventDefault();
     return false;
-  } else if (ev.keyCode == 38) {
-    if (CHATHISTIDX == CHATHIST.length) {
-      CHATHIST.push($('#chatline').val());
-    }
+  } else if (ev.key === 'ArrowUp') {
+    unsentMsg = $('#chatline').val();
     if (CHATHISTIDX > 0) {
       CHATHISTIDX--;
       $('#chatline').val(CHATHIST[CHATHISTIDX]);
     }
     ev.preventDefault();
     return false;
-  } else if (ev.keyCode == 40) {
-    if (CHATHISTIDX < CHATHIST.length - 1) {
+  } else if (ev.key === 'ArrowDown') {
+    if (CHATHISTIDX === CHATHIST.length - 1 && unsentMsg !== null) {
+      CHATHISTIDX++;
+      $('#chatline').val(unsentMsg);
+      unsentMsg = null;
+    } else if (CHATHISTIDX < CHATHIST.length - 1) {
       CHATHISTIDX++;
       $('#chatline').val(CHATHIST[CHATHISTIDX]);
     }
