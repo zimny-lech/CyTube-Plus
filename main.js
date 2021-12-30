@@ -5355,23 +5355,6 @@ function deleteMsg(messageDiv) {
   messageDiv.appendChild(deletedMessageSpan);
 }
 
-function undeleteMsg(obj) {
-  const scrollDown = messagebuffer.scrollHeight -
-          (messagebuffer.clientHeight + messagebuffer.scrollTop) <
-      50;
-  const offset =
-      obj.parentElement.children[1].firstChild.className === 'username' ? 0 :
-                                                                          -1;
-  if (obj.parentElement.children[3 + offset]) {
-    obj.parentElement.children[2 + offset].style.display = '';
-    obj.parentElement.children[3 + offset].style.display = 'none';
-  }
-  if (scrollDown) {
-    messagebuffer.scrollTop =
-        messagebuffer.scrollHeight - messagebuffer.clientHeight;
-  }
-}
-
 function deleteMsgByUsername(username) {
   for (let i = 0; i < messagebuffer.children.length; i++) {
     if (messagebuffer.children[i].classList[0] === `chat-msg-${username}`) {
