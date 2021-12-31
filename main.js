@@ -1193,7 +1193,11 @@ CHATSOUND.volume = 0.4;
  * @param {JQuery<HTMLElement>} div
  */
 function toggleDiv(div) {
-  $(div).css('display') == 'none' ? $(div).show() : $(div).hide();
+  if ($(div).css('display') == 'none') {
+    $(div).show();
+  } else {
+    $(div).hide();
+  }
 }
 
 /**
@@ -1213,10 +1217,9 @@ function refreshPlayer() {
  */
 function addToPlaylist(link, stand) {
   parsed = parseMediaLink(link);
-  parsed['id'] != null ?
-      socket.emit(
-          'queue', {id: parsed['id'], pos: stand, type: parsed['type']}) :
-      '';
+  if (parsed['id'] != null) {
+    socket.emit('queue', {id: parsed['id'], pos: stand, type: parsed['type']});
+  }
 }
 
 /**
@@ -1284,8 +1287,11 @@ function playerLocation(a) {
 }
 
 function userlistLocation(a) {
-  a == 'left' ? $('#userlist').css('float', 'left') :
-                $('#userlist').css('float', 'right');
+  if (a == 'left') {
+    $('#userlist').css('float', 'left');
+  } else {
+    $('#userlist').css('float', 'right');
+  }
 }
 
 function queueLocation(a) {
@@ -1373,10 +1379,10 @@ function headerMode(a) {
 
 function customCSS(a) {
   $('#usercss').remove();
-  a == 'yes' ?
-      $('head').append(
-          `<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`) :
-      '';
+  if (a == 'yes') {
+    $('head').append(
+        `<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`);
+  }
 }
 
 /**
@@ -1452,7 +1458,9 @@ function setMode(a) {
   $('#main').show();
   pinupbtn.hide();
   modesel.find('option[value=\'chMode\'], option[value=\'rMode\']').show();
-  PINNED ? modesel.find('option[value=\'chMode\']').hide() : '';
+  if (PINNED) {
+    modesel.find('option[value=\'chMode\']').hide();
+  }
 
   if (a == 'syMode') {
     $('#videowrap, #videowrap p, #videowrap div, #chatwrap, #rightpane, #pinup-btn')
@@ -1469,11 +1477,19 @@ function setMode(a) {
     $('#messagebuffer').height(H);
     $('#userlist').height(H);
 
-    USERCONFIG.player == 'center' ? playerLocation('center') : '';
-    PINNED ? pinUp() : '';
+    if (USERCONFIG.player == 'center') {
+      playerLocation('center');
+    }
+    if (PINNED) {
+      pinUp();
+    }
   } else if (a == 'kMode') {
     $('#videowrap').show();
-    PINNED ? $('#rightpane').hide() : $('#chatwrap').hide();
+    if (PINNED) {
+      $('#rightpane').hide();
+    } else {
+      $('#chatwrap').hide();
+    }
     $('#fontspanel, #emotespanel').hide();
 
     bigPlayer();
@@ -1492,12 +1508,18 @@ function setMode(a) {
     if (WEBKIT) {
       $('#main').hide();
     } else {
-      PINNED ? $('#rightpane').hide() : $('#chatwrap').hide();
+      if (PINNED) {
+        $('#rightpane').hide();
+      } else {
+        $('#chatwrap').hide();
+      }
       $('#videowrap div, #videowrap p').hide();
       $('#ytapiplayer').width(1).height(1);
     }
 
-    !PINNED ? $('#min-layout').parent().show() : '';
+    if (!PINNED) {
+      $('#min-layout').parent().show();
+    }
   }
 }
 
@@ -1506,7 +1528,9 @@ function setMode(a) {
  */
 function setModeAfterVideoChange() {
   m = modesel.val();
-  (m == 'syMode' || m == 'chMode' || m == 'rMode') ? setMode(m) : '';
+  if (m == 'syMode' || m == 'chMode' || m == 'rMode') {
+    setMode(m);
+  }
 }
 
 /**
@@ -1558,7 +1582,9 @@ function changeMOTD() {
       logo = Math.floor(Math.random() * len);
     } else if (MOTDAutoLogo_Mode == '7') {
       logo = new Date().getDay();
-      typeof MOTDAutoLogo_Array[logo] === 'undefined' ? logo = 0 : '';
+      if (typeof MOTDAutoLogo_Array[logo] === 'undefined') {
+        logo = 0;
+      }
     }
     $(`<center><img id="motdlogo" src="${MOTDAutoLogo_Array[logo]}" />` +
       '</center>')
@@ -1566,8 +1592,12 @@ function changeMOTD() {
   }
   if (UI_RulesBtn) {
     // adding rules button
-    RulesBtn_Caption == '' ? RulesBtn_Caption = 'Read Channel Rules' : '';
-    RulesBtn_HTML == '' ? RulesBtn_HTML = 'No rules.' : '';
+    if (RulesBtn_Caption == '') {
+      RulesBtn_Caption = 'Read Channel Rules';
+    }
+    if (RulesBtn_HTML == '') {
+      RulesBtn_HTML = 'No rules.';
+    }
     rulesbtnwrap = $('<div id="rulesbtnwrap" />').appendTo('#motd');
     rulesbtn = $('<button id="rules-btn" class="btn btn-default btn-sm" />')
                    .text(RulesBtn_Caption + ' ▸')
@@ -1596,11 +1626,15 @@ function progressBar() {
   let a = 0;
   if (PLAYER.type == 'yt') {
     b = PLAYER.player.getCurrentTime();
-    b != PREVTIME ? a = b / PLAYER.player.getDuration() * 100 : '';
+    if (b != PREVTIME) {
+      a = b / PLAYER.player.getDuration() * 100;
+    }
     PREVTIME = b;
   } else if (PLAYER.type == 'dm') {
     b = PLAYER.player.currentTime;
-    b != PREVTIME ? a = b / PLAYER.player.duration * 100 : '';
+    if (b != PREVTIME) {
+      a = b / PLAYER.player.duration * 100;
+    }
     PREVTIME = b;
   }
   titlerow.css('background-size', a + '% 100%');
@@ -1610,7 +1644,11 @@ function progressBar() {
  * Toggle additional chat functions.
  */
 function toggleChatFunctions() {
-  CLIENT.rank > 2 ? chatflair.show() : chatflair.hide();
+  if (CLIENT.rank > 2) {
+    chatflair.show();
+  } else {
+    chatflair.hide();
+  }
 }
 
 /**
@@ -1679,9 +1717,9 @@ function prepareMessage(msg) {
         MessagesSuffix_Percentage < 0) {
       MessagesSuffix_Percentage = '10';
     }
-    Math.random() < (MessagesSuffix_Percentage / 100) ?
-        msg += ' ' + MessagesSuffix_Text :
-        '';
+    if (Math.random() < (MessagesSuffix_Percentage / 100)) {
+      msg += ' ' + MessagesSuffix_Text;
+    }
   }
 
   if (UI_UserCommands && msg.indexOf('!') == 0) {
@@ -1707,7 +1745,9 @@ function prepareMessage(msg) {
       mem = 0;
       for (i = 0; i < num; i++) {
         for (j = 0; j < len; j++) {
-          CHATSTAT['m'][i].indexOf(Memes_Array[j]) > -1 ? mem++ : '';
+          if (CHATSTAT['m'][i].indexOf(Memes_Array[j]) > -1) {
+            mem++;
+          }
         }
       }
       a = (num != 1) ? 's' : '';
@@ -1722,27 +1762,37 @@ function prepareMessage(msg) {
       rnd = Math.round(Math.random() * (arr.length - 1));
       msg = arr[rnd];
     } else if (msg.indexOf('!ask ') == 0) {
-      AskAnswers_Array.length < 1 ? AskAnswers_Array = ['yes', 'no'] : '';
+      if (AskAnswers_Array.length < 1) {
+        AskAnswers_Array = ['yes', 'no'];
+      }
       rnd = a = Math.round(Math.random() * (AskAnswers_Array.length - 1));
       msg = AskAnswers_Array[rnd];
     } else if (msg.indexOf('!time') == 0) {
       let h = new Date().getHours();
-      h < 10 ? h = '0' + h : '';
+      if (h < 10) {
+        h = '0' + h;
+      }
       let m = new Date().getMinutes();
-      m < 10 ? m = '0' + m : '';
+      if (m < 10) {
+        m = '0' + m;
+      }
       msg = 'current time: ' + h + ':' + m;
     } else if (msg.indexOf('!dice') == 0) {
       rnd = Math.round(Math.random() * 5) + 1;
       msg = '' + rnd;
     } else if (msg.indexOf('!roll') == 0) {
       let rnd = Math.round(Math.random() * 999);
-      rnd < 100 ? rnd = '0' + rnd : '';
-      rnd < 10 ? rnd = '0' + rnd : '';
+      if (rnd < 100) {
+        rnd = '0' + rnd;
+      }
+      if (rnd < 10) {
+        rnd = '0' + rnd;
+      }
       msg = '' + rnd;
     } else if (msg.indexOf('!q') == 0) {
-      RandomQuotes_Array.length < 1 ?
-          RandomQuotes_Array = ['error: no quotes available'] :
-          '';
+      if (RandomQuotes_Array.length < 1) {
+        RandomQuotes_Array = ['error: no quotes available'];
+      }
       rnd = Math.round(Math.random() * (RandomQuotes_Array.length - 1));
       msg = RandomQuotes_Array[rnd];
     } else if (msg.indexOf('!random') == 0 && hasPermission('playlistadd')) {
@@ -1845,7 +1895,11 @@ function insertText(str) {
  * Toggle YT mute button.
  */
 function toggleMuteBtn() {
-  (PLAYER && PLAYER.type == 'yt') ? muteplayerbtn.show() : muteplayerbtn.hide();
+  if (PLAYER && PLAYER.type == 'yt') {
+    muteplayerbtn.show();
+  } else {
+    muteplayerbtn.hide();
+  }
 }
 
 /**
@@ -1859,7 +1913,9 @@ function toggleModPanel() {
     HASH = '';
     for (const row of ModPanel_Array) {
       const name = row[0];
-      (name == '' || name == CLIENT.name) ? HASH += '' + row[1].length : '';
+      if (name == '' || name == CLIENT.name) {
+        HASH += '' + row[1].length;
+      }
     }
     if (HASH != USERCONFIG.modhash) {
       modbtn.addClass('btn-danger').html(modbtn.html() + ' (New Mess.)');
@@ -2006,7 +2062,11 @@ function createGallery() {
  * Toggle "/clear" button depending on rank.
  */
 function toggleClearBtn() {
-  hasPermission('chatclear') ? clearbtn.show() : clearbtn.hide();
+  if (hasPermission('chatclear')) {
+    clearbtn.show();
+  } else {
+    clearbtn.hide();
+  }
 }
 
 /**
@@ -2026,12 +2086,31 @@ function toggleVolBtn() {
  * Toggle advanced playlist options buttons.
  */
 function toggleAdvancedPl() {
-  CLIENT.rank < 2 ? advplaylist.hide() : advplaylist.show();
-  hasPermission('playlistjump') ? playnextbtn.show() : playnextbtn.hide();
-  (hasPermission('playlistadd') && UI_ChannelDatabase) ? addrandombtn.show() :
-                                                         addrandombtn.hide();
-  hasPermission('playlistmove') ? bumplastbtn.show() : bumplastbtn.hide();
-  hasPermission('playlistdelete') ? deletelastbtn.show() : deletelastbtn.hide();
+  if (CLIENT.rank < 2) {
+    advplaylist.hide();
+  } else {
+    advplaylist.show();
+  }
+  if (hasPermission('playlistjump')) {
+    playnextbtn.show();
+  } else {
+    playnextbtn.hide();
+  }
+  if (hasPermission('playlistadd') && UI_ChannelDatabase) {
+    addrandombtn.show();
+  } else {
+    addrandombtn.hide();
+  }
+  if (hasPermission('playlistmove')) {
+    bumplastbtn.show();
+  } else {
+    bumplastbtn.hide();
+  }
+  if (hasPermission('playlistdelete')) {
+    deletelastbtn.show();
+  } else {
+    deletelastbtn.hide();
+  }
 }
 
 /**
@@ -2142,7 +2221,9 @@ function onlineTime() {
   USERONLINE++;
   const h = Math.floor(USERONLINE / 60);
   let m = USERONLINE - h * 60;
-  m < 10 ? m = '0' + m : '';
+  if (m < 10) {
+    m = '0' + m;
+  }
   onlinetime.html(h + ':' + m);
 }
 
@@ -2275,8 +2356,9 @@ function showChatFunctions() {
               CLEARING = false;
             }
           });
-  CLEARING ? $('#spamclear-btn').text('Stop Clearing').addClass('btn-danger') :
-             '';
+  if (CLEARING) {
+    $('#spamclear-btn').text('Stop Clearing').addClass('btn-danger');
+  }
 
   $('#chatfunc-dropdown').append('<div>Prevent me from AFK:</div>');
 
@@ -2301,7 +2383,9 @@ function showChatFunctions() {
               ANTIAFK = false;
             }
           });
-  ANTIAFK ? $('#antiafk-btn').addClass('btn-danger') : '';
+  if (ANTIAFK) {
+    $('#antiafk-btn').addClass('btn-danger');
+  }
 }
 
 /**
@@ -2336,7 +2420,9 @@ function showEmotes() {
         html = '';
       }
     }
-    len % GroupEmotes_Number != 0 ? arr.push(html) : '';
+    if (len % GroupEmotes_Number != 0) {
+      arr.push(html);
+    }
 
     for (i = 0; i < gr; i++) {
       div =
@@ -2477,7 +2563,9 @@ function showSoundsPanel() {
               VOICES = true;
             }
           });
-  !VOICES ? muteallbtn.text('Unmute All').addClass('btn-danger') : '';
+  if (!VOICES) {
+    muteallbtn.text('Unmute All').addClass('btn-danger');
+  }
 
   $('#sounds-dropdown').append('<div>Sounds level:</div>');
 
@@ -2518,9 +2606,9 @@ function showSoundsPanel() {
                   MUTEDVOICES[name] = 1;
                 }
               });
-    (user in MUTEDVOICES && MUTEDVOICES[user] == '1') ?
-        btn.addClass('btn-danger') :
-        '';
+    if (user in MUTEDVOICES && MUTEDVOICES[user] == '1') {
+      btn.addClass('btn-danger');
+    }
   });
 }
 
@@ -2564,17 +2652,37 @@ function showInfo() {
     li6 = li5.next();
     li7 = li6.next();
     li8 = li7.next();
-    li1.length > 0 ? arr.push(` 1▸ ${li1.children('a').html()}`) : '';
-    li2.length > 0 ? arr.push(` // 2▸ ${li2.children('a').html()}`) : '';
-    li3.length > 0 ? arr.push(` // 3▸ ${li3.children('a').html()}`) : '';
-    li4.length > 0 ? arr.push(` // 4▸ ${li4.children('a').html()}`) : '';
-    li5.length > 0 ? arr.push(` // 5▸ ${li5.children('a').html()}`) : '';
-    li6.length > 0 ? arr.push(` // 6▸ ${li6.children('a').html()}`) : '';
-    li7.length > 0 ? arr.push(` // 7▸ ${li7.children('a').html()}`) : '';
-    li8.length > 0 ? arr.push(` // 8▸ ${li8.children('a').html()}`) : '';
+    if (li1.length > 0) {
+      arr.push(` 1▸ ${li1.children('a').html()}`);
+    }
+    if (li2.length > 0) {
+      arr.push(` // 2▸ ${li2.children('a').html()}`);
+    }
+    if (li3.length > 0) {
+      arr.push(` // 3▸ ${li3.children('a').html()}`);
+    }
+    if (li4.length > 0) {
+      arr.push(` // 4▸ ${li4.children('a').html()}`);
+    }
+    if (li5.length > 0) {
+      arr.push(` // 5▸ ${li5.children('a').html()}`);
+    }
+    if (li6.length > 0) {
+      arr.push(` // 6▸ ${li6.children('a').html()}`);
+    }
+    if (li7.length > 0) {
+      arr.push(` // 7▸ ${li7.children('a').html()}`);
+    }
+    if (li8.length > 0) {
+      arr.push(` // 8▸ ${li8.children('a').html()}`);
+    }
     text += arr.join('');
-    arr.length < 8 ? text += ' // END OF PLAYLIST //' : '';
-    arr.length > 7 ? text += ' // AND MORE! //' : '';
+    if (arr.length < 8) {
+      text += ' // END OF PLAYLIST //';
+    }
+    if (arr.length > 7) {
+      text += ' // AND MORE! //';
+    }
     mediainfo.html(`<marquee scrollamount="7.5">${text}</marquee>`);
   } else {
     contr = $('.queue_active').attr('title');
@@ -2593,10 +2701,10 @@ function showInfo() {
  * Hide and show player with covering image.
  */
 function coverPlayer() {
-  PlayerHiding_URL == '' ?
-      PlayerHiding_URL =
-          'https://dl.dropboxusercontent.com/s/xz2o99scw5i7aai/stop.png' :
-      '';
+  if (PlayerHiding_URL == '') {
+    PlayerHiding_URL =
+        'https://dl.dropboxusercontent.com/s/xz2o99scw5i7aai/stop.png';
+  }
   $('#videowrap').addClass('relative');
   w = $('#ytapiplayer').css('width');
   h = $('#videowrap').css('height').replace('px', '') - 31;
@@ -2620,14 +2728,18 @@ function showPlayer() {
  * Mute YT player.
  */
 function mutePlayer() {
-  (PLAYER && PLAYER.type == 'yt') ? PLAYER.player.mute() : '';
+  if (PLAYER && PLAYER.type == 'yt') {
+    PLAYER.player.mute();
+  }
 }
 
 /**
  * Unmute YT player.
  */
 function unmutePlayer() {
-  (PLAYER && PLAYER.type == 'yt') ? PLAYER.player.unMute() : '';
+  if (PLAYER && PLAYER.type == 'yt') {
+    PLAYER.player.unMute();
+  }
 }
 
 /**
@@ -2641,7 +2753,7 @@ function downloadCurrentItem() {
     'dm': 'http://dailymotion.com/video/',
     'sc': '',
   };
-  link = (uid.type in arr ? arr[uid.type] + '' + uid.id : '');
+  link = uid.type in arr ? `${arr[uid.type]}${uid.id}` : '';
   if (link == '') {
     alert(
         'This link is not supported. Try YouTube, Vimeo, Dailymotion or SoundCloud.');
@@ -2681,9 +2793,15 @@ function toggleConfigPanel() {
   if (MINIMIZED) {
     $('#rightpane-inner').show();
     $('#azukirow, #leftpane-inner').show();
-    !$('#hide-motd').prop('checked') ? $('#motdrow').show() : '';
-    !$('#hide-ann').prop('checked') ? $('#announcements').show() : '';
-    !$('#hide-hf').prop('checked') ? $('footer').show() : '';
+    if (!$('#hide-motd').prop('checked')) {
+      $('#motdrow').show();
+    }
+    if (!$('#hide-ann').prop('checked')) {
+      $('#announcements').show();
+    }
+    if (!$('#hide-hf').prop('checked')) {
+      $('footer').show();
+    }
     pinupbtn.show();
     layoutbtn.removeClass('btn-danger')
         .addClass('btn-success')
@@ -3013,7 +3131,9 @@ function toggleFluidLayout() {
     $('#fontspanel, #emotespanel').addClass('fluidpanel');
     setTimeout(refreshPlayer(), 1000);
   }
-  UI_DisplayModeSel ? setMode(modesel.val()) : '';
+  if (UI_DisplayModeSel) {
+    setMode(modesel.val());
+  }
   FLUID = !FLUID;
   setOpt(CHANNEL.name + '_fluid', FLUID);
   scrollChat();
@@ -3110,7 +3230,11 @@ function showContributors() {
   for (i = 1; i < len; i++) {
     item = $(`#queue li:nth-child(${i})`).attr('title');
     user = item.split('by: ')[1];
-    user in list ? list[user]++ : list[user] = 1;
+    if (user in list) {
+      list[user]++;
+    } else {
+      list[user] = 1;
+    }
   }
   const list2 = list.map((item, i) => [i, item]);
   list2.sort((a, b) => a[1] - b[1]);
@@ -3301,7 +3425,9 @@ csfontsimport =
 
 // fixing layout after saving global user options
 $('#useroptions .modal-footer button:nth-child(1)').on('click', () => {
-  USEROPTS.hidevid ? location.reload() : '';
+  if (USEROPTS.hidevid) {
+    location.reload();
+  }
   html =
       'All changes are applying globally, but this channel uses its own layout. ' +
       'Please use "Click to configure" button to configure this channel layout.<br />' +
@@ -3312,7 +3438,9 @@ $('#useroptions .modal-footer button:nth-child(1)').on('click', () => {
       .appendTo('#announcements');
   compactLayout();
   setLayout();
-  FLUID ? fluidLayout() : '';
+  if (FLUID) {
+    fluidLayout();
+  }
   setUserCSS();
   scrollChat();
   scrollQueue();
@@ -3330,7 +3458,9 @@ if (UI_MiniLogo && MiniLogo_URL != '') {
 
 // adding header dropdown menu
 if (UI_HeaderDropMenu) {
-  HeaderDropMenu_Title == '' ? HeaderDropMenu_Title = 'Menu' : '';
+  if (HeaderDropMenu_Title == '') {
+    HeaderDropMenu_Title = 'Menu';
+  }
   headerdrop =
       $('<li id="headerdrop" class="dropdown" />').insertAfter('#home-link');
   $('<a class="dropdown-toggle" data-toggle="dropdown" href="#" />')
@@ -3339,9 +3469,9 @@ if (UI_HeaderDropMenu) {
   headermenu =
       $('<ul id="headermenu" class="dropdown-menu" />').appendTo(headerdrop);
 
-  HeaderDropMenu_Array.length < 1 ?
-      HeaderDropMenu_Array = [['no menu available', '']] :
-      '';
+  if (HeaderDropMenu_Array.length < 1) {
+    HeaderDropMenu_Array = [['no menu available', '']];
+  }
   for (const menu of HeaderDropMenu_Array) {
     title = menu[0];
     link = menu[1];
@@ -3357,7 +3487,9 @@ if (UI_HeaderDropMenu) {
 
 // adding version to the tab
 if (UI_Version) {
-  Version_Now == '' ? Version_Now = 'Menu' : '';
+  if (Version_Now == '') {
+    Version_Now = 'Menu';
+  }
   headerdrop = $('<li id="headerdrop" class="dropdown" />')
                    .insertAfter('#channelset-link');
   $('<a class="dropdown-toggle" data-toggle="dropdown" href="#" />')
@@ -3394,7 +3526,9 @@ if (UI_CustomCaptions) {
 }
 
 // deleting previous MOTD
-UI_MOTDDelete ? $('#motd').html('') : '';
+if (UI_MOTDDelete) {
+  $('#motd').html('');
+}
 
 // setting MOTD
 if (UI_MOTDAutoLogo || UI_RulesBtn ||
@@ -3433,12 +3567,12 @@ if (UI_AttentionBar && AttentionBar_URL != '') {
 
 // adding custom channel announcement
 if (UI_ChannelAnnouncement) {
-  ChannelAnnouncement_Title == '' ?
-      ChannelAnnouncement_Title = 'Administration Message' :
-      '';
-  ChannelAnnouncement_HTML == '' ?
-      ChannelAnnouncement_HTML = '<i>no messages</i>' :
-      '';
+  if (ChannelAnnouncement_Title == '') {
+    ChannelAnnouncement_Title = 'Administration Message';
+  }
+  if (ChannelAnnouncement_HTML == '') {
+    ChannelAnnouncement_HTML = '<i>no messages</i>';
+  }
   makeAlert(ChannelAnnouncement_Title, ChannelAnnouncement_HTML)
       .appendTo('#announcements');
 }
@@ -3453,7 +3587,9 @@ if (UI_FullTitleBar) {
                   .html('Nothing is playing')
                   .prependTo('#videowrap');
 
-  UI_ProgressBar ? setInterval(() => progressBar(), 2000) : '';
+  if (UI_ProgressBar) {
+    setInterval(() => progressBar(), 2000);
+  }
 
   socket.on('changeMedia', showInfo);
   showInfo();
@@ -3479,8 +3615,11 @@ if (UI_TitleBarDescription) {
 function inba() {
   $('body').css('background-image', 'none');
   BGCHANGE++;
-  BGCHANGE % 2 == 0 ? $('body').css('background-color', 'gold') :
-                      $('body').css('background-color', 'blue');
+  if (BGCHANGE % 2 == 0) {
+    $('body').css('background-color', 'gold');
+  } else {
+    $('body').css('background-color', 'blue');
+  }
 }
 
 /**
@@ -3489,8 +3628,11 @@ function inba() {
 function dropthebeat() {
   $('body').css('background-image', 'none');
   LOSERCHANGE++;
-  LOSERCHANGE % 2 == 0 ? $('body').css('background-color', 'red') :
-                         $('body').css('background-color', 'black');
+  if (LOSERCHANGE % 2 == 0) {
+    $('body').css('background-color', 'red');
+  } else {
+    $('body').css('background-color', 'black');
+  }
 }
 
 // customizing chat notifications sound
@@ -3520,13 +3662,17 @@ toggleChatFunctions();
 
 // optional chat joining message
 if (UI_JoinText) {
-  JoinText_Message == '' ? JoinText_Message = 'hello!' : '';
+  if (JoinText_Message == '') {
+    JoinText_Message = 'hello!';
+  }
   socket.emit('chatMsg', {msg: `/me ${JoinText_Message}`});
 }
 
 // optional chat leaving message
 if (UI_LeaveText) {
-  LeaveText_Message == '' ? LeaveText_Message = 'left' : '';
+  if (LeaveText_Message == '') {
+    LeaveText_Message = 'left';
+  }
   $(window).unload(
       () => socket.emit('chatMsg', {msg: `/me ${LeaveText_Message}`}));
 }
@@ -3555,7 +3701,9 @@ if (UI_EmotesBtn) {
           .appendTo(chatcontrols)
           .on('click', () => {
             toggleDiv(emotespanel);
-            (UI_ChannelCache != '1' && !EMOTES) ? showEmotes() : '';
+            if (UI_ChannelCache != '1' && !EMOTES) {
+              showEmotes();
+            }
           });
 }
 
@@ -3711,7 +3859,11 @@ if (UI_PlayerOptions) {
           .html('<span class="glyphicon glyphicon-ban-circle"></span>')
           .appendTo('#playercontrols')
           .on('click', function() {
-            $(this).hasClass('btn-danger') ? showPlayer() : coverPlayer();
+            if ($(this).hasClass('btn-danger')) {
+              showPlayer();
+            } else {
+              coverPlayer();
+            }
           });
 
   muteplayerbtn =
@@ -3837,7 +3989,9 @@ if (UI_FontsBtn) {
         .attr('style', font[0])
         .text(font[2])
         .appendTo(fontsbtnwrap);
-    i % 13 == 12 ? fontsbtnwrap.append('<br />') : false;
+    if (i % 13 == 12) {
+      fontsbtnwrap.append('<br />');
+    }
   }
 
   if (UI_UnicodeChars && UnicodeChars_Array.length > 0) {
@@ -3855,7 +4009,9 @@ if (UI_FontsBtn) {
 if (UI_EmotesBtn) {
   emotespanel =
       $('<div id="emotespanel" style="display:none" />').appendTo(chatpanel);
-  UI_ChannelCache ? showEmotes() : '';
+  if (UI_ChannelCache) {
+    showEmotes();
+  }
 }
 
 // adding background image to empty playlistrow corner
@@ -3890,7 +4046,9 @@ if (UI_ChannelDatabase) {
           .appendTo(leftpanecontrols)
           .on('click', () => {
             toggleDiv(dbwrap);
-            !CHANDB ? createDatabase() : '';
+            if (!CHANDB) {
+              createDatabase();
+            }
           });
 }
 
@@ -3901,7 +4059,9 @@ if (UI_ChannelGalleries) {
           .appendTo(leftpanecontrols)
           .on('click', () => {
             toggleDiv(gallerywrap);
-            !GALLERY ? createGallery() : '';
+            if (!GALLERY) {
+              createGallery();
+            }
 
             // patch: strange imgur behaviour (not loading first cached gallery)
             if (!GALLVIS && UI_ChannelCache &&
@@ -3973,7 +4133,9 @@ if (UI_DisplayModeSel) {
                   $('#sounds-dropdown, #chatfunc-dropdown').remove();
                   SOUNDSPANEL = false;
                   CHATFUNC = false;
-                  PLAYER.type == 'jw' ? refreshPlayer() : '';
+                  if (PLAYER.type == 'jw') {
+                    refreshPlayer();
+                  }
                   setMode($(this).val());
                   scrollQueue();
                   scrollChat();
@@ -4069,8 +4231,11 @@ hidehf = $('<label class="checkbox-inline" />').appendTo(hidewrap);
 cbox = $('<input type="checkbox" id="hide-hf" value="no" />')
            .appendTo(hidehf)
            .on('click', () => {
-             $('nav').css('display') != 'none' ? headerMode('fixed') :
-                                                 headerMode(USERCONFIG.header);
+             if ($('nav').css('display') != 'none') {
+               headerMode('fixed');
+             } else {
+               headerMode(USERCONFIG.header);
+             }
              toggleDiv('nav');
              toggleDiv('footer');
            });
@@ -4079,11 +4244,11 @@ cbox.after(' H&F');
 // adding embedding options
 if (UI_EmbeddingMedia &&
     (EmbeddingMedia_Images != '' || EmbeddingMedia_Videos != '')) {
-  embedform =
+  const embedform =
       $('<div id="embedform" class="form-group" />').appendTo(configwell);
   $('<div class="col-lg-5 col-md-5 conf-cap">Embeds <span id="embed-help">[?]</span></div>')
       .appendTo(embedform);
-  embedwrap =
+  const embedwrap =
       $('<div id="embedwrap" class="col-lg-7 col-md-7" />').appendTo(embedform);
 
   $('#embed-help').on('click', () => {
@@ -4093,14 +4258,18 @@ if (UI_EmbeddingMedia &&
         'All videos are muted by default, if autoplay - click to unmute, else click to play.\n\n' +
         'This channel supports following types of links (specified as CSS codes):\n' +
         '■ Images - ';
-    (EmbeddingMedia_Images != '') ? txt += EmbeddingMedia_Images : 'none';
+    if (EmbeddingMedia_Images != '') {
+      txt += EmbeddingMedia_Images;
+    }
     txt += '\n■ Videos - ';
-    (EmbeddingMedia_Videos != '') ? txt += EmbeddingMedia_Videos : 'none';
+    if (EmbeddingMedia_Videos != '') {
+      txt += EmbeddingMedia_Videos;
+    }
     alert(txt);
   });
 
   if (EmbeddingMedia_Images != '') {
-    embedimg = $('<label class="checkbox-inline" />').appendTo(embedwrap);
+    const embedimg = $('<label class="checkbox-inline" />').appendTo(embedwrap);
     cbox = $('<input type="checkbox" id="embed-img" checked>')
                .appendTo(embedimg)
                .on('click', () => {
@@ -4108,7 +4277,9 @@ if (UI_EmbeddingMedia &&
                  setOpt(CHANNEL.name + '_embedimg', EMBEDIMG);
                });
     cbox.after(' img');
-    !EMBEDIMG ? cbox.removeAttr('checked') : '';
+    if (!EMBEDIMG) {
+      cbox.removeAttr('checked');
+    }
   }
 
   if (EmbeddingMedia_Videos != '') {
@@ -4118,10 +4289,16 @@ if (UI_EmbeddingMedia &&
                .on('click', () => {
                  EMBEDVID = !EMBEDVID;
                  setOpt(CHANNEL.name + '_embedvid', EMBEDVID);
-                 EMBEDVID ? autovid.show() : autovid.hide();
+                 if (EMBEDVID) {
+                   autovid.show();
+                 } else {
+                   autovid.hide();
+                 }
                });
     cbox.after(' video');
-    !EMBEDVID ? cbox.removeAttr('checked') : '';
+    if (!EMBEDVID) {
+      cbox.removeAttr('checked');
+    }
 
     autovid = $('<label class="checkbox-inline" />').appendTo(embedwrap);
     cbox = $('<input type="checkbox" id="auto-webm" checked>')
@@ -4131,8 +4308,12 @@ if (UI_EmbeddingMedia &&
                  setOpt(CHANNEL.name + '_autovid', AUTOVID);
                });
     cbox.after(' autoplay');
-    !AUTOVID ? cbox.removeAttr('checked') : '';
-    !EMBEDVID ? autovid.hide() : '';
+    if (!AUTOVID) {
+      cbox.removeAttr('checked');
+    }
+    if (!EMBEDVID) {
+      autovid.hide();
+    }
   }
 }
 
@@ -4202,7 +4383,9 @@ if (UI_ChannelDatabase && ChannelDatabase_URL == '') {
   if (ChannelDatabase.length < 1 || ChannelDatabase[0][0] != '') {
     ChannelDatabase.unshift(['', '(various media)']);
   }
-  UI_ChannelCache ? createDatabase() : '';
+  if (UI_ChannelCache) {
+    createDatabase();
+  }
 } else if (UI_ChannelDatabase && ChannelDatabase_URL != '') {
   $.getScript(ChannelDatabase_URL);
 }
@@ -4219,12 +4402,16 @@ if (UI_ChannelGalleries) {
     ChannelGalleries_Array =
         [['Anime pictures', 'http://imgur.com/a/SjwJb/embed']];
   }
-  UI_ChannelCache ? createGallery() : '';
+  if (UI_ChannelCache) {
+    createGallery();
+  }
 }
 
 // unchecking temporary media checkbox for registered users
 if (UI_DefaultNonTemp) {
-  CLIENT.rank > 0 ? $('.add-temp').prop('checked', false) : '';
+  if (CLIENT.rank > 0) {
+    $('.add-temp').prop('checked', false);
+  }
 }
 
 // adding playlist options for moderators button
@@ -4303,7 +4490,11 @@ pinupbtn =
         .append('<span class="glyphicon glyphicon-pushpin" />')
         .prependTo('#videocontrols')
         .on('click', () => {
-          !PINNED ? pinUp() : unPin();
+          if (!PINNED) {
+            pinUp();
+          } else {
+            unPin();
+          }
           scrollQueue();
           scrollChat();
         });
@@ -4344,11 +4535,11 @@ if (UI_CustomRightFooter) {
 }
 
 if (UI_CustomFooter || UI_UserStatistics) {
-  leftfooter = (UI_CustomRightFooter) ? $('<span id="leftfooter" />') :
-                                        $('<div id="leftfooter" />');
-  (UI_CustomRightFooter && CustomFooter_HTML != '') ?
-      leftfooter.html(CustomFooter_HTML) :
-      '';
+  leftfooter = UI_CustomRightFooter ? $('<span id="leftfooter" />') :
+                                      $('<div id="leftfooter" />');
+  if (UI_CustomRightFooter && CustomFooter_HTML != '') {
+    leftfooter.html(CustomFooter_HTML);
+  }
   leftfooter.appendTo('footer .container');
 }
 
@@ -4358,9 +4549,9 @@ USERVISITS++;
 setOpt(CHANNEL.name + '_visits', USERVISITS);
 
 if (UI_UserStatistics) {
-  (UI_CustomFooter && CustomFooter_HTML != '') ?
-      $('<br /><br />').appendTo(leftfooter) :
-      '';
+  if (UI_CustomFooter && CustomFooter_HTML != '') {
+    $('<br /><br />').appendTo(leftfooter)
+  }
 
   $('<span>My visits: </span>' +
     `<span class="badge footer-badge">${USERVISITS}</span>` +
@@ -4379,17 +4570,20 @@ if (UI_UserStatistics) {
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-(UI_EmbeddingMedia &&
- (EmbeddingMedia_Images != '' || EmbeddingMedia_Videos != '')) ?
-    ALTERCHATFORMAT = true :
-    '';
-(UI_UserMarks || UI_IndependentEmotes || UI_IndependentFilters) ?
-    ALTERCHATFORMAT = true :
-    '';
+if (UI_EmbeddingMedia &&
+    (EmbeddingMedia_Images != '' || EmbeddingMedia_Videos != '')) {
+  ALTERCHATFORMAT = true;
+}
+if (UI_UserMarks || UI_IndependentEmotes || UI_IndependentFilters) {
+  ALTERCHATFORMAT = true;
+}
 
 // alter chat messages formatting
 // DEV NOTE: this is extended function from CyTube "util.js" file
+// airforce note: this seems to override a function that's defined by cytube on
+// the client side
 if (ALTERCHATFORMAT) {
+  // eslint-disable-next-line no-unused-vars
   function formatChatMessage(data, last) {
     if (!data.meta || data.msgclass) {
       data.meta = {
@@ -4399,13 +4593,19 @@ if (ALTERCHATFORMAT) {
     }
 
     skip = data.username === last.name;
-    data.meta.addClass === 'server-whisper' ? skip = true : '';
-    data.msg.match(/^\s*<strong>\w+\s*:\s*<\/strong>\s*/) ? skip = false : '';
-    data.meta.forceShowName ? skip = false : '';
+    if (data.meta.addClass === 'server-whisper') {
+      skip = true;
+    }
+    if (data.msg.match(/^\s*<strong>\w+\s*:\s*<\/strong>\s*/)) {
+      skip = false;
+    }
+    if (data.meta.forceShowName) {
+      skip = false;
+    }
     data.msg = execEmotes(data.msg);
 
     last.name = data.username;
-    div = $('<div />');
+    const div = $('<div />');
     if (data.meta.addClass === 'drink') {
       div.addClass('drink');
       data.meta.addClass = '';
@@ -4435,14 +4635,18 @@ if (ALTERCHATFORMAT) {
     }
 
     uname = $('<span />');
-    !skip ? uname.appendTo(div) : '';
+    if (!skip) {
+      uname.appendTo(div);
+    }
     mark =
         (UI_UsernameMark && UsernameMark_Char != '') ? UsernameMark_Char : ':';
     $('<strong class="username" />')
         .text(data.username + mark + ' ')
         .appendTo(uname);
 
-    data.meta.modflair ? uname.addClass(getNameColor(data.meta.modflair)) : '';
+    if (data.meta.modflair) {
+      uname.addClass(getNameColor(data.meta.modflair));
+    }
     if (data.meta.addClass && data.meta.addClassToNameAndTimestamp) {
       uname.addClass(data.meta.addClass);
     }
@@ -4457,12 +4661,18 @@ if (ALTERCHATFORMAT) {
     message = $('<span />').appendTo(div);
     message[0].innerHTML = data.msg;
 
-    (data.meta.addClass == 'greentext') ? message.addClass('greentext') : '';
-    (data.meta.addClass == 'spoiler') ? message.addClass('spoiler') : '';
-    (data.meta.addClass == 'action') ? message.addClass('action') : '';
-    (data.meta.addClass == 'server-whisper') ?
-        message.addClass('server-whisper') :
-        '';
+    if (data.meta.addClass == 'greentext') {
+      message.addClass('greentext');
+    }
+    if (data.meta.addClass == 'spoiler') {
+      message.addClass('spoiler');
+    }
+    if (data.meta.addClass == 'action') {
+      message.addClass('action');
+    }
+    if (data.meta.addClass == 'server-whisper') {
+      message.addClass('server-whisper');
+    }
 
     if (data.meta.action) {
       uname.remove();
@@ -4490,45 +4700,62 @@ if (ALTERCHATFORMAT) {
       div.html(_div);
     }
 
-    data.meta.addClass ? message.addClass(data.meta.addClass) : '';
-    data.meta.shadow ? div.addClass('chat-shadow') : '';
-    div.find('img').load(() => SCROLLCHAT ? scrollChat() : '');
+    if (data.meta.addClass) {
+      message.addClass(data.meta.addClass);
+    }
+    if (data.meta.shadow) {
+      div.addClass('chat-shadow');
+    }
+    div.find('img').load(() => {
+      if (SCROLLCHAT) {
+        scrollChat();
+      }
+    });
 
     if (EMBEDIMG && UI_EmbeddingMedia) {
-      div.find(EmbeddingMedia_Images).each(() => {
-        img = $('<img class="embedimg" />')
-                  .attr('src', this.href)
-                  .load(function() {
-                    SCROLLCHAT ? scrollChat() : '';
-                  });
+      div.find(EmbeddingMedia_Images).each(function() {
+        const img = $('<img class="embedimg" />');
+        img.attr('src', this.href);
+        img.load(() => {
+          if (SCROLLCHAT) {
+            scrollChat();
+          }
+        });
         $(this).html(img);
       });
     }
     if (EMBEDVID && UI_EmbeddingMedia) {
       div.find(EmbeddingMedia_Videos).each(function() {
-        vid = $('<video class="embedvid" />')
-                  .attr('src', this.href)
-                  .prop('loop', 'true')
-                  .load(() => SCROLLCHAT ? scrollChat() : '')
-                  .on('click',
-                      function() {
-                        if (!AUTOVID) {
-                          if ($(this).get(0).paused) {
-                            $(this).get(0).play();
-                          } else {
-                            $(this).get(0).pause();
-                          }
-                        } else {
-                          $(this).prop('muted', !$(this).prop('muted'));
-                        }
-                        return false;
-                      })
-                  .on('dblclick', function() {
-                    window.open(this.src, '_blank');
-                    return false;
-                  });
-        AUTOVID ? vid.prop('autoplay', 'true').prop('muted', 'true') : '';
-        UI_MediaControls ? vid.attr('controls', '') : '';
+        const vid = $('<video class="embedvid" />');
+        vid.attr('src', this.href);
+        vid.prop('loop', 'true');
+        vid.load(() => {
+          if (SCROLLCHAT) {
+            scrollChat();
+          }
+        });
+        vid.on('click', function() {
+          if (!AUTOVID) {
+            if ($(this).get(0).paused) {
+              $(this).get(0).play();
+            } else {
+              $(this).get(0).pause();
+            }
+          } else {
+            $(this).prop('muted', !$(this).prop('muted'));
+          }
+          return false;
+        });
+        vid.on('dblclick', function() {
+          window.open(this.src, '_blank');
+          return false;
+        });
+        if (AUTOVID) {
+          vid.prop('autoplay', 'true').prop('muted', 'true');
+        }
+        if (UI_MediaControls) {
+          vid.attr('controls', '');
+        }
         $(this).html(vid);
       });
     }
@@ -5114,7 +5341,7 @@ function cookieLoad() {
     }
   }
   cookie = (cookieJSON && typeof cookieJSON === 'object') ? cookieJSON : {
-    userlistHidden: userlist.style.display === 'none' ? true : false,
+    userlistHidden: userlist.style.display === 'none',
     userlistLarge: false,
     audioFeedback: false,
     playlistStyle: 0,

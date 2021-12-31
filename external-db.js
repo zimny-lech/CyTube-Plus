@@ -88,6 +88,8 @@ const count_nr = 0;
 if (ChannelDatabase.length < 1 || ChannelDatabase[0][0] != '') {
   ChannelDatabase.unshift(['', '(various media)']);
 }
-UI_ChannelCache == '1' ? createDatabase() : '';
+if (UI_ChannelCache == '1') {
+  createDatabase();
+}
 
 /* ----- END OF FILE ----- */
