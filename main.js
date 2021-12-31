@@ -4495,11 +4495,13 @@ if (ALTERCHATFORMAT) {
     div.find('img').load(() => SCROLLCHAT ? scrollChat() : '');
 
     if (EMBEDIMG && UI_EmbeddingMedia) {
-      div.find(EmbeddingMedia_Images).each(() => {
-        img = $('<img class="embedimg" />')
-                  .attr('src', this.href)
-                  .load(function() {
-                    SCROLLCHAT ? scrollChat() : '';
+      div.find(EmbeddingMedia_Images).each(function() {
+        const img = $('<img class="embedimg" />');
+        img.attr('src', this.href);
+        img.load(() => {
+          if (SCROLLCHAT) {
+            scrollChat();
+          }
                   });
         $(this).html(img);
       });
