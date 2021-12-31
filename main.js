@@ -4550,7 +4550,7 @@ setOpt(CHANNEL.name + '_visits', USERVISITS);
 
 if (UI_UserStatistics) {
   if (UI_CustomFooter && CustomFooter_HTML != '') {
-    $('<br /><br />').appendTo(leftfooter)
+    $('<br /><br />').appendTo(leftfooter);
   }
 
   $('<span>My visits: </span>' +
