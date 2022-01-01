@@ -182,7 +182,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJBeta12.30.21.1';
+const Version_Now = 'CyDJBeta1.1.22.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -234,10 +234,11 @@ const HeaderDropMenu_Array = [
   ['Community Related', ''],
   ['CyDJ Discord', 'https://discord.gg/g8tCGSc2bx'],
   ['xQcOW Updates Discord', 'https://discord.gg/xqcowupdates'],
+  ['VoxelTown Minecraft Discord', 'https://discordapp.com/invite/A4GtvcC'],
   ['Credits', ''],
   ['Source', 'https://github.com/calzoneman/sync'],
   ['FAQ', 'https://github.com/calzoneman/sync/wiki/Beginner%27s-Guide-and-FAQ'],
-  ['IRC', 'http://webchat.6irc.net/?channels=chat,synchtube'],
+  ['CyDJ GitHub', 'https://github.com/papertek/CyDJ'],
   ['CyTube Plus', 'https://github.com/zimny-lech/CyTube-Plus'],
 ];
 
