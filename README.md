@@ -4,6 +4,13 @@
 
 ## Updates
 
+### CyDJBeta1.1.22.0
+
+**Cytube changes:**
+
+- First version of the year!!!
+- Added new things to "Information" dropdown tabs (john)
+
 ### CyDJBeta12.30.21.1
 
 **Cytube changes:**
