@@ -236,10 +236,13 @@ const HeaderDropMenu_Array = [
   ['xQcOW Updates Discord', 'https://discord.gg/xqcowupdates'],
   ['VoxelTown Minecraft Discord', 'https://discordapp.com/invite/A4GtvcC'],
   ['Credits', ''],
-  ['Source', 'https://github.com/calzoneman/sync'],
-  ['FAQ', 'https://github.com/calzoneman/sync/wiki/Beginner%27s-Guide-and-FAQ'],
-  ['CyDJ GitHub', 'https://github.com/papertek/CyDJ'],
-  ['CyTube Plus', 'https://github.com/zimny-lech/CyTube-Plus'],
+  [
+    'CyTube FAQ',
+    'https://github.com/calzoneman/sync/wiki/Beginner%27s-Guide-and-FAQ',
+  ],
+  ['CyTube Source', 'https://github.com/calzoneman/sync'],
+  ['CyDJ Source', 'https://github.com/papertek/CyDJ'],
+  ['CyDJ Bot Source', 'https://github.com/airforce270/CytubeBot'],
 ];
 
 const MOTDAutoLogo_Array = [
@@ -890,8 +893,7 @@ const IndependentFilters = [
 // NOTES:
 // Leave empty URL field to create category button.
 // WARNING! Use ChannelDatabase_URL only if you want to use external database
-// file, it overwrites database below. If so, copy and configure
-// 'https://raw.github.com/zimny-lech/CyTube-Plus/master/external-db.js' file.
+// file, it overwrites database below. If so, configure '/external-db.js' file.
 
 const ChannelDatabase = [
   ['', 'Juicer Tastes'],
@@ -1158,9 +1160,9 @@ let LOSERCHANGE = 1;
 const MUTEDVOICES = [];
 // array with user messages statistics
 const CHATSTAT = {
-  'n': 0,
-  'l': 0,
-  'm': [],
+  n: 0,
+  l: 0,
+  m: [],
 };
 // array of links added from channel database by user
 const ADDEDLINKS = [];
@@ -4526,8 +4528,7 @@ if (UI_ExtendedGetURLs) {
 
 html =
     '<br />CyTube Plus 4.5 · Copyright &copy; 2013-2014 Zimny Lech, Modified by CyDJ staff · ' +
-    'Free source on <a href="http://github.com/zimny-lech/CyTube-Plus" target="_blank">GitHub</a> · ' +
-    '<a href="http://github.com/zimny-lech/CyTube-Plus/wiki" target="_blank">Wiki</a>';
+    'Free source on <a href="http://github.com/papertek/CyDJ" target="_blank">GitHub</a>';
 $('.credit').append(html);
 
 if (UI_CustomRightFooter) {
