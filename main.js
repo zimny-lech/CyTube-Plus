@@ -447,7 +447,7 @@ class Badge {
 }
 
 const USER_BADGES = {
-    'ZimnyLech': [
+    'ZimnLech': [
         'https://dl.dropboxusercontent.com/s/89gv8fvyr49vnev/kobato-icon-small.jpg',
     ],
     'JohnRG123': [
