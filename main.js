@@ -3247,21 +3247,18 @@ function showContributors() {
   const /** @type {!Map<string, number} */ userQueueCounts = new Map();
 
   const /** @type {!Array<HTMLLIElement>} */ queuedItems =
-      Array.from(document.getElementsByClassName('queue_entry'));
-  for (const item of queuedItems) {
-    // ex: "Added by: airforce2700"
-    const addedBy = item.getAttribute('title');
-    if (!addedBy) {
-      continue;
-    }
-    const user = addedBy.replace('Added by: ', '');
+      Array.from(document.getElementById('queue').children);
+  const userQueues = queuedItems.map((elem) => elem.getAttribute('title'))
+                         .filter((title) => title)
+                         .map((title) => title.replace('Added by: ', ''));
+  for (const user of userQueues) {
     const current = userQueueCounts.get(user) || 0;
     userQueueCounts.set(user, current + 1);
   }
 
   const userContributions = Array.from(userQueueCounts.entries())
                                 .sort((a, b) => b[1] - a[1])
-                                .map((user, count) => `${count}: ${user}`);
+                                .map(([user, count]) => `${count}: ${user}`);
 
   body.append(
       '<strong>Number of added playlist items:</strong>' +
