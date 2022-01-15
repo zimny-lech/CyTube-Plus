@@ -120,7 +120,7 @@ const UI_ChannelGalleries = false;
 // selector with player display modes
 const UI_DisplayModeSel = true;
 // [&] additional default channel theme
-const UI_ChannelTheme = false;
+const UI_ChannelTheme = true;
 // [&] possibility to embedding (displaying) images and .webm videos on the chat
 const UI_EmbeddingMedia = true;
 // embedded video preloaded controls
@@ -1084,7 +1084,7 @@ if (UI_DefaultSynchtube) {
   defqueue = 'right';
 }
 
-const DEFTHEME = (UI_ChannelTheme && ChannelThemeURL != '') ?
+const DEFTHEME = (UI_ChannelTheme && ChannelThemeURL != 'https://papertek.github.io/CyDJ/deploy/main/css/DJDefault.css') ?
     ChannelThemeURL :
     '/css/themes/slate.css';
 
@@ -4377,11 +4377,11 @@ if (UI_ChannelDatabase && ChannelDatabase_URL == '') {
           .insertBefore(configwrap);
   dbwell = $('<div id="db-well" class="well" />').appendTo(dbwrap);
 
-  /* var item_nr = 0;
+  var item_nr = 0;
   var layer_nr = 1;
   var opening = [];
   var item_count = new Array(0);
-  var count_nr = 0; */
+  var count_nr = 0;
 
   if (ChannelDatabase.length < 1 || ChannelDatabase[0][0] != '') {
     ChannelDatabase.unshift(['', '(various media)']);
