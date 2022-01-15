@@ -894,8 +894,6 @@ const IndependentFilters = [
 
 // NOTES:
 // Leave empty URL field to create category button.
-// WARNING! Use ChannelDatabase_URL only if you want to use external database
-// file, it overwrites database below. If so, configure '/external-db.js' file.
 
 const ChannelDatabase = [
   ['', 'Juicer Tastes'],
@@ -1057,8 +1055,6 @@ const ChannelDatabase = [
   ],
 ];
 
-const ChannelDatabase_URL = '';
-
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- END OF CONFIGURATION, DO NOT CHANGE ANYTHING BELOW ----- */
@@ -1086,7 +1082,10 @@ if (UI_DefaultSynchtube) {
   defqueue = 'right';
 }
 
-const DEFTHEME = (UI_ChannelTheme && ChannelThemeURL != 'https://papertek.github.io/CyDJ/deploy/main/css/DJDefault.css') ?
+const DEFTHEME =
+    (UI_ChannelTheme &&
+     ChannelThemeURL !=
+         'https://papertek.github.io/CyDJ/deploy/main/css/DJDefault.css') ?
     ChannelThemeURL :
     '/css/themes/slate.css';
 
@@ -2761,9 +2760,8 @@ function unmutePlayer() {
   link = uid.type in arr ? `${arr[uid.type]}${uid.id}` : '';
   if (link == '') {
     alert(
-        'This link is not supported. Try YouTube, Vimeo, Dailymotion or SoundCloud.');
-  } else {
-    createModal('Download current item');
+        'This link is not supported. Try YouTube, Vimeo, Dailymotion or
+SoundCloud.'); } else { createModal('Download current item');
 
     $(`<a href="http://keepvid.com/?url=${link}" ` +
       'target="_blank">Click here to download</a>')
@@ -2787,7 +2785,8 @@ function prevVideo(a) {
       $('<iframe id="previewFrame" width="558" height="314" frameborder="0" />')
           .attr(
               'src',
-              `https://www.youtube.com/embed/${a}?wmode=transparent&enablejsapi`)
+              `https://www.youtube.com/embed/${
+                  a}?wmode=transparent&enablejsapi`)
           .appendTo(body);
 }
 
@@ -3889,9 +3888,9 @@ if (UI_PlayerOptions) {
   toggleMuteBtn();
 
   /* savemediabtn =
-      $('<button id="savemedia-btn" class="btn btn-sm btn-default" title="Download" />')
-          .html('<span class="glyphicon glyphicon-floppy-save"></span>')
-          .appendTo('#playercontrols')
+      $('<button id="savemedia-btn" class="btn btn-sm btn-default"
+     title="Download" />') .html('<span class="glyphicon
+     glyphicon-floppy-save"></span>') .appendTo('#playercontrols')
           .on('click', () => downloadCurrentItem()); */
 }
 
@@ -4372,18 +4371,18 @@ if (UI_QuickCommandsBtns || UI_VolumeBtns) {
   }
 }
 
+let item_nr = 0;
+let layer_nr = 1;
+const opening = [];
+const item_count = [];
+let count_nr = 0;
+
 // adding media database layout
-if (UI_ChannelDatabase && ChannelDatabase_URL == '') {
+if (UI_ChannelDatabase) {
   dbwrap =
       $('<div id="dbwrap" class="col-lg-12 col-md-12" style="display:none" />')
           .insertBefore(configwrap);
   dbwell = $('<div id="db-well" class="well" />').appendTo(dbwrap);
-
-  var item_nr = 0;
-  var layer_nr = 1;
-  var opening = [];
-  var item_count = new Array(0);
-  var count_nr = 0;
 
   if (ChannelDatabase.length < 1 || ChannelDatabase[0][0] != '') {
     ChannelDatabase.unshift(['', '(various media)']);
@@ -4391,8 +4390,6 @@ if (UI_ChannelDatabase && ChannelDatabase_URL == '') {
   if (UI_ChannelCache) {
     createDatabase();
   }
-} else if (UI_ChannelDatabase && ChannelDatabase_URL != '') {
-  $.getScript(ChannelDatabase_URL);
 }
 
 // adding galleries layout
@@ -4513,11 +4510,15 @@ if (UI_ExtendedGetURLs) {
 
 
 if ($('#plonotification').length > 0) {
-repl = `"the old style" of playlist buttons (<b>recommended</b>) - more compact playlist with nice icons (see image <a href="https://dl.dropboxusercontent.com/s/4ya7i5vlyb3likk/oldpl.jpg" target="_blank">here</a>).`;
-html = $('#plonotification .alert').html().replace(/the old style of playlist buttons./, repl);
-html = html.replace('right click). ', 'right click).<br />');
-$('#plonotification .alert').html(html);
-// $('<button class="close" data-dismiss="modal" aria-hidden="true" />'); fix this!!!
+  repl =
+      `"the old style" of playlist buttons (<b>recommended</b>) - more compact playlist with nice icons (see image <a href="https://dl.dropboxusercontent.com/s/4ya7i5vlyb3likk/oldpl.jpg" target="_blank">here</a>).`;
+  html = $('#plonotification .alert')
+             .html()
+             .replace(/the old style of playlist buttons./, repl);
+  html = html.replace('right click). ', 'right click).<br />');
+  $('#plonotification .alert').html(html);
+  // $('<button class="close" data-dismiss="modal" aria-hidden="true" />'); fix
+  // this!!!
 }
 
 // rearranging footer
