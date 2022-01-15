@@ -1194,7 +1194,7 @@ const IMBA =
 const DROPIT = new Audio(
     'https://cdn.discordapp.com/attachments/915490680468561990/915773617005027398/dropit.mp3');
 const HEY = new Audio(
-    'https://cdn.discordapp.com/attachments/915490680468561990/925944334224883782/hey.mp3');
+    'https://github.com/papertek/CyDJ/raw/beta/misc/hey.mp3');
 const NAY = new Audio(
     'https://cdn.discordapp.com/attachments/915490680468561990/923735825676656660/Spongebob_boowomp_sound_effect.mp3');
 CHATSOUND.volume = 0.4;
