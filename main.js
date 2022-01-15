@@ -1249,7 +1249,7 @@ function createModal(title) {
   modal = $('<div class="modal-dialog" />').appendTo(outer);
   modal = $('<div class="modal-content" />').appendTo(modal);
   head = $('<div class="modal-header" />').appendTo(modal);
-  $('<button class="close" data-dismiss="modal" aria-hidden="true" />')
+  $('<button class="close" data-dismiss="modal" onclick="aria-hidden="true"" />')
       .html('&times;')
       .appendTo(head);
   $('<h3 />').text(title).appendTo(head);
