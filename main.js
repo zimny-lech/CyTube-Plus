@@ -236,7 +236,6 @@ const HeaderDropMenu_Array = [
   ['Community Related', ''],
   ['CyDJ Discord', 'https://discord.gg/g8tCGSc2bx'],
   ['xQcOW Updates Discord', 'https://discord.gg/xqcowupdates'],
-  ['VoxelTown Minecraft Discord', 'https://discordapp.com/invite/A4GtvcC'],
   ['Credits', ''],
   [
     'CyTube FAQ',
