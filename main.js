@@ -1249,7 +1249,7 @@ function createModal(title) {
   modal = $('<div class="modal-dialog" />').appendTo(outer);
   modal = $('<div class="modal-content" />').appendTo(modal);
   head = $('<div class="modal-header" />').appendTo(modal);
-  $('<button class="close" data-dismiss="modal" onclick="aria-hidden="true"" />')
+  $('<button class="close" data-dismiss="modal" aria-hidden="true" />')
       .html('&times;')
       .appendTo(head);
   $('<h3 />').text(title).appendTo(head);
@@ -4517,6 +4517,7 @@ repl = `"the old style" of playlist buttons (<b>recommended</b>) - more compact 
 html = $('#plonotification .alert').html().replace(/the old style of playlist buttons./, repl);
 html = html.replace('right click). ', 'right click).<br />');
 $('#plonotification .alert').html(html);
+$('<button class="close" data-dismiss="modal" aria-hidden="true" />');
 }
 
 
