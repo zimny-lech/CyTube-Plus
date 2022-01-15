@@ -2787,7 +2787,7 @@ function prevVideo(a) {
       $('<iframe id="previewFrame" width="558" height="314" frameborder="0" />')
           .attr(
               'src',
-              `http://www.youtube.com/embed/${a}?wmode=transparent&enablejsapi`)
+              `https://www.youtube.com/embed/${a}?wmode=transparent&enablejsapi`)
           .appendTo(body);
 }
 
