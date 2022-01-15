@@ -3767,7 +3767,7 @@ function showDrop() {
   setTimeout(() => {
     DROPBGCHANGE = 0;
     clearInterval(inbix);
-    $('body,#mainpage,#wrap').css({'background-image': '', 'background-color': ''});
+    $('body').css({'background-image': '', 'background-color': ''});
     setUserCSS();
   }, 5000);
   socket.emit(
