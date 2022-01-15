@@ -120,7 +120,7 @@ const UI_ChannelGalleries = false;
 // selector with player display modes
 const UI_DisplayModeSel = true;
 // [&] additional default channel theme
-const UI_ChannelTheme = true;
+const UI_ChannelTheme = false;
 // [&] possibility to embedding (displaying) images and .webm videos on the chat
 const UI_EmbeddingMedia = true;
 // embedded video preloaded controls
