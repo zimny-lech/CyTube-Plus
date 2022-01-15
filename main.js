@@ -1036,7 +1036,7 @@ const ChannelDatabase = [
   ['https://www.youtube.com/watch?v=yjJvqrFTSuA', 'Camellia - ∀NØMALY'],
   ['https://www.youtube.com/watch?v=bi1rkTy3jbg', 'Camellia - Fly Wit Me'],
   ['https://www.youtube.com/watch?v=1v0hP5DuAZ8', 't+pazolite - T+ VS SHARK'],
-  ['https://www.youtube.com/watch?v=rIPOOoQxquE', 't+pazolite - CENSORED!!'],
+  ['https://www.youtube.com/watch?v=rIPOOoQxquE', 't+pazolite - CENSORED‼'],
   [
     'https://www.youtube.com/watch?v=ZK_HX6-mXw4',
     'beatMARIO - Night of Knights (tpz Overheat Remix)',
