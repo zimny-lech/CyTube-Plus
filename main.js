@@ -4517,9 +4517,8 @@ repl = `"the old style" of playlist buttons (<b>recommended</b>) - more compact 
 html = $('#plonotification .alert').html().replace(/the old style of playlist buttons./, repl);
 html = html.replace('right click). ', 'right click).<br />');
 $('#plonotification .alert').html(html);
-$('<button class="close" data-dismiss="modal" aria-hidden="true" />');
+// $('<button class="close" data-dismiss="modal" aria-hidden="true" />'); fix this!!!
 }
-
 
 // rearranging footer
 
