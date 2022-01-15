@@ -3750,7 +3750,7 @@ function showContextMenu() {
 
 // adding easter egg button
 if (UI_PartyButton) {
-  eggbtn =
+  partybtn =
       $('<button id="party-btn" class="btn btn-sm btn-default" title="Party! Please do not spam the button." />')
           .text('Party!')
           .appendTo(chatcontrols)
@@ -3767,7 +3767,7 @@ function showDrop() {
   setTimeout(() => {
     DROPBGCHANGE = 0;
     clearInterval(inbix);
-    $('body').css({'background-image': '', 'background-color': ''});
+    $('body,#mainpage,#wrap').css({'background-image': '', 'background-color': ''});
     setUserCSS();
   }, 5000);
   socket.emit(
