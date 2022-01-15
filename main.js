@@ -4377,11 +4377,11 @@ if (UI_ChannelDatabase && ChannelDatabase_URL == '') {
           .insertBefore(configwrap);
   dbwell = $('<div id="db-well" class="well" />').appendTo(dbwrap);
 
-  var item_nr = 0;
+  /* var item_nr = 0;
   var layer_nr = 1;
   var opening = [];
   var item_count = new Array(0);
-  var count_nr = 0;
+  var count_nr = 0; */
 
   if (ChannelDatabase.length < 1 || ChannelDatabase[0][0] != '') {
     ChannelDatabase.unshift(['', '(various media)']);
