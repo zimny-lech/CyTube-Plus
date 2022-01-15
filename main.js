@@ -214,7 +214,7 @@ const MessagesSuffix_Text = '~xD';
 const MessagesSuffix_Percentage = 10;
 
 const CustomPingSound_URL =
-    'https://cdn.discordapp.com/attachments/899888900611375184/909624445478526996/select-expand.wav';
+    'https://github.com/papertek/CyDJ/raw/beta/misc/pingsound.wav';
 
 const PlayerHiding_URL =
     'https://dl.dropboxusercontent.com/s/xz2o99scw5i7aai/stop.png';
@@ -640,7 +640,7 @@ const SoundFilters_Array = {
   // 'lol':
   // 'https://dl.dropboxusercontent.com/s/9aqa1buu3phvpss/laugh.ogg',
   'oh no our table':
-      'https://cdn.discordapp.com/attachments/899888900611375184/901311444077924382/combobreak.wav',
+      'https://github.com/papertek/CyDJ/raw/beta/misc/ohnoourtable.wav',
 
 };
 
@@ -1192,11 +1192,11 @@ const SPEAKLINK =
 const IMBA =
     new Audio('https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg');
 const DROPIT = new Audio(
-    'https://cdn.discordapp.com/attachments/915490680468561990/915773617005027398/dropit.mp3');
+    'https://github.com/papertek/CyDJ/raw/beta/misc/dropit.mp3');
 const HEY = new Audio(
     'https://github.com/papertek/CyDJ/raw/beta/misc/hey.mp3');
 const NAY = new Audio(
-    'https://cdn.discordapp.com/attachments/915490680468561990/923735825676656660/Spongebob_boowomp_sound_effect.mp3');
+    'https://github.com/papertek/CyDJ/raw/beta/misc/nay.mp3');
 CHATSOUND.volume = 0.4;
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
