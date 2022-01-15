@@ -4030,7 +4030,7 @@ if (UI_EmptyCornerBackground && EmptyCornerBackground.length > 0) {
 
 // adding layout configuration panel button
 layoutbtn =
-    $('<button id="layout-btn" class="btn btn-sm btn-default btn-success pull-right" />')
+    $('<button id="layout-btn" class="btn btn-sm btn-layout btn-success pull-right" />')
         .html('<span class="glyphicon glyphicon-cog"></span> Layout')
         .prependTo('#leftpane')
         .on('click', () => toggleConfigPanel());
