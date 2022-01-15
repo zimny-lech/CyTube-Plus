@@ -2697,7 +2697,7 @@ function showInfo() {
     } else {
       duration = $('.queue_active .qe_time').html();
       text = `${contr} [${duration}]`;
-      mediainfo.html(`<marquee scrollamount="7.5">${text}</marquee>`);
+      mediainfo.html(`${text}`);
     }
   }
 }
@@ -2750,14 +2750,14 @@ function unmutePlayer() {
 /**
  * Download current item.
  */
-function downloadCurrentItem() {
+/* function downloadCurrentItem() {
   uid = $(`.pluid-${PL_CURRENT}`).data('media');
   arr = {
     'yt': 'http://youtube.com/watch?v=',
     'vi': 'http://vimeo.com/',
     'dm': 'http://dailymotion.com/video/',
     'sc': '',
-  };
+  }; */
   link = uid.type in arr ? `${arr[uid.type]}${uid.id}` : '';
   if (link == '') {
     alert(
@@ -3888,11 +3888,11 @@ if (UI_PlayerOptions) {
   socket.on('changeMedia', toggleMuteBtn);
   toggleMuteBtn();
 
-  savemediabtn =
+  /* savemediabtn =
       $('<button id="savemedia-btn" class="btn btn-sm btn-default" title="Download" />')
           .html('<span class="glyphicon glyphicon-floppy-save"></span>')
           .appendTo('#playercontrols')
-          .on('click', () => downloadCurrentItem());
+          .on('click', () => downloadCurrentItem()); */
 }
 
 // adding player transformation buttons
