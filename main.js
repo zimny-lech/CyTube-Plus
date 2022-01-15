@@ -176,7 +176,7 @@ const UI_Snow = false;
 
 /* -- single variables -- */
 
-// import('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&display=swap');
+import('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&display=swap');
 
 const Favicon_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
@@ -3810,7 +3810,7 @@ if (UI_ModPanel) {
 if (UI_HeyNay) {
   Hey =
       $('<button id="hey-btn" class="btn btn-sm btn-default" title="Woot!" />')
-          .html('<i class="fa fa-headphones-alt"></i>')
+          .html('<i class="glyphicon glyphicon-headphones"></i>')
           .appendTo(chatcontrols)
           .on('click', () => {
             socket.emit('chatMsg', {msg: '/afk'});
