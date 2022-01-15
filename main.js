@@ -3778,11 +3778,13 @@ if (UI_PartyButton) {
 function showDrop() {
   DROPIT.volume = 0.4;
   DROPIT.play();
-  inbix = setInterval(() => dropthebeat(), 100);
+  const partyFlash = setInterval(() => dropthebeat(), 100);
   setTimeout(() => {
     DROPBGCHANGE = 0;
-    clearInterval(inbix);
-    $('body').css({'background-image': '', 'background-color': ''});
+    clearInterval(partyFlash);
+    const body = document.getElementsByTagName('body').item(0);
+    body.style.backgroundImage = '';
+    body.style.backgroundColor = '';
     setUserCSS();
   }, 5000);
   socket.emit(
