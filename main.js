@@ -2757,7 +2757,7 @@ function unmutePlayer() {
     'vi': 'http://vimeo.com/',
     'dm': 'http://dailymotion.com/video/',
     'sc': '',
-  }; */
+  };
   link = uid.type in arr ? `${arr[uid.type]}${uid.id}` : '';
   if (link == '') {
     alert(
@@ -2770,7 +2770,7 @@ function unmutePlayer() {
         .appendTo(body)
         .on('click', () => outer.modal('hide'));
   }
-// }
+} */
 
 /**
  * Preview YT video in modal window.
