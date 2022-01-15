@@ -1154,7 +1154,7 @@ let USERONLINE = 0;
 // number of background changes for the easter egg function
 let BGCHANGE = 1;
 // number of background changes for the drop it
-let LOSERCHANGE = 1;
+let DROPBGCHANGE = 1;
 
 // list of users with muted chat sounds by user
 const MUTEDVOICES = [];
@@ -3630,8 +3630,8 @@ function inba() {
  */
 function dropthebeat() {
   $('body').css('background-image', 'none');
-  LOSERCHANGE++;
-  if (LOSERCHANGE % 2 == 0) {
+  DROPBGCHANGE++;
+  if (DROPBGCHANGE % 2 == 0) {
     $('body').css('background-color', 'red');
   } else {
     $('body').css('background-color', 'black');
@@ -3763,7 +3763,7 @@ function showDrop() {
   DROPIT.play();
   inbix = setInterval(() => dropthebeat(), 100);
   setTimeout(() => {
-    LOSERCHANGE = 0;
+    DROPBGCHANGE = 0;
     clearInterval(inbix);
     $('body').css({'background-image': '', 'background-color': ''});
     setUserCSS();
