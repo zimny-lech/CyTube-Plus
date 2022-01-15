@@ -176,6 +176,8 @@ const UI_Snow = false;
 
 /* -- single variables -- */
 
+// import('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&display=swap');
+
 const Favicon_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
