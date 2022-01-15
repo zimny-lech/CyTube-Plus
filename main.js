@@ -3229,24 +3229,25 @@ function unPin() {
 function showContributors() {
   createModal('Contributors List');
 
-  len = $('#queue li').length + 1;
-  const list = [];
-  for (i = 1; i < len; i++) {
-    item = $(`#queue li:nth-child(${i})`).attr('title');
-    user = item.split('by: ')[1];
-    if (user in list) {
-      list[user]++;
-    } else {
-      list[user] = 1;
-    }
+  const /** @type {!Map<string, number} */ userQueueCounts = new Map();
+
+  const /** @type {!Array<HTMLLIElement>} */ queuedItems =
+      Array.from(document.getElementsByClassName('queue_entry'));
+  for (const item of queuedItems) {
+    // ex: "Added by: airforce2700"
+    const addedBy = item.attributes.getNamedItem('title').value;
+    const user = addedBy.replace('Added by: ', '');
+    const current = userQueueCounts.get(user) || 0;
+    userQueueCounts.set(user, current + 1);
   }
-  const list2 = list.map((item, i) => [i, item]);
-  list2.sort((a, b) => a[1] - b[1]);
-  list2.reverse();
-  const list3 = list2.map((item, i) => (i * 1 + 1) + '. ' + item.join(': '));
-  html = '<strong>Number of added playlist items:</strong>' +
-      '<br /><br />' + list3.join('<br />');
-  body.append(html);
+
+  const userContributions = Array.from(userQueueCounts.entries())
+                                .sort((a, b) => b[1] - a[1])
+                                .map((user, count) => `${count}: ${user}`);
+
+  body.append(
+      '<strong>Number of added playlist items:</strong>' +
+      '<br /><br />' + userContributions.join('<br />'));
 }
 
 /**
