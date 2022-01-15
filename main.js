@@ -1881,12 +1881,14 @@ function prepareMessage(msg) {
       IMBA.volume = 0.6;
       IMBA.play();
       mutePlayer();
-      inbix = setInterval(() => inba(), 200);
+      const inbaFlash = setInterval(() => inba(), 200);
       setTimeout(() => {
         unmutePlayer();
         BGCHANGE = 0;
-        clearInterval(inbix);
-        $('body').css({'background-image': '', 'background-color': ''});
+        clearInterval(inbaFlash);
+        const body = document.getElementsByTagName('body').item(0);
+        body.style.backgroundImage = '';
+        body.style.backgroundColor = '';
         setUserCSS();
       }, 12000);
       msg = 'JP2GMD';
