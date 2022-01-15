@@ -3808,7 +3808,7 @@ if (UI_ModPanel) {
 if (UI_HeyNay) {
   Hey =
       $('<button id="hey-btn" class="btn btn-sm btn-default" title="Woot!" />')
-          .html('<i class="glyphicon glyphicon-headphones"></i>')
+          .html('<i class="fa fa-headphones-alt"></i>')
           .appendTo(chatcontrols)
           .on('click', () => {
             socket.emit('chatMsg', {msg: '/afk'});
