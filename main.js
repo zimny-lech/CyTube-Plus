@@ -752,7 +752,7 @@ const CustomRightFooter_HTML = '';
 //    will be displayed on the channel top.
 
 const ChannelThemeURL =
-    'https://dl.dropboxusercontent.com/s/l1qoep4su4xn5qz/chinska.css';
+    'https://papertek.github.io/CyDJ/deploy/main/css/DJDefault.css';
 
 const ThemesCSS = [
   [
@@ -1099,7 +1099,7 @@ if (UI_DefaultSynchtube) {
 const DEFTHEME =
     (UI_ChannelTheme &&
      ChannelThemeURL !=
-         'https://papertek.github.io/CyDJ/deploy/main/css/DJDefault.css') ?
+         '') ?
     ChannelThemeURL :
     '/css/themes/slate.css';
 
