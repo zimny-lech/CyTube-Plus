@@ -1191,12 +1191,10 @@ const SPEAKLINK =
     'http://webanywhere.cs.washington.edu/cgi-bin/espeak/getsound.pl';
 const IMBA =
     new Audio('https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg');
-const DROPIT = new Audio(
-    'https://github.com/papertek/CyDJ/raw/beta/misc/dropit.mp3');
-const HEY = new Audio(
-    'https://github.com/papertek/CyDJ/raw/beta/misc/hey.mp3');
-const NAY = new Audio(
-    'https://github.com/papertek/CyDJ/raw/beta/misc/nay.mp3');
+const DROPIT =
+    new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/dropit.mp3');
+const HEY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/hey.mp3');
+const NAY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/nay.mp3');
 CHATSOUND.volume = 0.4;
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -4532,6 +4530,7 @@ const /** @type {HTMLDivElement} */ alertWrapper =
 if (!alertWrapper) {
   return;
 }
+
 const /** @type {HTMLDivElement} */ alertContainer = alertWrapper.firstChild;
 alertContainer.innerHTML =
     alertContainer.innerHTML
@@ -4543,6 +4542,16 @@ alertContainer.innerHTML =
             '"the old style" of playlist buttons (<b>recommended</b>) - ' +
                 'more compact playlist with nice icons ' +
                 `(see image <a href="https://dl.dropboxusercontent.com/s/4ya7i5vlyb3likk/oldpl.jpg" target="_blank">here</a>).`);
+
+// Updating the innerHTML removes the event handler on the dismiss button,
+// re-add it
+const /** @type {HTMLButtonElement} */ dismissButton =
+    Array.from(alertContainer.children)
+        .filter((elem) => elem.tagName.toLowerCase() === 'button')[0];
+dismissButton.addEventListener('click', () => {
+  alertContainer.remove();
+  window.localStorage['first_visit'] = 'false';
+});
 })();
 
 // rearranging footer
