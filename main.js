@@ -272,11 +272,13 @@ const RandomQuotes_Array = [
   'I like you. You remind me of when I was young and stupid.',
   'Go and buy me a beer',
   'The door of this channel is always open for you... so feel free to leave!',
+  'I hate JQuery',
+  'amogus',
 ];
 
 const AskAnswers_Array = [
   '100% for sure',
-  'definitely yes',
+  'definitely, yes',
   'yes',
   'probably',
   'not any chance',
@@ -287,6 +289,10 @@ const AskAnswers_Array = [
   'fairy is tired and will not answer',
   'I refuse to answer',
   'i asked your mom and she said no',
+  'i- i\'m too shy to answer..',
+  'umph... yes...',
+  'ahhh.. hhaahhh... yeah...',
+  'what',
 ];
 
 const Memes_Array = [
@@ -323,6 +329,9 @@ const Memes_Array = [
   'shit',
   'fuck',
   'shut the fuck up',
+  'firetruck',
+  'shut the firetruck up',
+  'wang',
 ];
 
 class Badge {
