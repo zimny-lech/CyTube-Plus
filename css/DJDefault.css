@@ -21,7 +21,7 @@
 	
 	.navbar-brand {cursor:default}
 	
-	.navbar-brand, .navbar-inverse {
+	.navbar-brand .navbar-inverse {
 		color: #fff!important;
 		text-shadow: 0px 0px 10px #ffffff00, 0px 0px 10px #ffffff7d !important;
 	}
