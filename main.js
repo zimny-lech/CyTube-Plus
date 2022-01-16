@@ -217,7 +217,8 @@ const CustomPingSound_URL =
     'https://github.com/papertek/CyDJ/raw/beta/misc/pingsound.wav';
 
 const PlayerHiding_URL =
-    'https://dl.dropboxusercontent.com/s/xz2o99scw5i7aai/stop.png';
+    // 'https://dl.dropboxusercontent.com/s/xz2o99scw5i7aai/stop.png';
+       'https://github.com/papertek/CyDJ/raw/beta/misc/fUNNY_meme_HAHA_LMAOOO.mp4';
 
 const GroupEmotes_Number = 100;
 
