@@ -217,8 +217,7 @@ const CustomPingSound_URL =
     'https://github.com/papertek/CyDJ/raw/beta/misc/pingsound.wav';
 
 const PlayerHiding_URL =
-    // 'https://dl.dropboxusercontent.com/s/xz2o99scw5i7aai/stop.png';
-       'https://github.com/papertek/CyDJ/raw/beta/images/cydjnormal.jpg';
+       'https://c.tenor.com/Q6UjBrnSzvQAAAAC/anime-uh.gif';
 
 const GroupEmotes_Number = 100;
 
