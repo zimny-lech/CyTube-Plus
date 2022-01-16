@@ -1883,9 +1883,15 @@ function prepareMessage(msg) {
         unmutePlayer();
         BGCHANGE = 0;
         clearInterval(inbaFlash);
-        const body = document.getElementsByTagName('body').item(0);
-        body.style.backgroundImage = '';
-        body.style.backgroundColor = '';
+
+        const body = document.getElementsByTagName('body')[0];
+        const wrap = document.getElementById('wrap');
+        const mainPage = document.getElementById('mainpage');
+        const elems = [body, wrap, mainPage];
+
+        elems.forEach((elem) => elem.style.backgroundImage = '');
+        elems.forEach((elem) => elem.style.backgroundColor = '');
+
         setUserCSS();
       }, 12000);
       msg = 'JP2GMD';
@@ -3632,26 +3638,32 @@ if (UI_TitleBarDescription) {
  * Easter egg.
  */
 function inba() {
-  $('body').css('background-image', 'none');
+  const body = document.getElementsByTagName('body')[0];
+  const wrap = document.getElementById('wrap');
+  const mainPage = document.getElementById('mainpage');
+  const elems = [body, wrap, mainPage];
+
+  elems.forEach((elem) => elem.style.backgroundImage = 'none');
   BGCHANGE++;
-  if (BGCHANGE % 2 == 0) {
-    $('body').css('background-color', 'gold');
-  } else {
-    $('body').css('background-color', 'blue');
-  }
+
+  const newColor = BGCHANGE % 2 === 0 ? 'gold' : 'blue';
+  elems.forEach((elem) => elem.style.backgroundColor = newColor);
 }
 
 /**
  * Dropit easter egg.
  */
 function dropthebeat() {
-  $('body').css('background-image', 'none');
+  const body = document.getElementsByTagName('body')[0];
+  const wrap = document.getElementById('wrap');
+  const mainPage = document.getElementById('mainpage');
+  const elems = [body, wrap, mainPage];
+
+  elems.forEach((elem) => elem.style.backgroundImage = 'none');
   DROPBGCHANGE++;
-  if (DROPBGCHANGE % 2 == 0) {
-    $('body').css('background-color', 'red');
-  } else {
-    $('body').css('background-color', 'black');
-  }
+
+  const newColor = DROPBGCHANGE % 2 === 0 ? 'red' : 'black';
+  elems.forEach((elem) => elem.style.backgroundColor = newColor);
 }
 
 // customizing chat notifications sound
@@ -3781,9 +3793,15 @@ function showDrop() {
   setTimeout(() => {
     DROPBGCHANGE = 0;
     clearInterval(partyFlash);
-    const body = document.getElementsByTagName('body').item(0);
-    body.style.backgroundImage = '';
-    body.style.backgroundColor = '';
+
+    const body = document.getElementsByTagName('body')[0];
+    const wrap = document.getElementById('wrap');
+    const mainPage = document.getElementById('mainpage');
+    const elems = [body, wrap, mainPage];
+
+    elems.forEach((elem) => elem.style.backgroundImage = '');
+    elems.forEach((elem) => elem.style.backgroundColor = '');
+
     setUserCSS();
   }, 5000);
   socket.emit(
