@@ -247,7 +247,7 @@ const HeaderDropMenu_Array = [
 ];
 
 const MOTDAutoLogo_Array = [
-  'https://media.discordapp.net/attachments/893223135367811093/904514815643508756/cydjnormal.jpg',
+  'https://github.com/papertek/CyDJ/raw/beta/images/cydjnormal.jpg',
 ];
 
 const MOTDTabs_Array = [
