@@ -641,6 +641,36 @@ const USER_BADGES = {
   'CannabisMuffin': [
     Badge.SUB_18_MONTHS_T1,
   ],
+  'LEBB': [
+    Badge.SUB_12_MONTHS_T1,
+  ],
+  'Psychedelic111': [
+    Badge.SUB_3_MONTHS_T1,
+  ],
+  'aade_': [
+    Badge.SUB_12_MONTHS_T1,
+  ],
+  'pareskktv': [
+    Badge.SUB_18_MONTHS_T1,
+  ],
+  'T_Nizzy': [
+    Badge.SUB_9_MONTHS_T1,
+  ],
+  'zHardTimes': [
+    Badge.SUB_18_MONTHS_T1,
+  ],
+  'anirrroc': [
+    Badge.SUB_12_MONTHS_T1,
+  ],
+  'Reesesses': [
+    Badge.SUB_9_MONTHS_T1,
+  ],
+  'DeathGod': [
+    Badge.SUB_12_MONTHS_T1,
+  ],
+  'MasterA1G': [
+    Badge.SUB_24_MONTHS_T1,
+  ],
 };
 
 const SoundFilters_Array = {
