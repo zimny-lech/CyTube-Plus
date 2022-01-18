@@ -2305,6 +2305,7 @@ function setUserCSS() {
       '#motdwrap {margin:5px -10px}\n' +
       '#announcements .alert {margin:0px -10px 5px}\n' +
       '#drinkcount {margin:0px}\n';
+      'body {background-color: #141414}\n';
 
   $('head').append(
       `<style id="chanexternalcss-fix" type="text/css">${cssfix}</style>`);
