@@ -2296,6 +2296,7 @@ function onlineTime() {
 function setUserCSS() {
   $('#chanexternalcss').detach().appendTo('head');
   $('#chanexternalcss-fix').remove();
+  $('body').css('background-color: #141414');
 
   cssfix = '#mainpage {padding-top:52px}\n' +
       '#motdrow, #announcements, #main, #playlistrow {border:solid 2px transparent; margin-bottom:5px}\n' +
@@ -2310,7 +2311,6 @@ function setUserCSS() {
       `<style id="chanexternalcss-fix" type="text/css">${cssfix}</style>`);
   $('#usertheme').attr('href', '/css/themes/slate.css');
   $('#usertheme-fix').remove();
-  $('body').css('background-color: #141414');
   if (USERTHEME.indexOf('/css/themes/') > -1) {
     $('#usertheme').attr('href', USERTHEME);
   } else {
