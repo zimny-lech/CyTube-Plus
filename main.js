@@ -1,7 +1,7 @@
 /*
 The MIT License (MIT)
 //
-Copyright (c) 2013-2014 Zimny Lech, 2021 CyDJ developers
+Copyright (c) 2013-2014 Zimny Lech, 2022 CyDJ developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
