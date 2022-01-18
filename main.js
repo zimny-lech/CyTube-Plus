@@ -2305,12 +2305,12 @@ function setUserCSS() {
       '#motdwrap {margin:5px -10px}\n' +
       '#announcements .alert {margin:0px -10px 5px}\n' +
       '#drinkcount {margin:0px}\n';
-      'body {background-color: #141414}\n';
 
   $('head').append(
       `<style id="chanexternalcss-fix" type="text/css">${cssfix}</style>`);
   $('#usertheme').attr('href', '/css/themes/slate.css');
   $('#usertheme-fix').remove();
+  $('body').css('background-color: #141414');
   if (USERTHEME.indexOf('/css/themes/') > -1) {
     $('#usertheme').attr('href', USERTHEME);
   } else {
