@@ -2305,8 +2305,7 @@ function setUserCSS() {
       '}\n' +
       '#motdwrap {margin:5px -10px}\n' +
       '#announcements .alert {margin:0px -10px 5px}\n' +
-      '#drinkcount {margin:0px}\n' +
-      'body {background-color #141414}\n';
+      '#drinkcount {margin:0px}\n';
 
   $('head').append(
       `<style id="chanexternalcss-fix" type="text/css">${cssfix}</style>`);
@@ -2324,9 +2323,9 @@ function setUserCSS() {
     $('head').append(
         `<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`);
   }
-/* if (USERTHEME.startsWith('/css/themes/slate.css')) {
+  if (USERTHEME.startsWith('/css/themes/slate.css')) {
     $('body').css('background-color', '#141414');
-  }*/
+  }
 }
 
 /* if (USERTHEME.startsWith('/css/themes/slate.css')) {
