@@ -2323,8 +2323,8 @@ function setUserCSS() {
     $('head').append(
         `<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`);
   }
-  if (USERTHEME.attr('href', '/css/themes/slate.css')) {
-    $('body').css('background-color: #141414');
+  if (USERTHEME.startsWith('/css/themes/slate.css')) {
+    $('body').css('background-color', '#141414');
   }
 }
 
