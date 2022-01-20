@@ -409,13 +409,7 @@
 		background-color: #272b30;
 		border-color: #484e55;
 	}
-	
-	.alert-info {
-		background-color: #00c5ff33!important;
-		border-color: #45f3ff;
-		color: #fff;
-	}
-	
+
 	.btn-default {
 	  background-image: linear-gradient(#3a3f44,#3a3f44 60%,#313539);
 	}
