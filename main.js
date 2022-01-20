@@ -2325,6 +2325,9 @@ function setUserCSS() {
   }
 }
 
+if (USERTHEME.startsWith('/css/themes/slate.css')) {
+  $('body').remove();
+}
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- UI events functions ----- */
