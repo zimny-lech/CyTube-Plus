@@ -411,7 +411,7 @@
 	}
 	
 	.alert-info {
-		background-color: #00c5ff33;
+		background-color: #00c5ff33!important;
 		border-color: #45f3ff;
 		color: #fff;
 	}

@@ -2323,18 +2323,10 @@ function setUserCSS() {
     $('head').append(
         `<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`);
   }
-  if (USERTHEME.startsWith('/css/themes/slate.css')) {
+  /* if (USERTHEME.startsWith('/css/themes/slate.css')) {
     $('body').css('background-color', '#141414');
-  }
+  }*/
 }
-
-/* if (USERTHEME.startsWith('/css/themes/slate.css')) {
-    $('body').css('background-color: #141414');
-}  else {
-    setUserCSS();
-}*/
-
-//  $('body').css('background-color: #141414');
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
