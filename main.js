@@ -2328,6 +2328,9 @@ function setUserCSS() {
 if (USERTHEME.startsWith('/css/themes/slate.css')) {
   $('body').remove();
 }
+
+//  $('body').css('background-color: #141414');
+
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- UI events functions ----- */
