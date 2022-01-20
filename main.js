@@ -2326,7 +2326,9 @@ function setUserCSS() {
 }
 
 if (USERTHEME.startsWith('/css/themes/slate.css')) {
-  $('body').remove();
+    $('body').css('background-color: #141414');
+}  else {
+    setUserCSS;
 }
 
 //  $('body').css('background-color: #141414');
