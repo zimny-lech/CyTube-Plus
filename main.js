@@ -2296,7 +2296,7 @@ function onlineTime() {
 function setUserCSS() {
   $('#chanexternalcss').detach().appendTo('head');
   $('#chanexternalcss-fix').remove();
-  $('body').css('background-color: #141414');
+//  $('body').css('background-color: #141414');
 
   cssfix = '#mainpage {padding-top:52px}\n' +
       '#motdrow, #announcements, #main, #playlistrow {border:solid 2px transparent; margin-bottom:5px}\n' +
@@ -2330,7 +2330,10 @@ function setUserCSS() {
 
 if (USERTHEME.startsWith('/css/themes/slate.css')) {
   $('body').css('background-color', '#141414');
+}  else {
+    setUserCSS();
 }
+
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- UI events functions ----- */
