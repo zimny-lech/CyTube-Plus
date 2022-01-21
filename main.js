@@ -4256,7 +4256,7 @@ themesel =
         .append('<option value="/css/themes/light.css"># Light</option>')
         .append(
             '<option value="/css/themes/bootstrap-theme.min.css"># Bootstrap</option>')
-        .append(`<option value="${ChannelThemeURL}"># Slate</option>`)
+        .append('<option value="/css/themes/slate.css"># Slate</option>')
         .append('<option value="/css/themes/cyborg.css"># Cyborg</option>')
         .appendTo(themewrap)
         .on('change', function() {
