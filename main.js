@@ -5278,7 +5278,7 @@ if (!CHAT_INIT) {
         CHAT_BACKGROUND = !CHAT_BACKGROUND;
         const color =
             CHAT_BACKGROUND ? CHAT_BACKGROUND_LIGHT : CHAT_BACKGROUND_DARK;
-        $(mbDiv[i]).attr('style', `background-color:${color};`);
+        $(mbDiv[i]).attr('style', `background-color:${color};`).addClass('messagesthing');
       }
     }
   })();
