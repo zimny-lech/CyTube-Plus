@@ -2330,6 +2330,8 @@ function setUserCSS() {
     $('#motd').css('background-color', '#272b30');
     $('#motdwrap').css('background-color', '#272b30');
     $('#userlist').css('background-color', '#272b30');
+    $('#titlerow-outer').css('background-color', '#383E40');
+    $('#currenttitle').css('background-color', '#272b30');
     $('.messagesthing').css('background-color', 'rgba(0, 0, 0, 0.15)');
   }  else {
     $('body').css('background-color', '');
