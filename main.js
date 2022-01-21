@@ -790,7 +790,7 @@ const CustomRightFooter_HTML = '';
 //    Those images can be selected by user in Layout Configuration panel, and
 //    will be displayed on the channel top.
 const slatePlus =
-  '';
+  'https://papertek.github.io/CyDJ/deploy/main/css/slatePlus.css';
 
 const ChannelThemeURL =
     'https://papertek.github.io/CyDJ/deploy/main/css/DJDefault.css';
