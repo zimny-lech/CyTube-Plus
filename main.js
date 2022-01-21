@@ -184,7 +184,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre1.Local.22.3';
+const Version_Now = 'CyDJPre1.Local.22.4';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -5193,8 +5193,8 @@ if (UI_Snow && Snow_URL != '') {
 /* ----- END OF LIBRARY ----- */
 
 /* -----CONFIG----- */
-const CHAT_BACKGROUND_LIGHT = 'rgba(0, 0, 0, 0.15)';
-const CHAT_BACKGROUND_DARK = 'rgba(35, 35, 35, 1)';
+const CHAT_BACKGROUND_LIGHT = 'rgba(35, 35, 35, 1)';
+const CHAT_BACKGROUND_DARK = 'rgba(0, 0, 0, 0.15)';
 /*
   usertype:
   'owner' for admins
