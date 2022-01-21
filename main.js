@@ -2325,6 +2325,8 @@ function setUserCSS() {
   }
   if (USERTHEME === '/css/themes/slate.css') {
     $('body').css('background-color', '#141414');
+  }  else {
+    $('body').css('background-color', '');
   }
 }
 
