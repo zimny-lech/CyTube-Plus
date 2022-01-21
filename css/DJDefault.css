@@ -398,18 +398,18 @@
 		background-color: #6700c51c;
 	}
 	
-	#userlist {
+	/*#userlist {
 		background-color: #272b30;
-	}
+	}*/
 	
-	#motd {
+	/*#motd {
 		background-color: #272b30;
 	}
 	
 	#motdwrap {
 		background-color: #272b30;
 		border-color: #484e55;
-	}
+	}*/
 	
 	.alert-info {
 		background-color: #00c5ff33;
@@ -417,21 +417,21 @@
 		color: #fff;
 	}
 	
-	.btn-default {
+	/*.btn-default {
 	  background-image: linear-gradient(#3a3f44,#3a3f44 60%,#313539);
-	}
+	}*/
 	
 	#nav-collapsible {
 	background-image: linear-gradient(#343434,#3a3f44 60%,#313539)
 	}
 	
-	.dropdown-menu {
+	/*.dropdown-menu {
 		background-color: #383E40;
 	}
 	
 	.queue_entry {
 		background-color: #3a3f44;
-	}
+	}*/
 	
 	.server-whisper {
 		color: #62c462;
@@ -448,10 +448,10 @@
 		background-color: #4a6ee0;
 	}
 	
-	.userlist_item {
+	/*.userlist_item {
 		cursor: pointer;
 		color: #4a6ee0;
-	}
+	}*/
 	
 	.glyphicon-time:before {
 		content: "\e023";
