@@ -2296,7 +2296,6 @@ function onlineTime() {
 function setUserCSS() {
   $('#chanexternalcss').detach().appendTo('head');
   $('#chanexternalcss-fix').remove();
-//  $('body').css('background-color: #141414');
 
   cssfix = '#mainpage {padding-top:52px}\n' +
       '#motdrow, #announcements, #main, #playlistrow {border:solid 2px transparent; margin-bottom:5px}\n' +
@@ -2341,12 +2340,6 @@ function setUserCSS() {
     $('#userlist').css('background-color', '');
   }
 }
-
-/* if (USERTHEME.startsWith('/css/themes/slate.css')) {
-  $('body').css('background-color', '#141414');
-}  else {
-    setUserCSS();
-}/*
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -5200,8 +5193,8 @@ if (UI_Snow && Snow_URL != '') {
 /* ----- END OF LIBRARY ----- */
 
 /* -----CONFIG----- */
-const CHAT_BACKGROUND_LIGHT = 'rgba(35, 35, 35, 1)';
-const CHAT_BACKGROUND_DARK = 'rgba(0, 0, 0, 0.15)';
+const CHAT_BACKGROUND_LIGHT = 'rgba(0, 0, 0, 0.15)';
+const CHAT_BACKGROUND_DARK = 'rgba(35, 35, 35, 1)';
 /*
   usertype:
   'owner' for admins
