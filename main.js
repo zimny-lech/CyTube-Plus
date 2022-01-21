@@ -789,6 +789,8 @@ const CustomRightFooter_HTML = '';
 // a) TopUserLogo item has 3 attributes: name, URL, maximum height.
 //    Those images can be selected by user in Layout Configuration panel, and
 //    will be displayed on the channel top.
+const slatePlus =
+  '';
 
 const ChannelThemeURL =
     'https://papertek.github.io/CyDJ/deploy/main/css/DJDefault.css';
@@ -4256,7 +4258,7 @@ themesel =
         .append('<option value="/css/themes/light.css"># Light</option>')
         .append(
             '<option value="/css/themes/bootstrap-theme.min.css"># Bootstrap</option>')
-        .append('<option value="/css/themes/slate.css"># Slate</option>')
+        .append(`<option value="${slatePlus}"># Slate</option>`)
         .append('<option value="/css/themes/cyborg.css"># Cyborg</option>')
         .appendTo(themewrap)
         .on('change', function() {
