@@ -4255,7 +4255,7 @@ themesel =
     $('<select id="theme-sel" class="form-control" />')
         .append(
             '<option value="" class="theme-header" disabled>default themes</option>')
-        .append('<option value="/css/themes/light.css"># Light</option>')
+        .append(`<option value="${lightPlus}"># Light</option>`)
         .append(
             '<option value="/css/themes/bootstrap-theme.min.css"># Bootstrap</option>')
         .append('<option value="/css/themes/slate.css"># Slate</option>')
