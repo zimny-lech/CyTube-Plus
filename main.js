@@ -155,6 +155,8 @@ const UI_PartyButton = true;
 const UI_Version = true;
 // adds hey and nay
 const UI_HeyNay = true;
+// adds public voteskipping
+const UI_PublicSkip = true;
 // adds snow (just an attempt on adding, i dont rly know how to make it work)
 const UI_Snow = false;
 
@@ -2249,6 +2251,14 @@ function changeSkipText() {
       .text(CustomCaptions_Array['voteskip'] + ' ' + $('#voteskip').text());
 }
 
+// add onto voteskip function
+
+function doPublicSkip() {
+  $('#voteskip');
+    socket.emit('voteskip');
+    socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
+}
+
 /**
  * Add database link to playlist.
  *
@@ -3729,6 +3739,11 @@ function dropthebeat() {
 if (UI_CustomPingSound && CustomPingSound_URL != '') {
   CHATSOUND = new Audio(CustomPingSound_URL);
   CHATSOUND.volume = 0.4;
+}
+
+// public skipping from ui
+if (UI_PublicSkip) {
+  doPublicSkip();
 }
 
 // additional chat functions
