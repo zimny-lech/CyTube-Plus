@@ -3739,6 +3739,7 @@ if (UI_PublicSkip) {
     socket.emit('voteskip');
     socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
     $('#voteskip').attr('disabled', true);
+    naySound();
 });
 }
 
