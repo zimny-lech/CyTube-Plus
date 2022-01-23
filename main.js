@@ -180,7 +180,7 @@ const UI_Snow = false;
 
 import('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&display=swap');
 
-const Favicon_URL = 'https://github.com/papertek/CyDJ/blob/beta/images/newdjlogo.png';
+const Favicon_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
