@@ -2251,14 +2251,6 @@ function changeSkipText() {
       .text(CustomCaptions_Array['voteskip'] + ' ' + $('#voteskip').text());
 }
 
-// add onto voteskip function
-
-function doPublicSkip() {
-  $('#voteskip');
-    socket.emit('voteskip');
-    socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
-}
-
 /**
  * Add database link to playlist.
  *
@@ -3743,7 +3735,11 @@ if (UI_CustomPingSound && CustomPingSound_URL != '') {
 
 // public skipping from ui
 if (UI_PublicSkip) {
-  doPublicSkip();
+  $('#voteskip').click(function() {
+    socket.emit('voteskip');
+    socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
+    $('#voteskip').attr('disabled', true);
+});
 }
 
 // additional chat functions
