@@ -1211,6 +1211,8 @@ let USERONLINE = 0;
 let BGCHANGE = 1;
 // number of background changes for the drop it
 let DROPBGCHANGE = 1;
+// number of background changes for fastest crash
+let FASTESTBGCHANGE = 1;
 
 // list of users with muted chat sounds by user
 const MUTEDVOICES = [];
@@ -1234,6 +1236,8 @@ const IMBA =
     new Audio('https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg');
 const DROPIT =
     new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/dropit.wav');
+const FASTEST =
+    new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/fastestcrashegg.wav');
 const HEY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/hey.wav');
 const NAY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/nay.wav');
 CHATSOUND.volume = 0.4;
@@ -1919,6 +1923,8 @@ function prepareMessage(msg) {
       msg = 'https://discord.gg/g8tCGSc2bx';
     } else if (msg.indexOf('!link') == 0) {
       msg = 'https://tinyurl.com/jamcydj';
+    } else if (msg.indexOf('!fastest') == 0) {
+      fastestCrash();
     } else if (msg.indexOf('!inba') == 0) {
       IMBA.volume = 0.6;
       IMBA.play();
@@ -3730,6 +3736,20 @@ function dropthebeat() {
   elems.forEach((elem) => elem.style.backgroundColor = newColor);
 }
 
+// Fastest Crash easter egg bg changes
+function dropthefast() {
+  const body = document.getElementsByTagName('body')[0];
+  const wrap = document.getElementById('wrap');
+  const mainPage = document.getElementById('mainpage');
+  const elems = [body, wrap, mainPage];
+
+  elems.forEach((elem) => elem.style.backgroundImage = 'none');
+  FASTESTBGCHANGE++;
+
+  const newColor = FASTESTBGCHANGE % 2 === 0 ? 'blue' : 'black';
+  elems.forEach((elem) => elem.style.backgroundColor = newColor);
+}
+
 // customizing chat notifications sound
 
 if (UI_CustomPingSound && CustomPingSound_URL != '') {
@@ -3880,6 +3900,29 @@ function showDrop() {
   }, 5000);
   socket.emit(
       'chatMsg', {msg: '[mqr] GOOOOOOO xqcCheer FEELSWAYTOOGOOD [/mqr]'});
+}
+
+
+function fastestCrash() {
+  FASTEST.volume = 0.4;
+  FASTEST.play();
+  const fastestFlash = setInterval(() => dropthefast(), 100);
+  setTimeout(() => {
+    FASTESTBGCHANGE = 0;
+    clearInterval(fastestFlash);
+
+    const body = document.getElementsByTagName('body')[0];
+    const wrap = document.getElementById('wrap');
+    const mainPage = document.getElementById('mainpage');
+    const elems = [body, wrap, mainPage];
+
+    elems.forEach((elem) => elem.style.backgroundImage = '');
+    elems.forEach((elem) => elem.style.backgroundColor = '');
+
+    setUserCSS();
+  }, 5000);
+  socket.emit(
+      'chatMsg', {msg: '[mqr] GOOOOOOO xqcTECHNO FEELSWAYTOOGOOD xqcDisco [/mqr]'});
 }
 
 // adding chat sounds toggle button and control panel
