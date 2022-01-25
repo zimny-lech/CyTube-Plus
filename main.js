@@ -218,8 +218,7 @@ const MessagesSuffix_Percentage = 10;
 const CustomPingSound_URL =
     'https://github.com/papertek/CyDJ/raw/beta/misc/pingsound.wav';
 
-const PlayerHiding_URL =
-       'https://c.tenor.com/Q6UjBrnSzvQAAAAC/anime-uh.gif';
+const PlayerHiding_URL = 'https://c.tenor.com/Q6UjBrnSzvQAAAAC/anime-uh.gif';
 
 const GroupEmotes_Number = 100;
 
@@ -1137,10 +1136,7 @@ if (UI_DefaultSynchtube) {
   defqueue = 'right';
 }
 
-const DEFTHEME =
-    (UI_ChannelTheme &&
-     ChannelThemeURL !=
-         '') ?
+const DEFTHEME = (UI_ChannelTheme && ChannelThemeURL != '') ?
     ChannelThemeURL :
     '/css/themes/slate.css';
 
@@ -1236,8 +1232,8 @@ const IMBA =
     new Audio('https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg');
 const DROPIT =
     new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/dropit.wav');
-const FASTEST =
-    new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/fastestcrashegg.wav');
+const FASTEST = new Audio(
+    'https://github.com/papertek/CyDJ/raw/beta/misc/fastestcrashegg.wav');
 const HEY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/hey.wav');
 const NAY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/nay.wav');
 CHATSOUND.volume = 0.4;
@@ -2335,12 +2331,14 @@ function setUserCSS() {
     $('body').css('background-color', '#141414');
     $('.queue_entry').css('background-color', '#3a3f44');
     $('.dropdown-menu').css('background-color', '#383E40');
-    $('.btn-default').css('background-image', 'linear-gradient(#3a3f44,#3a3f44 60%,#313539)');
+    $('.btn-default')
+        .css(
+            'background-image', 'linear-gradient(#3a3f44,#3a3f44 60%,#313539)');
     $('#motd').css('background-color', '#272b30');
     $('#motdwrap').css('background-color', '#272b30');
     $('#userlist').css('background-color', '#272b30');
     $('.messagesthing').css('background-color', 'rgba(0, 0, 0, 0.15)');
-  }  else {
+  } else {
     $('body').css('background-color', '');
     $('.queue_entry').css('background-color', '');
     $('.dropdown-menu').css('background-color', '');
@@ -3761,7 +3759,7 @@ if (UI_PublicSkip) {
     socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
     $('#voteskip').attr('disabled', true);
     naySound();
-});
+  });
 }
 
 // additional chat functions
@@ -5335,7 +5333,9 @@ if (!CHAT_INIT) {
         CHAT_BACKGROUND = !CHAT_BACKGROUND;
         const color =
             CHAT_BACKGROUND ? CHAT_BACKGROUND_LIGHT : CHAT_BACKGROUND_DARK;
-        $(mbDiv[i]).attr('style', `background-color:${color};`).addClass('messagesthing');
+        $(mbDiv[i])
+            .attr('style', `background-color:${color};`)
+            .addClass('messagesthing');
       }
     }
   })();
@@ -5818,19 +5818,20 @@ $('#fullscreenbtn').on('click', function() {
   const elem = document.querySelector('#videowrap .embed-responsive');
   // this shit is why frontend web development sucks
   const fn = elem.requestFullscreen ||
-      elem.mozRequestFullScreen || // Mozilla has to be different and use a capital 'S'
-      elem.webkitRequestFullscreen ||
-      elem.msRequestFullscreen;
+      elem.mozRequestFullScreen ||  // Mozilla has to be different and use a
+                                    // capital 'S'
+      elem.webkitRequestFullscreen || elem.msRequestFullscreen;
 
   if (fn) {
-      fn.call(elem);
+    fn.call(elem);
   }
 });
 
 // Add random emote function for dumb command lawl
 
 const emoteCount = TabCompletionEmotes.length;
-const randomEmoteIndex = Math.min(Math.round(Math.random() * emoteCount), emoteCount - 1);
+const randomEmoteIndex =
+    Math.min(Math.round(Math.random() * emoteCount), emoteCount - 1);
 const randomEmote = TabCompletionEmotes[randomEmoteIndex];
 
 if (UI_UserCommands && msg.indexOf('!randomemote') == 0) {
