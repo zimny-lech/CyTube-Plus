@@ -1233,9 +1233,9 @@ const SPEAKLINK =
 const IMBA =
     new Audio('https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg');
 const DROPIT =
-    new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/dropit.mp3');
-const HEY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/hey.mp3');
-const NAY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/nay.mp3');
+    new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/dropit.wav');
+const HEY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/hey.wav');
+const NAY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/nay.wav');
 CHATSOUND.volume = 0.4;
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
