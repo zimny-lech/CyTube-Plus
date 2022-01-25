@@ -1766,12 +1766,6 @@ function createSquavatar(str) {
   return html;
 }
 
-// adding random emotes
-if (UI_UserCommands && msg.indexOf('!randomemote') == 0) {
-  COMMAND = true;
-  socket.emit('chatMsg', {msg: randomEmote});
-}
-
 /**
  * Format chat messages before sending and execute commands.
  *
