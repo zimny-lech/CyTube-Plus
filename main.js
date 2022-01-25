@@ -1850,6 +1850,9 @@ function prepareMessage(msg) {
         rnd = '0' + rnd;
       }
       msg = '' + rnd;
+    } else if (msg.indexOf('!randomemote') == 0) {
+      msg = randomEmote;
+      }
     } else if (msg.indexOf('!q') == 0) {
       if (RandomQuotes_Array.length < 1) {
         RandomQuotes_Array = ['error: no quotes available'];
@@ -1872,9 +1875,6 @@ function prepareMessage(msg) {
           temp: $('.add-temp').prop('checked'),
         });
         msg = `random media added! - ${title}`;
-    } else if (msg.indexOf('!randomemote') == 0) {
-      msg = randomEmote;
-      }
       /* } else if (msg.indexOf('!blocked') == 0) {
         if (CLIENT.rank >= 2) {
           msg = 'testing 1 2 3 ig';
