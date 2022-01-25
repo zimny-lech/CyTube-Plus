@@ -3913,7 +3913,7 @@ function fastestCrash() {
   FASTEST.play();
   const fastestFlash = setInterval(() => dropthefast(), 100);
   setTimeout(() => {
-    FASTESTBGCHANGE = 0;
+    FASTESTBGCHANGE = 100;
     clearInterval(fastestFlash);
 
     const body = document.getElementsByTagName('body')[0];
