@@ -5815,16 +5815,16 @@ socket.on('mediaUpdate', fixRawVideoControls);
 
 
 $('#fullscreenbtn').on('click', function() {
-    const elem = document.querySelector('#videowrap .embed-responsive');
-    // this shit is why frontend web development sucks
-    const fn = elem.requestFullscreen ||
-        elem.mozRequestFullScreen || // Mozilla has to be different and use a capital 'S'
-        elem.webkitRequestFullscreen ||
-        elem.msRequestFullscreen;
+  const elem = document.querySelector('#videowrap .embed-responsive');
+  // this shit is why frontend web development sucks
+  const fn = elem.requestFullscreen ||
+      elem.mozRequestFullScreen || // Mozilla has to be different and use a capital 'S'
+      elem.webkitRequestFullscreen ||
+      elem.msRequestFullscreen;
 
-    if (fn) {
-        fn.call(elem);
-    }
+  if (fn) {
+      fn.call(elem);
+  }
 });
 
 // Add random emote function for dumb command lawl
