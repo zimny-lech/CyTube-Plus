@@ -3902,9 +3902,9 @@ function showDrop() {
       'chatMsg', {msg: '[mqr] GOOOOOOO xqcCheer FEELSWAYTOOGOOD [/mqr]'});
 }
 
-
+// fastest crash function
 function fastestCrash() {
-  FASTEST.volume = 0.4;
+  FASTEST.volume = 0.5;
   FASTEST.play();
   const fastestFlash = setInterval(() => dropthefast(), 100);
   setTimeout(() => {
@@ -3920,7 +3920,7 @@ function fastestCrash() {
     elems.forEach((elem) => elem.style.backgroundColor = '');
 
     setUserCSS();
-  }, 5000);
+  }, 8000);
   socket.emit(
       'chatMsg', {msg: '[mqr] GOOOOOOO xqcTECHNO FEELSWAYTOOGOOD xqcDisco [/mqr]'});
 }
