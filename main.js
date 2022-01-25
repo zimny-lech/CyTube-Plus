@@ -1850,16 +1850,13 @@ function prepareMessage(msg) {
         rnd = '0' + rnd;
       }
       msg = '' + rnd;
-    } else if (msg.indexOf('!randomemote') == 0) {
-      msg = randomEmote;
-      }
     } else if (msg.indexOf('!q') == 0) {
       if (RandomQuotes_Array.length < 1) {
         RandomQuotes_Array = ['error: no quotes available'];
       }
       rnd = Math.round(Math.random() * (RandomQuotes_Array.length - 1));
       msg = RandomQuotes_Array[rnd];
-    } else if (msg.indexOf('!addrandom') == 0 && hasPermission('playlistadd')) {
+    } else if (msg.indexOf('!random') == 0 && hasPermission('playlistadd')) {
       if (UI_ChannelDatabase) {
         let link = '';
         while (link === '' || link.includes(LAST_VIDEO_ID_QUEUED)) {
@@ -1875,6 +1872,7 @@ function prepareMessage(msg) {
           temp: $('.add-temp').prop('checked'),
         });
         msg = `random media added! - ${title}`;
+      }
       /* } else if (msg.indexOf('!blocked') == 0) {
         if (CLIENT.rank >= 2) {
           msg = 'testing 1 2 3 ig';
@@ -5820,6 +5818,11 @@ socket.on('mediaUpdate', fixRawVideoControls);
 const emoteCount = TabCompletionEmotes.length;
 const randomEmoteIndex = Math.min(Math.round(Math.random() * emoteCount), emoteCount - 1);
 const randomEmote = TabCompletionEmotes[randomEmoteIndex];
+
+if (UI_UserCommands && msg.indexOf('!randomemote') == 0) {
+  COMMAND = true;
+  socket.emit('chatMsg', {msg: randomEmote});
+}
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
