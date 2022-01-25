@@ -1766,6 +1766,12 @@ function createSquavatar(str) {
   return html;
 }
 
+// Add random emote function for dumb command lawl
+
+const emoteCount = TabCompletionEmotes.length;
+const randomEmoteIndex = Math.min(Math.round(Math.random() * emoteCount), emoteCount - 1);
+const randomEmote = TabCompletionEmotes[randomEmoteIndex];
+
 /**
  * Format chat messages before sending and execute commands.
  *
@@ -1872,10 +1878,8 @@ function prepareMessage(msg) {
           temp: $('.add-temp').prop('checked'),
         });
         msg = `random media added! - ${title}`;
-    } /* else if (msg.indexOf('!randomemote') == 0) {
-      const emoteCount = TabCompletionEmotes.length;
-      const randomEmoteIndex = Math.min(Math.round(Math.random() * emoteCount), emoteCount - 1);
-      const randomEmote = TabCompletionEmotes[randomEmoteIndex];
+    } else if (msg.indexOf('!randomemote') == 0) {
+      msg = randomEmote;
       }
       /* } else if (msg.indexOf('!blocked') == 0) {
         if (CLIENT.rank >= 2) {
@@ -1946,7 +1950,7 @@ function prepareMessage(msg) {
 
         setUserCSS();
       }, 12000);
-      msg = 'JP2GMD';
+      msg = ' FEELSWAYTOOGOOD JP2GMD ';
     } else {
       COMMAND = false;
     }
