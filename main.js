@@ -1859,7 +1859,7 @@ function prepareMessage(msg) {
       }
       rnd = Math.round(Math.random() * (RandomQuotes_Array.length - 1));
       msg = RandomQuotes_Array[rnd];
-    } else if (msg.indexOf('!random') == 0 && hasPermission('playlistadd')) {
+    } else if (msg.indexOf('!addrandom') == 0 && hasPermission('playlistadd')) {
       if (UI_ChannelDatabase) {
         let link = '';
         while (link === '' || link.includes(LAST_VIDEO_ID_QUEUED)) {
