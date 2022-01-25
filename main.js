@@ -3921,7 +3921,7 @@ function fastestCrash() {
     elems.forEach((elem) => elem.style.backgroundColor = '');
 
     setUserCSS();
-  }, 10000);
+  }, 12000);
 }
 
 // adding chat sounds toggle button and control panel
