@@ -1924,6 +1924,7 @@ function prepareMessage(msg) {
     } else if (msg.indexOf('!link') == 0) {
       msg = 'https://tinyurl.com/jamcydj';
     } else if (msg.indexOf('!fastest') == 0) {
+      msg = '[mqr] GOOOOOOO xqcTECHNO FEELSWAYTOOGOOD xqcDisco [/mqr]';
       fastestCrash();
     } else if (msg.indexOf('!inba') == 0) {
       IMBA.volume = 0.6;
@@ -3920,9 +3921,7 @@ function fastestCrash() {
     elems.forEach((elem) => elem.style.backgroundColor = '');
 
     setUserCSS();
-  }, 8000);
-  socket.emit(
-      'chatMsg', {msg: '[mqr] GOOOOOOO xqcTECHNO FEELSWAYTOOGOOD xqcDisco [/mqr]'});
+  }, 10000);
 }
 
 // adding chat sounds toggle button and control panel
