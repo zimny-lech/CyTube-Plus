@@ -1766,6 +1766,12 @@ function createSquavatar(str) {
   return html;
 }
 
+// adding random emotes
+if (UI_UserCommands && msg.indexOf('!randomemote') == 0) {
+  COMMAND = true;
+  socket.emit('chatMsg', {msg: randomEmote});
+}
+
 /**
  * Format chat messages before sending and execute commands.
  *
@@ -5819,10 +5825,10 @@ const emoteCount = TabCompletionEmotes.length;
 const randomEmoteIndex = Math.min(Math.round(Math.random() * emoteCount), emoteCount - 1);
 const randomEmote = TabCompletionEmotes[randomEmoteIndex];
 
-if (UI_UserCommands && msg.indexOf('!randomemote') == 0) {
+/* if (UI_UserCommands && msg.indexOf('!randomemote') == 0) {
   COMMAND = true;
   socket.emit('chatMsg', {msg: randomEmote});
-}
+} */
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
