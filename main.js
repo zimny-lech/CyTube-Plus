@@ -1868,6 +1868,10 @@ function prepareMessage(msg) {
           temp: $('.add-temp').prop('checked'),
         });
         msg = `random media added! - ${title}`;
+    } /* else if (msg.indexOf('!randomemote') == 0) {
+      const emoteCount = TabCompletionEmotes.length;
+      const randomEmoteIndex = Math.min(Math.round(Math.random() * emoteCount), emoteCount - 1);
+      const randomEmote = TabCompletionEmotes[randomEmoteIndex];
       }
       /* } else if (msg.indexOf('!blocked') == 0) {
         if (CLIENT.rank >= 2) {
