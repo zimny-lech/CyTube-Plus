@@ -1923,7 +1923,7 @@ function prepareMessage(msg) {
       msg = 'https://discord.gg/g8tCGSc2bx';
     } else if (msg.indexOf('!link') == 0) {
       msg = 'https://tinyurl.com/jamcydj';
-    } else if (msg.indexOf('!fastest') == 0) {
+    } else if (msg.indexOf('!crash') == 0) {
       msg = '[mqr] GOOOOOOO xqcTECHNO FEELSWAYTOOGOOD xqcDisco [/mqr]';
       fastestCrash();
     } else if (msg.indexOf('!inba') == 0) {
