@@ -5355,28 +5355,27 @@ if (!CSS_INIT) {
   $('head #chancss2').html(CSS_RAW);
 }
 
-let TabCompletionEmotes;
-let TabCompletion = {};
+const /** @type {!Array<string>} */ TabCompletionEmotes = [];
+const TabCompletion = {
+  last: '',
+  matches: [],
+};
 
 function tabCompletionRefresh() {
-  emotes = window.CHANNEL.emotes;
-  TabCompletionEmotes = [];
-  for (let i = 0; i < emotes.length; i++) {
-    TabCompletionEmotes.push(emotes[i].name);
+  while (TabCompletionEmotes.length > 0) {
+    TabCompletionEmotes.pop();
   }
-  TabCompletionEmotes = TabCompletionEmotes.sort();
+  for (const emote of window.CHANNEL.emotes) {
+    TabCompletionEmotes.push(emote.name);
+  }
+  TabCompletionEmotes.sort();
 }
 
-if (TabCompletionEmotes === undefined) {
-  tabCompletionRefresh();
-  socket.on('emoteList', tabCompletionRefresh);
-  socket.on('updateEmote', tabCompletionRefresh);
-  socket.on('removeEmote', tabCompletionRefresh);
-  TabCompletion = {
-    last: '',
-    matches: [],
-  };
-}
+tabCompletionRefresh();
+socket.on('emoteList', tabCompletionRefresh);
+socket.on('updateEmote', tabCompletionRefresh);
+socket.on('removeEmote', tabCompletionRefresh);
+
 function chatTabComplete() {
   const match = /(.*?) *$/.exec($('#chatline').val());
   if (match === null || match[1] === '') {
