@@ -154,7 +154,7 @@ const UI_PartyButton = true;
 // adds version
 const UI_Version = true;
 // adds hey and nay
-const UI_HeyNay = true;
+const UI_RateButtons = true;
 // adds public voteskipping
 const UI_PublicSkip = true;
 // adds snow (just an attempt on adding, i dont rly know how to make it work)
@@ -3915,7 +3915,7 @@ if (UI_ModPanel) {
 }
 
 // adding hey thing
-if (UI_HeyNay) {
+if (UI_RateButtons) {
   Hey =
       $('<button id="hey-btn" class="btn btn-sm btn-default" title="Woot!" />')
           .html('<i class="glyphicon glyphicon-headphones"></i>')
@@ -3928,7 +3928,7 @@ if (UI_HeyNay) {
 }
 
 // adding nay thing
-if (UI_HeyNay) {
+if (UI_RateButtons) {
   Nay =
       $('<button id="nay-btn" class="btn btn-sm btn-default" title="Meh.. (Voteskip)" />')
           .html('<i class="glyphicon glyphicon-thumbs-down"></i>')
