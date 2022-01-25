@@ -1766,12 +1766,6 @@ function createSquavatar(str) {
   return html;
 }
 
-// Add random emote function for dumb command lawl
-
-const emoteCount = TabCompletionEmotes.length;
-const randomEmoteIndex = Math.min(Math.round(Math.random() * emoteCount), emoteCount - 1);
-const randomEmote = TabCompletionEmotes[randomEmoteIndex];
-
 /**
  * Format chat messages before sending and execute commands.
  *
@@ -5821,6 +5815,11 @@ function fixRawVideoControls() {
 socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
 
+// Add random emote function for dumb command lawl
+
+const emoteCount = TabCompletionEmotes.length;
+const randomEmoteIndex = Math.min(Math.round(Math.random() * emoteCount), emoteCount - 1);
+const randomEmote = TabCompletionEmotes[randomEmoteIndex];
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
