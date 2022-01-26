@@ -2335,7 +2335,7 @@ function setUserCSS() {
     $('#motd').css('background-color', '#272b30');
     $('#motdwrap').css('background-color', '#272b30');
     $('#userlist').css('background-color', '#272b30');
-    $('.alert-info').css('background-color', '#00c5ff33', 'border-color', '#45f3ff', 'color', '#fff');
+    $('.alert-info').css('color', '#fff');
     $('.action').css('color', '#faed27');
     $('.messagesthing').css('background-color', 'rgba(0, 0, 0, 0.15)');
   } else {
@@ -2346,7 +2346,7 @@ function setUserCSS() {
     $('#motd').css('background-color', '');
     $('#motdwrap').css('background-color', '');
     $('#userlist').css('background-color', '');
-    $('.alert-info').css('background-color', '#00c5ff33', 'border-color', '#45f3ff', 'color', '');
+    $('.alert-info').css('color', '');
     $('.action').css('color', '');
     $('.messagesthing').css('background-color', '');
   }
