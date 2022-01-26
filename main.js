@@ -2335,7 +2335,7 @@ function setUserCSS() {
     $('#motd').css('background-color', '#272b30');
     $('#motdwrap').css('background-color', '#272b30');
     $('#userlist').css('background-color', '#272b30');
-    $('.messagesthing').css('color', 'rgba(0, 0, 0, 0.15)');
+   // $('.messagesthing').css('color', 'rgba(0, 0, 0, 0.15)');
   } else {
     $('body').css('background-color', '');
     $('.queue_entry').css('background-color', '');
@@ -2344,7 +2344,7 @@ function setUserCSS() {
     $('#motd').css('background-color', '');
     $('#motdwrap').css('background-color', '');
     $('#userlist').css('background-color', '');
-    $('.messagesthing').css('background-color', '');
+ //   $('.messagesthing').css('background-color', '');
   }
 }
 
