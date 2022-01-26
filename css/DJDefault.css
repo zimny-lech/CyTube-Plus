@@ -346,7 +346,7 @@
 		background-color: #3e79fd;
 	}
 	
-	.profile-box{margin-left:-10vw;width:15vw}
+	.profile-box{margin-left:-10vw;width:auto}
 	
 	.server-msg-disconnect{border:1px solid #F00!important}
 	.server-msg-reconnect{border:1px solid #0F0!important}
