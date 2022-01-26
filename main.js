@@ -2335,7 +2335,8 @@ function setUserCSS() {
     $('#motd').css('background-color', '#272b30');
     $('#motdwrap').css('background-color', '#272b30');
     $('#userlist').css('background-color', '#272b30');
-    $('.messagesthing').css('background-color', 'rgba(0, 0, 0, 0.15)');
+    $('.action').css('background-color', '#272b30');
+    $('.messagesthing').css('color', '#faed27');
   } else {
     $('body').css('background-color', '');
     $('.queue_entry').css('background-color', '');
