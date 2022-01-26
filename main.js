@@ -2594,7 +2594,7 @@ function showChatHelp() {
           'displaying number memes used by user in all messages (<i>!memestats</i>)',
       'discord': 'link to the CyDJ discord (<i>!discord</i>)',
       'link': 'post a TinyURL link for this room (<i>!link</i>)',
-      'randomemote': 'displays a random emote from the emote list',
+      'randomemote': 'displays a random emote from the emote list(<i>!randomemote</i>)',
     };
     if (UI_ChannelDatabase) {
       arr['random'] = 'adding random link from database (<i>!random</i>)';
