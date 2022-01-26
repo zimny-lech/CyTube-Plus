@@ -2348,9 +2348,14 @@ function setUserCSS() {
   }
 }
 
-if (USERTHEME === '/css/themes/light.css', '/css/themes/bootstrap.css') {
+if (USERTHEME === '/css/themes/light.css') {
   $('.action').css('color', '');
 }
+
+if (USERTHEME === '/css/themes/bootstrap.css') {
+  $('.action').css('color', '');
+}
+
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- UI events functions ----- */
