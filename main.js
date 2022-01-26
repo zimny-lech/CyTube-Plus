@@ -218,8 +218,7 @@ const MessagesSuffix_Percentage = 10;
 const CustomPingSound_URL =
     'https://github.com/papertek/CyDJ/raw/beta/misc/pingsound.wav';
 
-const PlayerHiding_URL =
-       'https://c.tenor.com/Q6UjBrnSzvQAAAAC/anime-uh.gif';
+const PlayerHiding_URL = 'https://c.tenor.com/Q6UjBrnSzvQAAAAC/anime-uh.gif';
 
 const GroupEmotes_Number = 100;
 
@@ -1137,10 +1136,7 @@ if (UI_DefaultSynchtube) {
   defqueue = 'right';
 }
 
-const DEFTHEME =
-    (UI_ChannelTheme &&
-     ChannelThemeURL !=
-         '') ?
+const DEFTHEME = (UI_ChannelTheme && ChannelThemeURL != '') ?
     ChannelThemeURL :
     '/css/themes/slate.css';
 
@@ -1236,8 +1232,8 @@ const IMBA =
     new Audio('https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg');
 const DROPIT =
     new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/dropit.wav');
-const FASTEST =
-    new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/fastestcrashegg.wav');
+const FASTEST = new Audio(
+    'https://github.com/papertek/CyDJ/raw/beta/misc/fastestcrashegg.wav');
 const HEY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/hey.wav');
 const NAY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/nay.wav');
 CHATSOUND.volume = 0.4;
@@ -1783,9 +1779,9 @@ function prepareMessage(msg) {
     }
   }
 
-  if (UI_UserCommands && msg.indexOf('!') == 0) {
+  if (UI_UserCommands && msg.startsWith('!')) {
     COMMAND = true;
-    if (msg.indexOf('!stat') == 0) {
+    if (msg.startsWith('!stat')) {
       num = CHATSTAT['n'];
       len = CHATSTAT['l'];
       if (num > 0) {
@@ -1800,13 +1796,13 @@ function prepareMessage(msg) {
       msg = `you have sent ${num} message${a}, ` +
           `total length is ${len} character${b} (${avg} per message), ` +
           `random message: ${CHATSTAT['m'][rnd]}`;
-    } else if (msg.indexOf('!memestats') == 0) {
+    } else if (msg.startsWith('!memestats')) {
       num = CHATSTAT['n'];
       len = Memes_Array.length;
       mem = 0;
       for (i = 0; i < num; i++) {
         for (j = 0; j < len; j++) {
-          if (CHATSTAT['m'][i].indexOf(Memes_Array[j]) > -1) {
+          if (CHATSTAT['m'][i].includes(Memes_Array[j])) {
             mem++;
           }
         }
@@ -1818,17 +1814,17 @@ function prepareMessage(msg) {
       } else {
         msg = 'error: no defined memes';
       }
-    } else if (msg.indexOf('!pick ') == 0) {
+    } else if (msg.startsWith('!pick ')) {
       arr = msg.split('!pick ')[1].split(',');
       rnd = Math.round(Math.random() * (arr.length - 1));
       msg = arr[rnd];
-    } else if (msg.indexOf('!ask ') == 0) {
+    } else if (msg.startsWith('!ask ')) {
       if (AskAnswers_Array.length < 1) {
         AskAnswers_Array = ['yes', 'no'];
       }
       rnd = a = Math.round(Math.random() * (AskAnswers_Array.length - 1));
       msg = AskAnswers_Array[rnd];
-    } else if (msg.indexOf('!time') == 0) {
+    } else if (msg.startsWith('!time')) {
       let h = new Date().getHours();
       if (h < 10) {
         h = '0' + h;
@@ -1838,10 +1834,10 @@ function prepareMessage(msg) {
         m = '0' + m;
       }
       msg = 'current time: ' + h + ':' + m;
-    } else if (msg.indexOf('!dice') == 0) {
+    } else if (msg.startsWith('!dice')) {
       rnd = Math.round(Math.random() * 5) + 1;
       msg = '' + rnd;
-    } else if (msg.indexOf('!roll') == 0) {
+    } else if (msg.startsWith('!roll')) {
       let rnd = Math.round(Math.random() * 999);
       if (rnd < 100) {
         rnd = '0' + rnd;
@@ -1850,13 +1846,19 @@ function prepareMessage(msg) {
         rnd = '0' + rnd;
       }
       msg = '' + rnd;
-    } else if (msg.indexOf('!q') == 0) {
+    } else if (msg.startsWith('!q')) {
       if (RandomQuotes_Array.length < 1) {
         RandomQuotes_Array = ['error: no quotes available'];
       }
       rnd = Math.round(Math.random() * (RandomQuotes_Array.length - 1));
       msg = RandomQuotes_Array[rnd];
-    } else if (msg.indexOf('!random') == 0 && hasPermission('playlistadd')) {
+    } else if (msg.startsWith('!randomemote')) {
+      const emoteCount = TabCompletionEmotes.length;
+      const randomEmoteIndex =
+          Math.min(Math.round(Math.random() * emoteCount), emoteCount - 1);
+      const randomEmote = TabCompletionEmotes[randomEmoteIndex];
+      msg = randomEmote;
+    } else if (msg.startsWith('!random') && hasPermission('playlistadd')) {
       if (UI_ChannelDatabase) {
         let link = '';
         while (link === '' || link.includes(LAST_VIDEO_ID_QUEUED)) {
@@ -1873,24 +1875,16 @@ function prepareMessage(msg) {
         });
         msg = `random media added! - ${title}`;
       }
-      /* } else if (msg.indexOf('!blocked') == 0) {
-        if (CLIENT.rank >= 2) {
-          msg = 'testing 1 2 3 ig';
-        } else {
-          msg =
-              'You do not have permission to use this command! Please contact an
-        admin to use this command.';
-        }*/
-    } else if (msg.indexOf('!calc ') == 0) {
+    } else if (msg.startsWith('!calc ')) {
       func = msg.split('!calc ');
       msg = '' + eval(func[0]);
-    } else if (msg.indexOf('!skip') == 0 && hasPermission('voteskip')) {
+    } else if (msg.startsWith('!skip') && hasPermission('voteskip')) {
       socket.emit('voteskip');
       msg = 'current item has been voteskipped';
-    } else if (msg.indexOf('!next') == 0 && hasPermission('playlistjump')) {
+    } else if (msg.startsWith('!next') && hasPermission('playlistjump')) {
       socket.emit('playNext');
       msg = 'start playing next item';
-    } else if (msg.indexOf('!bump') == 0 && hasPermission('playlistmove')) {
+    } else if (msg.startsWith('!bump') && hasPermission('playlistmove')) {
       last = $('#queue').children().length;
       uid = $(`#queue .queue_entry:nth-child(${last})`).data('uid');
       title = $(`#queue .queue_entry:nth-child(${last}) .qe_title`).html();
@@ -1898,7 +1892,7 @@ function prepareMessage(msg) {
           'moveMedia', {from: uid, after: PL_CURRENT},
           $('.add-temp').prop('checked'));
       msg = `last item bumped as next: ${title}`;
-    } else if (msg.indexOf('!add ') == 0 && hasPermission('playlistadd')) {
+    } else if (msg.startsWith('!add ') && hasPermission('playlistadd')) {
       parsed = parseMediaLink(msg.split('!add ')[1]);
       if (parsed['id'] === null) {
         msg = 'error: invalid link, item has not been added';
@@ -1911,18 +1905,18 @@ function prepareMessage(msg) {
         });
         msg = 'media has been added!';
       }
-    } else if (msg.indexOf('!np') == 0) {
+    } else if (msg.startsWith('!np')) {
       msg = 'Now playing: ' + $('.queue_active a').html();
-    } else if (msg.indexOf('!CO ZJE TEH?') == 0) {
+    } else if (msg.startsWith('!CO ZJE TEH?')) {
       msg = 'TEH ZJE HUJ';
-    } else if (msg.indexOf('!discord') == 0) {
+    } else if (msg.startsWith('!discord')) {
       msg = 'https://discord.gg/g8tCGSc2bx';
-    } else if (msg.indexOf('!link') == 0) {
+    } else if (msg.startsWith('!link')) {
       msg = 'https://tinyurl.com/jamcydj';
-    } else if (msg.indexOf('!crash') == 0) {
+    } else if (msg.startsWith('!crash')) {
       msg = '[mqr] GOOOOOOO xqcTECHNO FEELSWAYTOOGOOD xqcDisco [/mqr]';
       fastestCrash();
-    } else if (msg.indexOf('!inba') == 0) {
+    } else if (msg.startsWith('!inba')) {
       IMBA.volume = 0.6;
       IMBA.play();
       mutePlayer();
@@ -2319,7 +2313,7 @@ function setUserCSS() {
       `<style id="chanexternalcss-fix" type="text/css">${cssfix}</style>`);
   $('#usertheme').attr('href', '/css/themes/slate.css');
   $('#usertheme-fix').remove();
-  if (USERTHEME.indexOf('/css/themes/') > -1) {
+  if (USERTHEME.includes('/css/themes/')) {
     $('#usertheme').attr('href', USERTHEME);
   } else {
     $('<link id="usertheme-fix" rel="stylesheet" type="text/css" href="' +
@@ -2335,12 +2329,14 @@ function setUserCSS() {
     $('body').css('background-color', '#141414');
     $('.queue_entry').css('background-color', '#3a3f44');
     $('.dropdown-menu').css('background-color', '#383E40');
-    $('.btn-default').css('background-image', 'linear-gradient(#3a3f44,#3a3f44 60%,#313539)');
+    $('.btn-default')
+        .css(
+            'background-image', 'linear-gradient(#3a3f44,#3a3f44 60%,#313539)');
     $('#motd').css('background-color', '#272b30');
     $('#motdwrap').css('background-color', '#272b30');
     $('#userlist').css('background-color', '#272b30');
     $('.messagesthing').css('background-color', 'rgba(0, 0, 0, 0.15)');
-  }  else {
+  } else {
     $('body').css('background-color', '');
     $('.queue_entry').css('background-color', '');
     $('.dropdown-menu').css('background-color', '');
@@ -3762,7 +3758,7 @@ if (UI_PublicSkip) {
     socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
     $('#voteskip').attr('disabled', true);
     naySound();
-});
+  });
 }
 
 // additional chat functions
@@ -4219,7 +4215,7 @@ if (UI_ChannelGalleries) {
             if (!GALLVIS && UI_ChannelCache &&
                 gallerywrap.css('display') != 'none') {
               iframe = document.getElementById('galleryFrame');
-              if (iframe.src.indexOf('imgur.com') > -1) {
+              if (iframe.src.includes('imgur.com')) {
                 iframe.src = iframe.src;
               }
             }
@@ -4933,7 +4929,7 @@ addChatMessage = (data) => {
   if (UI_SoundFilters && VOICES &&
       (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
     for (i in SoundFilters_Array) {
-      if (data.msg.indexOf(i) > -1) {
+      if (data.msg.includes(i)) {
         aud = new Audio(SoundFilters_Array[i]);
         aud.volume = SOUNDSVALUES[SOUNDSLVL];
         aud.play();
@@ -4943,12 +4939,12 @@ addChatMessage = (data) => {
   if (UI_ChatSpeak && VOICES &&
       (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
     msg = getText(data.msg);
-    if (msg.indexOf('!mow ') >= 0) {
+    if (msg.includes('!mow ')) {
       str = msg.split('!mow ');
       aud = new Audio(`${SPEAKLINK}?lang=polish&text=${encodeURI(str[1])}`);
       aud.volume = SOUNDSVALUES[SOUNDSLVL];
       aud.play();
-    } else if (msg.indexOf('!say ') >= 0) {
+    } else if (msg.includes('!say ')) {
       str = msg.split('!say ');
       aud = new Audio(`${SPEAKLINK}?lang=english&text=${encodeURI(str[1])}`);
       aud.volume = SOUNDSVALUES[SOUNDSLVL];
@@ -4985,11 +4981,11 @@ $('#chatline').on('keydown', (ev) => {
       } else if (USEROPTS.modhat && CLIENT.rank >= Rank.Moderator) {
         meta.modflair = CLIENT.rank;
       }
-      if (CLIENT.rank >= 2 && msg.indexOf('/m ') === 0) {
+      if (CLIENT.rank >= 2 && msg.startsWith('/m ')) {
         meta.modflair = CLIENT.rank;
         msg = msg.substring(3);
       }
-      if (msg.indexOf('/say') === 0) {
+      if (msg.startsWith('/say')) {
         meta.addClass = 'shout';
         meta.forceShowName = true;
         meta.addClassToNameAndTimestamp = true;
@@ -5279,7 +5275,7 @@ if (!CHAT_INIT) {
   socket.on('chatMsg', (obj) => {
     const mb = document.getElementById('messagebuffer');
     if (mb && mb.lastChild &&
-        $(mb.lastChild).attr('class').indexOf('chat-msg-') === 0 &&
+        $(mb.lastChild).attr('class').startsWith('chat-msg-') &&
         !obj.meta.shadow) {
       CHAT_BACKGROUND = !CHAT_BACKGROUND;
       mb.lastChild.classList.add('messagesthing');
@@ -5295,7 +5291,7 @@ if (!CHAT_INIT) {
     }, 250);
     emoteHoverAll();
     if (CLIENT.name && obj.username !== CLIENT.name &&
-        obj.msg.toLowerCase().indexOf(CLIENT.name.toLowerCase()) !== -1 &&
+        obj.msg.toLowerCase().includes(CLIENT.name.toLowerCase()) &&
         !obj.meta.shadow && obj.username !== '[server]') {
       audioFeedback();
     }
@@ -5332,11 +5328,13 @@ if (!CHAT_INIT) {
     let line;
     for (let i = 0; i < mbDiv.length; i++) {
       if (mbDiv && (line = $(mbDiv[i]))[0] &&
-          line.attr('class').indexOf('chat-msg-') === 0) {
+          line.attr('class').startsWith('chat-msg-')) {
         CHAT_BACKGROUND = !CHAT_BACKGROUND;
         const color =
             CHAT_BACKGROUND ? CHAT_BACKGROUND_LIGHT : CHAT_BACKGROUND_DARK;
-        $(mbDiv[i]).attr('style', `background-color:${color};`).addClass('messagesthing');
+        $(mbDiv[i])
+            .attr('style', `background-color:${color};`)
+            .addClass('messagesthing');
       }
     }
   })();
@@ -5358,28 +5356,27 @@ if (!CSS_INIT) {
   $('head #chancss2').html(CSS_RAW);
 }
 
-let TabCompletionEmotes;
-let TabCompletion = {};
+const /** @type {!Array<string>} */ TabCompletionEmotes = [];
+const TabCompletion = {
+  last: '',
+  matches: [],
+};
 
 function tabCompletionRefresh() {
-  emotes = window.CHANNEL.emotes;
-  TabCompletionEmotes = [];
-  for (let i = 0; i < emotes.length; i++) {
-    TabCompletionEmotes.push(emotes[i].name);
+  while (TabCompletionEmotes.length > 0) {
+    TabCompletionEmotes.pop();
   }
-  TabCompletionEmotes = TabCompletionEmotes.sort();
+  for (const emote of window.CHANNEL.emotes) {
+    TabCompletionEmotes.push(emote.name);
+  }
+  TabCompletionEmotes.sort();
 }
 
-if (TabCompletionEmotes === undefined) {
-  tabCompletionRefresh();
-  socket.on('emoteList', tabCompletionRefresh);
-  socket.on('updateEmote', tabCompletionRefresh);
-  socket.on('removeEmote', tabCompletionRefresh);
-  TabCompletion = {
-    last: '',
-    matches: [],
-  };
-}
+tabCompletionRefresh();
+socket.on('emoteList', tabCompletionRefresh);
+socket.on('updateEmote', tabCompletionRefresh);
+socket.on('removeEmote', tabCompletionRefresh);
+
 function chatTabComplete() {
   const match = /(.*?) *$/.exec($('#chatline').val());
   if (match === null || match[1] === '') {
@@ -5402,9 +5399,9 @@ function chatTabComplete() {
     return;
   }
   let matches = TabCompletionEmotes.filter(
-      (str) => str.toLowerCase().indexOf(current) === 0);
+      (str) => str.toLowerCase().startsWith(current));
   matches = matches.concat(
-      usersWithCap.filter((str) => str.toLowerCase().indexOf(current) === 0)
+      usersWithCap.filter((str) => str.toLowerCase().startsWith(current))
           .map((str) => words.length === 1 ? str + ':' : str));
   if (matches.length === 0) {
     return;
@@ -5819,25 +5816,14 @@ $('#fullscreenbtn').on('click', function() {
   const elem = document.querySelector('#videowrap .embed-responsive');
   // this shit is why frontend web development sucks
   const fn = elem.requestFullscreen ||
-      elem.mozRequestFullScreen || // Mozilla has to be different and use a capital 'S'
-      elem.webkitRequestFullscreen ||
-      elem.msRequestFullscreen;
+      elem.mozRequestFullScreen ||  // Mozilla has to be different and use a
+                                    // capital 'S'
+      elem.webkitRequestFullscreen || elem.msRequestFullscreen;
 
   if (fn) {
-      fn.call(elem);
+    fn.call(elem);
   }
 });
-
-// Add random emote function for dumb command lawl
-
-const emoteCount = TabCompletionEmotes.length;
-const randomEmoteIndex = Math.min(Math.round(Math.random() * emoteCount), emoteCount - 1);
-const randomEmote = TabCompletionEmotes[randomEmoteIndex];
-
-if (UI_UserCommands && msg.indexOf('!randomemote') == 0) {
-  COMMAND = true;
-  socket.emit('chatMsg', {msg: randomEmote});
-}
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
