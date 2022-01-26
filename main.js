@@ -120,7 +120,7 @@ const UI_ChannelGalleries = false;
 // selector with player display modes
 const UI_DisplayModeSel = true;
 // [&] additional default channel theme
-const UI_ChannelTheme = false;
+const UI_ChannelTheme = true;
 // [&] possibility to embedding (displaying) images and .webm videos on the chat
 const UI_EmbeddingMedia = true;
 // embedded video preloaded controls
@@ -2325,7 +2325,7 @@ function setUserCSS() {
     $('head').append(
         `<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`);
   }
-  if (USERTHEME === '/css/themes/slate.css') {
+  if (USERTHEME === 'https://papertek.github.io/CyDJ/deploy/main/css/DJDefault.css') {
     $('body').css('background-color', '#141414');
     $('.queue_entry').css('background-color', '#3a3f44');
     $('.dropdown-menu').css('background-color', '#383E40');
