@@ -744,9 +744,9 @@ const ModPanel_Array = [
 ];
 
 const CustomCaptions_Array = {
-  'add': 'Add here',
-  'refresh': 'Refresh player',
-  'voteskip': 'Voteskip',
+  'add': 'Add',
+  'refresh': 'Refresh',
+  'voteskip': 'Skip',
   'welcome': 'Hi',
 };
 
