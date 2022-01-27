@@ -3952,7 +3952,7 @@ if (UI_RateButtons) {
   Hey =
       $('<button id="hey-btn" class="btn btn-sm btn-default" title="Woot!" />')
           .html('<i class="glyphicon glyphicon-headphones"></i>')
-          .appendTo(chatcontrols)
+          .appendTo(transcontrols)
           .on('click', () => {
             socket.emit('chatMsg', {msg: '/afk'});
             socket.emit('chatMsg', {msg: '[lime]Woot![/] PepePls'});
@@ -3965,7 +3965,7 @@ if (UI_RateButtons) {
   Nay =
       $('<button id="nay-btn" class="btn btn-sm btn-default" title="Meh.. (Voteskip)" />')
           .html('<i class="glyphicon glyphicon-thumbs-down"></i>')
-          .appendTo(chatcontrols)
+          .appendTo(transcontrols)
           .on('click', () => {
             socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
             socket.emit('voteskip');
