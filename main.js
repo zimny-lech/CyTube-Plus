@@ -203,7 +203,7 @@ const RulesBtn_Caption = 'Read Channel Rules';
 const AttentionBar_URL =
     'https://media.discordapp.net/attachments/899888900611375184/901603644502331412/unknown.png';
 
-const ChannelAnnouncement_Title = 'Staff Message';
+const ChannelAnnouncement_Title = 'CyDJ Alert';
 
 const TitleIcon_URL = 'https://cdn.7tv.app/emote/6040a8bccf6746000db10348/2x';
 
@@ -774,7 +774,7 @@ const RulesBtn_HTML =
     '<ol><li>You want to write on the chat? Enter temporary nickname into <b>Guest Login</b> input and click enter.</li><li>You want to register a nick? Click <b>Account -> Profile</b> on the top of the channel, and fill the registration form. You don\'t need an email to register.</li><li>Troll skipping = immediate kick.</li><li>Do not disobey staff members.</li><li>Do not one man spam.</li><li>Do not encourage chat wars or harass/target people.</li><li>Queueing blatant NSFW videos such as porn/hentai/gore is strictly not allowed, doing so will result in an ip ban.</li><li>Queuing the same video but in different link variants is not allowed.</li><li>Mods have the right to skip a video if its overplayed.</li><li><b>These rules are subject to common sense.</b></li></ol>';
 
 const ChannelAnnouncement_HTML =
-    'Welcome chatters to CyDJ! We are finally getting close to the real deal! But this is only a pre-release. TODO: New fonts, updated logo, cleanup.';
+    'Welcome chatters to CyDJ! We are finally getting close to the real deal! But this is only a pre-release, many enhancements and bug fixes are to be resolved. The main agenda are new fonts, updated logo, and code cleanup.';
 
 const EmbeddingMedia_Images =
     'a[href$=".jpg"], a[href$=".jpg:large"], a[href$=".jpeg"], a[href$=".JPG"], a[href$=".png"], a[href$=".tiff"], a[href$=".gif"]';
