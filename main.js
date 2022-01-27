@@ -3462,7 +3462,7 @@ $('#playercontrols').append($('#mediarefresh').detach());
 $('#rightpane').prepend($('#videocontrols').detach());
 $('#rightpane').prepend($('#plcontrol').detach());
 $('#leftpane').prepend($('#newpollbtn').detach());
-$('#chatwrap').prepend($('#emotelistbtn').detach());
+$('#leftpane').prepend($('#emotelistbtn').detach());
 $('#plcontrol').prepend($('#showmediaurl').detach());
 
 // header and footer links open in a new tab
