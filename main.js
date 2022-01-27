@@ -3462,7 +3462,7 @@ $('#playercontrols').append($('#mediarefresh').detach());
 $('#rightpane').prepend($('#videocontrols').detach());
 $('#rightpane').prepend($('#plcontrol').detach());
 $('#leftpane').prepend($('#newpollbtn').detach());
-// $('#leftpane').prepend($('#emotelistbtn').detach());
+$('#leftpane').prepend($('#emotelistbtn').detach());
 $('#plcontrol').prepend($('#showmediaurl').detach());
 
 // header and footer links open in a new tab
@@ -3947,8 +3947,9 @@ if (UI_ModPanel) {
   toggleModPanel();
 }
 
-// adding hey thing
 if (UI_RateButtons) {
+  transcontrols = $('<div id="transcontrols" class="btn-group pull-right" />')
+                      .appendTo('#videowrap');
   Hey =
       $('<button id="hey-btn" class="btn btn-sm btn-default" title="Woot!" />')
           .html('<i class="glyphicon glyphicon-headphones"></i>')
@@ -3958,10 +3959,6 @@ if (UI_RateButtons) {
             socket.emit('chatMsg', {msg: '[lime]Woot![/] PepePls'});
             heySound();
           });
-}
-
-// adding nay thing
-if (UI_RateButtons) {
   Nay =
       $('<button id="nay-btn" class="btn btn-sm btn-default" title="Meh.. (Voteskip)" />')
           .html('<i class="glyphicon glyphicon-thumbs-down"></i>')
