@@ -3947,6 +3947,7 @@ if (UI_ModPanel) {
   toggleModPanel();
 }
 
+// adding hey nay thing
 if (UI_RateButtons) {
   transcontrols = $('<div id="transcontrols" class="btn-group pull-right" />')
                       .appendTo('#videowrap');
