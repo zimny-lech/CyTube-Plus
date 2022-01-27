@@ -112,7 +112,7 @@ const UI_CustomCaptions = false;
 // [&] additional player options
 const UI_PlayerOptions = true;
 // player transformation buttons
-const UI_TransformationBtns = true;
+const UI_TransformationBtns = false;
 // [&] box with embed additional media database
 const UI_ChannelDatabase = true;
 // [&] box with embed galleries
