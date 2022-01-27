@@ -159,6 +159,8 @@ const UI_RateButtons = true;
 const UI_SpecialEmoteBtn = true;
 // adds public voteskipping
 const UI_PublicSkip = true;
+// adds "add" test to help new users
+const UI_OnlyAdd = true;
 // adds snow (just an attempt on adding, i dont rly know how to make it work)
 const UI_Snow = false;
 
@@ -3612,6 +3614,10 @@ if (UI_CustomCaptions) {
     socket.on('login', changeWelcomeText);
     changeWelcomeText();
   }
+}
+
+if (UI_OnlyAdd) {
+  $('#showmediaurl').html('Add');
 }
 
 // deleting previous MOTD
