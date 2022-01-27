@@ -156,7 +156,7 @@ const UI_Version = true;
 // adds hey and nay
 const UI_RateButtons = true;
 // moves emote list button
-const UI_MoveEmotesBtn = true;
+const UI_SpecialEmoteBtn = true;
 // adds public voteskipping
 const UI_PublicSkip = true;
 // adds snow (just an attempt on adding, i dont rly know how to make it work)
@@ -3827,8 +3827,8 @@ if (UI_EmotesBtn) {
 }
 
 // moving emote button attempt
-if (UI_MoveEmotesBtn) {
-$('#emotelistbtn').appendTo(chatcontrols);
+if (UI_SpecialEmoteBtn) {
+$('#emotelistbtn').appendTo(chatcontrols).text('Emotes');
 }
 
 // adding chat commands button
