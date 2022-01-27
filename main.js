@@ -3617,7 +3617,7 @@ if (UI_CustomCaptions) {
 }
 
 if (UI_OnlyAdd) {
-  $('#showmediaurl').html('Add <i class="glyphicon glyphicon-plus"></i>');
+  $('#showmediaurl').html('<i class="glyphicon glyphicon-plus"></i> Add');
 }
 
 // deleting previous MOTD
