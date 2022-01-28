@@ -2733,7 +2733,7 @@ function showModPanel() {
 function showInfo() {
   if (DEFDESCR) {
     const arr = [];
-    text = '// UP NEXT ON PLAYLIST: //';
+    text = '// NEXT ON QUEUE: //';
     li1 = $('.queue_active').next();
     li2 = li1.next();
     li3 = li2.next();
@@ -2768,10 +2768,10 @@ function showInfo() {
     }
     text += arr.join('');
     if (arr.length < 8) {
-      text += ' // END OF PLAYLIST //';
+      text += ' // END OF QUEUE //';
     }
     if (arr.length > 7) {
-      text += ' // AND MORE! //';
+      text += ' // PLUS MORE! //';
     }
     mediainfo.html(`<marquee scrollamount="7.5">${text}</marquee>`);
   } else {
