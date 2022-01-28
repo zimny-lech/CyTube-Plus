@@ -3618,7 +3618,7 @@ if (UI_CustomCaptions) {
 
 if (UI_ExtraHelp) {
   $('#showmediaurl').html('<i class="glyphicon glyphicon-plus"></i> Add');
-  $('#voteskip').html('<i class="glyphicon glyphicon-step-forward"></i> Skip');
+//  $('#voteskip').html('<i class="glyphicon glyphicon-step-forward"></i> Skip');
 }
 
 // deleting previous MOTD
