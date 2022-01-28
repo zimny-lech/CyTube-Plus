@@ -160,7 +160,7 @@ const UI_SpecialEmoteBtn = true;
 // adds public voteskipping
 const UI_PublicSkip = true;
 // adds "add" test to help new users
-const UI_OnlyAdd = true;
+const UI_ExtraHelp = true;
 // adds snow (just an attempt on adding, i dont rly know how to make it work)
 const UI_Snow = false;
 
@@ -3616,8 +3616,9 @@ if (UI_CustomCaptions) {
   }
 }
 
-if (UI_OnlyAdd) {
+if (UI_ExtraHelp) {
   $('#showmediaurl').html('<i class="glyphicon glyphicon-plus"></i> Add');
+  $('#voteskip').html('<i class="glyphicon glyphicon-step-forward"></i> Voteskip');
 }
 
 // deleting previous MOTD
