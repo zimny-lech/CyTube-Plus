@@ -3835,12 +3835,12 @@ if (UI_EmotesBtn) {
 
 // moving emote button attempt
 if (UI_SpecialEmoteBtn) {
-$('#emotelistbtn').appendTo(chatcontrols).text('Emotes');
+$('#emotelistbtn').appendTo(chatcontrols).text('Emotes').title('List of emotes');
 }
 
 // adding chat commands button
 if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
-  chathelpbtn = $('<button id="chathelp-btn" class="btn btn-sm btn-default" />')
+  chathelpbtn = $('<button id="chathelp-btn" class="btn btn-sm btn-default" title="Show chat commands"/>')
                     .text('Chat Commands')
                     .appendTo(chatcontrols)
                     .on('click', () => showChatHelp());
