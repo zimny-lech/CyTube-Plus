@@ -1465,9 +1465,9 @@ function setLayout() {
  * Fit player height.
  */
 function fitPlayer() {
-  VW = $('#videowrap').width() + '';
-  VH = Math.floor(parseInt(VW) * 9 / 16 + 1) + '';
-  $('#ytapiplayer').width(VW).height(VH);
+  const videoWidth = $('#videowrap').width();
+  const videoHeight = Math.floor(parseInt(videoWidth) * 9 / 16 + 1);
+  $('#ytapiplayer').width(videoWidth).height(videoHeight);
 }
 
 /**
@@ -1523,7 +1523,7 @@ function setMode(a) {
     modesel.find('option[value=\'chMode\']').hide();
   }
 
-  if (a == 'syMode') {
+  if (a === 'syMode') {
     $('#videowrap, #videowrap p, #videowrap div, #chatwrap, #rightpane, #pinup-btn')
         .show();
     $('#config-btn, #configbtnwrap br, #pinup-btn').show();
@@ -1589,7 +1589,7 @@ function setMode(a) {
  */
 function setModeAfterVideoChange() {
   m = modesel.val();
-  if (m == 'syMode' || m == 'chMode' || m == 'rMode') {
+  if (m === 'syMode' || m === 'chMode' || m === 'rMode') {
     setMode(m);
   }
 }
@@ -2333,11 +2333,13 @@ function setUserCSS() {
     $('body').css('background-color', '#141414');
     $('.queue_entry').css('background-color', '#3a3f44');
     $('.dropdown-menu').css('background-color', '#383E40');
-    $('.btn-default').css('background-image', 'linear-gradient(#3a3f44,#3a3f44 60%,#313539)');
+    $('.btn-default')
+        .css(
+            'background-image', 'linear-gradient(#3a3f44,#3a3f44 60%,#313539)');
     $('#motd').css('background-color', '#272b30');
     $('#motdwrap').css('background-color', '#272b30');
     $('#userlist').css('background-color', '#272b30');
-   // $('.messagesthing').css('color', 'rgba(0, 0, 0, 0.15)');
+    // $('.messagesthing').css('color', 'rgba(0, 0, 0, 0.15)');
   } else {
     $('body').css('background-color', '');
     $('.queue_entry').css('background-color', '');
@@ -2346,7 +2348,7 @@ function setUserCSS() {
     $('#motd').css('background-color', '');
     $('#motdwrap').css('background-color', '');
     $('#userlist').css('background-color', '');
- //   $('.messagesthing').css('background-color', '');
+    //   $('.messagesthing').css('background-color', '');
   }
 }
 
@@ -2596,7 +2598,8 @@ function showChatHelp() {
           'displaying number memes used by user in all messages (<i>!memestats</i>)',
       'discord': 'link to the CyDJ discord (<i>!discord</i>)',
       'link': 'post a TinyURL link for this room (<i>!link</i>)',
-      'randomemote': 'displays a random emote from the emote list (<i>!randomemote</i>)',
+      'randomemote':
+          'displays a random emote from the emote list (<i>!randomemote</i>)',
     };
     if (UI_ChannelDatabase) {
       arr['random'] = 'adding random link from database (<i>!random</i>)';
@@ -3618,7 +3621,8 @@ if (UI_CustomCaptions) {
 
 if (UI_ExtraHelp) {
   $('#showmediaurl').html('<i class="glyphicon glyphicon-plus"></i> Add');
-//  $('#voteskip').html('<i class="glyphicon glyphicon-step-forward"></i> Skip');
+  //  $('#voteskip').html('<i class="glyphicon glyphicon-step-forward"></i>
+  //  Skip');
 }
 
 // deleting previous MOTD
@@ -3835,15 +3839,16 @@ if (UI_EmotesBtn) {
 
 // moving emote button attempt
 if (UI_SpecialEmoteBtn) {
-$('#emotelistbtn').appendTo(chatcontrols).text('Emotes');
+  $('#emotelistbtn').appendTo(chatcontrols).text('Emotes');
 }
 
 // adding chat commands button
 if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
-  chathelpbtn = $('<button id="chathelp-btn" class="btn btn-sm btn-default" title="Show chat commands"/>')
-                    .text('Chat Commands')
-                    .appendTo(chatcontrols)
-                    .on('click', () => showChatHelp());
+  chathelpbtn =
+      $('<button id="chathelp-btn" class="btn btn-sm btn-default" title="Show chat commands"/>')
+          .text('Chat Commands')
+          .appendTo(chatcontrols)
+          .on('click', () => showChatHelp());
 }
 
 // adding the stupid context button to show up
@@ -5165,15 +5170,11 @@ socket.on('chatMsg', fixSayMsg);
  * DEV NOTE: this is extended function from CyTube "util.js" file
  */
 function resizeStuff() {
-  VWIDTH = $('#videowrap').width() + '';
-  VHEIGHT = Math.floor(parseInt(VWIDTH) * 9 / 16 + 1) + '';
-  $('#ytapiplayer').width(VWIDTH).height(VHEIGHT);
+  const videoWidth = $('.embed-responsive').width();
+  const videoHeight = Math.floor(parseInt(videoWidth) * 9 / 16 + 1);
+  $('#ytapiplayer').width(videoWidth).height(videoHeight);
 
-  if (!$('body').hasClass('fluid')) {
-    $('body').removeClass('fluid');
-  }
-
-  const h = parseInt(VHEIGHT) - $('#chatline').outerHeight() - 1;
+  const h = videoHeight - $('#chatline').outerHeight() - 1;
   $('#messagebuffer').height(h);
   $('#userlist').height(h);
 
@@ -5181,7 +5182,7 @@ function resizeStuff() {
     m = modesel.val();
 
     // patches for various display modes
-    if (m == 'chMode' || m == 'rMode') {
+    if (m === 'chMode' || m === 'rMode') {
       if (WEBKIT) {
         $('#videowrap').hide();
       } else {
@@ -5189,7 +5190,7 @@ function resizeStuff() {
         $('#ytapiplayer').width(1).height(1);
       }
       fitChat('auto');
-    } else if (m == 'syMode' && USERCONFIG.player == 'center') {
+    } else if (m === 'syMode' && USERCONFIG.player === 'center') {
       fitChat(200);
     }
   }
@@ -5197,8 +5198,8 @@ function resizeStuff() {
 
 // bind new resizing function
 
-$(window).unbind('resize');
-$(window).resize(resizeStuff);
+$(window).off('resize', '**');
+$(window).on('resize', resizeStuff);
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -5821,19 +5822,22 @@ function fixRawVideoControls() {
 socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
 
+// (() => {
+//   const videoWrap = document.getElementById('videowrap');
+//   videoWrap.style.maxWidth = '';
+// })();
 
-$('#fullscreenbtn').on('click', function() {
-  const elem = document.querySelector('#videowrap .embed-responsive');
-  // this shit is why frontend web development sucks
-  const fn = elem.requestFullscreen ||
-      elem.mozRequestFullScreen ||  // Mozilla has to be different and use a
-                                    // capital 'S'
-      elem.webkitRequestFullscreen || elem.msRequestFullscreen;
+// (() => {
+//   const button = document.getElementById('fullscreenbtn');
+//   button.addEventListener('click', async () => {
+//     const /** @type {HTMLIFrameElement} */ videoPlayer =
+//         document.getElementsByClassName('.embed-responsive-item').item(0);
 
-  if (fn) {
-    fn.call(elem);
-  }
-});
+//     await videoPlayer.requestFullscreen();
+//     videoPlayer.style.width = '';
+//     videoPlayer.style.height = '';
+//   });
+// })();
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
