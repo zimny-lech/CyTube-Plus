@@ -3971,7 +3971,7 @@ if (UI_RateButtons) {
   transcontrols = $('<div id="transcontrols" class="btn-group pull-right" />')
                       .appendTo('#videowrap');
   Hey =
-      $('<button id="hey-btn" class="btn btn-sm btn-default" title="Woot!" />')
+      $('<button id="hey-btn" class="btn btn-sm btn-default" title="Woot! (Cancels Voteskip)" />')
           .html('<i class="glyphicon glyphicon-headphones"></i>')
           .appendTo(transcontrols)
           .on('click', () => {
