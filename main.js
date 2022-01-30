@@ -4160,7 +4160,7 @@ if (UI_FontsBtn) {
 
   for (const [i, font] of FontsArray.entries()) {
     $(`<button id="cbtn${i}" onclick="insertText('[${font[1]}]')" />`)
-        .addClass('btn btn-default')
+        .addClass('btn btn-primary')
         .attr('style', font[0])
         .text(font[2])
         .appendTo(fontsbtnwrap);
@@ -4173,7 +4173,7 @@ if (UI_FontsBtn) {
     unibtnwrap = $('<div id="unibtnwrap" />').appendTo(fontspanel);
     for (const char of UnicodeChars_Array) {
       btn = $(`<button onclick="insertText('${char}')" />`)
-                .addClass('btn btn-default')
+                .addClass('btn btn-primary')
                 .text(char)
                 .appendTo(unibtnwrap);
     }
