@@ -10,7 +10,7 @@ Introduction to CyDJ Pre-Release
 
 **Cytube changes:**
 
-- Added more badges (ipog)>
+- Added more badges (ipog)
 
 - Added a caption for queue button (john)
 
