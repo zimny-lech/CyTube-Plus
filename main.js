@@ -5227,7 +5227,7 @@ socket.on('rank', toggleAdvancedPl);
 setLayout();
 scrollChat();
 scrollQueue();
-resizeStuff();
+// resizeStuff();
 
 if (FLUID) {
   $('.container').removeClass('container').addClass('container-fluid');
@@ -5832,6 +5832,7 @@ socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
 
 socket.on('changeMedia', resizeStuff);
+socket.on('mediaUpdate', setUserCSS);
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
