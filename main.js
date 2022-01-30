@@ -5831,42 +5831,9 @@ function fixRawVideoControls() {
 }
 socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
+
 socket.on('changeMedia', resizeStuff);
 socket.on('mediaUpdate', resizeStuff);
-
-// (() => {
-//   const videoWrap = document.getElementById('videowrap');
-//   videoWrap.style.maxWidth = '';
-// })();
-
-// (() => {
-//   const button = document.getElementById('fullscreenbtn');
-//   button.addEventListener('click', async () => {
-//     const /** @type {HTMLIFrameElement} */ videoPlayer =
-//         document.getElementsByClassName('.embed-responsive-item').item(0);
-
-//     await videoPlayer.requestFullscreen();
-//     videoPlayer.style.width = '';
-//     videoPlayer.style.height = '';
-//   });
-// })();
-
-// (() => {
-//   const videoWrap = document.getElementById('videowrap');
-//   videoWrap.style.maxWidth = '';
-// })();
-
-// (() => {
-//   const button = document.getElementById('fullscreenbtn');
-//   button.addEventListener('click', async () => {
-//     const /** @type {HTMLIFrameElement} */ videoPlayer =
-//         document.getElementsByClassName('.embed-responsive-item').item(0);
-
-//     await videoPlayer.requestFullscreen();
-//     videoPlayer.style.width = '';
-//     videoPlayer.style.height = '';
-//   });
-// })();
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
