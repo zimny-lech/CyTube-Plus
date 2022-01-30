@@ -1858,8 +1858,7 @@ function prepareMessage(msg) {
       msg = RandomQuotes_Array[rnd];
     } else if (msg.startsWith('!randomemote')) {
       const emoteCount = TabCompletionEmotes.length;
-      const randomEmoteIndex =
-          Math.min(Math.round(Math.random() * emoteCount), emoteCount - 1);
+      const randomEmoteIndex = Math.round(Math.random() * emoteCount - 1);
       const randomEmote = TabCompletionEmotes[randomEmoteIndex];
       msg = randomEmote;
     } else if (msg.startsWith('!random') && hasPermission('playlistadd')) {
