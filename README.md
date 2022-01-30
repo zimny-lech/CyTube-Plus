@@ -4,6 +4,80 @@
 
 ## Updates
 
+Introduction to CyDJ Pre-Release
+
+### CyDJPre1.29.22.2
+
+**Cytube changes:**
+
+- Added more badges (ipog)>
+
+- Added a caption for queue button (john)
+
+- Added new embed types ".wav" ".mp3" ".ogg" ".m4a" (john)
+
+- Added a surprise (john)
+
+- Added new command "!randomemote" (airforce & john)
+
+- Added blue colors for normal users in chat (airforce)
+
+- Moved "Woot" and "Meh" buttons to be below the video player (john)
+
+- Moved "Emote List" to display under chat and renamed it to "Emotes" (john)
+
+- Updated the skip button to display who skips (similar to the "meh" button) (john)
+
+- Updated and added some tooltips for buttons (john)
+
+- Updated some scrolling text for song being played (john)
+
+- Updated !ask and meme functions to include more phrases (john)
+
+- Updated information dropdown (airforce & john)
+
+- Replace image of hiding video (airforce & john)
+
+- Fix "preview video" button from public playlists (john)
+
+- Fix a song title from public playlists interfering with scrolling (john)
+
+- Fix "contributors" list not working (airforce)
+
+- Fix various custom overlays being overwritten by new overlay (?)??
+
+- Fix fullscreen button not working correctly (airforce)
+
+- Fix unicode text buttons not displaying correctly (john)
+
+- Fix the "dismiss" button when new people join and enable the script (airforce)
+
+- Fix party button and !inba from causing the background to infinitely loop colors (airforce)
+
+- Fixed chat being too small and scuffed (john)
+
+- Fix font buttons not displaying colors correctly (john)
+
+- Enhance some sound mastering and updated "Meh" sound (john)
+
+- Removed various buttons that were outdated or not popular (john)>
+
+**Code quality:**
+
+- Migrated some sounds and images from Discord to GitHub (john)
+
+- Include “#mainpage” and “#wrap” for the party button and inba (airforce)
+
+- Added new custom theme (unused) (john)
+
+- Rewrote "contributors" code (airforce)
+
+- Rework message offets in attempt for fix chat colors (airforce)
+
+- Cleaned up “TabCompletionRefresh” code (airforce)
+
+- Formatted code some more (airforce)
+
 ### CyDJBeta1.1.22.0
 
 **Cytube changes:**
