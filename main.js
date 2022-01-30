@@ -531,7 +531,8 @@ const USER_BADGES = {
     'https://cdn.discordapp.com/attachments/915656975696687124/916100799233425548/VIP.png',
   ],
   'n3r1': [
-    Badge.SUB_18_MONTHS_T1,
+    Badge.SUB_24_MONTHS_T1,
+    'https://cdn.discordapp.com/attachments/915650094697693184/931998299181949029/ezgif.com-gif-maker_1.gif',
   ],
   'notjuham': [
     Badge.SUB_30_MONTHS_T1,
@@ -578,7 +579,7 @@ const USER_BADGES = {
     Badge.SUB_6_MONTHS_T1,
   ],
   'l_charles_l': [
-    Badge.SUB_3_MONTHS_T1,
+    Badge.SUB_6_MONTHS_T1,
   ],
   'Enzo_SuperCraftZ': [
     Badge.SUB_12_MONTHS_T1,
@@ -658,7 +659,7 @@ const USER_BADGES = {
   'aade_': [
     Badge.SUB_12_MONTHS_T1,
   ],
-  'pareskktv': [
+  'parsekktv': [
     Badge.SUB_18_MONTHS_T1,
   ],
   'T_Nizzy': [
