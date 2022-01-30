@@ -5225,6 +5225,7 @@ socket.on('rank', toggleAdvancedPl);
 setLayout();
 scrollChat();
 scrollQueue();
+resizeStuff();
 
 if (FLUID) {
   $('.container').removeClass('container').addClass('container-fluid');
