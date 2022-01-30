@@ -44,7 +44,7 @@ Introduction to CyDJ Pre-Release
 
 - Fix "contributors" list not working (airforce)
 
-- Fix various custom overlays being overwritten by new overlay (?)??
+- Fix various custom overlays being overwritten by new overlay (airforce and john)
 
 - Fix fullscreen button not working correctly (airforce)
 
