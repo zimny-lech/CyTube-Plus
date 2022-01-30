@@ -5209,6 +5209,7 @@ function resizeStuff() {
 
 $(window).off('resize', '**');
 $(window).on('resize', resizeStuff);
+$(window).on(resizeStuff);
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -5845,8 +5846,6 @@ socket.on('mediaUpdate', fixRawVideoControls);
 //   });
 // })();
 
-// fixes?
-resizeStuff();
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
