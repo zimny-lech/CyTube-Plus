@@ -5209,7 +5209,6 @@ function resizeStuff() {
 
 $(window).off('resize', '**');
 $(window).on('resize', resizeStuff);
-$(window).on(resizeStuff);
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -5226,6 +5225,7 @@ socket.on('rank', toggleAdvancedPl);
 setLayout();
 scrollChat();
 scrollQueue();
+resizeStuff();
 
 if (FLUID) {
   $('.container').removeClass('container').addClass('container-fluid');
@@ -5828,6 +5828,8 @@ function fixRawVideoControls() {
 }
 socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
+socket.on('changeMedia', resizeStuff);
+socket.on('mediaUpdate', resizeStuff);
 
 // (() => {
 //   const videoWrap = document.getElementById('videowrap');
