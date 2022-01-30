@@ -663,6 +663,7 @@ const USER_BADGES = {
   ],
   'zHardTimes': [
     Badge.SUB_18_MONTHS_T1,
+    'https://media.discordapp.net/attachments/915650094697693184/932461255560691772/ezgif.com-gif-maker_2.gif',
   ],
   'anirrroc': [
     Badge.SUB_12_MONTHS_T1,
