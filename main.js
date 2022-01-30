@@ -3493,6 +3493,9 @@ if ($('#chanexternalcss').length < 1) {
 }
 
 setUserCSS();
+// attempt to fix dumbass buttons
+socket.on('changeMedia', setUserCSS);
+socket.on('mediaUpdate', setUserCSS);
 
 // adding favicon
 if (UI_Favicon && Favicon_URL != '') {
