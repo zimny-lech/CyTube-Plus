@@ -5225,7 +5225,6 @@ socket.on('rank', toggleAdvancedPl);
 setLayout();
 scrollChat();
 scrollQueue();
-resizeStuff();
 
 if (FLUID) {
   $('.container').removeClass('container').addClass('container-fluid');
@@ -5845,6 +5844,9 @@ socket.on('mediaUpdate', fixRawVideoControls);
 //     videoPlayer.style.height = '';
 //   });
 // })();
+
+// fixes?
+resizeStuff();
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
