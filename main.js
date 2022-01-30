@@ -1,7 +1,7 @@
 /*
 The MIT License (MIT)
 //
-Copyright (c) 2013-2014 Zimny Lech, 2021 CyDJ developers
+Copyright (c) 2013-2014 Zimny Lech, 2022 CyDJ developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -112,7 +112,7 @@ const UI_CustomCaptions = false;
 // [&] additional player options
 const UI_PlayerOptions = true;
 // player transformation buttons
-const UI_TransformationBtns = true;
+const UI_TransformationBtns = false;
 // [&] box with embed additional media database
 const UI_ChannelDatabase = true;
 // [&] box with embed galleries
@@ -154,7 +154,13 @@ const UI_PartyButton = true;
 // adds version
 const UI_Version = true;
 // adds hey and nay
-const UI_HeyNay = true;
+const UI_RateButtons = true;
+// moves emote list button
+const UI_SpecialEmoteBtn = true;
+// adds public voteskipping
+const UI_PublicSkip = true;
+// adds "add" test to help new users
+const UI_ExtraHelp = true;
 // adds snow (just an attempt on adding, i dont rly know how to make it work)
 const UI_Snow = false;
 
@@ -176,13 +182,15 @@ const UI_Snow = false;
 
 /* -- single variables -- */
 
+import('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&display=swap');
+
 const Favicon_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJBeta1.1.22.0';
+const Version_Now = 'CyDJPre1.29.22.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -195,7 +203,7 @@ const RulesBtn_Caption = 'Read Channel Rules';
 const AttentionBar_URL =
     'https://media.discordapp.net/attachments/899888900611375184/901603644502331412/unknown.png';
 
-const ChannelAnnouncement_Title = 'Staff Message';
+const ChannelAnnouncement_Title = 'CyDJ Alert';
 
 const TitleIcon_URL = 'https://cdn.7tv.app/emote/6040a8bccf6746000db10348/2x';
 
@@ -212,10 +220,9 @@ const MessagesSuffix_Text = '~xD';
 const MessagesSuffix_Percentage = 10;
 
 const CustomPingSound_URL =
-    'https://cdn.discordapp.com/attachments/899888900611375184/909624445478526996/select-expand.wav';
+    'https://github.com/papertek/CyDJ/raw/beta/misc/pingsound.wav';
 
-const PlayerHiding_URL =
-    'https://dl.dropboxusercontent.com/s/xz2o99scw5i7aai/stop.png';
+const PlayerHiding_URL = 'https://c.tenor.com/Q6UjBrnSzvQAAAAC/anime-uh.gif';
 
 const GroupEmotes_Number = 100;
 
@@ -234,7 +241,6 @@ const HeaderDropMenu_Array = [
   ['Community Related', ''],
   ['CyDJ Discord', 'https://discord.gg/g8tCGSc2bx'],
   ['xQcOW Updates Discord', 'https://discord.gg/xqcowupdates'],
-  ['VoxelTown Minecraft Discord', 'https://discordapp.com/invite/A4GtvcC'],
   ['Credits', ''],
   [
     'CyTube FAQ',
@@ -246,7 +252,7 @@ const HeaderDropMenu_Array = [
 ];
 
 const MOTDAutoLogo_Array = [
-  'https://media.discordapp.net/attachments/893223135367811093/904514815643508756/cydjnormal.jpg',
+  'https://github.com/papertek/CyDJ/raw/beta/images/cydjnormal.jpg',
 ];
 
 const MOTDTabs_Array = [
@@ -271,11 +277,13 @@ const RandomQuotes_Array = [
   'I like you. You remind me of when I was young and stupid.',
   'Go and buy me a beer',
   'The door of this channel is always open for you... so feel free to leave!',
+  'I hate JQuery',
+  'amogus',
 ];
 
 const AskAnswers_Array = [
   '100% for sure',
-  'definitely yes',
+  'definitely, yes',
   'yes',
   'probably',
   'not any chance',
@@ -286,6 +294,10 @@ const AskAnswers_Array = [
   'fairy is tired and will not answer',
   'I refuse to answer',
   'i asked your mom and she said no',
+  'i- i\'m too shy to answer..',
+  'umph... yes...',
+  'ahhh.. hhaahhh... yeah...',
+  'what',
 ];
 
 const Memes_Array = [
@@ -322,6 +334,9 @@ const Memes_Array = [
   'shit',
   'fuck',
   'shut the fuck up',
+  'firetruck',
+  'shut the firetruck up',
+  'wang',
 ];
 
 class Badge {
@@ -447,7 +462,7 @@ class Badge {
 }
 
 const USER_BADGES = {
-  'ZimnyLech': [
+  'ZimnLech': [
     'https://dl.dropboxusercontent.com/s/89gv8fvyr49vnev/kobato-icon-small.jpg',
   ],
   'JohnRG123': [
@@ -571,7 +586,7 @@ const USER_BADGES = {
     'https://cdn.discordapp.com/attachments/915656975696687124/916100799233425548/VIP.png',
   ],
   'LEBB': [
-    Badge.SUB_9_MONTHS_T1,
+    Badge.SUB_12_MONTHS_T1,
   ],
   'feelssunnyman': [
     Badge.SUB_9_MONTHS_T3,
@@ -616,6 +631,51 @@ const USER_BADGES = {
   'MrDestructoidCyDJ': [
     'https://cdn.discordapp.com/attachments/679270173567614987/922352061356572682/1x_4.gif',
   ],
+  'CaribbeanCam': [
+    Badge.SUB_12_MONTHS_T1,
+  ],
+  'Bananaman3100': [
+    Badge.SUB_6_MONTHS_T1,
+  ],
+  'Betelgeun': [
+    Badge.SUB_12_MONTHS_T1,
+  ],
+  'HikkenNoAce': [
+    Badge.SUB_6_MONTHS_T3,
+  ],
+  'CannabisMuffin': [
+    Badge.SUB_18_MONTHS_T1,
+  ],
+  'LEBB': [
+    Badge.SUB_12_MONTHS_T1,
+  ],
+  'Psychedelic111': [
+    Badge.SUB_3_MONTHS_T1,
+  ],
+  'aade_': [
+    Badge.SUB_12_MONTHS_T1,
+  ],
+  'pareskktv': [
+    Badge.SUB_18_MONTHS_T1,
+  ],
+  'T_Nizzy': [
+    Badge.SUB_9_MONTHS_T1,
+  ],
+  'zHardTimes': [
+    Badge.SUB_18_MONTHS_T1,
+  ],
+  'anirrroc': [
+    Badge.SUB_12_MONTHS_T1,
+  ],
+  'Reesesses': [
+    Badge.SUB_9_MONTHS_T1,
+  ],
+  'DeathGod': [
+    Badge.SUB_12_MONTHS_T1,
+  ],
+  'MasterA1G': [
+    Badge.SUB_24_MONTHS_T1,
+  ],
 };
 
 const SoundFilters_Array = {
@@ -624,7 +684,7 @@ const SoundFilters_Array = {
   // 'lol':
   // 'https://dl.dropboxusercontent.com/s/9aqa1buu3phvpss/laugh.ogg',
   'oh no our table':
-      'https://cdn.discordapp.com/attachments/899888900611375184/901311444077924382/combobreak.wav',
+      'https://github.com/papertek/CyDJ/raw/beta/misc/ohnoourtable.wav',
 
 };
 
@@ -686,9 +746,9 @@ const ModPanel_Array = [
 ];
 
 const CustomCaptions_Array = {
-  'add': 'Add here',
-  'refresh': 'Refresh player',
-  'voteskip': 'Voteskip',
+  'add': 'Add',
+  'refresh': 'Refresh',
+  'voteskip': 'Skip',
   'welcome': 'Hi',
 };
 
@@ -714,13 +774,13 @@ const RulesBtn_HTML =
     '<ol><li>You want to write on the chat? Enter temporary nickname into <b>Guest Login</b> input and click enter.</li><li>You want to register a nick? Click <b>Account -> Profile</b> on the top of the channel, and fill the registration form. You don\'t need an email to register.</li><li>Troll skipping = immediate kick.</li><li>Do not disobey staff members.</li><li>Do not one man spam.</li><li>Do not encourage chat wars or harass/target people.</li><li>Queueing blatant NSFW videos such as porn/hentai/gore is strictly not allowed, doing so will result in an ip ban.</li><li>Queuing the same video but in different link variants is not allowed.</li><li>Mods have the right to skip a video if its overplayed.</li><li><b>These rules are subject to common sense.</b></li></ol>';
 
 const ChannelAnnouncement_HTML =
-    'Welcome chatters to CyDJ! We just left Alpha stage and we are pushing into Beta! The most noticable changes you\'ll see are the new chat animations and "Fluid" layout finally being fixed! Various minor things have also been improved such as different display modes and the "Classic" layout finally working as intended! We hope you enjoy your stay xqcL';
+    'Welcome chatters to CyDJ! We are finally getting close to the real deal! But this is only a pre-release, many enhancements and bug fixes are to be resolved. The main agenda are new fonts, updated logo, and code cleanup.';
 
 const EmbeddingMedia_Images =
     'a[href$=".jpg"], a[href$=".jpg:large"], a[href$=".jpeg"], a[href$=".JPG"], a[href$=".png"], a[href$=".tiff"], a[href$=".gif"]';
 
 const EmbeddingMedia_Videos =
-    'a[href$=".webm"], a[href$=".mp4"], a[href$=".MP4"], a[href$=".mov"], a[href$=".MOV"]';
+    'a[href$=".webm"], a[href$=".mp4"], a[href$=".MP4"], a[href$=".mov"], a[href$=".MOV"], a[href$=".mp3"], a[href$=".MP3"], a[href$=".wav"], a[href$=".WAV"], a[href$=".ogg"], a[href$=".OGG"], a[href$=".m4a"], a[href$=".M4A"]';
 
 const CustomFooter_HTML = 'This is custom footer.';
 
@@ -736,7 +796,7 @@ const CustomRightFooter_HTML = '';
 //    will be displayed on the channel top.
 
 const ChannelThemeURL =
-    'https://dl.dropboxusercontent.com/s/l1qoep4su4xn5qz/chinska.css';
+    'https://papertek.github.io/CyDJ/deploy/main/css/DJDefault.css';
 
 const ThemesCSS = [
   [
@@ -892,8 +952,6 @@ const IndependentFilters = [
 
 // NOTES:
 // Leave empty URL field to create category button.
-// WARNING! Use ChannelDatabase_URL only if you want to use external database
-// file, it overwrites database below. If so, configure '/external-db.js' file.
 
 const ChannelDatabase = [
   ['', 'Juicer Tastes'],
@@ -1034,7 +1092,7 @@ const ChannelDatabase = [
   ['https://www.youtube.com/watch?v=yjJvqrFTSuA', 'Camellia - ∀NØMALY'],
   ['https://www.youtube.com/watch?v=bi1rkTy3jbg', 'Camellia - Fly Wit Me'],
   ['https://www.youtube.com/watch?v=1v0hP5DuAZ8', 't+pazolite - T+ VS SHARK'],
-  ['https://www.youtube.com/watch?v=rIPOOoQxquE', 't+pazolite - CENSORED!!'],
+  ['https://www.youtube.com/watch?v=rIPOOoQxquE', 't+pazolite - CENSORED‼'],
   [
     'https://www.youtube.com/watch?v=ZK_HX6-mXw4',
     'beatMARIO - Night of Knights (tpz Overheat Remix)',
@@ -1054,8 +1112,6 @@ const ChannelDatabase = [
     'Darren Styles - Quiver (Breakchild Bootleg)',
   ],
 ];
-
-const ChannelDatabase_URL = '';
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1084,7 +1140,7 @@ if (UI_DefaultSynchtube) {
   defqueue = 'right';
 }
 
-const DEFTHEME = (UI_ChannelTheme && ChannelThemeURL != 'https://papertek.github.io/CyDJ/deploy/main/css/DJDefault.css') ?
+const DEFTHEME = (UI_ChannelTheme && ChannelThemeURL != '') ?
     ChannelThemeURL :
     '/css/themes/slate.css';
 
@@ -1155,6 +1211,8 @@ let USERONLINE = 0;
 let BGCHANGE = 1;
 // number of background changes for the drop it
 let DROPBGCHANGE = 1;
+// number of background changes for fastest crash
+let FASTESTBGCHANGE = 1;
 
 // list of users with muted chat sounds by user
 const MUTEDVOICES = [];
@@ -1176,12 +1234,12 @@ const SPEAKLINK =
     'http://webanywhere.cs.washington.edu/cgi-bin/espeak/getsound.pl';
 const IMBA =
     new Audio('https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg');
-const DROPIT = new Audio(
-    'https://cdn.discordapp.com/attachments/915490680468561990/915773617005027398/dropit.mp3');
-const HEY = new Audio(
-    'https://cdn.discordapp.com/attachments/915490680468561990/925944334224883782/hey.mp3');
-const NAY = new Audio(
-    'https://cdn.discordapp.com/attachments/915490680468561990/923735825676656660/Spongebob_boowomp_sound_effect.mp3');
+const DROPIT =
+    new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/dropit.wav');
+const FASTEST = new Audio(
+    'https://github.com/papertek/CyDJ/raw/beta/misc/fastestcrashegg.wav');
+const HEY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/hey.wav');
+const NAY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/nay.wav');
 CHATSOUND.volume = 0.4;
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1407,9 +1465,9 @@ function setLayout() {
  * Fit player height.
  */
 function fitPlayer() {
-  VW = $('#videowrap').width() + '';
-  VH = Math.floor(parseInt(VW) * 9 / 16 + 1) + '';
-  $('#ytapiplayer').width(VW).height(VH);
+  const videoWidth = $('#videowrap').width();
+  const videoHeight = Math.floor(parseInt(videoWidth) * 9 / 16 + 1);
+  $('#ytapiplayer').width(videoWidth).height(videoHeight);
 }
 
 /**
@@ -1465,7 +1523,7 @@ function setMode(a) {
     modesel.find('option[value=\'chMode\']').hide();
   }
 
-  if (a == 'syMode') {
+  if (a === 'syMode') {
     $('#videowrap, #videowrap p, #videowrap div, #chatwrap, #rightpane, #pinup-btn')
         .show();
     $('#config-btn, #configbtnwrap br, #pinup-btn').show();
@@ -1531,7 +1589,7 @@ function setMode(a) {
  */
 function setModeAfterVideoChange() {
   m = modesel.val();
-  if (m == 'syMode' || m == 'chMode' || m == 'rMode') {
+  if (m === 'syMode' || m === 'chMode' || m === 'rMode') {
     setMode(m);
   }
 }
@@ -1725,9 +1783,9 @@ function prepareMessage(msg) {
     }
   }
 
-  if (UI_UserCommands && msg.indexOf('!') == 0) {
+  if (UI_UserCommands && msg.startsWith('!')) {
     COMMAND = true;
-    if (msg.indexOf('!stat') == 0) {
+    if (msg.startsWith('!stat')) {
       num = CHATSTAT['n'];
       len = CHATSTAT['l'];
       if (num > 0) {
@@ -1742,13 +1800,13 @@ function prepareMessage(msg) {
       msg = `you have sent ${num} message${a}, ` +
           `total length is ${len} character${b} (${avg} per message), ` +
           `random message: ${CHATSTAT['m'][rnd]}`;
-    } else if (msg.indexOf('!memestats') == 0) {
+    } else if (msg.startsWith('!memestats')) {
       num = CHATSTAT['n'];
       len = Memes_Array.length;
       mem = 0;
       for (i = 0; i < num; i++) {
         for (j = 0; j < len; j++) {
-          if (CHATSTAT['m'][i].indexOf(Memes_Array[j]) > -1) {
+          if (CHATSTAT['m'][i].includes(Memes_Array[j])) {
             mem++;
           }
         }
@@ -1760,17 +1818,17 @@ function prepareMessage(msg) {
       } else {
         msg = 'error: no defined memes';
       }
-    } else if (msg.indexOf('!pick ') == 0) {
+    } else if (msg.startsWith('!pick ')) {
       arr = msg.split('!pick ')[1].split(',');
       rnd = Math.round(Math.random() * (arr.length - 1));
       msg = arr[rnd];
-    } else if (msg.indexOf('!ask ') == 0) {
+    } else if (msg.startsWith('!ask ')) {
       if (AskAnswers_Array.length < 1) {
         AskAnswers_Array = ['yes', 'no'];
       }
       rnd = a = Math.round(Math.random() * (AskAnswers_Array.length - 1));
       msg = AskAnswers_Array[rnd];
-    } else if (msg.indexOf('!time') == 0) {
+    } else if (msg.startsWith('!time')) {
       let h = new Date().getHours();
       if (h < 10) {
         h = '0' + h;
@@ -1780,10 +1838,10 @@ function prepareMessage(msg) {
         m = '0' + m;
       }
       msg = 'current time: ' + h + ':' + m;
-    } else if (msg.indexOf('!dice') == 0) {
+    } else if (msg.startsWith('!dice')) {
       rnd = Math.round(Math.random() * 5) + 1;
       msg = '' + rnd;
-    } else if (msg.indexOf('!roll') == 0) {
+    } else if (msg.startsWith('!roll')) {
       let rnd = Math.round(Math.random() * 999);
       if (rnd < 100) {
         rnd = '0' + rnd;
@@ -1792,13 +1850,18 @@ function prepareMessage(msg) {
         rnd = '0' + rnd;
       }
       msg = '' + rnd;
-    } else if (msg.indexOf('!q') == 0) {
+    } else if (msg.startsWith('!q')) {
       if (RandomQuotes_Array.length < 1) {
         RandomQuotes_Array = ['error: no quotes available'];
       }
       rnd = Math.round(Math.random() * (RandomQuotes_Array.length - 1));
       msg = RandomQuotes_Array[rnd];
-    } else if (msg.indexOf('!random') == 0 && hasPermission('playlistadd')) {
+    } else if (msg.startsWith('!randomemote')) {
+      const emoteCount = TabCompletionEmotes.length;
+      const randomEmoteIndex = Math.round(Math.random() * emoteCount - 1);
+      const randomEmote = TabCompletionEmotes[randomEmoteIndex];
+      msg = randomEmote;
+    } else if (msg.startsWith('!random') && hasPermission('playlistadd')) {
       if (UI_ChannelDatabase) {
         let link = '';
         while (link === '' || link.includes(LAST_VIDEO_ID_QUEUED)) {
@@ -1815,24 +1878,16 @@ function prepareMessage(msg) {
         });
         msg = `random media added! - ${title}`;
       }
-      /* } else if (msg.indexOf('!blocked') == 0) {
-        if (CLIENT.rank >= 2) {
-          msg = 'testing 1 2 3 ig';
-        } else {
-          msg =
-              'You do not have permission to use this command! Please contact an
-        admin to use this command.';
-        }*/
-    } else if (msg.indexOf('!calc ') == 0) {
+    } else if (msg.startsWith('!calc ')) {
       func = msg.split('!calc ');
       msg = '' + eval(func[0]);
-    } else if (msg.indexOf('!skip') == 0 && hasPermission('voteskip')) {
+    } else if (msg.startsWith('!skip') && hasPermission('voteskip')) {
       socket.emit('voteskip');
       msg = 'current item has been voteskipped';
-    } else if (msg.indexOf('!next') == 0 && hasPermission('playlistjump')) {
+    } else if (msg.startsWith('!next') && hasPermission('playlistjump')) {
       socket.emit('playNext');
       msg = 'start playing next item';
-    } else if (msg.indexOf('!bump') == 0 && hasPermission('playlistmove')) {
+    } else if (msg.startsWith('!bump') && hasPermission('playlistmove')) {
       last = $('#queue').children().length;
       uid = $(`#queue .queue_entry:nth-child(${last})`).data('uid');
       title = $(`#queue .queue_entry:nth-child(${last}) .qe_title`).html();
@@ -1840,7 +1895,7 @@ function prepareMessage(msg) {
           'moveMedia', {from: uid, after: PL_CURRENT},
           $('.add-temp').prop('checked'));
       msg = `last item bumped as next: ${title}`;
-    } else if (msg.indexOf('!add ') == 0 && hasPermission('playlistadd')) {
+    } else if (msg.startsWith('!add ') && hasPermission('playlistadd')) {
       parsed = parseMediaLink(msg.split('!add ')[1]);
       if (parsed['id'] === null) {
         msg = 'error: invalid link, item has not been added';
@@ -1853,27 +1908,38 @@ function prepareMessage(msg) {
         });
         msg = 'media has been added!';
       }
-    } else if (msg.indexOf('!np') == 0) {
+    } else if (msg.startsWith('!np')) {
       msg = 'Now playing: ' + $('.queue_active a').html();
-    } else if (msg.indexOf('!CO ZJE TEH?') == 0) {
+    } else if (msg.startsWith('!CO ZJE TEH?')) {
       msg = 'TEH ZJE HUJ';
-    } else if (msg.indexOf('!discord') == 0) {
+    } else if (msg.startsWith('!discord')) {
       msg = 'https://discord.gg/g8tCGSc2bx';
-    } else if (msg.indexOf('!link') == 0) {
+    } else if (msg.startsWith('!link')) {
       msg = 'https://tinyurl.com/jamcydj';
-    } else if (msg.indexOf('!inba') == 0) {
+    } else if (msg.startsWith('!crash')) {
+      msg = '[mqr] GOOOOOOO xqcTECHNO FEELSWAYTOOGOOD xqcDisco [/mqr]';
+      fastestCrash();
+    } else if (msg.startsWith('!inba')) {
       IMBA.volume = 0.6;
       IMBA.play();
       mutePlayer();
-      inbix = setInterval(() => inba(), 200);
+      const inbaFlash = setInterval(() => inba(), 200);
       setTimeout(() => {
         unmutePlayer();
         BGCHANGE = 0;
-        clearInterval(inbix);
-        $('body').css({'background-image': '', 'background-color': ''});
+        clearInterval(inbaFlash);
+
+        const body = document.getElementsByTagName('body')[0];
+        const wrap = document.getElementById('wrap');
+        const mainPage = document.getElementById('mainpage');
+        const elems = [body, wrap, mainPage];
+
+        elems.forEach((elem) => elem.style.backgroundImage = '');
+        elems.forEach((elem) => elem.style.backgroundColor = '');
+
         setUserCSS();
       }, 12000);
-      msg = 'JP2GMD';
+      msg = ' FEELSWAYTOOGOOD JP2GMD ';
     } else {
       COMMAND = false;
     }
@@ -2230,6 +2296,11 @@ function onlineTime() {
   onlinetime.html(h + ':' + m);
 }
 
+const LIGHT_THEMES = [
+  '/css/themes/bootstrap-theme.min.css',
+  '/css/themes/light.css',
+];
+
 /**
  * Set user CSS.
  */
@@ -2250,7 +2321,7 @@ function setUserCSS() {
       `<style id="chanexternalcss-fix" type="text/css">${cssfix}</style>`);
   $('#usertheme').attr('href', '/css/themes/slate.css');
   $('#usertheme-fix').remove();
-  if (USERTHEME.indexOf('/css/themes/') > -1) {
+  if (USERTHEME.includes('/css/themes/')) {
     $('#usertheme').attr('href', USERTHEME);
   } else {
     $('<link id="usertheme-fix" rel="stylesheet" type="text/css" href="' +
@@ -2258,9 +2329,35 @@ function setUserCSS() {
         .appendTo('head');
   }
   $('#usercss').remove();
-  if (USERCONFIG.css != 'no') {
+  if (USERCONFIG.css !== 'no') {
     $('head').append(
         `<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`);
+  }
+  const newThemeType =
+      LIGHT_THEMES.includes(USERTHEME) ? 'light-theme' : 'dark-theme';
+  const oldThemeType =
+      LIGHT_THEMES.includes(USERTHEME) ? 'dark-theme' : 'light-theme';
+  const messageBuffer = document.getElementById('messagebuffer');
+  messageBuffer.classList.add(newThemeType);
+  messageBuffer.classList.remove(oldThemeType);
+  if (USERTHEME === '/css/themes/slate.css') {
+    $('body').css('background-color', '#141414');
+    $('.queue_entry').css('background-color', '#3a3f44');
+    $('.dropdown-menu').css('background-color', '#383E40');
+    $('.btn-default')
+        .css(
+            'background-image', 'linear-gradient(#3a3f44,#3a3f44 60%,#313539)');
+    $('#motd').css('background-color', '#272b30');
+    $('#motdwrap').css('background-color', '#272b30');
+    $('#userlist').css('background-color', '#272b30');
+  } else {
+    $('body').css('background-color', '');
+    $('.queue_entry').css('background-color', '');
+    $('.dropdown-menu').css('background-color', '');
+    $('.btn-default').css('background-image', '');
+    $('#motd').css('background-color', '');
+    $('#motdwrap').css('background-color', '');
+    $('#userlist').css('background-color', '');
   }
 }
 
@@ -2510,6 +2607,8 @@ function showChatHelp() {
           'displaying number memes used by user in all messages (<i>!memestats</i>)',
       'discord': 'link to the CyDJ discord (<i>!discord</i>)',
       'link': 'post a TinyURL link for this room (<i>!link</i>)',
+      'randomemote':
+          'displays a random emote from the emote list (<i>!randomemote</i>)',
     };
     if (UI_ChannelDatabase) {
       arr['random'] = 'adding random link from database (<i>!random</i>)';
@@ -2646,7 +2745,7 @@ function showModPanel() {
 function showInfo() {
   if (DEFDESCR) {
     const arr = [];
-    text = '// UP NEXT ON PLAYLIST: //';
+    text = '// NEXT ON QUEUE: //';
     li1 = $('.queue_active').next();
     li2 = li1.next();
     li3 = li2.next();
@@ -2681,10 +2780,10 @@ function showInfo() {
     }
     text += arr.join('');
     if (arr.length < 8) {
-      text += ' // END OF PLAYLIST //';
+      text += ' // END OF QUEUE //';
     }
     if (arr.length > 7) {
-      text += ' // AND MORE! //';
+      text += ' // PLUS MORE! //';
     }
     mediainfo.html(`<marquee scrollamount="7.5">${text}</marquee>`);
   } else {
@@ -2695,7 +2794,7 @@ function showInfo() {
     } else {
       duration = $('.queue_active .qe_time').html();
       text = `${contr} [${duration}]`;
-      mediainfo.html(`<marquee scrollamount="7.5">${text}</marquee>`);
+      mediainfo.html(`${text}`);
     }
   }
 }
@@ -2748,7 +2847,7 @@ function unmutePlayer() {
 /**
  * Download current item.
  */
-function downloadCurrentItem() {
+/* function downloadCurrentItem() {
   uid = $(`.pluid-${PL_CURRENT}`).data('media');
   arr = {
     'yt': 'http://youtube.com/watch?v=',
@@ -2759,16 +2858,15 @@ function downloadCurrentItem() {
   link = uid.type in arr ? `${arr[uid.type]}${uid.id}` : '';
   if (link == '') {
     alert(
-        'This link is not supported. Try YouTube, Vimeo, Dailymotion or SoundCloud.');
-  } else {
-    createModal('Download current item');
+        'This link is not supported. Try YouTube, Vimeo, Dailymotion or
+SoundCloud.'); } else { createModal('Download current item');
 
     $(`<a href="http://keepvid.com/?url=${link}" ` +
       'target="_blank">Click here to download</a>')
         .appendTo(body)
         .on('click', () => outer.modal('hide'));
   }
-}
+} */
 
 /**
  * Preview YT video in modal window.
@@ -2785,7 +2883,8 @@ function prevVideo(a) {
       $('<iframe id="previewFrame" width="558" height="314" frameborder="0" />')
           .attr(
               'src',
-              `http://www.youtube.com/embed/${a}?wmode=transparent&enablejsapi`)
+              `https://www.youtube.com/embed/${
+                  a}?wmode=transparent&enablejsapi`)
           .appendTo(body);
 }
 
@@ -3228,24 +3327,25 @@ function unPin() {
 function showContributors() {
   createModal('Contributors List');
 
-  len = $('#queue li').length + 1;
-  const list = [];
-  for (i = 1; i < len; i++) {
-    item = $(`#queue li:nth-child(${i})`).attr('title');
-    user = item.split('by: ')[1];
-    if (user in list) {
-      list[user]++;
-    } else {
-      list[user] = 1;
-    }
+  const /** @type {!Map<string, number} */ userQueueCounts = new Map();
+
+  const /** @type {!Array<HTMLLIElement>} */ queuedItems =
+      Array.from(document.getElementById('queue').children);
+  const userQueues = queuedItems.map((elem) => elem.getAttribute('title'))
+                         .filter((title) => title)
+                         .map((title) => title.replace('Added by: ', ''));
+  for (const user of userQueues) {
+    const current = userQueueCounts.get(user) || 0;
+    userQueueCounts.set(user, current + 1);
   }
-  const list2 = list.map((item, i) => [i, item]);
-  list2.sort((a, b) => a[1] - b[1]);
-  list2.reverse();
-  const list3 = list2.map((item, i) => (i * 1 + 1) + '. ' + item.join(': '));
-  html = '<strong>Number of added playlist items:</strong>' +
-      '<br /><br />' + list3.join('<br />');
-  body.append(html);
+
+  const userContributions = Array.from(userQueueCounts.entries())
+                                .sort((a, b) => b[1] - a[1])
+                                .map(([user, count]) => `${count}: ${user}`);
+
+  body.append(
+      '<strong>Number of added playlist items:</strong>' +
+      '<br /><br />' + userContributions.join('<br />'));
 }
 
 /**
@@ -3528,6 +3628,12 @@ if (UI_CustomCaptions) {
   }
 }
 
+if (UI_ExtraHelp) {
+  $('#showmediaurl').html('<i class="glyphicon glyphicon-plus"></i> Add');
+  //  $('#voteskip').html('<i class="glyphicon glyphicon-step-forward"></i>
+  //  Skip');
+}
+
 // deleting previous MOTD
 if (UI_MOTDDelete) {
   $('#motd').html('');
@@ -3616,26 +3722,46 @@ if (UI_TitleBarDescription) {
  * Easter egg.
  */
 function inba() {
-  $('body').css('background-image', 'none');
+  const body = document.getElementsByTagName('body')[0];
+  const wrap = document.getElementById('wrap');
+  const mainPage = document.getElementById('mainpage');
+  const elems = [body, wrap, mainPage];
+
+  elems.forEach((elem) => elem.style.backgroundImage = 'none');
   BGCHANGE++;
-  if (BGCHANGE % 2 == 0) {
-    $('body').css('background-color', 'gold');
-  } else {
-    $('body').css('background-color', 'blue');
-  }
+
+  const newColor = BGCHANGE % 2 === 0 ? 'gold' : 'blue';
+  elems.forEach((elem) => elem.style.backgroundColor = newColor);
 }
 
 /**
  * Dropit easter egg.
  */
 function dropthebeat() {
-  $('body').css('background-image', 'none');
+  const body = document.getElementsByTagName('body')[0];
+  const wrap = document.getElementById('wrap');
+  const mainPage = document.getElementById('mainpage');
+  const elems = [body, wrap, mainPage];
+
+  elems.forEach((elem) => elem.style.backgroundImage = 'none');
   DROPBGCHANGE++;
-  if (DROPBGCHANGE % 2 == 0) {
-    $('body').css('background-color', 'red');
-  } else {
-    $('body').css('background-color', 'black');
-  }
+
+  const newColor = DROPBGCHANGE % 2 === 0 ? 'red' : 'black';
+  elems.forEach((elem) => elem.style.backgroundColor = newColor);
+}
+
+// Fastest Crash easter egg bg changes
+function dropthefast() {
+  const body = document.getElementsByTagName('body')[0];
+  const wrap = document.getElementById('wrap');
+  const mainPage = document.getElementById('mainpage');
+  const elems = [body, wrap, mainPage];
+
+  elems.forEach((elem) => elem.style.backgroundImage = 'none');
+  FASTESTBGCHANGE++;
+
+  const newColor = FASTESTBGCHANGE % 2 === 0 ? 'blue' : 'black';
+  elems.forEach((elem) => elem.style.backgroundColor = newColor);
 }
 
 // customizing chat notifications sound
@@ -3643,6 +3769,16 @@ function dropthebeat() {
 if (UI_CustomPingSound && CustomPingSound_URL != '') {
   CHATSOUND = new Audio(CustomPingSound_URL);
   CHATSOUND.volume = 0.4;
+}
+
+// public skipping from ui
+if (UI_PublicSkip) {
+  $('#voteskip').on('click', function() {
+    socket.emit('voteskip');
+    socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
+    $('#voteskip').attr('disabled', true);
+    naySound();
+  });
 }
 
 // additional chat functions
@@ -3710,12 +3846,18 @@ if (UI_EmotesBtn) {
           });
 }
 
+// moving emote button attempt
+if (UI_SpecialEmoteBtn) {
+  $('#emotelistbtn').appendTo(chatcontrols).text('Emotes');
+}
+
 // adding chat commands button
 if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
-  chathelpbtn = $('<button id="chathelp-btn" class="btn btn-sm btn-default" />')
-                    .text('Chat Commands')
-                    .appendTo(chatcontrols)
-                    .on('click', () => showChatHelp());
+  chathelpbtn =
+      $('<button id="chathelp-btn" class="btn btn-sm btn-default" title="Show chat commands"/>')
+          .text('Chat Commands')
+          .appendTo(chatcontrols)
+          .on('click', () => showChatHelp());
 }
 
 // adding the stupid context button to show up
@@ -3748,7 +3890,7 @@ function showContextMenu() {
 
 // adding easter egg button
 if (UI_PartyButton) {
-  eggbtn =
+  partybtn =
       $('<button id="party-btn" class="btn btn-sm btn-default" title="Party! Please do not spam the button." />')
           .text('Party!')
           .appendTo(chatcontrols)
@@ -3761,15 +3903,44 @@ if (UI_PartyButton) {
 function showDrop() {
   DROPIT.volume = 0.4;
   DROPIT.play();
-  inbix = setInterval(() => dropthebeat(), 100);
+  const partyFlash = setInterval(() => dropthebeat(), 100);
   setTimeout(() => {
     DROPBGCHANGE = 0;
-    clearInterval(inbix);
-    $('body').css({'background-image': '', 'background-color': ''});
+    clearInterval(partyFlash);
+
+    const body = document.getElementsByTagName('body')[0];
+    const wrap = document.getElementById('wrap');
+    const mainPage = document.getElementById('mainpage');
+    const elems = [body, wrap, mainPage];
+
+    elems.forEach((elem) => elem.style.backgroundImage = '');
+    elems.forEach((elem) => elem.style.backgroundColor = '');
+
     setUserCSS();
   }, 5000);
   socket.emit(
       'chatMsg', {msg: '[mqr] GOOOOOOO xqcCheer FEELSWAYTOOGOOD [/mqr]'});
+}
+
+// fastest crash function
+function fastestCrash() {
+  FASTEST.volume = 0.5;
+  FASTEST.play();
+  const fastestFlash = setInterval(() => dropthefast(), 100);
+  setTimeout(() => {
+    FASTESTBGCHANGE = 100;
+    clearInterval(fastestFlash);
+
+    const body = document.getElementsByTagName('body')[0];
+    const wrap = document.getElementById('wrap');
+    const mainPage = document.getElementById('mainpage');
+    const elems = [body, wrap, mainPage];
+
+    elems.forEach((elem) => elem.style.backgroundImage = '');
+    elems.forEach((elem) => elem.style.backgroundColor = '');
+
+    setUserCSS();
+  }, 12000);
 }
 
 // adding chat sounds toggle button and control panel
@@ -3804,25 +3975,23 @@ if (UI_ModPanel) {
   toggleModPanel();
 }
 
-// adding hey thing
-if (UI_HeyNay) {
+// adding hey nay thing
+if (UI_RateButtons) {
+  transcontrols = $('<div id="transcontrols" class="btn-group pull-right" />')
+                      .appendTo('#videowrap');
   Hey =
-      $('<button id="hey-btn" class="btn btn-sm btn-default" title="Woot!" />')
+      $('<button id="hey-btn" class="btn btn-sm btn-default" title="Woot! (Cancels Voteskip)" />')
           .html('<i class="glyphicon glyphicon-headphones"></i>')
-          .appendTo(chatcontrols)
+          .appendTo(transcontrols)
           .on('click', () => {
             socket.emit('chatMsg', {msg: '/afk'});
             socket.emit('chatMsg', {msg: '[lime]Woot![/] PepePls'});
             heySound();
           });
-}
-
-// adding nay thing
-if (UI_HeyNay) {
   Nay =
       $('<button id="nay-btn" class="btn btn-sm btn-default" title="Meh.. (Voteskip)" />')
           .html('<i class="glyphicon glyphicon-thumbs-down"></i>')
-          .appendTo(chatcontrols)
+          .appendTo(transcontrols)
           .on('click', () => {
             socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
             socket.emit('voteskip');
@@ -3886,11 +4055,11 @@ if (UI_PlayerOptions) {
   socket.on('changeMedia', toggleMuteBtn);
   toggleMuteBtn();
 
-  savemediabtn =
-      $('<button id="savemedia-btn" class="btn btn-sm btn-default" title="Download" />')
-          .html('<span class="glyphicon glyphicon-floppy-save"></span>')
-          .appendTo('#playercontrols')
-          .on('click', () => downloadCurrentItem());
+  /* savemediabtn =
+      $('<button id="savemedia-btn" class="btn btn-sm btn-default"
+     title="Download" />') .html('<span class="glyphicon
+     glyphicon-floppy-save"></span>') .appendTo('#playercontrols')
+          .on('click', () => downloadCurrentItem()); */
 }
 
 // adding player transformation buttons
@@ -4070,7 +4239,7 @@ if (UI_ChannelGalleries) {
             if (!GALLVIS && UI_ChannelCache &&
                 gallerywrap.css('display') != 'none') {
               iframe = document.getElementById('galleryFrame');
-              if (iframe.src.indexOf('imgur.com') > -1) {
+              if (iframe.src.includes('imgur.com')) {
                 iframe.src = iframe.src;
               }
             }
@@ -4370,18 +4539,18 @@ if (UI_QuickCommandsBtns || UI_VolumeBtns) {
   }
 }
 
+let item_nr = 0;
+let layer_nr = 1;
+const opening = [];
+const item_count = [];
+let count_nr = 0;
+
 // adding media database layout
-if (UI_ChannelDatabase && ChannelDatabase_URL == '') {
+if (UI_ChannelDatabase) {
   dbwrap =
       $('<div id="dbwrap" class="col-lg-12 col-md-12" style="display:none" />')
           .insertBefore(configwrap);
   dbwell = $('<div id="db-well" class="well" />').appendTo(dbwrap);
-
-  var item_nr = 0;
-  var layer_nr = 1;
-  var opening = [];
-  var item_count = new Array(0);
-  var count_nr = 0;
 
   if (ChannelDatabase.length < 1 || ChannelDatabase[0][0] != '') {
     ChannelDatabase.unshift(['', '(various media)']);
@@ -4389,8 +4558,6 @@ if (UI_ChannelDatabase && ChannelDatabase_URL == '') {
   if (UI_ChannelCache) {
     createDatabase();
   }
-} else if (UI_ChannelDatabase && ChannelDatabase_URL != '') {
-  $.getScript(ChannelDatabase_URL);
 }
 
 // adding galleries layout
@@ -4507,22 +4674,36 @@ if (UI_ExtendedGetURLs) {
   $('#getplaylist').unbind().on('click', () => getPlaylistURLs());
 }
 
-// altering message for the first-timers (uhhh fix later)
+// Update alert first-time users see
+(function() {
+const /** @type {HTMLDivElement} */ alertWrapper =
+    document.getElementById('plonotification');
+if (!alertWrapper) {
+  return;
+}
 
-/*
-  if ($("#plonotification").length > 0) {
-    repl = '"the old style" of playlist buttons (<b>recommended</b>) - more
-  compact playlist with nice icons '
-      + '(see image <a
-  href="https://dl.dropboxusercontent.com/s/4ya7i5vlyb3likk/oldpl.jpg"
-  target="_blank">'
-      + 'here</a>).';
-    html = $("#plonotification .alert").html().replace(/the old style of
-  playlist buttons./, repl); html = html.replace('right click). ', 'right
-  click).<br />');
-    $("#plonotification .alert").html(html);
-  }
-*/
+const /** @type {HTMLDivElement} */ alertContainer = alertWrapper.firstChild;
+alertContainer.innerHTML =
+    alertContainer.innerHTML
+        .replace(
+            'show them when you right click). ',
+            'show them when you right click).<br />')
+        .replace(
+            'the old style of playlist buttons.',
+            '"the old style" of playlist buttons (<b>recommended</b>) - ' +
+                'more compact playlist with nice icons ' +
+                `(see image <a href="https://dl.dropboxusercontent.com/s/4ya7i5vlyb3likk/oldpl.jpg" target="_blank">here</a>).`);
+
+// Updating the innerHTML removes the event handler on the dismiss button,
+// re-add it
+const /** @type {HTMLButtonElement} */ dismissButton =
+    Array.from(alertContainer.children)
+        .filter((elem) => elem.tagName.toLowerCase() === 'button')[0];
+dismissButton.addEventListener('click', () => {
+  alertContainer.remove();
+  window.localStorage['first_visit'] = 'false';
+});
+})();
 
 // rearranging footer
 
@@ -4772,7 +4953,7 @@ addChatMessage = (data) => {
   if (UI_SoundFilters && VOICES &&
       (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
     for (i in SoundFilters_Array) {
-      if (data.msg.indexOf(i) > -1) {
+      if (data.msg.includes(i)) {
         aud = new Audio(SoundFilters_Array[i]);
         aud.volume = SOUNDSVALUES[SOUNDSLVL];
         aud.play();
@@ -4782,12 +4963,12 @@ addChatMessage = (data) => {
   if (UI_ChatSpeak && VOICES &&
       (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
     msg = getText(data.msg);
-    if (msg.indexOf('!mow ') >= 0) {
+    if (msg.includes('!mow ')) {
       str = msg.split('!mow ');
       aud = new Audio(`${SPEAKLINK}?lang=polish&text=${encodeURI(str[1])}`);
       aud.volume = SOUNDSVALUES[SOUNDSLVL];
       aud.play();
-    } else if (msg.indexOf('!say ') >= 0) {
+    } else if (msg.includes('!say ')) {
       str = msg.split('!say ');
       aud = new Audio(`${SPEAKLINK}?lang=english&text=${encodeURI(str[1])}`);
       aud.volume = SOUNDSVALUES[SOUNDSLVL];
@@ -4824,11 +5005,11 @@ $('#chatline').on('keydown', (ev) => {
       } else if (USEROPTS.modhat && CLIENT.rank >= Rank.Moderator) {
         meta.modflair = CLIENT.rank;
       }
-      if (CLIENT.rank >= 2 && msg.indexOf('/m ') === 0) {
+      if (CLIENT.rank >= 2 && msg.startsWith('/m ')) {
         meta.modflair = CLIENT.rank;
         msg = msg.substring(3);
       }
-      if (msg.indexOf('/say') === 0) {
+      if (msg.startsWith('/say')) {
         meta.addClass = 'shout';
         meta.forceShowName = true;
         meta.addClassToNameAndTimestamp = true;
@@ -4998,15 +5179,11 @@ socket.on('chatMsg', fixSayMsg);
  * DEV NOTE: this is extended function from CyTube "util.js" file
  */
 function resizeStuff() {
-  VWIDTH = $('#videowrap').width() + '';
-  VHEIGHT = Math.floor(parseInt(VWIDTH) * 9 / 16 + 1) + '';
-  $('#ytapiplayer').width(VWIDTH).height(VHEIGHT);
+  const videoWidth = $('.embed-responsive').width();
+  const videoHeight = Math.floor(parseInt(videoWidth) * 9 / 16 + 1);
+  $('#ytapiplayer').width(videoWidth).height(videoHeight);
 
-  if (!$('body').hasClass('fluid')) {
-    $('body').removeClass('fluid');
-  }
-
-  const h = parseInt(VHEIGHT) - $('#chatline').outerHeight() - 1;
+  const h = videoHeight - $('#chatline').outerHeight() - 1;
   $('#messagebuffer').height(h);
   $('#userlist').height(h);
 
@@ -5014,7 +5191,7 @@ function resizeStuff() {
     m = modesel.val();
 
     // patches for various display modes
-    if (m == 'chMode' || m == 'rMode') {
+    if (m === 'chMode' || m === 'rMode') {
       if (WEBKIT) {
         $('#videowrap').hide();
       } else {
@@ -5022,7 +5199,7 @@ function resizeStuff() {
         $('#ytapiplayer').width(1).height(1);
       }
       fitChat('auto');
-    } else if (m == 'syMode' && USERCONFIG.player == 'center') {
+    } else if (m === 'syMode' && USERCONFIG.player === 'center') {
       fitChat(200);
     }
   }
@@ -5030,8 +5207,8 @@ function resizeStuff() {
 
 // bind new resizing function
 
-$(window).unbind('resize');
-$(window).resize(resizeStuff);
+$(window).off('resize', '**');
+$(window).on('resize', resizeStuff);
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -5089,8 +5266,6 @@ if (UI_Snow && Snow_URL != '') {
 /* ----- END OF LIBRARY ----- */
 
 /* -----CONFIG----- */
-const CHAT_BACKGROUND_LIGHT = 'rgba(35, 35, 35, 1)';
-const CHAT_BACKGROUND_DARK = 'rgba(0, 0, 0, 0.15)';
 /*
   usertype:
   'owner' for admins
@@ -5111,18 +5286,21 @@ for (const [name, color] of Object.entries(USERLIST_COLORS)) {
       .css('cssText', color.css);
 }
 
+const ODD_MESSAGE_CLASS = 'odd-message';
+const EVEN_MESSAGE_CLASS = 'even-message';
+let lastMessageOdd = false;
+
 let CHAT_INIT = false;
-let CHAT_BACKGROUND = 'CHAT_BACKGROUND' in window ? CHAT_BACKGROUND : false;
 if (!CHAT_INIT) {
   CHAT_INIT = true;
   socket.on('chatMsg', (obj) => {
     const mb = document.getElementById('messagebuffer');
     if (mb && mb.lastChild &&
-        $(mb.lastChild).attr('class').indexOf('chat-msg-') === 0 &&
+        $(mb.lastChild).attr('class').startsWith('chat-msg-') &&
         !obj.meta.shadow) {
-      CHAT_BACKGROUND = !CHAT_BACKGROUND;
-      mb.lastChild.style.backgroundColor =
-          CHAT_BACKGROUND ? CHAT_BACKGROUND_LIGHT : CHAT_BACKGROUND_DARK;
+      mb.lastChild.classList.add(
+          lastMessageOdd ? ODD_MESSAGE_CLASS : EVEN_MESSAGE_CLASS);
+      lastMessageOdd = !lastMessageOdd;
     }
     setTimeout(() => {
       const mb = document.getElementById('messagebuffer');
@@ -5133,7 +5311,7 @@ if (!CHAT_INIT) {
     }, 250);
     emoteHoverAll();
     if (CLIENT.name && obj.username !== CLIENT.name &&
-        obj.msg.toLowerCase().indexOf(CLIENT.name.toLowerCase()) !== -1 &&
+        obj.msg.toLowerCase().includes(CLIENT.name.toLowerCase()) &&
         !obj.meta.shadow && obj.username !== '[server]') {
       audioFeedback();
     }
@@ -5170,11 +5348,10 @@ if (!CHAT_INIT) {
     let line;
     for (let i = 0; i < mbDiv.length; i++) {
       if (mbDiv && (line = $(mbDiv[i]))[0] &&
-          line.attr('class').indexOf('chat-msg-') === 0) {
-        CHAT_BACKGROUND = !CHAT_BACKGROUND;
-        const color =
-            CHAT_BACKGROUND ? CHAT_BACKGROUND_LIGHT : CHAT_BACKGROUND_DARK;
-        $(mbDiv[i]).attr('style', `background-color:${color};`);
+          line.attr('class').startsWith('chat-msg-')) {
+        mbDiv[i].classList.add(
+            lastMessageOdd ? ODD_MESSAGE_CLASS : EVEN_MESSAGE_CLASS);
+        lastMessageOdd = !lastMessageOdd;
       }
     }
   })();
@@ -5196,28 +5373,27 @@ if (!CSS_INIT) {
   $('head #chancss2').html(CSS_RAW);
 }
 
-let TabCompletionEmotes;
-let TabCompletion = {};
+const /** @type {!Array<string>} */ TabCompletionEmotes = [];
+const TabCompletion = {
+  last: '',
+  matches: [],
+};
 
 function tabCompletionRefresh() {
-  emotes = window.CHANNEL.emotes;
-  TabCompletionEmotes = [];
-  for (let i = 0; i < emotes.length; i++) {
-    TabCompletionEmotes.push(emotes[i].name);
+  while (TabCompletionEmotes.length > 0) {
+    TabCompletionEmotes.pop();
   }
-  TabCompletionEmotes = TabCompletionEmotes.sort();
+  for (const emote of window.CHANNEL.emotes) {
+    TabCompletionEmotes.push(emote.name);
+  }
+  TabCompletionEmotes.sort();
 }
 
-if (TabCompletionEmotes === undefined) {
-  tabCompletionRefresh();
-  socket.on('emoteList', tabCompletionRefresh);
-  socket.on('updateEmote', tabCompletionRefresh);
-  socket.on('removeEmote', tabCompletionRefresh);
-  TabCompletion = {
-    last: '',
-    matches: [],
-  };
-}
+tabCompletionRefresh();
+socket.on('emoteList', tabCompletionRefresh);
+socket.on('updateEmote', tabCompletionRefresh);
+socket.on('removeEmote', tabCompletionRefresh);
+
 function chatTabComplete() {
   const match = /(.*?) *$/.exec($('#chatline').val());
   if (match === null || match[1] === '') {
@@ -5240,9 +5416,9 @@ function chatTabComplete() {
     return;
   }
   let matches = TabCompletionEmotes.filter(
-      (str) => str.toLowerCase().indexOf(current) === 0);
+      (str) => str.toLowerCase().startsWith(current));
   matches = matches.concat(
-      usersWithCap.filter((str) => str.toLowerCase().indexOf(current) === 0)
+      usersWithCap.filter((str) => str.toLowerCase().startsWith(current))
           .map((str) => words.length === 1 ? str + ':' : str));
   if (matches.length === 0) {
     return;
@@ -5652,6 +5828,22 @@ function fixRawVideoControls() {
 socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
 
+// (() => {
+//   const videoWrap = document.getElementById('videowrap');
+//   videoWrap.style.maxWidth = '';
+// })();
+
+// (() => {
+//   const button = document.getElementById('fullscreenbtn');
+//   button.addEventListener('click', async () => {
+//     const /** @type {HTMLIFrameElement} */ videoPlayer =
+//         document.getElementsByClassName('.embed-responsive-item').item(0);
+
+//     await videoPlayer.requestFullscreen();
+//     videoPlayer.style.width = '';
+//     videoPlayer.style.height = '';
+//   });
+// })();
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
