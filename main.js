@@ -2297,6 +2297,11 @@ function onlineTime() {
   onlinetime.html(h + ':' + m);
 }
 
+const LIGHT_THEMES = [
+  '/css/themes/bootstrap-theme.min.css',
+  '/css/themes/light.css',
+];
+
 /**
  * Set user CSS.
  */
@@ -2325,10 +2330,17 @@ function setUserCSS() {
         .appendTo('head');
   }
   $('#usercss').remove();
-  if (USERCONFIG.css != 'no') {
+  if (USERCONFIG.css !== 'no') {
     $('head').append(
         `<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`);
   }
+  const newThemeType =
+      LIGHT_THEMES.includes(USERTHEME) ? 'light-theme' : 'dark-theme';
+  const oldThemeType =
+      LIGHT_THEMES.includes(USERTHEME) ? 'dark-theme' : 'light-theme';
+  const messageBuffer = document.getElementById('messagebuffer');
+  messageBuffer.classList.add(newThemeType);
+  messageBuffer.classList.remove(oldThemeType);
   if (USERTHEME === '/css/themes/slate.css') {
     $('body').css('background-color', '#141414');
     $('.queue_entry').css('background-color', '#3a3f44');
@@ -2339,7 +2351,6 @@ function setUserCSS() {
     $('#motd').css('background-color', '#272b30');
     $('#motdwrap').css('background-color', '#272b30');
     $('#userlist').css('background-color', '#272b30');
-    // $('.messagesthing').css('color', 'rgba(0, 0, 0, 0.15)');
   } else {
     $('body').css('background-color', '');
     $('.queue_entry').css('background-color', '');
@@ -2348,7 +2359,6 @@ function setUserCSS() {
     $('#motd').css('background-color', '');
     $('#motdwrap').css('background-color', '');
     $('#userlist').css('background-color', '');
-    //   $('.messagesthing').css('background-color', '');
   }
 }
 
@@ -5257,8 +5267,6 @@ if (UI_Snow && Snow_URL != '') {
 /* ----- END OF LIBRARY ----- */
 
 /* -----CONFIG----- */
-const CHAT_BACKGROUND_LIGHT = 'rgba(35, 35, 35, 1)';
-const CHAT_BACKGROUND_DARK = 'rgba(0, 0, 0, 0.15)';
 /*
   usertype:
   'owner' for admins
@@ -5279,8 +5287,11 @@ for (const [name, color] of Object.entries(USERLIST_COLORS)) {
       .css('cssText', color.css);
 }
 
+const ODD_MESSAGE_CLASS = 'odd-message';
+const EVEN_MESSAGE_CLASS = 'even-message';
+let lastMessageOdd = false;
+
 let CHAT_INIT = false;
-let CHAT_BACKGROUND = 'CHAT_BACKGROUND' in window ? CHAT_BACKGROUND : false;
 if (!CHAT_INIT) {
   CHAT_INIT = true;
   socket.on('chatMsg', (obj) => {
@@ -5288,10 +5299,9 @@ if (!CHAT_INIT) {
     if (mb && mb.lastChild &&
         $(mb.lastChild).attr('class').startsWith('chat-msg-') &&
         !obj.meta.shadow) {
-      CHAT_BACKGROUND = !CHAT_BACKGROUND;
-      mb.lastChild.classList.add('messagesthing');
-      mb.lastChild.style.backgroundColor =
-          CHAT_BACKGROUND ? CHAT_BACKGROUND_LIGHT : CHAT_BACKGROUND_DARK;
+      mb.lastChild.classList.add(
+          lastMessageOdd ? ODD_MESSAGE_CLASS : EVEN_MESSAGE_CLASS);
+      lastMessageOdd = !lastMessageOdd;
     }
     setTimeout(() => {
       const mb = document.getElementById('messagebuffer');
@@ -5340,12 +5350,9 @@ if (!CHAT_INIT) {
     for (let i = 0; i < mbDiv.length; i++) {
       if (mbDiv && (line = $(mbDiv[i]))[0] &&
           line.attr('class').startsWith('chat-msg-')) {
-        CHAT_BACKGROUND = !CHAT_BACKGROUND;
-        const color =
-            CHAT_BACKGROUND ? CHAT_BACKGROUND_LIGHT : CHAT_BACKGROUND_DARK;
-        $(mbDiv[i])
-            .attr('style', `background-color:${color};`)
-            .addClass('messagesthing');
+        mbDiv[i].classList.add(
+            lastMessageOdd ? ODD_MESSAGE_CLASS : EVEN_MESSAGE_CLASS);
+        lastMessageOdd = !lastMessageOdd;
       }
     }
   })();
