@@ -3493,6 +3493,9 @@ if ($('#chanexternalcss').length < 1) {
 }
 
 setUserCSS();
+// attempt to fix dumbass buttons
+socket.on('changeMedia', setUserCSS);
+socket.on('mediaUpdate', setUserCSS);
 
 // adding favicon
 if (UI_Favicon && Favicon_URL != '') {
@@ -3891,7 +3894,7 @@ function showContextMenu() {
 // adding easter egg button
 if (UI_PartyButton) {
   partybtn =
-      $('<button id="party-btn" class="btn btn-sm btn-default" title="Party! Please do not spam the button." />')
+      $('<button id="party-btn" class="btn btn-sm btn-default" title="Party!" />')
           .text('Party!')
           .appendTo(chatcontrols)
           .on('click', () => showDrop());
@@ -5225,6 +5228,7 @@ socket.on('rank', toggleAdvancedPl);
 setLayout();
 scrollChat();
 scrollQueue();
+resizeStuff();
 
 if (FLUID) {
   $('.container').removeClass('container').addClass('container-fluid');
@@ -5828,22 +5832,8 @@ function fixRawVideoControls() {
 socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
 
-// (() => {
-//   const videoWrap = document.getElementById('videowrap');
-//   videoWrap.style.maxWidth = '';
-// })();
-
-// (() => {
-//   const button = document.getElementById('fullscreenbtn');
-//   button.addEventListener('click', async () => {
-//     const /** @type {HTMLIFrameElement} */ videoPlayer =
-//         document.getElementsByClassName('.embed-responsive-item').item(0);
-
-//     await videoPlayer.requestFullscreen();
-//     videoPlayer.style.width = '';
-//     videoPlayer.style.height = '';
-//   });
-// })();
+socket.on('changeMedia', resizeStuff);
+socket.on('mediaUpdate', resizeStuff);
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
