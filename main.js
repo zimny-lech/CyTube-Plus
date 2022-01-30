@@ -3492,9 +3492,9 @@ if ($('#chanexternalcss').length < 1) {
       'rel="stylesheet" type="text/css">');
 }
 
-setUserCSS();
+// setUserCSS();
 // attempt to fix dumbass buttons
-socket.on('mediaUpdate', setUserCSS);
+socket.on('changeMedia', setUserCSS);
 
 // adding favicon
 if (UI_Favicon && Favicon_URL != '') {
@@ -5831,7 +5831,7 @@ function fixRawVideoControls() {
 socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
 
-socket.on('mediaUpdate', resizeStuff);
+socket.on('changeMedia', resizeStuff);
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
