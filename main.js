@@ -1242,6 +1242,19 @@ const HEY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/hey.wav');
 const NAY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/nay.wav');
 CHATSOUND.volume = 0.4;
 
+function preloadAudio() {
+  const audioButtons = document.querySelectorAll('button[data-type=\'audio\']'); // select all button elements with data-type = audio
+  for (let i = 0; i < audioButtons.length; i++) {
+    // loop all audio elements
+    audioButtons[i].setAttribute('disabled', true); // disable the element
+    const preloader = new Audio();
+    preloader.addEventListener('loadeddata', enableAudioButton.bind(audioButtons[i]), true); // use bind to link the audio button to the function
+    preloader.src = audioButtons[i].getAttribute('data-url'); // trigger the download
+  }
+}
+
+document.body.addEventListener('load', preloadAudio, true);
+
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- Global functions ----- */
