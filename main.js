@@ -1891,9 +1891,6 @@ function prepareMessage(msg) {
         });
         msg = `random media added! - ${title}`;
       }
-    } else if (msg.startsWith('!calc ')) {
-      func = msg.split('!calc ');
-      msg = '' + eval(func[0]);
     } else if (msg.startsWith('!skip') && hasPermission('voteskip')) {
       socket.emit('voteskip');
       msg = 'current item has been voteskipped';
@@ -2609,8 +2606,6 @@ function showChatHelp() {
       'roll': 'rolling 3-digit number (<i>!roll</i>)',
       'time': 'displaying current time (<i>!time</i>)',
       'np': 'displaying current playing title (<i>!np</i>)',
-      'calc': 'calculating a math operation ' +
-          '(all JavaScript Math methods and constants allowed, e.g. <i>!calc Math.PI*10</i>)',
       'skip': 'skip current item (<i>!skip</i>)',
       'add': 'adding a link to the end of playlist ' +
           '(e.g. <i>!add https://www.youtube.com/watch?v=29FFHC2D12Q</i>)',
