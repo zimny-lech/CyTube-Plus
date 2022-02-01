@@ -2,7 +2,8 @@
 
 ![CyDJ logo](https://media.discordapp.net/attachments/893223135367811093/904514815643508756/cydjnormal.jpg)
 
-## Updates
+## Newer updates after CyDJPre1.29.22.2 have been migrated here https://github.com/papertek/CyDJ/releases
+## Previous Updates
 
 Introduction to CyDJ Pre-Release
 
