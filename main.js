@@ -5844,8 +5844,10 @@ function fixRawVideoControls() {
 socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
 
-socket.on('changeMedia', resizeStuff);
-socket.on('mediaUpdate', resizeStuff);
+// socket.on('changeMedia', resizeStuff);
+// socket.on('mediaUpdate', resizeStuff);
+
+document.body.addEventListener('load', resizeStuff, true);
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
