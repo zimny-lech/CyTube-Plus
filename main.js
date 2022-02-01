@@ -190,7 +190,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre1.29.22.2';
+const Version_Now = 'CyDJPre1.31.22.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -1270,6 +1270,19 @@ const FASTEST = new Audio(
 const HEY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/hey.wav');
 const NAY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/nay.wav');
 CHATSOUND.volume = 0.4;
+
+function preloadAudio() {
+  const audioButtons = document.querySelectorAll('button[data-type=\'audio\']'); // select all button elements with data-type = audio
+  for (let i = 0; i < audioButtons.length; i++) {
+    // loop all audio elements
+    audioButtons[i].setAttribute('disabled', true); // disable the element
+    const preloader = new Audio();
+    preloader.addEventListener('loadeddata', enableAudioButton.bind(audioButtons[i]), true); // use bind to link the audio button to the function
+    preloader.src = audioButtons[i].getAttribute('data-url'); // trigger the download
+  }
+}
+
+document.body.addEventListener('load', preloadAudio, true);
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -3521,9 +3534,8 @@ if ($('#chanexternalcss').length < 1) {
       'rel="stylesheet" type="text/css">');
 }
 
-// setUserCSS();
 // attempt to fix dumbass buttons
-socket.on('changeMedia', setUserCSS);
+document.body.addEventListener('load', setUserCSS, true);
 
 // adding favicon
 if (UI_Favicon && Favicon_URL != '') {
@@ -5256,7 +5268,6 @@ socket.on('rank', toggleAdvancedPl);
 setLayout();
 scrollChat();
 scrollQueue();
-// resizeStuff();
 
 if (FLUID) {
   $('.container').removeClass('container').addClass('container-fluid');
@@ -5860,8 +5871,7 @@ function fixRawVideoControls() {
 socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
 
-socket.on('changeMedia', resizeStuff);
-socket.on('mediaUpdate', resizeStuff);
+document.body.addEventListener('load', resizeStuff, true);
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
