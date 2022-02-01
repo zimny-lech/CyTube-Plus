@@ -3506,7 +3506,7 @@ if ($('#chanexternalcss').length < 1) {
 }
 
 // attempt to fix dumbass buttons
-document.body.addEventListener('load', resizeStuff, true);
+document.body.addEventListener('load', setUserCSS, true);
 
 // adding favicon
 if (UI_Favicon && Favicon_URL != '') {
