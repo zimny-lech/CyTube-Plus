@@ -3505,9 +3505,8 @@ if ($('#chanexternalcss').length < 1) {
       'rel="stylesheet" type="text/css">');
 }
 
-// setUserCSS();
 // attempt to fix dumbass buttons
-socket.on('changeMedia', setUserCSS);
+document.body.addEventListener('load', resizeStuff, true);
 
 // adding favicon
 if (UI_Favicon && Favicon_URL != '') {
@@ -5240,7 +5239,6 @@ socket.on('rank', toggleAdvancedPl);
 setLayout();
 scrollChat();
 scrollQueue();
-// resizeStuff();
 
 if (FLUID) {
   $('.container').removeClass('container').addClass('container-fluid');
@@ -5843,9 +5841,6 @@ function fixRawVideoControls() {
 }
 socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
-
-// socket.on('changeMedia', resizeStuff);
-// socket.on('mediaUpdate', resizeStuff);
 
 document.body.addEventListener('load', resizeStuff, true);
 
