@@ -5843,7 +5843,7 @@ socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
 
 document.body.addEventListener('load', resizeStuff, true);
-socket.on('mediaUpdate', resizeStuff);
+socket.on('changeMedia', resizeStuff);
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
