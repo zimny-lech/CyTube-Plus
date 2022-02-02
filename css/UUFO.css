@@ -1,0 +1,76 @@
+/* CYTUBE EDIT */
+
+body {
+  background-color: #f5f5f5;
+}
+
+#ytapiplayer {
+  background-color: #000000;
+}
+
+#chatheader, #videowrap-header, #userlist, #messagebuffer, #plmeta {
+  background-color: #ffffff;
+}
+
+footer {
+  background-color: #eeeeee !important;
+}
+
+.profile-box, .user-dropdown {
+  background-color: #ffffff;
+}
+
+.emotelist-table td {
+  background-color: #f0f0f0;
+}
+
+.chat-shadow {
+  color: #aaaaaa;
+}
+
+.drink {
+  border: 2px solid #0000cc;
+}
+
+#drinkcount {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+#plmeta {
+  border: 1px solid #aaaaaa;
+}
+
+#userlist, #messagebuffer {
+  border: 1px solid #aaaaaa;
+}
+
+#chatheader, #videowrap-header {
+  border: 1px solid #cccccc;
+  border-bottom-width: 0;
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.queue_entry {
+  border-color: #aaaaaa;
+  background-color: #ffffff;
+}
+
+.queue_entry.queue_active {
+  background-color: #d9edf7;
+}
+
+.navbar-inverse .navbar-text-nofloat {
+  color: #9d9d9d;
+}
+
+.queue_entry.queue_active {
+  background-color: #d9edf7;
+}
+
+#newmessages-indicator-bghack {
+  background: rgb(200, 200, 200);
+  background: rgba(200, 200, 200, 0.9);
+}
