@@ -69,3 +69,7 @@ footer {
 .queue_entry.queue_active {
   background-color: #d9edf7;
 }
+
+.btn-default {
+  background-image: linear-gradient(#f4bb1b, #f4bb1b 60%, #f4bb1b);
+}
