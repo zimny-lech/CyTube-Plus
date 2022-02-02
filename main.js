@@ -813,7 +813,7 @@ const ThemesCSS = [
   ],
   [
     'U.U.F.O',
-    'https://papertek.github.io/CyDJ/deploy/main/css/UUFO.css',
+    'https://raw.githubusercontent.com/papertek/CyDJ/beta/css/UUFO.css',
   ],
 ];
 

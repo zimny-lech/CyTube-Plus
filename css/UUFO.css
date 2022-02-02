@@ -1,7 +1,7 @@
 /* CYTUBE EDIT */
 
 body {
-  background-color: #f5f5f5;
+  background: linear-gradient(to bottom, #3b4ba0, #891787 50%, #ebb345);
 }
 
 #ytapiplayer {
