@@ -811,6 +811,10 @@ const ThemesCSS = [
     'Classic',
     'https://dl.dropboxusercontent.com/s/oa4y86gyyag6bix/twitchclassic.css',
   ],
+  [
+    'U.U.F.O',
+    'https://papertek.github.io/CyDJ/deploy/main/css/UUFO.css',
+  ],
 ];
 
 const TopUserLogo = [
