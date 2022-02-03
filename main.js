@@ -5862,7 +5862,7 @@ function fixRawVideoControls() {
 socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
 
-window.addEventListener('load', () => resizeStuff());
+document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
 
 // Xaekai was here (john too)
