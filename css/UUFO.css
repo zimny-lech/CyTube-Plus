@@ -1,7 +1,7 @@
 /* CYTUBE EDIT */
 
 body {
-  background: linear-gradient(to bottom, #3b4ba0, #891787 50%, #ebb345);
+  background: linear-gradient(to bottom, #3b4ba0, #891787 50%, #ebb345)!important;
   color:white;
   overflow-x:hidden;
   background-repeat: no-repeat;
