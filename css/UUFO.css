@@ -14,19 +14,19 @@ body {
   padding: 0 0 60px
 }
 
-/*#mainpage{
-  background-image: url(https://cametek.jp/uufo/img/bg-intro.jpg);
-  background-repeat: no-repeat;
-  background-position: 100% 0%;
-  background-size: auto;
-}*/
-
-#azukirow{
+#mainpage{
   background-image: url(https://cametek.jp/uufo/img/bg-intro.jpg);
   background-repeat: no-repeat;
   background-position: 100% 0%;
   background-size: auto;
 }
+
+/*#azukirow{
+  background-image: url(https://cametek.jp/uufo/img/bg-intro.jpg);
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+  background-size: auto;
+}*/
 
 #ytapiplayer {
   background-color: #000000;
