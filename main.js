@@ -796,7 +796,7 @@ const CustomRightFooter_HTML = '';
 //    will be displayed on the channel top.
 
 const ChannelThemeURL =
-    'https://papertek.github.io/CyDJ/deploy/main/css/DJDefault.css';
+    'https://papertek.github.io/CyDJ/deploy/beta/css/DJDefault.css';
 
 const ThemesCSS = [
   [
