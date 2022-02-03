@@ -4,15 +4,28 @@ body {
   background: linear-gradient(to bottom, #3b4ba0, #891787 50%, #ebb345);
   color:white;
   overflow-x:hidden;
+  background-repeat: no-repeat;
 }
 
 #wrap {
   min-height: 100%;
   height: auto;
   margin: 0 auto -60px;
-  padding: 0 0 60px;
+  padding: 0 0 60px
+}
+
+/*#mainpage{
   background-image: url(https://cametek.jp/uufo/img/bg-intro.jpg);
   background-repeat: no-repeat;
+  background-position: 100% 0%;
+  background-size: auto;
+}*/
+
+#azukirow{
+  background-image: url(https://cametek.jp/uufo/img/bg-intro.jpg);
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+  background-size: auto;
 }
 
 #ytapiplayer {
