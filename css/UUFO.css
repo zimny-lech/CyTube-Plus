@@ -80,3 +80,18 @@ footer {
 .dark-theme > .odd-message {
   background-color: #890727bb;
 }
+
+.modal-body {
+  padding: 30px;
+  background-color: #891787!important;
+}
+
+.modal-header {
+  background-color: #891787;
+  border-bottom: 1px solid #890727bb;
+}
+
+.modal-footer {
+  background-color: #891787;
+  border-top: 1px solid #890727bb;
+}
