@@ -9,15 +9,15 @@ body {
 }
 
 #chatheader, #videowrap-header, #userlist, #messagebuffer, #plmeta {
-  background-color: #ffffff;
+  background-color: #891787;
 }
 
 footer {
-  background-color: #eeeeee !important;
+  background-color: #242424 !important;
 }
 
 .profile-box, .user-dropdown {
-  background-color: #ffffff;
+  background-color: #f4bb1b;
 }
 
 .emotelist-table td {
