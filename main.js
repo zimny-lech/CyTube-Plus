@@ -1448,16 +1448,17 @@ function logoInsert(logo) {
     const link = (logo !== 'user') ? LOGOS.get(logo).url : USERCONFIG.logourl;
     const height = (logo !== 'user') ? LOGOS.get(logo).height : USERCONFIG.logoht;
     azukirow.css({
-      'min-height': `${height}px`, 
+      'min-height': `${height}px`,
       'background-image': `url("${link}")`,
     });
   } else if (logo === 'no') {
     azukirow.css({
-      'min-height': '5px', 
+      'min-height': '5px',
       'background-image': '',
     });
   }
 }
+
 function headerMode(a) {
   $('.navbar-fixed-top').unbind();
   if (a == 'fixed') {
