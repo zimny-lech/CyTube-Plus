@@ -6,6 +6,15 @@ body {
   overflow-x:hidden;
 }
 
+#wrap {
+  min-height: 100%;
+  height: auto;
+  margin: 0 auto -60px;
+  padding: 0 0 60px;
+  background-image: url(https://cametek.jp/uufo/img/bg-intro.jpg);
+  background-repeat: no-repeat;
+}
+
 #ytapiplayer {
   background-color: #000000;
 }
