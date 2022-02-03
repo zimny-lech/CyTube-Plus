@@ -3038,10 +3038,8 @@ function showConfig() {
   logoinsert = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'no').text('no image').appendTo(logoinsert);
   $('<option />').attr('value', 'user').text('user image').appendTo(logoinsert);
-  let logoIndex = 0;
   for (const logoName of LOGOS.keys()) {
     $('<option />').attr('value', logoName).text(logoName).appendTo(logoinsert);
-    logoIndex++;
   }
   logoinsert.val(USERCONFIG.logo);
   addOption('Top logo', logoinsert);
