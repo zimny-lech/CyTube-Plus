@@ -790,11 +790,6 @@ const CustomRightFooter_HTML = '';
 
 /* ----- THEMES CONFIGURATION ----- */
 
-// NOTES:
-// a) TopUserLogo item has 3 attributes: name, URL, maximum height.
-//    Those images can be selected by user in Layout Configuration panel, and
-//    will be displayed on the channel top.
-
 const ChannelThemeURL =
     'https://papertek.github.io/CyDJ/deploy/beta/css/DJDefault.css';
 
@@ -817,43 +812,63 @@ const ThemesCSS = [
   ],
 ];
 
-const TopUserLogo = [
-  [
-    'cytube plus',
+class Logo {
+  /**
+   * A logo for the top of the page.
+   *
+   * @param {string} url URL of the logo image.
+   * @param {number} height Height of the logo (??).
+   */
+  constructor(url, height) {
+    this.url = url;
+    this.height = height;
+  }
+}
+
+const /** @type {!Map<string, !Logo>} */ LOGOS = new Map();
+
+LOGOS.set('cytube plus',
+  new Logo(
     'https://dl.dropboxusercontent.com/s/7mrz85gl29eiiks/logo.png',
     90,
-  ],
-  [
-    'anime girl',
+  ));
+
+LOGOS.set('anime girl',
+  new Logo(
     'https://dl.dropboxusercontent.com/s/knxd7dpup1u8lm3/azuki.png',
     200,
-  ],
-  [
-    'cosmos',
+  ));
+
+LOGOS.set('cosmos',
+  new Logo(
     'https://dl.dropboxusercontent.com/s/v6dx49yqk5e3i2d/cosmos.jpg',
     200,
-  ],
-  [
-    'disco ball',
+  ));
+
+LOGOS.set('disco ball',
+  new Logo(
     'https://dl.dropboxusercontent.com/s/ahpfm25pglc8j01/disco.jpg',
     162,
-  ],
-  [
-    'japanese landscape',
+  ));
+
+LOGOS.set('japanese landscape',
+  new Logo(
     'https://dl.dropboxusercontent.com/s/llylt832evxrp6e/japan.jpg',
     200,
-  ],
-  [
-    'korean collage',
+  ));
+
+LOGOS.set('korean collage',
+  new Logo(
     'https://dl.dropboxusercontent.com/s/qud9adhs183dq30/korea.jpg',
     160,
-  ],
-  [
+  ));
+
+LOGOS.set('my little pony',
+  new Logo(
     'my little pony',
     'https://dl.dropboxusercontent.com/s/r4ozo8oj8lmerec/mlp.jpg',
     190,
-  ],
-];
+  ));
 
 const EmptyCornerBackground = [
   'https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_a054f4001b6d4f098e7969c988debd18/default/light/2.0',
@@ -1427,17 +1442,22 @@ function motdLocation(a) {
   }
 }
 
-function logoInsert(a) {
-  if (a != 'no') {
-    link = (a != 'user') ? TopUserLogo[a][1] : USERCONFIG.logourl;
-    ht = (a != 'user') ? TopUserLogo[a][2] : USERCONFIG.logoht;
-    azukirow.css(
-        {'min-height': `${ht}px`, 'background-image': `url("${link}")`});
-  } else if (a == 'no') {
-    azukirow.css({'min-height': '5px', 'background-image': ''});
+/** @param {string} logo */
+function logoInsert(logo) {
+  if (logo !== 'no') {
+    const link = (logo !== 'user') ? LOGOS.get(logo).url : USERCONFIG.logourl;
+    const height = (logo !== 'user') ? LOGOS.get(logo).height : USERCONFIG.logoht;
+    azukirow.css({
+      'min-height': `${height}px`, 
+      'background-image': `url("${link}")`,
+    });
+  } else if (logo === 'no') {
+    azukirow.css({
+      'min-height': '5px', 
+      'background-image': '',
+    });
   }
 }
-
 function headerMode(a) {
   $('.navbar-fixed-top').unbind();
   if (a == 'fixed') {
@@ -3018,8 +3038,10 @@ function showConfig() {
   logoinsert = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'no').text('no image').appendTo(logoinsert);
   $('<option />').attr('value', 'user').text('user image').appendTo(logoinsert);
-  for (const logo of TopUserLogo) {
-    $('<option />').attr('value', i).text(logo[0]).appendTo(logoinsert);
+  let logoIndex = 0;
+  for (const logoName of LOGOS.keys()) {
+    $('<option />').attr('value', logoName).text(logoName).appendTo(logoinsert);
+    logoIndex++;
   }
   logoinsert.val(USERCONFIG.logo);
   addOption('Top logo', logoinsert);
