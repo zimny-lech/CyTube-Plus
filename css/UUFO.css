@@ -2,6 +2,8 @@
 
 body {
   background: linear-gradient(to bottom, #3b4ba0, #891787 50%, #ebb345);
+  color:white;
+  overflow-x:hidden;
 }
 
 #ytapiplayer {
@@ -18,6 +20,7 @@ footer {
 
 .profile-box, .user-dropdown {
   background-color: #f4bb1b;
+  color:white;
 }
 
 .emotelist-table td {
@@ -72,4 +75,8 @@ footer {
 
 .btn-default {
   background-image: linear-gradient(#f4bb1b, #f4bb1b 60%, #f4bb1b);
+}
+
+.dark-theme > .odd-message {
+  background-color: #890727bb;
 }
