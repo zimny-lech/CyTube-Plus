@@ -1,4 +1,4 @@
-/* CYTUBE EDIT */
+/* UUFO by John, using light theme as base lol */
 
 body {
   background: linear-gradient(to bottom, #3b4ba0, #891787 50%, #ebb345)!important;
@@ -123,4 +123,8 @@ a {
 
 .emote-preview-container {
   margin: 0px
+}
+
+.emotelist-table {
+  background-color: #161a20;
 }
