@@ -80,19 +80,15 @@ footer {
 
 .queue_entry {
   border-color: #aaaaaa;
-  background-color: #ffffff;
+  background-color: #890727bb;
 }
 
 .queue_entry.queue_active {
-  background-color: #d9edf7;
+  background-color: #891787;
 }
 
 .navbar-inverse .navbar-text-nofloat {
   color: #9d9d9d;
-}
-
-.queue_entry.queue_active {
-  background-color: #d9edf7;
 }
 
 .btn-default {
