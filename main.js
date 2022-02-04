@@ -3528,7 +3528,8 @@ if ($('#chanexternalcss').length < 1) {
 }
 
 // attempt to fix dumbass buttons
-document.body.addEventListener('load', setUserCSS, true);
+// document.body.addEventListener('load', setUserCSS, true);
+socket.on('mediaUpdate', setUserCSS);
 
 // adding favicon
 if (UI_Favicon && Favicon_URL != '') {
