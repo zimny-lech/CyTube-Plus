@@ -808,9 +808,11 @@ const ThemesCSS = [
   ],
   [
     'U.U.F.O',
-    'https://papertek.github.io/CyDJ/deploy/beta/css/UUFO.css',
+    'https://dl.dropboxusercontent.com/s/hjqrn0n1a6kc69q/UUFO.css',
   ],
 ];
+
+// https://papertek.github.io/CyDJ/deploy/beta/css/UUFO.css  USE this link later
 
 class Logo {
   /**
