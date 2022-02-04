@@ -79,12 +79,14 @@ footer {
 }
 
 .queue_entry {
-  border-color: #aaaaaa;
+  border-color: #f4bb1b;
   background-color: #890727bb;
 }
 
 .queue_entry.queue_active {
   background-color: #891787;
+  background-image: linear-gradient(#3b4ba0, #3b4ba0, #3b4ba0);
+  background-repeat:no-repeat;
 }
 
 .navbar-inverse .navbar-text-nofloat {
@@ -112,4 +114,13 @@ footer {
 .modal-footer {
   background-color: #891787;
   border-top: 1px solid #890727bb;
+}
+
+a {
+  color: #78be86;
+  text-decoration: none;
+}
+
+.emote-preview-container {
+  margin: 0px
 }
