@@ -7,6 +7,10 @@ body {
   background-repeat: no-repeat;
 }
 
+html, body {
+  height: unset;
+}
+
 #wrap {
   min-height: 100%;
   height: auto;
