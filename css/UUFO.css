@@ -45,10 +45,6 @@ footer {
   color:white;
 }
 
-.emotelist-table td {
-  background-color: #f0f0f0;
-}
-
 .chat-shadow {
   color: #aaaaaa;
 }
@@ -125,6 +121,6 @@ a {
   margin: 0px
 }
 
-.emotelist-table {
+.emotelist-table td {
   background-color: #161a20;
 }
