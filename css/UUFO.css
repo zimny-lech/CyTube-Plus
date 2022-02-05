@@ -12,6 +12,13 @@ html, body {
   height: unset;
 }
 
+#motdwrap {
+  padding: 10px;
+  border-color: white;
+  box-shadow: none;
+  background-color: #78be864d;
+}
+
 #wrap {
   background-image: url(https://cametek.jp/uufo/img/bg-intro.jpg);
   background-repeat: no-repeat;
@@ -25,7 +32,7 @@ html, body {
 
 .alert-info {
   background-color: #3b4ba0;
-  border-color: #891787;
+  border-color: #3b4ba09e;
   color: #fff;
 }
 
