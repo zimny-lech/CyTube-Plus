@@ -5213,7 +5213,7 @@ socket.on('chatMsg', fixSayMsg);
  * DEV NOTE: this is extended function from CyTube "util.js" file
  */
 function resizeStuff() {
-  const videoWidth = $('.embed-responsive').width();
+  const videoWidth = $('#videowrap .embed-responsive').width();
   const videoHeight = Math.floor(parseInt(videoWidth) * 9 / 16 + 1);
   $('#ytapiplayer').width(videoWidth).height(videoHeight);
 
