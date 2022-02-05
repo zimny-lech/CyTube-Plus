@@ -119,40 +119,40 @@ body {
 /* USER OPTIONS */
 .modal-body {
   padding: 30px;
-  background-color: #282828 !important
+  background-color: #282828!important;
 }
 
 .modal-header {
   background-color: #282828;
-  border-bottom: 1px solid #333
+  border-bottom: 1px solid #333;
 }
 
 .modal-footer {
   background-color: #282828;
-  border-top: 1px solid #333
+  border-top: 1px solid #333;
 }
 
 /* PM BAR */
 #pmbar .pm-buffer>div .username {
-  color: #77F
+  color: #77F;
 }
 
 #pmbar .pm-buffer>div .timestamp {
-  color: #999
+  color: #999;
 }
 
 .pm-panel, .pm-panel-placeholder {
   width: 20%;
-  min-width: 200px
+  min-width: 200px;
 }
 
 /* TBC */
 #login {
-  padding: 0.5px 10px
+  padding: 0.5px 10px;
 }
 
 textarea.form-control {
-  height: 550px
+  height: 550px;
 }
 
 ::-webkit-scrollbar {
@@ -171,12 +171,12 @@ textarea.form-control {
 }
 
 ::-webkit-scrollbar-corner {
-  background: #FFF
+  background: #FFF;
 }
 
 .row {
   margin-left: 0px;
-  margin-right: 0px
+  margin-right: 0px;
 }
 
 input.form-control[type="text"], input.form-control[type="password"], input.form-control[type="email"], textarea.form-control {
@@ -185,36 +185,36 @@ input.form-control[type="text"], input.form-control[type="password"], input.form
 }
 
 #guestlogin {
-  z-index: 9
+  z-index: 9;
 }
 
 .channel-emote {
-  background-color: transparent !important
+  background-color: transparent!important;
 }
 
 .nick-hover {
-  background-color: #1D1D21
+  background-color: #1D1D21;
 }
 
 .form-control:focus {
-  box-shadow: 0 0 5px #e9d3ff
+  box-shadow: 0 0 5px #e9d3ff;
 }
 
 .userlist-op {
-  color: #FF69B4
+  color: #FF69B4;
 }
 
 .userlist_users {
-  color: #FF69B4
+  color: #FF69B4;
 }
 
 .channel-emote {
-  max-height: 52px
+  max-height: 52px;
 }
 
 .nick-highlight {
   background-color: rgba(255, 0, 0, 0.5) !important;
-  color: #fff
+  color: #fff;
 }
 
 .server-whisper {
