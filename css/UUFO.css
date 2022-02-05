@@ -166,3 +166,11 @@ footer {
   border-radius: 1ex;
 }
 ::-webkit-scrollbar-corner{background:rgb(255, 255, 255)}
+
+div.userlist_item > span:not(.userlist_op):not(.userlist_owner) {
+  color: #ffffff;
+}
+
+span:not(.userlist_op):not(.userlist_owner) > strong.username {
+  color: #ffffff;
+}
