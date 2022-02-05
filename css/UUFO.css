@@ -55,12 +55,12 @@ html, body {
 }
 
 footer {
-  background-color: #24242400 !important;
+  background-color: #3b4ba0 !important;
 }
 
-.text-muted, .text-primary {
+/*.text-muted, .text-primary {
   color: #000000;
-}
+}*/
 
 .profile-box, .user-dropdown {
   background-color: #f4bb1b;
@@ -114,6 +114,7 @@ footer {
 .btn-default {
   background-image: linear-gradient(#f4bb1b, #f4bb1b 60%, #f4bb1b);
   font-weight: 500;
+  color: #20402e;
 }
 
 .dark-theme > .odd-message {
