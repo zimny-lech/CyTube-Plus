@@ -22,6 +22,15 @@ html, body {
   padding: 0 0 60px;
 }
 
+.alert-info {
+  background-color: #3b4ba0;
+  border-color: #891787;
+  color: #fff;
+}
+
+.glyphicon {
+  font-weight: 500;
+}
 /*#mainpage{
   background-image: url(https://cametek.jp/uufo/img/bg-intro.jpg);
   background-repeat: no-repeat;
@@ -45,7 +54,11 @@ html, body {
 }
 
 footer {
-  background-color: #242424 !important;
+  background-color: #24242400 !important;
+}
+
+.text-muted, .text-primary {
+  color: #000000;
 }
 
 .profile-box, .user-dropdown {
@@ -99,6 +112,7 @@ footer {
 
 .btn-default {
   background-image: linear-gradient(#f4bb1b, #f4bb1b 60%, #f4bb1b);
+  font-weight: 500;
 }
 
 .dark-theme > .odd-message {
