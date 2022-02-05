@@ -12,20 +12,24 @@ html, body {
 }
 
 #wrap {
+  background-image: url(https://cametek.jp/uufo/img/bg-intro.jpg);
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+  background-size: auto;
   min-height: 100%;
   height: auto;
   margin: 0 auto -60px;
-  padding: 0 0 60px
+  padding: 0 0 60px;
 }
 
-#mainpage{
+/*#mainpage{
   background-image: url(https://cametek.jp/uufo/img/bg-intro.jpg);
   background-repeat: no-repeat;
   background-position: 100% 0%;
   background-size: auto;
 }
 
-/*#azukirow{
+#azukirow{
   background-image: url(https://cametek.jp/uufo/img/bg-intro.jpg);
   background-repeat: no-repeat;
   background-position: 100% 0%;
