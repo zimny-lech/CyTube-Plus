@@ -160,5 +160,5 @@ footer {
 }
 
 ::-webkit-scrollbar{min-height:10px;width:6px;background:transparent}
-::-webkit-scrollbar-thumb{background:#890b41;opacity:7;border-radius:1ex;-webkit-border-radius:1ex;box-shadow:0 1px 2px rgba(0,0,0,0.75);-webkit-box-shadow:0 1px 2px rgba(0,0,0,0.75)}
+::-webkit-scrollbar-thumb{background:#890b41;opacity:7;border-radius:1ex;}
 ::-webkit-scrollbar-corner{background:rgb(255, 255, 255)}
