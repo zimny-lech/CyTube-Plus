@@ -58,9 +58,9 @@ footer {
   background-color: #3b4ba0 !important;
 }
 
-/*.text-muted, .text-primary {
-  color: #000000;
-}*/
+.text-muted, .text-primary {
+  color: #78be86;
+}
 
 .profile-box, .user-dropdown {
   background-color: #f4bb1b;
@@ -151,3 +151,7 @@ footer {
   margin-left: 4px;
   letter-spacing: .6px;
 }
+
+::-webkit-scrollbar{min-height:10px;width:6px;background:transparent}
+::-webkit-scrollbar-thumb{background:#78be86;opacity:7;border-radius:1ex;-webkit-border-radius:1ex;box-shadow:0 1px 2px rgba(0,0,0,0.75);-webkit-box-shadow:0 1px 2px rgba(0,0,0,0.75)}
+::-webkit-scrollbar-corner{background:rgb(0, 0, 0)}
