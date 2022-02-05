@@ -122,17 +122,15 @@ footer {
 
 .modal-body {
   padding: 30px;
-  background-color: #891787!important;
+  background-color: #3b4ba0!important;
 }
 
 .modal-header {
-  background-color: #891787;
-  border-bottom: 1px solid #890727bb;
+  background-color: #3b4ba0;
 }
 
 .modal-footer {
-  background-color: #891787;
-  border-top: 1px solid #890727bb;
+  background-color: #3b4ba0;
 }
 
 .emote-preview-container {
