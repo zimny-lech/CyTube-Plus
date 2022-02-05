@@ -1,4 +1,5 @@
 /* UUFO by John, using light theme as base lol */
+/* Credit to Camellia and various others for the colors, ideas and images!! */
 
 body {
   background: linear-gradient(to bottom, #3b4ba0, #891787 50%, #ebb345)!important;
@@ -140,4 +141,14 @@ footer {
 
 .emotelist-table td {
   background-color: #161a20;
+}
+
+#titlerow-outer {
+  letter-spacing:2px;
+  background-color: #890b41;
+}
+
+.qe_title {
+  margin-left: 4px;
+  letter-spacing: .6px;
 }
