@@ -3535,7 +3535,17 @@ if ($('#chanexternalcss').length < 1) {
 }
 
 // attempt to fix dumbass buttons
-document.body.addEventListener('load', setUserCSS, true);
+// but for some stupid reason the load event is called on like every chat
+// message leading to a buuuunch of layout thrashing pepeAgony. so only do this
+// once.
+let alreadySetAfterLoad = false;
+document.body.addEventListener('load', () => {
+  if (alreadySetAfterLoad) {
+    return;
+  }
+  setUserCSS();
+  alreadySetAfterLoad = true;
+}, true);
 
 // adding favicon
 if (UI_Favicon && Favicon_URL != '') {
