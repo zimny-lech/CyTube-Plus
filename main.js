@@ -827,48 +827,55 @@ class Logo {
 
 const /** @type {!Map<string, !Logo>} */ LOGOS = new Map();
 
-LOGOS.set('cytube plus',
-  new Logo(
-    'https://dl.dropboxusercontent.com/s/7mrz85gl29eiiks/logo.png',
-    90,
-  ));
+LOGOS.set(
+    'cytube plus',
+    new Logo(
+        'https://dl.dropboxusercontent.com/s/7mrz85gl29eiiks/logo.png',
+        90,
+        ));
 
-LOGOS.set('anime girl',
-  new Logo(
-    'https://dl.dropboxusercontent.com/s/knxd7dpup1u8lm3/azuki.png',
-    200,
-  ));
+LOGOS.set(
+    'anime girl',
+    new Logo(
+        'https://dl.dropboxusercontent.com/s/knxd7dpup1u8lm3/azuki.png',
+        200,
+        ));
 
-LOGOS.set('cosmos',
-  new Logo(
-    'https://dl.dropboxusercontent.com/s/v6dx49yqk5e3i2d/cosmos.jpg',
-    200,
-  ));
+LOGOS.set(
+    'cosmos',
+    new Logo(
+        'https://dl.dropboxusercontent.com/s/v6dx49yqk5e3i2d/cosmos.jpg',
+        200,
+        ));
 
-LOGOS.set('disco ball',
-  new Logo(
-    'https://dl.dropboxusercontent.com/s/ahpfm25pglc8j01/disco.jpg',
-    162,
-  ));
+LOGOS.set(
+    'disco ball',
+    new Logo(
+        'https://dl.dropboxusercontent.com/s/ahpfm25pglc8j01/disco.jpg',
+        162,
+        ));
 
-LOGOS.set('japanese landscape',
-  new Logo(
-    'https://dl.dropboxusercontent.com/s/llylt832evxrp6e/japan.jpg',
-    200,
-  ));
+LOGOS.set(
+    'japanese landscape',
+    new Logo(
+        'https://dl.dropboxusercontent.com/s/llylt832evxrp6e/japan.jpg',
+        200,
+        ));
 
-LOGOS.set('korean collage',
-  new Logo(
-    'https://dl.dropboxusercontent.com/s/qud9adhs183dq30/korea.jpg',
-    160,
-  ));
+LOGOS.set(
+    'korean collage',
+    new Logo(
+        'https://dl.dropboxusercontent.com/s/qud9adhs183dq30/korea.jpg',
+        160,
+        ));
 
-LOGOS.set('my little pony',
-  new Logo(
+LOGOS.set(
     'my little pony',
-    'https://dl.dropboxusercontent.com/s/r4ozo8oj8lmerec/mlp.jpg',
-    190,
-  ));
+    new Logo(
+        'my little pony',
+        'https://dl.dropboxusercontent.com/s/r4ozo8oj8lmerec/mlp.jpg',
+        190,
+        ));
 
 const EmptyCornerBackground = [
   'https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_a054f4001b6d4f098e7969c988debd18/default/light/2.0',
@@ -1262,13 +1269,14 @@ const NAY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/nay.wav');
 CHATSOUND.volume = 0.4;
 
 function preloadAudio() {
-  const audioButtons = document.querySelectorAll('button[data-type=\'audio\']'); // select all button elements with data-type = audio
-  for (let i = 0; i < audioButtons.length; i++) {
-    // loop all audio elements
-    audioButtons[i].setAttribute('disabled', true); // disable the element
+  const audioButtons = document.querySelectorAll('button[data-type=\'audio\']');
+  for (const audioButton of audioButtons) {
     const preloader = new Audio();
-    preloader.addEventListener('loadeddata', enableAudioButton.bind(audioButtons[i]), true); // use bind to link the audio button to the function
-    preloader.src = audioButtons[i].getAttribute('data-url'); // trigger the download
+    // use bind to link the audio button to the function
+    preloader.addEventListener(
+        'loadeddata', enableAudioButton.bind(audioButton), true);
+    // trigger the download
+    preloader.src = audioButton.getAttribute('data-url');
   }
 }
 
@@ -1446,7 +1454,8 @@ function motdLocation(a) {
 function logoInsert(logo) {
   if (logo !== 'no') {
     const link = (logo !== 'user') ? LOGOS.get(logo).url : USERCONFIG.logourl;
-    const height = (logo !== 'user') ? LOGOS.get(logo).height : USERCONFIG.logoht;
+    const height =
+        (logo !== 'user') ? LOGOS.get(logo).height : USERCONFIG.logoht;
     azukirow.css({
       'min-height': `${height}px`,
       'background-image': `url("${link}")`,
@@ -3874,7 +3883,7 @@ if (UI_EmotesBtn) {
           .appendTo(chatcontrols)
           .on('click', () => {
             toggleDiv(emotespanel);
-            if (UI_ChannelCache != '1' && !EMOTES) {
+            if (!UI_ChannelCache && !EMOTES) {
               showEmotes();
             }
           });
