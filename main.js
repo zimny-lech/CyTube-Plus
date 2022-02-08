@@ -5260,6 +5260,8 @@ function resizeStuff() {
     } else if (m === 'syMode' && USERCONFIG.player === 'center') {
       fitChat(200);
     }
+    setMode(modesel.val());//idk just throwing stuff around atp : xqcPeepo
+    setTimeout(refreshPlayer(),1000)// 1000 is 1 second, but you already knew that : xqcPeepo
   }
   console.log("should be done resizing unless...");
 }
@@ -5887,7 +5889,7 @@ function fixRawVideoControls() {
 socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
 
-document.body.addEventListener('change', resizeStuff, true);// this could've been the root of it all PagMan 🤙 turns out already added : xqcPeepo
+document.body.addEventListener('load', resizeStuff, true);// trying load again : xqcPeepo
 socket.on('changeMedia', resizeStuff);//thinkkkkkkk my brain is shutting down looking at how slow these words are typed jesus christ : xqcPeepo
 // I think my CPU died
 // Xaekai was here (john too)
