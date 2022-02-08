@@ -160,7 +160,7 @@ const UI_SpecialEmoteBtn = true;
 // adds public voteskipping
 const UI_PublicSkip = true;
 // adds "add" test to help new users
-const UI_ExtraHelp = true;
+const UI_ButtonIcons = true;
 // adds snow (just an attempt on adding, i dont rly know how to make it work)
 const UI_Snow = false;
 
@@ -190,7 +190,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre2.7.21.1';
+const Version_Now = 'CyDJPre2.7.21.2';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -3684,11 +3684,12 @@ if (UI_CustomCaptions) {
     changeWelcomeText();
   }
 }
-
-if (UI_ExtraHelp) {
+// TODO add small tooltip
+if (UI_ButtonIcons) {
   $('#showmediaurl').html('<i class="glyphicon glyphicon-plus"></i> Add');
-  //  $('#voteskip').html('<i class="glyphicon glyphicon-step-forward"></i>
-  //  Skip');
+  $('#emotelistbtn').html('<i class="glyphicon glyphicon-picture"></i>');
+  $('#chathelp-btn').html('<i class="glyphicon glyphicon-question-sign"></i>');
+  $('#context-btn').html('<i class="glyphicon glyphicon-apple"></i>');
 }
 
 // deleting previous MOTD
@@ -5887,6 +5888,7 @@ socket.on('mediaUpdate', fixRawVideoControls);
 
 document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
+
 
 var  resizeStuffLoop = setInterval(() => {//xqcPeepo/EmmanuelAT was here
   console.log("resizing...2");
