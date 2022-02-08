@@ -5247,7 +5247,7 @@ function resizeStuff() {
 
   if (UI_DisplayModeSel) {
     m = modesel.val();
-
+    console.log("channel mode is : ",m);
     // patches for various display modes
     if (m === 'chMode' || m === 'rMode') {
       if (WEBKIT) {
@@ -5258,7 +5258,7 @@ function resizeStuff() {
       }
       fitChat('auto');
     } else if (m === 'syMode' && USERCONFIG.player === 'center') {
-      fitChat(200);
+      fitChat('auto');//it could've been this all along lmao
     }
   }
 }
@@ -5889,18 +5889,13 @@ socket.on('mediaUpdate', fixRawVideoControls);
 document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
 
-/* commented out for now - john
 
-// eslint-disable-next-line no-unused-vars
-const resizeStuffLoop = setInterval(() => {
-  console.log('resizing...');
-  resizeStuff(); // this should be fine right Clueless
-  if (UI_DisplayModeSel) {
-    setMode(modesel.val());
-  }
-}, 1500)(); // every 1.5 seconds just to be safe?? : xqcPeepo
-// side note you can always cancel this interval by using clearInterval(resizeStuffLoop);
-*/
+var  resizeStuffLoop = setInterval(() => {//xqcPeepo/EmmanuelAT was here
+  console.log("resizing...2");
+  resizeStuff();//this should be fine right Clueless
+  setTimeout(scrollChat(),500);//auto scroll after .5 seconds
+}, 1000);//every 1 seconds just to be safe?? : xqcPeepo here
+//^ side note you can always cancel this interval by using clearInterval(resizeStuffLoop);
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
