@@ -3269,7 +3269,7 @@ function toggleFluidLayout() {
     $('body').removeClass('fullscreen');
     $('.container-fluid').removeClass('container-fluid').addClass('container');
     $('#fontspanel, #emotespanel').removeClass('fluidpanel');
-    //setTimeout(refreshPlayer(), 1000);
+    setTimeout(refreshPlayer(), 1000);
   } else {
     $('body').addClass('fullscreen');
     $('.container').removeClass('container').addClass('container-fluid');
@@ -3277,10 +3277,10 @@ function toggleFluidLayout() {
         .removeClass('container-fluid')
         .addClass('container');
     $('#fontspanel, #emotespanel').addClass('fluidpanel');
-    //setTimeout(refreshPlayer(), 1000);
+    setTimeout(refreshPlayer(), 1000);
   }
   if (UI_DisplayModeSel) {
-    //setMode(modesel.val());
+    setMode(modesel.val());
   }
   FLUID = !FLUID;
   setOpt(CHANNEL.name + '_fluid', FLUID);
@@ -5246,7 +5246,7 @@ function resizeStuff() {
 
   if (UI_DisplayModeSel) {
     m = modesel.val();
-
+    console.log("channel mode is : ",m);
     // patches for various display modes
     if (m === 'chMode' || m === 'rMode') {
       if (WEBKIT) {
@@ -5889,7 +5889,7 @@ document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
 
 var  resizeStuffLoop = setInterval(() => {//xqcPeepo/EmmanuelAT was here
-  console.log("resizing...");
+  console.log("resizing...2");
   resizeStuff();//this should be fine right Clueless
   if (UI_DisplayModeSel)
   {
