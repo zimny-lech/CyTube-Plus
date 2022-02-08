@@ -5895,7 +5895,7 @@ var  resizeStuffLoop = setInterval(() => {//xqcPeepo/EmmanuelAT was here
   {
     setMode(modesel.val());
   }
-}, 1500);//every 1.5 seconds just to be safe?? : xqcPeepo
+}, 1500)();//every 1.5 seconds just to be safe?? : xqcPeepo
 //^ side note you can always cancel this interval by using clearInterval(resizeStuffLoop);
 
 // Xaekai was here (john too)
