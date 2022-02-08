@@ -5889,13 +5889,13 @@ document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
 
 // eslint-disable-next-line no-unused-vars
-const resizeStuffLoop = setInterval(() => {// xqcPeepo/EmmanuelAT was here
+const resizeStuffLoop = setInterval(() => {
   console.log('resizing...');
   resizeStuff(); // this should be fine right Clueless
   if (UI_DisplayModeSel) {
     setMode(modesel.val());
   }
-}, 1500); // every 1.5 seconds just to be safe?? : xqcPeepo
+}, 1500()); // every 1.5 seconds just to be safe?? : xqcPeepo
 // side note you can always cancel this interval by using clearInterval(resizeStuffLoop);
 
 
