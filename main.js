@@ -5888,6 +5888,8 @@ socket.on('mediaUpdate', fixRawVideoControls);
 document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
 
+/* commented out for now - john
+
 // eslint-disable-next-line no-unused-vars
 const resizeStuffLoop = setInterval(() => {
   console.log('resizing...');
@@ -5897,7 +5899,7 @@ const resizeStuffLoop = setInterval(() => {
   }
 }, 1500)(); // every 1.5 seconds just to be safe?? : xqcPeepo
 // side note you can always cancel this interval by using clearInterval(resizeStuffLoop);
-
+*/
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
