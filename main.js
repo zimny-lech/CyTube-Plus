@@ -5257,7 +5257,7 @@ function resizeStuff() {
       }
       fitChat('auto');
     } else if (m === 'syMode' && USERCONFIG.player === 'center') {
-      fitChat(200);
+      fitChat('auto');//it could've been this all along lmao
     }
   }
 }
@@ -5895,7 +5895,7 @@ var  resizeStuffLoop = setInterval(() => {//xqcPeepo/EmmanuelAT was here
   {
     setMode(modesel.val());
   }
-}, 1500)();//every 1.5 seconds just to be safe?? : xqcPeepo here
+}, 1500);//every 1.5 seconds just to be safe?? : xqcPeepo here
 //^ side note you can always cancel this interval by using clearInterval(resizeStuffLoop);
 
 // Xaekai was here (john too)
