@@ -5890,7 +5890,7 @@ socket.on('changeMedia', resizeStuff);
 
 var  resizeStuffLoop = setInterval(() => {//xqcPeepo/EmmanuelAT was here
   console.log("resizing...2");
-  resizeStuff();//this should be fine right Clueless
+  //resizeStuff();//this should be fine right Clueless
   if (UI_DisplayModeSel)
   {
     setMode(modesel.val());
