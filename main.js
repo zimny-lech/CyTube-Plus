@@ -676,12 +676,10 @@ const USER_BADGES = {
   'MasterA1G': [
     Badge.SUB_24_MONTHS_T1,
   ],
-<<<<<<< Updated upstream
-=======
+
   'xqcPeepo': [
     Badge.SUB_0_MONTHS_T1,
   ],
->>>>>>> Stashed changes
 };
 
 const SoundFilters_Array = {
