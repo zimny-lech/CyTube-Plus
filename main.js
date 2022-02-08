@@ -190,7 +190,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre2.5.22.3';
+const Version_Now = 'CyDJPre2.7.21.1';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -5236,7 +5236,6 @@ socket.on('chatMsg', fixSayMsg);
  * DEV NOTE: this is extended function from CyTube "util.js" file
  */
 function resizeStuff() {
-  console.log("resizingStuff monkaW");
   const videoWidth = $('#videowrap .embed-responsive').width();
   const videoHeight = Math.floor(parseInt(videoWidth) * 9 / 16 + 1);
   $('#ytapiplayer').width(videoWidth).height(videoHeight);
@@ -5260,10 +5259,7 @@ function resizeStuff() {
     } else if (m === 'syMode' && USERCONFIG.player === 'center') {
       fitChat(200);
     }
-    setMode(modesel.val());//idk just throwing stuff around atp : xqcPeepo
-    setTimeout(refreshPlayer(),1000)// 1000 is 1 second, but you already knew that : xqcPeepo
   }
-  console.log("should be done resizing unless...");
 }
 
 // bind new resizing function
@@ -5889,8 +5885,18 @@ function fixRawVideoControls() {
 socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
 
-document.body.addEventListener('load', resizeStuff, true);// trying load again : xqcPeepo
-socket.on('changeMedia', resizeStuff);//thinkkkkkkk my brain is shutting down looking at how slow these words are typed jesus christ : xqcPeepo
+document.body.addEventListener('load', resizeStuff, true);
+socket.on('changeMedia', resizeStuff);
+
+var  resizeStuffLoop = setInterval(() => {//xqcPeepo/EmmanuelAT was here
+  console.log("resizing...");
+  resizeStuff();//this should be fine right Clueless
+  if (UI_DisplayModeSel)
+  {
+    setMode(modesel.val());
+  }
+}, 1500);//every 1.5 seconds just to be safe?? : xqcPeepo
+//^ side note you can always cancel this interval by using clearInterval(resizeStuffLoop);
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
