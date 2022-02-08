@@ -209,7 +209,7 @@ const TitleIcon_URL = 'https://cdn.7tv.app/emote/6040a8bccf6746000db10348/2x';
 
 const TitleBarDescription_Caption = 'Now Playing:';
 
-const JoinText_Message = 'hello!';//reverted Sadge : xqcPeepo
+const JoinText_Message = 'hello!';
 
 const LeaveText_Message = 'left';
 
@@ -5891,6 +5891,6 @@ socket.on('mediaUpdate', fixRawVideoControls);
 
 document.body.addEventListener('load', resizeStuff, true);// trying load again : xqcPeepo
 socket.on('changeMedia', resizeStuff);//thinkkkkkkk my brain is shutting down looking at how slow these words are typed jesus christ : xqcPeepo
-// I think my CPU died
+
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
