@@ -190,7 +190,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre2.7.21.2';
+const Version_Now = 'CyDJPre2.8.21.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -3687,9 +3687,9 @@ if (UI_CustomCaptions) {
 // TODO add small tooltip
 if (UI_ButtonIcons) {
   $('#showmediaurl').html('<i class="glyphicon glyphicon-plus"></i> Add');
-  $('#emotelistbtn').html('<i class="glyphicon glyphicon-picture"></i>');
+  /* $('#emotelistbtn').html('<i class="glyphicon glyphicon-picture"></i>');
   $('#chathelp-btn').html('<i class="glyphicon glyphicon-question-sign"></i>');
-  $('#context-btn').html('<i class="glyphicon glyphicon-apple"></i>');
+  $('#context-btn').html('<i class="glyphicon glyphicon-apple"></i>'); */
 }
 
 // deleting previous MOTD
@@ -3906,14 +3906,16 @@ if (UI_EmotesBtn) {
 
 // moving emote button attempt
 if (UI_SpecialEmoteBtn) {
-  $('#emotelistbtn').appendTo(chatcontrols).text('Emotes');
+  $('#emotelistbtn').appendTo(chatcontrols); // .text('Emotes');
+  $('#emotelistbtn').html('<i class="glyphicon glyphicon-picture"></i>');
 }
 
 // adding chat commands button
 if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
   chathelpbtn =
       $('<button id="chathelp-btn" class="btn btn-sm btn-default" title="Show chat commands"/>')
-          .text('Chat Commands')
+          .html('<i class="glyphicon glyphicon-question-sign"></i>')
+          // .text('Chat Commands')
           .appendTo(chatcontrols)
           .on('click', () => showChatHelp());
 }
@@ -3922,7 +3924,8 @@ if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
 if (UI_ContextMenu) {
   chathelpbtn =
       $('<button id="context-btn" class="btn btn-sm btn-default" title="Opens a menu with links" />')
-          .text('Context Menu')
+          .html('<i class="glyphicon glyphicon-apple"></i>')
+          // .text('Context Menu')
           .appendTo(chatcontrols)
           .on('click', () => showContextMenu());
 }
