@@ -5890,11 +5890,7 @@ socket.on('changeMedia', resizeStuff);
 
 var  resizeStuffLoop = setInterval(() => {//xqcPeepo/EmmanuelAT was here
   console.log("resizing...2");
-  //resizeStuff();//this should be fine right Clueless
-  if (UI_DisplayModeSel)
-  {
-    setMode(modesel.val());
-  }
+  resizeStuff();//this should be fine right Clueless
 }, 1500);//every 1.5 seconds just to be safe?? : xqcPeepo here
 //^ side note you can always cancel this interval by using clearInterval(resizeStuffLoop);
 
