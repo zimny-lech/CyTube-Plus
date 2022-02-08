@@ -209,7 +209,7 @@ const TitleIcon_URL = 'https://cdn.7tv.app/emote/6040a8bccf6746000db10348/2x';
 
 const TitleBarDescription_Caption = 'Now Playing:';
 
-const JoinText_Message = 'hello!';
+const JoinText_Message = 'hello!!!';//to see if it was properly pulled : xqcPeepo
 
 const LeaveText_Message = 'left';
 
@@ -675,6 +675,10 @@ const USER_BADGES = {
   ],
   'MasterA1G': [
     Badge.SUB_24_MONTHS_T1,
+  ],
+
+  'xqcPeepo': [
+    Badge.SUB_0_MONTHS_T1,
   ],
 };
 
@@ -5881,8 +5885,8 @@ function fixRawVideoControls() {
 socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
 
-document.body.addEventListener('load', resizeStuff, true);
-socket.on('changeMedia', resizeStuff);
-
+document.body.addEventListener('change', resizeStuff, true);// this could've been the root of it all PagMan 🤙 turns out already added : xqcPeepo
+socket.on('changeMedia', resizeStuff);//thinkkkkkkk my brain is shutting down looking at how slow these words are typed jesus christ : xqcPeepo
+// I think my CPU died
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
