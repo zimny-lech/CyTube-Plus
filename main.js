@@ -3269,7 +3269,7 @@ function toggleFluidLayout() {
     $('body').removeClass('fullscreen');
     $('.container-fluid').removeClass('container-fluid').addClass('container');
     $('#fontspanel, #emotespanel').removeClass('fluidpanel');
-    setTimeout(refreshPlayer(), 1000);
+    //setTimeout(refreshPlayer(), 1000);
   } else {
     $('body').addClass('fullscreen');
     $('.container').removeClass('container').addClass('container-fluid');
@@ -3277,10 +3277,10 @@ function toggleFluidLayout() {
         .removeClass('container-fluid')
         .addClass('container');
     $('#fontspanel, #emotespanel').addClass('fluidpanel');
-    setTimeout(refreshPlayer(), 1000);
+    //setTimeout(refreshPlayer(), 1000);
   }
   if (UI_DisplayModeSel) {
-    setMode(modesel.val());
+    //setMode(modesel.val());
   }
   FLUID = !FLUID;
   setOpt(CHANNEL.name + '_fluid', FLUID);
@@ -5895,7 +5895,7 @@ var  resizeStuffLoop = setInterval(() => {//xqcPeepo/EmmanuelAT was here
   {
     setMode(modesel.val());
   }
-}, 1500)();//every 1.5 seconds just to be safe?? : xqcPeepo
+}, 1500)();//every 1.5 seconds just to be safe?? : xqcPeepo here
 //^ side note you can always cancel this interval by using clearInterval(resizeStuffLoop);
 
 // Xaekai was here (john too)
