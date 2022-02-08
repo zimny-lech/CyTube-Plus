@@ -5891,7 +5891,8 @@ socket.on('changeMedia', resizeStuff);
 var  resizeStuffLoop = setInterval(() => {//xqcPeepo/EmmanuelAT was here
   console.log("resizing...2");
   resizeStuff();//this should be fine right Clueless
-}, 1500);//every 1.5 seconds just to be safe?? : xqcPeepo here
+  setTimeout(scrollChat(),500);//auto scroll after .5 seconds
+}, 1000);//every 1 seconds just to be safe?? : xqcPeepo here
 //^ side note you can always cancel this interval by using clearInterval(resizeStuffLoop);
 
 // Xaekai was here (john too)
