@@ -190,7 +190,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre2.8.21.0';
+const Version_Now = 'CyDJPre2.9.21.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -407,7 +407,8 @@ class Badge {
   static GIFT_SUBS_500 =
       'https://cdn.discordapp.com/attachments/915656975696687124/916100252342300733/500_Gift_Subs.png';
 
-  static BITS_100 = 'https://cdn.discordapp.com/attachments/915656975696687124/915713189109444718/100_Bits.png';
+  static BITS_100 =
+      'https://cdn.discordapp.com/attachments/915656975696687124/915713189109444718/100_Bits.png';
   static BITS_1000 =
       'https://cdn.discordapp.com/attachments/915656975696687124/915713247716442182/1000_Bits.png';
   static BITS_100000 =
@@ -3929,7 +3930,7 @@ if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
 if (UI_ContextMenu) {
   chathelpbtn =
       $('<button id="context-btn" class="btn btn-sm btn-default" title="Opens a menu with links" />')
-          .html('<i class="glyphicon glyphicon-option-vertical"></i>')
+          .html('<i class="glyphicon glyphicon-align-center"></i>')
           // .text('Context Menu')
           .appendTo(chatcontrols)
           .on('click', () => showContextMenu());
