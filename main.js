@@ -3924,7 +3924,7 @@ if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
 if (UI_ContextMenu) {
   chathelpbtn =
       $('<button id="context-btn" class="btn btn-sm btn-default" title="Opens a menu with links" />')
-          .html('<i class="glyphicon glyphicon-menu-hamburger"></i>')
+          .html('<i class="glyphicon glyphicon-heart-empty"></i>')
           // .text('Context Menu')
           .appendTo(chatcontrols)
           .on('click', () => showContextMenu());
