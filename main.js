@@ -1743,8 +1743,6 @@ class ChatStats {
     this.totalMessageLength = 0;
   }
 
-  static LOCAL_STORAGE_KEY = 'cydj_chat_stats';
-
   /**
    * Create a new ChatStats from a JSON string.
    *
@@ -1769,6 +1767,10 @@ class ChatStats {
 
     return chatStats;
   }
+
+  static getLocalStorageKey() {
+    return `cydj_${CHANNEL.name}_chat_stats`;
+  }
 }
 
 /**
@@ -1778,7 +1780,7 @@ class ChatStats {
  */
 function getChatStats() {
   return ChatStats.fromJsonString(
-      window.localStorage[ChatStats.LOCAL_STORAGE_KEY]);
+      window.localStorage[ChatStats.getLocalStorageKey()]);
 }
 
 /**
@@ -1792,7 +1794,8 @@ function updateChatStats(msg) {
   chatStats.numberOfMessages++;
   chatStats.totalMessageLength += msg.length;
 
-  window.localStorage[ChatStats.LOCAL_STORAGE_KEY] = JSON.stringify(chatStats);
+  window.localStorage[ChatStats.getLocalStorageKey()] =
+      JSON.stringify(chatStats);
 }
 
 /**
