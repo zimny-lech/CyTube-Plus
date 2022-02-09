@@ -406,6 +406,8 @@ class Badge {
 
   static GIFT_SUBS_500 =
       'https://cdn.discordapp.com/attachments/915656975696687124/916100252342300733/500_Gift_Subs.png';
+
+  static BITS_100 = 'https://cdn.discordapp.com/attachments/915656975696687124/915713189109444718/100_Bits.png';
   static BITS_1000 =
       'https://cdn.discordapp.com/attachments/915656975696687124/915713247716442182/1000_Bits.png';
   static BITS_100000 =
@@ -490,7 +492,8 @@ const USER_BADGES = {
     'https://cdn.discordapp.com/attachments/915656975696687124/916100799233425548/VIP.png',
   ],
   'n3r1': [
-    Badge.SUB_18_MONTHS_T1,
+    Badge.SUB_24_MONTHS_T1,
+    'https://cdn.discordapp.com/attachments/915650094697693184/931998299181949029/ezgif.com-gif-maker_1.gif',
   ],
   'notjuham': [
     Badge.SUB_30_MONTHS_T1,
@@ -531,13 +534,13 @@ const USER_BADGES = {
     Badge.SUB_6_MONTHS_T3,
   ],
   'PeepoGlad': [
-    Badge.SUB_0_MONTHS_T1,
+    Badge.BITS_100,
   ],
   'MrNiTe': [
     Badge.SUB_6_MONTHS_T1,
   ],
   'l_charles_l': [
-    Badge.SUB_3_MONTHS_T1,
+    Badge.SUB_6_MONTHS_T1,
   ],
   'Enzo_SuperCraftZ': [
     Badge.SUB_12_MONTHS_T1,
@@ -609,6 +612,7 @@ const USER_BADGES = {
   ],
   'LEBB': [
     Badge.SUB_12_MONTHS_T1,
+    'https://cdn.discordapp.com/attachments/915650094697693184/933641907052118016/Lebb.jpeg',
   ],
   'Psychedelic111': [
     Badge.SUB_3_MONTHS_T1,
@@ -616,7 +620,7 @@ const USER_BADGES = {
   'aade_': [
     Badge.SUB_12_MONTHS_T1,
   ],
-  'pareskktv': [
+  'parsekktv': [
     Badge.SUB_18_MONTHS_T1,
   ],
   'T_Nizzy': [
@@ -624,6 +628,7 @@ const USER_BADGES = {
   ],
   'zHardTimes': [
     Badge.SUB_18_MONTHS_T1,
+    'https://media.discordapp.net/attachments/915650094697693184/932461255560691772/ezgif.com-gif-maker_2.gif',
   ],
   'anirrroc': [
     Badge.SUB_12_MONTHS_T1,
@@ -637,9 +642,32 @@ const USER_BADGES = {
   'MasterA1G': [
     Badge.SUB_24_MONTHS_T1,
   ],
-
   'xqcPeepo': [
     Badge.SUB_0_MONTHS_T1,
+  ],
+  'the7entity': [
+    Badge.SUB_12_MONTHS_T1,
+  ],
+  'Yaekaii': [
+    Badge.SUB_12_MONTHS_T1,
+  ],
+  'cerasuz': [
+    Badge.SUB_18_MONTHS_T1,
+  ],
+  'RoboSheepz': [
+    Badge.SUB_6_MONTHS_T1,
+  ],
+  'nate338': [
+    Badge.SUB_24_MONTHS_T1,
+  ],
+  'pbgod1337': [
+    Badge.SUB_6_MONTHS_T1,
+  ],
+  'Spockacus': [
+    Badge.SUB_12_MONTHS_T1,
+  ],
+  'SHEEEEEEEEEEEEEEEESH': [
+    'https://cdn.discordapp.com/attachments/915650094697693184/937061024748675112/ezgif.com-gif-maker_3.gif',
   ],
 };
 
