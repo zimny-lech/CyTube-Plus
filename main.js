@@ -1271,8 +1271,7 @@ function UpdateLocalStoredData(dataObject)
 function SetLocalStorageData(dkey,dvalue)
 {
   if (clientDataLocal !== null)
-    if (clientDataLocal[dkey])
-    {
+    if (clientDataLocal[dkey]){
       clientDataLocal[dkey] = dvalue;
     }
 }
@@ -1284,12 +1283,9 @@ function GetLocalStorageData(dkey)
   return clientDataLocal[dkey];
 }
 
-if (clientDataString !== null)
-{
+if (clientDataString !== null){
   clientDataLocal = JSON.parse(clientDataString);// convert to object : xqcPeepo |
-}
-else//if it's not present/new
-{
+}else{ //if it's not present/new
   localStorage.setItem(storagePath,JSON.stringify(examplePersistentDataArray));//create their data using the examplePersistentDataArray but before we do that, we need to convert it to string because the value must always be a string for some damn reason lmao : xqcPeepo
   clientDataString = localStorage.getItem(storagePath);
   clientDataLocal = JSON.parse(clientDataString);
@@ -1837,8 +1833,7 @@ function userChatStats(str) {
   CHATSTAT['l'] = CHATSTAT['l'] + str.length;
   CHATSTAT['m'].push(str);
   //SetLocalStorageData('numberOfMessages', GetLocalStorageData('numberOfMessages') + 1); 🤢 : xqcPeepo
-  if (clientDataLocal)
-  {
+  if (clientDataLocal){
     GetLocalStorageData('numberOfMessages');
     clientDataLocal['numberOfMessages']++;
   }
