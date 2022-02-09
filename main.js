@@ -5938,7 +5938,7 @@ document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
 
 var  resizeStuffLoop = setInterval(() => {          //xqcPeepo/EmmanuelAT was here
-  console.log("client data is : ",clientDataLocal);
+  //console.log("client data is : ",clientDataLocal);
   resizeStuff();                                    //this should be fine right Clueless
   setTimeout(scrollChat(),500);                     //auto scroll after .5 seconds
 }, 1000);                                           //every 1 seconds just to be safe?? : xqcPeepo here
