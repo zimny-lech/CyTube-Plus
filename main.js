@@ -1259,8 +1259,8 @@ const storagePath = "cydj_" + CLIENT.name //if we assume the person logs into an
 const examplePersistentDataArray = {
   numberOfMessages: 0, //How many times the user has messaged in their own local history for that account on that browser on that computer pepeLaugh this is a firetruck fest : xqcPeepo
 }
-const clientDataString = localStorage.getItem(storagePath);// xqcPeepo glizzyL
-const clientDataLocal = null;
+var clientDataString = localStorage.getItem(storagePath);// xqcPeepo glizzyL
+var clientDataLocal = null;
 
 function UpdateLocalStoredData(dataObject)
 {
