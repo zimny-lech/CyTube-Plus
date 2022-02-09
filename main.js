@@ -190,7 +190,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre2.7.21.2';
+const Version_Now = 'CyDJPre2.8.21.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -3735,9 +3735,9 @@ if (UI_CustomCaptions) {
 // TODO add small tooltip
 if (UI_ButtonIcons) {
   $('#showmediaurl').html('<i class="glyphicon glyphicon-plus"></i> Add');
-  $('#emotelistbtn').html('<i class="glyphicon glyphicon-picture"></i>');
+  /* $('#emotelistbtn').html('<i class="glyphicon glyphicon-picture"></i>');
   $('#chathelp-btn').html('<i class="glyphicon glyphicon-question-sign"></i>');
-  $('#context-btn').html('<i class="glyphicon glyphicon-apple"></i>');
+  $('#context-btn').html('<i class="glyphicon glyphicon-apple"></i>'); */
 }
 
 // deleting previous MOTD
@@ -3954,14 +3954,16 @@ if (UI_EmotesBtn) {
 
 // moving emote button attempt
 if (UI_SpecialEmoteBtn) {
-  $('#emotelistbtn').appendTo(chatcontrols).text('Emotes');
+  $('#emotelistbtn').appendTo(chatcontrols); // .text('Emotes');
+  $('#emotelistbtn').html('<i class="glyphicon glyphicon-picture"></i>');
 }
 
 // adding chat commands button
 if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
   chathelpbtn =
       $('<button id="chathelp-btn" class="btn btn-sm btn-default" title="Show chat commands"/>')
-          .text('Chat Commands')
+          .html('<i class="glyphicon glyphicon-question-sign"></i>')
+          // .text('Chat Commands')
           .appendTo(chatcontrols)
           .on('click', () => showChatHelp());
 }
@@ -3970,7 +3972,8 @@ if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
 if (UI_ContextMenu) {
   chathelpbtn =
       $('<button id="context-btn" class="btn btn-sm btn-default" title="Opens a menu with links" />')
-          .text('Context Menu')
+          .html('<i class="glyphicon glyphicon-option-vertical"></i>')
+          // .text('Context Menu')
           .appendTo(chatcontrols)
           .on('click', () => showContextMenu());
 }
@@ -5295,7 +5298,7 @@ function resizeStuff() {
 
   if (UI_DisplayModeSel) {
     m = modesel.val();
-    console.log("channel mode is : ",m);
+    console.log('channel mode is : ', m);
     // patches for various display modes
     if (m === 'chMode' || m === 'rMode') {
       if (WEBKIT) {
@@ -5306,7 +5309,7 @@ function resizeStuff() {
       }
       fitChat('auto');
     } else if (m === 'syMode' && USERCONFIG.player === 'center') {
-      fitChat('auto');//it could've been this all along lmao
+      fitChat('auto');// it could've been this all along lmao
     }
   }
 }
@@ -5937,12 +5940,12 @@ socket.on('mediaUpdate', fixRawVideoControls);
 document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
 
-var  resizeStuffLoop = setInterval(() => {          //xqcPeepo/EmmanuelAT was here
-  //console.log("client data is : ",clientDataLocal);
-  resizeStuff();                                    //this should be fine right Clueless
-  setTimeout(scrollChat(),500);                     //auto scroll after .5 seconds
-}, 1000);                                           //every 1 seconds just to be safe?? : xqcPeepo here
-//^ side note you can always cancel this interval by using clearInterval(resizeStuffLoop);
+// eslint-disable-next-line no-unused-vars
+const  resizeStuffLoop = setInterval(() => { // xqcPeepo/EmmanuelAT was here
+  resizeStuff();                             // this should be fine right Clueless
+  setTimeout(scrollChat(), 500);             // auto scroll after .5 seconds
+}, 1000);                                    // every 1 seconds just to be safe?? : xqcPeepo here
+// side note you can always cancel this interval by using clearInterval(resizeStuffLoop);
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
