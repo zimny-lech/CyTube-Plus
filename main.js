@@ -277,7 +277,7 @@ const RandomQuotes_Array = [
   'I like you. You remind me of when I was young and stupid.',
   'Go and buy me a beer',
   'The door of this channel is always open for you... so feel free to leave!',
-  'I hate JQuery',
+  'I hate JQuery',// this is probably AirForce or John : xqcPeepo
   'amogus',
 ];
 
@@ -1252,6 +1252,48 @@ const CHATSTAT = {
   l: 0,
   m: [],
 };
+
+// W.I.P #localStorage implementation for CyDJ : xqcPeepo
+// setting and getting localStorage data 
+const storagePath = "cydj_" + CLIENT.name //if we assume the person logs into another account we shouldn't make the stats command display stats that don't even exist, imagine having 999 messages sent in r/cydj but then make a new account and still seeing 999 messages using !stats, I know this was a lot to read but still something to consider when making certain localstorage choices : xqcPeepo
+const examplePersistentDataArray = {
+  numberOfMessages: 0, //How many times the user has messaged in their own local history for that account on that browser on that computer pepeLaugh this is a firetruck fest : xqcPeepo
+}
+var clientDataString = localStorage.getItem(storagePath);// xqcPeepo glizzyL
+var clientDataLocal = null;
+
+function UpdateLocalStoredData(dataObject)
+{
+  if (clientDataLocal !== null)
+    toStoreLocally = JSON.stringify(dataObject);
+    localStorage.setItem(storagePath,toStoreLocally);
+}
+function SetLocalStorageData(dkey,dvalue)
+{
+  if (clientDataLocal !== null)
+    if (clientDataLocal[dkey]){
+      clientDataLocal[dkey] = dvalue;
+    }
+}
+
+function GetLocalStorageData(dkey)
+{
+  if (clientDataLocal[dkey] === null)
+    clientDataLocal[dkey] = examplePersistentDataArray[dkey];
+  return clientDataLocal[dkey];
+}
+
+if (clientDataString !== null){
+  clientDataLocal = JSON.parse(clientDataString);// convert to object : xqcPeepo |
+}else{ //if it's not present/new
+  localStorage.setItem(storagePath,JSON.stringify(examplePersistentDataArray));//create their data using the examplePersistentDataArray but before we do that, we need to convert it to string because the value must always be a string for some damn reason lmao : xqcPeepo
+  clientDataString = localStorage.getItem(storagePath);
+  clientDataLocal = JSON.parse(clientDataString);
+}
+
+//#localStorage implementation, it will be shit at first but I'll rewrite it to get it to work better eventually LULW : xqcPeepo
+
+
 // array of links added from channel database by user
 const ADDEDLINKS = [];
 
@@ -1790,6 +1832,12 @@ function userChatStats(str) {
   CHATSTAT['n']++;
   CHATSTAT['l'] = CHATSTAT['l'] + str.length;
   CHATSTAT['m'].push(str);
+  //SetLocalStorageData('numberOfMessages', GetLocalStorageData('numberOfMessages') + 1); 🤢 : xqcPeepo
+  if (clientDataLocal){
+    GetLocalStorageData('numberOfMessages');
+    clientDataLocal['numberOfMessages']++;
+  }
+  UpdateLocalStoredData(clientDataLocal);//after everything just save the data 4Head : xqcPeepo
 }
 
 /**
@@ -1850,7 +1898,7 @@ function prepareMessage(msg) {
       b = (avg != 1) ? 's' : '';
       msg = `you have sent ${num} message${a}, ` +
           `total length is ${len} character${b} (${avg} per message), ` +
-          `random message: ${CHATSTAT['m'][rnd]}`;
+          `random message: ${CHATSTAT['m'][rnd]}` + `\n total messages sent is ${GetLocalStorageData('numberOfMessages')}!`;
     } else if (msg.startsWith('!memestats')) {
       num = CHATSTAT['n'];
       len = Memes_Array.length;
@@ -5892,13 +5940,12 @@ socket.on('mediaUpdate', fixRawVideoControls);
 document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
 
-
 // eslint-disable-next-line no-unused-vars
-const  resizeStuffLoop = setInterval(() => {// xqcPeepo/EmmanuelAT was here
-  resizeStuff(); // this should be fine right Clueless
-  setTimeout(scrollChat(), 500); // auto scroll after .5 seconds
-}, 1000);// every 1 seconds just to be safe?? : xqcPeepo here
-//  side note you can always cancel this interval by using clearInterval(resizeStuffLoop);
+const  resizeStuffLoop = setInterval(() => { // xqcPeepo/EmmanuelAT was here
+  resizeStuff();                             // this should be fine right Clueless
+  setTimeout(scrollChat(), 500);             // auto scroll after .5 seconds
+}, 1000);                                    // every 1 seconds just to be safe?? : xqcPeepo here
+// side note you can always cancel this interval by using clearInterval(resizeStuffLoop);
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
