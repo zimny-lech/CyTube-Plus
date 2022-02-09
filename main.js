@@ -300,45 +300,6 @@ const AskAnswers_Array = [
   'what',
 ];
 
-const Memes_Array = [
-  '>',
-  'fb',
-  'omfg',
-  'u mad',
-  'ratio',
-  'mad',
-  'bruh',
-  'troll',
-  'trolled',
-  'retard',
-  'TriHard',
-  'TriKool',
-  'TriDance',
-  'LULW',
-  'ur mom',
-  'fireared',
-  'peter griffin',
-  'die',
-  'monkaW',
-  'L',
-  'W',
-  'poop',
-  'pvc',
-  'agane',
-  'british',
-  'cunt',
-  'xqcTechno',
-  'WideHard',
-  ':)',
-  ':(',
-  'shit',
-  'fuck',
-  'shut the fuck up',
-  'firetruck',
-  'shut the firetruck up',
-  'wang',
-];
-
 class Badge {
   static SUB_0_MONTHS_T1 =
       'https://cdn.discordapp.com/attachments/915656975696687124/916022295254937652/0-Month_Subscriber.png';
@@ -1246,73 +1207,6 @@ let FASTESTBGCHANGE = 1;
 
 // list of users with muted chat sounds by user
 const MUTEDVOICES = [];
-// array with user messages statistics
-const CHATSTAT = {
-  n: 0,
-  l: 0,
-  m: [],
-};
-
-// W.I.P #localStorage implementation for CyDJ : xqcPeepo
-// setting and getting localStorage data
-const storagePath = 'cydj_' +
-    CLIENT
-        .name;  // if we assume the person logs into another account we
-                // shouldn't make the stats command display stats that don't
-                // even exist, imagine having 999 messages sent in r/cydj but
-                // then make a new account and still seeing 999 messages using
-                // !stats, I know this was a lot to read but still something to
-                // consider when making certain localstorage choices : xqcPeepo
-const examplePersistentDataArray = {
-  numberOfMessages:
-      0,  // How many times the user has messaged in their own local history for
-          // that account on that browser on that computer pepeLaugh this is a
-          // firetruck fest : xqcPeepo
-};
-
-let clientDataString = localStorage.getItem(storagePath);  // xqcPeepo glizzyL
-let clientDataLocal = null;
-
-function UpdateLocalStoredData(dataObject) {
-  if (clientDataLocal !== null) toStoreLocally = JSON.stringify(dataObject);
-  localStorage.setItem(storagePath, toStoreLocally);
-}
-// eslint-disable-next-line no-unused-vars
-function SetLocalStorageData(dkey, dvalue) {
-  if (clientDataLocal !== null) {
-    if (clientDataLocal[dkey]) {
-      clientDataLocal[dkey] = dvalue;
-    }
-  }
-}
-
-function GetLocalStorageData(dkey) {
-  if (clientDataLocal[dkey] === null) {
-    clientDataLocal[dkey] = examplePersistentDataArray[dkey];
-  }
-  return clientDataLocal[dkey];
-}
-
-if (clientDataString !== null) {
-  clientDataLocal =
-      JSON.parse(clientDataString);  // convert to object : xqcPeepo |
-} else {                             // if it's not present/new
-  localStorage.setItem(
-      storagePath,
-      JSON.stringify(
-          examplePersistentDataArray));  // create their data using the
-                                         // examplePersistentDataArray but
-                                         // before we do that, we need to
-                                         // convert it to string because the
-                                         // value must always be a string for
-                                         // some damn reason lmao : xqcPeepo
-  clientDataString = localStorage.getItem(storagePath);
-  clientDataLocal = JSON.parse(clientDataString);
-}
-
-// #localStorage implementation, it will be shit at first but I'll rewrite it to
-// get it to work better eventually LULW : xqcPeepo
-
 
 // array of links added from channel database by user
 const ADDEDLINKS = [];
@@ -1843,25 +1737,62 @@ function setPanelProperties(div) {
   });
 }
 
-/**
- * Refresh user chat statistics.
- *
- * @param {string} str
- */
-function userChatStats(str) {
-  CHATSTAT['n']++;
-  CHATSTAT['l'] = CHATSTAT['l'] + str.length;
-  CHATSTAT['m'].push(str);
-  // SetLocalStorageData('numberOfMessages',
-  // GetLocalStorageData('numberOfMessages') + 1); 🤢 : xqcPeepo
-  if (clientDataLocal) {
-    // eslint-disable-next-line new-cap
-    GetLocalStorageData('numberOfMessages');
-    clientDataLocal['numberOfMessages']++;
+class ChatStats {
+  constructor() {
+    this.numberOfMessages = 0;
+    this.totalMessageLength = 0;
   }
-  // eslint-disable-next-line new-cap
-  UpdateLocalStoredData(
-      clientDataLocal);  // after everything just save the data 4Head : xqcPeepo
+
+  static LOCAL_STORAGE_KEY = 'cydj_chat_stats';
+
+  /**
+   * Create a new ChatStats from a JSON string.
+   *
+   * @param {string} json A JSON string containing some or all of the ChatStats
+   *     fields.
+   * @return {!ChatStats} A new ChatStats.
+   */
+  static fromJsonString(json) {
+    const chatStats = new ChatStats();
+
+    if (!json) {
+      return chatStats;
+    }
+    const jsonObject = JSON.parse(json);
+
+    if (jsonObject.numberOfMessages) {
+      chatStats.numberOfMessages = jsonObject.numberOfMessages;
+    }
+    if (jsonObject.totalMessageLength) {
+      chatStats.totalMessageLength = jsonObject.totalMessageLength;
+    }
+
+    return chatStats;
+  }
+}
+
+/**
+ * Get the current chat stats.
+ *
+ * @return {!ChatStats} The chat stats.
+ */
+function getChatStats() {
+  return ChatStats.fromJsonString(
+      window.localStorage[ChatStats.LOCAL_STORAGE_KEY]);
+}
+
+/**
+ * Update chat stats from a message.
+ *
+ * @param {string} msg Message that was sent.
+ */
+function updateChatStats(msg) {
+  const chatStats = getChatStats();
+
+  chatStats.numberOfMessages++;
+  chatStats.totalMessageLength += msg.length;
+
+  window.localStorage[ChatStats.LOCAL_STORAGE_KEY] = JSON.stringify(chatStats);
 }
 
 /**
@@ -1909,41 +1840,13 @@ function prepareMessage(msg) {
   if (UI_UserCommands && msg.startsWith('!')) {
     COMMAND = true;
     if (msg.startsWith('!stat')) {
-      num = CHATSTAT['n'];
-      len = CHATSTAT['l'];
-      if (num > 0) {
-        rnd = Math.round(Math.random() * (CHATSTAT['m'].length - 1));
-        avg = Math.round(len / num * 10) / 10;
-      } else {
-        rnd = 0;
-        avg = 0;
-      }
-      a = (num != 1) ? 's' : '';
-      b = (avg != 1) ? 's' : '';
-      msg = `you have sent ${num} message${a}, ` +
-          `total length is ${len} character${b} (${avg} per message), ` +
-          `random message: ${CHATSTAT['m'][rnd]}` +
-          `\n total messages sent is ${
-                // eslint-disable-next-line new-cap
-                GetLocalStorageData('numberOfMessages')}!`;
-    } else if (msg.startsWith('!memestats')) {
-      num = CHATSTAT['n'];
-      len = Memes_Array.length;
-      mem = 0;
-      for (i = 0; i < num; i++) {
-        for (j = 0; j < len; j++) {
-          if (CHATSTAT['m'][i].includes(Memes_Array[j])) {
-            mem++;
-          }
-        }
-      }
-      a = (num != 1) ? 's' : '';
-      b = (mem != 1) ? 's' : '';
-      if (len > 0) {
-        msg = `in ${num} message${a} you have used ${mem} meme${b}`;
-      } else {
-        msg = 'error: no defined memes';
-      }
+      const {numberOfMessages, totalMessageLength} = getChatStats();
+      const averageMessageLength = numberOfMessages > 0 ?
+          Math.round(totalMessageLength / numberOfMessages) :
+          0;
+      msg = `you have sent ${numberOfMessages} messages, ` +
+          `total length is ${totalMessageLength} characters ` +
+          `(${averageMessageLength} per message) `;
     } else if (msg.startsWith('!pick ')) {
       arr = msg.split('!pick ')[1].split(',');
       rnd = Math.round(Math.random() * (arr.length - 1));
@@ -2033,8 +1936,6 @@ function prepareMessage(msg) {
       }
     } else if (msg.startsWith('!np')) {
       msg = 'Now playing: ' + $('.queue_active a').html();
-    } else if (msg.startsWith('!CO ZJE TEH?')) {
-      msg = 'TEH ZJE HUJ';
     } else if (msg.startsWith('!discord')) {
       msg = 'https://discord.gg/g8tCGSc2bx';
     } else if (msg.startsWith('!link')) {
@@ -2724,8 +2625,6 @@ function showChatHelp() {
           '(e.g. <i>!add https://www.youtube.com/watch?v=29FFHC2D12Q</i>)',
       'stat':
           'displaying user chat statistics in current session (<i>!stat</i>)',
-      'memestats':
-          'displaying number memes used by user in all messages (<i>!memestats</i>)',
       'discord': 'link to the CyDJ discord (<i>!discord</i>)',
       'link': 'post a TinyURL link for this room (<i>!link</i>)',
       'randomemote':
@@ -5151,7 +5050,7 @@ $('#chatline').on('keydown', (ev) => {
         meta.addClassToNameAndTimestamp = true;
       }
       socket.emit('chatMsg', {msg: msg, meta: meta});
-      userChatStats(_msg);
+      updateChatStats(_msg);
       CHATHIST.push($('#chatline').val());
       CHATHISTIDX = CHATHIST.length;
       $('#chatline').val('');
@@ -5194,7 +5093,7 @@ $('#chatbtn').on('click', () => {
       COMMAND = false;
     }
     socket.emit('chatMsg', {msg: msg});
-    userChatStats(_msg);
+    updateChatStats(_msg);
     $('#chatline').val('');
   }
 });
@@ -5967,13 +5866,11 @@ socket.on('mediaUpdate', fixRawVideoControls);
 document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
 
-// eslint-disable-next-line no-unused-vars
-const resizeStuffLoop = setInterval(() => {  // xqcPeepo/EmmanuelAT was here
-  resizeStuff();                  // this should be fine right Clueless
-  setTimeout(scrollChat(), 500);  // auto scroll after .5 seconds
-}, 1000);  // every 1 seconds just to be safe?? : xqcPeepo here
-// side note you can always cancel this interval by using
-// clearInterval(resizeStuffLoop);
+setInterval(() => {
+  resizeStuff();
+  // auto scroll after .5 seconds
+  setTimeout(scrollChat(), 500);
+}, 1000);
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
