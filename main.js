@@ -804,6 +804,10 @@ const ThemesCSS = [
     'U.U.F.O',
     'https://papertek.github.io/CyDJ/deploy/beta/css/UUFO.css',
   ],
+  [
+    'Spring',
+    'https://papertek.github.io/CyDJ/deploy/beta/css/spring.css',
+  ],
 ];
 
 class Logo {
