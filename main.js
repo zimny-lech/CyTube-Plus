@@ -3913,7 +3913,9 @@ if (UI_EmotesBtn) {
 // moving emote button attempt
 if (UI_SpecialEmoteBtn) {
   $('#emotelistbtn').appendTo(chatcontrols);  // .text('Emotes');
-  $('#emotelistbtn').html('<i class="glyphicon glyphicon-picture"></i>');
+  $('#emotelistbtn')
+      .html(
+          '<i title="Open emote menu" class="glyphicon glyphicon-picture"></i>');
 }
 
 // adding chat commands button
