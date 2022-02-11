@@ -805,6 +805,10 @@ const ThemesCSS = [
     'https://papertek.github.io/CyDJ/deploy/beta/css/spring.css',
   ],
   [
+    'Black Cat',
+    'https://papertek.github.io/CyDJ/deploy/beta/css/blackcat.css',
+  ],
+  [
     'U.U.F.O',
     'https://papertek.github.io/CyDJ/deploy/beta/css/UUFO.css',
   ],
