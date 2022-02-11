@@ -3884,7 +3884,7 @@ if (UI_LeaveText) {
   if (LeaveText_Message == '') {
     LeaveText_Message = 'left';
   }
-  $(window).addEventListener('beforeunload')(
+  $(window).close(
       () => socket.emit('chatMsg', {msg: `/me ${LeaveText_Message}`}));
 }
 
