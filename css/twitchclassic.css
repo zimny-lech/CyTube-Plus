@@ -90,7 +90,7 @@ body {
   align-items: center;
 }
 
-.label {
+/*.label {
   display: inline;
   padding: 0.2em 0.6em 0.3em;
   font-size: 75%;
@@ -101,7 +101,7 @@ body {
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: 0.25em;
-}
+}*/
 
 .label-success {
   background-color: #62c462;
@@ -399,9 +399,9 @@ table {
 }
 
 span:not(.userlist_op):not(.userlist_owner) > strong.username {
-  color: #6A5ACD;
+  color: #6A5ACD!important;
 }
 
 div.userlist_item > span:not(.userlist_op):not(.userlist_owner) {
-  color: #6A5ACD;
+  color: #6A5ACD!important;
 }
