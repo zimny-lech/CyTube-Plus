@@ -190,7 +190,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre2.10.21.0';
+const Version_Now = 'CyDJPre2.10.21.1';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -801,12 +801,12 @@ const ThemesCSS = [
     'https://dl.dropboxusercontent.com/s/oa4y86gyyag6bix/twitchclassic.css',
   ],
   [
-    'U.U.F.O',
-    'https://papertek.github.io/CyDJ/deploy/beta/css/UUFO.css',
-  ],
-  [
     'Spring',
     'https://papertek.github.io/CyDJ/deploy/beta/css/spring.css',
+  ],
+  [
+    'U.U.F.O',
+    'https://papertek.github.io/CyDJ/deploy/beta/css/UUFO.css',
   ],
 ];
 
@@ -3663,7 +3663,7 @@ if (UI_Version) {
   headerdrop = $('<li id="headerdrop" class="dropdown" />')
                    .insertAfter('#channelset-link');
   $('<a class="dropdown-toggle" data-toggle="dropdown" href="#" />')
-      .html(`Running ${Version_Now}`)
+      .html(`${Version_Now}`)
       .appendTo(headerdrop);
 }
 
@@ -5906,9 +5906,7 @@ socket.on('changeMedia', resizeStuff);
 
 setInterval(() => {
   resizeStuff();
-  // auto scroll after .5 seconds
-  setTimeout(scrollChat(), 500);
-}, 1000);
+}, 1000);  // this resizes stuff after 1 second
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
