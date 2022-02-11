@@ -5906,7 +5906,7 @@ socket.on('changeMedia', resizeStuff);
 
 setInterval(() => {
   resizeStuff();
-}, 1000);
+}, 1000);  // this resizes stuff after 1 second
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
