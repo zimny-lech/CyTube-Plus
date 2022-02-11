@@ -238,6 +238,7 @@ const HeaderDropMenu_Array = [
   ['Watch Party', 'https://beta.synchtube.me/r/SecretTwitchRoom'],
   ['Test Room', 'https://cytu.be/r/testplacelilroc'],
   ['Test Room 2', 'https://cytu.be/r/emptyroomtestplace'],
+  ['Test Room 3', 'https://cytu.be/r/xqcPeepo'],
   ['Community Related', ''],
   ['CyDJ Discord', 'https://discord.gg/g8tCGSc2bx'],
   ['xQcOW Updates Discord', 'https://discord.gg/xqcowupdates'],
