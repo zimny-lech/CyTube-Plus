@@ -160,7 +160,7 @@ const UI_SpecialEmoteBtn = true;
 // adds public voteskipping
 const UI_PublicSkip = true;
 // adds "add" test to help new users
-const UI_ExtraHelp = true;
+const UI_ButtonIcons = true;
 // adds snow (just an attempt on adding, i dont rly know how to make it work)
 const UI_Snow = false;
 
@@ -190,7 +190,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre2.5.22.0';
+const Version_Now = 'CyDJPre2.10.21.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -277,7 +277,7 @@ const RandomQuotes_Array = [
   'I like you. You remind me of when I was young and stupid.',
   'Go and buy me a beer',
   'The door of this channel is always open for you... so feel free to leave!',
-  'I hate JQuery',
+  'I hate JQuery',  // this is probably AirForce or John : xqcPeepo
   'amogus',
 ];
 
@@ -298,45 +298,6 @@ const AskAnswers_Array = [
   'umph... yes...',
   'ahhh.. hhaahhh... yeah...',
   'what',
-];
-
-const Memes_Array = [
-  '>',
-  'fb',
-  'omfg',
-  'u mad',
-  'ratio',
-  'mad',
-  'bruh',
-  'troll',
-  'trolled',
-  'retard',
-  'TriHard',
-  'TriKool',
-  'TriDance',
-  'LULW',
-  'ur mom',
-  'fireared',
-  'peter griffin',
-  'die',
-  'monkaW',
-  'L',
-  'W',
-  'poop',
-  'pvc',
-  'agane',
-  'british',
-  'cunt',
-  'xqcTechno',
-  'WideHard',
-  ':)',
-  ':(',
-  'shit',
-  'fuck',
-  'shut the fuck up',
-  'firetruck',
-  'shut the firetruck up',
-  'wang',
 ];
 
 class Badge {
@@ -446,7 +407,8 @@ class Badge {
   static GIFT_SUBS_500 =
       'https://cdn.discordapp.com/attachments/915656975696687124/916100252342300733/500_Gift_Subs.png';
 
-  static BITS_100 = 'https://cdn.discordapp.com/attachments/915656975696687124/915713189109444718/100_Bits.png';
+  static BITS_100 =
+      'https://cdn.discordapp.com/attachments/915656975696687124/915713189109444718/100_Bits.png';
   static BITS_1000 =
       'https://cdn.discordapp.com/attachments/915656975696687124/915713247716442182/1000_Bits.png';
   static BITS_100000 =
@@ -681,6 +643,9 @@ const USER_BADGES = {
   'MasterA1G': [
     Badge.SUB_24_MONTHS_T1,
   ],
+  'xqcPeepo': [
+    Badge.SUB_0_MONTHS_T1,
+  ],
   'the7entity': [
     Badge.SUB_12_MONTHS_T1,
   ],
@@ -839,6 +804,10 @@ const ThemesCSS = [
     'U.U.F.O',
     'https://papertek.github.io/CyDJ/deploy/beta/css/UUFO.css',
   ],
+  [
+    'Spring',
+    'https://papertek.github.io/CyDJ/deploy/beta/css/spring.css',
+  ],
 ];
 
 class Logo {
@@ -856,48 +825,55 @@ class Logo {
 
 const /** @type {!Map<string, !Logo>} */ LOGOS = new Map();
 
-LOGOS.set('cytube plus',
-  new Logo(
-    'https://dl.dropboxusercontent.com/s/7mrz85gl29eiiks/logo.png',
-    90,
-  ));
+LOGOS.set(
+    'cytube plus',
+    new Logo(
+        'https://dl.dropboxusercontent.com/s/7mrz85gl29eiiks/logo.png',
+        90,
+        ));
 
-LOGOS.set('anime girl',
-  new Logo(
-    'https://dl.dropboxusercontent.com/s/knxd7dpup1u8lm3/azuki.png',
-    200,
-  ));
+LOGOS.set(
+    'anime girl',
+    new Logo(
+        'https://dl.dropboxusercontent.com/s/knxd7dpup1u8lm3/azuki.png',
+        200,
+        ));
 
-LOGOS.set('cosmos',
-  new Logo(
-    'https://dl.dropboxusercontent.com/s/v6dx49yqk5e3i2d/cosmos.jpg',
-    200,
-  ));
+LOGOS.set(
+    'cosmos',
+    new Logo(
+        'https://dl.dropboxusercontent.com/s/v6dx49yqk5e3i2d/cosmos.jpg',
+        200,
+        ));
 
-LOGOS.set('disco ball',
-  new Logo(
-    'https://dl.dropboxusercontent.com/s/ahpfm25pglc8j01/disco.jpg',
-    162,
-  ));
+LOGOS.set(
+    'disco ball',
+    new Logo(
+        'https://dl.dropboxusercontent.com/s/ahpfm25pglc8j01/disco.jpg',
+        162,
+        ));
 
-LOGOS.set('japanese landscape',
-  new Logo(
-    'https://dl.dropboxusercontent.com/s/llylt832evxrp6e/japan.jpg',
-    200,
-  ));
+LOGOS.set(
+    'japanese landscape',
+    new Logo(
+        'https://dl.dropboxusercontent.com/s/llylt832evxrp6e/japan.jpg',
+        200,
+        ));
 
-LOGOS.set('korean collage',
-  new Logo(
-    'https://dl.dropboxusercontent.com/s/qud9adhs183dq30/korea.jpg',
-    160,
-  ));
+LOGOS.set(
+    'korean collage',
+    new Logo(
+        'https://dl.dropboxusercontent.com/s/qud9adhs183dq30/korea.jpg',
+        160,
+        ));
 
-LOGOS.set('my little pony',
-  new Logo(
+LOGOS.set(
     'my little pony',
-    'https://dl.dropboxusercontent.com/s/r4ozo8oj8lmerec/mlp.jpg',
-    190,
-  ));
+    new Logo(
+        'my little pony',
+        'https://dl.dropboxusercontent.com/s/r4ozo8oj8lmerec/mlp.jpg',
+        190,
+        ));
 
 const EmptyCornerBackground = [
   'https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_a054f4001b6d4f098e7969c988debd18/default/light/2.0',
@@ -1264,12 +1240,7 @@ let FASTESTBGCHANGE = 1;
 
 // list of users with muted chat sounds by user
 const MUTEDVOICES = [];
-// array with user messages statistics
-const CHATSTAT = {
-  n: 0,
-  l: 0,
-  m: [],
-};
+
 // array of links added from channel database by user
 const ADDEDLINKS = [];
 
@@ -1291,13 +1262,14 @@ const NAY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/nay.wav');
 CHATSOUND.volume = 0.4;
 
 function preloadAudio() {
-  const audioButtons = document.querySelectorAll('button[data-type=\'audio\']'); // select all button elements with data-type = audio
-  for (let i = 0; i < audioButtons.length; i++) {
-    // loop all audio elements
-    audioButtons[i].setAttribute('disabled', true); // disable the element
+  const audioButtons = document.querySelectorAll('button[data-type=\'audio\']');
+  for (const audioButton of audioButtons) {
     const preloader = new Audio();
-    preloader.addEventListener('loadeddata', enableAudioButton.bind(audioButtons[i]), true); // use bind to link the audio button to the function
-    preloader.src = audioButtons[i].getAttribute('data-url'); // trigger the download
+    // use bind to link the audio button to the function
+    preloader.addEventListener(
+        'loadeddata', enableAudioButton.bind(audioButton), true);
+    // trigger the download
+    preloader.src = audioButton.getAttribute('data-url');
   }
 }
 
@@ -1475,7 +1447,8 @@ function motdLocation(a) {
 function logoInsert(logo) {
   if (logo !== 'no') {
     const link = (logo !== 'user') ? LOGOS.get(logo).url : USERCONFIG.logourl;
-    const height = (logo !== 'user') ? LOGOS.get(logo).height : USERCONFIG.logoht;
+    const height =
+        (logo !== 'user') ? LOGOS.get(logo).height : USERCONFIG.logoht;
     azukirow.css({
       'min-height': `${height}px`,
       'background-image': `url("${link}")`,
@@ -1797,15 +1770,65 @@ function setPanelProperties(div) {
   });
 }
 
+class ChatStats {
+  constructor() {
+    this.numberOfMessages = 0;
+    this.totalMessageLength = 0;
+  }
+
+  /**
+   * Create a new ChatStats from a JSON string.
+   *
+   * @param {string} json A JSON string containing some or all of the ChatStats
+   *     fields.
+   * @return {!ChatStats} A new ChatStats.
+   */
+  static fromJsonString(json) {
+    const chatStats = new ChatStats();
+
+    if (!json) {
+      return chatStats;
+    }
+    const jsonObject = JSON.parse(json);
+
+    if (jsonObject.numberOfMessages) {
+      chatStats.numberOfMessages = jsonObject.numberOfMessages;
+    }
+    if (jsonObject.totalMessageLength) {
+      chatStats.totalMessageLength = jsonObject.totalMessageLength;
+    }
+
+    return chatStats;
+  }
+
+  static getLocalStorageKey() {
+    return `cydj_${CHANNEL.name}_chat_stats`;
+  }
+}
+
 /**
- * Refresh user chat statistics.
+ * Get the current chat stats.
  *
- * @param {string} str
+ * @return {!ChatStats} The chat stats.
  */
-function userChatStats(str) {
-  CHATSTAT['n']++;
-  CHATSTAT['l'] = CHATSTAT['l'] + str.length;
-  CHATSTAT['m'].push(str);
+function getChatStats() {
+  return ChatStats.fromJsonString(
+      window.localStorage[ChatStats.getLocalStorageKey()]);
+}
+
+/**
+ * Update chat stats from a message.
+ *
+ * @param {string} msg Message that was sent.
+ */
+function updateChatStats(msg) {
+  const chatStats = getChatStats();
+
+  chatStats.numberOfMessages++;
+  chatStats.totalMessageLength += msg.length;
+
+  window.localStorage[ChatStats.getLocalStorageKey()] =
+      JSON.stringify(chatStats);
 }
 
 /**
@@ -1853,38 +1876,13 @@ function prepareMessage(msg) {
   if (UI_UserCommands && msg.startsWith('!')) {
     COMMAND = true;
     if (msg.startsWith('!stat')) {
-      num = CHATSTAT['n'];
-      len = CHATSTAT['l'];
-      if (num > 0) {
-        rnd = Math.round(Math.random() * (CHATSTAT['m'].length - 1));
-        avg = Math.round(len / num * 10) / 10;
-      } else {
-        rnd = 0;
-        avg = 0;
-      }
-      a = (num != 1) ? 's' : '';
-      b = (avg != 1) ? 's' : '';
-      msg = `you have sent ${num} message${a}, ` +
-          `total length is ${len} character${b} (${avg} per message), ` +
-          `random message: ${CHATSTAT['m'][rnd]}`;
-    } else if (msg.startsWith('!memestats')) {
-      num = CHATSTAT['n'];
-      len = Memes_Array.length;
-      mem = 0;
-      for (i = 0; i < num; i++) {
-        for (j = 0; j < len; j++) {
-          if (CHATSTAT['m'][i].includes(Memes_Array[j])) {
-            mem++;
-          }
-        }
-      }
-      a = (num != 1) ? 's' : '';
-      b = (mem != 1) ? 's' : '';
-      if (len > 0) {
-        msg = `in ${num} message${a} you have used ${mem} meme${b}`;
-      } else {
-        msg = 'error: no defined memes';
-      }
+      const {numberOfMessages, totalMessageLength} = getChatStats();
+      const averageMessageLength = numberOfMessages > 0 ?
+          Math.round(totalMessageLength / numberOfMessages) :
+          0;
+      msg = `you have sent ${numberOfMessages} messages, ` +
+          `total length is ${totalMessageLength} characters ` +
+          `(${averageMessageLength} per message) `;
     } else if (msg.startsWith('!pick ')) {
       arr = msg.split('!pick ')[1].split(',');
       rnd = Math.round(Math.random() * (arr.length - 1));
@@ -1974,8 +1972,6 @@ function prepareMessage(msg) {
       }
     } else if (msg.startsWith('!np')) {
       msg = 'Now playing: ' + $('.queue_active a').html();
-    } else if (msg.startsWith('!CO ZJE TEH?')) {
-      msg = 'TEH ZJE HUJ';
     } else if (msg.startsWith('!discord')) {
       msg = 'https://discord.gg/g8tCGSc2bx';
     } else if (msg.startsWith('!link')) {
@@ -2665,8 +2661,6 @@ function showChatHelp() {
           '(e.g. <i>!add https://www.youtube.com/watch?v=29FFHC2D12Q</i>)',
       'stat':
           'displaying user chat statistics in current session (<i>!stat</i>)',
-      'memestats':
-          'displaying number memes used by user in all messages (<i>!memestats</i>)',
       'discord': 'link to the CyDJ discord (<i>!discord</i>)',
       'link': 'post a TinyURL link for this room (<i>!link</i>)',
       'randomemote':
@@ -3555,7 +3549,17 @@ if ($('#chanexternalcss').length < 1) {
 }
 
 // attempt to fix dumbass buttons
-document.body.addEventListener('load', setUserCSS, true);
+// but for some stupid reason the load event is called on like every chat
+// message leading to a buuuunch of layout thrashing pepeAgony. so only do this
+// once.
+let alreadySetAfterLoad = false;
+document.body.addEventListener('load', () => {
+  if (alreadySetAfterLoad) {
+    return;
+  }
+  setUserCSS();
+  alreadySetAfterLoad = true;
+}, true);
 
 // adding favicon
 if (UI_Favicon && Favicon_URL != '') {
@@ -3690,11 +3694,12 @@ if (UI_CustomCaptions) {
     changeWelcomeText();
   }
 }
-
-if (UI_ExtraHelp) {
+// TODO add small tooltip
+if (UI_ButtonIcons) {
   $('#showmediaurl').html('<i class="glyphicon glyphicon-plus"></i> Add');
-  //  $('#voteskip').html('<i class="glyphicon glyphicon-step-forward"></i>
-  //  Skip');
+  /* $('#emotelistbtn').html('<i class="glyphicon glyphicon-picture"></i>');
+  $('#chathelp-btn').html('<i class="glyphicon glyphicon-question-sign"></i>');
+  $('#context-btn').html('<i class="glyphicon glyphicon-apple"></i>'); */
 }
 
 // deleting previous MOTD
@@ -3903,7 +3908,7 @@ if (UI_EmotesBtn) {
           .appendTo(chatcontrols)
           .on('click', () => {
             toggleDiv(emotespanel);
-            if (UI_ChannelCache != '1' && !EMOTES) {
+            if (!UI_ChannelCache && !EMOTES) {
               showEmotes();
             }
           });
@@ -3911,14 +3916,18 @@ if (UI_EmotesBtn) {
 
 // moving emote button attempt
 if (UI_SpecialEmoteBtn) {
-  $('#emotelistbtn').appendTo(chatcontrols).text('Emotes');
+  $('#emotelistbtn').appendTo(chatcontrols);  // .text('Emotes');
+  $('#emotelistbtn')
+      .html(
+          '<i title="Open emote menu" class="glyphicon glyphicon-picture"></i>');
 }
 
 // adding chat commands button
 if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
   chathelpbtn =
       $('<button id="chathelp-btn" class="btn btn-sm btn-default" title="Show chat commands"/>')
-          .text('Chat Commands')
+          .html('<i class="glyphicon glyphicon-question-sign"></i>')
+          // .text('Chat Commands')
           .appendTo(chatcontrols)
           .on('click', () => showChatHelp());
 }
@@ -3927,7 +3936,8 @@ if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
 if (UI_ContextMenu) {
   chathelpbtn =
       $('<button id="context-btn" class="btn btn-sm btn-default" title="Opens a menu with links" />')
-          .text('Context Menu')
+          .html('<i class="glyphicon glyphicon-align-center"></i>')
+          // .text('Context Menu')
           .appendTo(chatcontrols)
           .on('click', () => showContextMenu());
 }
@@ -5078,7 +5088,7 @@ $('#chatline').on('keydown', (ev) => {
         meta.addClassToNameAndTimestamp = true;
       }
       socket.emit('chatMsg', {msg: msg, meta: meta});
-      userChatStats(_msg);
+      updateChatStats(_msg);
       CHATHIST.push($('#chatline').val());
       CHATHISTIDX = CHATHIST.length;
       $('#chatline').val('');
@@ -5121,7 +5131,7 @@ $('#chatbtn').on('click', () => {
       COMMAND = false;
     }
     socket.emit('chatMsg', {msg: msg});
-    userChatStats(_msg);
+    updateChatStats(_msg);
     $('#chatline').val('');
   }
 });
@@ -5242,7 +5252,7 @@ socket.on('chatMsg', fixSayMsg);
  * DEV NOTE: this is extended function from CyTube "util.js" file
  */
 function resizeStuff() {
-  const videoWidth = $('.embed-responsive').width();
+  const videoWidth = $('#videowrap .embed-responsive').width();
   const videoHeight = Math.floor(parseInt(videoWidth) * 9 / 16 + 1);
   $('#ytapiplayer').width(videoWidth).height(videoHeight);
 
@@ -5252,7 +5262,7 @@ function resizeStuff() {
 
   if (UI_DisplayModeSel) {
     m = modesel.val();
-
+    console.log('channel mode is : ', m);
     // patches for various display modes
     if (m === 'chMode' || m === 'rMode') {
       if (WEBKIT) {
@@ -5263,7 +5273,7 @@ function resizeStuff() {
       }
       fitChat('auto');
     } else if (m === 'syMode' && USERCONFIG.player === 'center') {
-      fitChat(200);
+      fitChat('auto');  // it could've been this all along lmao
     }
   }
 }
@@ -5893,6 +5903,12 @@ socket.on('mediaUpdate', fixRawVideoControls);
 
 document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
+
+setInterval(() => {
+  resizeStuff();
+  // auto scroll after .5 seconds
+  setTimeout(scrollChat(), 500);
+}, 1000);
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
