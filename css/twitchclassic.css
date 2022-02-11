@@ -397,3 +397,11 @@ table {
 .fire {
   text-shadow: 0 0 2px #fefcc9, 1px -1px 3px #feec85, -2px -2px 4px #ffae34, 2px -4px 5px #ec760c
 }
+
+span:not(.userlist_op):not(.userlist_owner) > strong.username {
+  color: #6A5ACD;
+}
+
+div.userlist_item > span:not(.userlist_op):not(.userlist_owner) {
+  color: #6A5ACD;
+}

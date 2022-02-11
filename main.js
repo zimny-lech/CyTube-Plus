@@ -5267,7 +5267,6 @@ function resizeStuff() {
 
   if (UI_DisplayModeSel) {
     m = modesel.val();
-    console.log('channel mode is : ', m);
     // patches for various display modes
     if (m === 'chMode' || m === 'rMode') {
       if (WEBKIT) {
