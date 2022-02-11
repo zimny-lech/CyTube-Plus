@@ -3663,7 +3663,7 @@ if (UI_Version) {
   headerdrop = $('<li id="headerdrop" class="dropdown" />')
                    .insertAfter('#channelset-link');
   $('<a class="dropdown-toggle" data-toggle="dropdown" href="#" />')
-      .html(`Running ${Version_Now}`)
+      .html(`${Version_Now}`)
       .appendTo(headerdrop);
 }
 
