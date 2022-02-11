@@ -190,7 +190,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre2.10.21.0';
+const Version_Now = 'CyDJPre2.10.21.1';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -5906,8 +5906,6 @@ socket.on('changeMedia', resizeStuff);
 
 setInterval(() => {
   resizeStuff();
-  // auto scroll after .5 seconds
-  setTimeout(scrollChat(), 500);
 }, 1000);
 
 // Xaekai was here (john too)
