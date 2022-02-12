@@ -25,13 +25,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 // CONFIGURATION NOTES:
 
-// In this section you can immediately enable and disable each option (set '1'
-// to enable, '0' to disable) Every option marked as [&] requires additional
-// configuration (see other sections below) WARNING! apostrophe sign (') in all
-// text/html values must be prepend with "\" sign (e.g. "don\'t")
+// In this section you can immediately enable and disable each option (set '1' to enable, '0' to
+// disable) Every option marked as [&] requires additional configuration (see other sections below)
+// WARNING! apostrophe sign (') in all text/html values must be prepend with "\" sign (e.g.
+// "don\'t")
 
-// FILTERS INSTALLATION: open 'Channel Settings' modal window, go to 'Edit' ->
-// 'Chat Filters', click 'Prepare fonts filters' button, and import
+// FILTERS INSTALLATION: open 'Channel Settings' modal window, go to 'Edit' -> 'Chat Filters', click
+// 'Prepare fonts filters' button, and import
 
 // default old Synchtube layout (player and playlist on the left)
 const UI_DefaultSynchtube = true;
@@ -134,8 +134,7 @@ const UI_VolumeBtns = true;
 const UI_EmptyCornerBackground = true;
 // extended 'Get URLs' function
 const UI_ExtendedGetURLs = true;
-// default unchecking "Add as temporary" checkbox after loading for registered
-// users
+// default unchecking "Add as temporary" checkbox after loading for registered users
 const UI_DefaultNonTemp = false;
 // [&] custom channel footer
 const UI_CustomFooter = false;
@@ -165,7 +164,7 @@ const UI_ButtonIcons = true;
 const UI_Snow = false;
 
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- DETAILED BASIC CONFIGURATION ----- */
 
@@ -219,8 +218,7 @@ const MessagesSuffix_Text = '~xD';
 
 const MessagesSuffix_Percentage = 10;
 
-const CustomPingSound_URL =
-    'https://github.com/papertek/CyDJ/raw/beta/misc/pingsound.wav';
+const CustomPingSound_URL = 'https://github.com/papertek/CyDJ/raw/beta/misc/pingsound.wav';
 
 const PlayerHiding_URL = 'https://c.tenor.com/Q6UjBrnSzvQAAAAC/anime-uh.gif';
 
@@ -228,8 +226,7 @@ const GroupEmotes_Number = 100;
 
 const ExternalScript_URL = '';
 
-const Snow_URL =
-    'https://dl.dropboxusercontent.com/s/cvxizo3lax3xlrg/snowcss.css';
+const Snow_URL = 'https://dl.dropboxusercontent.com/s/cvxizo3lax3xlrg/snowcss.css';
 
 const HeaderDropMenu_Array = [
   ['CyDJ Rooms', ''],
@@ -278,7 +275,7 @@ const RandomQuotes_Array = [
   'I like you. You remind me of when I was young and stupid.',
   'Go and buy me a beer',
   'The door of this channel is always open for you... so feel free to leave!',
-  'I hate JQuery',  // this is probably AirForce or John : xqcPeepo
+  'I hate JQuery',
   'amogus',
 ];
 
@@ -674,13 +671,7 @@ const USER_BADGES = {
 };
 
 const SoundFilters_Array = {
-  // old sound thing
-  // 'habemus': 'https://dl.dropboxusercontent.com/s/3w1jahgffowjltz/hp.ogg',
-  // 'lol':
-  // 'https://dl.dropboxusercontent.com/s/9aqa1buu3phvpss/laugh.ogg',
-  'oh no our table':
-      'https://github.com/papertek/CyDJ/raw/beta/misc/ohnoourtable.wav',
-
+  'oh no our table': 'https://github.com/papertek/CyDJ/raw/beta/misc/ohnoourtable.wav',
 };
 
 const ModPanel_Array = [
@@ -781,12 +772,11 @@ const CustomFooter_HTML = 'This is custom footer.';
 
 const CustomRightFooter_HTML = '';
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- THEMES CONFIGURATION ----- */
 
-const ChannelThemeURL =
-    'https://papertek.github.io/CyDJ/deploy/beta/css/DJDefault.css';
+const ChannelThemeURL = 'https://papertek.github.io/CyDJ/deploy/beta/css/DJDefault.css';
 
 const ThemesCSS = [
   [
@@ -893,7 +883,7 @@ const EmptyCornerBackground = [
   'https://media.discordapp.net/attachments/915415328496951316/925616111242842122/unknown.png',
 ];
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- INDEPENDENT EMOTES AND FILTERS CONFIGURATION ----- */
 
@@ -924,13 +914,15 @@ const IndependentEmotes = [
 ];
 
 // NOTES AND DEFAULT FILTERS EXAMPLES:
-// If you use regular expression, you must put it between // signs with /g flag
-// to change all occurences a) [mq]text[/mq] - fast scrolling text b)
-// [mq0]text[/mq0] - slow scrolling text c) [imgur]suok1xr.jpg[/imgur] - imgur
-// picture d) [drop]7mrz85gl29eiiks/logo.png[/drop] - dropbox picture e)
-// [minus/i5]ig0qs6fvWvgBu.jpg[/minus] - minus.com picture f)
-// [vi/b]1r8ih4t1.vichan.png[/vi] - vichan /b/ imageboard picture (you can use
-// other boards too)
+// If you use regular expression, you must put it between // signs with /g flag to change all
+// occurences:
+//
+// a) [mq]text[/mq] - fast scrolling text
+// b) [mq0]text[/mq0] - slow scrolling text
+// c) [imgur]suok1xr.jpg[/imgur] - imgur picture
+// d) [drop]7mrz85gl29eiiks/logo.png[/drop] - dropbox picture
+// e) [minus/i5]ig0qs6fvWvgBu.jpg[/minus] - minus.com picture
+// f) [vi/b]1r8ih4t1.vichan.png[/vi] - vichan /b/ imageboard picture (you can use other boards too)
 
 const IndependentFilters = [
   {
@@ -975,7 +967,7 @@ const IndependentFilters = [
   },
 ];
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- MEDIA DATABASE CONFIGURATION ----- */
 
@@ -1142,13 +1134,13 @@ const ChannelDatabase = [
   ],
 ];
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- END OF CONFIGURATION, DO NOT CHANGE ANYTHING BELOW ----- */
 
 /* ----- Initial channel options ----- */
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // reload script after unexpected re-connection or script URL change
 
@@ -1169,9 +1161,8 @@ if (UI_DefaultSynchtube) {
   defqueue = 'right';
 }
 
-const DEFTHEME = (UI_ChannelTheme && ChannelThemeURL != '') ?
-    ChannelThemeURL :
-    '/css/themes/slate.css';
+const DEFTHEME =
+    (UI_ChannelTheme && ChannelThemeURL != '') ? ChannelThemeURL : '/css/themes/slate.css';
 
 const USERCONFIG = {
   'player': getOrDefault(CHANNEL.name + '_player', defplayer),
@@ -1231,8 +1222,8 @@ let ALTERCHATFORMAT = false;
 // previous read of a current item time for the progress bar
 let PREVTIME = 0;
 // timestamp of the last adding random item from the channel database
-// ID of previous video queued (so !random doesn't add it again)
 let LASTADD = 1;
+// ID of previous video queued (so !random doesn't add it again)
 let LAST_VIDEO_ID_QUEUED = 'some-bogus-dont-leave-empty';
 // user minutes online
 let USERONLINE = 0;
@@ -1254,14 +1245,10 @@ let HASH = '';
 
 const WEBKIT = 'webkitRequestAnimationFrame' in window;
 const SOUNDSVALUES = [0, 0.1, 0.2, 0.4, 0.7, 1];
-const SPEAKLINK =
-    'http://webanywhere.cs.washington.edu/cgi-bin/espeak/getsound.pl';
-const IMBA =
-    new Audio('https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg');
-const DROPIT =
-    new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/dropit.wav');
-const FASTEST = new Audio(
-    'https://github.com/papertek/CyDJ/raw/beta/misc/fastestcrashegg.wav');
+const SPEAKLINK = 'http://webanywhere.cs.washington.edu/cgi-bin/espeak/getsound.pl';
+const IMBA = new Audio('https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg');
+const DROPIT = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/dropit.wav');
+const FASTEST = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/fastestcrashegg.wav');
 const HEY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/hey.wav');
 const NAY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/nay.wav');
 CHATSOUND.volume = 0.4;
@@ -1271,8 +1258,7 @@ function preloadAudio() {
   for (const audioButton of audioButtons) {
     const preloader = new Audio();
     // use bind to link the audio button to the function
-    preloader.addEventListener(
-        'loadeddata', enableAudioButton.bind(audioButton), true);
+    preloader.addEventListener('loadeddata', enableAudioButton.bind(audioButton), true);
     // trigger the download
     preloader.src = audioButton.getAttribute('data-url');
   }
@@ -1280,11 +1266,11 @@ function preloadAudio() {
 
 document.body.addEventListener('load', preloadAudio, true);
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- Global functions ----- */
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * Toggle elements visibility.
@@ -1375,9 +1361,7 @@ function playerLocation(a) {
     setTimeout(refreshPlayer(), 1000);
   } else if (a == 'center') {
     $('#videowrap').after($('#chatwrap').detach());
-    $('#videowrap, #chatwrap')
-        .removeClass()
-        .addClass('col-lg-8 col-lg-offset-2 col-md-12');
+    $('#videowrap, #chatwrap').removeClass().addClass('col-lg-8 col-lg-offset-2 col-md-12');
     fitPlayer();
     fitChat(200);
     $('#pinup-btn').hide();
@@ -1425,26 +1409,18 @@ function queueSize(a) {
 
 function mainLocation(a) {
   if (a == 'top') {
-    $('#main')
-        .before($('#titlerow').detach())
-        .after($('#playlistrow').detach());
+    $('#main').before($('#titlerow').detach()).after($('#playlistrow').detach());
   } else if (a == 'bottom') {
-    $('#main')
-        .before($('#playlistrow').detach())
-        .before($('#titlerow').detach());
+    $('#main').before($('#playlistrow').detach()).before($('#titlerow').detach());
   }
   $('#main').after($('#chatpanel').detach());
 }
 
 function motdLocation(a) {
   if (a == 'top') {
-    $('#zerorow')
-        .after($('#announcements').detach())
-        .after($('#motdrow').detach());
+    $('#zerorow').after($('#announcements').detach()).after($('#motdrow').detach());
   } else if (a == 'bottom') {
-    $('#resizewrap')
-        .before($('#motdrow').detach())
-        .before($('#announcements').detach());
+    $('#resizewrap').before($('#motdrow').detach()).before($('#announcements').detach());
   }
 }
 
@@ -1452,8 +1428,7 @@ function motdLocation(a) {
 function logoInsert(logo) {
   if (logo !== 'no') {
     const link = (logo !== 'user') ? LOGOS.get(logo).url : USERCONFIG.logourl;
-    const height =
-        (logo !== 'user') ? LOGOS.get(logo).height : USERCONFIG.logoht;
+    const height = (logo !== 'user') ? LOGOS.get(logo).height : USERCONFIG.logoht;
     azukirow.css({
       'min-height': `${height}px`,
       'background-image': `url("${link}")`,
@@ -1486,8 +1461,7 @@ function headerMode(a) {
 function customCSS(a) {
   $('#usercss').remove();
   if (a == 'yes') {
-    $('head').append(
-        `<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`);
+    $('head').append(`<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`);
   }
 }
 
@@ -1549,8 +1523,7 @@ function normalPlayer() {
 }
 
 function normalChat() {
-  c = (PINNED && USERCONFIG.qsize == 'wide') ? 'col-lg-7 col-md-7' :
-                                               'col-lg-5 col-md-5';
+  c = (PINNED && USERCONFIG.qsize == 'wide') ? 'col-lg-7 col-md-7' : 'col-lg-5 col-md-5';
   $('#chatwrap').removeClass().addClass(c);
   fitChat(338);
 }
@@ -1569,15 +1542,13 @@ function setMode(a) {
   }
 
   if (a === 'syMode') {
-    $('#videowrap, #videowrap p, #videowrap div, #chatwrap, #rightpane, #pinup-btn')
-        .show();
+    $('#videowrap, #videowrap p, #videowrap div, #chatwrap, #rightpane, #pinup-btn').show();
     $('#config-btn, #configbtnwrap br, #pinup-btn').show();
     $('#min-layout').parent().show();
 
     normalPlayer();
 
-    c = (PINNED && USERCONFIG.qsize == 'wide') ? 'col-lg-7 col-md-7' :
-                                                 'col-lg-5 col-md-5';
+    c = (PINNED && USERCONFIG.qsize == 'wide') ? 'col-lg-7 col-md-7' : 'col-lg-5 col-md-5';
     $('#chatwrap').removeClass().addClass(c);
     H = parseInt(VH) - $('#chatline').outerHeight() - 1;
     $('#messagebuffer').height(H);
@@ -1644,10 +1615,7 @@ function setModeAfterVideoChange() {
  */
 function changeWelcomeText() {
   if (CLIENT.rank > 0) {
-    $('#welcome')
-        .html($('#welcome')
-                  .html()
-                  .replace(/Welcome/, CustomCaptions_Array['welcome']));
+    $('#welcome').html($('#welcome').html().replace(/Welcome/, CustomCaptions_Array['welcome']));
   }
 }
 
@@ -1669,10 +1637,9 @@ function changeMOTD() {
                   motdtabscontent.html(MOTDTabs_Array[nr][1]);
                 });
     }
-    motdtabscontent =
-        $(`<div id="motdtabscontent">${MOTDTabs_Array[0][1]}</div>`)
-            .css(MOTDTabs_CSS)
-            .appendTo('#motd');
+    motdtabscontent = $(`<div id="motdtabscontent">${MOTDTabs_Array[0][1]}</div>`)
+                          .css(MOTDTabs_CSS)
+                          .appendTo('#motd');
     $('.motdtabs-btn:nth-child(1)').addClass('btn-success');
   }
   if (UI_MOTDAutoLogo) {
@@ -1680,8 +1647,7 @@ function changeMOTD() {
     let logo = 0;
     let len = MOTDAutoLogo_Array.length;
     if (len < 1) {
-      MOTDAutoLogo_Array =
-          ['https://dl.dropboxusercontent.com/s/7mrz85gl29eiiks/logo.png'];
+      MOTDAutoLogo_Array = ['https://dl.dropboxusercontent.com/s/7mrz85gl29eiiks/logo.png'];
       len = 1;
     }
     if (MOTDAutoLogo_Mode == '2' || MOTDAutoLogo_Mode == '3') {
@@ -1721,8 +1687,7 @@ function changeMOTD() {
  */
 function changeTitle() {
   title = $('#currenttitle').text();
-  $('#currenttitle')
-      .text(title.replace(/Currently Playing:/, TitleBarDescription_Caption));
+  $('#currenttitle').text(title.replace(/Currently Playing:/, TitleBarDescription_Caption));
 }
 
 /**
@@ -1817,8 +1782,7 @@ class ChatStats {
  * @return {!ChatStats} The chat stats.
  */
 function getChatStats() {
-  return ChatStats.fromJsonString(
-      window.localStorage[ChatStats.getLocalStorageKey()]);
+  return ChatStats.fromJsonString(window.localStorage[ChatStats.getLocalStorageKey()]);
 }
 
 /**
@@ -1832,8 +1796,7 @@ function updateChatStats(msg) {
   chatStats.numberOfMessages++;
   chatStats.totalMessageLength += msg.length;
 
-  window.localStorage[ChatStats.getLocalStorageKey()] =
-      JSON.stringify(chatStats);
+  window.localStorage[ChatStats.getLocalStorageKey()] = JSON.stringify(chatStats);
 }
 
 /**
@@ -1843,11 +1806,9 @@ function updateChatStats(msg) {
  * @return {string}
  */
 function createSquavatar(str) {
-  for (i = 0, hash = 0; i < str.length;
-       hash = str.charCodeAt(i++) + ((hash << 5) - hash))
+  for (i = 0, hash = 0; i < str.length; hash = str.charCodeAt(i++) + ((hash << 5) - hash))
     ;
-  for (i = 0, col = ''; i < 3;
-       col += ('00' + ((hash >> i++ * 8) & 0xFF).toString(16)).slice(-2))
+  for (i = 0, col = ''; i < 3; col += ('00' + ((hash >> i++ * 8) & 0xFF).toString(16)).slice(-2))
     ;
   r = parseInt(col.substring(0, 2), 16);
   g = parseInt(col.substring(2, 4), 16);
@@ -1855,8 +1816,7 @@ function createSquavatar(str) {
   r2 = 255 - r;
   g2 = 255 - g;
   b2 = 255 - b;
-  html =
-      `<span class="squavatar" style="background-color:rgb(${r},${g},${b}); ` +
+  html = `<span class="squavatar" style="background-color:rgb(${r},${g},${b}); ` +
       `border-color:rgb(${r2},${g2},${b2})"></span>`;
   return html;
 }
@@ -1869,8 +1829,7 @@ function createSquavatar(str) {
  */
 function prepareMessage(msg) {
   if (UI_MessagesSuffix) {
-    if ((typeof MessagesSuffix_Percentage !== 'number') ||
-        MessagesSuffix_Percentage < 0) {
+    if ((typeof MessagesSuffix_Percentage !== 'number') || MessagesSuffix_Percentage < 0) {
       MessagesSuffix_Percentage = '10';
     }
     if (Math.random() < (MessagesSuffix_Percentage / 100)) {
@@ -1882,9 +1841,8 @@ function prepareMessage(msg) {
     COMMAND = true;
     if (msg.startsWith('!stat')) {
       const {numberOfMessages, totalMessageLength} = getChatStats();
-      const averageMessageLength = numberOfMessages > 0 ?
-          Math.round(totalMessageLength / numberOfMessages) :
-          0;
+      const averageMessageLength =
+          numberOfMessages > 0 ? Math.round(totalMessageLength / numberOfMessages) : 0;
       msg = `you have sent ${numberOfMessages} messages, ` +
           `total length is ${totalMessageLength} characters ` +
           `(${averageMessageLength} per message) `;
@@ -1958,9 +1916,7 @@ function prepareMessage(msg) {
       last = $('#queue').children().length;
       uid = $(`#queue .queue_entry:nth-child(${last})`).data('uid');
       title = $(`#queue .queue_entry:nth-child(${last}) .qe_title`).html();
-      socket.emit(
-          'moveMedia', {from: uid, after: PL_CURRENT},
-          $('.add-temp').prop('checked'));
+      socket.emit('moveMedia', {from: uid, after: PL_CURRENT}, $('.add-temp').prop('checked'));
       msg = `last item bumped as next: ${title}`;
     } else if (msg.startsWith('!add ') && hasPermission('playlistadd')) {
       parsed = parseMediaLink(msg.split('!add ')[1]);
@@ -2061,8 +2017,7 @@ function toggleModPanel() {
  * Create media database.
  */
 function createDatabase() {
-  html =
-      '<button id="la1" class="btn btn-default btn-sm db-break" onclick="toggleCat(1)">' +
+  html = '<button id="la1" class="btn btn-default btn-sm db-break" onclick="toggleCat(1)">' +
       ChannelDatabase[0][1] + '</button>' +
       '<ul id="l1" class="videolist db-cat">';
 
@@ -2096,9 +2051,8 @@ function createDatabase() {
             '<i class="glyphicon glyphicon-film"></i>' +
             '</button>';
       }
-      html += '<span class="badge db-badge">' + item_nr +
-          '</span><span class="db-title">' + ChannelDatabase[i][1] +
-          '</span><br /><span class="db-link">' + link + '</span>';
+      html += '<span class="badge db-badge">' + item_nr + '</span><span class="db-title">' +
+          ChannelDatabase[i][1] + '</span><br /><span class="db-link">' + link + '</span>';
     }
   }
 
@@ -2164,13 +2118,11 @@ function patchWrap() {
  * Create channel gallery.
  */
 function createGallery() {
-  galleryframe =
-      $(`<iframe id="galleryFrame" src=${ChannelGalleries_Array[0][1]} ` +
-        'width="100%" />')
-          .attr({'frameborder': '0', 'scrolling': 'no', 'height': '415px'})
-          .appendTo(gallerywell);
-  galtitle = $('<span id="galtitle" class="conf-opt">Select Gallery</span>')
-                 .appendTo(gallerywell);
+  galleryframe = $(`<iframe id="galleryFrame" src=${ChannelGalleries_Array[0][1]} ` +
+                   'width="100%" />')
+                     .attr({'frameborder': '0', 'scrolling': 'no', 'height': '415px'})
+                     .appendTo(gallerywell);
+  galtitle = $('<span id="galtitle" class="conf-opt">Select Gallery</span>').appendTo(gallerywell);
   galsel = $('<select id="gal-sel" class="form-control" />')
                .appendTo(gallerywell)
                .on('change', () => galleryframe.attr('src', galsel.val()));
@@ -2180,15 +2132,14 @@ function createGallery() {
   }
 
   text = 'Reload Galleries (if problems or slow channel)';
-  cleargallerybtn =
-      $('<button id="cleargallery-btn" class="btn btn-default btn-sm">' +
-        `${text}</button>`)
-          .appendTo(gallerywell)
-          .on('click', () => {
-            toggleDiv(gallerywrap);
-            gallerywell.html('');
-            GALLERY = false;
-          });
+  cleargallerybtn = $('<button id="cleargallery-btn" class="btn btn-default btn-sm">' +
+                      `${text}</button>`)
+                        .appendTo(gallerywell)
+                        .on('click', () => {
+                          toggleDiv(gallerywrap);
+                          gallerywell.html('');
+                          GALLERY = false;
+                        });
   GALLERY = true;
 }
 
@@ -2316,8 +2267,7 @@ function formatDBList() {
  * Change voteskip caption.
  */
 function changeSkipText() {
-  $('#voteskip')
-      .text(CustomCaptions_Array['voteskip'] + ' ' + $('#voteskip').text());
+  $('#voteskip').text(CustomCaptions_Array['voteskip'] + ' ' + $('#voteskip').text());
 }
 
 /**
@@ -2333,8 +2283,7 @@ function addVideo(link) {
     time = (new Date()).getTime();
     if (!hasPermission('playlistadd')) {
       alert('Please create a registered account to queue links!');
-    } else if (
-        ADDEDLINKS[idp] != undefined && time - ADDEDLINKS[idp] < 120000) {
+    } else if (ADDEDLINKS[idp] != undefined && time - ADDEDLINKS[idp] < 120000) {
       alert('Please wait before adding another link!');
     } else {
       socket.emit('queue', {
@@ -2382,26 +2331,21 @@ function setUserCSS() {
       '#announcements .alert {margin:0px -10px 5px}\n' +
       '#drinkcount {margin:0px}\n';
 
-  $('head').append(
-      `<style id="chanexternalcss-fix" type="text/css">${cssfix}</style>`);
+  $('head').append(`<style id="chanexternalcss-fix" type="text/css">${cssfix}</style>`);
   $('#usertheme').attr('href', '/css/themes/slate.css');
   $('#usertheme-fix').remove();
   if (USERTHEME.includes('/css/themes/')) {
     $('#usertheme').attr('href', USERTHEME);
   } else {
-    $('<link id="usertheme-fix" rel="stylesheet" type="text/css" href="' +
-      USERTHEME + '"></link>')
+    $('<link id="usertheme-fix" rel="stylesheet" type="text/css" href="' + USERTHEME + '"></link>')
         .appendTo('head');
   }
   $('#usercss').remove();
   if (USERCONFIG.css !== 'no') {
-    $('head').append(
-        `<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`);
+    $('head').append(`<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`);
   }
-  const newThemeType =
-      LIGHT_THEMES.includes(USERTHEME) ? 'light-theme' : 'dark-theme';
-  const oldThemeType =
-      LIGHT_THEMES.includes(USERTHEME) ? 'dark-theme' : 'light-theme';
+  const newThemeType = LIGHT_THEMES.includes(USERTHEME) ? 'light-theme' : 'dark-theme';
+  const oldThemeType = LIGHT_THEMES.includes(USERTHEME) ? 'dark-theme' : 'light-theme';
   const messageBuffer = document.getElementById('messagebuffer');
   messageBuffer.classList.add(newThemeType);
   messageBuffer.classList.remove(oldThemeType);
@@ -2409,9 +2353,7 @@ function setUserCSS() {
     $('body').css('background-color', '#141414');
     $('.queue_entry').css('background-color', '#3a3f44');
     $('.dropdown-menu').css('background-color', '#383E40');
-    $('.btn-default')
-        .css(
-            'background-image', 'linear-gradient(#3a3f44,#3a3f44 60%,#313539)');
+    $('.btn-default').css('background-image', 'linear-gradient(#3a3f44,#3a3f44 60%,#313539)');
     $('#motd').css('background-color', '#272b30');
     $('#motdwrap').css('background-color', '#272b30');
     $('#userlist').css('background-color', '#272b30');
@@ -2426,11 +2368,11 @@ function setUserCSS() {
   }
 }
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- UI events functions ----- */
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 function prepareFilters() {
   str = '{"name":"white color","source":"\\\\[white\\\\]","flags":"g",' +
@@ -2481,19 +2423,16 @@ function prepareFilters() {
       '"replace":"</span>","active":true,"filterlinks":false}]';
 
   callback = (data) => {
-    socket.listeners('chatFilters')
-        .splice(socket.listeners('chatFilters').indexOf(callback));
+    socket.listeners('chatFilters').splice(socket.listeners('chatFilters').indexOf(callback));
     json = JSON.stringify(data);
     comma = (json.length != '2') ? ',' : '';
-    $('#cs-chatfilters-exporttext')
-        .val(json.substring(0, json.length - 1) + comma + str);
+    $('#cs-chatfilters-exporttext').val(json.substring(0, json.length - 1) + comma + str);
   };
 
   socket.on('chatFilters', callback);
   socket.emit('requestChatFilters');
 
-  txt =
-      'This option does NOT affect your current filters, all of them will be saved.\n' +
+  txt = 'This option does NOT affect your current filters, all of them will be saved.\n' +
       'Click "Import filter list" button if you\'ll decide to install.';
   alert(txt);
 }
@@ -2507,20 +2446,18 @@ function showChatFunctions() {
 
   $('#chatfunc-dropdown').append('<div>Prevent room freezing if spam:</div>');
 
-  spamclearbtn =
-      $('<button id="spamclear-btn" class="btn btn-xs btn-default">Auto Clear</button>')
-          .appendTo('#chatfunc-dropdown')
-          .on('click', function() {
-            if (!CLEARING) {
-              $(this).text('Stop Clearing').addClass('btn-danger');
-              CLEARING = setInterval(
-                  () => socket.emit('chatMsg', {msg: '/clear'}), 500);
-            } else {
-              $(this).text('Auto Clear').removeClass('btn-danger');
-              clearInterval(CLEARING);
-              CLEARING = false;
-            }
-          });
+  spamclearbtn = $('<button id="spamclear-btn" class="btn btn-xs btn-default">Auto Clear</button>')
+                     .appendTo('#chatfunc-dropdown')
+                     .on('click', function() {
+                       if (!CLEARING) {
+                         $(this).text('Stop Clearing').addClass('btn-danger');
+                         CLEARING = setInterval(() => socket.emit('chatMsg', {msg: '/clear'}), 500);
+                       } else {
+                         $(this).text('Auto Clear').removeClass('btn-danger');
+                         clearInterval(CLEARING);
+                         CLEARING = false;
+                       }
+                     });
   if (CLEARING) {
     $('#spamclear-btn').text('Stop Clearing').addClass('btn-danger');
   }
@@ -2535,8 +2472,7 @@ function showChatFunctions() {
               $(this).addClass('btn-danger');
               ANTIAFK = setInterval(function() {
                 $('#userlist').find('span[class^=userlist]').each(function() {
-                  if ($(this).html() == CLIENT.name &&
-                      $(this).css('font-style') == 'italic') {
+                  if ($(this).html() == CLIENT.name && $(this).css('font-style') == 'italic') {
                     socket.emit('chatMsg', {msg: '/afk'});
                     return;
                   }
@@ -2563,8 +2499,7 @@ function showEmotes() {
   len = CHANNEL.emotes.length;
   if (len < 1) {
     emotespanel.addClass('row');
-    makeAlert('No emotes available', 'Ask channel administrator.')
-        .appendTo(emotespanel);
+    makeAlert('No emotes available', 'Ask channel administrator.').appendTo(emotespanel);
   } else if (UI_GroupEmotes != '1' || len <= GroupEmotes_Number) {
     for (const emote of CHANNEL.emotes) {
       $(`<img onclick="insertText('${emote.name} ')" />`)
@@ -2590,16 +2525,14 @@ function showEmotes() {
     }
 
     for (i = 0; i < gr; i++) {
-      div =
-          $(`<div id="emotes-${i}" class="groupemotes" style="display:none" />`)
-              .html(arr[i])
-              .appendTo(emotespanel);
+      div = $(`<div id="emotes-${i}" class="groupemotes" style="display:none" />`)
+                .html(arr[i])
+                .appendTo(emotespanel);
     }
     arr = '';
 
     emotesbtnwrap = $('<div id="emotesbtnwrap" />').appendTo(emotespanel);
-    emotesbtngroup = $('<div id="emotescontrols" class="btn-group">')
-                         .appendTo(emotesbtnwrap);
+    emotesbtngroup = $('<div id="emotescontrols" class="btn-group">').appendTo(emotesbtnwrap);
 
     for (i = 0; i < gr; i++) {
       btn = $(`<button class="btn btn-sm btn-default emotesbtn" group="${i}">` +
@@ -2664,12 +2597,10 @@ function showChatHelp() {
       'skip': 'skip current item (<i>!skip</i>)',
       'add': 'adding a link to the end of playlist ' +
           '(e.g. <i>!add https://www.youtube.com/watch?v=29FFHC2D12Q</i>)',
-      'stat':
-          'displaying user chat statistics in current session (<i>!stat</i>)',
+      'stat': 'displaying user chat statistics in current session (<i>!stat</i>)',
       'discord': 'link to the CyDJ discord (<i>!discord</i>)',
       'link': 'post a TinyURL link for this room (<i>!link</i>)',
-      'randomemote':
-          'displays a random emote from the emote list (<i>!randomemote</i>)',
+      'randomemote': 'displays a random emote from the emote list (<i>!randomemote</i>)',
     };
     if (UI_ChannelDatabase) {
       arr['random'] = 'adding random link from database (<i>!random</i>)';
@@ -2682,14 +2613,12 @@ function showChatHelp() {
   }
   if (UI_ChatSpeak) {
     body.append('<strong>Voice commands</strong><br /><br />');
-    html =
-        '<li><code>!say</code> - text speaking in english (<i>!say Hello!</i>)</li>' +
+    html = '<li><code>!say</code> - text speaking in english (<i>!say Hello!</i>)</li>' +
         '<li><code>!mow</code> - text speaking in polish (<i>!mow Chrząszcz brzmi w trzcinie.</i>)';
     $('<ul />').html(html).appendTo(body);
   }
   arr = {
-    'me':
-        'showing an action-style message (username does something, e.g. <i>/me is dancing</i>)',
+    'me': 'showing an action-style message (username does something, e.g. <i>/me is dancing</i>)',
     'sp':
         'hiding a message in a hover-to-show spoiler box (e.g. <i>/sp This message is hidden</i>)',
     'afk': 'toggling your AFK (away from keyboard) status (<i>/afk</i>)',
@@ -2708,32 +2637,28 @@ function showSoundsPanel() {
   $('#userlist').append('<div id="sounds-dropdown" />');
   setPanelProperties('#sounds-dropdown');
 
-  muteallbtn =
-      $('<button id="muteall-btn" class="btn btn-xs btn-default">Mute All</button>')
-          .appendTo('#sounds-dropdown')
-          .on('click', function() {
-            if (VOICES) {
-              $(this).text('Unmute All').addClass('btn-danger');
-              voicesbtn.addClass('btn-danger')
-                  .attr('title', 'Unmute chat voices');
-              VOICES = false;
-              SOUNDSPANEL = false;
-              $('#sounds-dropdown').remove();
-            } else {
-              $(this).text('Mute All').removeClass('btn-danger');
-              voicesbtn.removeClass('btn-danger')
-                  .attr('title', 'Mute chat voices');
-              VOICES = true;
-            }
-          });
+  muteallbtn = $('<button id="muteall-btn" class="btn btn-xs btn-default">Mute All</button>')
+                   .appendTo('#sounds-dropdown')
+                   .on('click', function() {
+                     if (VOICES) {
+                       $(this).text('Unmute All').addClass('btn-danger');
+                       voicesbtn.addClass('btn-danger').attr('title', 'Unmute chat voices');
+                       VOICES = false;
+                       SOUNDSPANEL = false;
+                       $('#sounds-dropdown').remove();
+                     } else {
+                       $(this).text('Mute All').removeClass('btn-danger');
+                       voicesbtn.removeClass('btn-danger').attr('title', 'Mute chat voices');
+                       VOICES = true;
+                     }
+                   });
   if (!VOICES) {
     muteallbtn.text('Unmute All').addClass('btn-danger');
   }
 
   $('#sounds-dropdown').append('<div>Sounds level:</div>');
 
-  lvlgroup = $('<div id="lvlgroup" class="btn-group"></div>')
-                 .appendTo('#sounds-dropdown');
+  lvlgroup = $('<div id="lvlgroup" class="btn-group"></div>').appendTo('#sounds-dropdown');
 
   for (i = 1; i <= 5; i++) {
     btn = $(`<button class="btn btn-xs btn-default" id="lvlvol${i}" ` +
@@ -2751,8 +2676,8 @@ function showSoundsPanel() {
 
   $('#sounds-dropdown').append('<div>Select users to mute sounds:</div>');
 
-  mutegroup = $('<div id="mutegroup" class="btn-group-vertical"></div>')
-                  .appendTo('#sounds-dropdown');
+  mutegroup =
+      $('<div id="mutegroup" class="btn-group-vertical"></div>').appendTo('#sounds-dropdown');
 
   $('.userlist_item').each(function() {
     user = $(this).find('span:nth-child(2)').html();
@@ -2794,9 +2719,7 @@ function showModPanel() {
     }
   }
   body.append(html);
-  $('#mod-btn')
-      .removeClass('btn-danger')
-      .html('<i class="glyphicon glyphicon-tasks"></i>');
+  $('#mod-btn').removeClass('btn-danger').html('<i class="glyphicon glyphicon-tasks"></i>');
   setOpt(CHANNEL.name + '_modhash', HASH);
 }
 
@@ -2865,8 +2788,7 @@ function showInfo() {
  */
 function coverPlayer() {
   if (PlayerHiding_URL == '') {
-    PlayerHiding_URL =
-        'https://dl.dropboxusercontent.com/s/xz2o99scw5i7aai/stop.png';
+    PlayerHiding_URL = 'https://dl.dropboxusercontent.com/s/xz2o99scw5i7aai/stop.png';
   }
   $('#videowrap').addClass('relative');
   w = $('#ytapiplayer').css('width');
@@ -2940,13 +2862,9 @@ SoundCloud.'); } else { createModal('Download current item');
 function prevVideo(a) {
   createModal('Preview Video');
 
-  player =
-      $('<iframe id="previewFrame" width="558" height="314" frameborder="0" />')
-          .attr(
-              'src',
-              `https://www.youtube.com/embed/${
-                  a}?wmode=transparent&enablejsapi`)
-          .appendTo(body);
+  player = $('<iframe id="previewFrame" width="558" height="314" frameborder="0" />')
+               .attr('src', `https://www.youtube.com/embed/${a}?wmode=transparent&enablejsapi`)
+               .appendTo(body);
 }
 
 /**
@@ -2970,14 +2888,11 @@ function toggleConfigPanel() {
         .addClass('btn-success')
         .html('<span class="glyphicon glyphicon-cog"></span> Layout');
     $('#min-layout').prop('checked', false);
-    $('#plcontrol button, #db-btn, #gallery-btn, #newpollbtn')
-        .removeAttr('disabled');
+    $('#plcontrol button, #db-btn, #gallery-btn, #newpollbtn').removeAttr('disabled');
     MINIMIZED = false;
     // patch: giving back 15px additional space on the top
     $('#mainpage')
-        .css(
-            'margin-top',
-            $('#mainpage').css('margin-top').replace('px', '') * 1 - 15 + 'px');
+        .css('margin-top', $('#mainpage').css('margin-top').replace('px', '') * 1 - 15 + 'px');
   } else {
     toggleDiv(configwrap);
     if (configwrap.css('display') == 'none') {
@@ -3008,29 +2923,20 @@ function showConfig() {
   playerlocation = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'left').text('left').appendTo(playerlocation);
   $('<option />').attr('value', 'right').text('right').appendTo(playerlocation);
-  $('<option />')
-      .attr('value', 'center')
-      .text('center')
-      .appendTo(playerlocation);
+  $('<option />').attr('value', 'center').text('center').appendTo(playerlocation);
   playerlocation.val(USERCONFIG.player);
   addOption('Player location', playerlocation);
 
   userlistlocation = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'left').text('left').appendTo(userlistlocation);
-  $('<option />')
-      .attr('value', 'right')
-      .text('right')
-      .appendTo(userlistlocation);
+  $('<option />').attr('value', 'right').text('right').appendTo(userlistlocation);
   userlistlocation.val(USERCONFIG.userlist);
   addOption('Userlist location', userlistlocation);
 
   queuelocation = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'left').text('left').appendTo(queuelocation);
   $('<option />').attr('value', 'right').text('right').appendTo(queuelocation);
-  $('<option />')
-      .attr('value', 'center')
-      .text('center')
-      .appendTo(queuelocation);
+  $('<option />').attr('value', 'center').text('center').appendTo(queuelocation);
   queuelocation.val(USERCONFIG.queue);
   addOption('Queue location', queuelocation);
 
@@ -3041,26 +2947,14 @@ function showConfig() {
   addOption('Queue column size', queuesize);
 
   mainlocation = $('<select />').addClass('form-control');
-  $('<option />')
-      .attr('value', 'top')
-      .text('above playlist')
-      .appendTo(mainlocation);
-  $('<option />')
-      .attr('value', 'bottom')
-      .text('below playlist')
-      .appendTo(mainlocation);
+  $('<option />').attr('value', 'top').text('above playlist').appendTo(mainlocation);
+  $('<option />').attr('value', 'bottom').text('below playlist').appendTo(mainlocation);
   mainlocation.val(USERCONFIG.main);
   addOption('Player & chat', mainlocation);
 
   motdlocation = $('<select />').addClass('form-control');
-  $('<option />')
-      .attr('value', 'top')
-      .text('channel top')
-      .appendTo(motdlocation);
-  $('<option />')
-      .attr('value', 'bottom')
-      .text('channel bottom')
-      .appendTo(motdlocation);
+  $('<option />').attr('value', 'top').text('channel top').appendTo(motdlocation);
+  $('<option />').attr('value', 'bottom').text('channel bottom').appendTo(motdlocation);
   motdlocation.val(USERCONFIG.motd);
   addOption('MOTD & announcements', motdlocation);
 
@@ -3073,10 +2967,8 @@ function showConfig() {
   logoinsert.val(USERCONFIG.logo);
   addOption('Top logo', logoinsert);
 
-  userlogo = $('<input />')
-                 .addClass('form-control')
-                 .attr('type', 'text')
-                 .attr('placeholder', 'Image URL');
+  userlogo =
+      $('<input />').addClass('form-control').attr('type', 'text').attr('placeholder', 'Image URL');
   userlogo.val('');
   addOption('User logo URL', userlogo);
 
@@ -3097,14 +2989,8 @@ function showConfig() {
 
   headermode = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'fixed').text('fixed').appendTo(headermode);
-  $('<option />')
-      .attr('value', 'detached')
-      .text('detached')
-      .appendTo(headermode);
-  $('<option />')
-      .attr('value', 'mouseover')
-      .text('mouseover')
-      .appendTo(headermode);
+  $('<option />').attr('value', 'detached').text('detached').appendTo(headermode);
+  $('<option />').attr('value', 'mouseover').text('mouseover').appendTo(headermode);
   headermode.val(USERCONFIG.header);
   addOption('Header menu', headermode);
 
@@ -3114,9 +3000,8 @@ function showConfig() {
   customcss.val(USERCONFIG.css);
   addOption('Custom CSS', customcss);
 
-  usercss = $('<textarea rows="8" />')
-                .addClass('form-control')
-                .attr('placeholder', 'Insert CSS code');
+  usercss =
+      $('<textarea rows="8" />').addClass('form-control').attr('placeholder', 'Insert CSS code');
   usercss.val(USERCONFIG.csscode);
   addOption('CSS code', usercss);
 
@@ -3124,15 +3009,10 @@ function showConfig() {
     usercss.parent().parent().hide();
   }
 
-  submit = $('<button class="btn btn-default btn-success" />')
-               .text('Save changes')
-               .appendTo(footer);
-  reset = $('<button class="btn btn-default pull-left" />')
-              .text('Default')
-              .appendTo(footer);
-  column = $('<button class="btn btn-default pull-left" />')
-               .text('One column')
-               .appendTo(footer);
+  submit =
+      $('<button class="btn btn-default btn-success" />').text('Save changes').appendTo(footer);
+  reset = $('<button class="btn btn-default pull-left" />').text('Default').appendTo(footer);
+  column = $('<button class="btn btn-default pull-left" />').text('One column').appendTo(footer);
 
   logoinsert.on('change', () => {
     if (logoinsert.val() == 'user') {
@@ -3288,9 +3168,7 @@ function toggleFluidLayout() {
   } else {
     $('body').addClass('fullscreen');
     $('.container').removeClass('container').addClass('container-fluid');
-    $('footer .container-fluid')
-        .removeClass('container-fluid')
-        .addClass('container');
+    $('footer .container-fluid').removeClass('container-fluid').addClass('container');
     $('#fontspanel, #emotespanel').addClass('fluidpanel');
     setTimeout(refreshPlayer(), 1000);
   }
@@ -3310,17 +3188,12 @@ function toggleMinLayout() {
     $('#rightpane-inner').hide();
     $('#azukirow, #motdrow, #announcements, #leftpane-inner, footer').hide();
     pinupbtn.hide();
-    layoutbtn.removeClass('btn-success')
-        .addClass('btn-danger')
-        .html('Maximize');
-    $('#plcontrol button, #db-btn, #gallery-btn, #newpollbtn')
-        .attr('disabled', 'disabled');
+    layoutbtn.removeClass('btn-success').addClass('btn-danger').html('Maximize');
+    $('#plcontrol button, #db-btn, #gallery-btn, #newpollbtn').attr('disabled', 'disabled');
     MINIMIZED = true;
     // patch for 15px more space on the top
     $('#mainpage')
-        .css(
-            'margin-top',
-            $('#mainpage').css('margin-top').replace('px', '') * 1 + 15 + 'px');
+        .css('margin-top', $('#mainpage').css('margin-top').replace('px', '') * 1 + 15 + 'px');
   }
 }
 
@@ -3347,8 +3220,6 @@ function pinUp() {
   $('#pinup-btn').attr('title', 'Unpin playlist');
   $('#config-btn, #configbtnwrap br').hide();
   $('#min-layout').parent().hide();
-  // $("#mode-sel").find("option[value='chMode'],
-  // option[value='sMode']").hide();
   $('#mode-sel').find('option[value=\'chMode\']').hide();
   PINNED = true;
 }
@@ -3431,20 +3302,12 @@ function expandQueue() {
 function getPlaylistURLs() {
   createModal('Playlist URLs');
 
-  data = $('<textarea rows="10" class="form-control" />')
-             .val(formatRawList())
-             .appendTo(body);
-  rlist = $('<button class="btn btn-default pull-left">Raw Links</button>')
-              .appendTo(footer);
-  tlist = $('<button class="btn btn-default pull-left">Plain Text</button>')
-              .appendTo(footer);
-  hlist = $('<button class="btn btn-default pull-left">HTML Code</button>')
-              .appendTo(footer);
-  olist = $('<button class="btn btn-default pull-left">Ordered List</button>')
-              .appendTo(footer);
-  dlist =
-      $('<button class="btn btn-default pull-left">Database Format</button>')
-          .appendTo(footer);
+  data = $('<textarea rows="10" class="form-control" />').val(formatRawList()).appendTo(body);
+  rlist = $('<button class="btn btn-default pull-left">Raw Links</button>').appendTo(footer);
+  tlist = $('<button class="btn btn-default pull-left">Plain Text</button>').appendTo(footer);
+  hlist = $('<button class="btn btn-default pull-left">HTML Code</button>').appendTo(footer);
+  olist = $('<button class="btn btn-default pull-left">Ordered List</button>').appendTo(footer);
+  dlist = $('<button class="btn btn-default pull-left">Database Format</button>').appendTo(footer);
 
   rlist.on('click', () => data.val(formatRawList()));
   tlist.on('click', () => data.val(formatPlainTextList()));
@@ -3473,11 +3336,11 @@ function addRandomItem() {
 
 socket.on('queue', (data) => LAST_VIDEO_ID_QUEUED = data.item.media.id);
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- User Interface ----- */
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // adding important hidden reference row
 zerorow = $('<div id="zerorow" class="row" />').insertBefore('#motdrow');
@@ -3487,11 +3350,8 @@ azukirow = $('<div id="azukirow" class="row" />').insertBefore(zerorow);
 
 // adding video wrap if user has enabled "Hide Player" option
 if (USEROPTS.hidevid) {
-  $('#chatwrap, #chatline')
-      .removeClass('col-lg-12 col-md-12')
-      .addClass('col-lg-5 col-md-5');
-  videowrap = $('<div id="videowrap" class="col-lg-7 col-md-7" />')
-                  .insertBefore('#chatwrap');
+  $('#chatwrap, #chatline').removeClass('col-lg-12 col-md-12').addClass('col-lg-5 col-md-5');
+  videowrap = $('<div id="videowrap" class="col-lg-7 col-md-7" />').insertBefore('#chatwrap');
   currenttitle = $('<p id="currenttitle" />')
                      .html('Currently Playing: ' + $('.queue_active a').html())
                      .appendTo(videowrap);
@@ -3515,7 +3375,6 @@ if (USEROPTS.hidevid) {
 }
 
 // changing initial layout to compact for new users
-
 $('body').addClass('fluid');
 compactLayout();
 setLayout();
@@ -3524,7 +3383,6 @@ scrollQueue();
 setTimeout(refreshPlayer(), 1000);
 
 // adding "id" attributes
-
 $('.navbar-collapse .navbar-nav').children().first().attr('id', 'home-link');
 $('#home-link').next().attr('id', 'account-link');
 $('#account-link').next().attr('id', 'options-link');
@@ -3532,7 +3390,6 @@ $('#options-link').next().attr('id', 'channelset-link');
 $('#channelset-link').next().attr('id', 'layout-link');
 
 // changing location of some layout elements
-
 $('#main').prepend($('#drinkbar').detach());
 $('#videowrap').append('<div id="playercontrols" class="btn-group" />');
 $('#playercontrols').append($('#mediarefresh').detach());
@@ -3554,9 +3411,8 @@ if ($('#chanexternalcss').length < 1) {
 }
 
 // attempt to fix dumbass buttons
-// but for some stupid reason the load event is called on like every chat
-// message leading to a buuuunch of layout thrashing pepeAgony. so only do this
-// once.
+// but for some stupid reason the load event is called on like every chat message leading to a
+// buuuunch of layout thrashing pepeAgony. so only do this once.
 let alreadySetAfterLoad = false;
 document.body.addEventListener('load', () => {
   if (alreadySetAfterLoad) {
@@ -3603,8 +3459,7 @@ $('#useroptions .modal-footer button:nth-child(1)').on('click', () => {
   if (USEROPTS.hidevid) {
     location.reload();
   }
-  html =
-      'All changes are applying globally, but this channel uses its own layout. ' +
+  html = 'All changes are applying globally, but this channel uses its own layout. ' +
       'Please use "Click to configure" button to configure this channel layout.<br />' +
       'Reload player if the wrong title is displaying. ' +
       'In HD layout or if player is removed, you may not see some elements due to CyTube API. ' +
@@ -3636,13 +3491,11 @@ if (UI_HeaderDropMenu) {
   if (HeaderDropMenu_Title == '') {
     HeaderDropMenu_Title = 'Menu';
   }
-  headerdrop =
-      $('<li id="headerdrop" class="dropdown" />').insertAfter('#home-link');
+  headerdrop = $('<li id="headerdrop" class="dropdown" />').insertAfter('#home-link');
   $('<a class="dropdown-toggle" data-toggle="dropdown" href="#" />')
       .html(HeaderDropMenu_Title + ' ▾')
       .appendTo(headerdrop);
-  headermenu =
-      $('<ul id="headermenu" class="dropdown-menu" />').appendTo(headerdrop);
+  headermenu = $('<ul id="headermenu" class="dropdown-menu" />').appendTo(headerdrop);
 
   if (HeaderDropMenu_Array.length < 1) {
     HeaderDropMenu_Array = [['no menu available', '']];
@@ -3665,8 +3518,7 @@ if (UI_Version) {
   if (Version_Now == '') {
     Version_Now = 'Menu';
   }
-  headerdrop = $('<li id="headerdrop" class="dropdown" />')
-                   .insertAfter('#channelset-link');
+  headerdrop = $('<li id="headerdrop" class="dropdown" />').insertAfter('#channelset-link');
   $('<a class="dropdown-toggle" data-toggle="dropdown" href="#" />')
       .html(`${Version_Now}`)
       .appendTo(headerdrop);
@@ -3699,12 +3551,9 @@ if (UI_CustomCaptions) {
     changeWelcomeText();
   }
 }
-// TODO add small tooltip
+
 if (UI_ButtonIcons) {
   $('#showmediaurl').html('<i class="glyphicon glyphicon-plus"></i> Add');
-  /* $('#emotelistbtn').html('<i class="glyphicon glyphicon-picture"></i>');
-  $('#chathelp-btn').html('<i class="glyphicon glyphicon-question-sign"></i>');
-  $('#context-btn').html('<i class="glyphicon glyphicon-apple"></i>'); */
 }
 
 // deleting previous MOTD
@@ -3713,21 +3562,19 @@ if (UI_MOTDDelete) {
 }
 
 // setting MOTD
-if (UI_MOTDAutoLogo || UI_RulesBtn ||
-    (UI_MOTDTabs && MOTDTabs_Array.length > 0)) {
+if (UI_MOTDAutoLogo || UI_RulesBtn || (UI_MOTDTabs && MOTDTabs_Array.length > 0)) {
   socket.on('setMotd', changeMOTD);
   changeMOTD();
 }
 
 // setting MOTD logo
 if (UI_MOTDAutoLogo) {
-  if (MOTDAutoLogo_Mode != '1' && MOTDAutoLogo_Mode != '2' &&
-      MOTDAutoLogo_Mode != '3' && MOTDAutoLogo_Mode != '7') {
+  if (MOTDAutoLogo_Mode != '1' && MOTDAutoLogo_Mode != '2' && MOTDAutoLogo_Mode != '3' &&
+      MOTDAutoLogo_Mode != '7') {
     MOTDAutoLogo_Mode = '1';
   }
   if (MOTDAutoLogo_Mode == '3') {
-    if (typeof MOTDAutoLogo_Interval !== 'number' ||
-        MOTDAutoLogo_Interval < 1) {
+    if (typeof MOTDAutoLogo_Interval !== 'number' || MOTDAutoLogo_Interval < 1) {
       MOTDAutoLogo_Interval = 20;
     }
     setInterval(() => {
@@ -3739,12 +3586,10 @@ if (UI_MOTDAutoLogo) {
 
 // adding attention bar
 if (UI_AttentionBar && AttentionBar_URL != '') {
-  attbarwrap = $('<div id="attbarrow-outer" class="col-md-12" />')
-                   .prependTo('#announcements');
-  attbar =
-      $('<iframe id="attbar" width="100%" frameborder="0" scrolling="no" />')
-          .attr('src', AttentionBar_URL)
-          .appendTo(attbarwrap);
+  attbarwrap = $('<div id="attbarrow-outer" class="col-md-12" />').prependTo('#announcements');
+  attbar = $('<iframe id="attbar" width="100%" frameborder="0" scrolling="no" />')
+               .attr('src', AttentionBar_URL)
+               .appendTo(attbarwrap);
 }
 
 // adding custom channel announcement
@@ -3755,8 +3600,7 @@ if (UI_ChannelAnnouncement) {
   if (ChannelAnnouncement_HTML == '') {
     ChannelAnnouncement_HTML = '<i>no messages</i>';
   }
-  makeAlert(ChannelAnnouncement_Title, ChannelAnnouncement_HTML)
-      .appendTo('#announcements');
+  makeAlert(ChannelAnnouncement_Title, ChannelAnnouncement_HTML).appendTo('#announcements');
 }
 
 // adding full-width title bar and progress bar
@@ -3765,9 +3609,7 @@ if (UI_FullTitleBar) {
   titlerowouter = $('<div id="titlerow-outer" class="col-md-12" />')
                       .html($('#currenttitle').detach())
                       .appendTo(titlerow);
-  mediainfo = $('<p id="mediainfo" />')
-                  .html('Nothing is playing')
-                  .prependTo('#videowrap');
+  mediainfo = $('<p id="mediainfo" />').html('Nothing is playing').prependTo('#videowrap');
 
   if (UI_ProgressBar) {
     setInterval(() => progressBar(), 2000);
@@ -3838,7 +3680,6 @@ function dropthefast() {
 }
 
 // customizing chat notifications sound
-
 if (UI_CustomPingSound && CustomPingSound_URL != '') {
   CHATSOUND = new Audio(CustomPingSound_URL);
   CHATSOUND.volume = 0.4;
@@ -3855,20 +3696,19 @@ if (UI_PublicSkip) {
 }
 
 // additional chat functions
-chatflair =
-    $('<span id="chatflair" class="label label-success pull-right pointer">Func</span>')
-        .insertAfter('#adminflair')
-        .on('click', () => {
-          if (!CHATFUNC) {
-            $('#sounds-dropdown').remove();
-            SOUNDSPANEL = false;
-            showChatFunctions();
-            CHATFUNC = false;
-          } else {
-            $('#chatfunc-dropdown').remove();
-            CHATFUNC = true;
-          }
-        });
+chatflair = $('<span id="chatflair" class="label label-success pull-right pointer">Func</span>')
+                .insertAfter('#adminflair')
+                .on('click', () => {
+                  if (!CHATFUNC) {
+                    $('#sounds-dropdown').remove();
+                    SOUNDSPANEL = false;
+                    showChatFunctions();
+                    CHATFUNC = false;
+                  } else {
+                    $('#chatfunc-dropdown').remove();
+                    CHATFUNC = true;
+                  }
+                });
 socket.on('rank', toggleChatFunctions);
 toggleChatFunctions();
 
@@ -3885,15 +3725,13 @@ if (UI_LeaveText) {
   if (LeaveText_Message == '') {
     LeaveText_Message = 'left';
   }
-  $(window).unload(
-      () => socket.emit('chatMsg', {msg: `/me ${LeaveText_Message}`}));
+  $(window).unload(() => socket.emit('chatMsg', {msg: `/me ${LeaveText_Message}`}));
 }
 
 // adding chat buttons wrapping
-if (UI_FontsBtn || UI_EmotesBtn || UI_CommandsBtn || UI_SoundFilters ||
-    UI_ModPanel || UI_ChatSpeak) {
-  chatcontrols =
-      $('<div id="chatcontrols" class="btn-group" />').appendTo('#chatwrap');
+if (UI_FontsBtn || UI_EmotesBtn || UI_CommandsBtn || UI_SoundFilters || UI_ModPanel ||
+    UI_ChatSpeak) {
+  chatcontrols = $('<div id="chatcontrols" class="btn-group" />').appendTo('#chatwrap');
 }
 
 // adding chat fonts button
@@ -3921,10 +3759,8 @@ if (UI_EmotesBtn) {
 
 // moving emote button attempt
 if (UI_SpecialEmoteBtn) {
-  $('#emotelistbtn').appendTo(chatcontrols);  // .text('Emotes');
-  $('#emotelistbtn')
-      .html(
-          '<i title="Open emote menu" class="glyphicon glyphicon-picture"></i>');
+  $('#emotelistbtn').appendTo(chatcontrols);
+  $('#emotelistbtn').html('<i title="Open emote menu" class="glyphicon glyphicon-picture"></i>');
 }
 
 // adding chat commands button
@@ -3932,7 +3768,6 @@ if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
   chathelpbtn =
       $('<button id="chathelp-btn" class="btn btn-sm btn-default" title="Show chat commands"/>')
           .html('<i class="glyphicon glyphicon-question-sign"></i>')
-          // .text('Chat Commands')
           .appendTo(chatcontrols)
           .on('click', () => showChatHelp());
 }
@@ -3942,7 +3777,6 @@ if (UI_ContextMenu) {
   chathelpbtn =
       $('<button id="context-btn" class="btn btn-sm btn-default" title="Opens a menu with links" />')
           .html('<i class="glyphicon glyphicon-align-center"></i>')
-          // .text('Context Menu')
           .appendTo(chatcontrols)
           .on('click', () => showContextMenu());
 }
@@ -3968,11 +3802,10 @@ function showContextMenu() {
 
 // adding easter egg button
 if (UI_PartyButton) {
-  partybtn =
-      $('<button id="party-btn" class="btn btn-sm btn-default" title="Party!" />')
-          .text('Party!')
-          .appendTo(chatcontrols)
-          .on('click', () => showDrop());
+  partybtn = $('<button id="party-btn" class="btn btn-sm btn-default" title="Party!" />')
+                 .text('Party!')
+                 .appendTo(chatcontrols)
+                 .on('click', () => showDrop());
 }
 
 /**
@@ -3996,8 +3829,7 @@ function showDrop() {
 
     setUserCSS();
   }, 5000);
-  socket.emit(
-      'chatMsg', {msg: '[mqr] GOOOOOOO xqcCheer FEELSWAYTOOGOOD [/mqr]'});
+  socket.emit('chatMsg', {msg: '[mqr] GOOOOOOO xqcCheer FEELSWAYTOOGOOD [/mqr]'});
 }
 
 // fastest crash function
@@ -4043,11 +3875,10 @@ if (UI_SoundFilters || UI_ChatSpeak) {
 
 // adding moderators panel button
 if (UI_ModPanel) {
-  modbtn =
-      $('<button id="mod-btn" class="btn btn-sm btn-default" title="Show moderators panel" />')
-          .html('<i class="glyphicon glyphicon-tasks"></i>')
-          .appendTo(chatcontrols)
-          .on('click', () => showModPanel());
+  modbtn = $('<button id="mod-btn" class="btn btn-sm btn-default" title="Show moderators panel" />')
+               .html('<i class="glyphicon glyphicon-tasks"></i>')
+               .appendTo(chatcontrols)
+               .on('click', () => showModPanel());
 
   socket.on('rank', toggleModPanel);
   toggleModPanel();
@@ -4055,26 +3886,24 @@ if (UI_ModPanel) {
 
 // adding hey nay thing
 if (UI_RateButtons) {
-  transcontrols = $('<div id="transcontrols" class="btn-group pull-right" />')
-                      .appendTo('#videowrap');
-  Hey =
-      $('<button id="hey-btn" class="btn btn-sm btn-default" title="Woot! (Cancels Voteskip)" />')
-          .html('<i class="glyphicon glyphicon-headphones"></i>')
-          .appendTo(transcontrols)
-          .on('click', () => {
-            socket.emit('chatMsg', {msg: '/afk'});
-            socket.emit('chatMsg', {msg: '[lime]Woot![/] PepePls'});
-            heySound();
-          });
-  Nay =
-      $('<button id="nay-btn" class="btn btn-sm btn-default" title="Meh.. (Voteskip)" />')
-          .html('<i class="glyphicon glyphicon-thumbs-down"></i>')
-          .appendTo(transcontrols)
-          .on('click', () => {
-            socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
-            socket.emit('voteskip');
-            naySound();
-          });
+  transcontrols =
+      $('<div id="transcontrols" class="btn-group pull-right" />').appendTo('#videowrap');
+  Hey = $('<button id="hey-btn" class="btn btn-sm btn-default" title="Woot! (Cancels Voteskip)" />')
+            .html('<i class="glyphicon glyphicon-headphones"></i>')
+            .appendTo(transcontrols)
+            .on('click', () => {
+              socket.emit('chatMsg', {msg: '/afk'});
+              socket.emit('chatMsg', {msg: '[lime]Woot![/] PepePls'});
+              heySound();
+            });
+  Nay = $('<button id="nay-btn" class="btn btn-sm btn-default" title="Meh.. (Voteskip)" />')
+            .html('<i class="glyphicon glyphicon-thumbs-down"></i>')
+            .appendTo(transcontrols)
+            .on('click', () => {
+              socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
+              socket.emit('voteskip');
+              naySound();
+            });
 }
 
 /**
@@ -4093,15 +3922,14 @@ function naySound() {
 // adding player control buttons
 if (UI_PlayerOptions) {
   if (UI_FullTitleBar) {
-    switchdescrbtn =
-        $('<button id="switchdescr-btn" class="btn btn-sm btn-default" />')
-            .attr('title', 'Switch description')
-            .html('<span class="glyphicon glyphicon-info-sign"></span>')
-            .appendTo('#playercontrols')
-            .on('click', () => {
-              DEFDESCR = !DEFDESCR;
-              showInfo();
-            });
+    switchdescrbtn = $('<button id="switchdescr-btn" class="btn btn-sm btn-default" />')
+                         .attr('title', 'Switch description')
+                         .html('<span class="glyphicon glyphicon-info-sign"></span>')
+                         .appendTo('#playercontrols')
+                         .on('click', () => {
+                           DEFDESCR = !DEFDESCR;
+                           showInfo();
+                         });
   }
 
   hideplayerbtn =
@@ -4132,18 +3960,12 @@ if (UI_PlayerOptions) {
 
   socket.on('changeMedia', toggleMuteBtn);
   toggleMuteBtn();
-
-  /* savemediabtn =
-      $('<button id="savemedia-btn" class="btn btn-sm btn-default"
-     title="Download" />') .html('<span class="glyphicon
-     glyphicon-floppy-save"></span>') .appendTo('#playercontrols')
-          .on('click', () => downloadCurrentItem()); */
 }
 
 // adding player transformation buttons
 if (UI_TransformationBtns) {
-  transcontrols = $('<div id="transcontrols" class="btn-group pull-right" />')
-                      .appendTo('#videowrap');
+  transcontrols =
+      $('<div id="transcontrols" class="btn-group pull-right" />').appendTo('#videowrap');
 
   mirrorxbtn =
       $('<button id="mirrorx-btn" class="btn btn-sm btn-default" title="Mirror X player" />')
@@ -4169,17 +3991,16 @@ if (UI_TransformationBtns) {
             }
           });
 
-  rotatebtn =
-      $('<button id="rotate-btn" class="btn btn-sm btn-default" title="Rotate player" />')
-          .html('<span class="glyphicon glyphicon-repeat"></span>')
-          .appendTo(transcontrols)
-          .on('click', () => {
-            if ($('#ytapiplayer').hasClass('rotate')) {
-              $('#ytapiplayer').removeClass('rotate');
-            } else {
-              $('#ytapiplayer').addClass('rotate');
-            }
-          });
+  rotatebtn = $('<button id="rotate-btn" class="btn btn-sm btn-default" title="Rotate player" />')
+                  .html('<span class="glyphicon glyphicon-repeat"></span>')
+                  .appendTo(transcontrols)
+                  .on('click', () => {
+                    if ($('#ytapiplayer').hasClass('rotate')) {
+                      $('#ytapiplayer').removeClass('rotate');
+                    } else {
+                      $('#ytapiplayer').addClass('rotate');
+                    }
+                  });
 
   verticalbtn =
       $('<button id="vertical-btn" class="btn btn-sm btn-default" title="Vertical player" />')
@@ -4198,14 +4019,12 @@ if (UI_TransformationBtns) {
 
 // creating fonts and emotes main row
 if (UI_FontsBtn || UI_EmotesBtn) {
-  chatpanel =
-      $('<div id="chatpanel" class="row" />').insertBefore('#playlistrow');
+  chatpanel = $('<div id="chatpanel" class="row" />').insertBefore('#playlistrow');
 }
 
 // adding fonts panel
 if (UI_FontsBtn) {
-  fontspanel =
-      $('<div id="fontspanel" style="display:none" />').appendTo(chatpanel);
+  fontspanel = $('<div id="fontspanel" style="display:none" />').appendTo(chatpanel);
   fontsbtnwrap = $('<div id="fontsbtnwrap" />').appendTo(fontspanel);
 
   FontsArray = [
@@ -4257,8 +4076,7 @@ if (UI_FontsBtn) {
 
 // adding emotes panel
 if (UI_EmotesBtn) {
-  emotespanel =
-      $('<div id="emotespanel" style="display:none" />').appendTo(chatpanel);
+  emotespanel = $('<div id="emotespanel" style="display:none" />').appendTo(chatpanel);
   if (UI_ChannelCache) {
     showEmotes();
   }
@@ -4274,18 +4092,16 @@ if (UI_EmptyCornerBackground && EmptyCornerBackground.length > 0) {
 }
 
 // adding layout configuration panel button
-layoutbtn =
-    $('<button id="layout-btn" class="btn btn-sm btn-default btn-success pull-right" />')
-        .html('<span class="glyphicon glyphicon-cog"></span> Layout')
-        .prependTo('#leftpane')
-        .on('click', () => toggleConfigPanel());
+layoutbtn = $('<button id="layout-btn" class="btn btn-sm btn-default btn-success pull-right" />')
+                .html('<span class="glyphicon glyphicon-cog"></span> Layout')
+                .prependTo('#leftpane')
+                .on('click', () => toggleConfigPanel());
 $('#playlistmanagerwrap').show();
 
 // adding media database and gallery wrap
 if (UI_ChannelDatabase || UI_ChannelGalleries) {
   leftpanecontrols =
-      $('<div id="leftpanecontrols" class="btn-group pull-left" />')
-          .insertAfter(layoutbtn);
+      $('<div id="leftpanecontrols" class="btn-group pull-left" />').insertAfter(layoutbtn);
 }
 
 // adding media database button
@@ -4314,8 +4130,7 @@ if (UI_ChannelGalleries) {
             }
 
             // patch: strange imgur behaviour (not loading first cached gallery)
-            if (!GALLVIS && UI_ChannelCache &&
-                gallerywrap.css('display') != 'none') {
+            if (!GALLVIS && UI_ChannelCache && gallerywrap.css('display') != 'none') {
               iframe = document.getElementById('galleryFrame');
               if (iframe.src.includes('imgur.com')) {
                 iframe.src = iframe.src;
@@ -4326,11 +4141,8 @@ if (UI_ChannelGalleries) {
 }
 
 // adding layout configuration well
-
-configwrap = $('<div id="configwrap" class="col-lg-12 col-md-12" />')
-                 .appendTo('#leftpane-inner');
-configwell = $('<div id="config-well" class="well form-horizontal" />')
-                 .appendTo(configwrap);
+configwrap = $('<div id="configwrap" class="col-lg-12 col-md-12" />').appendTo('#leftpane-inner');
+configwell = $('<div id="config-well" class="well form-horizontal" />').appendTo(configwrap);
 
 if (!LAYOUTBOX) {
   toggleDiv(configwrap);
@@ -4339,16 +4151,13 @@ if (!LAYOUTBOX) {
 
 // adding layout configuration form
 
-configform =
-    $('<div id="configform" class="form-group" />').appendTo(configwell);
+configform = $('<div id="configform" class="form-group" />').appendTo(configwell);
 $('<div class="col-lg-5 col-md-5">Global layout</div>').appendTo(configform);
-configbtnwrap = $('<div id="configbtnwrap" class="col-lg-7 col-md-7" />')
-                    .appendTo(configform);
+configbtnwrap = $('<div id="configbtnwrap" class="col-lg-7 col-md-7" />').appendTo(configform);
 
-configbtn =
-    $('<button id="config-btn" class="btn btn-default">Click to configure</button>')
-        .appendTo(configbtnwrap)
-        .on('click', () => showConfig());
+configbtn = $('<button id="config-btn" class="btn btn-default">Click to configure</button>')
+                .appendTo(configbtnwrap)
+                .on('click', () => showConfig());
 
 configbtnwrap.append('<br />');
 
@@ -4368,8 +4177,7 @@ cbox.after(' Minimized');
 if (UI_DisplayModeSel) {
   modeform = $('<div id="modeform" class="form-group" />').appendTo(configwell);
   $('<div class="col-lg-5 col-md-5">Display mode</div>').appendTo(modeform);
-  modewrap =
-      $('<div id="modewrap" class="col-lg-7 col-md-7" />').appendTo(modeform);
+  modewrap = $('<div id="modewrap" class="col-lg-7 col-md-7" />').appendTo(modeform);
 
   modesel = $('<select id="mode-sel" class="form-control" />')
                 .append('<option value="syMode">synchtube mode</option>')
@@ -4399,42 +4207,35 @@ if (UI_DisplayModeSel) {
 
 themeform = $('<div id="themeform" class="form-group" />').appendTo(configwell);
 $('<div class="col-lg-5 col-md-5">Personal theme</div>').appendTo(themeform);
-themewrap =
-    $('<div id="themewrap" class="col-lg-7 col-md-7" />').appendTo(themeform);
+themewrap = $('<div id="themewrap" class="col-lg-7 col-md-7" />').appendTo(themeform);
 
-themesel =
-    $('<select id="theme-sel" class="form-control" />')
-        .append(
-            '<option value="" class="theme-header" disabled>default themes</option>')
-        .append('<option value="/css/themes/light.css"># Light</option>')
-        .append(
-            '<option value="/css/themes/bootstrap-theme.min.css"># Bootstrap</option>')
-        .append('<option value="/css/themes/slate.css"># Slate</option>')
-        .append('<option value="/css/themes/cyborg.css"># Cyborg</option>')
-        .appendTo(themewrap)
-        .on('change', function() {
-          $('#sounds-dropdown, #chatfunc-dropdown').remove();
-          $('#playlistmanagerwrap').show();
-          SOUNDSPANEL = false;
-          CHATFUNC = false;
-          USERTHEME = $(this).val();
-          setUserCSS();
-          setOpt(CHANNEL.name + '_theme', USERTHEME);
-        });
+themesel = $('<select id="theme-sel" class="form-control" />')
+               .append('<option value="" class="theme-header" disabled>default themes</option>')
+               .append('<option value="/css/themes/light.css"># Light</option>')
+               .append('<option value="/css/themes/bootstrap-theme.min.css"># Bootstrap</option>')
+               .append('<option value="/css/themes/slate.css"># Slate</option>')
+               .append('<option value="/css/themes/cyborg.css"># Cyborg</option>')
+               .appendTo(themewrap)
+               .on('change', function() {
+                 $('#sounds-dropdown, #chatfunc-dropdown').remove();
+                 $('#playlistmanagerwrap').show();
+                 SOUNDSPANEL = false;
+                 CHATFUNC = false;
+                 USERTHEME = $(this).val();
+                 setUserCSS();
+                 setOpt(CHANNEL.name + '_theme', USERTHEME);
+               });
 
 if (ThemesCSS.length > 0) {
-  themesel.append(
-      '<option value="" class="theme-header" disabled>additional themes</option>');
+  themesel.append('<option value="" class="theme-header" disabled>additional themes</option>');
   for (const css of ThemesCSS) {
     themesel.append(`<option value="${css[1]}">${css[0]}</option>`);
   }
 }
 
 if (UI_ChannelTheme && ChannelThemeURL != '') {
-  themesel
-      .prepend(`<option value="${ChannelThemeURL}"># Channel Theme</option>`)
-      .prepend(
-          '<option value="" class="theme-header" disabled>main theme</option>');
+  themesel.prepend(`<option value="${ChannelThemeURL}"># Channel Theme</option>`)
+      .prepend('<option value="" class="theme-header" disabled>main theme</option>');
 }
 
 themesel.val(USERTHEME);
@@ -4442,10 +4243,8 @@ themesel.val(USERTHEME);
 // adding temporary hiding options
 
 hideform = $('<div id="hideform" class="form-group" />').appendTo(configwell);
-$('<div class="col-lg-5 col-md-5 conf-cap">Temporary hide</div>')
-    .appendTo(hideform);
-hidewrap =
-    $('<div id="hidewrap" class="col-lg-7 col-md-7" />').appendTo(hideform);
+$('<div class="col-lg-5 col-md-5 conf-cap">Temporary hide</div>').appendTo(hideform);
+hidewrap = $('<div id="hidewrap" class="col-lg-7 col-md-7" />').appendTo(hideform);
 
 hidemotd = $('<label class="checkbox-inline" />').appendTo(hidewrap);
 cbox = $('<input type="checkbox" id="hide-motd" value="no" >')
@@ -4469,41 +4268,33 @@ cbox = $('<input type="checkbox" id="hide-title" value="no" />')
 cbox.after(' Title');
 
 hidepl = $('<label class="checkbox-inline" />').appendTo(hidewrap);
-cbox = $('<input type="checkbox" id="hide-pl" value="no" />')
-           .appendTo(hidepl)
-           .on('click', () => {
-             toggleDiv('#queue');
-             toggleDiv('#plmeta');
-           });
+cbox = $('<input type="checkbox" id="hide-pl" value="no" />').appendTo(hidepl).on('click', () => {
+  toggleDiv('#queue');
+  toggleDiv('#plmeta');
+});
 cbox.after(' Playlist');
 
 hidehf = $('<label class="checkbox-inline" />').appendTo(hidewrap);
-cbox = $('<input type="checkbox" id="hide-hf" value="no" />')
-           .appendTo(hidehf)
-           .on('click', () => {
-             if ($('nav').css('display') != 'none') {
-               headerMode('fixed');
-             } else {
-               headerMode(USERCONFIG.header);
-             }
-             toggleDiv('nav');
-             toggleDiv('footer');
-           });
+cbox = $('<input type="checkbox" id="hide-hf" value="no" />').appendTo(hidehf).on('click', () => {
+  if ($('nav').css('display') != 'none') {
+    headerMode('fixed');
+  } else {
+    headerMode(USERCONFIG.header);
+  }
+  toggleDiv('nav');
+  toggleDiv('footer');
+});
 cbox.after(' H&F');
 
 // adding embedding options
-if (UI_EmbeddingMedia &&
-    (EmbeddingMedia_Images != '' || EmbeddingMedia_Videos != '')) {
-  const embedform =
-      $('<div id="embedform" class="form-group" />').appendTo(configwell);
+if (UI_EmbeddingMedia && (EmbeddingMedia_Images != '' || EmbeddingMedia_Videos != '')) {
+  const embedform = $('<div id="embedform" class="form-group" />').appendTo(configwell);
   $('<div class="col-lg-5 col-md-5 conf-cap">Embeds <span id="embed-help">[?]</span></div>')
       .appendTo(embedform);
-  const embedwrap =
-      $('<div id="embedwrap" class="col-lg-7 col-md-7" />').appendTo(embedform);
+  const embedwrap = $('<div id="embedwrap" class="col-lg-7 col-md-7" />').appendTo(embedform);
 
   $('#embed-help').on('click', () => {
-    txt =
-        'This option lets you see images or videos directly on the chat, instead of links.\n' +
+    txt = 'This option lets you see images or videos directly on the chat, instead of links.\n' +
         'Click on image or double click on video to open in the new tab.\n' +
         'All videos are muted by default, if autoplay - click to unmute, else click to play.\n\n' +
         'This channel supports following types of links (specified as CSS codes):\n' +
@@ -4520,12 +4311,11 @@ if (UI_EmbeddingMedia &&
 
   if (EmbeddingMedia_Images != '') {
     const embedimg = $('<label class="checkbox-inline" />').appendTo(embedwrap);
-    cbox = $('<input type="checkbox" id="embed-img" checked>')
-               .appendTo(embedimg)
-               .on('click', () => {
-                 EMBEDIMG = !EMBEDIMG;
-                 setOpt(CHANNEL.name + '_embedimg', EMBEDIMG);
-               });
+    cbox =
+        $('<input type="checkbox" id="embed-img" checked>').appendTo(embedimg).on('click', () => {
+          EMBEDIMG = !EMBEDIMG;
+          setOpt(CHANNEL.name + '_embedimg', EMBEDIMG);
+        });
     cbox.after(' img');
     if (!EMBEDIMG) {
       cbox.removeAttr('checked');
@@ -4534,29 +4324,26 @@ if (UI_EmbeddingMedia &&
 
   if (EmbeddingMedia_Videos != '') {
     embedvid = $('<label class="checkbox-inline" />').appendTo(embedwrap);
-    cbox = $('<input type="checkbox" id="embed-webm" checked>')
-               .appendTo(embedvid)
-               .on('click', () => {
-                 EMBEDVID = !EMBEDVID;
-                 setOpt(CHANNEL.name + '_embedvid', EMBEDVID);
-                 if (EMBEDVID) {
-                   autovid.show();
-                 } else {
-                   autovid.hide();
-                 }
-               });
+    cbox =
+        $('<input type="checkbox" id="embed-webm" checked>').appendTo(embedvid).on('click', () => {
+          EMBEDVID = !EMBEDVID;
+          setOpt(CHANNEL.name + '_embedvid', EMBEDVID);
+          if (EMBEDVID) {
+            autovid.show();
+          } else {
+            autovid.hide();
+          }
+        });
     cbox.after(' video');
     if (!EMBEDVID) {
       cbox.removeAttr('checked');
     }
 
     autovid = $('<label class="checkbox-inline" />').appendTo(embedwrap);
-    cbox = $('<input type="checkbox" id="auto-webm" checked>')
-               .appendTo(autovid)
-               .on('click', () => {
-                 AUTOVID = !AUTOVID;
-                 setOpt(CHANNEL.name + '_autovid', AUTOVID);
-               });
+    cbox = $('<input type="checkbox" id="auto-webm" checked>').appendTo(autovid).on('click', () => {
+      AUTOVID = !AUTOVID;
+      setOpt(CHANNEL.name + '_autovid', AUTOVID);
+    });
     cbox.after(' autoplay');
     if (!AUTOVID) {
       cbox.removeAttr('checked');
@@ -4569,48 +4356,40 @@ if (UI_EmbeddingMedia &&
 
 // adding quick commands and volume buttons
 if (UI_QuickCommandsBtns || UI_VolumeBtns) {
-  funcbtnform =
-      $('<div id="funcbtnform" class="form-group" />').appendTo(configwell);
-  $('<div class="col-lg-5 col-md-5">Command buttons</div>')
-      .appendTo(funcbtnform);
-  funcbtnwrap = $('<div id="funcbtnwrap" class="col-lg-7 col-md-7" />')
-                    .appendTo(funcbtnform);
-  btnsgroup =
-      $('<div id="funcbtngroup" class="btn-group" />').appendTo(funcbtnwrap);
+  funcbtnform = $('<div id="funcbtnform" class="form-group" />').appendTo(configwell);
+  $('<div class="col-lg-5 col-md-5">Command buttons</div>').appendTo(funcbtnform);
+  funcbtnwrap = $('<div id="funcbtnwrap" class="col-lg-7 col-md-7" />').appendTo(funcbtnform);
+  btnsgroup = $('<div id="funcbtngroup" class="btn-group" />').appendTo(funcbtnwrap);
 
   if (UI_QuickCommandsBtns) {
-    clearbtn =
-        $('<button id="clear-btn" class="btn btn-default btn-sm">/clear</button>')
-            .appendTo(btnsgroup)
-            .on('click', () => {
-              if (confirm('Are you sure to clear the chat window?')) {
-                socket.emit('chatMsg', {msg: '/clear'});
-              }
-            });
-    afkbtn =
-        $('<button id="afk-btn" class="btn btn-default btn-sm">/afk</button>')
-            .appendTo(btnsgroup)
-            .on('click', () => socket.emit('chatMsg', {msg: '/afk'}));
+    clearbtn = $('<button id="clear-btn" class="btn btn-default btn-sm">/clear</button>')
+                   .appendTo(btnsgroup)
+                   .on('click', () => {
+                     if (confirm('Are you sure to clear the chat window?')) {
+                       socket.emit('chatMsg', {msg: '/clear'});
+                     }
+                   });
+    afkbtn = $('<button id="afk-btn" class="btn btn-default btn-sm">/afk</button>')
+                 .appendTo(btnsgroup)
+                 .on('click', () => socket.emit('chatMsg', {msg: '/afk'}));
 
     socket.on('rank', toggleClearBtn);
     toggleClearBtn();
   }
 
   if (UI_VolumeBtns) {
-    voldownbtn =
-        $('<button id="voldown-btn" class="btn btn-default btn-sm">vol -</button>')
-            .appendTo(btnsgroup)
-            .on('click', () => {
-              a = PLAYER.player.getVolume();
-              PLAYER.player.setVolume(a - 1);
-            });
-    volupbtn =
-        $('<button id="volup-btn" class="btn btn-default btn-sm">vol +</button>')
-            .appendTo(btnsgroup)
-            .on('click', () => {
-              a = PLAYER.player.getVolume();
-              PLAYER.player.setVolume(a + 1);
-            });
+    voldownbtn = $('<button id="voldown-btn" class="btn btn-default btn-sm">vol -</button>')
+                     .appendTo(btnsgroup)
+                     .on('click', () => {
+                       a = PLAYER.player.getVolume();
+                       PLAYER.player.setVolume(a - 1);
+                     });
+    volupbtn = $('<button id="volup-btn" class="btn btn-default btn-sm">vol +</button>')
+                   .appendTo(btnsgroup)
+                   .on('click', () => {
+                     a = PLAYER.player.getVolume();
+                     PLAYER.player.setVolume(a + 1);
+                   });
 
     socket.on('changeMedia', toggleVolBtn);
     toggleVolBtn();
@@ -4625,9 +4404,8 @@ let count_nr = 0;
 
 // adding media database layout
 if (UI_ChannelDatabase) {
-  dbwrap =
-      $('<div id="dbwrap" class="col-lg-12 col-md-12" style="display:none" />')
-          .insertBefore(configwrap);
+  dbwrap = $('<div id="dbwrap" class="col-lg-12 col-md-12" style="display:none" />')
+               .insertBefore(configwrap);
   dbwell = $('<div id="db-well" class="well" />').appendTo(dbwrap);
 
   if (ChannelDatabase.length < 1 || ChannelDatabase[0][0] != '') {
@@ -4640,15 +4418,12 @@ if (UI_ChannelDatabase) {
 
 // adding galleries layout
 if (UI_ChannelGalleries) {
-  gallerywrap =
-      $('<div id="gallerywrap" class="col-lg-12 col-md-12" style="display:none" />')
-          .appendTo('#leftpane-inner');
-  gallerywell =
-      $('<div id="gallery-well" class="well" />').appendTo(gallerywrap);
+  gallerywrap = $('<div id="gallerywrap" class="col-lg-12 col-md-12" style="display:none" />')
+                    .appendTo('#leftpane-inner');
+  gallerywell = $('<div id="gallery-well" class="well" />').appendTo(gallerywrap);
 
   if (ChannelGalleries_Array.length < 1) {
-    ChannelGalleries_Array =
-        [['Anime pictures', 'http://imgur.com/a/SjwJb/embed']];
+    ChannelGalleries_Array = [['Anime pictures', 'http://imgur.com/a/SjwJb/embed']];
   }
   if (UI_ChannelCache) {
     createGallery();
@@ -4671,52 +4446,46 @@ advplaylist =
 
 // adding advanced playlist options form
 
-advplcontrol = $('<div id="advplcontrol" class="col-lg-12 col-md-12" />')
-                   .insertAfter('#playlistmanager');
+advplcontrol =
+    $('<div id="advplcontrol" class="col-lg-12 col-md-12" />').insertAfter('#playlistmanager');
 advplcontrols =
-    $('<div id="advplcontrols" class="btn-group" style="display:none" />')
-        .appendTo(advplcontrol);
+    $('<div id="advplcontrols" class="btn-group" style="display:none" />').appendTo(advplcontrol);
 
 // adding advanced playlist options buttons
 
-playnextbtn =
-    $('<button id="playnext-btn" class="btn btn-default">Play next</button>')
-        .appendTo(advplcontrols)
-        .on('click', () => socket.emit('playNext'));
+playnextbtn = $('<button id="playnext-btn" class="btn btn-default">Play next</button>')
+                  .appendTo(advplcontrols)
+                  .on('click', () => socket.emit('playNext'));
 
-addrandombtn =
-    $('<button id="addrandom-btn" class="btn btn-default">Add random</button>')
-        .appendTo(advplcontrols)
-        .on('click', () => addRandomItem());
+addrandombtn = $('<button id="addrandom-btn" class="btn btn-default">Add random</button>')
+                   .appendTo(advplcontrols)
+                   .on('click', () => addRandomItem());
 
-bumplastbtn =
-    $('<button id="bumplast-btn" class="btn btn-default">Bump last</button>')
-        .appendTo(advplcontrols)
-        .on('click', () => {
-          len = $('#queue').children().length;
-          uid = $(`#queue .queue_entry:nth-child(${len})`).data('uid');
-          socket.emit('moveMedia', {from: uid, after: PL_CURRENT});
-        });
+bumplastbtn = $('<button id="bumplast-btn" class="btn btn-default">Bump last</button>')
+                  .appendTo(advplcontrols)
+                  .on('click', () => {
+                    len = $('#queue').children().length;
+                    uid = $(`#queue .queue_entry:nth-child(${len})`).data('uid');
+                    socket.emit('moveMedia', {from: uid, after: PL_CURRENT});
+                  });
 
-deletelastbtn =
-    $('<button id="deletelast-btn" class="btn btn-default">Delete last</button>')
-        .appendTo(advplcontrols)
-        .on('click', () => {
-          if (confirm('Are you sure to delete last item?')) {
-            len = $('#queue').children().length;
-            uid = $(`#queue .queue_entry:nth-child(${len})`).data('uid');
-            socket.emit('delete', uid);
-          }
-        });
+deletelastbtn = $('<button id="deletelast-btn" class="btn btn-default">Delete last</button>')
+                    .appendTo(advplcontrols)
+                    .on('click', () => {
+                      if (confirm('Are you sure to delete last item?')) {
+                        len = $('#queue').children().length;
+                        uid = $(`#queue .queue_entry:nth-child(${len})`).data('uid');
+                        socket.emit('delete', uid);
+                      }
+                    });
 
 toggleAdvancedPl();
 
 // adding playlist expanding button
-expandbtn =
-    $('<button id="expand-btn" class="btn btn-sm btn-default" title="Expand playlist" />')
-        .append('<span class="glyphicon glyphicon-resize-full" />')
-        .prependTo('#videocontrols')
-        .on('click', () => expandQueue());
+expandbtn = $('<button id="expand-btn" class="btn btn-sm btn-default" title="Expand playlist" />')
+                .append('<span class="glyphicon glyphicon-resize-full" />')
+                .prependTo('#videocontrols')
+                .on('click', () => expandQueue());
 
 // adding playlist scrolling button
 scrollbtn =
@@ -4754,8 +4523,7 @@ if (UI_ExtendedGetURLs) {
 
 // Update alert first-time users see
 (function() {
-const /** @type {HTMLDivElement} */ alertWrapper =
-    document.getElementById('plonotification');
+const /** @type {HTMLDivElement} */ alertWrapper = document.getElementById('plonotification');
 if (!alertWrapper) {
   return;
 }
@@ -4763,17 +4531,14 @@ if (!alertWrapper) {
 const /** @type {HTMLDivElement} */ alertContainer = alertWrapper.firstChild;
 alertContainer.innerHTML =
     alertContainer.innerHTML
-        .replace(
-            'show them when you right click). ',
-            'show them when you right click).<br />')
+        .replace('show them when you right click). ', 'show them when you right click).<br />')
         .replace(
             'the old style of playlist buttons.',
             '"the old style" of playlist buttons (<b>recommended</b>) - ' +
                 'more compact playlist with nice icons ' +
                 `(see image <a href="https://dl.dropboxusercontent.com/s/4ya7i5vlyb3likk/oldpl.jpg" target="_blank">here</a>).`);
 
-// Updating the innerHTML removes the event handler on the dismiss button,
-// re-add it
+// Updating the innerHTML removes the event handler on the dismiss button, re-add it
 const /** @type {HTMLButtonElement} */ dismissButton =
     Array.from(alertContainer.children)
         .filter((elem) => elem.tagName.toLowerCase() === 'button')[0];
@@ -4785,26 +4550,22 @@ dismissButton.addEventListener('click', () => {
 
 // rearranging footer
 
-html =
-    '<br />CyTube Plus 4.5 · Copyright &copy; 2013-2014 Zimny Lech, Modified by CyDJ staff · ' +
+html = '<br />CyTube Plus 4.5 · Copyright &copy; 2013-2014 Zimny Lech, Modified by CyDJ staff · ' +
     'Free source on <a href="http://github.com/papertek/CyDJ" target="_blank">GitHub</a>';
 $('.credit').append(html);
 
 if (UI_CustomRightFooter) {
-  rightfooter = $(`<span id="rightfooter">${CustomRightFooter_HTML}</span>`)
-                    .appendTo('footer .container');
+  rightfooter =
+      $(`<span id="rightfooter">${CustomRightFooter_HTML}</span>`).appendTo('footer .container');
 }
 
 if (UI_CustomFooter || UI_UserStatistics) {
-  leftfooter = UI_CustomRightFooter ? $('<span id="leftfooter" />') :
-                                      $('<div id="leftfooter" />');
+  leftfooter = UI_CustomRightFooter ? $('<span id="leftfooter" />') : $('<div id="leftfooter" />');
   if (UI_CustomRightFooter && CustomFooter_HTML != '') {
     leftfooter.html(CustomFooter_HTML);
   }
   leftfooter.appendTo('footer .container');
 }
-
-// updating user visits
 
 USERVISITS++;
 setOpt(CHANNEL.name + '_visits', USERVISITS);
@@ -4819,30 +4580,28 @@ if (UI_UserStatistics) {
     '<span> / </span>')
       .appendTo(leftfooter);
   $('<span>Current online time: </span>').appendTo(leftfooter);
-  onlinetime = $('<span id="onlinetime" class="badge footer-badge">0:00</span>')
-                   .appendTo(leftfooter);
+  onlinetime =
+      $('<span id="onlinetime" class="badge footer-badge">0:00</span>').appendTo(leftfooter);
 
   setInterval(() => onlineTime(), 60000);
 }
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- Chat and window extensions and events ----- */
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
-if (UI_EmbeddingMedia &&
-    (EmbeddingMedia_Images != '' || EmbeddingMedia_Videos != '')) {
+if (UI_EmbeddingMedia && (EmbeddingMedia_Images != '' || EmbeddingMedia_Videos != '')) {
   ALTERCHATFORMAT = true;
 }
 if (UI_UserMarks || UI_IndependentEmotes || UI_IndependentFilters) {
   ALTERCHATFORMAT = true;
 }
 
-// alter chat messages formatting
+// Alter chat messages formatting.
 // DEV NOTE: this is extended function from CyTube "util.js" file
-// airforce note: this seems to override a function that's defined by cytube on
-// the client side
+// airforce note: this seems to override a function that's defined by cytube on the client side
 if (ALTERCHATFORMAT) {
   // eslint-disable-next-line no-unused-vars
   function formatChatMessage(data, last) {
@@ -4888,9 +4647,7 @@ if (ALTERCHATFORMAT) {
 
     if (UI_UserMarks && UI_Squavatars != '1') {
       if (!!USER_BADGES[data.username]) {
-        const badges = USER_BADGES[data.username]
-                           .map((url) => Badge.formatToHtml(url))
-                           .join('');
+        const badges = USER_BADGES[data.username].map((url) => Badge.formatToHtml(url)).join('');
         div.html(div.html() + badges);
       }
     }
@@ -4899,11 +4656,8 @@ if (ALTERCHATFORMAT) {
     if (!skip) {
       uname.appendTo(div);
     }
-    mark =
-        (UI_UsernameMark && UsernameMark_Char != '') ? UsernameMark_Char : ':';
-    $('<strong class="username" />')
-        .text(data.username + mark + ' ')
-        .appendTo(uname);
+    mark = (UI_UsernameMark && UsernameMark_Char != '') ? UsernameMark_Char : ':';
+    $('<strong class="username" />').text(data.username + mark + ' ').appendTo(uname);
 
     if (data.meta.modflair) {
       uname.addClass(getNameColor(data.meta.modflair));
@@ -4912,11 +4666,8 @@ if (ALTERCHATFORMAT) {
       uname.addClass(data.meta.addClass);
     }
     if (data.meta.superadminflair) {
-      uname.addClass('globalmod label')
-          .addClass(data.meta.superadminflair.labelclass);
-      $('<span class="glyphicon" />')
-          .addClass(data.meta.superadminflair.icon)
-          .prependTo(uname);
+      uname.addClass('globalmod label').addClass(data.meta.superadminflair.labelclass);
+      $('<span class="glyphicon" />').addClass(data.meta.superadminflair.icon).prependTo(uname);
     }
 
     message = $('<span />').appendTo(div);
@@ -5059,7 +4810,7 @@ addChatMessage = (data) => {
 // fix formatting and sending chat messages
 // DEV NOTE: this are extended events from CyTube "util.js" file
 
-$('#chatline, #chatbtn').unbind();
+$('#chatline, #chatbtn').off();
 
 let /** @type {string} */ unsentMsg = null;
 
@@ -5178,31 +4929,6 @@ socket.on('setUserMeta', clearMessagesOfMutedUser);
  * @property {string} meta.ip User's obfuscated IP
  */
 
-// /**
-//  * For a userlist event, if someone is muted, clear their messages.
-//  *
-//  * userlist is only fired when the page is initially loaded.
-//  *
-//  * note: this doesn't actually work in practice because the userlist event
-//  * is received before this script is loaded Sadge
-//  *
-//  * @param {!Array<UserListUser>} users
-//  */
-// function clearMessagesOfMutedUserListUsers(users) {
-//   console.log('users', users);
-//   for (const user of users) {
-//     if (!user.meta.muted) {
-//       console.log(`not muting user ${user.name}`);
-//       continue;
-//     }
-//     console.log(`muting user ${user.name}`);
-//     deleteMsgByUsername(user.name);
-//   }
-// }
-
-// socket.on('userlist', clearMessagesOfMutedUserListUsers);
-// socket.emit('userlist');
-
 /**
  * @typedef {Object} ChatMsgEvent
  * @property {string} username Name of the user
@@ -5252,8 +4978,9 @@ function fixSayMsg(event) {
 
 socket.on('chatMsg', fixSayMsg);
 
-// fix layout behaviour after resizing
 /**
+ * Fix layout behaviour after resizing.
+ *
  * DEV NOTE: this is extended function from CyTube "util.js" file
  */
 function resizeStuff() {
@@ -5283,31 +5010,25 @@ function resizeStuff() {
 }
 
 // bind new resizing function
-
 $(window).off('resize', '**');
 $(window).on('resize', resizeStuff);
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // setting global sockets
-
 socket.on('channelOpts', setUserCSS);
 socket.on('channelCSSJS', setUserCSS);
-
 socket.on('login', patchWrap);
 socket.on('rank', toggleAdvancedPl);
 
 // setting final layout after loading
-
 setLayout();
 scrollChat();
 scrollQueue();
 
 if (FLUID) {
   $('.container').removeClass('container').addClass('container-fluid');
-  $('footer .container-fluid')
-      .removeClass('container-fluid')
-      .addClass('container');
+  $('footer .container-fluid').removeClass('container-fluid').addClass('container');
   $('#fluid-layout').prop('checked', 'true');
   $('#fontspanel, #emotespanel').addClass('fluidpanel');
 }
@@ -5359,8 +5080,7 @@ const USERLIST_COLORS = {
 
 for (const [name, color] of Object.entries(USERLIST_COLORS)) {
   const userType = color.usertype ? `.userlist_${color.usertype}` : '';
-  $(`div.userlist_item span${userType}:contains("${name}")`)
-      .css('cssText', color.css);
+  $(`div.userlist_item span${userType}:contains("${name}")`).css('cssText', color.css);
 }
 
 const ODD_MESSAGE_CLASS = 'odd-message';
@@ -5372,24 +5092,21 @@ if (!CHAT_INIT) {
   CHAT_INIT = true;
   socket.on('chatMsg', (obj) => {
     const mb = document.getElementById('messagebuffer');
-    if (mb && mb.lastChild &&
-        $(mb.lastChild).attr('class').startsWith('chat-msg-') &&
+    if (mb && mb.lastChild && $(mb.lastChild).attr('class').startsWith('chat-msg-') &&
         !obj.meta.shadow) {
-      mb.lastChild.classList.add(
-          lastMessageOdd ? ODD_MESSAGE_CLASS : EVEN_MESSAGE_CLASS);
+      mb.lastChild.classList.add(lastMessageOdd ? ODD_MESSAGE_CLASS : EVEN_MESSAGE_CLASS);
       lastMessageOdd = !lastMessageOdd;
     }
     setTimeout(() => {
       const mb = document.getElementById('messagebuffer');
-      if (mb !== null &&
-          mb.scrollHeight - (mb.clientHeight + mb.scrollTop) < 50) {
+      if (mb !== null && mb.scrollHeight - (mb.clientHeight + mb.scrollTop) < 50) {
         mb.scrollTop = mb.scrollHeight - mb.clientHeight;
       }
     }, 250);
     emoteHoverAll();
     if (CLIENT.name && obj.username !== CLIENT.name &&
-        obj.msg.toLowerCase().includes(CLIENT.name.toLowerCase()) &&
-        !obj.meta.shadow && obj.username !== '[server]') {
+        obj.msg.toLowerCase().includes(CLIENT.name.toLowerCase()) && !obj.meta.shadow &&
+        obj.username !== '[server]') {
       audioFeedback();
     }
     if (obj.msg.startsWith('!poof') || obj.msg.includes('do poof')) {
@@ -5424,10 +5141,8 @@ if (!CHAT_INIT) {
     const mbDiv = $('#messagebuffer div');
     let line;
     for (let i = 0; i < mbDiv.length; i++) {
-      if (mbDiv && (line = $(mbDiv[i]))[0] &&
-          line.attr('class').startsWith('chat-msg-')) {
-        mbDiv[i].classList.add(
-            lastMessageOdd ? ODD_MESSAGE_CLASS : EVEN_MESSAGE_CLASS);
+      if (mbDiv && (line = $(mbDiv[i]))[0] && line.attr('class').startsWith('chat-msg-')) {
+        mbDiv[i].classList.add(lastMessageOdd ? ODD_MESSAGE_CLASS : EVEN_MESSAGE_CLASS);
         lastMessageOdd = !lastMessageOdd;
       }
     }
@@ -5437,8 +5152,7 @@ if (!CHAT_INIT) {
       name: $('#guestname').val(),
     });
   };
-  document.querySelector('#guestlogin span').style =
-      'top:92%!important;left:84%!important;';
+  document.querySelector('#guestlogin span').style = 'top:92%!important;left:84%!important;';
 }
 
 let CSS_INIT = false;
@@ -5486,17 +5200,17 @@ function chatTabComplete() {
   const usersWithCap = Array.prototype.slice.call($('#userlist').children())
                            .map((elem) => elem.children[1].innerHTML);
   if (currentWithCap === TabCompletion.last) {
-    TabCompletion.last = current = TabCompletion.matches[(TabCompletion.matches.indexOf(currentWithCap) + 1) % TabCompletion.matches.length];
+    TabCompletion.last = current =
+        TabCompletion
+            .matches[(TabCompletion.matches.indexOf(currentWithCap) + 1) % TabCompletion.matches.length];
     current += ' ';
     words[words.length - 1] = current;
     $('#chatline').val(words.join(' '));
     return;
   }
-  let matches = TabCompletionEmotes.filter(
-      (str) => str.toLowerCase().startsWith(current));
-  matches = matches.concat(
-      usersWithCap.filter((str) => str.toLowerCase().startsWith(current))
-          .map((str) => words.length === 1 ? str + ':' : str));
+  let matches = TabCompletionEmotes.filter((str) => str.toLowerCase().startsWith(current));
+  matches = matches.concat(usersWithCap.filter((str) => str.toLowerCase().startsWith(current))
+                               .map((str) => words.length === 1 ? str + ':' : str));
   if (matches.length === 0) {
     return;
   }
@@ -5566,23 +5280,14 @@ let userlistSizeToggleInner;
 function userlistSizeToggleFn() {
   $('#userlist').toggleClass('userlist-large', !!cookie.userlistLarge);
   $('#messagebuffer')
-      .toggleClass(
-          'userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
-  $('#chatline')
-      .toggleClass(
-          'userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
+      .toggleClass('userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
+  $('#chatline').toggleClass('userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
   $('#leftcontrols')
-      .toggleClass(
-          'userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
-  $('#videowrap')
-      .toggleClass(
-          'userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
+      .toggleClass('userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
+  $('#videowrap').toggleClass('userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
   $('#rightcontrols')
-      .toggleClass(
-          'userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
-  $('#rightpane')
-      .toggleClass(
-          'userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
+      .toggleClass('userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
+  $('#rightpane').toggleClass('userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
   userlistSizeToggleInner.style.width = !!cookie.userlistLarge ? '100%' : '50%';
 }
 let cookie;
@@ -5615,8 +5320,7 @@ function cookieLoad() {
     userlistToggle.click();
   }
   audioFeedbackToggleFn();
-  cookie.playlistStyle =
-      typeof cookie.playlistStyle === 'number' ? cookie.playlistStyle : 0;
+  cookie.playlistStyle = typeof cookie.playlistStyle === 'number' ? cookie.playlistStyle : 0;
   playlistStyleToggleFn();
   compactToggleFn();
   titleToggleFn();
@@ -5645,8 +5349,7 @@ function cookieUserlistSizeToggle() {
 }
 userlistToggle.onclick = cookieUserlistToggle;
 
-const audioFeedbackSound =
-    new Audio('https://cdn.betterttv.net/assets/sounds/ts-tink.ogg');
+const audioFeedbackSound = new Audio('https://cdn.betterttv.net/assets/sounds/ts-tink.ogg');
 function audioFeedback() {
   if (cookie.audioFeedback) {
     audioFeedbackSound.pause();
@@ -5662,8 +5365,7 @@ function audioFeedbackToggle() {
 }
 
 function audioFeedbackToggleFn() {
-  $('#audiofeedbacktoggle')
-      .toggleClass('audio-feedback-on', !!cookie.audioFeedback);
+  $('#audiofeedbacktoggle').toggleClass('audio-feedback-on', !!cookie.audioFeedback);
 }
 
 function playlistStyleToggle() {
@@ -5681,8 +5383,7 @@ function compactToggle() {
 let compactToggleBtn;
 let compactToggleCss;
 function compactToggleFn() {
-  compactToggleBtn.style.backgroundColor =
-      !!cookie.compact ? '#CCFFCC' : '#FFCCCC';
+  compactToggleBtn.style.backgroundColor = !!cookie.compact ? '#CCFFCC' : '#FFCCCC';
   compactToggleCss.innerHTML = !!cookie.compact ? togglesCSS_Compact : '';
 }
 
@@ -5698,15 +5399,13 @@ let titleToggleCss;
 function titleToggleFn() {
   titleToggleBtn.style.backgroundColor = !!cookie.title ? '#CCFFCC' : '#FFCCCC';
   titleToggleCss.innerHTML = !!cookie.title ? togglesCSS_Title : '';
-  mainpage.setAttribute(
-      'style', !!cookie.title ? 'padding-top: 45px !important;' : '');
+  mainpage.setAttribute('style', !!cookie.title ? 'padding-top: 45px !important;' : '');
 }
 
 function playlistStyleToggleFn() {
   $('#queue').toggleClass('playlist-style-1', cookie.playlistStyle === 1);
   $('#queue').toggleClass('playlist-style-2', cookie.playlistStyle === 2);
-  document.querySelector('#playliststyletoggle').innerHTML =
-      cookie.playlistStyle || '';
+  document.querySelector('#playliststyletoggle').innerHTML = cookie.playlistStyle || '';
 }
 
 function timestampToggle() {
@@ -5727,69 +5426,57 @@ if (!COOKIE_INIT) {
   setHover(document.querySelector('#userlisttoggle'));
   const userlistSizeToggle = document.createElement('i');
   userlistSizeToggle.id = 'userlistsizetoggle';
-  userlistSizeToggle.setAttribute(
-      'class', 'glyphicon pull-left pointer unselectable');
+  userlistSizeToggle.setAttribute('class', 'glyphicon pull-left pointer unselectable');
   userlistSizeToggle.setAttribute('title', 'Toggle Userlist Size');
   userlistSizeToggle.innerHTML = '<div id="userlistsizetoggle-inner"></div>';
   document.querySelector('#usercount')
-      .parentNode.insertBefore(
-          userlistSizeToggle, document.querySelector('#usercount'));
+      .parentNode.insertBefore(userlistSizeToggle, document.querySelector('#usercount'));
   userlistSizeToggle.onclick = cookieUserlistSizeToggle;
   setHover(userlistSizeToggle);
   userlistSizeToggleInner = document.querySelector('#userlistsizetoggle-inner');
   const audioFeedbackToggleBtn = document.createElement('i');
   audioFeedbackToggleBtn.id = 'audiofeedbacktoggle';
-  audioFeedbackToggleBtn.setAttribute(
-      'class', 'glyphicon pull-left pointer unselectable');
+  audioFeedbackToggleBtn.setAttribute('class', 'glyphicon pull-left pointer unselectable');
   audioFeedbackToggleBtn.setAttribute('title', 'Toggle Audio Feedback');
   audioFeedbackToggleBtn.innerHTML = '\uD83D\uDCE2';
   document.querySelector('#usercount')
-      .parentNode.insertBefore(
-          audioFeedbackToggleBtn, document.querySelector('#usercount'));
+      .parentNode.insertBefore(audioFeedbackToggleBtn, document.querySelector('#usercount'));
   audioFeedbackToggleBtn.onclick = audioFeedbackToggle;
   setHover(audioFeedbackToggleBtn);
   const playlistStyleToggleBtn = document.createElement('i');
   playlistStyleToggleBtn.id = 'playliststyletoggle';
-  playlistStyleToggleBtn.setAttribute(
-      'class', 'glyphicon pull-right pointer unselectable');
+  playlistStyleToggleBtn.setAttribute('class', 'glyphicon pull-right pointer unselectable');
   playlistStyleToggleBtn.setAttribute('title', 'Toggle Playlist Style');
   playlistStyleToggleBtn.innerHTML = '';
   document.querySelector('#usercount')
-      .parentNode.insertBefore(
-          playlistStyleToggleBtn, document.querySelector('#usercount'));
+      .parentNode.insertBefore(playlistStyleToggleBtn, document.querySelector('#usercount'));
   playlistStyleToggleBtn.onclick = playlistStyleToggle;
   setHover(playlistStyleToggleBtn);
   compactToggleBtn = document.createElement('i');
   compactToggleBtn.id = 'compacttoggle';
-  compactToggleBtn.setAttribute(
-      'class', 'glyphicon pull-right pointer unselectable');
+  compactToggleBtn.setAttribute('class', 'glyphicon pull-right pointer unselectable');
   compactToggleBtn.setAttribute('title', 'Toggle Compact Layout');
   compactToggleBtn.innerHTML = 'C';
   document.querySelector('#usercount')
-      .parentNode.insertBefore(
-          compactToggleBtn, document.querySelector('#usercount'));
+      .parentNode.insertBefore(compactToggleBtn, document.querySelector('#usercount'));
   compactToggleBtn.onclick = compactToggle;
   setHover(compactToggleBtn);
   titleToggleBtn = document.createElement('i');
   titleToggleBtn.id = 'titletoggle';
-  titleToggleBtn.setAttribute(
-      'class', 'glyphicon pull-right pointer unselectable');
+  titleToggleBtn.setAttribute('class', 'glyphicon pull-right pointer unselectable');
   titleToggleBtn.setAttribute('title', 'Toggle Video Title');
   titleToggleBtn.innerHTML = 'T';
   document.querySelector('#usercount')
-      .parentNode.insertBefore(
-          titleToggleBtn, document.querySelector('#usercount'));
+      .parentNode.insertBefore(titleToggleBtn, document.querySelector('#usercount'));
   titleToggleBtn.onclick = titleToggle;
   setHover(titleToggleBtn);
   const timestampToggleBtn = document.createElement('i');
   timestampToggleBtn.id = 'timestamptoggle';
-  timestampToggleBtn.setAttribute(
-      'class', 'glyphicon pull-right pointer unselectable');
+  timestampToggleBtn.setAttribute('class', 'glyphicon pull-right pointer unselectable');
   timestampToggleBtn.setAttribute('title', 'Toggle Timestamp');
   timestampToggleBtn.innerHTML = '\uD83D\uDD51';
   document.querySelector('#usercount')
-      .parentNode.insertBefore(
-          timestampToggleBtn, document.querySelector('#usercount'));
+      .parentNode.insertBefore(timestampToggleBtn, document.querySelector('#usercount'));
   timestampToggleBtn.onclick = timestampToggle;
   setHover(timestampToggleBtn);
   compactToggleCss = document.createElement('style');
@@ -5813,8 +5500,7 @@ const messagebuffer = document.querySelector('#messagebuffer');
  *     class="chat-msg-{username}"
  */
 function deleteMsg(messageDiv) {
-  const secondToLastChild =
-      messageDiv.children.item(messageDiv.children.length - 2);
+  const secondToLastChild = messageDiv.children.item(messageDiv.children.length - 2);
   if (!secondToLastChild.classList.contains('timestamp') &&
       secondToLastChild.style.display === 'none') {
     // Message is already deleted.
@@ -5891,8 +5577,7 @@ if (!MOTD_INIT) {
  * a couple seconds after. Just in case it takes a bit to load.
  */
 function fixRawVideoControls() {
-  const spinner =
-      document.getElementsByClassName('vjs-loading-spinner').item(0);
+  const spinner = document.getElementsByClassName('vjs-loading-spinner').item(0);
   const controlBar = document.getElementsByClassName('vjs-control-bar').item(0);
 
   for (const elem of [spinner, controlBar]) {
@@ -5907,10 +5592,6 @@ socket.on('mediaUpdate', fixRawVideoControls);
 
 document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
+setInterval(() => resizeStuff(), 1000);
 
-setInterval(() => {
-  resizeStuff();
-}, 1000);  // this resizes stuff after 1 second
-
-// Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
