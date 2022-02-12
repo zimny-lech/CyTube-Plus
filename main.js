@@ -22,6 +22,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 import {Badge, USER_BADGES} from './lib/badges';
+import {CHANNEL_DATABASE} from './lib/database';
+import {LOGOS} from './lib/logos';
 
 /* ----- STARTING CONFIGURATION - USER INTERFACE (UI) ----- */
 
@@ -433,71 +435,6 @@ const ThemesCSS = [
   ],
 ];
 
-class Logo {
-  /**
-   * A logo for the top of the page.
-   *
-   * @param {string} url URL of the logo image.
-   * @param {number} height Height of the logo (??).
-   */
-  constructor(url, height) {
-    this.url = url;
-    this.height = height;
-  }
-}
-
-const /** @type {!Map<string, !Logo>} */ LOGOS = new Map();
-
-LOGOS.set(
-    'cytube plus',
-    new Logo(
-        'https://dl.dropboxusercontent.com/s/7mrz85gl29eiiks/logo.png',
-        90,
-        ));
-
-LOGOS.set(
-    'anime girl',
-    new Logo(
-        'https://dl.dropboxusercontent.com/s/knxd7dpup1u8lm3/azuki.png',
-        200,
-        ));
-
-LOGOS.set(
-    'cosmos',
-    new Logo(
-        'https://dl.dropboxusercontent.com/s/v6dx49yqk5e3i2d/cosmos.jpg',
-        200,
-        ));
-
-LOGOS.set(
-    'disco ball',
-    new Logo(
-        'https://dl.dropboxusercontent.com/s/ahpfm25pglc8j01/disco.jpg',
-        162,
-        ));
-
-LOGOS.set(
-    'japanese landscape',
-    new Logo(
-        'https://dl.dropboxusercontent.com/s/llylt832evxrp6e/japan.jpg',
-        200,
-        ));
-
-LOGOS.set(
-    'korean collage',
-    new Logo(
-        'https://dl.dropboxusercontent.com/s/qud9adhs183dq30/korea.jpg',
-        160,
-        ));
-
-LOGOS.set(
-    'my little pony',
-    new Logo(
-        'my little pony',
-        'https://dl.dropboxusercontent.com/s/r4ozo8oj8lmerec/mlp.jpg',
-        190,
-        ));
-
 const EmptyCornerBackground = [
   'https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_a054f4001b6d4f098e7969c988debd18/default/light/2.0',
   'https://cdn.betterttv.net/emote/5dfc5d868608fb0da4120b59/2x',
@@ -593,173 +530,6 @@ const IndependentFilters = [
     after: '<a href="https://pl.vichan.net/$1/src/$2" target="_blank">' +
         '<img src="https://pl.vichan.net/$1/src/$2" style="max-width:160px"></a>',
   },
-];
-
-// /////////////////////////////////////////////////////////////////////////////////////////////////
-
-/* ----- MEDIA DATABASE CONFIGURATION ----- */
-
-// NOTES:
-// Leave empty URL field to create category button.
-
-const ChannelDatabase = [
-  ['', 'Juicer Tastes'],
-  ['https://www.youtube.com/watch?v=CprdkP92LsM', 'Fox Stevenson - Out There'],
-  ['https://www.youtube.com/watch?v=ovZNf7Nztw4', 'Fox Stevenson - Still Here'],
-  ['https://www.youtube.com/watch?v=G3nsEotIfQI', 'Fox Stevenson - Glue Gun'],
-  [
-    'https://www.youtube.com/watch?v=Dhuhf6wVOaQ',
-    'Fox Stevenson - Take You Down',
-  ],
-  ['https://www.youtube.com/watch?v=68zaKCOrS7I', 'Fox Stevenson - Like That'],
-  ['https://www.youtube.com/watch?v=BURa70Kb2ME', 'Macky Gee - Lighters Up'],
-  [
-    'https://www.youtube.com/watch?v=6cvc7tEoU2Y',
-    'Macky Gee Ft. Stuart Rowe - Aftershock',
-  ],
-  [
-    'https://www.youtube.com/watch?v=YlKkX38NgGo',
-    'Constera - GO AGANE (xQc Music Video)',
-  ],
-  ['https://www.youtube.com/watch?v=hUwx0lUJAcI', 'Constera - The Name'],
-  [
-    'https://www.youtube.com/watch?v=fDKHb_sp5Nk',
-    'ayyybubu - Damn NaM Spam (feat. DrDisRespect',
-  ],
-  [
-    'https://www.youtube.com/watch?v=cvq7Jy-TFAU',
-    'Feint - Snake Eyes (feat. CoMa)',
-  ],
-  ['https://www.youtube.com/watch?v=_ovdm2yX4MA', 'Avicii - Levels'],
-  ['https://www.youtube.com/watch?v=mj-v6zCnEaw', 'NOMA - Brain Power'],
-  ['', 'Staff Favorites'],
-  ['https://www.youtube.com/watch?v=lLmSRcB-34k', 'Camellia - Pure Silver'],
-  ['https://www.youtube.com/watch?v=ZAfAud_M_mg', 'Halsey - Without Me'],
-  ['https://www.youtube.com/watch?v=U7KQ-8I_jYI', 'Brooks - If Only I Could'],
-  [
-    'https://www.youtube.com/watch?v=47dtFZ8CFo8',
-    'Capital Cities - Safe And Sound',
-  ],
-  [
-    'https://www.youtube.com/watch?v=Hwg7hJrDiRg',
-    'Flume - Rushing Back feat. Vera Blue',
-  ],
-  [
-    'https://www.youtube.com/watch?v=v6HBZC9pZHQ',
-    'Baby Keem, Kendrick Lamar - family ties',
-  ],
-  ['https://www.youtube.com/watch?v=HyHNuVaZJ-k', 'Gorillaz - Feel Good Inc.'],
-  [
-    'https://www.youtube.com/watch?v=5NV6Rdv1a3I',
-    'Daft Punk - Get Lucky ft. Pharrell Williams, Nile Rodgers',
-  ],
-  ['https://www.youtube.com/watch?v=hUs0-gqBulQ', 'Geoxor - Moonlight'],
-  [
-    'https://www.youtube.com/watch?v=jGow4nmYkkA',
-    'Pendulum - The Island (Parts 1 & 2)',
-  ],
-  [
-    'https://www.youtube.com/watch?v=d2AvqvnGlso',
-    'Flite - Calm Before The Storm (feat. Karina Ramage)',
-  ],
-  ['https://www.youtube.com/watch?v=bO-NaEj2dQ0', 'MTC - S3RL'],
-  ['https://www.youtube.com/watch?v=PZbkF-15ObM', 'C2C - Delta'],
-  ['', 'Community Choice: November 2021'],
-  [
-    'https://www.youtube.com/watch?v=F7Ex-ubaU6A',
-    'Apashe - Battle Royale (Feat. Panther)',
-  ],
-  ['https://www.youtube.com/watch?v=38R-00fETao', 'Koven - Love Wins Again'],
-  ['https://www.youtube.com/watch?v=RPf1oRvfiNQ', 'Bossfight - Elevatia'],
-  ['https://www.youtube.com/watch?v=8abwtVLP18Y', 'Andromedik - Forever'],
-  [
-    'https://www.youtube.com/watch?v=dUHp7N8BVyo',
-    'Miracle Of Sound - Deep Blue (From Subnautica)',
-  ],
-  [
-    'https://www.youtube.com/watch?v=ZaI2IlHwmgQ',
-    'The Black Eyed Peas - Pump It',
-  ],
-  [
-    'https://www.youtube.com/watch?v=WUEVJ0N6I1A',
-    'Juice WRLD - Conversations (Skeler Remix)',
-  ],
-  [
-    'https://www.youtube.com/watch?v=U3SpsXugtzw',
-    'Basixx - Its Gonna Be Alright',
-  ],
-  ['https://www.youtube.com/watch?v=dX3k_QDnzHE', 'M83 - Midnight City'],
-  ['https://www.youtube.com/watch?v=ghVC-ZXCxt0', 'Duster - Gold Dust'],
-  [
-    'https://www.youtube.com/watch?v=r9xAig0C00E',
-    'Plants vs Zombies Soundtrack. [Mini Games] (From Plants vs Zombies)',
-  ],
-  [
-    'https://www.youtube.com/watch?v=EGXPAoyP_cg',
-    'Chris Christodoulou - The Rain Formerly Known as Purple (From Risk of Rain 2)',
-  ],
-  ['https://www.youtube.com/watch?v=dXZMH2CiSQk', 'CRAZY LITTLE LOVE - NUAGE'],
-  ['', 'Community Choice: December 2021'],
-  [
-    'https://www.youtube.com/watch?v=zZFDBn53krg',
-    'Tritonal - Getaway (ft. Angel Taylor) (Koven Remix)',
-  ],
-  ['https://www.youtube.com/watch?v=EJTZms5PFg8', 'Polygon - One Day'],
-  ['https://www.youtube.com/watch?v=ggCkN3Sve9w', 'STARSET - EARTHRISE'],
-  [
-    'https://www.youtube.com/watch?v=MwSkC85TDgY',
-    'Pegboard Nerds - Disconnected',
-  ],
-  ['https://www.youtube.com/watch?v=6-eqYk1j5to', 'Händel - Salomo'],
-  [
-    'https://www.youtube.com/watch?v=7sbw__MsJZ0',
-    'Delta Heavy & Dirty Audio - Stay',
-  ],
-  ['https://www.youtube.com/watch?v=-dRXkIYa5ro', 'Maduk - Go (ft. Lachi)'],
-  ['https://www.youtube.com/watch?v=RJ0GGVfWx4Q', 'Polygon - Contradiction'],
-  [
-    'https://www.youtube.com/watch?v=FQlAEiCb8m0',
-    'Stardust - Music Sounds Better With You',
-  ],
-  [
-    'https://www.youtube.com/watch?v=hT_nvWreIhg',
-    'OneRepublic - Counting Stars',
-  ],
-  ['https://www.youtube.com/watch?v=xAg0CdkmG_k', 'Ryu☆ - Over Drive'],
-  ['https://www.youtube.com/watch?v=BjFWk0ncr70', 'S3RL - Catchit'],
-  [
-    'https://www.youtube.com/watch?v=X21dsemjoRA',
-    'Camellia - Clouds in the Blue',
-  ],
-  ['', 'HYPER DANKS XQCTECHNO'],
-  [
-    'https://www.youtube.com/watch?v=PQal6-mv6W4',
-    'Camellia - LETS JUMP (かめりあ\'s "diffractive" Hardcore Remix)',
-  ],
-  ['https://www.youtube.com/watch?v=oF-Z_QH7fzY', 'Camellia - R U Still xxxx?'],
-  ['https://www.youtube.com/watch?v=SVSvVC-5__c', 'Camellia - NUCLEAR-STAR'],
-  ['https://www.youtube.com/watch?v=yjJvqrFTSuA', 'Camellia - ∀NØMALY'],
-  ['https://www.youtube.com/watch?v=bi1rkTy3jbg', 'Camellia - Fly Wit Me'],
-  ['https://www.youtube.com/watch?v=1v0hP5DuAZ8', 't+pazolite - T+ VS SHARK'],
-  ['https://www.youtube.com/watch?v=rIPOOoQxquE', 't+pazolite - CENSORED‼'],
-  [
-    'https://www.youtube.com/watch?v=ZK_HX6-mXw4',
-    'beatMARIO - Night of Knights (tpz Overheat Remix)',
-  ],
-  [
-    'https://www.youtube.com/watch?v=s4KeHXqVbPk',
-    'Kobaryo - Glitched Character',
-  ],
-  ['https://www.youtube.com/watch?v=-JsJr4zrXWg', 'Kobaryo - Bookmaker'],
-  ['https://www.youtube.com/watch?v=3JDBdDyMO6s', 'Kobaryo - Cartoon Candy'],
-  [
-    'https://www.youtube.com/watch?v=z5EEf931E3Q',
-    'Kobaryo - Tool-Assisted Speedcore (TQBF Frame Advance RMX)',
-  ],
-  [
-    'https://www.youtube.com/watch?v=JWnH0HHUKcQ',
-    'Darren Styles - Quiver (Breakchild Bootleg)',
-  ],
 ];
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1510,9 +1280,9 @@ function prepareMessage(msg) {
         let link = '';
         let title = '';
         while (link === '' || link.includes(LAST_VIDEO_ID_QUEUED)) {
-          const rnd = Math.round(Math.random() * (ChannelDatabase.length - 1));
-          link = ChannelDatabase[rnd][0];
-          title = ChannelDatabase[rnd][1];
+          const rnd = Math.round(Math.random() * (CHANNEL_DATABASE.length - 1));
+          link = CHANNEL_DATABASE[rnd][0];
+          title = CHANNEL_DATABASE[rnd][1];
         }
         const parsed = parseMediaLink(link);
         socket.emit('queue', {
@@ -1639,12 +1409,12 @@ function toggleModPanel() {
  */
 function createDatabase() {
   let html = '<button id="la1" class="btn btn-default btn-sm db-break" onclick="toggleCat(1)">' +
-      ChannelDatabase[0][1] + '</button>' +
+      CHANNEL_DATABASE[0][1] + '</button>' +
       '<ul id="l1" class="videolist db-cat">';
 
-  let len = ChannelDatabase.length;
-  for (let i = 1; i < ChannelDatabase.length; i++) {
-    if (ChannelDatabase[i][0] == '') {
+  let len = CHANNEL_DATABASE.length;
+  for (let i = 1; i < CHANNEL_DATABASE.length; i++) {
+    if (CHANNEL_DATABASE[i][0] == '') {
       item_count[layer_nr - 1] = count_nr;
       opening[layer_nr - 1] = 0;
       layer_nr++;
@@ -1653,12 +1423,12 @@ function createDatabase() {
       html += `</ul><button id="la${layer_nr}" ` +
           `class="btn btn-default btn-sm db-break" ` +
           `onclick="toggleCat(${layer_nr})">` +
-          `${ChannelDatabase[i][1]}</button>` +
+          `${CHANNEL_DATABASE[i][1]}</button>` +
           `<ul id="l${layer_nr}" class="videolist db-cat">`;
     } else {
       item_nr++;
       count_nr++;
-      const link = ChannelDatabase[i][0];
+      const link = CHANNEL_DATABASE[i][0];
 
       html += '<li class="queue_entry">' +
           `<button class="btn btn-default btn-xs pull-right" ` +
@@ -1673,7 +1443,7 @@ function createDatabase() {
             '</button>';
       }
       html += '<span class="badge db-badge">' + item_nr + '</span><span class="db-title">' +
-          ChannelDatabase[i][1] + '</span><br /><span class="db-link">' + link + '</span>';
+          CHANNEL_DATABASE[i][1] + '</span><br /><span class="db-link">' + link + '</span>';
     }
   }
 
@@ -2928,8 +2698,8 @@ function addRandomItem() {
   } else {
     let link = '';
     while (link == '') {
-      const rnd = Math.round(Math.random() * (ChannelDatabase.length - 1));
-      link = ChannelDatabase[rnd][0];
+      const rnd = Math.round(Math.random() * (CHANNEL_DATABASE.length - 1));
+      link = CHANNEL_DATABASE[rnd][0];
     }
     addToPlaylist(link, 'end');
     LASTADD = time;
@@ -4071,8 +3841,8 @@ if (UI_ChannelDatabase) {
                .insertBefore(configwrap);
   dbwell = $('<div id="db-well" class="well" />').appendTo(dbwrap);
 
-  if (ChannelDatabase.length < 1 || ChannelDatabase[0][0] != '') {
-    ChannelDatabase.unshift(['', '(various media)']);
+  if (CHANNEL_DATABASE.length < 1 || CHANNEL_DATABASE[0][0] != '') {
+    CHANNEL_DATABASE.unshift(['', '(various media)']);
   }
   if (UI_ChannelCache) {
     createDatabase();
@@ -5220,5 +4990,3 @@ socket.on('mediaUpdate', fixRawVideoControls);
 document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
 setInterval(() => resizeStuff(), 1000);
-
-$.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
