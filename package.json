@@ -5,11 +5,13 @@
     "url": "https://github.com/papertek/CyDJ.git"
   },
   "scripts": {
+    "build": "rollup --config rollup.config.js",
     "lint": "eslint ."
   },
   "devDependencies": {
     "clang-format": "^1.6.0",
     "eslint": "^8.8.0",
-    "eslint-config-google": "^0.14.0"
+    "eslint-config-google": "^0.14.0",
+    "rollup": "^2.67.2"
   }
 }
