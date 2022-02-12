@@ -4352,8 +4352,6 @@ if (UI_UserMarks || UI_IndependentEmotes || UI_IndependentFilters) {
   ALTERCHATFORMAT = true;
 }
 
-export let formatChatMessage = formatChatMessage;
-
 // Alter chat messages formatting.
 // DEV NOTE: this is extended function from CyTube "util.js" file
 // airforce note: this seems to override a function that's defined by cytube on the client side
