@@ -21,7 +21,7 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-import {USER_BADGES} from './lib/badges';
+import {Badge, USER_BADGES} from './lib/badges';
 
 /* ----- STARTING CONFIGURATION - USER INTERFACE (UI) ----- */
 
@@ -297,131 +297,6 @@ const AskAnswers_Array = [
   'ahhh.. hhaahhh... yeah...',
   'what',
 ];
-
-class Badge {
-  static SUB_0_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022295254937652/0-Month_Subscriber.png';
-  static SUB_0_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022295473057862/2000-Month_Subscriber.png';
-  static SUB_0_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022295686971442/3000-Month_Subscriber.png';
-  static SUB_2_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022535622115328/2-Month_Subscriber.png';
-  static SUB_2_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022535831814155/2002-Month_Subscriber.png';
-  static SUB_2_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022536062521374/3002-Month_Subscriber.png';
-  static SUB_3_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022622767181864/3-Month_Subscriber.png';
-  static SUB_3_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022623056576562/2003-Month_Subscriber.png';
-  static SUB_3_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022623287267398/3003-Month_Subscriber.png';
-  static SUB_6_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022766510149682/6-Month_Subscriber.png';
-  static SUB_6_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022766736658452/2006-Month_Subscriber.png';
-  static SUB_6_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022766984130640/3006-Month_Subscriber.png';
-  static SUB_9_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022823489789972/9-Month_Subscriber.png';
-  static SUB_9_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022823703674910/2009-Month_Subscriber.png';
-  static SUB_9_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022824169259018/3009-Month_Subscriber.png';
-  static SUB_12_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022894918795304/12-Month_Subscriber.png';
-  static SUB_12_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022895199805440/2012-Month_Subscriber.png';
-  static SUB_12_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022895422107648/3012-Month_Subscriber.png';
-  static SUB_18_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022962866507846/18-Month_Subscriber.png';
-  static SUB_18_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022963105570877/2018-Month_Subscriber.png';
-  static SUB_18_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022963411771392/3018-Month_Subscriber.png';
-  static SUB_24_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023017929310339/24-Month_Subscriber.png';
-  static SUB_24_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023018134835291/2024-Month_Subscriber.png';
-  static SUB_24_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023018315206726/3024-Month_Subscriber.png';
-  static SUB_30_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023065576636426/30-Month_Subscriber.png';
-  static SUB_30_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023065761165403/2030-Month_Subscriber.png';
-  static SUB_30_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023065966690324/3030-Month_Subscriber.png';
-  static SUB_36_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023136565207040/36-Month_Subscriber.png';
-  static SUB_36_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023136770723870/2036-Month_Subscriber.png';
-  static SUB_36_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023136942706749/3036-Month_Subscriber.png';
-  static SUB_42_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023290441637959/42-Month_Subscriber.png';
-  static SUB_42_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023290672349254/2042-Month_Subscriber.png';
-  static SUB_42_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023291213410344/3042-Month_Subscriber.png';
-  static SUB_48_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023373505650758/48-Month_Subscriber.png';
-  static SUB_48_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023373786656768/2048-Month_Subscriber.png';
-  static SUB_48_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023374097051708/3048-Month_Subscriber.png';
-  static SUB_54_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023417508098108/54-Month_Subscriber.png';
-  static SUB_54_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023417793298463/2054-Month_Subscriber.png';
-  static SUB_54_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023418070114304/3054-Month_Subscriber.png';
-  static SUB_60_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023503910735882/60-Month_Subscriber.png';
-  static SUB_60_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023504170799184/2060-Month_Subscriber.png';
-  static SUB_60_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023504376332298/3060-Month_Subscriber.png';
-  static SUB_66_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023570788913182/66-Month_Subscriber.png';
-  static SUB_66_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023571028013176/2066-Month_Subscriber.png';
-  static SUB_66_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023571212546108/3066-Month_Subscriber.png';
-  static SUB_72_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023616469106698/72-Month_Subscriber.png';
-  static SUB_72_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023616670421042/2072-Month_Subscriber.png';
-  static SUB_72_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023616863354921/3072-Month_Subscriber.png';
-  static SUB_78_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023666947543110/78-Month_Subscriber.png';
-  static SUB_78_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023667278905405/2078-Month_Subscriber.png';
-  static SUB_78_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023667543117824/3078-Month_Subscriber.png';
-
-  static GIFT_SUBS_500 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916100252342300733/500_Gift_Subs.png';
-
-  static BITS_100 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/915713189109444718/100_Bits.png';
-  static BITS_1000 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/915713247716442182/1000_Bits.png';
-  static BITS_100000 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/915713532006375464/100000_Bits.png';
-
-  static OWL =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916116916702158948/OWL.png';
-
-  static NINETEEN_EIGHTY_FOUR =
-      'https://media.discordapp.net/attachments/915490680468561990/915492628508868648/die.png';
-
-  static formatToHtml(url) {
-    return `<span class="avatar"><img src="${url}" /></span>`;
-  }
-}
 
 const SoundFilters_Array = {
   'oh no our table': 'https://github.com/papertek/CyDJ/raw/beta/misc/ohnoourtable.wav',
