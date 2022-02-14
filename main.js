@@ -3133,7 +3133,7 @@ let fontspanel;
 // adding chat fonts button
 if (UI_FontsBtn) {
   $('<button id="fonts-btn" class="btn btn-sm btn-default" title="Display fonts panel" />')
-      .html('<span class="material-icons">palette</span>')
+      .html('<span class="material-icons">text_format</span>')
       .appendTo(chatcontrols)
       .on('click', () => toggleDiv(fontspanel));
 }
