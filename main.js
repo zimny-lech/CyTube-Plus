@@ -3117,7 +3117,6 @@ function toggleChatFunctions() {
 socket.on('rank', toggleChatFunctions);
 toggleChatFunctions();
 
-// optional chat joining message
 if (UI_JoinText) {
   if (JoinText_Message === '') {
     JoinText_Message = 'hello!';
@@ -3125,12 +3124,13 @@ if (UI_JoinText) {
   socket.emit('chatMsg', {msg: `/me ${JoinText_Message}`});
 }
 
-// optional chat leaving message
 if (UI_LeaveText) {
   if (LeaveText_Message === '') {
     LeaveText_Message = 'left';
   }
-  $(window).unload(() => socket.emit('chatMsg', {msg: `/me ${LeaveText_Message}`}));
+  window.addEventListener('beforeunload', () => {
+    socket.emit('chatMsg', {msg: `/me ${LeaveText_Message}`});
+  }, false);
 }
 
 let chatcontrols;
