@@ -73,8 +73,6 @@ const UI_TitleIcon = true;
 const UI_TitleBarDescription = true;
 // [&] chat message after user joining
 const UI_JoinText = true;
-// [&] chat message after user leaving
-const UI_LeaveText = true;
 // [&] additional commands in the chat window
 const UI_UserCommands = true;
 // [&] special signs/avatars before every message for defined users
@@ -209,8 +207,6 @@ const TitleIcon_URL = 'https://cdn.7tv.app/emote/6040a8bccf6746000db10348/2x';
 const TitleBarDescription_Caption = 'Now Playing:';
 
 const JoinText_Message = 'hello!';
-
-const LeaveText_Message = 'left';
 
 const UsernameMark_Char = '>';
 
@@ -3122,16 +3118,6 @@ if (UI_JoinText) {
     JoinText_Message = 'hello!';
   }
   socket.emit('chatMsg', {msg: `/me ${JoinText_Message}`});
-}
-
-if (UI_LeaveText) {
-  if (LeaveText_Message === '') {
-    LeaveText_Message = 'left';
-  }
-  window.addEventListener('beforeunload', () => {
-    socket.emit('chatMsg', {msg: `/me ${LeaveText_Message}`});
-    return null;
-  }, false);
 }
 
 let chatcontrols;
