@@ -3130,6 +3130,7 @@ if (UI_LeaveText) {
   }
   window.addEventListener('beforeunload', () => {
     socket.emit('chatMsg', {msg: `/me ${LeaveText_Message}`});
+    return null;
   }, false);
 }
 
