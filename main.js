@@ -30,8 +30,8 @@ import {LOGOS} from './lib/logos';
 
 library.add(faCamera);
 
-// eslint-disable-next-line no-unused-vars
-const camera = icon({prefix: 'fas', iconName: 'camera'});
+
+export const camera = icon({prefix: 'fas', iconName: 'camera'});
 //
 /* ----- STARTING CONFIGURATION - USER INTERFACE (UI) ----- */
 
