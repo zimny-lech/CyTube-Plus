@@ -706,7 +706,12 @@ function addToPlaylist(link, stand) {
 //   return div.textContent || div.innerText;
 // }
 
-let outer;
+let modalOuter;
+let modalDialog;
+let modalContent;
+let modalHead;
+let modalBody;
+let modalFooter;
 
 /**
  * Create modal window.
@@ -714,21 +719,21 @@ let outer;
  * @param {string} title
  */
 function createModal(title) {
-  const outer = $('<div class="modal fade" />').appendTo($('body'));
-  const modal1 = $('<div class="modal-dialog" />').appendTo(outer);
-  const modal2 = $('<div class="modal-content" />').appendTo(modal1);
-  const head = $('<div class="modal-header" />').appendTo(modal2);
+  modalOuter = $('<div class="modal fade" />').appendTo($('body'));
+  modalDialog = $('<div class="modal-dialog" />').appendTo(modalOuter);
+  modalContent = $('<div class="modal-content" />').appendTo(modalDialog);
+  modalHead = $('<div class="modal-header" />').appendTo(modalContent);
   $('<button class="close" data-dismiss="modal" aria-hidden="true" />')
       .html('&times;')
-      .appendTo(head);
-  $('<h3 />').text(title).appendTo(head);
-  $('<div class="modal-body" />').appendTo(modal2);
-  $('<div class="modal-footer" />').appendTo(modal2);
-  outer.on('hidden', () => {
+      .appendTo(modalHead);
+  $('<h3 />').text(title).appendTo(modalHead);
+  modalBody = $('<div class="modal-body" />').appendTo(modalContent);
+  modalFooter = $('<div class="modal-footer" />').appendTo(modalContent);
+  modalOuter.on('hidden', () => {
     outer.remove();
     unhidePlayer();
   });
-  outer.modal();
+  modalOuter.modal();
 }
 
 /**
@@ -1946,10 +1951,9 @@ function showEmotes() {
  */
 function showChatHelp() {
   createModal('Chat Commands');
-  const body = $('body');
 
   if (UI_FontsBtn) {
-    body.append('<strong>Fonts commands</strong><br /><br />');
+    modalBody.append('<strong>Fonts commands</strong><br /><br />');
     const html =
         [
           '<code>[white]</code>, <code>[yellow]</code>, <code>[orange]</code>, <code>[pink]</code>, ' +
@@ -1972,7 +1976,7 @@ function showChatHelp() {
         ].map((line) => `<li>${line}</li>`)
             .join('') +
         'For a quick CyDJ guide check out this Google Doc <a href="https://docs.google.com/document/d/1X2TdR9hc2KK0WEBLjY06CZaY30QyKxsI_7CQ1qbSz0g/edit" target="_blank">here</a>.';
-    $('<ul />').html(html).appendTo(body);
+    $('<ul />').html(html).appendTo(modalBody);
   }
   if (UI_UserCommands) {
     const arr = {
@@ -1996,17 +2000,17 @@ function showChatHelp() {
     if (UI_ChannelDatabase) {
       arr['random'] = 'adding random link from database (<i>!random</i>)';
     }
-    body.append('<strong>New chat commands</strong><br /><br />');
-    ul = $('<ul />').appendTo(body);
+    modalBody.append('<strong>New chat commands</strong><br /><br />');
+    ul = $('<ul />').appendTo(modalBody);
     for (const [cmd, desc] of Object.entries(arr)) {
       ul.append(`<li><code>!${cmd}</code> - ${desc}</li>`);
     }
   }
   if (UI_ChatSpeak) {
-    body.append('<strong>Voice commands</strong><br /><br />');
+    modalBody.append('<strong>Voice commands</strong><br /><br />');
     html = '<li><code>!say</code> - text speaking in english (<i>!say Hello!</i>)</li>' +
         '<li><code>!mow</code> - text speaking in polish (<i>!mow Chrząszcz brzmi w trzcinie.</i>)';
-    $('<ul />').html(html).appendTo(body);
+    $('<ul />').html(html).appendTo(modalBody);
   }
   const arr = {
     'me': 'showing an action-style message (username does something, e.g. <i>/me is dancing</i>)',
@@ -2014,8 +2018,8 @@ function showChatHelp() {
         'hiding a message in a hover-to-show spoiler box (e.g. <i>/sp This message is hidden</i>)',
     'afk': 'toggling your AFK (away from keyboard) status (<i>/afk</i>)',
   };
-  body.append('<br /><strong>Default CyTube commands</strong><br /><br />');
-  const ul = $('<ul />').appendTo(body);
+  modalBody.append('<br /><strong>Default CyTube commands</strong><br /><br />');
+  const ul = $('<ul />').appendTo(modalBody);
   for (const [cmd, desc] of Object.entries(arr)) {
     ul.append(`<li><code>/${cmd}</code> - ${desc}</li>`);
   }
@@ -2028,63 +2032,63 @@ function showSoundsPanel() {
   $('#userlist').append('<div id="sounds-dropdown" />');
   setPanelProperties('#sounds-dropdown');
 
-  muteallbtn = $('<button id="muteall-btn" class="btn btn-xs btn-default">Mute All</button>')
-                   .appendTo('#sounds-dropdown')
-                   .on('click', function() {
-                     if (VOICES) {
-                       $(this).text('Unmute All').addClass('btn-danger');
-                       voicesbtn.addClass('btn-danger').attr('title', 'Unmute chat voices');
-                       VOICES = false;
-                       SOUNDSPANEL = false;
-                       $('#sounds-dropdown').remove();
-                     } else {
-                       $(this).text('Mute All').removeClass('btn-danger');
-                       voicesbtn.removeClass('btn-danger').attr('title', 'Mute chat voices');
-                       VOICES = true;
-                     }
-                   });
+  const muteallbtn = $('<button id="muteall-btn" class="btn btn-xs btn-default">Mute All</button>')
+                         .appendTo('#sounds-dropdown')
+                         .on('click', function() {
+                           if (VOICES) {
+                             $(this).text('Unmute All').addClass('btn-danger');
+                             voicesbtn.addClass('btn-danger').attr('title', 'Unmute chat voices');
+                             VOICES = false;
+                             SOUNDSPANEL = false;
+                             $('#sounds-dropdown').remove();
+                           } else {
+                             $(this).text('Mute All').removeClass('btn-danger');
+                             voicesbtn.removeClass('btn-danger').attr('title', 'Mute chat voices');
+                             VOICES = true;
+                           }
+                         });
   if (!VOICES) {
     muteallbtn.text('Unmute All').addClass('btn-danger');
   }
 
   $('#sounds-dropdown').append('<div>Sounds level:</div>');
 
-  lvlgroup = $('<div id="lvlgroup" class="btn-group"></div>').appendTo('#sounds-dropdown');
+  const lvlgroup = $('<div id="lvlgroup" class="btn-group"></div>').appendTo('#sounds-dropdown');
 
   for (i = 1; i <= 5; i++) {
-    btn = $(`<button class="btn btn-xs btn-default" id="lvlvol${i}" ` +
-            `level="${i}" />`)
-              .html(i)
-              .appendTo(lvlgroup)
-              .on('click', function() {
-                $(`#lvlvol${SOUNDSLVL}`).removeClass('btn-success');
-                SOUNDSLVL = $(this).attr('level');
-                setOpt(CHANNEL.name + '_soundslvl', SOUNDSLVL);
-                $(this).addClass('btn-success');
-              });
+    $(`<button class="btn btn-xs btn-default" id="lvlvol${i}" ` +
+      `level="${i}" />`)
+        .html(i)
+        .appendTo(lvlgroup)
+        .on('click', function() {
+          $(`#lvlvol${SOUNDSLVL}`).removeClass('btn-success');
+          SOUNDSLVL = $(this).attr('level');
+          setOpt(CHANNEL.name + '_soundslvl', SOUNDSLVL);
+          $(this).addClass('btn-success');
+        });
   }
   $(`#lvlvol${SOUNDSLVL}`).addClass('btn-success');
 
   $('#sounds-dropdown').append('<div>Select users to mute sounds:</div>');
 
-  mutegroup =
+  const mutegroup =
       $('<div id="mutegroup" class="btn-group-vertical"></div>').appendTo('#sounds-dropdown');
 
   $('.userlist_item').each(function() {
-    user = $(this).find('span:nth-child(2)').html();
-    btn = $(`<button class="btn btn-xs btn-default" name="${user}" />`)
-              .html(user)
-              .appendTo(mutegroup)
-              .on('click', function() {
-                name = $(this).attr('name');
-                if (name in MUTEDVOICES && MUTEDVOICES[name] == '1') {
-                  $(this).removeClass('btn-danger');
-                  MUTEDVOICES[name] = 0;
-                } else {
-                  $(this).addClass('btn-danger');
-                  MUTEDVOICES[name] = 1;
-                }
-              });
+    const user = $(this).find('span:nth-child(2)').html();
+    const btn = $(`<button class="btn btn-xs btn-default" name="${user}" />`)
+                    .html(user)
+                    .appendTo(mutegroup)
+                    .on('click', function() {
+                      name = $(this).attr('name');
+                      if (name in MUTEDVOICES && MUTEDVOICES[name] == '1') {
+                        $(this).removeClass('btn-danger');
+                        MUTEDVOICES[name] = 0;
+                      } else {
+                        $(this).addClass('btn-danger');
+                        MUTEDVOICES[name] = 1;
+                      }
+                    });
     if (user in MUTEDVOICES && MUTEDVOICES[user] == '1') {
       btn.addClass('btn-danger');
     }
@@ -2097,7 +2101,7 @@ function showSoundsPanel() {
 function showModPanel() {
   createModal('Moderators panel');
 
-  html = '';
+  let html = '';
   for (const panel of ModPanel_Array) {
     const name = panel[0];
     const mess = panel[1];
@@ -2258,7 +2262,7 @@ export function prevVideo(a) {
 
   $('<iframe id="previewFrame" width="558" height="314" frameborder="0" />')
       .attr('src', `https://www.youtube.com/embed/${a}?wmode=transparent&enablejsapi`)
-      .appendTo($('body'));
+      .appendTo(modalBody);
 }
 
 /**
@@ -2305,7 +2309,7 @@ function toggleConfigPanel() {
 function showConfig() {
   createModal('Layout Configuration');
 
-  const form = $('<form class="form-horizontal" />').appendTo($('body'));
+  const form = $('<form class="form-horizontal" />').appendTo(modalBody);
 
   function addOption(txt, elem) {
     const g = $('<div class="form-group" />').appendTo(form);
@@ -2430,7 +2434,7 @@ function showConfig() {
   });
 
   submit.on('click', () => {
-    outer.modal('hide');
+    modalOuter.modal('hide');
 
     USERCONFIG.player = playerlocation.val();
     setOpt(CHANNEL.name + '_player', playerlocation.val());
@@ -2487,7 +2491,7 @@ function showConfig() {
   });
 
   reset.on('click', () => {
-    outer.modal('hide');
+    modalOuter.modal('hide');
 
     USERCONFIG.player = defplayer;
     setOpt(CHANNEL.name + '_player', defplayer);
@@ -2522,7 +2526,7 @@ function showConfig() {
   });
 
   column.on('click', () => {
-    outer.modal('hide');
+    modalOuter.modal('hide');
 
     USERCONFIG.player = 'center';
     setOpt(CHANNEL.name + '_player', 'center');
@@ -2670,7 +2674,7 @@ function showContributors() {
                                 .sort((a, b) => b[1] - a[1])
                                 .map(([user, count]) => `${count}: ${user}`);
 
-  body.append(
+  modalBody.append(
       '<strong>Number of added playlist items:</strong>' +
       '<br /><br />' + userContributions.join('<br />'));
 }
@@ -2697,17 +2701,18 @@ function expandQueue() {
 function getPlaylistURLs() {
   createModal('Playlist URLs');
 
-  const body = $('body');
-  const footer = $('footer');
-
-  const data = $('<textarea rows="10" class="form-control" />').val(formatRawList()).appendTo(body);
-  const rlist = $('<button class="btn btn-default pull-left">Raw Links</button>').appendTo(footer);
-  const tlist = $('<button class="btn btn-default pull-left">Plain Text</button>').appendTo(footer);
-  const hlist = $('<button class="btn btn-default pull-left">HTML Code</button>').appendTo(footer);
+  const data =
+      $('<textarea rows="10" class="form-control" />').val(formatRawList()).appendTo(modalBody);
+  const rlist =
+      $('<button class="btn btn-default pull-left">Raw Links</button>').appendTo(modalFooter);
+  const tlist =
+      $('<button class="btn btn-default pull-left">Plain Text</button>').appendTo(modalFooter);
+  const hlist =
+      $('<button class="btn btn-default pull-left">HTML Code</button>').appendTo(modalFooter);
   const olist =
-      $('<button class="btn btn-default pull-left">Ordered List</button>').appendTo(footer);
+      $('<button class="btn btn-default pull-left">Ordered List</button>').appendTo(modalFooter);
   const dlist =
-      $('<button class="btn btn-default pull-left">Database Format</button>').appendTo(footer);
+      $('<button class="btn btn-default pull-left">Database Format</button>').appendTo(modalFooter);
 
   rlist.on('click', () => data.val(formatRawList()));
   tlist.on('click', () => data.val(formatPlainTextList()));
@@ -3207,7 +3212,7 @@ function showContextMenu() {
           '<a href="https://discord.gg/g8tCGSc2bx" target="_blank">Click here to join the Discord</a>!',
         ].map((item) => `<li>${item}</li>`)
             .join('');
-    $('<ul />').html(html).appendTo(body);
+    $('<ul />').html(html).appendTo(modalBody);
   }
 }
 
