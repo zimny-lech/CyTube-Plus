@@ -1645,10 +1645,10 @@ function changeSkipText() {
  * @param {string} link
  */
 export function addVideo(link) {
-  parsed = parseMediaLink(link);
-  idp = parsed['id'];
+  const parsed = parseMediaLink(link);
+  const idp = parsed['id'];
   if (idp != null) {
-    time = (new Date()).getTime();
+    const time = (new Date()).getTime();
     if (!hasPermission('playlistadd')) {
       alert('Please create a registered account to queue links!');
     } else if (ADDEDLINKS[idp] != undefined && time - ADDEDLINKS[idp] < 120000) {
@@ -2113,7 +2113,7 @@ function showModPanel() {
           `(to: ${CLIENT.name}) → ${mess}<br /><br />`;
     }
   }
-  body.append(html);
+  modalBody.append(html);
   $('#mod-btn').removeClass('btn-danger').html('<i class="glyphicon glyphicon-tasks"></i>');
   setOpt(CHANNEL.name + '_modhash', HASH);
 }
