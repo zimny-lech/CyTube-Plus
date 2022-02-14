@@ -30,9 +30,8 @@ import {LOGOS} from './lib/logos';
 
 library.add(faCamera);
 
-
 export const camera = icon({prefix: 'fas', iconName: 'camera'});
-//
+
 /* ----- STARTING CONFIGURATION - USER INTERFACE (UI) ----- */
 
 // CONFIGURATION NOTES:
