@@ -3160,7 +3160,7 @@ if (UI_SpecialEmoteBtn) {
 // adding chat commands button
 if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
   $('<button id="chathelp-btn" class="btn btn-sm btn-default" title="Show chat commands"/>')
-      .html('<i class="glyphicon glyphicon-question-sign"></i>')
+      .html('<span class="material-icons">help_outline</span>')
       .appendTo(chatcontrols)
       .on('click', () => showChatHelp());
 }
