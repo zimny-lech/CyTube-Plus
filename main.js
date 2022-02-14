@@ -21,10 +21,17 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+import {icon, library} from '@fortawesome/fontawesome-svg-core';
+import {faCamera} from '@fortawesome/free-solid-svg-icons';
+
 import {Badge, USER_BADGES} from './lib/badges';
 import {CHANNEL_DATABASE} from './lib/database';
 import {LOGOS} from './lib/logos';
 
+library.add(faCamera);
+
+const camera = icon({prefix: 'fas', iconName: 'camera'});
+//
 /* ----- STARTING CONFIGURATION - USER INTERFACE (UI) ----- */
 
 // CONFIGURATION NOTES:
