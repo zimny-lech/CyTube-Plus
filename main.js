@@ -5006,8 +5006,21 @@ socket.on('changeMedia', resizeStuff);
 setInterval(() => resizeStuff(), 1000);
 
 (() => {
+  const head = document.getElementsByTagName('head')[0];
+
   const link = document.createElement('link');
   link.rel = 'stylesheet';
   link.href = 'https://fonts.googleapis.com/icon?family=Material+Icons';
-  document.getElementsByTagName('head')[0].appendChild(link);
+  head.appendChild(link);
+
+  const style = document.createElement('style');
+  style.innerHTML = `
+      .material-icons.md-14 { font-size: 14px; }
+      .material-icons.md-16 { font-size: 16px; }
+      .material-icons.md-18 { font-size: 18px; }
+      .material-icons.md-24 { font-size: 24px; }
+      .material-icons.md-36 { font-size: 36px; }
+      .material-icons.md-48 { font-size: 48px; }
+    `;
+  head.appendChild(style);
 })();
