@@ -3155,7 +3155,7 @@ if (UI_EmotesBtn) {
 if (UI_SpecialEmoteBtn) {
   $('#emotelistbtn').appendTo(chatcontrols);
   $('#emotelistbtn')
-      .html('<span> title="Open emote menu" <span class="material-icons">face</span>');
+      .html('<i title="Open emote menu"</i> <span class="material-icons">face</span>');
 }
 
 // adding chat commands button
