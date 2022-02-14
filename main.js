@@ -146,8 +146,6 @@ const UI_CustomFooter = false;
 const UI_CustomRightFooter = false;
 // displaying in the footer user visits number and current online time
 const UI_UserStatistics = true;
-// [&] additional external script file
-const UI_ExternalScript = false;
 // caching script emotes, additional media database and default gallery
 const UI_ChannelCache = true;
 // adds report button
@@ -225,8 +223,6 @@ const CustomPingSound_URL = 'https://github.com/papertek/CyDJ/raw/beta/misc/ping
 const PlayerHiding_URL = 'https://c.tenor.com/Q6UjBrnSzvQAAAAC/anime-uh.gif';
 
 const GroupEmotes_Number = 100;
-
-const ExternalScript_URL = '';
 
 const Snow_URL = 'https://dl.dropboxusercontent.com/s/cvxizo3lax3xlrg/snowcss.css';
 
@@ -553,7 +549,7 @@ const defuserlist = UI_DefaultSynchtube ? 'right' : 'left';
 const defqueue = UI_DefaultSynchtube ? 'left' : 'right';
 
 const DEFTHEME =
-    (UI_ChannelTheme && ChannelThemeURL != '') ? ChannelThemeURL : '/css/themes/slate.css';
+    (UI_ChannelTheme && ChannelThemeURL !== '') ? ChannelThemeURL : '/css/themes/slate.css';
 
 const USERCONFIG = {
   'player': getOrDefault(CHANNEL.name + '_player', defplayer),
@@ -669,7 +665,7 @@ document.body.addEventListener('load', preloadAudio, true);
  * @param {JQuery<HTMLElement>} div
  */
 function toggleDiv(div) {
-  if ($(div).css('display') == 'none') {
+  if ($(div).css('display') === 'none') {
     $(div).show();
   } else {
     $(div).hide();
@@ -742,17 +738,17 @@ function createModal(title) {
  */
 function playerLocation(a) {
   $('#pinup-btn').show();
-  if (a == 'left') {
+  if (a === 'left') {
     $('#videowrap').after($('#chatwrap').detach());
     normalPlayer();
     normalChat();
     setTimeout(refreshPlayer(), 1000);
-  } else if (a == 'right') {
+  } else if (a === 'right') {
     $('#videowrap').before($('#chatwrap').detach());
     normalPlayer();
     normalChat();
     setTimeout(refreshPlayer(), 1000);
-  } else if (a == 'center') {
+  } else if (a === 'center') {
     $('#videowrap').after($('#chatwrap').detach());
     $('#videowrap, #chatwrap').removeClass().addClass('col-lg-8 col-lg-offset-2 col-md-12');
     fitPlayer();
@@ -763,7 +759,7 @@ function playerLocation(a) {
 }
 
 function userlistLocation(a) {
-  if (a == 'left') {
+  if (a === 'left') {
     $('#userlist').css('float', 'left');
   } else {
     $('#userlist').css('float', 'right');
@@ -772,11 +768,11 @@ function userlistLocation(a) {
 
 function queueLocation(a) {
   $('#pinup-btn').show();
-  if (a == 'right') {
+  if (a === 'right') {
     $('#rightpane').before($('#leftpane').detach());
-  } else if (a == 'left') {
+  } else if (a === 'left') {
     $('#rightpane').after($('#leftpane').detach());
-  } else if (a == 'center') {
+  } else if (a === 'center') {
     $('#rightpane')
         .after($('#leftpane').detach())
         .removeClass()
@@ -784,16 +780,16 @@ function queueLocation(a) {
     $('#leftpane').removeClass().addClass('col-md-8 col-md-offset-2 col-md-12');
     $('#pinup-btn').hide();
   }
-  const b = (a == 'right') ? 'left' : 'right';
+  const b = (a === 'right') ? 'left' : 'right';
   $('#playlistrow').css('background-position', b + ' bottom');
 }
 
 function queueSize(a) {
-  if (USERCONFIG.queue != 'center') {
-    if (a == 'wide') {
+  if (USERCONFIG.queue !== 'center') {
+    if (a === 'wide') {
       $('#leftpane').removeClass().addClass('col-lg-5 col-md-5');
       $('#rightpane').removeClass().addClass('col-lg-7 col-md-7');
-    } else if (a == 'narrow') {
+    } else if (a === 'narrow') {
       $('#leftpane').removeClass().addClass('col-lg-7 col-md-7');
       $('#rightpane').removeClass().addClass('col-lg-5 col-md-5');
     }
@@ -801,18 +797,18 @@ function queueSize(a) {
 }
 
 function mainLocation(a) {
-  if (a == 'top') {
+  if (a === 'top') {
     $('#main').before($('#titlerow').detach()).after($('#playlistrow').detach());
-  } else if (a == 'bottom') {
+  } else if (a === 'bottom') {
     $('#main').before($('#playlistrow').detach()).before($('#titlerow').detach());
   }
   $('#main').after($('#chatpanel').detach());
 }
 
 function motdLocation(a) {
-  if (a == 'top') {
+  if (a === 'top') {
     $('#zerorow').after($('#announcements').detach()).after($('#motdrow').detach());
-  } else if (a == 'bottom') {
+  } else if (a === 'bottom') {
     $('#resizewrap').before($('#motdrow').detach()).before($('#announcements').detach());
   }
 }
@@ -836,13 +832,13 @@ function logoInsert(logo) {
 
 function headerMode(a) {
   $('.navbar-fixed-top').unbind();
-  if (a == 'fixed') {
+  if (a === 'fixed') {
     $('.navbar-fixed-top').css({'position': 'fixed', 'top': '0px'});
     $('#mainpage').css('margin-top', '0px');
-  } else if (a == 'detached') {
+  } else if (a === 'detached') {
     $('.navbar-fixed-top').css('position', 'inherit');
     $('#mainpage').css('margin-top', '-72px');
-  } else if (a == 'mouseover') {
+  } else if (a === 'mouseover') {
     $('.navbar-fixed-top')
         .css({'position': 'fixed', 'top': '-40px'})
         .on('mouseover', () => $('.navbar-fixed-top').css('top', '0px'))
@@ -853,7 +849,7 @@ function headerMode(a) {
 
 function customCSS(a) {
   $('#usercss').remove();
-  if (a == 'yes') {
+  if (a === 'yes') {
     $('head').append(`<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`);
   }
 }
@@ -889,7 +885,7 @@ function fitPlayer() {
  */
 function fitChat(a) {
   let VH;
-  if (a == 'auto') {
+  if (a === 'auto') {
     const VW = $('#messagebuffer').width();
     VH = Math.floor(parseInt(VW) * 9 / 16 + 1);
   } else {
@@ -917,7 +913,7 @@ function normalPlayer() {
 }
 
 function normalChat() {
-  const c = (PINNED && USERCONFIG.qsize == 'wide') ? 'col-lg-7 col-md-7' : 'col-lg-5 col-md-5';
+  const c = (PINNED && USERCONFIG.qsize === 'wide') ? 'col-lg-7 col-md-7' : 'col-lg-5 col-md-5';
   $('#chatwrap').removeClass().addClass(c);
   fitChat(338);
 }
@@ -950,13 +946,13 @@ function setMode(a) {
     $('#messagebuffer').height(H);
     $('#userlist').height(H);
 
-    if (USERCONFIG.player == 'center') {
+    if (USERCONFIG.player === 'center') {
       playerLocation('center');
     }
     if (PINNED) {
       pinUp();
     }
-  } else if (a == 'kMode') {
+  } else if (a === 'kMode') {
     $('#videowrap').show();
     if (PINNED) {
       $('#rightpane').hide();
@@ -966,7 +962,7 @@ function setMode(a) {
     $('#fontspanel, #emotespanel').hide();
 
     bigPlayer();
-  } else if (a == 'chMode') {
+  } else if (a === 'chMode') {
     $('#chatwrap').show();
 
     if (WEBKIT) {
@@ -977,7 +973,7 @@ function setMode(a) {
     }
 
     bigChat();
-  } else if (a == 'rMode') {
+  } else if (a === 'rMode') {
     if (WEBKIT) {
       $('#main').hide();
     } else {
@@ -1060,10 +1056,10 @@ function changeMOTD() {
   }
   if (UI_RulesBtn) {
     // adding rules button
-    if (RulesBtn_Caption == '') {
+    if (RulesBtn_Caption === '') {
       RulesBtn_Caption = 'Read Channel Rules';
     }
-    if (RulesBtn_HTML == '') {
+    if (RulesBtn_HTML === '') {
       RulesBtn_HTML = 'No rules.';
     }
     const rulespanelouter = $('<div id="rulespanel-outer" />').appendTo('#motd');
@@ -1093,13 +1089,13 @@ let titlerow;
  */
 function progressBar() {
   let a = 0;
-  if (PLAYER.type == 'yt') {
+  if (PLAYER.type === 'yt') {
     const b = PLAYER.player.getCurrentTime();
     if (b != PREVTIME) {
       a = b / PLAYER.player.getDuration() * 100;
     }
     PREVTIME = b;
-  } else if (PLAYER.type == 'dm') {
+  } else if (PLAYER.type === 'dm') {
     const b = PLAYER.player.currentTime;
     if (b != PREVTIME) {
       a = b / PLAYER.player.duration * 100;
@@ -1365,8 +1361,7 @@ function prepareMessage(msg) {
  *
  * @param {string} str
  */
-// eslint-disable-next-line no-unused-vars
-function insertText(str) {
+export function insertText(str) {
   $('#chatline').val($('#chatline').val() + str).focus();
 }
 
@@ -1376,7 +1371,7 @@ let muteplayerbtn;
  * Toggle YT mute button.
  */
 function toggleMuteBtn() {
-  if (PLAYER && PLAYER.type == 'yt') {
+  if (PLAYER && PLAYER.type === 'yt') {
     muteplayerbtn.show();
   } else {
     muteplayerbtn.hide();
@@ -1396,11 +1391,11 @@ function toggleModPanel() {
     HASH = '';
     for (const row of ModPanel_Array) {
       const name = row[0];
-      if (name == '' || name == CLIENT.name) {
+      if (name === '' || name === CLIENT.name) {
         HASH += '' + row[1].length;
       }
     }
-    if (HASH != USERCONFIG.modhash) {
+    if (HASH !== USERCONFIG.modhash) {
       modbtn.addClass('btn-danger').html(modbtn.html() + ' (New Mess.)');
     }
   }
@@ -1417,7 +1412,7 @@ function createDatabase() {
 
   let len = CHANNEL_DATABASE.length;
   for (let i = 1; i < CHANNEL_DATABASE.length; i++) {
-    if (CHANNEL_DATABASE[i][0] == '') {
+    if (CHANNEL_DATABASE[i][0] === '') {
       item_count[layer_nr - 1] = count_nr;
       opening[layer_nr - 1] = 0;
       layer_nr++;
@@ -1435,13 +1430,13 @@ function createDatabase() {
 
       html += '<li class="queue_entry">' +
           `<button class="btn btn-default btn-xs pull-right" ` +
-          `onclick="addVideo('${link}')">End</button>`;
+          `onclick="cydj.addVideo('${link}')">End</button>`;
 
       const parsed = parseMediaLink(link);
-      if (parsed['type'] == 'yt') {
+      if (parsed['type'] === 'yt') {
         const a = parsed['id'];
         html += '<button class="btn btn-default btn-xs pull-right" ' +
-            `onclick="prevVideo('${a}')">` +
+            `onclick="cydj.prevVideo('${a}')">` +
             '<i class="glyphicon glyphicon-film"></i>' +
             '</button>';
       }
@@ -1644,8 +1639,7 @@ function changeSkipText() {
  *
  * @param {string} link
  */
-// eslint-disable-next-line no-unused-vars
-function addVideo(link) {
+export function addVideo(link) {
   parsed = parseMediaLink(link);
   idp = parsed['id'];
   if (idp != null) {
@@ -1865,7 +1859,7 @@ function showChatFunctions() {
           $(this).addClass('btn-danger');
           ANTIAFK = setInterval(function() {
             $('#userlist').find('span[class^=userlist]').each(function() {
-              if ($(this).html() == CLIENT.name && $(this).css('font-style') == 'italic') {
+              if ($(this).html() === CLIENT.name && $(this).css('font-style') === 'italic') {
                 socket.emit('chatMsg', {msg: '/afk'});
                 return;
               }
@@ -1895,9 +1889,9 @@ function showEmotes() {
   if (len < 1) {
     emotespanel.addClass('row');
     makeAlert('No emotes available', 'Ask channel administrator.').appendTo(emotespanel);
-  } else if (UI_GroupEmotes != '1' || len <= GroupEmotes_Number) {
+  } else if (!UI_GroupEmotes || len <= GroupEmotes_Number) {
     for (const emote of CHANNEL.emotes) {
-      $(`<img onclick="insertText('${emote.name} ')" />`)
+      $(`<img onclick="cydj.insertText('${emote.name} ')" />`)
           .attr({'src': emote.image, 'title': emote.name})
           .appendTo(emotespanel);
     }
@@ -1909,13 +1903,13 @@ function showEmotes() {
 
     for (i = 0; i < len; i++) {
       html += `<img src="${CHANNEL.emotes[i].image}" ` +
-          `onclick="insertText(\'${CHANNEL.emotes[i].name} \')" />`;
-      if (i % GroupEmotes_Number == stopAt) {
+          `onclick="cydj.insertText(\'${CHANNEL.emotes[i].name} \')" />`;
+      if (i % GroupEmotes_Number === stopAt) {
         arr.push(html);
         html = '';
       }
     }
-    if (len % GroupEmotes_Number != 0) {
+    if (len % GroupEmotes_Number !== 0) {
       arr.push(html);
     }
 
@@ -1952,6 +1946,8 @@ function showEmotes() {
  */
 function showChatHelp() {
   createModal('Chat Commands');
+  const body = $('body');
+
   if (UI_FontsBtn) {
     body.append('<strong>Fonts commands</strong><br /><br />');
     const html =
@@ -2105,9 +2101,9 @@ function showModPanel() {
   for (const panel of ModPanel_Array) {
     const name = panel[0];
     const mess = panel[1];
-    if (name == '') {
+    if (name === '') {
       html += `<i class="glyphicon glyphicon-comment"></i> ${mess}<br /><br />`;
-    } else if (name == CLIENT.name) {
+    } else if (name === CLIENT.name) {
       html = '<i class="glyphicon glyphicon-comment"></i> ' +
           '<i class="glyphicon glyphicon-user"></i> ' +
           `(to: ${CLIENT.name}) → ${mess}<br /><br />`;
@@ -2186,7 +2182,7 @@ let hideplayerbtn;
  * Hide and show player with covering image.
  */
 function coverPlayer() {
-  if (PlayerHiding_URL == '') {
+  if (PlayerHiding_URL === '') {
     PlayerHiding_URL = 'https://dl.dropboxusercontent.com/s/xz2o99scw5i7aai/stop.png';
   }
   $('#videowrap').addClass('relative');
@@ -2212,7 +2208,7 @@ function showPlayer() {
  * Mute YT player.
  */
 function mutePlayer() {
-  if (PLAYER && PLAYER.type == 'yt') {
+  if (PLAYER && PLAYER.type === 'yt') {
     PLAYER.player.mute();
   }
 }
@@ -2221,7 +2217,7 @@ function mutePlayer() {
  * Unmute YT player.
  */
 function unmutePlayer() {
-  if (PLAYER && PLAYER.type == 'yt') {
+  if (PLAYER && PLAYER.type === 'yt') {
     PLAYER.player.unMute();
   }
 }
@@ -2257,13 +2253,12 @@ SoundCloud.'); } else { createModal('Download current item');
  *
  * @param {string} a
  */
-// eslint-disable-next-line no-unused-vars
-function prevVideo(a) {
+export function prevVideo(a) {
   createModal('Preview Video');
 
-  player = $('<iframe id="previewFrame" width="558" height="314" frameborder="0" />')
-               .attr('src', `https://www.youtube.com/embed/${a}?wmode=transparent&enablejsapi`)
-               .appendTo(body);
+  $('<iframe id="previewFrame" width="558" height="314" frameborder="0" />')
+      .attr('src', `https://www.youtube.com/embed/${a}?wmode=transparent&enablejsapi`)
+      .appendTo($('body'));
 }
 
 /**
@@ -2294,7 +2289,7 @@ function toggleConfigPanel() {
         .css('margin-top', $('#mainpage').css('margin-top').replace('px', '') * 1 - 15 + 'px');
   } else {
     toggleDiv(configwrap);
-    if (configwrap.css('display') == 'none') {
+    if (configwrap.css('display') === 'none') {
       layoutbtn.removeClass('btn-success');
     } else {
       layoutbtn.addClass('btn-success');
@@ -2310,54 +2305,54 @@ function toggleConfigPanel() {
 function showConfig() {
   createModal('Layout Configuration');
 
-  form = $('<form class="form-horizontal" />').appendTo(body);
+  const form = $('<form class="form-horizontal" />').appendTo($('body'));
 
   function addOption(txt, elem) {
-    g = $('<div class="form-group" />').appendTo(form);
+    const g = $('<div class="form-group" />').appendTo(form);
     $('<label class="control-label col-sm-4" />').text(txt).appendTo(g);
-    c = $('<div class="col-sm-8" />').appendTo(g);
+    const c = $('<div class="col-sm-8" />').appendTo(g);
     elem.appendTo(c);
   }
 
-  playerlocation = $('<select />').addClass('form-control');
+  const playerlocation = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'left').text('left').appendTo(playerlocation);
   $('<option />').attr('value', 'right').text('right').appendTo(playerlocation);
   $('<option />').attr('value', 'center').text('center').appendTo(playerlocation);
   playerlocation.val(USERCONFIG.player);
   addOption('Player location', playerlocation);
 
-  userlistlocation = $('<select />').addClass('form-control');
+  const userlistlocation = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'left').text('left').appendTo(userlistlocation);
   $('<option />').attr('value', 'right').text('right').appendTo(userlistlocation);
   userlistlocation.val(USERCONFIG.userlist);
   addOption('Userlist location', userlistlocation);
 
-  queuelocation = $('<select />').addClass('form-control');
+  const queuelocation = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'left').text('left').appendTo(queuelocation);
   $('<option />').attr('value', 'right').text('right').appendTo(queuelocation);
   $('<option />').attr('value', 'center').text('center').appendTo(queuelocation);
   queuelocation.val(USERCONFIG.queue);
   addOption('Queue location', queuelocation);
 
-  queuesize = $('<select />').addClass('form-control');
+  const queuesize = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'wide').text('wide').appendTo(queuesize);
   $('<option />').attr('value', 'narrow').text('narrow').appendTo(queuesize);
   queuesize.val(USERCONFIG.qsize);
   addOption('Queue column size', queuesize);
 
-  mainlocation = $('<select />').addClass('form-control');
+  const mainlocation = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'top').text('above playlist').appendTo(mainlocation);
   $('<option />').attr('value', 'bottom').text('below playlist').appendTo(mainlocation);
   mainlocation.val(USERCONFIG.main);
   addOption('Player & chat', mainlocation);
 
-  motdlocation = $('<select />').addClass('form-control');
+  const motdlocation = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'top').text('channel top').appendTo(motdlocation);
   $('<option />').attr('value', 'bottom').text('channel bottom').appendTo(motdlocation);
   motdlocation.val(USERCONFIG.motd);
   addOption('MOTD & announcements', motdlocation);
 
-  logoinsert = $('<select />').addClass('form-control');
+  const logoinsert = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'no').text('no image').appendTo(logoinsert);
   $('<option />').attr('value', 'user').text('user image').appendTo(logoinsert);
   for (const logoName of LOGOS.keys()) {
@@ -2366,19 +2361,19 @@ function showConfig() {
   logoinsert.val(USERCONFIG.logo);
   addOption('Top logo', logoinsert);
 
-  userlogo =
+  const userlogo =
       $('<input />').addClass('form-control').attr('type', 'text').attr('placeholder', 'Image URL');
   userlogo.val('');
   addOption('User logo URL', userlogo);
 
-  userlogoht = $('<input />')
-                   .addClass('form-control')
-                   .attr('type', 'text')
-                   .attr('placeholder', 'Image Height (in px)');
+  const userlogoht = $('<input />')
+                         .addClass('form-control')
+                         .attr('type', 'text')
+                         .attr('placeholder', 'Image Height (in px)');
   userlogoht.val('');
   addOption('User logo height', userlogoht);
 
-  if (USERCONFIG.logo != 'user') {
+  if (USERCONFIG.logo !== 'user') {
     userlogo.parent().parent().hide();
     userlogoht.parent().parent().hide();
   } else {
@@ -2386,35 +2381,36 @@ function showConfig() {
     userlogoht.val(USERCONFIG.logoht);
   }
 
-  headermode = $('<select />').addClass('form-control');
+  const headermode = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'fixed').text('fixed').appendTo(headermode);
   $('<option />').attr('value', 'detached').text('detached').appendTo(headermode);
   $('<option />').attr('value', 'mouseover').text('mouseover').appendTo(headermode);
   headermode.val(USERCONFIG.header);
   addOption('Header menu', headermode);
 
-  customcss = $('<select />').addClass('form-control');
+  const customcss = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'no').text('no').appendTo(customcss);
   $('<option />').attr('value', 'yes').text('yes').appendTo(customcss);
   customcss.val(USERCONFIG.css);
   addOption('Custom CSS', customcss);
 
-  usercss =
+  const usercss =
       $('<textarea rows="8" />').addClass('form-control').attr('placeholder', 'Insert CSS code');
   usercss.val(USERCONFIG.csscode);
   addOption('CSS code', usercss);
 
-  if (USERCONFIG.css == 'no') {
+  if (USERCONFIG.css === 'no') {
     usercss.parent().parent().hide();
   }
 
-  submit =
+  const submit =
       $('<button class="btn btn-default btn-success" />').text('Save changes').appendTo(footer);
-  reset = $('<button class="btn btn-default pull-left" />').text('Default').appendTo(footer);
-  column = $('<button class="btn btn-default pull-left" />').text('One column').appendTo(footer);
+  const reset = $('<button class="btn btn-default pull-left" />').text('Default').appendTo(footer);
+  const column =
+      $('<button class="btn btn-default pull-left" />').text('One column').appendTo(footer);
 
   logoinsert.on('change', () => {
-    if (logoinsert.val() == 'user') {
+    if (logoinsert.val() === 'user') {
       userlogo.parent().parent().show();
       userlogoht.parent().parent().show();
       userlogo.val(USERCONFIG.logourl);
@@ -2426,7 +2422,7 @@ function showConfig() {
   });
 
   customcss.on('change', () => {
-    if (customcss.val() == 'yes') {
+    if (customcss.val() === 'yes') {
       usercss.parent().parent().show();
     } else {
       usercss.parent().parent().hide();
@@ -2454,10 +2450,10 @@ function showConfig() {
     USERCONFIG.motd = motdlocation.val();
     setOpt(CHANNEL.name + '_motd', motdlocation.val());
 
-    if (logoinsert.val() == 'user') {
-      if (userlogo.val() == '') {
+    if (logoinsert.val() === 'user') {
+      if (userlogo.val() === '') {
         logoinsert.val('no');
-      } else if (userlogoht.val() == '') {
+      } else if (userlogoht.val() === '') {
         userlogoht.val('200');
       } else {
         a = userlogoht.val() * 1;
@@ -2477,7 +2473,7 @@ function showConfig() {
     USERCONFIG.header = headermode.val();
     setOpt(CHANNEL.name + '_header', headermode.val());
 
-    if (customcss.val() == 'yes') {
+    if (customcss.val() === 'yes') {
       USERCONFIG.csscode = usercss.val();
       setOpt(CHANNEL.name + '_csscode', usercss.val());
     }
@@ -2600,18 +2596,18 @@ function toggleMinLayout() {
  * Pin-up playlist to player.
  */
 function pinUp() {
-  if (USERCONFIG.player == 'left') {
+  if (USERCONFIG.player === 'left') {
     $('#videowrap').after($('#rightpane').detach());
-  } else if (USERCONFIG.player == 'right') {
+  } else if (USERCONFIG.player === 'right') {
     $('#videowrap').before($('#rightpane').detach());
   }
-  if (USERCONFIG.queue == 'left') {
+  if (USERCONFIG.queue === 'left') {
     $('#leftpane').before($('#chatwrap').detach());
-  } else if (USERCONFIG.queue == 'right') {
+  } else if (USERCONFIG.queue === 'right') {
     $('#leftpane').after($('#chatwrap').detach());
   }
   $('#rightpane').removeClass().addClass('col-lg-5 col-md-5');
-  if (USERCONFIG.qsize == 'wide') {
+  if (USERCONFIG.qsize === 'wide') {
     $('#chatwrap').removeClass().addClass('col-lg-7 col-md-7');
   } else {
     $('#chatwrap').removeClass().addClass('col-lg-5 col-md-5');
@@ -2627,18 +2623,18 @@ function pinUp() {
  * Un-pin playlist from player.
  */
 function unPin() {
-  if (USERCONFIG.queue == 'left') {
+  if (USERCONFIG.queue === 'left') {
     $('#leftpane').before($('#rightpane').detach());
-  } else if (USERCONFIG.queue == 'right') {
+  } else if (USERCONFIG.queue === 'right') {
     $('#leftpane').after($('#rightpane').detach());
   }
-  if (USERCONFIG.player == 'left') {
+  if (USERCONFIG.player === 'left') {
     $('#videowrap').after($('#chatwrap').detach());
-  } else if (USERCONFIG.player == 'right') {
+  } else if (USERCONFIG.player === 'right') {
     $('#videowrap').before($('#chatwrap').detach());
   }
   $('#chatwrap').removeClass().addClass('col-lg-5 col-md-5');
-  if (USERCONFIG.qsize == 'wide') {
+  if (USERCONFIG.qsize === 'wide') {
     $('#rightpane').removeClass().addClass('col-lg-7 col-md-7');
   } else {
     $('#rightpane').removeClass().addClass('col-lg-5 col-md-5');
@@ -2701,12 +2697,17 @@ function expandQueue() {
 function getPlaylistURLs() {
   createModal('Playlist URLs');
 
-  data = $('<textarea rows="10" class="form-control" />').val(formatRawList()).appendTo(body);
-  rlist = $('<button class="btn btn-default pull-left">Raw Links</button>').appendTo(footer);
-  tlist = $('<button class="btn btn-default pull-left">Plain Text</button>').appendTo(footer);
-  hlist = $('<button class="btn btn-default pull-left">HTML Code</button>').appendTo(footer);
-  olist = $('<button class="btn btn-default pull-left">Ordered List</button>').appendTo(footer);
-  dlist = $('<button class="btn btn-default pull-left">Database Format</button>').appendTo(footer);
+  const body = $('body');
+  const footer = $('footer');
+
+  const data = $('<textarea rows="10" class="form-control" />').val(formatRawList()).appendTo(body);
+  const rlist = $('<button class="btn btn-default pull-left">Raw Links</button>').appendTo(footer);
+  const tlist = $('<button class="btn btn-default pull-left">Plain Text</button>').appendTo(footer);
+  const hlist = $('<button class="btn btn-default pull-left">HTML Code</button>').appendTo(footer);
+  const olist =
+      $('<button class="btn btn-default pull-left">Ordered List</button>').appendTo(footer);
+  const dlist =
+      $('<button class="btn btn-default pull-left">Database Format</button>').appendTo(footer);
 
   rlist.on('click', () => data.val(formatRawList()));
   tlist.on('click', () => data.val(formatPlainTextList()));
@@ -2724,7 +2725,7 @@ function addRandomItem() {
     alert('You can add random video every 2 minutes.');
   } else {
     let link = '';
-    while (link == '') {
+    while (link === '') {
       const rnd = Math.round(Math.random() * (CHANNEL_DATABASE.length - 1));
       link = CHANNEL_DATABASE[rnd][0];
     }
@@ -2822,7 +2823,7 @@ document.body.addEventListener('load', () => {
 }, true);
 
 // adding favicon
-if (UI_Favicon && Favicon_URL != '') {
+if (UI_Favicon && Favicon_URL !== '') {
   $(document).ready(() => {
     $(`<link id="chanfavicon" href="${Favicon_URL}" type="image/x-icon" ` +
       'rel="shortcut icon" />')
@@ -2875,18 +2876,18 @@ $('#useroptions .modal-footer button:nth-child(1)').on('click', () => {
 });
 
 // changing channel name
-if (UI_ChannelName && ChannelName_Caption != '') {
+if (UI_ChannelName && ChannelName_Caption !== '') {
   $('.navbar-brand').html(ChannelName_Caption);
 }
 
 // adding channel small logo
-if (UI_MiniLogo && MiniLogo_URL != '') {
+if (UI_MiniLogo && MiniLogo_URL !== '') {
   $(`<img id="chanavatar" src="${MiniLogo_URL}" />`).prependTo('.navbar-brand');
 }
 
 // adding header dropdown menu
 if (UI_HeaderDropMenu) {
-  if (HeaderDropMenu_Title == '') {
+  if (HeaderDropMenu_Title === '') {
     HeaderDropMenu_Title = 'Menu';
   }
   const headerdrop = $('<li id="headerdrop" class="dropdown" />').insertAfter('#home-link');
@@ -2901,7 +2902,7 @@ if (UI_HeaderDropMenu) {
   for (const menu of HeaderDropMenu_Array) {
     const title = menu[0];
     const link = menu[1];
-    if (link == '') {
+    if (link === '') {
       headermenu.append(`<li class="dropdown-header">${title}</li>`);
     } else {
       $('<li class="header-drop-link" />')
@@ -2913,7 +2914,7 @@ if (UI_HeaderDropMenu) {
 
 // adding version to the tab
 if (UI_Version) {
-  if (Version_Now == '') {
+  if (Version_Now === '') {
     Version_Now = 'Menu';
   }
   const headerdrop = $('<li id="headerdrop" class="dropdown" />').insertAfter('#channelset-link');
@@ -2934,17 +2935,17 @@ if (UI_RemoveLayoutMenu) {
 
 // changing some button captions or welcome message
 if (UI_CustomCaptions) {
-  if (CustomCaptions_Array['add'] != '') {
+  if (CustomCaptions_Array['add'] !== '') {
     $('#showmediaurl').html(CustomCaptions_Array['add']);
   }
-  if (CustomCaptions_Array['refresh'] != '') {
+  if (CustomCaptions_Array['refresh'] !== '') {
     $('#mediarefresh').html(CustomCaptions_Array['refresh']);
   }
-  if (CustomCaptions_Array['voteskip'] != '') {
+  if (CustomCaptions_Array['voteskip'] !== '') {
     socket.on('voteskip', changeSkipText);
     changeSkipText();
   }
-  if (CustomCaptions_Array['welcome'] != '') {
+  if (CustomCaptions_Array['welcome'] !== '') {
     socket.on('login', changeWelcomeText);
     changeWelcomeText();
   }
@@ -2983,7 +2984,7 @@ if (UI_MOTDAutoLogo) {
 }
 
 // adding attention bar
-if (UI_AttentionBar && AttentionBar_URL != '') {
+if (UI_AttentionBar && AttentionBar_URL !== '') {
   attbarwrap = $('<div id="attbarrow-outer" class="col-md-12" />').prependTo('#announcements');
   attbar = $('<iframe id="attbar" width="100%" frameborder="0" scrolling="no" />')
                .attr('src', AttentionBar_URL)
@@ -2992,10 +2993,10 @@ if (UI_AttentionBar && AttentionBar_URL != '') {
 
 // adding custom channel announcement
 if (UI_ChannelAnnouncement) {
-  if (ChannelAnnouncement_Title == '') {
+  if (ChannelAnnouncement_Title === '') {
     ChannelAnnouncement_Title = 'Administration Message';
   }
-  if (ChannelAnnouncement_HTML == '') {
+  if (ChannelAnnouncement_HTML === '') {
     ChannelAnnouncement_HTML = '<i>no messages</i>';
   }
   makeAlert(ChannelAnnouncement_Title, ChannelAnnouncement_HTML).appendTo('#announcements');
@@ -3016,7 +3017,7 @@ if (UI_FullTitleBar) {
   socket.on('changeMedia', showInfo);
   showInfo();
 
-  if (UI_TitleIcon && TitleIcon_URL != '') {
+  if (UI_TitleIcon && TitleIcon_URL !== '') {
     $('#titlerow #currenttitle').css({
       'background-image': `url("${TitleIcon_URL}")`,
       'background-repeat': 'no-repeat',
@@ -3078,7 +3079,7 @@ function dropthefast() {
 }
 
 // customizing chat notifications sound
-if (UI_CustomPingSound && CustomPingSound_URL != '') {
+if (UI_CustomPingSound && CustomPingSound_URL !== '') {
   CHATSOUND = new Audio(CustomPingSound_URL);
   CHATSOUND.volume = 0.4;
 }
@@ -3124,7 +3125,7 @@ toggleChatFunctions();
 
 // optional chat joining message
 if (UI_JoinText) {
-  if (JoinText_Message == '') {
+  if (JoinText_Message === '') {
     JoinText_Message = 'hello!';
   }
   socket.emit('chatMsg', {msg: `/me ${JoinText_Message}`});
@@ -3132,7 +3133,7 @@ if (UI_JoinText) {
 
 // optional chat leaving message
 if (UI_LeaveText) {
-  if (LeaveText_Message == '') {
+  if (LeaveText_Message === '') {
     LeaveText_Message = 'left';
   }
   $(window).unload(() => socket.emit('chatMsg', {msg: `/me ${LeaveText_Message}`}));
@@ -3461,12 +3462,12 @@ if (UI_FontsBtn) {
   ];
 
   for (const [i, font] of FontsArray.entries()) {
-    $(`<button id="cbtn${i}" onclick="insertText('[${font[1]}]')" />`)
+    $(`<button id="cbtn${i}" onclick="cydj.insertText('[${font[1]}]')" />`)
         .addClass('btn btn-primary')
         .attr('style', font[0])
         .text(font[2])
         .appendTo(fontsbtnwrap);
-    if (i % 13 == 12) {
+    if (i % 13 === 12) {
       fontsbtnwrap.append('<br />');
     }
   }
@@ -3474,7 +3475,7 @@ if (UI_FontsBtn) {
   if (UI_UnicodeChars && UnicodeChars_Array.length > 0) {
     const unibtnwrap = $('<div id="unibtnwrap" />').appendTo(fontspanel);
     for (const char of UnicodeChars_Array) {
-      $(`<button onclick="insertText('${char}')" />`)
+      $(`<button onclick="cydj.insertText('${char}')" />`)
           .addClass('btn btn-primary')
           .text(char)
           .appendTo(unibtnwrap);
@@ -3539,7 +3540,7 @@ if (UI_ChannelGalleries) {
         }
 
         // patch: strange imgur behaviour (not loading first cached gallery)
-        if (!GALLVIS && UI_ChannelCache && gallerywrap.css('display') != 'none') {
+        if (!GALLVIS && UI_ChannelCache && gallerywrap.css('display') !== 'none') {
           iframe = document.getElementById('galleryFrame');
           if (iframe.src.includes('imgur.com')) {
             iframe.src = iframe.src;
@@ -3604,7 +3605,7 @@ if (UI_DisplayModeSel) {
                   $('#sounds-dropdown, #chatfunc-dropdown').remove();
                   SOUNDSPANEL = false;
                   CHATFUNC = false;
-                  if (PLAYER.type == 'jw') {
+                  if (PLAYER.type === 'jw') {
                     refreshPlayer();
                   }
                   setMode($(this).val());
@@ -3647,7 +3648,7 @@ if (ThemesCSS.length > 0) {
   }
 }
 
-if (UI_ChannelTheme && ChannelThemeURL != '') {
+if (UI_ChannelTheme && ChannelThemeURL !== '') {
   themesel.prepend(`<option value="${ChannelThemeURL}"># Channel Theme</option>`)
       .prepend('<option value="" class="theme-header" disabled>main theme</option>');
 }
@@ -3697,7 +3698,7 @@ $('<input type="checkbox" id="hide-hf" value="no" />')
     .appendTo(hidehf)
     .on('click',
         () => {
-          if ($('nav').css('display') != 'none') {
+          if ($('nav').css('display') !== 'none') {
             headerMode('fixed');
           } else {
             headerMode(USERCONFIG.header);
@@ -3708,7 +3709,7 @@ $('<input type="checkbox" id="hide-hf" value="no" />')
     .after(' H&F');
 
 // adding embedding options
-if (UI_EmbeddingMedia && (EmbeddingMedia_Images != '' || EmbeddingMedia_Videos != '')) {
+if (UI_EmbeddingMedia && (EmbeddingMedia_Images !== '' || EmbeddingMedia_Videos !== '')) {
   const embedform = $('<div id="embedform" class="form-group" />').appendTo(configwell);
   $('<div class="col-lg-5 col-md-5 conf-cap">Embeds <span id="embed-help">[?]</span></div>')
       .appendTo(embedform);
@@ -3721,17 +3722,17 @@ if (UI_EmbeddingMedia && (EmbeddingMedia_Images != '' || EmbeddingMedia_Videos !
         'All videos are muted by default, if autoplay - click to unmute, else click to play.\n\n' +
         'This channel supports following types of links (specified as CSS codes):\n' +
         '■ Images - ';
-    if (EmbeddingMedia_Images != '') {
+    if (EmbeddingMedia_Images !== '') {
       txt += EmbeddingMedia_Images;
     }
     txt += '\n■ Videos - ';
-    if (EmbeddingMedia_Videos != '') {
+    if (EmbeddingMedia_Videos !== '') {
       txt += EmbeddingMedia_Videos;
     }
     alert(txt);
   });
 
-  if (EmbeddingMedia_Images != '') {
+  if (EmbeddingMedia_Images !== '') {
     const embedimg = $('<label class="checkbox-inline" />').appendTo(embedwrap);
     const cbox = $('<input type="checkbox" id="embed-img" checked>')
                      .appendTo(embedimg)
@@ -3746,7 +3747,7 @@ if (UI_EmbeddingMedia && (EmbeddingMedia_Images != '' || EmbeddingMedia_Videos !
     }
   }
 
-  if (EmbeddingMedia_Videos != '') {
+  if (EmbeddingMedia_Videos !== '') {
     const embedvid = $('<label class="checkbox-inline" />').appendTo(embedwrap);
     const cbox = $('<input type="checkbox" id="embed-webm" checked>')
                      .appendTo(embedvid)
@@ -3868,7 +3869,7 @@ if (UI_ChannelDatabase) {
                .insertBefore(configwrap);
   dbwell = $('<div id="db-well" class="well" />').appendTo(dbwrap);
 
-  if (CHANNEL_DATABASE.length < 1 || CHANNEL_DATABASE[0][0] != '') {
+  if (CHANNEL_DATABASE.length < 1 || CHANNEL_DATABASE[0][0] !== '') {
     CHANNEL_DATABASE.unshift(['', '(various media)']);
   }
   if (UI_ChannelCache) {
@@ -4021,7 +4022,7 @@ let onlinetime;
 
 if (UI_CustomFooter || UI_UserStatistics) {
   leftfooter = UI_CustomRightFooter ? $('<span id="leftfooter" />') : $('<div id="leftfooter" />');
-  if (UI_CustomRightFooter && CustomFooter_HTML != '') {
+  if (UI_CustomRightFooter && CustomFooter_HTML !== '') {
     leftfooter.html(CustomFooter_HTML);
   }
   leftfooter.appendTo('footer .container');
@@ -4031,7 +4032,7 @@ USERVISITS++;
 setOpt(CHANNEL.name + '_visits', USERVISITS);
 
 if (UI_UserStatistics) {
-  if (UI_CustomFooter && CustomFooter_HTML != '') {
+  if (UI_CustomFooter && CustomFooter_HTML !== '') {
     $('<br /><br />').appendTo(leftfooter);
   }
 
@@ -4052,7 +4053,7 @@ if (UI_UserStatistics) {
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
-if (UI_EmbeddingMedia && (EmbeddingMedia_Images != '' || EmbeddingMedia_Videos != '')) {
+if (UI_EmbeddingMedia && (EmbeddingMedia_Images !== '' || EmbeddingMedia_Videos !== '')) {
   ALTERCHATFORMAT = true;
 }
 if (UI_UserMarks || UI_IndependentEmotes || UI_IndependentFilters) {
@@ -4114,7 +4115,7 @@ if (ALTERCHATFORMAT) {
     if (!skip) {
       uname.appendTo(div);
     }
-    const mark = (UI_UsernameMark && UsernameMark_Char != '') ? UsernameMark_Char : ':';
+    const mark = (UI_UsernameMark && UsernameMark_Char !== '') ? UsernameMark_Char : ':';
     $('<strong class="username" />').text(data.username + mark + ' ').appendTo(uname);
 
     if (data.meta.modflair) {
@@ -4131,16 +4132,16 @@ if (ALTERCHATFORMAT) {
     const message = $('<span />').appendTo(div);
     message[0].innerHTML = data.msg;
 
-    if (data.meta.addClass == 'greentext') {
+    if (data.meta.addClass === 'greentext') {
       message.addClass('greentext');
     }
-    if (data.meta.addClass == 'spoiler') {
+    if (data.meta.addClass === 'spoiler') {
       message.addClass('spoiler');
     }
-    if (data.meta.addClass == 'action') {
+    if (data.meta.addClass === 'action') {
       message.addClass('action');
     }
-    if (data.meta.addClass == 'server-whisper') {
+    if (data.meta.addClass === 'server-whisper') {
       message.addClass('server-whisper');
     }
 
@@ -4156,7 +4157,7 @@ if (ALTERCHATFORMAT) {
         const html = `<img src="${emote[1]}" title="${filter}" ` +
             `style="width:${emote[2]}px; ` +
             `height:${emote[3]}px; cursor:pointer" ` +
-            `onclick="insertText('${filter}')" />`;
+            `onclick="cydj.insertText('${filter}')" />`;
         _div = _div.replace(new RegExp(filter, 'g'), html);
       }
       div.html(_div);
@@ -4508,13 +4509,7 @@ m.parentNode.insertBefore(a, m);
 ga('create', 'UA-53755606-1', 'auto');
 ga('send', 'pageview');
 
-// adding external script file and music stuff
-
-if (UI_ExternalScript && ExternalScript_URL != '') {
-  $.getScript(ExternalScript_URL);
-}
-
-if (UI_Snow && Snow_URL != '') {
+if (UI_Snow && Snow_URL !== '') {
   $.getScript(Snow_URL);
 }
 
