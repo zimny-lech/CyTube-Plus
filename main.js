@@ -627,9 +627,6 @@ const MUTEDVOICES = [];
 // array of links added from channel database by user
 const ADDEDLINKS = [];
 
-// simple hash for comparing if the new messages have appeared in the mod panel
-let HASH = '';
-
 const WEBKIT = 'webkitRequestAnimationFrame' in window;
 // const SOUNDSVALUES = [0, 0.1, 0.2, 0.4, 0.7, 1];
 // const SPEAKLINK = 'http://webanywhere.cs.washington.edu/cgi-bin/espeak/getsound.pl';
@@ -1393,16 +1390,6 @@ function toggleModPanel() {
     modbtn.hide();
   } else {
     modbtn.show();
-    HASH = '';
-    for (const row of ModPanel_Array) {
-      const name = row[0];
-      if (name === '' || name === CLIENT.name) {
-        HASH += '' + row[1].length;
-      }
-    }
-    if (HASH !== USERCONFIG.modhash) {
-      modbtn.addClass('btn-danger').html(modbtn.html() + ' (New Mess.)');
-    }
   }
 }
 
@@ -1573,33 +1560,32 @@ function toggleAdvancedPl() {
  * @return {string}
  */
 function formatRawList() {
-  len = $('#queue .queue_entry').length + 1;
-  list = [];
+  const len = $('#queue .queue_entry').length + 1;
+  const list = [];
   for (i = 1; i < len; i++) {
-    item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
+    const item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
     list.push(formatURL(item));
   }
   return list.join(',');
 }
 
 function formatPlainTextList() {
-  len = $('#queue .queue_entry').length + 1;
+  const len = $('#queue .queue_entry').length + 1;
   const list = [];
   for (i = 1; i < len; i++) {
-    item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
+    const item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
     list.push(`${i}. ${formatURL(item)} // ${item.title} [${item.duration}]`);
   }
   return list.join('\n');
 }
 
 function formatHTMLList() {
-  len = $('#queue .queue_entry').length + 1;
+  const len = $('#queue .queue_entry').length + 1;
   const list = [];
   for (i = 1; i < len; i++) {
-    item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
-    title = item.title;
-    duration = item.duration;
-    link = formatURL(item);
+    const item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
+    const {title, duration} = item;
+    const link = formatURL(item);
     list.push(
         `<li>${title} [${duration}] - <a href="${link}" target="_blank">` +
         `${link}</a></li>`);
@@ -1608,11 +1594,11 @@ function formatHTMLList() {
 }
 
 function formatOrderedList() {
-  len = $('#queue .queue_entry').length + 1;
+  const len = $('#queue .queue_entry').length + 1;
   const list = [];
   for (i = 1; i < len; i++) {
-    item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
-    link = formatURL(item);
+    const item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
+    const link = formatURL(item);
     list.push(`${item.title} ■■ ${link} ■■ [${item.duration}]`);
     list.sort();
   }
@@ -1620,13 +1606,13 @@ function formatOrderedList() {
 }
 
 function formatDBList() {
-  len = $('#queue .queue_entry').length + 1;
+  const len = $('#queue .queue_entry').length + 1;
   const list = [];
   for (i = 1; i < len; i++) {
-    item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
-    re1 = new RegExp('\\\\', 'g');
-    re2 = new RegExp('\'', 'g');
-    title = item.title.replace(re1, '\\\\').replace(re2, '\\\'');
+    const item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
+    const re1 = new RegExp('\\\\', 'g');
+    const re2 = new RegExp('\'', 'g');
+    const title = item.title.replace(re1, '\\\\').replace(re2, '\\\'');
     list.push(`['${formatURL(item)}', '${title}'],`);
   }
   return list.join('\n');
