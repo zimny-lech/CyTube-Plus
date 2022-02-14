@@ -710,22 +710,24 @@ function addToPlaylist(link, stand) {
 //   return div.textContent || div.innerText;
 // }
 
+let outer;
+
 /**
  * Create modal window.
  *
  * @param {string} title
  */
 function createModal(title) {
-  outer = $('<div class="modal fade" />').appendTo($('body'));
-  modal = $('<div class="modal-dialog" />').appendTo(outer);
-  modal = $('<div class="modal-content" />').appendTo(modal);
-  head = $('<div class="modal-header" />').appendTo(modal);
+  const outer = $('<div class="modal fade" />').appendTo($('body'));
+  const modal1 = $('<div class="modal-dialog" />').appendTo(outer);
+  const modal2 = $('<div class="modal-content" />').appendTo(modal1);
+  const head = $('<div class="modal-header" />').appendTo(modal2);
   $('<button class="close" data-dismiss="modal" aria-hidden="true" />')
       .html('&times;')
       .appendTo(head);
   $('<h3 />').text(title).appendTo(head);
-  body = $('<div class="modal-body" />').appendTo(modal);
-  footer = $('<div class="modal-footer" />').appendTo(modal);
+  $('<div class="modal-body" />').appendTo(modal2);
+  $('<div class="modal-footer" />').appendTo(modal2);
   outer.on('hidden', () => {
     outer.remove();
     unhidePlayer();
@@ -1408,7 +1410,8 @@ function toggleModPanel() {
  * Create media database.
  */
 function createDatabase() {
-  let html = '<button id="la1" class="btn btn-default btn-sm db-break" onclick="toggleCat(1)">' +
+  let html =
+      '<button id="la1" class="btn btn-default btn-sm db-break" onclick="cydj.toggleCat(1)">' +
       CHANNEL_DATABASE[0][1] + '</button>' +
       '<ul id="l1" class="videolist db-cat">';
 
@@ -1422,7 +1425,7 @@ function createDatabase() {
 
       html += `</ul><button id="la${layer_nr}" ` +
           `class="btn btn-default btn-sm db-break" ` +
-          `onclick="toggleCat(${layer_nr})">` +
+          `onclick="cydj.toggleCat(${layer_nr})">` +
           `${CHANNEL_DATABASE[i][1]}</button>` +
           `<ul id="l${layer_nr}" class="videolist db-cat">`;
     } else {
@@ -1482,8 +1485,7 @@ function createDatabase() {
  *
  * @param {number} a
  */
-// eslint-disable-next-line no-unused-vars
-function toggleCat(a) {
+export function toggleCat(a) {
   b = a - 1;
   if (opening[b] == 0) {
     $('.db-cat').hide();
