@@ -685,7 +685,7 @@ function refreshPlayer() {
  * @param {string} stand
  */
 function addToPlaylist(link, stand) {
-  parsed = parseMediaLink(link);
+  const parsed = parseMediaLink(link);
   if (parsed['id'] != null) {
     socket.emit('queue', {id: parsed['id'], pos: stand, type: parsed['type']});
   }
