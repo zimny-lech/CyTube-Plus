@@ -3141,7 +3141,7 @@ let fontspanel;
 if (UI_FontsBtn) {
   $('<button id="fonts-btn" class="btn btn-sm btn-default" title="Display fonts panel" />')
       // .html('<span class="material-icons">text_format</span>')
-      .html('<i class="fa-solid fa-font">text_format</i>')
+      .html('<i class="fa-solid fa-font"></i>')
       .appendTo(chatcontrols)
       .on('click', () => toggleDiv(fontspanel));
 }
