@@ -1733,11 +1733,11 @@ function setUserCSS() {
   messageBuffer.classList.remove(oldThemeType);
   if (USERTHEME === '/css/themes/slate.css') {
     $('body').css('background-color', '#141414');
-    $('.queue_entry').css('background-color', '#3a3f44');
+    $('.queue_entry').css('background-color', '#293d36bd');
     $('.dropdown-menu').css('background-color', '#383E40');
     $('.btn-default').css('background-image', 'linear-gradient(#3a3f44,#3a3f44 60%,#313539)');
-    $('#motd').css('background-color', '#272b30');
-    $('#motdwrap').css('background-color', '#272b30');
+    $('#motd').css('background-color', '#293d36bd');
+    $('#motdwrap').css('background-color', '#293d36bd');
     $('#userlist').css('background-color', '#272b30');
   } else {
     $('body').css('background-color', '');
