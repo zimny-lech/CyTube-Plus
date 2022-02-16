@@ -1738,7 +1738,7 @@ function setUserCSS() {
     $('.btn-default').css('background-image', 'linear-gradient(#3a3f44,#3a3f44 60%,#313539)');
     $('#motd').css('background-color', '#fff0');
     $('#motdwrap').css('background-color', '#293d36bd');
-    $('#userlist').css('background-color', '#272b30');
+    $('#userlist').css('background-color', '#222a27');
   } else {
     $('body').css('background-color', '');
     $('.queue_entry').css('background-color', '');
