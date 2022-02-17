@@ -1735,7 +1735,9 @@ function setUserCSS() {
     $('body').css('background-color', '#141414');
     $('.queue_entry').css('background-color', '#293d36bd');
     $('.dropdown-menu').css('background-color', '#383E40');
-    $('.btn-default').css('background-image', 'linear-gradient(#3a3f44,#3a3f44 60%,#313539)');
+    $('.btn-default').css('background-image', 'linear-gradient(#4c333e00,#4c333e00 60%,#4c333e00)');
+    $('.btn-default').css('border-color', '#4cb290');
+    $('.btn-default:hover').css('background-color', '#4cb290');
     $('#motd').css('background-color', '#fff0');
     $('#motdwrap').css('background-color', '#293d36bd');
     $('#userlist').css('background-color', '#222a27');
@@ -1744,6 +1746,8 @@ function setUserCSS() {
     $('.queue_entry').css('background-color', '');
     $('.dropdown-menu').css('background-color', '');
     $('.btn-default').css('background-image', '');
+    $('.btn-default').css('border-color', '');
+    $('.btn-default:hover').css('background-color', '#4cb290');
     $('#motd').css('background-color', '');
     $('#motdwrap').css('background-color', '');
     $('#userlist').css('background-color', '');
