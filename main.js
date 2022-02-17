@@ -690,7 +690,7 @@ function refreshPlayer() {
 function addToPlaylist(link, stand) {
   const parsed = parseMediaLink(link);
   if (parsed['id'] != null) {
-    socket.emit('queue', {id: parsed['id'], pos: stand, type: parsed['type']});
+    socket.emit('queue', {id: parsed['id'], pos: stand, type: parsed['type'], temp: $('.add-temp').prop('checked')});
   }
 }
 
