@@ -1370,18 +1370,18 @@ export function insertText(str) {
   $('#chatline').val($('#chatline').val() + str).focus();
 }
 
-let muteplayerbtn;
+// let muteplayerbtn;
 
 /**
  * Toggle YT mute button.
  */
-function toggleMuteBtn() {
+/* function toggleMuteBtn() {
   if (PLAYER && PLAYER.type === 'yt') {
     muteplayerbtn.show();
   } else {
     muteplayerbtn.hide();
   }
-}
+}*/
 
 let modbtn;
 
@@ -1390,9 +1390,9 @@ let modbtn;
  */
 function toggleModPanel() {
   if (CLIENT.rank < 2) {
-    modbtn.hide();
+    modbtn.remove();
   } else {
-    modbtn.show();
+    modbtn.add();
   }
 }
 
@@ -3351,7 +3351,7 @@ if (UI_PlayerOptions) {
             }
           });
 
-  muteplayerbtn =
+  /* muteplayerbtn =
       $('<button id="muteplayer-btn" class="btn btn-sm btn-default" title="Mute player" />')
           .append('<span class="glyphicon glyphicon-volume-off" />')
           .appendTo('#playercontrols')
@@ -3363,7 +3363,7 @@ if (UI_PlayerOptions) {
               $(this).addClass('btn-danger').attr('title', 'Unmute player');
               mutePlayer();
             }
-          });
+          });*/
 
   socket.on('changeMedia', toggleMuteBtn);
   toggleMuteBtn();
