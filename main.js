@@ -3363,10 +3363,10 @@ if (UI_PlayerOptions) {
               $(this).addClass('btn-danger').attr('title', 'Unmute player');
               mutePlayer();
             }
-          });*/
+          });
 
   socket.on('changeMedia', toggleMuteBtn);
-  toggleMuteBtn();
+  toggleMuteBtn();*/
 }
 
 // adding player transformation buttons
