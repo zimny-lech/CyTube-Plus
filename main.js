@@ -3092,7 +3092,7 @@ if (UI_CustomPingSound && CustomPingSound_URL !== '') {
 // public skipping from ui
 if (UI_PublicSkip) {
   $('#voteskip').on('click', function() {
-    socket.emit('voteskip');
+ //   socket.emit('voteskip');
     socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
     $('#voteskip').attr('disabled', true);
     naySound();
