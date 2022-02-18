@@ -3211,7 +3211,7 @@ function showContextMenu() {
 
 // adding easter egg button
 if (UI_PartyButton) {
-  $('<button id="party-btn" class="btn btn-sm btn-default" title="Party!" />')
+  $('<button id="party-btn" class="btn btn-sm btn-default" title="Party! DO NOT USE IF YOU ARE SUBJECT TO EPILEPSY!!!" />')
       .text('Party!')
       .appendTo(chatcontrols)
       .on('click', () => showDrop());
