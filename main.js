@@ -3090,9 +3090,9 @@ if (UI_CustomPingSound && CustomPingSound_URL !== '') {
 }
 
 // public skipping from ui
+// THIS ONLY ADDS A MESSAGE, the function itself is in ui.js from cytube
 if (UI_PublicSkip) {
   $('#voteskip').on('click', function() {
- //   socket.emit('voteskip');
     socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
     $('#voteskip').attr('disabled', true);
     naySound();
