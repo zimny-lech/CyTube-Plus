@@ -1736,7 +1736,7 @@ function setUserCSS() {
     $('a').css('color', '#94d1bd');
     $('a:hover, a:focus').css('color', '#b8e0d3');
     $('.qe_title').css('color', '#ff66ab!important');
-    $('.queue_entry').css('background-color', '#2e3835');
+    $('.queue_entry').css('background-color', '#293d36bd');
     $('.dropdown-menu').css('background-color', '#383E40');
     $('.btn').css({'background-image': 'linear-gradient(#4c333e00,#4c333e00 60%,#4c333e00)!important', 'border-color': '#4cb290!important', 'border-color': '#3a3f4400!important'});
     $('.btn-default:hover').css('background-color', '#4cb290');
