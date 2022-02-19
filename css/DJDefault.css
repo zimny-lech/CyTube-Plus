@@ -13,6 +13,14 @@ body {
 	font-size:14px;
 }
 
+b, strong {
+	font-weight: 700;
+}
+
+.userlist_owner {
+	font-weight: bold!important;
+}
+
 	/* -- buttons -- */
 
 .btn {text-shadow:none}
