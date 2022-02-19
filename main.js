@@ -421,7 +421,7 @@ const ThemesCSS = [
   ],
   [
     'Classic FBI',
-    'https://dl.dropboxusercontent.com/s/oa4y86gyyag6bix/twitchclassic.css',
+    'https://papertek.github.io/CyDJ/deploy/beta/css/twitchclassic.css',
   ],
   [
     'Classic DJ',
