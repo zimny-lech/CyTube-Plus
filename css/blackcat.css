@@ -19,6 +19,12 @@ html, body {
   background-color: #01e6b326;
 }
 
+#currenttitle {
+  background-image: url(https://cdn.7tv.app/emote/60bfb67aa2610d253072f14a/4x)!important;
+  background-repeat: no-repeat!important;
+  background-position: left center!important;
+}
+
 #wrap {
   background-image: url(https://cdn.discordapp.com/attachments/782344759456825406/941492721577766970/catpeg_waifu2x_art_noise2_scale_tta_1.png);
   background-repeat: repeat-y;
@@ -32,7 +38,7 @@ html, body {
 }
 
 .alert-info {
-  background-color: #3b4ba0;
+  background-color: #b9266c;
   border-color: #3b4ba09e;
   color: #fff;
 }
@@ -122,7 +128,7 @@ html, body {
 .btn-default {
   background-image: linear-gradient(#ff1887ad, #00e6b3 100%, #ccc);
   font-weight: 500;
-  color: #101112;
+  color: #fffefe;
 }
 
 .dark-theme > .odd-message {
