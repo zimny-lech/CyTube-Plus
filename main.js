@@ -32,6 +32,9 @@ library.add(faCamera);
 
 export const camera = icon({prefix: 'fas', iconName: 'camera'});
 
+import {config} from '@fortawesome/fontawesome-svg-core';
+config.autoA11y = true;
+
 /* ----- STARTING CONFIGURATION - USER INTERFACE (UI) ----- */
 
 // CONFIGURATION NOTES:
