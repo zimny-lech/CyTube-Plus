@@ -316,12 +316,16 @@ table {
   background-image: -webkit-linear-gradient(#484e55, #3a3f44 60%, #313539);
   background-image: -o-linear-gradient(#484e55, #3a3f44 60%, #313539);
   background-image: webkit-gradient(linear, left top, left bottom, from(#484e55), color-stop(60%, #3a3f44), to(#313539));
-  background-image: linear-gradient(#6441a5, #6441a5 60%, #6441a5);
+  background-image: linear-gradient(#6441a5, #6441a5 60%, #6441a5)!important;
   background-repeat: no-repeat;
   -webkit-filter: none;
   filter: none
 }
 
+.btn {
+  color: #fff;
+  background-color: #3a3f44;
+}
 .alert-info {
   background-color: #383E40;
   border-color: #3F4344;
