@@ -1743,6 +1743,10 @@ function setUserCSS() {
     $('.dropdown-menu').css('background-color', '#383E40');
     $('.btn').css({'background-image': 'linear-gradient(#4c333e00,#4c333e00 60%,#4c333e00)!important', 'border-color': '#4cb290!important', 'border-color': '#3a3f4400!important'});
     $('.btn-default:hover').css('background-color', '#4cb290');
+    $('.modal-body').css('background-color', '#293d36');
+    $('.modal-header').css('background-color', '#293d36');
+    $('.modal-footer').css('background-color', '#293d36');
+    $('.modal-content').css('background-color', '#293d36');
     $('#motd').css('background-color', '#fff0');
     $('#motdwrap').css('background-color', '#293d36bd');
     $('#userlist').css('background-color', '#222a27');
@@ -1755,6 +1759,10 @@ function setUserCSS() {
     $('.dropdown-menu').css('background-color', '');
     $('.btn').css({'background-image': '', 'border-color': '', 'border-color': ''});
     $('.btn-default:hover').css('background-color', '');
+    $('.modal-body').css('background-color', '');
+    $('.modal-header').css('background-color', '');
+    $('.modal-footer').css('background-color', '');
+    $('.modal-content').css('background-color', '');
     $('#motd').css('background-color', '');
     $('#motdwrap').css('background-color', '');
     $('#userlist').css('background-color', '');
