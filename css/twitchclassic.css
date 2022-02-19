@@ -8,6 +8,14 @@ body {
   line-height: 1.42857143
 }
 
+b, strong {
+	font-weight: 700;
+}
+
+.userlist_owner {
+	font-weight: bold!important;
+}
+
 .fluid {
   overflow-x: hidden
 }
@@ -302,6 +310,9 @@ table {
 
 /* TRANSFERRED BACK (BEGIN) */
 .btn-default {
+  color: #fff;
+  background-color: #3a3f44;
+  border: 1px solid transparent;
   background-image: -webkit-linear-gradient(#484e55, #3a3f44 60%, #313539);
   background-image: -o-linear-gradient(#484e55, #3a3f44 60%, #313539);
   background-image: webkit-gradient(linear, left top, left bottom, from(#484e55), color-stop(60%, #3a3f44), to(#313539));
