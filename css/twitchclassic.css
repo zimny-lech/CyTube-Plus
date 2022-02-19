@@ -324,7 +324,7 @@ table {
 
 .btn {
   color: #fff;
-  background-color: #3a3f44;
+  background-color: #3a3f44!important;
 }
 .alert-info {
   background-color: #383E40;
