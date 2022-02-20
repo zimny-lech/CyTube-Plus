@@ -8,6 +8,18 @@ body {
   line-height: 1.42857143
 }
 
+b, strong {
+	font-weight: 700;
+}
+
+.userlist_owner {
+	font-weight: bold!important;
+}
+
+.poll-notify {
+  font-weight: bold;
+}
+
 .fluid {
   overflow-x: hidden
 }
@@ -90,7 +102,7 @@ body {
   align-items: center;
 }
 
-.label {
+/*.label {
   display: inline;
   padding: 0.2em 0.6em 0.3em;
   font-size: 75%;
@@ -101,7 +113,7 @@ body {
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: 0.25em;
-}
+}*/
 
 .label-success {
   background-color: #62c462;
@@ -302,15 +314,30 @@ table {
 
 /* TRANSFERRED BACK (BEGIN) */
 .btn-default {
+  color: #fff;
+  background-color: #3a3f44;
+  border: 1px solid transparent;
   background-image: -webkit-linear-gradient(#484e55, #3a3f44 60%, #313539);
   background-image: -o-linear-gradient(#484e55, #3a3f44 60%, #313539);
   background-image: webkit-gradient(linear, left top, left bottom, from(#484e55), color-stop(60%, #3a3f44), to(#313539));
-  background-image: linear-gradient(#6441a5, #6441a5 60%, #6441a5);
+  background-image: linear-gradient(#6441a5, #6441a5 60%, #6441a5)!important;
   background-repeat: no-repeat;
   -webkit-filter: none;
   filter: none
 }
 
+.well {
+  background-color: #6700c51c!important;
+}
+
+#titlerow-outer {
+  background-color:#383E40!important;
+}
+
+.btn {
+  color: #fff;
+  background-color: #3a3f44!important;
+}
 .alert-info {
   background-color: #383E40;
   border-color: #3F4344;
@@ -396,4 +423,12 @@ table {
 
 .fire {
   text-shadow: 0 0 2px #fefcc9, 1px -1px 3px #feec85, -2px -2px 4px #ffae34, 2px -4px 5px #ec760c
+}
+
+span:not(.userlist_op):not(.userlist_owner) > strong.username {
+  color: #6A5ACD!important;
+}
+
+div.userlist_item > span:not(.userlist_op):not(.userlist_owner) {
+  color: #6A5ACD!important;
 }

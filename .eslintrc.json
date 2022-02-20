@@ -12,6 +12,9 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "ignorePatterns": [
+    "build/**"
+  ],
   "rules": {
     "indent": "off",
     "no-multi-spaces": "off",

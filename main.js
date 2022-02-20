@@ -21,17 +21,29 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+import {config, icon, library} from '@fortawesome/fontawesome-svg-core';
+import {faCamera} from '@fortawesome/free-solid-svg-icons';
+
+import {formatBadgeToHtml, USER_BADGES} from './lib/badges';
+import {CHANNEL_DATABASE} from './lib/database';
+import {LOGOS} from './lib/logos';
+
+config.autoA11y = true;
+
+export const camera = icon({prefix: 'fas', iconName: 'camera'});
+library.add(faCamera);
+
 /* ----- STARTING CONFIGURATION - USER INTERFACE (UI) ----- */
 
 // CONFIGURATION NOTES:
 
-// In this section you can immediately enable and disable each option (set '1'
-// to enable, '0' to disable) Every option marked as [&] requires additional
-// configuration (see other sections below) WARNING! apostrophe sign (') in all
-// text/html values must be prepend with "\" sign (e.g. "don\'t")
+// In this section you can immediately enable and disable each option (set '1' to enable, '0' to
+// disable) Every option marked as [&] requires additional configuration (see other sections below)
+// WARNING! apostrophe sign (') in all text/html values must be prepend with "\" sign (e.g.
+// "don\'t")
 
-// FILTERS INSTALLATION: open 'Channel Settings' modal window, go to 'Edit' ->
-// 'Chat Filters', click 'Prepare fonts filters' button, and import
+// FILTERS INSTALLATION: open 'Channel Settings' modal window, go to 'Edit' -> 'Chat Filters', click
+// 'Prepare fonts filters' button, and import
 
 // default old Synchtube layout (player and playlist on the left)
 const UI_DefaultSynchtube = true;
@@ -69,8 +81,6 @@ const UI_TitleIcon = true;
 const UI_TitleBarDescription = true;
 // [&] chat message after user joining
 const UI_JoinText = true;
-// [&] chat message after user leaving
-const UI_LeaveText = true;
 // [&] additional commands in the chat window
 const UI_UserCommands = true;
 // [&] special signs/avatars before every message for defined users
@@ -134,8 +144,7 @@ const UI_VolumeBtns = true;
 const UI_EmptyCornerBackground = true;
 // extended 'Get URLs' function
 const UI_ExtendedGetURLs = true;
-// default unchecking "Add as temporary" checkbox after loading for registered
-// users
+// default unchecking "Add as temporary" checkbox after loading for registered users
 const UI_DefaultNonTemp = false;
 // [&] custom channel footer
 const UI_CustomFooter = false;
@@ -143,8 +152,6 @@ const UI_CustomFooter = false;
 const UI_CustomRightFooter = false;
 // displaying in the footer user visits number and current online time
 const UI_UserStatistics = true;
-// [&] additional external script file
-const UI_ExternalScript = false;
 // caching script emotes, additional media database and default gallery
 const UI_ChannelCache = true;
 // adds report button
@@ -165,7 +172,7 @@ const UI_ButtonIcons = true;
 const UI_Snow = false;
 
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- DETAILED BASIC CONFIGURATION ----- */
 
@@ -182,15 +189,13 @@ const UI_Snow = false;
 
 /* -- single variables -- */
 
-import('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&display=swap');
-
 const Favicon_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre2.10.21.1';
+const Version_Now = 'CyDJPre2.20.21.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -211,25 +216,19 @@ const TitleBarDescription_Caption = 'Now Playing:';
 
 const JoinText_Message = 'hello!';
 
-const LeaveText_Message = 'left';
-
 const UsernameMark_Char = '>';
 
 const MessagesSuffix_Text = '~xD';
 
 const MessagesSuffix_Percentage = 10;
 
-const CustomPingSound_URL =
-    'https://github.com/papertek/CyDJ/raw/beta/misc/pingsound.wav';
+const CustomPingSound_URL = 'https://github.com/papertek/CyDJ/raw/beta/misc/pingsound.wav';
 
 const PlayerHiding_URL = 'https://c.tenor.com/Q6UjBrnSzvQAAAAC/anime-uh.gif';
 
 const GroupEmotes_Number = 100;
 
-const ExternalScript_URL = '';
-
-const Snow_URL =
-    'https://dl.dropboxusercontent.com/s/cvxizo3lax3xlrg/snowcss.css';
+const Snow_URL = 'https://dl.dropboxusercontent.com/s/cvxizo3lax3xlrg/snowcss.css';
 
 const HeaderDropMenu_Array = [
   ['CyDJ Rooms', ''],
@@ -238,6 +237,7 @@ const HeaderDropMenu_Array = [
   ['Watch Party', 'https://beta.synchtube.me/r/SecretTwitchRoom'],
   ['Test Room', 'https://cytu.be/r/testplacelilroc'],
   ['Test Room 2', 'https://cytu.be/r/emptyroomtestplace'],
+  ['Test Room 3', 'https://cytu.be/r/xqcPeepo'],
   ['Community Related', ''],
   ['CyDJ Discord', 'https://discord.gg/g8tCGSc2bx'],
   ['xQcOW Updates Discord', 'https://discord.gg/xqcowupdates'],
@@ -277,7 +277,7 @@ const RandomQuotes_Array = [
   'I like you. You remind me of when I was young and stupid.',
   'Go and buy me a beer',
   'The door of this channel is always open for you... so feel free to leave!',
-  'I hate JQuery',  // this is probably AirForce or John : xqcPeepo
+  'I hate JQuery',
   'amogus',
 ];
 
@@ -300,387 +300,9 @@ const AskAnswers_Array = [
   'what',
 ];
 
-class Badge {
-  static SUB_0_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022295254937652/0-Month_Subscriber.png';
-  static SUB_0_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022295473057862/2000-Month_Subscriber.png';
-  static SUB_0_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022295686971442/3000-Month_Subscriber.png';
-  static SUB_2_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022535622115328/2-Month_Subscriber.png';
-  static SUB_2_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022535831814155/2002-Month_Subscriber.png';
-  static SUB_2_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022536062521374/3002-Month_Subscriber.png';
-  static SUB_3_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022622767181864/3-Month_Subscriber.png';
-  static SUB_3_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022623056576562/2003-Month_Subscriber.png';
-  static SUB_3_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022623287267398/3003-Month_Subscriber.png';
-  static SUB_6_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022766510149682/6-Month_Subscriber.png';
-  static SUB_6_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022766736658452/2006-Month_Subscriber.png';
-  static SUB_6_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022766984130640/3006-Month_Subscriber.png';
-  static SUB_9_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022823489789972/9-Month_Subscriber.png';
-  static SUB_9_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022823703674910/2009-Month_Subscriber.png';
-  static SUB_9_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022824169259018/3009-Month_Subscriber.png';
-  static SUB_12_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022894918795304/12-Month_Subscriber.png';
-  static SUB_12_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022895199805440/2012-Month_Subscriber.png';
-  static SUB_12_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022895422107648/3012-Month_Subscriber.png';
-  static SUB_18_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022962866507846/18-Month_Subscriber.png';
-  static SUB_18_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022963105570877/2018-Month_Subscriber.png';
-  static SUB_18_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916022963411771392/3018-Month_Subscriber.png';
-  static SUB_24_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023017929310339/24-Month_Subscriber.png';
-  static SUB_24_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023018134835291/2024-Month_Subscriber.png';
-  static SUB_24_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023018315206726/3024-Month_Subscriber.png';
-  static SUB_30_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023065576636426/30-Month_Subscriber.png';
-  static SUB_30_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023065761165403/2030-Month_Subscriber.png';
-  static SUB_30_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023065966690324/3030-Month_Subscriber.png';
-  static SUB_36_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023136565207040/36-Month_Subscriber.png';
-  static SUB_36_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023136770723870/2036-Month_Subscriber.png';
-  static SUB_36_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023136942706749/3036-Month_Subscriber.png';
-  static SUB_42_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023290441637959/42-Month_Subscriber.png';
-  static SUB_42_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023290672349254/2042-Month_Subscriber.png';
-  static SUB_42_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023291213410344/3042-Month_Subscriber.png';
-  static SUB_48_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023373505650758/48-Month_Subscriber.png';
-  static SUB_48_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023373786656768/2048-Month_Subscriber.png';
-  static SUB_48_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023374097051708/3048-Month_Subscriber.png';
-  static SUB_54_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023417508098108/54-Month_Subscriber.png';
-  static SUB_54_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023417793298463/2054-Month_Subscriber.png';
-  static SUB_54_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023418070114304/3054-Month_Subscriber.png';
-  static SUB_60_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023503910735882/60-Month_Subscriber.png';
-  static SUB_60_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023504170799184/2060-Month_Subscriber.png';
-  static SUB_60_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023504376332298/3060-Month_Subscriber.png';
-  static SUB_66_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023570788913182/66-Month_Subscriber.png';
-  static SUB_66_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023571028013176/2066-Month_Subscriber.png';
-  static SUB_66_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023571212546108/3066-Month_Subscriber.png';
-  static SUB_72_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023616469106698/72-Month_Subscriber.png';
-  static SUB_72_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023616670421042/2072-Month_Subscriber.png';
-  static SUB_72_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023616863354921/3072-Month_Subscriber.png';
-  static SUB_78_MONTHS_T1 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023666947543110/78-Month_Subscriber.png';
-  static SUB_78_MONTHS_T2 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023667278905405/2078-Month_Subscriber.png';
-  static SUB_78_MONTHS_T3 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916023667543117824/3078-Month_Subscriber.png';
-
-  static GIFT_SUBS_500 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916100252342300733/500_Gift_Subs.png';
-
-  static BITS_100 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/915713189109444718/100_Bits.png';
-  static BITS_1000 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/915713247716442182/1000_Bits.png';
-  static BITS_100000 =
-      'https://cdn.discordapp.com/attachments/915656975696687124/915713532006375464/100000_Bits.png';
-
-  static OWL =
-      'https://cdn.discordapp.com/attachments/915656975696687124/916116916702158948/OWL.png';
-
-  static NINETEEN_EIGHTY_FOUR =
-      'https://media.discordapp.net/attachments/915490680468561990/915492628508868648/die.png';
-
-  static formatToHtml(url) {
-    return `<span class="avatar"><img src="${url}" /></span>`;
-  }
-}
-
-const USER_BADGES = {
-  'ZimnLech': [
-    'https://dl.dropboxusercontent.com/s/89gv8fvyr49vnev/kobato-icon-small.jpg',
-  ],
-  'JohnRG123': [
-    Badge.NINETEEN_EIGHTY_FOUR,
-    'https://cdn.discordapp.com/attachments/899888900611375184/901313787951480862/small.png',
-  ],
-  'mrfart2323': [
-    Badge.SUB_9_MONTHS_T1,
-    'https://cdn.discordapp.com/attachments/899888900611375184/917638191723450418/Gigachad_1.jpg',
-  ],
-  'IP0G': [
-    Badge.BITS_100000,
-    'https://cdn.discordapp.com/attachments/679270173567614987/907384062807789598/1_25x25.gif',
-  ],
-  'ACCOUNT2': [
-    Badge.SUB_12_MONTHS_T1,
-    'https://media.discordapp.net/attachments/899888900611375184/901380813243944970/EZ_1.png',
-  ],
-  'Zombsiee': [
-    'https://media.discordapp.net/attachments/899888900611375184/901570550034477076/st_small_507x507-pad_600x600_f8f8f8-removebg-preview.png',
-  ],
-  'GiveMeAnOnion': [
-    Badge.SUB_18_MONTHS_T1,
-    'https://images-ext-1.discordapp.net/external/V-pZ97hRKTpvONRbEeYiG2tdmVBH11KU0u2KooeIU1g/https/i.imgur.com/CTJoS3c.png',
-  ],
-  'jensai1': [
-    'https://cdn.discordapp.com/attachments/915656975696687124/916100466344099890/cheer_1.png',
-    'https://cdn.discordapp.com/attachments/904501042148958219/916844473051389972/ezgif-3-79f6e07d0543.gif',
-  ],
-  'ContraVz': [
-    'https://media.discordapp.net/attachments/899888900611375184/903429579274846248/VIPBadge.png',
-    'https://cdn.discordapp.com/attachments/915656975696687124/916100799233425548/VIP.png',
-  ],
-  'seagrade': [
-    Badge.SUB_30_MONTHS_T1,
-    'https://cdn.discordapp.com/attachments/907369587979460720/917657328013176833/dankspin3.gif',
-  ],
-  'Xsogon': [
-    Badge.SUB_18_MONTHS_T1,
-    'https://cdn.discordapp.com/attachments/905159869626187817/920394576999637042/Porcellio_Expansus_PFP.png',
-  ],
-  'spintto': [
-    'https://cdn.discordapp.com/attachments/679270173567614987/908197729249919006/ezgif-4-78928f8a284c.gif',
-  ],
-  'HentaiQueen': [
-    'https://cdn.discordapp.com/attachments/679270173567614987/908795988544729198/ezgif-6-268375e001ab.gif',
-  ],
-  'gustme': [
-    Badge.SUB_9_MONTHS_T1,
-    'https://cdn.discordapp.com/attachments/915650094697693184/921144650088194098/ezgif.com-gif-maker_27.gif',
-  ],
-  'BlooDerg': [
-    'https://media.discordapp.net/attachments/880765465318817852/914342333414244372/ok.gif',
-  ],
-  'jesus_knuckles': [
-    'https://media.discordapp.net/attachments/914591356003946507/914592520305012796/stupidskullfart.png',
-  ],
-  'airforce2700': [
-    Badge.SUB_9_MONTHS_T1,
-    'https://cdn.betterttv.net/emote/6091a20a39b5010444d0b980/1x.gif',
-  ],
-  'Skully_OW': [
-    Badge.SUB_30_MONTHS_T1,
-    'https://cdn.discordapp.com/attachments/915656975696687124/916100799233425548/VIP.png',
-  ],
-  'n3r1': [
-    Badge.SUB_24_MONTHS_T1,
-    'https://cdn.discordapp.com/attachments/915650094697693184/931998299181949029/ezgif.com-gif-maker_1.gif',
-  ],
-  'notjuham': [
-    Badge.SUB_30_MONTHS_T1,
-    'https://cdn.discordapp.com/attachments/891695154333884447/922151274303070229/notjuham1818.png',
-  ],
-  'Pugnator': [
-    Badge.SUB_3_MONTHS_T1,
-  ],
-  'IIPsilocybin': [
-    Badge.GIFT_SUBS_500,
-  ],
-  'Uns1asher': [
-    Badge.SUB_9_MONTHS_T1,
-  ],
-  'jeffboys123': [
-    Badge.SUB_24_MONTHS_T1,
-  ],
-  'alyjiah17': [
-    Badge.OWL,
-  ],
-  'brcfrmn': [
-    Badge.SUB_12_MONTHS_T1,
-  ],
-  'Frostee115': [
-    Badge.SUB_0_MONTHS_T1,
-  ],
-  'moldnugget': [
-    Badge.SUB_12_MONTHS_T1,
-  ],
-  'eljulidi1337': [
-    Badge.SUB_6_MONTHS_T3,
-    'https://cdn.discordapp.com/attachments/891695154333884447/922146791862988810/ezgif.com-gif-maker_28.gif',
-  ],
-  'pepegaOverheat': [
-    Badge.SUB_6_MONTHS_T1,
-  ],
-  'Captkayy': [
-    Badge.SUB_6_MONTHS_T3,
-  ],
-  'PeepoGlad': [
-    Badge.BITS_100,
-  ],
-  'MrNiTe': [
-    Badge.SUB_6_MONTHS_T1,
-  ],
-  'l_charles_l': [
-    Badge.SUB_6_MONTHS_T1,
-  ],
-  'Enzo_SuperCraftZ': [
-    Badge.SUB_12_MONTHS_T1,
-  ],
-  'Physikz': [
-    Badge.SUB_36_MONTHS_T1,
-    'https://cdn.discordapp.com/attachments/915656975696687124/916100799233425548/VIP.png',
-  ],
-  'LEBB': [
-    Badge.SUB_12_MONTHS_T1,
-  ],
-  'feelssunnyman': [
-    Badge.SUB_9_MONTHS_T3,
-    'https://cdn.discordapp.com/attachments/915656975696687124/916100799233425548/VIP.png',
-  ],
-  'WWWilt': [
-    Badge.SUB_3_MONTHS_T1,
-  ],
-  'T_Nizzy': [
-    Badge.SUB_6_MONTHS_T1,
-  ],
-  'Getronix': [
-    Badge.SUB_12_MONTHS_T1,
-  ],
-  'Jamoki_3090': [
-    Badge.SUB_3_MONTHS_T1,
-  ],
-  'BryG05': [
-    Badge.SUB_3_MONTHS_T1,
-  ],
-  'SenileCookie': [
-    Badge.SUB_18_MONTHS_T1,
-  ],
-  'BryG05': [
-    Badge.SUB_3_MONTHS_T1,
-  ],
-  'SenileCookie': [
-    Badge.SUB_18_MONTHS_T1,
-  ],
-  'isiete': [
-    Badge.SUB_6_MONTHS_T1,
-  ],
-  'xQt0001': [
-    Badge.SUB_12_MONTHS_T3,
-  ],
-  'ayyvollet': [
-    Badge.SUB_3_MONTHS_T1,
-  ],
-  'Tzuqi': [
-    Badge.SUB_9_MONTHS_T1,
-  ],
-  'MrDestructoidCyDJ': [
-    'https://cdn.discordapp.com/attachments/679270173567614987/922352061356572682/1x_4.gif',
-  ],
-  'CaribbeanCam': [
-    Badge.SUB_12_MONTHS_T1,
-  ],
-  'Bananaman3100': [
-    Badge.SUB_6_MONTHS_T1,
-  ],
-  'Betelgeun': [
-    Badge.SUB_12_MONTHS_T1,
-  ],
-  'HikkenNoAce': [
-    Badge.SUB_6_MONTHS_T3,
-  ],
-  'CannabisMuffin': [
-    Badge.SUB_18_MONTHS_T1,
-  ],
-  'LEBB': [
-    Badge.SUB_12_MONTHS_T1,
-    'https://cdn.discordapp.com/attachments/915650094697693184/933641907052118016/Lebb.jpeg',
-  ],
-  'Psychedelic111': [
-    Badge.SUB_3_MONTHS_T1,
-  ],
-  'aade_': [
-    Badge.SUB_12_MONTHS_T1,
-  ],
-  'parsekktv': [
-    Badge.SUB_18_MONTHS_T1,
-  ],
-  'T_Nizzy': [
-    Badge.SUB_9_MONTHS_T1,
-  ],
-  'zHardTimes': [
-    Badge.SUB_18_MONTHS_T1,
-    'https://media.discordapp.net/attachments/915650094697693184/932461255560691772/ezgif.com-gif-maker_2.gif',
-  ],
-  'anirrroc': [
-    Badge.SUB_12_MONTHS_T1,
-  ],
-  'Reesesses': [
-    Badge.SUB_9_MONTHS_T1,
-  ],
-  'DeathGod': [
-    Badge.SUB_12_MONTHS_T1,
-  ],
-  'MasterA1G': [
-    Badge.SUB_24_MONTHS_T1,
-  ],
-  'xqcPeepo': [
-    Badge.SUB_0_MONTHS_T1,
-  ],
-  'the7entity': [
-    Badge.SUB_12_MONTHS_T1,
-  ],
-  'Yaekaii': [
-    Badge.SUB_12_MONTHS_T1,
-  ],
-  'cerasuz': [
-    Badge.SUB_18_MONTHS_T1,
-  ],
-  'RoboSheepz': [
-    Badge.SUB_6_MONTHS_T1,
-  ],
-  'nate338': [
-    Badge.SUB_24_MONTHS_T1,
-  ],
-  'pbgod1337': [
-    Badge.SUB_6_MONTHS_T1,
-  ],
-  'Spockacus': [
-    Badge.SUB_12_MONTHS_T1,
-  ],
-  'SHEEEEEEEEEEEEEEEESH': [
-    'https://cdn.discordapp.com/attachments/915650094697693184/937061024748675112/ezgif.com-gif-maker_3.gif',
-  ],
-};
-
-const SoundFilters_Array = {
-  // old sound thing
-  // 'habemus': 'https://dl.dropboxusercontent.com/s/3w1jahgffowjltz/hp.ogg',
-  // 'lol':
-  // 'https://dl.dropboxusercontent.com/s/9aqa1buu3phvpss/laugh.ogg',
-  'oh no our table':
-      'https://github.com/papertek/CyDJ/raw/beta/misc/ohnoourtable.wav',
-
-};
+// const SoundFilters_Array = {
+//   'oh no our table': 'https://github.com/papertek/CyDJ/raw/beta/misc/ohnoourtable.wav',
+// };
 
 const ModPanel_Array = [
   [
@@ -780,12 +402,11 @@ const CustomFooter_HTML = 'This is custom footer.';
 
 const CustomRightFooter_HTML = '';
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- THEMES CONFIGURATION ----- */
 
-const ChannelThemeURL =
-    'https://papertek.github.io/CyDJ/deploy/beta/css/DJDefault.css';
+const ChannelThemeURL = 'https://papertek.github.io/CyDJ/deploy/beta/css/DJDefault.css';
 
 const ThemesCSS = [
   [
@@ -798,82 +419,25 @@ const ThemesCSS = [
   ],
   [
     'Classic',
-    'https://dl.dropboxusercontent.com/s/oa4y86gyyag6bix/twitchclassic.css',
+    'https://papertek.github.io/CyDJ/deploy/beta/css/twitchclassic.css',
+  ],
+  [
+    'Pre DJ',
+    'https://papertek.github.io/CyDJ/deploy/beta/css/DJDefault.css',
   ],
   [
     'Spring',
     'https://papertek.github.io/CyDJ/deploy/beta/css/spring.css',
   ],
   [
+    'Black Cat',
+    'https://papertek.github.io/CyDJ/deploy/beta/css/blackcat.css',
+  ],
+  [
     'U.U.F.O',
     'https://papertek.github.io/CyDJ/deploy/beta/css/UUFO.css',
   ],
 ];
-
-class Logo {
-  /**
-   * A logo for the top of the page.
-   *
-   * @param {string} url URL of the logo image.
-   * @param {number} height Height of the logo (??).
-   */
-  constructor(url, height) {
-    this.url = url;
-    this.height = height;
-  }
-}
-
-const /** @type {!Map<string, !Logo>} */ LOGOS = new Map();
-
-LOGOS.set(
-    'cytube plus',
-    new Logo(
-        'https://dl.dropboxusercontent.com/s/7mrz85gl29eiiks/logo.png',
-        90,
-        ));
-
-LOGOS.set(
-    'anime girl',
-    new Logo(
-        'https://dl.dropboxusercontent.com/s/knxd7dpup1u8lm3/azuki.png',
-        200,
-        ));
-
-LOGOS.set(
-    'cosmos',
-    new Logo(
-        'https://dl.dropboxusercontent.com/s/v6dx49yqk5e3i2d/cosmos.jpg',
-        200,
-        ));
-
-LOGOS.set(
-    'disco ball',
-    new Logo(
-        'https://dl.dropboxusercontent.com/s/ahpfm25pglc8j01/disco.jpg',
-        162,
-        ));
-
-LOGOS.set(
-    'japanese landscape',
-    new Logo(
-        'https://dl.dropboxusercontent.com/s/llylt832evxrp6e/japan.jpg',
-        200,
-        ));
-
-LOGOS.set(
-    'korean collage',
-    new Logo(
-        'https://dl.dropboxusercontent.com/s/qud9adhs183dq30/korea.jpg',
-        160,
-        ));
-
-LOGOS.set(
-    'my little pony',
-    new Logo(
-        'my little pony',
-        'https://dl.dropboxusercontent.com/s/r4ozo8oj8lmerec/mlp.jpg',
-        190,
-        ));
 
 const EmptyCornerBackground = [
   'https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_a054f4001b6d4f098e7969c988debd18/default/light/2.0',
@@ -888,7 +452,7 @@ const EmptyCornerBackground = [
   'https://media.discordapp.net/attachments/915415328496951316/925616111242842122/unknown.png',
 ];
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- INDEPENDENT EMOTES AND FILTERS CONFIGURATION ----- */
 
@@ -919,13 +483,15 @@ const IndependentEmotes = [
 ];
 
 // NOTES AND DEFAULT FILTERS EXAMPLES:
-// If you use regular expression, you must put it between // signs with /g flag
-// to change all occurences a) [mq]text[/mq] - fast scrolling text b)
-// [mq0]text[/mq0] - slow scrolling text c) [imgur]suok1xr.jpg[/imgur] - imgur
-// picture d) [drop]7mrz85gl29eiiks/logo.png[/drop] - dropbox picture e)
-// [minus/i5]ig0qs6fvWvgBu.jpg[/minus] - minus.com picture f)
-// [vi/b]1r8ih4t1.vichan.png[/vi] - vichan /b/ imageboard picture (you can use
-// other boards too)
+// If you use regular expression, you must put it between // signs with /g flag to change all
+// occurences:
+//
+// a) [mq]text[/mq] - fast scrolling text
+// b) [mq0]text[/mq0] - slow scrolling text
+// c) [imgur]suok1xr.jpg[/imgur] - imgur picture
+// d) [drop]7mrz85gl29eiiks/logo.png[/drop] - dropbox picture
+// e) [minus/i5]ig0qs6fvWvgBu.jpg[/minus] - minus.com picture
+// f) [vi/b]1r8ih4t1.vichan.png[/vi] - vichan /b/ imageboard picture (you can use other boards too)
 
 const IndependentFilters = [
   {
@@ -970,180 +536,13 @@ const IndependentFilters = [
   },
 ];
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/* ----- MEDIA DATABASE CONFIGURATION ----- */
-
-// NOTES:
-// Leave empty URL field to create category button.
-
-const ChannelDatabase = [
-  ['', 'Juicer Tastes'],
-  ['https://www.youtube.com/watch?v=CprdkP92LsM', 'Fox Stevenson - Out There'],
-  ['https://www.youtube.com/watch?v=ovZNf7Nztw4', 'Fox Stevenson - Still Here'],
-  ['https://www.youtube.com/watch?v=G3nsEotIfQI', 'Fox Stevenson - Glue Gun'],
-  [
-    'https://www.youtube.com/watch?v=Dhuhf6wVOaQ',
-    'Fox Stevenson - Take You Down',
-  ],
-  ['https://www.youtube.com/watch?v=68zaKCOrS7I', 'Fox Stevenson - Like That'],
-  ['https://www.youtube.com/watch?v=BURa70Kb2ME', 'Macky Gee - Lighters Up'],
-  [
-    'https://www.youtube.com/watch?v=6cvc7tEoU2Y',
-    'Macky Gee Ft. Stuart Rowe - Aftershock',
-  ],
-  [
-    'https://www.youtube.com/watch?v=YlKkX38NgGo',
-    'Constera - GO AGANE (xQc Music Video)',
-  ],
-  ['https://www.youtube.com/watch?v=hUwx0lUJAcI', 'Constera - The Name'],
-  [
-    'https://www.youtube.com/watch?v=fDKHb_sp5Nk',
-    'ayyybubu - Damn NaM Spam (feat. DrDisRespect',
-  ],
-  [
-    'https://www.youtube.com/watch?v=cvq7Jy-TFAU',
-    'Feint - Snake Eyes (feat. CoMa)',
-  ],
-  ['https://www.youtube.com/watch?v=_ovdm2yX4MA', 'Avicii - Levels'],
-  ['https://www.youtube.com/watch?v=mj-v6zCnEaw', 'NOMA - Brain Power'],
-  ['', 'Staff Favorites'],
-  ['https://www.youtube.com/watch?v=lLmSRcB-34k', 'Camellia - Pure Silver'],
-  ['https://www.youtube.com/watch?v=ZAfAud_M_mg', 'Halsey - Without Me'],
-  ['https://www.youtube.com/watch?v=U7KQ-8I_jYI', 'Brooks - If Only I Could'],
-  [
-    'https://www.youtube.com/watch?v=47dtFZ8CFo8',
-    'Capital Cities - Safe And Sound',
-  ],
-  [
-    'https://www.youtube.com/watch?v=Hwg7hJrDiRg',
-    'Flume - Rushing Back feat. Vera Blue',
-  ],
-  [
-    'https://www.youtube.com/watch?v=v6HBZC9pZHQ',
-    'Baby Keem, Kendrick Lamar - family ties',
-  ],
-  ['https://www.youtube.com/watch?v=HyHNuVaZJ-k', 'Gorillaz - Feel Good Inc.'],
-  [
-    'https://www.youtube.com/watch?v=5NV6Rdv1a3I',
-    'Daft Punk - Get Lucky ft. Pharrell Williams, Nile Rodgers',
-  ],
-  ['https://www.youtube.com/watch?v=hUs0-gqBulQ', 'Geoxor - Moonlight'],
-  [
-    'https://www.youtube.com/watch?v=jGow4nmYkkA',
-    'Pendulum - The Island (Parts 1 & 2)',
-  ],
-  [
-    'https://www.youtube.com/watch?v=d2AvqvnGlso',
-    'Flite - Calm Before The Storm (feat. Karina Ramage)',
-  ],
-  ['https://www.youtube.com/watch?v=bO-NaEj2dQ0', 'MTC - S3RL'],
-  ['https://www.youtube.com/watch?v=PZbkF-15ObM', 'C2C - Delta'],
-  ['', 'Community Choice: November 2021'],
-  [
-    'https://www.youtube.com/watch?v=F7Ex-ubaU6A',
-    'Apashe - Battle Royale (Feat. Panther)',
-  ],
-  ['https://www.youtube.com/watch?v=38R-00fETao', 'Koven - Love Wins Again'],
-  ['https://www.youtube.com/watch?v=RPf1oRvfiNQ', 'Bossfight - Elevatia'],
-  ['https://www.youtube.com/watch?v=8abwtVLP18Y', 'Andromedik - Forever'],
-  [
-    'https://www.youtube.com/watch?v=dUHp7N8BVyo',
-    'Miracle Of Sound - Deep Blue (From Subnautica)',
-  ],
-  [
-    'https://www.youtube.com/watch?v=ZaI2IlHwmgQ',
-    'The Black Eyed Peas - Pump It',
-  ],
-  [
-    'https://www.youtube.com/watch?v=WUEVJ0N6I1A',
-    'Juice WRLD - Conversations (Skeler Remix)',
-  ],
-  [
-    'https://www.youtube.com/watch?v=U3SpsXugtzw',
-    'Basixx - Its Gonna Be Alright',
-  ],
-  ['https://www.youtube.com/watch?v=dX3k_QDnzHE', 'M83 - Midnight City'],
-  ['https://www.youtube.com/watch?v=ghVC-ZXCxt0', 'Duster - Gold Dust'],
-  [
-    'https://www.youtube.com/watch?v=r9xAig0C00E',
-    'Plants vs Zombies Soundtrack. [Mini Games] (From Plants vs Zombies)',
-  ],
-  [
-    'https://www.youtube.com/watch?v=EGXPAoyP_cg',
-    'Chris Christodoulou - The Rain Formerly Known as Purple (From Risk of Rain 2)',
-  ],
-  ['https://www.youtube.com/watch?v=dXZMH2CiSQk', 'CRAZY LITTLE LOVE - NUAGE'],
-  ['', 'Community Choice: December 2021'],
-  [
-    'https://www.youtube.com/watch?v=zZFDBn53krg',
-    'Tritonal - Getaway (ft. Angel Taylor) (Koven Remix)',
-  ],
-  ['https://www.youtube.com/watch?v=EJTZms5PFg8', 'Polygon - One Day'],
-  ['https://www.youtube.com/watch?v=ggCkN3Sve9w', 'STARSET - EARTHRISE'],
-  [
-    'https://www.youtube.com/watch?v=MwSkC85TDgY',
-    'Pegboard Nerds - Disconnected',
-  ],
-  ['https://www.youtube.com/watch?v=6-eqYk1j5to', 'Händel - Salomo'],
-  [
-    'https://www.youtube.com/watch?v=7sbw__MsJZ0',
-    'Delta Heavy & Dirty Audio - Stay',
-  ],
-  ['https://www.youtube.com/watch?v=-dRXkIYa5ro', 'Maduk - Go (ft. Lachi)'],
-  ['https://www.youtube.com/watch?v=RJ0GGVfWx4Q', 'Polygon - Contradiction'],
-  [
-    'https://www.youtube.com/watch?v=FQlAEiCb8m0',
-    'Stardust - Music Sounds Better With You',
-  ],
-  [
-    'https://www.youtube.com/watch?v=hT_nvWreIhg',
-    'OneRepublic - Counting Stars',
-  ],
-  ['https://www.youtube.com/watch?v=xAg0CdkmG_k', 'Ryu☆ - Over Drive'],
-  ['https://www.youtube.com/watch?v=BjFWk0ncr70', 'S3RL - Catchit'],
-  [
-    'https://www.youtube.com/watch?v=X21dsemjoRA',
-    'Camellia - Clouds in the Blue',
-  ],
-  ['', 'HYPER DANKS XQCTECHNO'],
-  [
-    'https://www.youtube.com/watch?v=PQal6-mv6W4',
-    'Camellia - LETS JUMP (かめりあ\'s "diffractive" Hardcore Remix)',
-  ],
-  ['https://www.youtube.com/watch?v=oF-Z_QH7fzY', 'Camellia - R U Still xxxx?'],
-  ['https://www.youtube.com/watch?v=SVSvVC-5__c', 'Camellia - NUCLEAR-STAR'],
-  ['https://www.youtube.com/watch?v=yjJvqrFTSuA', 'Camellia - ∀NØMALY'],
-  ['https://www.youtube.com/watch?v=bi1rkTy3jbg', 'Camellia - Fly Wit Me'],
-  ['https://www.youtube.com/watch?v=1v0hP5DuAZ8', 't+pazolite - T+ VS SHARK'],
-  ['https://www.youtube.com/watch?v=rIPOOoQxquE', 't+pazolite - CENSORED‼'],
-  [
-    'https://www.youtube.com/watch?v=ZK_HX6-mXw4',
-    'beatMARIO - Night of Knights (tpz Overheat Remix)',
-  ],
-  [
-    'https://www.youtube.com/watch?v=s4KeHXqVbPk',
-    'Kobaryo - Glitched Character',
-  ],
-  ['https://www.youtube.com/watch?v=-JsJr4zrXWg', 'Kobaryo - Bookmaker'],
-  ['https://www.youtube.com/watch?v=3JDBdDyMO6s', 'Kobaryo - Cartoon Candy'],
-  [
-    'https://www.youtube.com/watch?v=z5EEf931E3Q',
-    'Kobaryo - Tool-Assisted Speedcore (TQBF Frame Advance RMX)',
-  ],
-  [
-    'https://www.youtube.com/watch?v=JWnH0HHUKcQ',
-    'Darren Styles - Quiver (Breakchild Bootleg)',
-  ],
-];
-
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- END OF CONFIGURATION, DO NOT CHANGE ANYTHING BELOW ----- */
 
 /* ----- Initial channel options ----- */
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // reload script after unexpected re-connection or script URL change
 
@@ -1153,20 +552,12 @@ if (LOADED) {
 }
 
 /* ----- getting and setting channel options ----- */
+const defplayer = UI_DefaultSynchtube ? 'left' : 'right';
+const defuserlist = UI_DefaultSynchtube ? 'right' : 'left';
+const defqueue = UI_DefaultSynchtube ? 'left' : 'right';
 
-if (UI_DefaultSynchtube) {
-  defplayer = 'left';
-  defuserlist = 'right';
-  defqueue = 'left';
-} else {
-  defplayer = 'right';
-  defuserlist = 'left';
-  defqueue = 'right';
-}
-
-const DEFTHEME = (UI_ChannelTheme && ChannelThemeURL != '') ?
-    ChannelThemeURL :
-    '/css/themes/slate.css';
+const DEFTHEME =
+    (UI_ChannelTheme && ChannelThemeURL !== '') ? ChannelThemeURL : '/css/themes/slate.css';
 
 const USERCONFIG = {
   'player': getOrDefault(CHANNEL.name + '_player', defplayer),
@@ -1226,8 +617,8 @@ let ALTERCHATFORMAT = false;
 // previous read of a current item time for the progress bar
 let PREVTIME = 0;
 // timestamp of the last adding random item from the channel database
-// ID of previous video queued (so !random doesn't add it again)
 let LASTADD = 1;
+// ID of previous video queued (so !random doesn't add it again)
 let LAST_VIDEO_ID_QUEUED = 'some-bogus-dont-leave-empty';
 // user minutes online
 let USERONLINE = 0;
@@ -1244,19 +635,12 @@ const MUTEDVOICES = [];
 // array of links added from channel database by user
 const ADDEDLINKS = [];
 
-// simple hash for comparing if the new messages have appeared in the mod panel
-let HASH = '';
-
 const WEBKIT = 'webkitRequestAnimationFrame' in window;
-const SOUNDSVALUES = [0, 0.1, 0.2, 0.4, 0.7, 1];
-const SPEAKLINK =
-    'http://webanywhere.cs.washington.edu/cgi-bin/espeak/getsound.pl';
-const IMBA =
-    new Audio('https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg');
-const DROPIT =
-    new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/dropit.wav');
-const FASTEST = new Audio(
-    'https://github.com/papertek/CyDJ/raw/beta/misc/fastestcrashegg.wav');
+// const SOUNDSVALUES = [0, 0.1, 0.2, 0.4, 0.7, 1];
+// const SPEAKLINK = 'http://webanywhere.cs.washington.edu/cgi-bin/espeak/getsound.pl';
+const IMBA = new Audio('https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg');
+const DROPIT = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/dropit.wav');
+const FASTEST = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/fastestcrashegg.wav');
 const HEY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/hey.wav');
 const NAY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/nay.wav');
 CHATSOUND.volume = 0.4;
@@ -1266,8 +650,7 @@ function preloadAudio() {
   for (const audioButton of audioButtons) {
     const preloader = new Audio();
     // use bind to link the audio button to the function
-    preloader.addEventListener(
-        'loadeddata', enableAudioButton.bind(audioButton), true);
+    preloader.addEventListener('loadeddata', enableAudioButton.bind(audioButton), true);
     // trigger the download
     preloader.src = audioButton.getAttribute('data-url');
   }
@@ -1275,11 +658,11 @@ function preloadAudio() {
 
 document.body.addEventListener('load', preloadAudio, true);
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- Global functions ----- */
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * Toggle elements visibility.
@@ -1287,7 +670,7 @@ document.body.addEventListener('load', preloadAudio, true);
  * @param {JQuery<HTMLElement>} div
  */
 function toggleDiv(div) {
-  if ($(div).css('display') == 'none') {
+  if ($(div).css('display') === 'none') {
     $(div).show();
   } else {
     $(div).hide();
@@ -1310,23 +693,32 @@ function refreshPlayer() {
  * @param {string} stand
  */
 function addToPlaylist(link, stand) {
-  parsed = parseMediaLink(link);
+  const parsed = parseMediaLink(link);
   if (parsed['id'] != null) {
-    socket.emit('queue', {id: parsed['id'], pos: stand, type: parsed['type']});
+    socket.emit(
+        'queue',
+        {id: parsed['id'], pos: stand, type: parsed['type'], temp: $('.add-temp').prop('checked')});
   }
 }
 
-/**
- * Get text content from inner HTML.
- *
- * @param {string} html
- * @return {string}
- */
-function getText(html) {
-  const div = document.createElement('div');
-  div.innerHTML = html;
-  return div.textContent || div.innerText;
-}
+// /**
+//  * Get text content from inner HTML.
+//  *
+//  * @param {string} html
+//  * @return {string}
+//  */
+// function getText(html) {
+//   const div = document.createElement('div');
+//   div.innerHTML = html;
+//   return div.textContent || div.innerText;
+// }
+
+let modalOuter;
+let modalDialog;
+let modalContent;
+let modalHead;
+let modalBody;
+let modalFooter;
 
 /**
  * Create modal window.
@@ -1334,21 +726,21 @@ function getText(html) {
  * @param {string} title
  */
 function createModal(title) {
-  outer = $('<div class="modal fade" />').appendTo($('body'));
-  modal = $('<div class="modal-dialog" />').appendTo(outer);
-  modal = $('<div class="modal-content" />').appendTo(modal);
-  head = $('<div class="modal-header" />').appendTo(modal);
+  modalOuter = $('<div class="modal fade" />').appendTo($('body'));
+  modalDialog = $('<div class="modal-dialog" />').appendTo(modalOuter);
+  modalContent = $('<div class="modal-content" />').appendTo(modalDialog);
+  modalHead = $('<div class="modal-header" />').appendTo(modalContent);
   $('<button class="close" data-dismiss="modal" aria-hidden="true" />')
       .html('&times;')
-      .appendTo(head);
-  $('<h3 />').text(title).appendTo(head);
-  body = $('<div class="modal-body" />').appendTo(modal);
-  footer = $('<div class="modal-footer" />').appendTo(modal);
-  outer.on('hidden', () => {
+      .appendTo(modalHead);
+  $('<h3 />').text(title).appendTo(modalHead);
+  modalBody = $('<div class="modal-body" />').appendTo(modalContent);
+  modalFooter = $('<div class="modal-footer" />').appendTo(modalContent);
+  modalOuter.on('hidden', () => {
     outer.remove();
     unhidePlayer();
   });
-  outer.modal();
+  modalOuter.modal();
 }
 
 /**
@@ -1358,21 +750,19 @@ function createModal(title) {
  */
 function playerLocation(a) {
   $('#pinup-btn').show();
-  if (a == 'left') {
+  if (a === 'left') {
     $('#videowrap').after($('#chatwrap').detach());
     normalPlayer();
     normalChat();
     setTimeout(refreshPlayer(), 1000);
-  } else if (a == 'right') {
+  } else if (a === 'right') {
     $('#videowrap').before($('#chatwrap').detach());
     normalPlayer();
     normalChat();
     setTimeout(refreshPlayer(), 1000);
-  } else if (a == 'center') {
+  } else if (a === 'center') {
     $('#videowrap').after($('#chatwrap').detach());
-    $('#videowrap, #chatwrap')
-        .removeClass()
-        .addClass('col-lg-8 col-lg-offset-2 col-md-12');
+    $('#videowrap, #chatwrap').removeClass().addClass('col-lg-8 col-lg-offset-2 col-md-12');
     fitPlayer();
     fitChat(200);
     $('#pinup-btn').hide();
@@ -1381,7 +771,7 @@ function playerLocation(a) {
 }
 
 function userlistLocation(a) {
-  if (a == 'left') {
+  if (a === 'left') {
     $('#userlist').css('float', 'left');
   } else {
     $('#userlist').css('float', 'right');
@@ -1390,11 +780,11 @@ function userlistLocation(a) {
 
 function queueLocation(a) {
   $('#pinup-btn').show();
-  if (a == 'right') {
+  if (a === 'right') {
     $('#rightpane').before($('#leftpane').detach());
-  } else if (a == 'left') {
+  } else if (a === 'left') {
     $('#rightpane').after($('#leftpane').detach());
-  } else if (a == 'center') {
+  } else if (a === 'center') {
     $('#rightpane')
         .after($('#leftpane').detach())
         .removeClass()
@@ -1402,16 +792,16 @@ function queueLocation(a) {
     $('#leftpane').removeClass().addClass('col-md-8 col-md-offset-2 col-md-12');
     $('#pinup-btn').hide();
   }
-  b = (a == 'right') ? 'left' : 'right';
+  const b = (a === 'right') ? 'left' : 'right';
   $('#playlistrow').css('background-position', b + ' bottom');
 }
 
 function queueSize(a) {
-  if (USERCONFIG.queue != 'center') {
-    if (a == 'wide') {
+  if (USERCONFIG.queue !== 'center') {
+    if (a === 'wide') {
       $('#leftpane').removeClass().addClass('col-lg-5 col-md-5');
       $('#rightpane').removeClass().addClass('col-lg-7 col-md-7');
-    } else if (a == 'narrow') {
+    } else if (a === 'narrow') {
       $('#leftpane').removeClass().addClass('col-lg-7 col-md-7');
       $('#rightpane').removeClass().addClass('col-lg-5 col-md-5');
     }
@@ -1419,27 +809,19 @@ function queueSize(a) {
 }
 
 function mainLocation(a) {
-  if (a == 'top') {
-    $('#main')
-        .before($('#titlerow').detach())
-        .after($('#playlistrow').detach());
-  } else if (a == 'bottom') {
-    $('#main')
-        .before($('#playlistrow').detach())
-        .before($('#titlerow').detach());
+  if (a === 'top') {
+    $('#main').before($('#titlerow').detach()).after($('#playlistrow').detach());
+  } else if (a === 'bottom') {
+    $('#main').before($('#playlistrow').detach()).before($('#titlerow').detach());
   }
   $('#main').after($('#chatpanel').detach());
 }
 
 function motdLocation(a) {
-  if (a == 'top') {
-    $('#zerorow')
-        .after($('#announcements').detach())
-        .after($('#motdrow').detach());
-  } else if (a == 'bottom') {
-    $('#resizewrap')
-        .before($('#motdrow').detach())
-        .before($('#announcements').detach());
+  if (a === 'top') {
+    $('#zerorow').after($('#announcements').detach()).after($('#motdrow').detach());
+  } else if (a === 'bottom') {
+    $('#resizewrap').before($('#motdrow').detach()).before($('#announcements').detach());
   }
 }
 
@@ -1447,8 +829,7 @@ function motdLocation(a) {
 function logoInsert(logo) {
   if (logo !== 'no') {
     const link = (logo !== 'user') ? LOGOS.get(logo).url : USERCONFIG.logourl;
-    const height =
-        (logo !== 'user') ? LOGOS.get(logo).height : USERCONFIG.logoht;
+    const height = (logo !== 'user') ? LOGOS.get(logo).height : USERCONFIG.logoht;
     azukirow.css({
       'min-height': `${height}px`,
       'background-image': `url("${link}")`,
@@ -1463,13 +844,13 @@ function logoInsert(logo) {
 
 function headerMode(a) {
   $('.navbar-fixed-top').unbind();
-  if (a == 'fixed') {
+  if (a === 'fixed') {
     $('.navbar-fixed-top').css({'position': 'fixed', 'top': '0px'});
     $('#mainpage').css('margin-top', '0px');
-  } else if (a == 'detached') {
+  } else if (a === 'detached') {
     $('.navbar-fixed-top').css('position', 'inherit');
     $('#mainpage').css('margin-top', '-72px');
-  } else if (a == 'mouseover') {
+  } else if (a === 'mouseover') {
     $('.navbar-fixed-top')
         .css({'position': 'fixed', 'top': '-40px'})
         .on('mouseover', () => $('.navbar-fixed-top').css('top', '0px'))
@@ -1480,9 +861,8 @@ function headerMode(a) {
 
 function customCSS(a) {
   $('#usercss').remove();
-  if (a == 'yes') {
-    $('head').append(
-        `<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`);
+  if (a === 'yes') {
+    $('head').append(`<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`);
   }
 }
 
@@ -1516,8 +896,9 @@ function fitPlayer() {
  * @param {string} a
  */
 function fitChat(a) {
-  if (a == 'auto') {
-    VW = $('#messagebuffer').width();
+  let VH;
+  if (a === 'auto') {
+    const VW = $('#messagebuffer').width();
     VH = Math.floor(parseInt(VW) * 9 / 16 + 1);
   } else {
     VH = a;
@@ -1544,8 +925,7 @@ function normalPlayer() {
 }
 
 function normalChat() {
-  c = (PINNED && USERCONFIG.qsize == 'wide') ? 'col-lg-7 col-md-7' :
-                                               'col-lg-5 col-md-5';
+  const c = (PINNED && USERCONFIG.qsize === 'wide') ? 'col-lg-7 col-md-7' : 'col-lg-5 col-md-5';
   $('#chatwrap').removeClass().addClass(c);
   fitChat(338);
 }
@@ -1564,27 +944,27 @@ function setMode(a) {
   }
 
   if (a === 'syMode') {
-    $('#videowrap, #videowrap p, #videowrap div, #chatwrap, #rightpane, #pinup-btn')
-        .show();
+    $('#videowrap, #videowrap p, #videowrap div, #chatwrap, #rightpane, #pinup-btn').show();
     $('#config-btn, #configbtnwrap br, #pinup-btn').show();
     $('#min-layout').parent().show();
 
     normalPlayer();
 
-    c = (PINNED && USERCONFIG.qsize == 'wide') ? 'col-lg-7 col-md-7' :
-                                                 'col-lg-5 col-md-5';
+    const c = (PINNED && USERCONFIG.qsize === 'wide') ? 'col-lg-7 col-md-7' : 'col-lg-5 col-md-5';
     $('#chatwrap').removeClass().addClass(c);
-    H = parseInt(VH) - $('#chatline').outerHeight() - 1;
+    const VW = $('#messagebuffer').width();
+    const VH = Math.floor(parseInt(VW) * 9 / 16 + 1);
+    const H = parseInt(VH) - $('#chatline').outerHeight() - 1;
     $('#messagebuffer').height(H);
     $('#userlist').height(H);
 
-    if (USERCONFIG.player == 'center') {
+    if (USERCONFIG.player === 'center') {
       playerLocation('center');
     }
     if (PINNED) {
       pinUp();
     }
-  } else if (a == 'kMode') {
+  } else if (a === 'kMode') {
     $('#videowrap').show();
     if (PINNED) {
       $('#rightpane').hide();
@@ -1594,7 +974,7 @@ function setMode(a) {
     $('#fontspanel, #emotespanel').hide();
 
     bigPlayer();
-  } else if (a == 'chMode') {
+  } else if (a === 'chMode') {
     $('#chatwrap').show();
 
     if (WEBKIT) {
@@ -1605,7 +985,7 @@ function setMode(a) {
     }
 
     bigChat();
-  } else if (a == 'rMode') {
+  } else if (a === 'rMode') {
     if (WEBKIT) {
       $('#main').hide();
     } else {
@@ -1628,7 +1008,7 @@ function setMode(a) {
  * Fix layout after changing media.
  */
 function setModeAfterVideoChange() {
-  m = modesel.val();
+  const m = modesel.val();
   if (m === 'syMode' || m === 'chMode' || m === 'rMode') {
     setMode(m);
   }
@@ -1639,10 +1019,7 @@ function setModeAfterVideoChange() {
  */
 function changeWelcomeText() {
   if (CLIENT.rank > 0) {
-    $('#welcome')
-        .html($('#welcome')
-                  .html()
-                  .replace(/Welcome/, CustomCaptions_Array['welcome']));
+    $('#welcome').html($('#welcome').html().replace(/Welcome/, CustomCaptions_Array['welcome']));
   }
 }
 
@@ -1664,10 +1041,9 @@ function changeMOTD() {
                   motdtabscontent.html(MOTDTabs_Array[nr][1]);
                 });
     }
-    motdtabscontent =
-        $(`<div id="motdtabscontent">${MOTDTabs_Array[0][1]}</div>`)
-            .css(MOTDTabs_CSS)
-            .appendTo('#motd');
+    motdtabscontent = $(`<div id="motdtabscontent">${MOTDTabs_Array[0][1]}</div>`)
+                          .css(MOTDTabs_CSS)
+                          .appendTo('#motd');
     $('.motdtabs-btn:nth-child(1)').addClass('btn-success');
   }
   if (UI_MOTDAutoLogo) {
@@ -1675,8 +1051,7 @@ function changeMOTD() {
     let logo = 0;
     let len = MOTDAutoLogo_Array.length;
     if (len < 1) {
-      MOTDAutoLogo_Array =
-          ['https://dl.dropboxusercontent.com/s/7mrz85gl29eiiks/logo.png'];
+      MOTDAutoLogo_Array = ['https://dl.dropboxusercontent.com/s/7mrz85gl29eiiks/logo.png'];
       len = 1;
     }
     if (MOTDAutoLogo_Mode == '2' || MOTDAutoLogo_Mode == '3') {
@@ -1693,21 +1068,21 @@ function changeMOTD() {
   }
   if (UI_RulesBtn) {
     // adding rules button
-    if (RulesBtn_Caption == '') {
+    if (RulesBtn_Caption === '') {
       RulesBtn_Caption = 'Read Channel Rules';
     }
-    if (RulesBtn_HTML == '') {
+    if (RulesBtn_HTML === '') {
       RulesBtn_HTML = 'No rules.';
     }
-    rulesbtnwrap = $('<div id="rulesbtnwrap" />').appendTo('#motd');
-    rulesbtn = $('<button id="rules-btn" class="btn btn-default btn-sm" />')
-                   .text(RulesBtn_Caption + ' ▸')
-                   .appendTo(rulesbtnwrap)
-                   .on('click', () => toggleDiv(rulespanel));
-    rulespanelouter = $('<div id="rulespanel-outer" />').appendTo('#motd');
-    rulespanel = $('<div id="rulespanel" style="display:none" />')
-                     .html(RulesBtn_HTML)
-                     .appendTo(rulespanelouter);
+    const rulespanelouter = $('<div id="rulespanel-outer" />').appendTo('#motd');
+    const rulespanel = $('<div id="rulespanel" style="display:none" />')
+                           .html(RulesBtn_HTML)
+                           .appendTo(rulespanelouter);
+    const rulesbtnwrap = $('<div id="rulesbtnwrap" />').appendTo('#motd');
+    $('<button id="rules-btn" class="btn btn-default btn-sm" />')
+        .text(RulesBtn_Caption + ' ▸')
+        .appendTo(rulesbtnwrap)
+        .on('click', () => toggleDiv(rulespanel));
   }
 }
 
@@ -1715,24 +1090,25 @@ function changeMOTD() {
  * Change title bar description.
  */
 function changeTitle() {
-  title = $('#currenttitle').text();
-  $('#currenttitle')
-      .text(title.replace(/Currently Playing:/, TitleBarDescription_Caption));
+  const title = $('#currenttitle').text();
+  $('#currenttitle').text(title.replace(/Currently Playing:/, TitleBarDescription_Caption));
 }
+
+let titlerow;
 
 /**
  * YouTube/DailyMotion progress bar.
  */
 function progressBar() {
   let a = 0;
-  if (PLAYER.type == 'yt') {
-    b = PLAYER.player.getCurrentTime();
+  if (PLAYER.type === 'yt') {
+    const b = PLAYER.player.getCurrentTime();
     if (b != PREVTIME) {
       a = b / PLAYER.player.getDuration() * 100;
     }
     PREVTIME = b;
-  } else if (PLAYER.type == 'dm') {
-    b = PLAYER.player.currentTime;
+  } else if (PLAYER.type === 'dm') {
+    const b = PLAYER.player.currentTime;
     if (b != PREVTIME) {
       a = b / PLAYER.player.duration * 100;
     }
@@ -1741,16 +1117,6 @@ function progressBar() {
   titlerow.css('background-size', a + '% 100%');
 }
 
-/**
- * Toggle additional chat functions.
- */
-function toggleChatFunctions() {
-  if (CLIENT.rank > 2) {
-    chatflair.show();
-  } else {
-    chatflair.hide();
-  }
-}
 
 /**
  * Set chat side panel properties.
@@ -1812,8 +1178,7 @@ class ChatStats {
  * @return {!ChatStats} The chat stats.
  */
 function getChatStats() {
-  return ChatStats.fromJsonString(
-      window.localStorage[ChatStats.getLocalStorageKey()]);
+  return ChatStats.fromJsonString(window.localStorage[ChatStats.getLocalStorageKey()]);
 }
 
 /**
@@ -1827,8 +1192,7 @@ function updateChatStats(msg) {
   chatStats.numberOfMessages++;
   chatStats.totalMessageLength += msg.length;
 
-  window.localStorage[ChatStats.getLocalStorageKey()] =
-      JSON.stringify(chatStats);
+  window.localStorage[ChatStats.getLocalStorageKey()] = JSON.stringify(chatStats);
 }
 
 /**
@@ -1838,10 +1202,9 @@ function updateChatStats(msg) {
  * @return {string}
  */
 function createSquavatar(str) {
-  for (i = 0, hash = 0; i < str.length;
-       hash = str.charCodeAt(i++) + ((hash << 5) - hash))
+  for (let i = 0, hash = 0; i < str.length; hash = str.charCodeAt(i++) + ((hash << 5) - hash))
     ;
-  for (i = 0, col = ''; i < 3;
+  for (let i = 0, col = ''; i < 3;
        col += ('00' + ((hash >> i++ * 8) & 0xFF).toString(16)).slice(-2))
     ;
   r = parseInt(col.substring(0, 2), 16);
@@ -1850,8 +1213,7 @@ function createSquavatar(str) {
   r2 = 255 - r;
   g2 = 255 - g;
   b2 = 255 - b;
-  html =
-      `<span class="squavatar" style="background-color:rgb(${r},${g},${b}); ` +
+  html = `<span class="squavatar" style="background-color:rgb(${r},${g},${b}); ` +
       `border-color:rgb(${r2},${g2},${b2})"></span>`;
   return html;
 }
@@ -1864,8 +1226,7 @@ function createSquavatar(str) {
  */
 function prepareMessage(msg) {
   if (UI_MessagesSuffix) {
-    if ((typeof MessagesSuffix_Percentage !== 'number') ||
-        MessagesSuffix_Percentage < 0) {
+    if ((typeof MessagesSuffix_Percentage !== 'number') || MessagesSuffix_Percentage < 0) {
       MessagesSuffix_Percentage = '10';
     }
     if (Math.random() < (MessagesSuffix_Percentage / 100)) {
@@ -1877,21 +1238,20 @@ function prepareMessage(msg) {
     COMMAND = true;
     if (msg.startsWith('!stat')) {
       const {numberOfMessages, totalMessageLength} = getChatStats();
-      const averageMessageLength = numberOfMessages > 0 ?
-          Math.round(totalMessageLength / numberOfMessages) :
-          0;
+      const averageMessageLength =
+          numberOfMessages > 0 ? Math.round(totalMessageLength / numberOfMessages) : 0;
       msg = `you have sent ${numberOfMessages} messages, ` +
           `total length is ${totalMessageLength} characters ` +
           `(${averageMessageLength} per message) `;
     } else if (msg.startsWith('!pick ')) {
-      arr = msg.split('!pick ')[1].split(',');
-      rnd = Math.round(Math.random() * (arr.length - 1));
+      const arr = msg.split('!pick ')[1].split(',');
+      const rnd = Math.round(Math.random() * (arr.length - 1));
       msg = arr[rnd];
     } else if (msg.startsWith('!ask ')) {
       if (AskAnswers_Array.length < 1) {
         AskAnswers_Array = ['yes', 'no'];
       }
-      rnd = a = Math.round(Math.random() * (AskAnswers_Array.length - 1));
+      const rnd = Math.round(Math.random() * (AskAnswers_Array.length - 1));
       msg = AskAnswers_Array[rnd];
     } else if (msg.startsWith('!time')) {
       let h = new Date().getHours();
@@ -1904,7 +1264,7 @@ function prepareMessage(msg) {
       }
       msg = 'current time: ' + h + ':' + m;
     } else if (msg.startsWith('!dice')) {
-      rnd = Math.round(Math.random() * 5) + 1;
+      const rnd = Math.round(Math.random() * 5) + 1;
       msg = '' + rnd;
     } else if (msg.startsWith('!roll')) {
       let rnd = Math.round(Math.random() * 999);
@@ -1919,7 +1279,7 @@ function prepareMessage(msg) {
       if (RandomQuotes_Array.length < 1) {
         RandomQuotes_Array = ['error: no quotes available'];
       }
-      rnd = Math.round(Math.random() * (RandomQuotes_Array.length - 1));
+      const rnd = Math.round(Math.random() * (RandomQuotes_Array.length - 1));
       msg = RandomQuotes_Array[rnd];
     } else if (msg.startsWith('!randomemote')) {
       const emoteCount = TabCompletionEmotes.length;
@@ -1929,12 +1289,13 @@ function prepareMessage(msg) {
     } else if (msg.startsWith('!random') && hasPermission('playlistadd')) {
       if (UI_ChannelDatabase) {
         let link = '';
+        let title = '';
         while (link === '' || link.includes(LAST_VIDEO_ID_QUEUED)) {
-          rnd = Math.round(Math.random() * (ChannelDatabase.length - 1));
-          link = ChannelDatabase[rnd][0];
-          title = ChannelDatabase[rnd][1];
+          const rnd = Math.round(Math.random() * (CHANNEL_DATABASE.length - 1));
+          link = CHANNEL_DATABASE[rnd][0];
+          title = CHANNEL_DATABASE[rnd][1];
         }
-        parsed = parseMediaLink(link);
+        const parsed = parseMediaLink(link);
         socket.emit('queue', {
           id: parsed['id'],
           pos: 'end',
@@ -1950,15 +1311,13 @@ function prepareMessage(msg) {
       socket.emit('playNext');
       msg = 'start playing next item';
     } else if (msg.startsWith('!bump') && hasPermission('playlistmove')) {
-      last = $('#queue').children().length;
-      uid = $(`#queue .queue_entry:nth-child(${last})`).data('uid');
-      title = $(`#queue .queue_entry:nth-child(${last}) .qe_title`).html();
-      socket.emit(
-          'moveMedia', {from: uid, after: PL_CURRENT},
-          $('.add-temp').prop('checked'));
+      const last = $('#queue').children().length;
+      const uid = $(`#queue .queue_entry:nth-child(${last})`).data('uid');
+      const title = $(`#queue .queue_entry:nth-child(${last}) .qe_title`).html();
+      socket.emit('moveMedia', {from: uid, after: PL_CURRENT}, $('.add-temp').prop('checked'));
       msg = `last item bumped as next: ${title}`;
     } else if (msg.startsWith('!add ') && hasPermission('playlistadd')) {
-      parsed = parseMediaLink(msg.split('!add ')[1]);
+      const parsed = parseMediaLink(msg.split('!add ')[1]);
       if (parsed['id'] === null) {
         msg = 'error: invalid link, item has not been added';
       } else {
@@ -2015,40 +1374,33 @@ function prepareMessage(msg) {
  *
  * @param {string} str
  */
-// eslint-disable-next-line no-unused-vars
-function insertText(str) {
+export function insertText(str) {
   $('#chatline').val($('#chatline').val() + str).focus();
 }
+
+// let muteplayerbtn;
 
 /**
  * Toggle YT mute button.
  */
-function toggleMuteBtn() {
-  if (PLAYER && PLAYER.type == 'yt') {
+/* function toggleMuteBtn() {
+  if (PLAYER && PLAYER.type === 'yt') {
     muteplayerbtn.show();
   } else {
     muteplayerbtn.hide();
   }
-}
+}*/
+
+let modbtn;
 
 /**
  * Toggle mod panel button.
  */
 function toggleModPanel() {
   if (CLIENT.rank < 2) {
-    modbtn.hide();
+    modbtn.remove();
   } else {
-    modbtn.show();
-    HASH = '';
-    for (const row of ModPanel_Array) {
-      const name = row[0];
-      if (name == '' || name == CLIENT.name) {
-        HASH += '' + row[1].length;
-      }
-    }
-    if (HASH != USERCONFIG.modhash) {
-      modbtn.addClass('btn-danger').html(modbtn.html() + ' (New Mess.)');
-    }
+    modbtn.add();
   }
 }
 
@@ -2056,14 +1408,14 @@ function toggleModPanel() {
  * Create media database.
  */
 function createDatabase() {
-  html =
-      '<button id="la1" class="btn btn-default btn-sm db-break" onclick="toggleCat(1)">' +
-      ChannelDatabase[0][1] + '</button>' +
+  let html =
+      '<button id="la1" class="btn btn-default btn-sm db-break" onclick="cydj.toggleCat(1)">' +
+      CHANNEL_DATABASE[0][1] + '</button>' +
       '<ul id="l1" class="videolist db-cat">';
 
-  len = ChannelDatabase.length;
-  for (i = 1; i < ChannelDatabase.length; i++) {
-    if (ChannelDatabase[i][0] == '') {
+  let len = CHANNEL_DATABASE.length;
+  for (let i = 1; i < CHANNEL_DATABASE.length; i++) {
+    if (CHANNEL_DATABASE[i][0] === '') {
       item_count[layer_nr - 1] = count_nr;
       opening[layer_nr - 1] = 0;
       layer_nr++;
@@ -2071,29 +1423,28 @@ function createDatabase() {
 
       html += `</ul><button id="la${layer_nr}" ` +
           `class="btn btn-default btn-sm db-break" ` +
-          `onclick="toggleCat(${layer_nr})">` +
-          `${ChannelDatabase[i][1]}</button>` +
+          `onclick="cydj.toggleCat(${layer_nr})">` +
+          `${CHANNEL_DATABASE[i][1]}</button>` +
           `<ul id="l${layer_nr}" class="videolist db-cat">`;
     } else {
       item_nr++;
       count_nr++;
-      link = ChannelDatabase[i][0];
+      const link = CHANNEL_DATABASE[i][0];
 
       html += '<li class="queue_entry">' +
           `<button class="btn btn-default btn-xs pull-right" ` +
-          `onclick="addVideo('${link}')">End</button>`;
+          `onclick="cydj.addVideo('${link}')">End</button>`;
 
-      parsed = parseMediaLink(link);
-      if (parsed['type'] == 'yt') {
-        a = parsed['id'];
+      const parsed = parseMediaLink(link);
+      if (parsed['type'] === 'yt') {
+        const a = parsed['id'];
         html += '<button class="btn btn-default btn-xs pull-right" ' +
-            `onclick="prevVideo('${a}')">` +
+            `onclick="cydj.prevVideo('${a}')">` +
             '<i class="glyphicon glyphicon-film"></i>' +
             '</button>';
       }
-      html += '<span class="badge db-badge">' + item_nr +
-          '</span><span class="db-title">' + ChannelDatabase[i][1] +
-          '</span><br /><span class="db-link">' + link + '</span>';
+      html += '<span class="badge db-badge">' + item_nr + '</span><span class="db-title">' +
+          CHANNEL_DATABASE[i][1] + '</span><br /><span class="db-link">' + link + '</span>';
     }
   }
 
@@ -2108,11 +1459,11 @@ function createDatabase() {
   html = '';
 
   len = item_count.length;
-  for (i = 1; i <= len; i++) {
+  for (let i = 1; i <= len; i++) {
     $('#la' + i).append(' [' + item_count[i - 1] + ']');
   }
 
-  cleardbbtn = $('#cleardb-btn').on('click', () => {
+  $('#cleardb-btn').on('click', () => {
     toggleDiv(dbwrap);
     dbwell.html('');
     CHANDB = false;
@@ -2121,7 +1472,7 @@ function createDatabase() {
   for (const i of opening.keys()) {
     opening[i] = 0;
   }
-  dbcat = $('.db-cat').hide();
+  $('.db-cat').hide();
   CHANDB = true;
 }
 
@@ -2132,11 +1483,10 @@ function createDatabase() {
  *
  * @param {number} a
  */
-// eslint-disable-next-line no-unused-vars
-function toggleCat(a) {
-  b = a - 1;
+export function toggleCat(a) {
+  const b = a - 1;
   if (opening[b] == 0) {
-    dbcat.hide();
+    $('.db-cat').hide();
     for (const i of opening.keys()) {
       opening[i] = 0;
     }
@@ -2159,56 +1509,29 @@ function patchWrap() {
  * Create channel gallery.
  */
 function createGallery() {
-  galleryframe =
-      $(`<iframe id="galleryFrame" src=${ChannelGalleries_Array[0][1]} ` +
-        'width="100%" />')
-          .attr({'frameborder': '0', 'scrolling': 'no', 'height': '415px'})
-          .appendTo(gallerywell);
-  galtitle = $('<span id="galtitle" class="conf-opt">Select Gallery</span>')
-                 .appendTo(gallerywell);
-  galsel = $('<select id="gal-sel" class="form-control" />')
-               .appendTo(gallerywell)
-               .on('change', () => galleryframe.attr('src', galsel.val()));
+  const galleryframe = $(`<iframe id="galleryFrame" src=${ChannelGalleries_Array[0][1]} ` +
+                         'width="100%" />')
+                           .attr({'frameborder': '0', 'scrolling': 'no', 'height': '415px'})
+                           .appendTo(gallerywell);
+  $('<span id="galtitle" class="conf-opt">Select Gallery</span>').appendTo(gallerywell);
+  const galsel = $('<select id="gal-sel" class="form-control" />')
+                     .appendTo(gallerywell)
+                     .on('change', () => galleryframe.attr('src', galsel.val()));
 
   for (const gallery of ChannelGalleries_Array) {
     $(`<option value="${gallery[1]}" />`).html(gallery[0]).appendTo(galsel);
   }
 
-  text = 'Reload Galleries (if problems or slow channel)';
-  cleargallerybtn =
-      $('<button id="cleargallery-btn" class="btn btn-default btn-sm">' +
-        `${text}</button>`)
-          .appendTo(gallerywell)
-          .on('click', () => {
-            toggleDiv(gallerywrap);
-            gallerywell.html('');
-            GALLERY = false;
-          });
+  const text = 'Reload Galleries (if problems or slow channel)';
+  $('<button id="cleargallery-btn" class="btn btn-default btn-sm">' +
+    `${text}</button>`)
+      .appendTo(gallerywell)
+      .on('click', () => {
+        toggleDiv(gallerywrap);
+        gallerywell.html('');
+        GALLERY = false;
+      });
   GALLERY = true;
-}
-
-/**
- * Toggle "/clear" button depending on rank.
- */
-function toggleClearBtn() {
-  if (hasPermission('chatclear')) {
-    clearbtn.show();
-  } else {
-    clearbtn.hide();
-  }
-}
-
-/**
- * Toggle YT volume buttons depending on player type.
- */
-function toggleVolBtn() {
-  if (PLAYER && PLAYER.type === 'yt') {
-    voldownbtn.show();
-    volupbtn.show();
-  } else {
-    voldownbtn.hide();
-    volupbtn.hide();
-  }
 }
 
 /**
@@ -2248,33 +1571,32 @@ function toggleAdvancedPl() {
  * @return {string}
  */
 function formatRawList() {
-  len = $('#queue .queue_entry').length + 1;
-  list = [];
-  for (i = 1; i < len; i++) {
-    item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
+  const len = $('#queue .queue_entry').length + 1;
+  const list = [];
+  for (let i = 1; i < len; i++) {
+    const item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
     list.push(formatURL(item));
   }
   return list.join(',');
 }
 
 function formatPlainTextList() {
-  len = $('#queue .queue_entry').length + 1;
+  const len = $('#queue .queue_entry').length + 1;
   const list = [];
-  for (i = 1; i < len; i++) {
-    item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
+  for (let i = 1; i < len; i++) {
+    const item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
     list.push(`${i}. ${formatURL(item)} // ${item.title} [${item.duration}]`);
   }
   return list.join('\n');
 }
 
 function formatHTMLList() {
-  len = $('#queue .queue_entry').length + 1;
+  const len = $('#queue .queue_entry').length + 1;
   const list = [];
-  for (i = 1; i < len; i++) {
-    item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
-    title = item.title;
-    duration = item.duration;
-    link = formatURL(item);
+  for (let i = 1; i < len; i++) {
+    const item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
+    const {title, duration} = item;
+    const link = formatURL(item);
     list.push(
         `<li>${title} [${duration}] - <a href="${link}" target="_blank">` +
         `${link}</a></li>`);
@@ -2283,11 +1605,11 @@ function formatHTMLList() {
 }
 
 function formatOrderedList() {
-  len = $('#queue .queue_entry').length + 1;
+  const len = $('#queue .queue_entry').length + 1;
   const list = [];
-  for (i = 1; i < len; i++) {
-    item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
-    link = formatURL(item);
+  for (let i = 1; i < len; i++) {
+    const item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
+    const link = formatURL(item);
     list.push(`${item.title} ■■ ${link} ■■ [${item.duration}]`);
     list.sort();
   }
@@ -2295,13 +1617,13 @@ function formatOrderedList() {
 }
 
 function formatDBList() {
-  len = $('#queue .queue_entry').length + 1;
+  const len = $('#queue .queue_entry').length + 1;
   const list = [];
-  for (i = 1; i < len; i++) {
-    item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
-    re1 = new RegExp('\\\\', 'g');
-    re2 = new RegExp('\'', 'g');
-    title = item.title.replace(re1, '\\\\').replace(re2, '\\\'');
+  for (let i = 1; i < len; i++) {
+    const item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
+    const re1 = new RegExp('\\\\', 'g');
+    const re2 = new RegExp('\'', 'g');
+    const title = item.title.replace(re1, '\\\\').replace(re2, '\\\'');
     list.push(`['${formatURL(item)}', '${title}'],`);
   }
   return list.join('\n');
@@ -2311,8 +1633,7 @@ function formatDBList() {
  * Change voteskip caption.
  */
 function changeSkipText() {
-  $('#voteskip')
-      .text(CustomCaptions_Array['voteskip'] + ' ' + $('#voteskip').text());
+  $('#voteskip').text(CustomCaptions_Array['voteskip'] + ' ' + $('#voteskip').text());
 }
 
 /**
@@ -2320,16 +1641,14 @@ function changeSkipText() {
  *
  * @param {string} link
  */
-// eslint-disable-next-line no-unused-vars
-function addVideo(link) {
-  parsed = parseMediaLink(link);
-  idp = parsed['id'];
+export function addVideo(link) {
+  const parsed = parseMediaLink(link);
+  const idp = parsed['id'];
   if (idp != null) {
-    time = (new Date()).getTime();
+    const time = (new Date()).getTime();
     if (!hasPermission('playlistadd')) {
       alert('Please create a registered account to queue links!');
-    } else if (
-        ADDEDLINKS[idp] != undefined && time - ADDEDLINKS[idp] < 120000) {
+    } else if (ADDEDLINKS[idp] != undefined && time - ADDEDLINKS[idp] < 120000) {
       alert('Please wait before adding another link!');
     } else {
       socket.emit('queue', {
@@ -2368,64 +1687,139 @@ function setUserCSS() {
   $('#chanexternalcss').detach().appendTo('head');
   $('#chanexternalcss-fix').remove();
 
-  cssfix = '#mainpage {padding-top:52px}\n' +
-      '#motdrow, #announcements, #main, #playlistrow {border:solid 2px transparent; margin-bottom:5px}\n' +
-      '#main > div, #playlistrow > div {\n' +
-      '  padding-left:5px; padding-right:5px; margin-top:5px; margin-bottom:5px;\n' +
-      '}\n' +
-      '#motdwrap {margin:5px -10px}\n' +
-      '#announcements .alert {margin:0px -10px 5px}\n' +
-      '#drinkcount {margin:0px}\n';
+  const cssfix = `
+      #mainpage {
+        padding-top: 52px;
+      }
 
-  $('head').append(
-      `<style id="chanexternalcss-fix" type="text/css">${cssfix}</style>`);
+      #motdrow,
+      #announcements,
+      #main,
+      #playlistrow {
+        border: solid 2px transparent;
+        margin-bottom: 5px;
+      }
+
+      #main > div,
+      #playlistrow > div {
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+
+      #motdwrap {
+        margin:5px -10px;
+      }
+
+      #announcements .alert {
+        margin:0px -10px 5px;
+      }
+
+      #drinkcount {
+        margin: 0px;
+      }
+    `;
+
+  const greencss = `
+    body {
+      background-color: #141414
+  }
+
+  a {
+      color: #94d1bd
+  }
+
+  a:hover, a:focus {
+      color: #b8e0d3
+  }
+
+  .qe_title {
+      color: #ff66ab
+  }
+
+  .queue_entry {
+      background-color: #293d36bd;
+  }
+
+  .dropdown-menu {
+      background-color: #383E40;
+  }
+
+  .btn {
+      background-image: linear-gradient(#4c333e00,#4c333e00 60%,#4c333e00)!important;
+      border-color: #4cb290!important
+  }
+
+  .btn-default:hover {
+      background-color: #4cb290
+  }
+
+  .modal-body {
+      background-color: #293d36
+  }
+
+  .modal-header {
+      background-color: #293d36
+  }
+
+  .modal-footer {
+      background-color: #293d36
+  }
+
+  .modal-content {
+      background-color: #293d36
+  }
+
+  #motd {
+      background-color: #fff0
+  }
+
+  #motdwrap {
+      background-color: #293d36bd
+  }
+
+  #userlist {
+      background-color: #222a27
+  }`;
+
+  $('head').append(`<style id="chanexternalcss-fix" type="text/css">${cssfix}</style>`);
   $('#usertheme').attr('href', '/css/themes/slate.css');
   $('#usertheme-fix').remove();
   if (USERTHEME.includes('/css/themes/')) {
     $('#usertheme').attr('href', USERTHEME);
   } else {
-    $('<link id="usertheme-fix" rel="stylesheet" type="text/css" href="' +
-      USERTHEME + '"></link>')
+    $(`<link id="usertheme-fix" rel="stylesheet" type="text/css" href="${USERTHEME}"></link>`)
         .appendTo('head');
   }
   $('#usercss').remove();
   if (USERCONFIG.css !== 'no') {
-    $('head').append(
-        `<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`);
+    $('head').append(`<style id="usercss" type="text/css">${USERCONFIG.csscode}</style>`);
   }
-  const newThemeType =
-      LIGHT_THEMES.includes(USERTHEME) ? 'light-theme' : 'dark-theme';
-  const oldThemeType =
-      LIGHT_THEMES.includes(USERTHEME) ? 'dark-theme' : 'light-theme';
+  const newThemeType = LIGHT_THEMES.includes(USERTHEME) ? 'light-theme' : 'dark-theme';
+  const oldThemeType = LIGHT_THEMES.includes(USERTHEME) ? 'dark-theme' : 'light-theme';
   const messageBuffer = document.getElementById('messagebuffer');
   messageBuffer.classList.add(newThemeType);
   messageBuffer.classList.remove(oldThemeType);
-  if (USERTHEME === '/css/themes/slate.css') {
-    $('body').css('background-color', '#141414');
-    $('.queue_entry').css('background-color', '#3a3f44');
-    $('.dropdown-menu').css('background-color', '#383E40');
-    $('.btn-default')
-        .css(
-            'background-image', 'linear-gradient(#3a3f44,#3a3f44 60%,#313539)');
-    $('#motd').css('background-color', '#272b30');
-    $('#motdwrap').css('background-color', '#272b30');
-    $('#userlist').css('background-color', '#272b30');
+  if (document.getElementById('usertheme').getAttribute('href') === '/css/themes/slate.css') {
+    if (document.getElementById('green-update') == null) {
+      const style = document.createElement('style');
+      style.id = 'green-update';
+      style.textContent = greencss;
+      document.getElementsByTagName('head')[0].appendChild(style);
+    }
   } else {
-    $('body').css('background-color', '');
-    $('.queue_entry').css('background-color', '');
-    $('.dropdown-menu').css('background-color', '');
-    $('.btn-default').css('background-image', '');
-    $('#motd').css('background-color', '');
-    $('#motdwrap').css('background-color', '');
-    $('#userlist').css('background-color', '');
+    if (document.getElementById('green-update') !== undefined) {
+      document.getElementById('green-update').remove();
+    }
   }
 }
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- UI events functions ----- */
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 function prepareFilters() {
   str = '{"name":"white color","source":"\\\\[white\\\\]","flags":"g",' +
@@ -2476,19 +1870,16 @@ function prepareFilters() {
       '"replace":"</span>","active":true,"filterlinks":false}]';
 
   callback = (data) => {
-    socket.listeners('chatFilters')
-        .splice(socket.listeners('chatFilters').indexOf(callback));
+    socket.listeners('chatFilters').splice(socket.listeners('chatFilters').indexOf(callback));
     json = JSON.stringify(data);
     comma = (json.length != '2') ? ',' : '';
-    $('#cs-chatfilters-exporttext')
-        .val(json.substring(0, json.length - 1) + comma + str);
+    $('#cs-chatfilters-exporttext').val(json.substring(0, json.length - 1) + comma + str);
   };
 
   socket.on('chatFilters', callback);
   socket.emit('requestChatFilters');
 
-  txt =
-      'This option does NOT affect your current filters, all of them will be saved.\n' +
+  txt = 'This option does NOT affect your current filters, all of them will be saved.\n' +
       'Click "Import filter list" button if you\'ll decide to install.';
   alert(txt);
 }
@@ -2502,51 +1893,49 @@ function showChatFunctions() {
 
   $('#chatfunc-dropdown').append('<div>Prevent room freezing if spam:</div>');
 
-  spamclearbtn =
-      $('<button id="spamclear-btn" class="btn btn-xs btn-default">Auto Clear</button>')
-          .appendTo('#chatfunc-dropdown')
-          .on('click', function() {
-            if (!CLEARING) {
-              $(this).text('Stop Clearing').addClass('btn-danger');
-              CLEARING = setInterval(
-                  () => socket.emit('chatMsg', {msg: '/clear'}), 500);
-            } else {
-              $(this).text('Auto Clear').removeClass('btn-danger');
-              clearInterval(CLEARING);
-              CLEARING = false;
-            }
-          });
+  $('<button id="spamclear-btn" class="btn btn-xs btn-default">Auto Clear</button>')
+      .appendTo('#chatfunc-dropdown')
+      .on('click', function() {
+        if (!CLEARING) {
+          $(this).text('Stop Clearing').addClass('btn-danger');
+          CLEARING = setInterval(() => socket.emit('chatMsg', {msg: '/clear'}), 500);
+        } else {
+          $(this).text('Auto Clear').removeClass('btn-danger');
+          clearInterval(CLEARING);
+          CLEARING = false;
+        }
+      });
   if (CLEARING) {
     $('#spamclear-btn').text('Stop Clearing').addClass('btn-danger');
   }
 
   $('#chatfunc-dropdown').append('<div>Prevent me from AFK:</div>');
 
-  antiafkbtn =
-      $('<button id="antiafk-btn" class="btn btn-xs btn-default">Anti AFK</button>')
-          .appendTo('#chatfunc-dropdown')
-          .on('click', function() {
-            if (!ANTIAFK) {
-              $(this).addClass('btn-danger');
-              ANTIAFK = setInterval(function() {
-                $('#userlist').find('span[class^=userlist]').each(function() {
-                  if ($(this).html() == CLIENT.name &&
-                      $(this).css('font-style') == 'italic') {
-                    socket.emit('chatMsg', {msg: '/afk'});
-                    return;
-                  }
-                });
-              }, 4000);
-            } else {
-              $(this).removeClass('btn-danger');
-              clearInterval(ANTIAFK);
-              ANTIAFK = false;
-            }
-          });
+  $('<button id="antiafk-btn" class="btn btn-xs btn-default">Anti AFK</button>')
+      .appendTo('#chatfunc-dropdown')
+      .on('click', function() {
+        if (!ANTIAFK) {
+          $(this).addClass('btn-danger');
+          ANTIAFK = setInterval(function() {
+            $('#userlist').find('span[class^=userlist]').each(function() {
+              if ($(this).html() === CLIENT.name && $(this).css('font-style') === 'italic') {
+                socket.emit('chatMsg', {msg: '/afk'});
+                return;
+              }
+            });
+          }, 4000);
+        } else {
+          $(this).removeClass('btn-danger');
+          clearInterval(ANTIAFK);
+          ANTIAFK = false;
+        }
+      });
   if (ANTIAFK) {
     $('#antiafk-btn').addClass('btn-danger');
   }
 }
+
+let emotespanel;
 
 /**
  * Display list of emotes.
@@ -2555,58 +1944,55 @@ function showEmotes() {
   if (typeof GroupEmotes_Number !== 'number' || GroupEmotes_Number < 1) {
     GroupEmotes_Number = 100;
   }
-  len = CHANNEL.emotes.length;
+  const len = CHANNEL.emotes.length;
   if (len < 1) {
     emotespanel.addClass('row');
-    makeAlert('No emotes available', 'Ask channel administrator.')
-        .appendTo(emotespanel);
-  } else if (UI_GroupEmotes != '1' || len <= GroupEmotes_Number) {
+    makeAlert('No emotes available', 'Ask channel administrator.').appendTo(emotespanel);
+  } else if (!UI_GroupEmotes || len <= GroupEmotes_Number) {
     for (const emote of CHANNEL.emotes) {
-      $(`<img onclick="insertText('${emote.name} ')" />`)
+      $(`<img onclick="cydj.insertText('${emote.name} ')" />`)
           .attr({'src': emote.image, 'title': emote.name})
           .appendTo(emotespanel);
     }
   } else {
     let arr = [];
-    stop = GroupEmotes_Number - 1;
-    gr = Math.ceil(CHANNEL.emotes.length / GroupEmotes_Number);
-    html = '';
+    const stopAt = GroupEmotes_Number - 1;
+    const gr = Math.ceil(CHANNEL.emotes.length / GroupEmotes_Number);
+    let html = '';
 
-    for (i = 0; i < len; i++) {
+    for (let i = 0; i < len; i++) {
       html += `<img src="${CHANNEL.emotes[i].image}" ` +
-          `onclick="insertText(\'${CHANNEL.emotes[i].name} \')" />`;
-      if (i % GroupEmotes_Number == stop) {
+          `onclick="cydj.insertText(\'${CHANNEL.emotes[i].name} \')" />`;
+      if (i % GroupEmotes_Number === stopAt) {
         arr.push(html);
         html = '';
       }
     }
-    if (len % GroupEmotes_Number != 0) {
+    if (len % GroupEmotes_Number !== 0) {
       arr.push(html);
     }
 
-    for (i = 0; i < gr; i++) {
-      div =
-          $(`<div id="emotes-${i}" class="groupemotes" style="display:none" />`)
-              .html(arr[i])
-              .appendTo(emotespanel);
+    for (let i = 0; i < gr; i++) {
+      div = $(`<div id="emotes-${i}" class="groupemotes" style="display:none" />`)
+                .html(arr[i])
+                .appendTo(emotespanel);
     }
     arr = '';
 
     emotesbtnwrap = $('<div id="emotesbtnwrap" />').appendTo(emotespanel);
-    emotesbtngroup = $('<div id="emotescontrols" class="btn-group">')
-                         .appendTo(emotesbtnwrap);
+    emotesbtngroup = $('<div id="emotescontrols" class="btn-group">').appendTo(emotesbtnwrap);
 
-    for (i = 0; i < gr; i++) {
-      btn = $(`<button class="btn btn-sm btn-default emotesbtn" group="${i}">` +
-              `${i + 1}</button>`)
-                .appendTo(emotesbtngroup)
-                .on('click', function() {
-                  $('.emotesbtn').removeClass('active');
-                  $(this).addClass('active');
-                  $('.groupemotes').hide();
-                  nr = $(this).attr('group');
-                  $(`#emotes-${nr}`).show();
-                });
+    for (let i = 0; i < gr; i++) {
+      $(`<button class="btn btn-sm btn-default emotesbtn" group="${i}">` +
+        `${i + 1}</button>`)
+          .appendTo(emotesbtngroup)
+          .on('click', function() {
+            $('.emotesbtn').removeClass('active');
+            $(this).addClass('active');
+            $('.groupemotes').hide();
+            nr = $(this).attr('group');
+            $(`#emotes-${nr}`).show();
+          });
     }
     $('#emotes-0').show();
     $('#emotescontrols button:nth-child(1)').addClass('active');
@@ -2619,9 +2005,10 @@ function showEmotes() {
  */
 function showChatHelp() {
   createModal('Chat Commands');
+
   if (UI_FontsBtn) {
-    body.append('<strong>Fonts commands</strong><br /><br />');
-    html =
+    modalBody.append('<strong>Fonts commands</strong><br /><br />');
+    const html =
         [
           '<code>[white]</code>, <code>[yellow]</code>, <code>[orange]</code>, <code>[pink]</code>, ' +
               '<code>[red]</code>, <code>[lime]</code>, <code>[green]</code>, <code>[aqua]</code>, ' +
@@ -2643,10 +2030,10 @@ function showChatHelp() {
         ].map((line) => `<li>${line}</li>`)
             .join('') +
         'For a quick CyDJ guide check out this Google Doc <a href="https://docs.google.com/document/d/1X2TdR9hc2KK0WEBLjY06CZaY30QyKxsI_7CQ1qbSz0g/edit" target="_blank">here</a>.';
-    $('<ul />').html(html).appendTo(body);
+    $('<ul />').html(html).appendTo(modalBody);
   }
   if (UI_UserCommands) {
-    arr = {
+    const arr = {
       'pick': 'choosing a random option from a list separated by commas ' +
           '(e.g. <i>!pick japan,korea,china</i>)',
       'ask': 'asking a question with yes/no type answer ' +
@@ -2659,38 +2046,34 @@ function showChatHelp() {
       'skip': 'skip current item (<i>!skip</i>)',
       'add': 'adding a link to the end of playlist ' +
           '(e.g. <i>!add https://www.youtube.com/watch?v=29FFHC2D12Q</i>)',
-      'stat':
-          'displaying user chat statistics in current session (<i>!stat</i>)',
+      'stat': 'displaying user chat statistics in current session (<i>!stat</i>)',
       'discord': 'link to the CyDJ discord (<i>!discord</i>)',
       'link': 'post a TinyURL link for this room (<i>!link</i>)',
-      'randomemote':
-          'displays a random emote from the emote list (<i>!randomemote</i>)',
+      'randomemote': 'displays a random emote from the emote list (<i>!randomemote</i>)',
     };
     if (UI_ChannelDatabase) {
       arr['random'] = 'adding random link from database (<i>!random</i>)';
     }
-    body.append('<strong>New chat commands</strong><br /><br />');
-    ul = $('<ul />').appendTo(body);
+    modalBody.append('<strong>New chat commands</strong><br /><br />');
+    const ul = $('<ul />').appendTo(modalBody);
     for (const [cmd, desc] of Object.entries(arr)) {
       ul.append(`<li><code>!${cmd}</code> - ${desc}</li>`);
     }
   }
   if (UI_ChatSpeak) {
-    body.append('<strong>Voice commands</strong><br /><br />');
-    html =
-        '<li><code>!say</code> - text speaking in english (<i>!say Hello!</i>)</li>' +
+    modalBody.append('<strong>Voice commands</strong><br /><br />');
+    html = '<li><code>!say</code> - text speaking in english (<i>!say Hello!</i>)</li>' +
         '<li><code>!mow</code> - text speaking in polish (<i>!mow Chrząszcz brzmi w trzcinie.</i>)';
-    $('<ul />').html(html).appendTo(body);
+    $('<ul />').html(html).appendTo(modalBody);
   }
-  arr = {
-    'me':
-        'showing an action-style message (username does something, e.g. <i>/me is dancing</i>)',
+  const arr = {
+    'me': 'showing an action-style message (username does something, e.g. <i>/me is dancing</i>)',
     'sp':
         'hiding a message in a hover-to-show spoiler box (e.g. <i>/sp This message is hidden</i>)',
     'afk': 'toggling your AFK (away from keyboard) status (<i>/afk</i>)',
   };
-  body.append('<br /><strong>Default CyTube commands</strong><br /><br />');
-  ul = $('<ul />').appendTo(body);
+  modalBody.append('<br /><strong>Default CyTube commands</strong><br /><br />');
+  const ul = $('<ul />').appendTo(modalBody);
   for (const [cmd, desc] of Object.entries(arr)) {
     ul.append(`<li><code>/${cmd}</code> - ${desc}</li>`);
   }
@@ -2703,67 +2086,63 @@ function showSoundsPanel() {
   $('#userlist').append('<div id="sounds-dropdown" />');
   setPanelProperties('#sounds-dropdown');
 
-  muteallbtn =
-      $('<button id="muteall-btn" class="btn btn-xs btn-default">Mute All</button>')
-          .appendTo('#sounds-dropdown')
-          .on('click', function() {
-            if (VOICES) {
-              $(this).text('Unmute All').addClass('btn-danger');
-              voicesbtn.addClass('btn-danger')
-                  .attr('title', 'Unmute chat voices');
-              VOICES = false;
-              SOUNDSPANEL = false;
-              $('#sounds-dropdown').remove();
-            } else {
-              $(this).text('Mute All').removeClass('btn-danger');
-              voicesbtn.removeClass('btn-danger')
-                  .attr('title', 'Mute chat voices');
-              VOICES = true;
-            }
-          });
+  const muteallbtn = $('<button id="muteall-btn" class="btn btn-xs btn-default">Mute All</button>')
+                         .appendTo('#sounds-dropdown')
+                         .on('click', function() {
+                           if (VOICES) {
+                             $(this).text('Unmute All').addClass('btn-danger');
+                             voicesbtn.addClass('btn-danger').attr('title', 'Unmute chat voices');
+                             VOICES = false;
+                             SOUNDSPANEL = false;
+                             $('#sounds-dropdown').remove();
+                           } else {
+                             $(this).text('Mute All').removeClass('btn-danger');
+                             voicesbtn.removeClass('btn-danger').attr('title', 'Mute chat voices');
+                             VOICES = true;
+                           }
+                         });
   if (!VOICES) {
     muteallbtn.text('Unmute All').addClass('btn-danger');
   }
 
   $('#sounds-dropdown').append('<div>Sounds level:</div>');
 
-  lvlgroup = $('<div id="lvlgroup" class="btn-group"></div>')
-                 .appendTo('#sounds-dropdown');
+  const lvlgroup = $('<div id="lvlgroup" class="btn-group"></div>').appendTo('#sounds-dropdown');
 
-  for (i = 1; i <= 5; i++) {
-    btn = $(`<button class="btn btn-xs btn-default" id="lvlvol${i}" ` +
-            `level="${i}" />`)
-              .html(i)
-              .appendTo(lvlgroup)
-              .on('click', function() {
-                $(`#lvlvol${SOUNDSLVL}`).removeClass('btn-success');
-                SOUNDSLVL = $(this).attr('level');
-                setOpt(CHANNEL.name + '_soundslvl', SOUNDSLVL);
-                $(this).addClass('btn-success');
-              });
+  for (let i = 1; i <= 5; i++) {
+    $(`<button class="btn btn-xs btn-default" id="lvlvol${i}" ` +
+      `level="${i}" />`)
+        .html(i)
+        .appendTo(lvlgroup)
+        .on('click', function() {
+          $(`#lvlvol${SOUNDSLVL}`).removeClass('btn-success');
+          SOUNDSLVL = $(this).attr('level');
+          setOpt(CHANNEL.name + '_soundslvl', SOUNDSLVL);
+          $(this).addClass('btn-success');
+        });
   }
   $(`#lvlvol${SOUNDSLVL}`).addClass('btn-success');
 
   $('#sounds-dropdown').append('<div>Select users to mute sounds:</div>');
 
-  mutegroup = $('<div id="mutegroup" class="btn-group-vertical"></div>')
-                  .appendTo('#sounds-dropdown');
+  const mutegroup =
+      $('<div id="mutegroup" class="btn-group-vertical"></div>').appendTo('#sounds-dropdown');
 
   $('.userlist_item').each(function() {
-    user = $(this).find('span:nth-child(2)').html();
-    btn = $(`<button class="btn btn-xs btn-default" name="${user}" />`)
-              .html(user)
-              .appendTo(mutegroup)
-              .on('click', function() {
-                name = $(this).attr('name');
-                if (name in MUTEDVOICES && MUTEDVOICES[name] == '1') {
-                  $(this).removeClass('btn-danger');
-                  MUTEDVOICES[name] = 0;
-                } else {
-                  $(this).addClass('btn-danger');
-                  MUTEDVOICES[name] = 1;
-                }
-              });
+    const user = $(this).find('span:nth-child(2)').html();
+    const btn = $(`<button class="btn btn-xs btn-default" name="${user}" />`)
+                    .html(user)
+                    .appendTo(mutegroup)
+                    .on('click', function() {
+                      name = $(this).attr('name');
+                      if (name in MUTEDVOICES && MUTEDVOICES[name] == '1') {
+                        $(this).removeClass('btn-danger');
+                        MUTEDVOICES[name] = 0;
+                      } else {
+                        $(this).addClass('btn-danger');
+                        MUTEDVOICES[name] = 1;
+                      }
+                    });
     if (user in MUTEDVOICES && MUTEDVOICES[user] == '1') {
       btn.addClass('btn-danger');
     }
@@ -2776,24 +2155,24 @@ function showSoundsPanel() {
 function showModPanel() {
   createModal('Moderators panel');
 
-  html = '';
+  let html = '';
   for (const panel of ModPanel_Array) {
     const name = panel[0];
     const mess = panel[1];
-    if (name == '') {
+    if (name === '') {
       html += `<i class="glyphicon glyphicon-comment"></i> ${mess}<br /><br />`;
-    } else if (name == CLIENT.name) {
+    } else if (name === CLIENT.name) {
       html = '<i class="glyphicon glyphicon-comment"></i> ' +
           '<i class="glyphicon glyphicon-user"></i> ' +
           `(to: ${CLIENT.name}) → ${mess}<br /><br />`;
     }
   }
-  body.append(html);
-  $('#mod-btn')
-      .removeClass('btn-danger')
-      .html('<i class="glyphicon glyphicon-tasks"></i>');
+  modalBody.append(html);
+  $('#mod-btn').removeClass('btn-danger').html('<i class="glyphicon glyphicon-tasks"></i>');
   setOpt(CHANNEL.name + '_modhash', HASH);
 }
+
+let mediainfo;
 
 /**
  * Show info about current or next media.
@@ -2801,15 +2180,15 @@ function showModPanel() {
 function showInfo() {
   if (DEFDESCR) {
     const arr = [];
-    text = '// NEXT ON QUEUE: //';
-    li1 = $('.queue_active').next();
-    li2 = li1.next();
-    li3 = li2.next();
-    li4 = li3.next();
-    li5 = li4.next();
-    li6 = li5.next();
-    li7 = li6.next();
-    li8 = li7.next();
+    let text = '// NEXT ON QUEUE: //';
+    const li1 = $('.queue_active').next();
+    const li2 = li1.next();
+    const li3 = li2.next();
+    const li4 = li3.next();
+    const li5 = li4.next();
+    const li6 = li5.next();
+    const li7 = li6.next();
+    const li8 = li7.next();
     if (li1.length > 0) {
       arr.push(` 1▸ ${li1.children('a').html()}`);
     }
@@ -2843,29 +2222,31 @@ function showInfo() {
     }
     mediainfo.html(`<marquee scrollamount="7.5">${text}</marquee>`);
   } else {
-    contr = $('.queue_active').attr('title');
+    const contr = $('.queue_active').attr('title');
     if (typeof contr === 'undefined') {
-      text = 'Please add media to the playlist to begin listening.';
+      const text = 'Please add media to the playlist to begin listening.';
       mediainfo.html(`<marquee scrollamount="7.5">${text}</marquee>`);
     } else {
-      duration = $('.queue_active .qe_time').html();
-      text = `${contr} [${duration}]`;
+      const duration = $('.queue_active .qe_time').html();
+      const text = `${contr} [${duration}]`;
       mediainfo.html(`${text}`);
     }
   }
 }
 
+let hideplayerbtn;
+let coverpl;
+
 /**
  * Hide and show player with covering image.
  */
 function coverPlayer() {
-  if (PlayerHiding_URL == '') {
-    PlayerHiding_URL =
-        'https://dl.dropboxusercontent.com/s/xz2o99scw5i7aai/stop.png';
+  if (PlayerHiding_URL === '') {
+    PlayerHiding_URL = 'https://dl.dropboxusercontent.com/s/xz2o99scw5i7aai/stop.png';
   }
   $('#videowrap').addClass('relative');
-  w = $('#ytapiplayer').css('width');
-  h = $('#videowrap').css('height').replace('px', '') - 31;
+  const w = $('#ytapiplayer').css('width');
+  const h = $('#videowrap').css('height').replace('px', '') - 31;
   coverpl = $('<div id="coverpl" />')
                 .css({
                   'width': w,
@@ -2886,7 +2267,7 @@ function showPlayer() {
  * Mute YT player.
  */
 function mutePlayer() {
-  if (PLAYER && PLAYER.type == 'yt') {
+  if (PLAYER && PLAYER.type === 'yt') {
     PLAYER.player.mute();
   }
 }
@@ -2895,7 +2276,7 @@ function mutePlayer() {
  * Unmute YT player.
  */
 function unmutePlayer() {
-  if (PLAYER && PLAYER.type == 'yt') {
+  if (PLAYER && PLAYER.type === 'yt') {
     PLAYER.player.unMute();
   }
 }
@@ -2931,17 +2312,12 @@ SoundCloud.'); } else { createModal('Download current item');
  *
  * @param {string} a
  */
-// eslint-disable-next-line no-unused-vars
-function prevVideo(a) {
+export function prevVideo(a) {
   createModal('Preview Video');
 
-  player =
-      $('<iframe id="previewFrame" width="558" height="314" frameborder="0" />')
-          .attr(
-              'src',
-              `https://www.youtube.com/embed/${
-                  a}?wmode=transparent&enablejsapi`)
-          .appendTo(body);
+  $('<iframe id="previewFrame" width="558" height="314" frameborder="0" />')
+      .attr('src', `https://www.youtube.com/embed/${a}?wmode=transparent&enablejsapi`)
+      .appendTo(modalBody);
 }
 
 /**
@@ -2965,17 +2341,14 @@ function toggleConfigPanel() {
         .addClass('btn-success')
         .html('<span class="glyphicon glyphicon-cog"></span> Layout');
     $('#min-layout').prop('checked', false);
-    $('#plcontrol button, #db-btn, #gallery-btn, #newpollbtn')
-        .removeAttr('disabled');
+    $('#plcontrol button, #db-btn, #gallery-btn, #newpollbtn').removeAttr('disabled');
     MINIMIZED = false;
     // patch: giving back 15px additional space on the top
     $('#mainpage')
-        .css(
-            'margin-top',
-            $('#mainpage').css('margin-top').replace('px', '') * 1 - 15 + 'px');
+        .css('margin-top', $('#mainpage').css('margin-top').replace('px', '') * 1 - 15 + 'px');
   } else {
     toggleDiv(configwrap);
-    if (configwrap.css('display') == 'none') {
+    if (configwrap.css('display') === 'none') {
       layoutbtn.removeClass('btn-success');
     } else {
       layoutbtn.addClass('btn-success');
@@ -2991,75 +2364,54 @@ function toggleConfigPanel() {
 function showConfig() {
   createModal('Layout Configuration');
 
-  form = $('<form class="form-horizontal" />').appendTo(body);
+  const form = $('<form class="form-horizontal" />').appendTo(modalBody);
 
   function addOption(txt, elem) {
-    g = $('<div class="form-group" />').appendTo(form);
+    const g = $('<div class="form-group" />').appendTo(form);
     $('<label class="control-label col-sm-4" />').text(txt).appendTo(g);
-    c = $('<div class="col-sm-8" />').appendTo(g);
+    const c = $('<div class="col-sm-8" />').appendTo(g);
     elem.appendTo(c);
   }
 
-  playerlocation = $('<select />').addClass('form-control');
+  const playerlocation = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'left').text('left').appendTo(playerlocation);
   $('<option />').attr('value', 'right').text('right').appendTo(playerlocation);
-  $('<option />')
-      .attr('value', 'center')
-      .text('center')
-      .appendTo(playerlocation);
+  $('<option />').attr('value', 'center').text('center').appendTo(playerlocation);
   playerlocation.val(USERCONFIG.player);
   addOption('Player location', playerlocation);
 
-  userlistlocation = $('<select />').addClass('form-control');
+  const userlistlocation = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'left').text('left').appendTo(userlistlocation);
-  $('<option />')
-      .attr('value', 'right')
-      .text('right')
-      .appendTo(userlistlocation);
+  $('<option />').attr('value', 'right').text('right').appendTo(userlistlocation);
   userlistlocation.val(USERCONFIG.userlist);
   addOption('Userlist location', userlistlocation);
 
-  queuelocation = $('<select />').addClass('form-control');
+  const queuelocation = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'left').text('left').appendTo(queuelocation);
   $('<option />').attr('value', 'right').text('right').appendTo(queuelocation);
-  $('<option />')
-      .attr('value', 'center')
-      .text('center')
-      .appendTo(queuelocation);
+  $('<option />').attr('value', 'center').text('center').appendTo(queuelocation);
   queuelocation.val(USERCONFIG.queue);
   addOption('Queue location', queuelocation);
 
-  queuesize = $('<select />').addClass('form-control');
+  const queuesize = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'wide').text('wide').appendTo(queuesize);
   $('<option />').attr('value', 'narrow').text('narrow').appendTo(queuesize);
   queuesize.val(USERCONFIG.qsize);
   addOption('Queue column size', queuesize);
 
-  mainlocation = $('<select />').addClass('form-control');
-  $('<option />')
-      .attr('value', 'top')
-      .text('above playlist')
-      .appendTo(mainlocation);
-  $('<option />')
-      .attr('value', 'bottom')
-      .text('below playlist')
-      .appendTo(mainlocation);
+  const mainlocation = $('<select />').addClass('form-control');
+  $('<option />').attr('value', 'top').text('above playlist').appendTo(mainlocation);
+  $('<option />').attr('value', 'bottom').text('below playlist').appendTo(mainlocation);
   mainlocation.val(USERCONFIG.main);
   addOption('Player & chat', mainlocation);
 
-  motdlocation = $('<select />').addClass('form-control');
-  $('<option />')
-      .attr('value', 'top')
-      .text('channel top')
-      .appendTo(motdlocation);
-  $('<option />')
-      .attr('value', 'bottom')
-      .text('channel bottom')
-      .appendTo(motdlocation);
+  const motdlocation = $('<select />').addClass('form-control');
+  $('<option />').attr('value', 'top').text('channel top').appendTo(motdlocation);
+  $('<option />').attr('value', 'bottom').text('channel bottom').appendTo(motdlocation);
   motdlocation.val(USERCONFIG.motd);
   addOption('MOTD & announcements', motdlocation);
 
-  logoinsert = $('<select />').addClass('form-control');
+  const logoinsert = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'no').text('no image').appendTo(logoinsert);
   $('<option />').attr('value', 'user').text('user image').appendTo(logoinsert);
   for (const logoName of LOGOS.keys()) {
@@ -3068,21 +2420,19 @@ function showConfig() {
   logoinsert.val(USERCONFIG.logo);
   addOption('Top logo', logoinsert);
 
-  userlogo = $('<input />')
-                 .addClass('form-control')
-                 .attr('type', 'text')
-                 .attr('placeholder', 'Image URL');
+  const userlogo =
+      $('<input />').addClass('form-control').attr('type', 'text').attr('placeholder', 'Image URL');
   userlogo.val('');
   addOption('User logo URL', userlogo);
 
-  userlogoht = $('<input />')
-                   .addClass('form-control')
-                   .attr('type', 'text')
-                   .attr('placeholder', 'Image Height (in px)');
+  const userlogoht = $('<input />')
+                         .addClass('form-control')
+                         .attr('type', 'text')
+                         .attr('placeholder', 'Image Height (in px)');
   userlogoht.val('');
   addOption('User logo height', userlogoht);
 
-  if (USERCONFIG.logo != 'user') {
+  if (USERCONFIG.logo !== 'user') {
     userlogo.parent().parent().hide();
     userlogoht.parent().parent().hide();
   } else {
@@ -3090,47 +2440,38 @@ function showConfig() {
     userlogoht.val(USERCONFIG.logoht);
   }
 
-  headermode = $('<select />').addClass('form-control');
+  const headermode = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'fixed').text('fixed').appendTo(headermode);
-  $('<option />')
-      .attr('value', 'detached')
-      .text('detached')
-      .appendTo(headermode);
-  $('<option />')
-      .attr('value', 'mouseover')
-      .text('mouseover')
-      .appendTo(headermode);
+  $('<option />').attr('value', 'detached').text('detached').appendTo(headermode);
+  $('<option />').attr('value', 'mouseover').text('mouseover').appendTo(headermode);
   headermode.val(USERCONFIG.header);
   addOption('Header menu', headermode);
 
-  customcss = $('<select />').addClass('form-control');
+  const customcss = $('<select />').addClass('form-control');
   $('<option />').attr('value', 'no').text('no').appendTo(customcss);
   $('<option />').attr('value', 'yes').text('yes').appendTo(customcss);
   customcss.val(USERCONFIG.css);
   addOption('Custom CSS', customcss);
 
-  usercss = $('<textarea rows="8" />')
-                .addClass('form-control')
-                .attr('placeholder', 'Insert CSS code');
+  const usercss =
+      $('<textarea rows="8" />').addClass('form-control').attr('placeholder', 'Insert CSS code');
   usercss.val(USERCONFIG.csscode);
   addOption('CSS code', usercss);
 
-  if (USERCONFIG.css == 'no') {
+  if (USERCONFIG.css === 'no') {
     usercss.parent().parent().hide();
   }
 
-  submit = $('<button class="btn btn-default btn-success" />')
-               .text('Save changes')
-               .appendTo(footer);
-  reset = $('<button class="btn btn-default pull-left" />')
-              .text('Default')
-              .appendTo(footer);
-  column = $('<button class="btn btn-default pull-left" />')
-               .text('One column')
-               .appendTo(footer);
+  const submit = $('<button class="btn btn-default btn-success" />')
+                     .text('Save changes')
+                     .appendTo(modalFooter);
+  const reset =
+      $('<button class="btn btn-default pull-left" />').text('Default').appendTo(modalFooter);
+  const column =
+      $('<button class="btn btn-default pull-left" />').text('One column').appendTo(modalFooter);
 
   logoinsert.on('change', () => {
-    if (logoinsert.val() == 'user') {
+    if (logoinsert.val() === 'user') {
       userlogo.parent().parent().show();
       userlogoht.parent().parent().show();
       userlogo.val(USERCONFIG.logourl);
@@ -3142,7 +2483,7 @@ function showConfig() {
   });
 
   customcss.on('change', () => {
-    if (customcss.val() == 'yes') {
+    if (customcss.val() === 'yes') {
       usercss.parent().parent().show();
     } else {
       usercss.parent().parent().hide();
@@ -3150,7 +2491,7 @@ function showConfig() {
   });
 
   submit.on('click', () => {
-    outer.modal('hide');
+    modalOuter.modal('hide');
 
     USERCONFIG.player = playerlocation.val();
     setOpt(CHANNEL.name + '_player', playerlocation.val());
@@ -3170,10 +2511,10 @@ function showConfig() {
     USERCONFIG.motd = motdlocation.val();
     setOpt(CHANNEL.name + '_motd', motdlocation.val());
 
-    if (logoinsert.val() == 'user') {
-      if (userlogo.val() == '') {
+    if (logoinsert.val() === 'user') {
+      if (userlogo.val() === '') {
         logoinsert.val('no');
-      } else if (userlogoht.val() == '') {
+      } else if (userlogoht.val() === '') {
         userlogoht.val('200');
       } else {
         a = userlogoht.val() * 1;
@@ -3193,7 +2534,7 @@ function showConfig() {
     USERCONFIG.header = headermode.val();
     setOpt(CHANNEL.name + '_header', headermode.val());
 
-    if (customcss.val() == 'yes') {
+    if (customcss.val() === 'yes') {
       USERCONFIG.csscode = usercss.val();
       setOpt(CHANNEL.name + '_csscode', usercss.val());
     }
@@ -3207,7 +2548,7 @@ function showConfig() {
   });
 
   reset.on('click', () => {
-    outer.modal('hide');
+    modalOuter.modal('hide');
 
     USERCONFIG.player = defplayer;
     setOpt(CHANNEL.name + '_player', defplayer);
@@ -3242,7 +2583,7 @@ function showConfig() {
   });
 
   column.on('click', () => {
-    outer.modal('hide');
+    modalOuter.modal('hide');
 
     USERCONFIG.player = 'center';
     setOpt(CHANNEL.name + '_player', 'center');
@@ -3283,9 +2624,7 @@ function toggleFluidLayout() {
   } else {
     $('body').addClass('fullscreen');
     $('.container').removeClass('container').addClass('container-fluid');
-    $('footer .container-fluid')
-        .removeClass('container-fluid')
-        .addClass('container');
+    $('footer .container-fluid').removeClass('container-fluid').addClass('container');
     $('#fontspanel, #emotespanel').addClass('fluidpanel');
     setTimeout(refreshPlayer(), 1000);
   }
@@ -3305,17 +2644,12 @@ function toggleMinLayout() {
     $('#rightpane-inner').hide();
     $('#azukirow, #motdrow, #announcements, #leftpane-inner, footer').hide();
     pinupbtn.hide();
-    layoutbtn.removeClass('btn-success')
-        .addClass('btn-danger')
-        .html('Maximize');
-    $('#plcontrol button, #db-btn, #gallery-btn, #newpollbtn')
-        .attr('disabled', 'disabled');
+    layoutbtn.removeClass('btn-success').addClass('btn-danger').html('Maximize');
+    $('#plcontrol button, #db-btn, #gallery-btn, #newpollbtn').attr('disabled', 'disabled');
     MINIMIZED = true;
     // patch for 15px more space on the top
     $('#mainpage')
-        .css(
-            'margin-top',
-            $('#mainpage').css('margin-top').replace('px', '') * 1 + 15 + 'px');
+        .css('margin-top', $('#mainpage').css('margin-top').replace('px', '') * 1 + 15 + 'px');
   }
 }
 
@@ -3323,18 +2657,18 @@ function toggleMinLayout() {
  * Pin-up playlist to player.
  */
 function pinUp() {
-  if (USERCONFIG.player == 'left') {
+  if (USERCONFIG.player === 'left') {
     $('#videowrap').after($('#rightpane').detach());
-  } else if (USERCONFIG.player == 'right') {
+  } else if (USERCONFIG.player === 'right') {
     $('#videowrap').before($('#rightpane').detach());
   }
-  if (USERCONFIG.queue == 'left') {
+  if (USERCONFIG.queue === 'left') {
     $('#leftpane').before($('#chatwrap').detach());
-  } else if (USERCONFIG.queue == 'right') {
+  } else if (USERCONFIG.queue === 'right') {
     $('#leftpane').after($('#chatwrap').detach());
   }
   $('#rightpane').removeClass().addClass('col-lg-5 col-md-5');
-  if (USERCONFIG.qsize == 'wide') {
+  if (USERCONFIG.qsize === 'wide') {
     $('#chatwrap').removeClass().addClass('col-lg-7 col-md-7');
   } else {
     $('#chatwrap').removeClass().addClass('col-lg-5 col-md-5');
@@ -3342,8 +2676,6 @@ function pinUp() {
   $('#pinup-btn').attr('title', 'Unpin playlist');
   $('#config-btn, #configbtnwrap br').hide();
   $('#min-layout').parent().hide();
-  // $("#mode-sel").find("option[value='chMode'],
-  // option[value='sMode']").hide();
   $('#mode-sel').find('option[value=\'chMode\']').hide();
   PINNED = true;
 }
@@ -3352,18 +2684,18 @@ function pinUp() {
  * Un-pin playlist from player.
  */
 function unPin() {
-  if (USERCONFIG.queue == 'left') {
+  if (USERCONFIG.queue === 'left') {
     $('#leftpane').before($('#rightpane').detach());
-  } else if (USERCONFIG.queue == 'right') {
+  } else if (USERCONFIG.queue === 'right') {
     $('#leftpane').after($('#rightpane').detach());
   }
-  if (USERCONFIG.player == 'left') {
+  if (USERCONFIG.player === 'left') {
     $('#videowrap').after($('#chatwrap').detach());
-  } else if (USERCONFIG.player == 'right') {
+  } else if (USERCONFIG.player === 'right') {
     $('#videowrap').before($('#chatwrap').detach());
   }
   $('#chatwrap').removeClass().addClass('col-lg-5 col-md-5');
-  if (USERCONFIG.qsize == 'wide') {
+  if (USERCONFIG.qsize === 'wide') {
     $('#rightpane').removeClass().addClass('col-lg-7 col-md-7');
   } else {
     $('#rightpane').removeClass().addClass('col-lg-5 col-md-5');
@@ -3399,7 +2731,7 @@ function showContributors() {
                                 .sort((a, b) => b[1] - a[1])
                                 .map(([user, count]) => `${count}: ${user}`);
 
-  body.append(
+  modalBody.append(
       '<strong>Number of added playlist items:</strong>' +
       '<br /><br />' + userContributions.join('<br />'));
 }
@@ -3426,20 +2758,18 @@ function expandQueue() {
 function getPlaylistURLs() {
   createModal('Playlist URLs');
 
-  data = $('<textarea rows="10" class="form-control" />')
-             .val(formatRawList())
-             .appendTo(body);
-  rlist = $('<button class="btn btn-default pull-left">Raw Links</button>')
-              .appendTo(footer);
-  tlist = $('<button class="btn btn-default pull-left">Plain Text</button>')
-              .appendTo(footer);
-  hlist = $('<button class="btn btn-default pull-left">HTML Code</button>')
-              .appendTo(footer);
-  olist = $('<button class="btn btn-default pull-left">Ordered List</button>')
-              .appendTo(footer);
-  dlist =
-      $('<button class="btn btn-default pull-left">Database Format</button>')
-          .appendTo(footer);
+  const data =
+      $('<textarea rows="10" class="form-control" />').val(formatRawList()).appendTo(modalBody);
+  const rlist =
+      $('<button class="btn btn-default pull-left">Raw Links</button>').appendTo(modalFooter);
+  const tlist =
+      $('<button class="btn btn-default pull-left">Plain Text</button>').appendTo(modalFooter);
+  const hlist =
+      $('<button class="btn btn-default pull-left">HTML Code</button>').appendTo(modalFooter);
+  const olist =
+      $('<button class="btn btn-default pull-left">Ordered List</button>').appendTo(modalFooter);
+  const dlist =
+      $('<button class="btn btn-default pull-left">Database Format</button>').appendTo(modalFooter);
 
   rlist.on('click', () => data.val(formatRawList()));
   tlist.on('click', () => data.val(formatPlainTextList()));
@@ -3452,14 +2782,14 @@ function getPlaylistURLs() {
  * Add random item from channel database.
  */
 function addRandomItem() {
-  time = (new Date()).getTime();
+  const time = (new Date()).getTime();
   if ((time - LASTADD) < 120000) {
     alert('You can add random video every 2 minutes.');
   } else {
     let link = '';
-    while (link == '') {
-      rnd = Math.round(Math.random() * (ChannelDatabase.length - 1));
-      link = ChannelDatabase[rnd][0];
+    while (link === '') {
+      const rnd = Math.round(Math.random() * (CHANNEL_DATABASE.length - 1));
+      link = CHANNEL_DATABASE[rnd][0];
     }
     addToPlaylist(link, 'end');
     LASTADD = time;
@@ -3468,25 +2798,22 @@ function addRandomItem() {
 
 socket.on('queue', (data) => LAST_VIDEO_ID_QUEUED = data.item.media.id);
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- User Interface ----- */
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // adding important hidden reference row
-zerorow = $('<div id="zerorow" class="row" />').insertBefore('#motdrow');
+$('<div id="zerorow" class="row" />').insertBefore('#motdrow');
 
 // adding top logo row
-azukirow = $('<div id="azukirow" class="row" />').insertBefore(zerorow);
+const azukirow = $('<div id="azukirow" class="row" />').insertBefore(zerorow);
 
 // adding video wrap if user has enabled "Hide Player" option
 if (USEROPTS.hidevid) {
-  $('#chatwrap, #chatline')
-      .removeClass('col-lg-12 col-md-12')
-      .addClass('col-lg-5 col-md-5');
-  videowrap = $('<div id="videowrap" class="col-lg-7 col-md-7" />')
-                  .insertBefore('#chatwrap');
+  $('#chatwrap, #chatline').removeClass('col-lg-12 col-md-12').addClass('col-lg-5 col-md-5');
+  videowrap = $('<div id="videowrap" class="col-lg-7 col-md-7" />').insertBefore('#chatwrap');
   currenttitle = $('<p id="currenttitle" />')
                      .html('Currently Playing: ' + $('.queue_active a').html())
                      .appendTo(videowrap);
@@ -3510,7 +2837,6 @@ if (USEROPTS.hidevid) {
 }
 
 // changing initial layout to compact for new users
-
 $('body').addClass('fluid');
 compactLayout();
 setLayout();
@@ -3519,7 +2845,6 @@ scrollQueue();
 setTimeout(refreshPlayer(), 1000);
 
 // adding "id" attributes
-
 $('.navbar-collapse .navbar-nav').children().first().attr('id', 'home-link');
 $('#home-link').next().attr('id', 'account-link');
 $('#account-link').next().attr('id', 'options-link');
@@ -3527,7 +2852,6 @@ $('#options-link').next().attr('id', 'channelset-link');
 $('#channelset-link').next().attr('id', 'layout-link');
 
 // changing location of some layout elements
-
 $('#main').prepend($('#drinkbar').detach());
 $('#videowrap').append('<div id="playercontrols" class="btn-group" />');
 $('#playercontrols').append($('#mediarefresh').detach());
@@ -3542,16 +2866,15 @@ $('#home-link a, #account-link ul a, .credit a').attr('target', '_blank');
 
 // adding default CyTube Plus CSS if not set
 if ($('#chanexternalcss').length < 1) {
-  url = 'https://dl.dropboxusercontent.com/s/hbhlrmys5piztgo/main.css';
+  const url = 'https://dl.dropboxusercontent.com/s/hbhlrmys5piztgo/main.css';
   $('head').append(
       `<link id="chanexternalcss" href="${url}" ` +
       'rel="stylesheet" type="text/css">');
 }
 
 // attempt to fix dumbass buttons
-// but for some stupid reason the load event is called on like every chat
-// message leading to a buuuunch of layout thrashing pepeAgony. so only do this
-// once.
+// but for some stupid reason the load event is called on like every chat message leading to a
+// buuuunch of layout thrashing pepeAgony. so only do this once.
 let alreadySetAfterLoad = false;
 document.body.addEventListener('load', () => {
   if (alreadySetAfterLoad) {
@@ -3562,7 +2885,7 @@ document.body.addEventListener('load', () => {
 }, true);
 
 // adding favicon
-if (UI_Favicon && Favicon_URL != '') {
+if (UI_Favicon && Favicon_URL !== '') {
   $(document).ready(() => {
     $(`<link id="chanfavicon" href="${Favicon_URL}" type="image/x-icon" ` +
       'rel="shortcut icon" />')
@@ -3575,11 +2898,11 @@ $('nav .caret, #cs-edit-dd-toggle .caret').removeClass('caret').html(' ▾');
 
 // adding important messages to "Options"
 
-text1 =
+const text1 =
     'Please use "Personal theme" selector in the room configuration box to select a theme for this channel. ';
-text2 =
+const text2 =
     'Please use "Click to configure" button in the room configuration box to configure this channel. ';
-text3 =
+const text3 =
     'If you want to make global changes, please go to another channel, or make changes before accepting ' +
     'special features.';
 $('#us-theme').hide();
@@ -3588,18 +2911,16 @@ $('#us-layout').hide();
 $('#us-layout').parent().append(`<p class="text-danger">${text2}${text3}</p>`);
 
 // creating channel settings filters preparation button
-csfontsimport =
-    $('<button id="cs-fonts-import" class="btn btn-default pull-right">Prepare fonts filters</button>')
-        .insertAfter('#cs-chatfilters-import')
-        .on('click', () => prepareFilters());
+$('<button id="cs-fonts-import" class="btn btn-default pull-right">Prepare fonts filters</button>')
+    .insertAfter('#cs-chatfilters-import')
+    .on('click', () => prepareFilters());
 
 // fixing layout after saving global user options
 $('#useroptions .modal-footer button:nth-child(1)').on('click', () => {
   if (USEROPTS.hidevid) {
     location.reload();
   }
-  html =
-      'All changes are applying globally, but this channel uses its own layout. ' +
+  html = 'All changes are applying globally, but this channel uses its own layout. ' +
       'Please use "Click to configure" button to configure this channel layout.<br />' +
       'Reload player if the wrong title is displaying. ' +
       'In HD layout or if player is removed, you may not see some elements due to CyTube API. ' +
@@ -3617,35 +2938,33 @@ $('#useroptions .modal-footer button:nth-child(1)').on('click', () => {
 });
 
 // changing channel name
-if (UI_ChannelName && ChannelName_Caption != '') {
+if (UI_ChannelName && ChannelName_Caption !== '') {
   $('.navbar-brand').html(ChannelName_Caption);
 }
 
 // adding channel small logo
-if (UI_MiniLogo && MiniLogo_URL != '') {
+if (UI_MiniLogo && MiniLogo_URL !== '') {
   $(`<img id="chanavatar" src="${MiniLogo_URL}" />`).prependTo('.navbar-brand');
 }
 
 // adding header dropdown menu
 if (UI_HeaderDropMenu) {
-  if (HeaderDropMenu_Title == '') {
+  if (HeaderDropMenu_Title === '') {
     HeaderDropMenu_Title = 'Menu';
   }
-  headerdrop =
-      $('<li id="headerdrop" class="dropdown" />').insertAfter('#home-link');
+  const headerdrop = $('<li id="headerdrop" class="dropdown" />').insertAfter('#home-link');
   $('<a class="dropdown-toggle" data-toggle="dropdown" href="#" />')
       .html(HeaderDropMenu_Title + ' ▾')
       .appendTo(headerdrop);
-  headermenu =
-      $('<ul id="headermenu" class="dropdown-menu" />').appendTo(headerdrop);
+  const headermenu = $('<ul id="headermenu" class="dropdown-menu" />').appendTo(headerdrop);
 
   if (HeaderDropMenu_Array.length < 1) {
     HeaderDropMenu_Array = [['no menu available', '']];
   }
   for (const menu of HeaderDropMenu_Array) {
-    title = menu[0];
-    link = menu[1];
-    if (link == '') {
+    const title = menu[0];
+    const link = menu[1];
+    if (link === '') {
       headermenu.append(`<li class="dropdown-header">${title}</li>`);
     } else {
       $('<li class="header-drop-link" />')
@@ -3657,11 +2976,10 @@ if (UI_HeaderDropMenu) {
 
 // adding version to the tab
 if (UI_Version) {
-  if (Version_Now == '') {
+  if (Version_Now === '') {
     Version_Now = 'Menu';
   }
-  headerdrop = $('<li id="headerdrop" class="dropdown" />')
-                   .insertAfter('#channelset-link');
+  const headerdrop = $('<li id="headerdrop" class="dropdown" />').insertAfter('#channelset-link');
   $('<a class="dropdown-toggle" data-toggle="dropdown" href="#" />')
       .html(`${Version_Now}`)
       .appendTo(headerdrop);
@@ -3679,27 +2997,24 @@ if (UI_RemoveLayoutMenu) {
 
 // changing some button captions or welcome message
 if (UI_CustomCaptions) {
-  if (CustomCaptions_Array['add'] != '') {
+  if (CustomCaptions_Array['add'] !== '') {
     $('#showmediaurl').html(CustomCaptions_Array['add']);
   }
-  if (CustomCaptions_Array['refresh'] != '') {
+  if (CustomCaptions_Array['refresh'] !== '') {
     $('#mediarefresh').html(CustomCaptions_Array['refresh']);
   }
-  if (CustomCaptions_Array['voteskip'] != '') {
+  if (CustomCaptions_Array['voteskip'] !== '') {
     socket.on('voteskip', changeSkipText);
     changeSkipText();
   }
-  if (CustomCaptions_Array['welcome'] != '') {
+  if (CustomCaptions_Array['welcome'] !== '') {
     socket.on('login', changeWelcomeText);
     changeWelcomeText();
   }
 }
-// TODO add small tooltip
+
 if (UI_ButtonIcons) {
   $('#showmediaurl').html('<i class="glyphicon glyphicon-plus"></i> Add');
-  /* $('#emotelistbtn').html('<i class="glyphicon glyphicon-picture"></i>');
-  $('#chathelp-btn').html('<i class="glyphicon glyphicon-question-sign"></i>');
-  $('#context-btn').html('<i class="glyphicon glyphicon-apple"></i>'); */
 }
 
 // deleting previous MOTD
@@ -3708,21 +3023,19 @@ if (UI_MOTDDelete) {
 }
 
 // setting MOTD
-if (UI_MOTDAutoLogo || UI_RulesBtn ||
-    (UI_MOTDTabs && MOTDTabs_Array.length > 0)) {
+if (UI_MOTDAutoLogo || UI_RulesBtn || (UI_MOTDTabs && MOTDTabs_Array.length > 0)) {
   socket.on('setMotd', changeMOTD);
   changeMOTD();
 }
 
 // setting MOTD logo
 if (UI_MOTDAutoLogo) {
-  if (MOTDAutoLogo_Mode != '1' && MOTDAutoLogo_Mode != '2' &&
-      MOTDAutoLogo_Mode != '3' && MOTDAutoLogo_Mode != '7') {
+  if (MOTDAutoLogo_Mode != '1' && MOTDAutoLogo_Mode != '2' && MOTDAutoLogo_Mode != '3' &&
+      MOTDAutoLogo_Mode != '7') {
     MOTDAutoLogo_Mode = '1';
   }
   if (MOTDAutoLogo_Mode == '3') {
-    if (typeof MOTDAutoLogo_Interval !== 'number' ||
-        MOTDAutoLogo_Interval < 1) {
+    if (typeof MOTDAutoLogo_Interval !== 'number' || MOTDAutoLogo_Interval < 1) {
       MOTDAutoLogo_Interval = 20;
     }
     setInterval(() => {
@@ -3733,36 +3046,31 @@ if (UI_MOTDAutoLogo) {
 }
 
 // adding attention bar
-if (UI_AttentionBar && AttentionBar_URL != '') {
-  attbarwrap = $('<div id="attbarrow-outer" class="col-md-12" />')
-                   .prependTo('#announcements');
-  attbar =
-      $('<iframe id="attbar" width="100%" frameborder="0" scrolling="no" />')
-          .attr('src', AttentionBar_URL)
-          .appendTo(attbarwrap);
+if (UI_AttentionBar && AttentionBar_URL !== '') {
+  attbarwrap = $('<div id="attbarrow-outer" class="col-md-12" />').prependTo('#announcements');
+  attbar = $('<iframe id="attbar" width="100%" frameborder="0" scrolling="no" />')
+               .attr('src', AttentionBar_URL)
+               .appendTo(attbarwrap);
 }
 
 // adding custom channel announcement
 if (UI_ChannelAnnouncement) {
-  if (ChannelAnnouncement_Title == '') {
+  if (ChannelAnnouncement_Title === '') {
     ChannelAnnouncement_Title = 'Administration Message';
   }
-  if (ChannelAnnouncement_HTML == '') {
+  if (ChannelAnnouncement_HTML === '') {
     ChannelAnnouncement_HTML = '<i>no messages</i>';
   }
-  makeAlert(ChannelAnnouncement_Title, ChannelAnnouncement_HTML)
-      .appendTo('#announcements');
+  makeAlert(ChannelAnnouncement_Title, ChannelAnnouncement_HTML).appendTo('#announcements');
 }
 
 // adding full-width title bar and progress bar
 if (UI_FullTitleBar) {
   titlerow = $('<div id="titlerow" class="row" />').insertBefore('#main');
-  titlerowouter = $('<div id="titlerow-outer" class="col-md-12" />')
-                      .html($('#currenttitle').detach())
-                      .appendTo(titlerow);
-  mediainfo = $('<p id="mediainfo" />')
-                  .html('Nothing is playing')
-                  .prependTo('#videowrap');
+  $('<div id="titlerow-outer" class="col-md-12" />')
+      .html($('#currenttitle').detach())
+      .appendTo(titlerow);
+  mediainfo = $('<p id="mediainfo" />').html('Nothing is playing').prependTo('#videowrap');
 
   if (UI_ProgressBar) {
     setInterval(() => progressBar(), 2000);
@@ -3771,7 +3079,7 @@ if (UI_FullTitleBar) {
   socket.on('changeMedia', showInfo);
   showInfo();
 
-  if (UI_TitleIcon && TitleIcon_URL != '') {
+  if (UI_TitleIcon && TitleIcon_URL !== '') {
     $('#titlerow #currenttitle').css({
       'background-image': `url("${TitleIcon_URL}")`,
       'background-repeat': 'no-repeat',
@@ -3833,16 +3141,15 @@ function dropthefast() {
 }
 
 // customizing chat notifications sound
-
-if (UI_CustomPingSound && CustomPingSound_URL != '') {
+if (UI_CustomPingSound && CustomPingSound_URL !== '') {
   CHATSOUND = new Audio(CustomPingSound_URL);
   CHATSOUND.volume = 0.4;
 }
 
 // public skipping from ui
+// THIS ONLY ADDS A MESSAGE, the function itself is in ui.js from cytube
 if (UI_PublicSkip) {
   $('#voteskip').on('click', function() {
-    socket.emit('voteskip');
     socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
     $('#voteskip').attr('disabled', true);
     naySound();
@@ -3850,7 +3157,7 @@ if (UI_PublicSkip) {
 }
 
 // additional chat functions
-chatflair =
+const chatflair =
     $('<span id="chatflair" class="label label-success pull-right pointer">Func</span>')
         .insertAfter('#adminflair')
         .on('click', () => {
@@ -3864,82 +3171,78 @@ chatflair =
             CHATFUNC = true;
           }
         });
+
+/**
+ * Toggle additional chat functions.
+ */
+function toggleChatFunctions() {
+  if (CLIENT.rank > 2) {
+    chatflair.show();
+  } else {
+    chatflair.hide();
+  }
+}
 socket.on('rank', toggleChatFunctions);
 toggleChatFunctions();
 
-// optional chat joining message
 if (UI_JoinText) {
-  if (JoinText_Message == '') {
+  if (JoinText_Message === '') {
     JoinText_Message = 'hello!';
   }
   socket.emit('chatMsg', {msg: `/me ${JoinText_Message}`});
 }
 
-// optional chat leaving message
-if (UI_LeaveText) {
-  if (LeaveText_Message == '') {
-    LeaveText_Message = 'left';
-  }
-  $(window).unload(
-      () => socket.emit('chatMsg', {msg: `/me ${LeaveText_Message}`}));
-}
+let chatcontrols;
 
 // adding chat buttons wrapping
-if (UI_FontsBtn || UI_EmotesBtn || UI_CommandsBtn || UI_SoundFilters ||
-    UI_ModPanel || UI_ChatSpeak) {
-  chatcontrols =
-      $('<div id="chatcontrols" class="btn-group" />').appendTo('#chatwrap');
+if (UI_FontsBtn || UI_EmotesBtn || UI_CommandsBtn || UI_SoundFilters || UI_ModPanel ||
+    UI_ChatSpeak) {
+  chatcontrols = $('<div id="chatcontrols" class="btn-group" />').appendTo('#chatwrap');
 }
+
+let fontspanel;
 
 // adding chat fonts button
 if (UI_FontsBtn) {
-  fontsbtn =
-      $('<button id="fonts-btn" class="btn btn-sm btn-default" title="Display fonts panel" />')
-          .html('<i class="glyphicon glyphicon-font"></i>')
-          .appendTo(chatcontrols)
-          .on('click', () => toggleDiv(fontspanel));
+  $('<button id="fonts-btn" class="btn btn-sm btn-default" title="Display fonts panel" />')
+      .html('<i class="glyphicon glyphicon-font"></i>')
+      .appendTo(chatcontrols)
+      .on('click', () => toggleDiv(fontspanel));
 }
 
 // adding chat emotes button
 if (UI_EmotesBtn) {
-  emotesbtn =
-      $('<button id="emotes-btn" class="btn btn-sm btn-default" title="Display emotes panel" />')
-          .html('<i class="glyphicon glyphicon-picture"></i>')
-          .appendTo(chatcontrols)
-          .on('click', () => {
-            toggleDiv(emotespanel);
-            if (!UI_ChannelCache && !EMOTES) {
-              showEmotes();
-            }
-          });
+  $('<button id="emotes-btn" class="btn btn-sm btn-default" title="Display emotes panel" />')
+      .html('<i class="glyphicon glyphicon-picture"></i>')
+      .appendTo(chatcontrols)
+      .on('click', () => {
+        toggleDiv(emotespanel);
+        if (!UI_ChannelCache && !EMOTES) {
+          showEmotes();
+        }
+      });
 }
 
 // moving emote button attempt
 if (UI_SpecialEmoteBtn) {
-  $('#emotelistbtn').appendTo(chatcontrols);  // .text('Emotes');
-  $('#emotelistbtn')
-      .html(
-          '<i title="Open emote menu" class="glyphicon glyphicon-picture"></i>');
+  $('#emotelistbtn').appendTo(chatcontrols);
+  $('#emotelistbtn').html('<i title="Open emote menu" class="glyphicon glyphicon-picture"></i>');
 }
 
 // adding chat commands button
 if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
-  chathelpbtn =
-      $('<button id="chathelp-btn" class="btn btn-sm btn-default" title="Show chat commands"/>')
-          .html('<i class="glyphicon glyphicon-question-sign"></i>')
-          // .text('Chat Commands')
-          .appendTo(chatcontrols)
-          .on('click', () => showChatHelp());
+  $('<button id="chathelp-btn" class="btn btn-sm btn-default" title="Show chat commands"/>')
+      .html('<i class="glyphicon glyphicon-question-sign"></i>')
+      .appendTo(chatcontrols)
+      .on('click', () => showChatHelp());
 }
 
 // adding the stupid context button to show up
 if (UI_ContextMenu) {
-  chathelpbtn =
-      $('<button id="context-btn" class="btn btn-sm btn-default" title="Opens a menu with links" />')
-          .html('<i class="glyphicon glyphicon-align-center"></i>')
-          // .text('Context Menu')
-          .appendTo(chatcontrols)
-          .on('click', () => showContextMenu());
+  $('<button id="context-btn" class="btn btn-sm btn-default" title="Opens a menu with links" />')
+      .html('<i class="glyphicon glyphicon-align-center"></i>')
+      .appendTo(chatcontrols)
+      .on('click', () => showContextMenu());
 }
 
 /**
@@ -3948,8 +3251,8 @@ if (UI_ContextMenu) {
 function showContextMenu() {
   createModal('Context Menu');
   if (UI_ContextMenu) {
-    body.append('<strong>Useful links</strong><br /><br />');
-    html =
+    modalBody.append('<strong>Useful links</strong><br /><br />');
+    const html =
         [
           '<a href="https://github.com/papertek/CyDJ/releases" target="_blank">Click here to view latest updates</a>!',
           '<a href="https://docs.google.com/forms/d/e/1FAIpQLSdNlinbPb2Lr5qmtIPWg9gnVWr1US82CRf4X8bKmmLvj7NIhg/viewform" target="_blank">Click here to report a user</a>!',
@@ -3957,17 +3260,16 @@ function showContextMenu() {
           '<a href="https://discord.gg/g8tCGSc2bx" target="_blank">Click here to join the Discord</a>!',
         ].map((item) => `<li>${item}</li>`)
             .join('');
-    $('<ul />').html(html).appendTo(body);
+    $('<ul />').html(html).appendTo(modalBody);
   }
 }
 
 // adding easter egg button
 if (UI_PartyButton) {
-  partybtn =
-      $('<button id="party-btn" class="btn btn-sm btn-default" title="Party!" />')
-          .text('Party!')
-          .appendTo(chatcontrols)
-          .on('click', () => showDrop());
+  $('<button id="party-btn" class="btn btn-sm btn-default" title="Party! DO NOT USE IF YOU ARE SUBJECT TO EPILEPSY!!!" />')
+      .text('Party!')
+      .appendTo(chatcontrols)
+      .on('click', () => showDrop());
 }
 
 /**
@@ -3991,8 +3293,7 @@ function showDrop() {
 
     setUserCSS();
   }, 5000);
-  socket.emit(
-      'chatMsg', {msg: '[mqr] GOOOOOOO xqcCheer FEELSWAYTOOGOOD [/mqr]'});
+  socket.emit('chatMsg', {msg: '[mqr] GOOOOOOO xqcCheer FEELSWAYTOOGOOD [/mqr]'});
 }
 
 // fastest crash function
@@ -4038,11 +3339,10 @@ if (UI_SoundFilters || UI_ChatSpeak) {
 
 // adding moderators panel button
 if (UI_ModPanel) {
-  modbtn =
-      $('<button id="mod-btn" class="btn btn-sm btn-default" title="Show moderators panel" />')
-          .html('<i class="glyphicon glyphicon-tasks"></i>')
-          .appendTo(chatcontrols)
-          .on('click', () => showModPanel());
+  modbtn = $('<button id="mod-btn" class="btn btn-sm btn-default" title="Show moderators panel" />')
+               .html('<i class="glyphicon glyphicon-tasks"></i>')
+               .appendTo(chatcontrols)
+               .on('click', () => showModPanel());
 
   socket.on('rank', toggleModPanel);
   toggleModPanel();
@@ -4050,26 +3350,24 @@ if (UI_ModPanel) {
 
 // adding hey nay thing
 if (UI_RateButtons) {
-  transcontrols = $('<div id="transcontrols" class="btn-group pull-right" />')
-                      .appendTo('#videowrap');
-  Hey =
-      $('<button id="hey-btn" class="btn btn-sm btn-default" title="Woot! (Cancels Voteskip)" />')
-          .html('<i class="glyphicon glyphicon-headphones"></i>')
-          .appendTo(transcontrols)
-          .on('click', () => {
-            socket.emit('chatMsg', {msg: '/afk'});
-            socket.emit('chatMsg', {msg: '[lime]Woot![/] PepePls'});
-            heySound();
-          });
-  Nay =
-      $('<button id="nay-btn" class="btn btn-sm btn-default" title="Meh.. (Voteskip)" />')
-          .html('<i class="glyphicon glyphicon-thumbs-down"></i>')
-          .appendTo(transcontrols)
-          .on('click', () => {
-            socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
-            socket.emit('voteskip');
-            naySound();
-          });
+  const transcontrols =
+      $('<div id="transcontrols" class="btn-group pull-right" />').appendTo('#videowrap');
+  $('<button id="hey-btn" class="btn btn-sm btn-default" title="Woot! (Cancels Voteskip)" />')
+      .html('<i class="glyphicon glyphicon-headphones"></i>')
+      .appendTo(transcontrols)
+      .on('click', () => {
+        socket.emit('chatMsg', {msg: '/afk'});
+        socket.emit('chatMsg', {msg: '[lime]Woot![/] PepePls'});
+        heySound();
+      });
+  $('<button id="nay-btn" class="btn btn-sm btn-default" title="Meh.. (Voteskip)" />')
+      .html('<i class="glyphicon glyphicon-thumbs-down"></i>')
+      .appendTo(transcontrols)
+      .on('click', () => {
+        socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
+        socket.emit('voteskip');
+        naySound();
+      });
 }
 
 /**
@@ -4088,15 +3386,14 @@ function naySound() {
 // adding player control buttons
 if (UI_PlayerOptions) {
   if (UI_FullTitleBar) {
-    switchdescrbtn =
-        $('<button id="switchdescr-btn" class="btn btn-sm btn-default" />')
-            .attr('title', 'Switch description')
-            .html('<span class="glyphicon glyphicon-info-sign"></span>')
-            .appendTo('#playercontrols')
-            .on('click', () => {
-              DEFDESCR = !DEFDESCR;
-              showInfo();
-            });
+    $('<button id="switchdescr-btn" class="btn btn-sm btn-default" />')
+        .attr('title', 'Switch description')
+        .html('<span class="glyphicon glyphicon-info-sign"></span>')
+        .appendTo('#playercontrols')
+        .on('click', () => {
+          DEFDESCR = !DEFDESCR;
+          showInfo();
+        });
   }
 
   hideplayerbtn =
@@ -4111,7 +3408,7 @@ if (UI_PlayerOptions) {
             }
           });
 
-  muteplayerbtn =
+  /* muteplayerbtn =
       $('<button id="muteplayer-btn" class="btn btn-sm btn-default" title="Mute player" />')
           .append('<span class="glyphicon glyphicon-volume-off" />')
           .appendTo('#playercontrols')
@@ -4126,84 +3423,73 @@ if (UI_PlayerOptions) {
           });
 
   socket.on('changeMedia', toggleMuteBtn);
-  toggleMuteBtn();
-
-  /* savemediabtn =
-      $('<button id="savemedia-btn" class="btn btn-sm btn-default"
-     title="Download" />') .html('<span class="glyphicon
-     glyphicon-floppy-save"></span>') .appendTo('#playercontrols')
-          .on('click', () => downloadCurrentItem()); */
+  toggleMuteBtn();*/
 }
 
 // adding player transformation buttons
 if (UI_TransformationBtns) {
-  transcontrols = $('<div id="transcontrols" class="btn-group pull-right" />')
-                      .appendTo('#videowrap');
+  const transcontrols =
+      $('<div id="transcontrols" class="btn-group pull-right" />').appendTo('#videowrap');
 
-  mirrorxbtn =
-      $('<button id="mirrorx-btn" class="btn btn-sm btn-default" title="Mirror X player" />')
-          .html('<span class="glyphicon glyphicon-resize-horizontal"></span>')
-          .appendTo(transcontrols)
-          .on('click', () => {
-            if ($('#ytapiplayer').hasClass('mX')) {
-              $('#ytapiplayer').removeClass('mX');
-            } else {
-              $('#ytapiplayer').addClass('mX');
-            }
-          });
+  $('<button id="mirrorx-btn" class="btn btn-sm btn-default" title="Mirror X player" />')
+      .html('<span class="glyphicon glyphicon-resize-horizontal"></span>')
+      .appendTo(transcontrols)
+      .on('click', () => {
+        if ($('#ytapiplayer').hasClass('mX')) {
+          $('#ytapiplayer').removeClass('mX');
+        } else {
+          $('#ytapiplayer').addClass('mX');
+        }
+      });
 
-  mirrorybtn =
-      $('<button id="mirrory-btn" class="btn btn-sm btn-default" title="Mirror Y player" />')
-          .html('<span class="glyphicon glyphicon-resize-vertical"></span>')
-          .appendTo(transcontrols)
-          .on('click', () => {
-            if ($('#ytapiplayer').hasClass('mY')) {
-              $('#ytapiplayer').removeClass('mY');
-            } else {
-              $('#ytapiplayer').addClass('mY');
-            }
-          });
+  $('<button id="mirrory-btn" class="btn btn-sm btn-default" title="Mirror Y player" />')
+      .html('<span class="glyphicon glyphicon-resize-vertical"></span>')
+      .appendTo(transcontrols)
+      .on('click', () => {
+        if ($('#ytapiplayer').hasClass('mY')) {
+          $('#ytapiplayer').removeClass('mY');
+        } else {
+          $('#ytapiplayer').addClass('mY');
+        }
+      });
 
-  rotatebtn =
-      $('<button id="rotate-btn" class="btn btn-sm btn-default" title="Rotate player" />')
-          .html('<span class="glyphicon glyphicon-repeat"></span>')
-          .appendTo(transcontrols)
-          .on('click', () => {
-            if ($('#ytapiplayer').hasClass('rotate')) {
-              $('#ytapiplayer').removeClass('rotate');
-            } else {
-              $('#ytapiplayer').addClass('rotate');
-            }
-          });
+  $('<button id="rotate-btn" class="btn btn-sm btn-default" title="Rotate player" />')
+      .html('<span class="glyphicon glyphicon-repeat"></span>')
+      .appendTo(transcontrols)
+      .on('click', () => {
+        if ($('#ytapiplayer').hasClass('rotate')) {
+          $('#ytapiplayer').removeClass('rotate');
+        } else {
+          $('#ytapiplayer').addClass('rotate');
+        }
+      });
 
-  verticalbtn =
-      $('<button id="vertical-btn" class="btn btn-sm btn-default" title="Vertical player" />')
-          .html('<span class="glyphicon glyphicon-arrow-up"></span>')
-          .appendTo(transcontrols)
-          .on('click', function() {
-            if ($('#ytapiplayer').hasClass('vertical')) {
-              $('#ytapiplayer').removeClass('vertical');
-              this.attr('title', 'Vertical player');
-            } else {
-              $('#ytapiplayer').addClass('vertical');
-              this.attr('title', 'Horizontal player');
-            }
-          });
+  $('<button id="vertical-btn" class="btn btn-sm btn-default" title="Vertical player" />')
+      .html('<span class="glyphicon glyphicon-arrow-up"></span>')
+      .appendTo(transcontrols)
+      .on('click', function() {
+        if ($('#ytapiplayer').hasClass('vertical')) {
+          $('#ytapiplayer').removeClass('vertical');
+          this.attr('title', 'Vertical player');
+        } else {
+          $('#ytapiplayer').addClass('vertical');
+          this.attr('title', 'Horizontal player');
+        }
+      });
 }
 
 // creating fonts and emotes main row
+let chatpanel;
 if (UI_FontsBtn || UI_EmotesBtn) {
-  chatpanel =
-      $('<div id="chatpanel" class="row" />').insertBefore('#playlistrow');
+  chatpanel = $('<div id="chatpanel" class="row" />').insertBefore('#playlistrow');
 }
 
 // adding fonts panel
 if (UI_FontsBtn) {
-  fontspanel =
-      $('<div id="fontspanel" style="display:none" />').appendTo(chatpanel);
-  fontsbtnwrap = $('<div id="fontsbtnwrap" />').appendTo(fontspanel);
+  fontspanel = $('<div id="fontspanel" style="display:none" />').appendTo(chatpanel);
+  const fontsbtnwrap = $('<div id="fontsbtnwrap" />').appendTo(fontspanel);
 
-  FontsArray = [
+  const FontsArray = [
     ['background:white', 'white', '■'],
     ['background:gold', 'yellow', '■'],
     ['background:orange', 'orange', '■'],
@@ -4229,31 +3515,30 @@ if (UI_FontsBtn) {
   ];
 
   for (const [i, font] of FontsArray.entries()) {
-    $(`<button id="cbtn${i}" onclick="insertText('[${font[1]}]')" />`)
+    $(`<button id="cbtn${i}" onclick="cydj.insertText('[${font[1]}]')" />`)
         .addClass('btn btn-primary')
         .attr('style', font[0])
         .text(font[2])
         .appendTo(fontsbtnwrap);
-    if (i % 13 == 12) {
+    if (i % 13 === 12) {
       fontsbtnwrap.append('<br />');
     }
   }
 
   if (UI_UnicodeChars && UnicodeChars_Array.length > 0) {
-    unibtnwrap = $('<div id="unibtnwrap" />').appendTo(fontspanel);
+    const unibtnwrap = $('<div id="unibtnwrap" />').appendTo(fontspanel);
     for (const char of UnicodeChars_Array) {
-      btn = $(`<button onclick="insertText('${char}')" />`)
-                .addClass('btn btn-primary')
-                .text(char)
-                .appendTo(unibtnwrap);
+      $(`<button onclick="cydj.insertText('${char}')" />`)
+          .addClass('btn btn-primary')
+          .text(char)
+          .appendTo(unibtnwrap);
     }
   }
 }
 
 // adding emotes panel
 if (UI_EmotesBtn) {
-  emotespanel =
-      $('<div id="emotespanel" style="display:none" />').appendTo(chatpanel);
+  emotespanel = $('<div id="emotespanel" style="display:none" />').appendTo(chatpanel);
   if (UI_ChannelCache) {
     showEmotes();
   }
@@ -4261,7 +3546,7 @@ if (UI_EmotesBtn) {
 
 // adding background image to empty playlistrow corner
 if (UI_EmptyCornerBackground && EmptyCornerBackground.length > 0) {
-  rnd = Math.round(Math.random() * (EmptyCornerBackground.length - 1));
+  const rnd = Math.round(Math.random() * (EmptyCornerBackground.length - 1));
   $('#playlistrow').css({
     'background-image': `url("${EmptyCornerBackground[rnd]}")`,
     'background-repeat': 'no-repeat',
@@ -4269,63 +3554,59 @@ if (UI_EmptyCornerBackground && EmptyCornerBackground.length > 0) {
 }
 
 // adding layout configuration panel button
-layoutbtn =
+const layoutbtn =
     $('<button id="layout-btn" class="btn btn-sm btn-default btn-success pull-right" />')
         .html('<span class="glyphicon glyphicon-cog"></span> Layout')
         .prependTo('#leftpane')
         .on('click', () => toggleConfigPanel());
 $('#playlistmanagerwrap').show();
 
+let leftpanecontrols;
+
 // adding media database and gallery wrap
 if (UI_ChannelDatabase || UI_ChannelGalleries) {
   leftpanecontrols =
-      $('<div id="leftpanecontrols" class="btn-group pull-left" />')
-          .insertAfter(layoutbtn);
+      $('<div id="leftpanecontrols" class="btn-group pull-left" />').insertAfter(layoutbtn);
 }
 
 // adding media database button
 if (UI_ChannelDatabase) {
-  dbbtn =
-      $('<button id="db-btn" class="btn btn-sm btn-default" title="Display submitted songs in categories" />')
-          .text('Public Playlists')
-          .appendTo(leftpanecontrols)
-          .on('click', () => {
-            toggleDiv(dbwrap);
-            if (!CHANDB) {
-              createDatabase();
-            }
-          });
+  $('<button id="db-btn" class="btn btn-sm btn-default" title="Display submitted songs in categories" />')
+      .text('Public Playlists')
+      .appendTo(leftpanecontrols)
+      .on('click', () => {
+        toggleDiv(dbwrap);
+        if (!CHANDB) {
+          createDatabase();
+        }
+      });
 }
 
 // adding galleries button
 if (UI_ChannelGalleries) {
-  gallerybtn =
-      $('<button id="gallery-btn" class="btn btn-sm btn-default">Channel Galleries</button>')
-          .appendTo(leftpanecontrols)
-          .on('click', () => {
-            toggleDiv(gallerywrap);
-            if (!GALLERY) {
-              createGallery();
-            }
+  $('<button id="gallery-btn" class="btn btn-sm btn-default">Channel Galleries</button>')
+      .appendTo(leftpanecontrols)
+      .on('click', () => {
+        toggleDiv(gallerywrap);
+        if (!GALLERY) {
+          createGallery();
+        }
 
-            // patch: strange imgur behaviour (not loading first cached gallery)
-            if (!GALLVIS && UI_ChannelCache &&
-                gallerywrap.css('display') != 'none') {
-              iframe = document.getElementById('galleryFrame');
-              if (iframe.src.includes('imgur.com')) {
-                iframe.src = iframe.src;
-              }
-            }
-            GALLVIS = true;
-          });
+        // patch: strange imgur behaviour (not loading first cached gallery)
+        if (!GALLVIS && UI_ChannelCache && gallerywrap.css('display') !== 'none') {
+          iframe = document.getElementById('galleryFrame');
+          if (iframe.src.includes('imgur.com')) {
+            iframe.src = iframe.src;
+          }
+        }
+        GALLVIS = true;
+      });
 }
 
 // adding layout configuration well
-
-configwrap = $('<div id="configwrap" class="col-lg-12 col-md-12" />')
-                 .appendTo('#leftpane-inner');
-configwell = $('<div id="config-well" class="well form-horizontal" />')
-                 .appendTo(configwrap);
+const configwrap =
+    $('<div id="configwrap" class="col-lg-12 col-md-12" />').appendTo('#leftpane-inner');
+const configwell = $('<div id="config-well" class="well form-horizontal" />').appendTo(configwrap);
 
 if (!LAYOUTBOX) {
   toggleDiv(configwrap);
@@ -4334,37 +3615,36 @@ if (!LAYOUTBOX) {
 
 // adding layout configuration form
 
-configform =
-    $('<div id="configform" class="form-group" />').appendTo(configwell);
+const configform = $('<div id="configform" class="form-group" />').appendTo(configwell);
 $('<div class="col-lg-5 col-md-5">Global layout</div>').appendTo(configform);
-configbtnwrap = $('<div id="configbtnwrap" class="col-lg-7 col-md-7" />')
-                    .appendTo(configform);
+const configbtnwrap =
+    $('<div id="configbtnwrap" class="col-lg-7 col-md-7" />').appendTo(configform);
 
-configbtn =
-    $('<button id="config-btn" class="btn btn-default">Click to configure</button>')
-        .appendTo(configbtnwrap)
-        .on('click', () => showConfig());
+$('<button id="config-btn" class="btn btn-default">Click to configure</button>')
+    .appendTo(configbtnwrap)
+    .on('click', () => showConfig());
 
 configbtnwrap.append('<br />');
 
-fluidlayout = $('<label class="checkbox-inline" />').appendTo(configbtnwrap);
-cbox = $('<input type="checkbox" id="fluid-layout" value="no" />')
-           .appendTo(fluidlayout)
-           .on('click', () => toggleFluidLayout());
-cbox.after(' Fluid');
+const fluidlayout = $('<label class="checkbox-inline" />').appendTo(configbtnwrap);
+$('<input type="checkbox" id="fluid-layout" value="no" />')
+    .appendTo(fluidlayout)
+    .on('click', () => toggleFluidLayout())
+    .after(' Fluid');
 
-minlayout = $('<label class="checkbox-inline" />').appendTo(configbtnwrap);
-cbox = $('<input type="checkbox" id="min-layout" value="no" />')
-           .appendTo(minlayout)
-           .on('click', () => toggleMinLayout());
-cbox.after(' Minimized');
+const minlayout = $('<label class="checkbox-inline" />').appendTo(configbtnwrap);
+$('<input type="checkbox" id="min-layout" value="no" />')
+    .appendTo(minlayout)
+    .on('click', () => toggleMinLayout())
+    .after(' Minimized');
+
+let modesel;
 
 // adding selector with player display modes
 if (UI_DisplayModeSel) {
-  modeform = $('<div id="modeform" class="form-group" />').appendTo(configwell);
+  const modeform = $('<div id="modeform" class="form-group" />').appendTo(configwell);
   $('<div class="col-lg-5 col-md-5">Display mode</div>').appendTo(modeform);
-  modewrap =
-      $('<div id="modewrap" class="col-lg-7 col-md-7" />').appendTo(modeform);
+  const modewrap = $('<div id="modewrap" class="col-lg-7 col-md-7" />').appendTo(modeform);
 
   modesel = $('<select id="mode-sel" class="form-control" />')
                 .append('<option value="syMode">synchtube mode</option>')
@@ -4378,7 +3658,7 @@ if (UI_DisplayModeSel) {
                   $('#sounds-dropdown, #chatfunc-dropdown').remove();
                   SOUNDSPANEL = false;
                   CHATFUNC = false;
-                  if (PLAYER.type == 'jw') {
+                  if (PLAYER.type === 'jw') {
                     refreshPlayer();
                   }
                   setMode($(this).val());
@@ -4392,18 +3672,15 @@ if (UI_DisplayModeSel) {
 
 // adding selector with channel themes
 
-themeform = $('<div id="themeform" class="form-group" />').appendTo(configwell);
+const themeform = $('<div id="themeform" class="form-group" />').appendTo(configwell);
 $('<div class="col-lg-5 col-md-5">Personal theme</div>').appendTo(themeform);
-themewrap =
-    $('<div id="themewrap" class="col-lg-7 col-md-7" />').appendTo(themeform);
+const themewrap = $('<div id="themewrap" class="col-lg-7 col-md-7" />').appendTo(themeform);
 
-themesel =
+const themesel =
     $('<select id="theme-sel" class="form-control" />')
-        .append(
-            '<option value="" class="theme-header" disabled>default themes</option>')
+        .append('<option value="" class="theme-header" disabled>default themes</option>')
         .append('<option value="/css/themes/light.css"># Light</option>')
-        .append(
-            '<option value="/css/themes/bootstrap-theme.min.css"># Bootstrap</option>')
+        .append('<option value="/css/themes/bootstrap-theme.min.css"># Bootstrap</option>')
         .append('<option value="/css/themes/slate.css"># Slate</option>')
         .append('<option value="/css/themes/cyborg.css"># Cyborg</option>')
         .appendTo(themewrap)
@@ -4418,143 +3695,141 @@ themesel =
         });
 
 if (ThemesCSS.length > 0) {
-  themesel.append(
-      '<option value="" class="theme-header" disabled>additional themes</option>');
+  themesel.append('<option value="" class="theme-header" disabled>additional themes</option>');
   for (const css of ThemesCSS) {
     themesel.append(`<option value="${css[1]}">${css[0]}</option>`);
   }
 }
 
-if (UI_ChannelTheme && ChannelThemeURL != '') {
-  themesel
-      .prepend(`<option value="${ChannelThemeURL}"># Channel Theme</option>`)
-      .prepend(
-          '<option value="" class="theme-header" disabled>main theme</option>');
+if (UI_ChannelTheme && ChannelThemeURL !== '') {
+  themesel.prepend(`<option value="${ChannelThemeURL}"># Channel Theme</option>`)
+      .prepend('<option value="" class="theme-header" disabled>main theme</option>');
 }
 
 themesel.val(USERTHEME);
 
 // adding temporary hiding options
 
-hideform = $('<div id="hideform" class="form-group" />').appendTo(configwell);
-$('<div class="col-lg-5 col-md-5 conf-cap">Temporary hide</div>')
-    .appendTo(hideform);
-hidewrap =
-    $('<div id="hidewrap" class="col-lg-7 col-md-7" />').appendTo(hideform);
+const hideform = $('<div id="hideform" class="form-group" />').appendTo(configwell);
+$('<div class="col-lg-5 col-md-5 conf-cap">Temporary hide</div>').appendTo(hideform);
+const hidewrap = $('<div id="hidewrap" class="col-lg-7 col-md-7" />').appendTo(hideform);
 
-hidemotd = $('<label class="checkbox-inline" />').appendTo(hidewrap);
-cbox = $('<input type="checkbox" id="hide-motd" value="no" >')
-           .appendTo(hidemotd)
-           .on('click', () => toggleDiv('#motdrow'));
-cbox.after(' MOTD');
+const hidemotd = $('<label class="checkbox-inline" />').appendTo(hidewrap);
+$('<input type="checkbox" id="hide-motd" value="no" >')
+    .appendTo(hidemotd)
+    .on('click', () => toggleDiv('#motdrow'))
+    .after(' MOTD');
 
-hideann = $('<label class="checkbox-inline" />').appendTo(hidewrap);
-cbox = $('<input type="checkbox" id="hide-ann" value="no" />')
-           .appendTo(hideann)
-           .on('click', () => toggleDiv('#announcements'));
-cbox.after(' Announcements');
+const hideann = $('<label class="checkbox-inline" />').appendTo(hidewrap);
+$('<input type="checkbox" id="hide-ann" value="no" />')
+    .appendTo(hideann)
+    .on('click', () => toggleDiv('#announcements'))
+    .after(' Announcements');
 
-hidetitle = $('<label class="checkbox-inline" />').appendTo(hidewrap);
-cbox = $('<input type="checkbox" id="hide-title" value="no" />')
-           .appendTo(hidetitle)
-           .on('click', () => {
-             toggleDiv('#titlerow');
-             toggleDiv('#currenttitle');
-           });
-cbox.after(' Title');
+const hidetitle = $('<label class="checkbox-inline" />').appendTo(hidewrap);
+$('<input type="checkbox" id="hide-title" value="no" />')
+    .appendTo(hidetitle)
+    .on('click',
+        () => {
+          toggleDiv('#titlerow');
+          toggleDiv('#currenttitle');
+        })
+    .after(' Title');
 
-hidepl = $('<label class="checkbox-inline" />').appendTo(hidewrap);
-cbox = $('<input type="checkbox" id="hide-pl" value="no" />')
-           .appendTo(hidepl)
-           .on('click', () => {
-             toggleDiv('#queue');
-             toggleDiv('#plmeta');
-           });
-cbox.after(' Playlist');
+const hidepl = $('<label class="checkbox-inline" />').appendTo(hidewrap);
+$('<input type="checkbox" id="hide-pl" value="no" />')
+    .appendTo(hidepl)
+    .on('click',
+        () => {
+          toggleDiv('#queue');
+          toggleDiv('#plmeta');
+        })
+    .after(' Playlist');
 
-hidehf = $('<label class="checkbox-inline" />').appendTo(hidewrap);
-cbox = $('<input type="checkbox" id="hide-hf" value="no" />')
-           .appendTo(hidehf)
-           .on('click', () => {
-             if ($('nav').css('display') != 'none') {
-               headerMode('fixed');
-             } else {
-               headerMode(USERCONFIG.header);
-             }
-             toggleDiv('nav');
-             toggleDiv('footer');
-           });
-cbox.after(' H&F');
+const hidehf = $('<label class="checkbox-inline" />').appendTo(hidewrap);
+$('<input type="checkbox" id="hide-hf" value="no" />')
+    .appendTo(hidehf)
+    .on('click',
+        () => {
+          if ($('nav').css('display') !== 'none') {
+            headerMode('fixed');
+          } else {
+            headerMode(USERCONFIG.header);
+          }
+          toggleDiv('nav');
+          toggleDiv('footer');
+        })
+    .after(' H&F');
 
 // adding embedding options
-if (UI_EmbeddingMedia &&
-    (EmbeddingMedia_Images != '' || EmbeddingMedia_Videos != '')) {
-  const embedform =
-      $('<div id="embedform" class="form-group" />').appendTo(configwell);
+if (UI_EmbeddingMedia && (EmbeddingMedia_Images !== '' || EmbeddingMedia_Videos !== '')) {
+  const embedform = $('<div id="embedform" class="form-group" />').appendTo(configwell);
   $('<div class="col-lg-5 col-md-5 conf-cap">Embeds <span id="embed-help">[?]</span></div>')
       .appendTo(embedform);
-  const embedwrap =
-      $('<div id="embedwrap" class="col-lg-7 col-md-7" />').appendTo(embedform);
+  const embedwrap = $('<div id="embedwrap" class="col-lg-7 col-md-7" />').appendTo(embedform);
 
   $('#embed-help').on('click', () => {
-    txt =
+    let txt =
         'This option lets you see images or videos directly on the chat, instead of links.\n' +
         'Click on image or double click on video to open in the new tab.\n' +
         'All videos are muted by default, if autoplay - click to unmute, else click to play.\n\n' +
         'This channel supports following types of links (specified as CSS codes):\n' +
         '■ Images - ';
-    if (EmbeddingMedia_Images != '') {
+    if (EmbeddingMedia_Images !== '') {
       txt += EmbeddingMedia_Images;
     }
     txt += '\n■ Videos - ';
-    if (EmbeddingMedia_Videos != '') {
+    if (EmbeddingMedia_Videos !== '') {
       txt += EmbeddingMedia_Videos;
     }
     alert(txt);
   });
 
-  if (EmbeddingMedia_Images != '') {
+  if (EmbeddingMedia_Images !== '') {
     const embedimg = $('<label class="checkbox-inline" />').appendTo(embedwrap);
-    cbox = $('<input type="checkbox" id="embed-img" checked>')
-               .appendTo(embedimg)
-               .on('click', () => {
-                 EMBEDIMG = !EMBEDIMG;
-                 setOpt(CHANNEL.name + '_embedimg', EMBEDIMG);
-               });
-    cbox.after(' img');
+    const cbox = $('<input type="checkbox" id="embed-img" checked>')
+                     .appendTo(embedimg)
+                     .on('click',
+                         () => {
+                           EMBEDIMG = !EMBEDIMG;
+                           setOpt(CHANNEL.name + '_embedimg', EMBEDIMG);
+                         })
+                     .after(' img');
     if (!EMBEDIMG) {
       cbox.removeAttr('checked');
     }
   }
 
-  if (EmbeddingMedia_Videos != '') {
-    embedvid = $('<label class="checkbox-inline" />').appendTo(embedwrap);
-    cbox = $('<input type="checkbox" id="embed-webm" checked>')
-               .appendTo(embedvid)
-               .on('click', () => {
-                 EMBEDVID = !EMBEDVID;
-                 setOpt(CHANNEL.name + '_embedvid', EMBEDVID);
-                 if (EMBEDVID) {
-                   autovid.show();
-                 } else {
-                   autovid.hide();
-                 }
-               });
-    cbox.after(' video');
+  if (EmbeddingMedia_Videos !== '') {
+    const embedvid = $('<label class="checkbox-inline" />').appendTo(embedwrap);
+    const cbox = $('<input type="checkbox" id="embed-webm" checked>')
+                     .appendTo(embedvid)
+                     .on('click',
+                         () => {
+                           EMBEDVID = !EMBEDVID;
+                           setOpt(CHANNEL.name + '_embedvid', EMBEDVID);
+                           if (EMBEDVID) {
+                             autovid.show();
+                           } else {
+                             autovid.hide();
+                           }
+                         })
+                     .after(' video');
     if (!EMBEDVID) {
       cbox.removeAttr('checked');
     }
 
-    autovid = $('<label class="checkbox-inline" />').appendTo(embedwrap);
-    cbox = $('<input type="checkbox" id="auto-webm" checked>')
-               .appendTo(autovid)
-               .on('click', () => {
-                 AUTOVID = !AUTOVID;
-                 setOpt(CHANNEL.name + '_autovid', AUTOVID);
-               });
-    cbox.after(' autoplay');
+    const autovid = $('<label class="checkbox-inline" />').appendTo(embedwrap);
+    const cbox2 = $('<input type="checkbox" id="auto-webm" checked>')
+                      .appendTo(autovid)
+                      .on('click',
+                          () => {
+                            AUTOVID = !AUTOVID;
+                            setOpt(CHANNEL.name + '_autovid', AUTOVID);
+                          })
+                      .after(' autoplay');
     if (!AUTOVID) {
-      cbox.removeAttr('checked');
+      cbox2.removeAttr('checked');
     }
     if (!EMBEDVID) {
       autovid.hide();
@@ -4562,50 +3837,70 @@ if (UI_EmbeddingMedia &&
   }
 }
 
+let clearbtn;
+let voldownbtn;
+let volupbtn;
+
+/**
+ * Toggle "/clear" button depending on rank.
+ */
+function toggleClearBtn() {
+  if (hasPermission('chatclear')) {
+    clearbtn.show();
+  } else {
+    clearbtn.hide();
+  }
+}
+
+/**
+ * Toggle YT volume buttons depending on player type.
+ */
+function toggleVolBtn() {
+  if (PLAYER && PLAYER.type === 'yt') {
+    voldownbtn.show();
+    volupbtn.show();
+  } else {
+    voldownbtn.hide();
+    volupbtn.hide();
+  }
+}
+
 // adding quick commands and volume buttons
 if (UI_QuickCommandsBtns || UI_VolumeBtns) {
-  funcbtnform =
-      $('<div id="funcbtnform" class="form-group" />').appendTo(configwell);
-  $('<div class="col-lg-5 col-md-5">Command buttons</div>')
-      .appendTo(funcbtnform);
-  funcbtnwrap = $('<div id="funcbtnwrap" class="col-lg-7 col-md-7" />')
-                    .appendTo(funcbtnform);
-  btnsgroup =
-      $('<div id="funcbtngroup" class="btn-group" />').appendTo(funcbtnwrap);
+  const funcbtnform = $('<div id="funcbtnform" class="form-group" />').appendTo(configwell);
+  $('<div class="col-lg-5 col-md-5">Command buttons</div>').appendTo(funcbtnform);
+  const funcbtnwrap = $('<div id="funcbtnwrap" class="col-lg-7 col-md-7" />').appendTo(funcbtnform);
+  const btnsgroup = $('<div id="funcbtngroup" class="btn-group" />').appendTo(funcbtnwrap);
 
   if (UI_QuickCommandsBtns) {
-    clearbtn =
-        $('<button id="clear-btn" class="btn btn-default btn-sm">/clear</button>')
-            .appendTo(btnsgroup)
-            .on('click', () => {
-              if (confirm('Are you sure to clear the chat window?')) {
-                socket.emit('chatMsg', {msg: '/clear'});
-              }
-            });
-    afkbtn =
-        $('<button id="afk-btn" class="btn btn-default btn-sm">/afk</button>')
-            .appendTo(btnsgroup)
-            .on('click', () => socket.emit('chatMsg', {msg: '/afk'}));
+    clearbtn = $('<button id="clear-btn" class="btn btn-default btn-sm">/clear</button>')
+                   .appendTo(btnsgroup)
+                   .on('click', () => {
+                     if (confirm('Are you sure to clear the chat window?')) {
+                       socket.emit('chatMsg', {msg: '/clear'});
+                     }
+                   });
+    $('<button id="afk-btn" class="btn btn-default btn-sm">/afk</button>')
+        .appendTo(btnsgroup)
+        .on('click', () => socket.emit('chatMsg', {msg: '/afk'}));
 
     socket.on('rank', toggleClearBtn);
     toggleClearBtn();
   }
 
   if (UI_VolumeBtns) {
-    voldownbtn =
-        $('<button id="voldown-btn" class="btn btn-default btn-sm">vol -</button>')
-            .appendTo(btnsgroup)
-            .on('click', () => {
-              a = PLAYER.player.getVolume();
-              PLAYER.player.setVolume(a - 1);
-            });
-    volupbtn =
-        $('<button id="volup-btn" class="btn btn-default btn-sm">vol +</button>')
-            .appendTo(btnsgroup)
-            .on('click', () => {
-              a = PLAYER.player.getVolume();
-              PLAYER.player.setVolume(a + 1);
-            });
+    voldownbtn = $('<button id="voldown-btn" class="btn btn-default btn-sm">vol -</button>')
+                     .appendTo(btnsgroup)
+                     .on('click', () => {
+                       a = PLAYER.player.getVolume();
+                       PLAYER.player.setVolume(a - 1);
+                     });
+    volupbtn = $('<button id="volup-btn" class="btn btn-default btn-sm">vol +</button>')
+                   .appendTo(btnsgroup)
+                   .on('click', () => {
+                     a = PLAYER.player.getVolume();
+                     PLAYER.player.setVolume(a + 1);
+                   });
 
     socket.on('changeMedia', toggleVolBtn);
     toggleVolBtn();
@@ -4618,15 +3913,17 @@ const opening = [];
 const item_count = [];
 let count_nr = 0;
 
+let dbwrap;
+let dbwell;
+
 // adding media database layout
 if (UI_ChannelDatabase) {
-  dbwrap =
-      $('<div id="dbwrap" class="col-lg-12 col-md-12" style="display:none" />')
-          .insertBefore(configwrap);
+  dbwrap = $('<div id="dbwrap" class="col-lg-12 col-md-12" style="display:none" />')
+               .insertBefore(configwrap);
   dbwell = $('<div id="db-well" class="well" />').appendTo(dbwrap);
 
-  if (ChannelDatabase.length < 1 || ChannelDatabase[0][0] != '') {
-    ChannelDatabase.unshift(['', '(various media)']);
+  if (CHANNEL_DATABASE.length < 1 || CHANNEL_DATABASE[0][0] !== '') {
+    CHANNEL_DATABASE.unshift(['', '(various media)']);
   }
   if (UI_ChannelCache) {
     createDatabase();
@@ -4635,15 +3932,12 @@ if (UI_ChannelDatabase) {
 
 // adding galleries layout
 if (UI_ChannelGalleries) {
-  gallerywrap =
-      $('<div id="gallerywrap" class="col-lg-12 col-md-12" style="display:none" />')
-          .appendTo('#leftpane-inner');
-  gallerywell =
-      $('<div id="gallery-well" class="well" />').appendTo(gallerywrap);
+  gallerywrap = $('<div id="gallerywrap" class="col-lg-12 col-md-12" style="display:none" />')
+                    .appendTo('#leftpane-inner');
+  gallerywell = $('<div id="gallery-well" class="well" />').appendTo(gallerywrap);
 
   if (ChannelGalleries_Array.length < 1) {
-    ChannelGalleries_Array =
-        [['Anime pictures', 'http://imgur.com/a/SjwJb/embed']];
+    ChannelGalleries_Array = [['Anime pictures', 'http://imgur.com/a/SjwJb/embed']];
   }
   if (UI_ChannelCache) {
     createGallery();
@@ -4658,7 +3952,7 @@ if (UI_DefaultNonTemp) {
 }
 
 // adding playlist options for moderators button
-advplaylist =
+const advplaylist =
     $('<button id="advplaylist" class="btn btn-sm btn-default" title="Advanced options" />')
         .append('<span class="glyphicon glyphicon-wrench" />')
         .insertBefore('#qlockbtn')
@@ -4666,69 +3960,62 @@ advplaylist =
 
 // adding advanced playlist options form
 
-advplcontrol = $('<div id="advplcontrol" class="col-lg-12 col-md-12" />')
-                   .insertAfter('#playlistmanager');
-advplcontrols =
-    $('<div id="advplcontrols" class="btn-group" style="display:none" />')
-        .appendTo(advplcontrol);
+const advplcontrol =
+    $('<div id="advplcontrol" class="col-lg-12 col-md-12" />').insertAfter('#playlistmanager');
+const advplcontrols =
+    $('<div id="advplcontrols" class="btn-group" style="display:none" />').appendTo(advplcontrol);
 
 // adding advanced playlist options buttons
 
-playnextbtn =
-    $('<button id="playnext-btn" class="btn btn-default">Play next</button>')
-        .appendTo(advplcontrols)
-        .on('click', () => socket.emit('playNext'));
+const playnextbtn = $('<button id="playnext-btn" class="btn btn-default">Play next</button>')
+                        .appendTo(advplcontrols)
+                        .on('click', () => socket.emit('playNext'));
 
-addrandombtn =
-    $('<button id="addrandom-btn" class="btn btn-default">Add random</button>')
-        .appendTo(advplcontrols)
-        .on('click', () => addRandomItem());
+const addrandombtn = $('<button id="addrandom-btn" class="btn btn-default">Add random</button>')
+                         .appendTo(advplcontrols)
+                         .on('click', () => addRandomItem());
 
-bumplastbtn =
-    $('<button id="bumplast-btn" class="btn btn-default">Bump last</button>')
-        .appendTo(advplcontrols)
-        .on('click', () => {
-          len = $('#queue').children().length;
-          uid = $(`#queue .queue_entry:nth-child(${len})`).data('uid');
-          socket.emit('moveMedia', {from: uid, after: PL_CURRENT});
-        });
+const bumplastbtn = $('<button id="bumplast-btn" class="btn btn-default">Bump last</button>')
+                        .appendTo(advplcontrols)
+                        .on('click', () => {
+                          const len = $('#queue').children().length;
+                          const uid = $(`#queue .queue_entry:nth-child(${len})`).data('uid');
+                          socket.emit('moveMedia', {from: uid, after: PL_CURRENT});
+                        });
 
-deletelastbtn =
-    $('<button id="deletelast-btn" class="btn btn-default">Delete last</button>')
-        .appendTo(advplcontrols)
-        .on('click', () => {
-          if (confirm('Are you sure to delete last item?')) {
-            len = $('#queue').children().length;
-            uid = $(`#queue .queue_entry:nth-child(${len})`).data('uid');
-            socket.emit('delete', uid);
-          }
-        });
+const deletelastbtn = $('<button id="deletelast-btn" class="btn btn-default">Delete last</button>')
+                          .appendTo(advplcontrols)
+                          .on('click', () => {
+                            if (confirm('Are you sure to delete last item?')) {
+                              const len = $('#queue').children().length;
+                              const uid = $(`#queue .queue_entry:nth-child(${len})`).data('uid');
+                              socket.emit('delete', uid);
+                            }
+                          });
 
 toggleAdvancedPl();
 
 // adding playlist expanding button
-expandbtn =
+const expandbtn =
     $('<button id="expand-btn" class="btn btn-sm btn-default" title="Expand playlist" />')
         .append('<span class="glyphicon glyphicon-resize-full" />')
         .prependTo('#videocontrols')
         .on('click', () => expandQueue());
 
 // adding playlist scrolling button
-scrollbtn =
-    $('<button id="scroll-btn" class="btn btn-sm btn-default" title="Scroll playlist to current item" />')
-        .append('<span class="glyphicon glyphicon-hand-right" />')
-        .prependTo('#videocontrols')
-        .on('click', () => scrollQueue());
+$('<button id="scroll-btn" class="btn btn-sm btn-default" title="Scroll playlist to current item" />')
+    .append('<span class="glyphicon glyphicon-hand-right" />')
+    .prependTo('#videocontrols')
+    .on('click', () => scrollQueue());
 
 // adding contributors button
-contribbtn =
-    $('<button id="contrib-btn" class="btn btn-sm btn-default" title="Contributors list" />')
-        .append('<span class="glyphicon glyphicon-user" />')
-        .prependTo('#videocontrols')
-        .on('click', () => showContributors());
+$('<button id="contrib-btn" class="btn btn-sm btn-default" title="Contributors list" />')
+    .append('<span class="glyphicon glyphicon-user" />')
+    .prependTo('#videocontrols')
+    .on('click', () => showContributors());
 
 // adding pin-up button
-pinupbtn =
+const pinupbtn =
     $('<button id="pinup-btn" class="btn btn-sm btn-default" title="Pin playlist to player" />')
         .append('<span class="glyphicon glyphicon-pushpin" />')
         .prependTo('#videocontrols')
@@ -4749,8 +4036,7 @@ if (UI_ExtendedGetURLs) {
 
 // Update alert first-time users see
 (function() {
-const /** @type {HTMLDivElement} */ alertWrapper =
-    document.getElementById('plonotification');
+const /** @type {HTMLDivElement} */ alertWrapper = document.getElementById('plonotification');
 if (!alertWrapper) {
   return;
 }
@@ -4758,17 +4044,14 @@ if (!alertWrapper) {
 const /** @type {HTMLDivElement} */ alertContainer = alertWrapper.firstChild;
 alertContainer.innerHTML =
     alertContainer.innerHTML
-        .replace(
-            'show them when you right click). ',
-            'show them when you right click).<br />')
+        .replace('show them when you right click). ', 'show them when you right click).<br />')
         .replace(
             'the old style of playlist buttons.',
             '"the old style" of playlist buttons (<b>recommended</b>) - ' +
                 'more compact playlist with nice icons ' +
                 `(see image <a href="https://dl.dropboxusercontent.com/s/4ya7i5vlyb3likk/oldpl.jpg" target="_blank">here</a>).`);
 
-// Updating the innerHTML removes the event handler on the dismiss button,
-// re-add it
+// Updating the innerHTML removes the event handler on the dismiss button, re-add it
 const /** @type {HTMLButtonElement} */ dismissButton =
     Array.from(alertContainer.children)
         .filter((elem) => elem.tagName.toLowerCase() === 'button')[0];
@@ -4779,33 +4062,30 @@ dismissButton.addEventListener('click', () => {
 })();
 
 // rearranging footer
-
-html =
+$('.credit').append(
     '<br />CyTube Plus 4.5 · Copyright &copy; 2013-2014 Zimny Lech, Modified by CyDJ staff · ' +
-    'Free source on <a href="http://github.com/papertek/CyDJ" target="_blank">GitHub</a>';
-$('.credit').append(html);
+    'Free source on <a href="http://github.com/papertek/CyDJ" target="_blank">GitHub</a>');
 
 if (UI_CustomRightFooter) {
-  rightfooter = $(`<span id="rightfooter">${CustomRightFooter_HTML}</span>`)
-                    .appendTo('footer .container');
+  $(`<span id="rightfooter">${CustomRightFooter_HTML}</span>`).appendTo('footer .container');
 }
 
+let leftfooter;
+let onlinetime;
+
 if (UI_CustomFooter || UI_UserStatistics) {
-  leftfooter = UI_CustomRightFooter ? $('<span id="leftfooter" />') :
-                                      $('<div id="leftfooter" />');
-  if (UI_CustomRightFooter && CustomFooter_HTML != '') {
+  leftfooter = UI_CustomRightFooter ? $('<span id="leftfooter" />') : $('<div id="leftfooter" />');
+  if (UI_CustomRightFooter && CustomFooter_HTML !== '') {
     leftfooter.html(CustomFooter_HTML);
   }
   leftfooter.appendTo('footer .container');
 }
 
-// updating user visits
-
 USERVISITS++;
 setOpt(CHANNEL.name + '_visits', USERVISITS);
 
 if (UI_UserStatistics) {
-  if (UI_CustomFooter && CustomFooter_HTML != '') {
+  if (UI_CustomFooter && CustomFooter_HTML !== '') {
     $('<br /><br />').appendTo(leftfooter);
   }
 
@@ -4814,33 +4094,30 @@ if (UI_UserStatistics) {
     '<span> / </span>')
       .appendTo(leftfooter);
   $('<span>Current online time: </span>').appendTo(leftfooter);
-  onlinetime = $('<span id="onlinetime" class="badge footer-badge">0:00</span>')
-                   .appendTo(leftfooter);
+  onlinetime =
+      $('<span id="onlinetime" class="badge footer-badge">0:00</span>').appendTo(leftfooter);
 
   setInterval(() => onlineTime(), 60000);
 }
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* ----- Chat and window extensions and events ----- */
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
-if (UI_EmbeddingMedia &&
-    (EmbeddingMedia_Images != '' || EmbeddingMedia_Videos != '')) {
+if (UI_EmbeddingMedia && (EmbeddingMedia_Images !== '' || EmbeddingMedia_Videos !== '')) {
   ALTERCHATFORMAT = true;
 }
 if (UI_UserMarks || UI_IndependentEmotes || UI_IndependentFilters) {
   ALTERCHATFORMAT = true;
 }
 
-// alter chat messages formatting
+// Alter chat messages formatting.
 // DEV NOTE: this is extended function from CyTube "util.js" file
-// airforce note: this seems to override a function that's defined by cytube on
-// the client side
+// airforce note: this seems to override a function that's defined by cytube on the client side
 if (ALTERCHATFORMAT) {
-  // eslint-disable-next-line no-unused-vars
-  function formatChatMessage(data, last) {
+  formatChatMessage = function(data, last) {
     if (!data.meta || data.msgclass) {
       data.meta = {
         addClass: data.msgclass,
@@ -4848,7 +4125,7 @@ if (ALTERCHATFORMAT) {
       };
     }
 
-    skip = data.username === last.name;
+    let skip = data.username === last.name;
     if (data.meta.addClass === 'server-whisper') {
       skip = true;
     }
@@ -4868,8 +4145,8 @@ if (ALTERCHATFORMAT) {
     }
 
     if (USEROPTS.show_timestamps) {
-      time = $('<span class="timestamp" />').appendTo(div);
-      timestamp = new Date(data.time).toTimeString().split(' ')[0];
+      const time = $('<span class="timestamp" />').appendTo(div);
+      const timestamp = new Date(data.time).toTimeString().split(' ')[0];
       time.text(`[${timestamp}] `);
       if (data.meta.addClass && data.meta.addClassToNameAndTimestamp) {
         time.addClass(data.meta.addClass);
@@ -4877,28 +4154,22 @@ if (ALTERCHATFORMAT) {
     }
 
     if (UI_UserMarks && UI_Squavatars) {
-      html = createSquavatar(data.username);
-      div.html(div.html() + html);
+      div.html(div.html() + createSquavatar(data.username));
     }
 
-    if (UI_UserMarks && UI_Squavatars != '1') {
+    if (UI_UserMarks && !UI_Squavatars) {
       if (!!USER_BADGES[data.username]) {
-        const badges = USER_BADGES[data.username]
-                           .map((url) => Badge.formatToHtml(url))
-                           .join('');
+        const badges = USER_BADGES[data.username].map((url) => formatBadgeToHtml(url)).join('');
         div.html(div.html() + badges);
       }
     }
 
-    uname = $('<span />');
+    const uname = $('<span />');
     if (!skip) {
       uname.appendTo(div);
     }
-    mark =
-        (UI_UsernameMark && UsernameMark_Char != '') ? UsernameMark_Char : ':';
-    $('<strong class="username" />')
-        .text(data.username + mark + ' ')
-        .appendTo(uname);
+    const mark = (UI_UsernameMark && UsernameMark_Char !== '') ? UsernameMark_Char : ':';
+    $('<strong class="username" />').text(data.username + mark + ' ').appendTo(uname);
 
     if (data.meta.modflair) {
       uname.addClass(getNameColor(data.meta.modflair));
@@ -4907,26 +4178,23 @@ if (ALTERCHATFORMAT) {
       uname.addClass(data.meta.addClass);
     }
     if (data.meta.superadminflair) {
-      uname.addClass('globalmod label')
-          .addClass(data.meta.superadminflair.labelclass);
-      $('<span class="glyphicon" />')
-          .addClass(data.meta.superadminflair.icon)
-          .prependTo(uname);
+      uname.addClass('globalmod label').addClass(data.meta.superadminflair.labelclass);
+      $('<span class="glyphicon" />').addClass(data.meta.superadminflair.icon).prependTo(uname);
     }
 
-    message = $('<span />').appendTo(div);
+    const message = $('<span />').appendTo(div);
     message[0].innerHTML = data.msg;
 
-    if (data.meta.addClass == 'greentext') {
+    if (data.meta.addClass === 'greentext') {
       message.addClass('greentext');
     }
-    if (data.meta.addClass == 'spoiler') {
+    if (data.meta.addClass === 'spoiler') {
       message.addClass('spoiler');
     }
-    if (data.meta.addClass == 'action') {
+    if (data.meta.addClass === 'action') {
       message.addClass('action');
     }
-    if (data.meta.addClass == 'server-whisper') {
+    if (data.meta.addClass === 'server-whisper') {
       message.addClass('server-whisper');
     }
 
@@ -4936,20 +4204,19 @@ if (ALTERCHATFORMAT) {
     }
 
     if (UI_IndependentEmotes) {
-      _div = div.html();
+      let _div = div.html();
       for (const emote of IndependentEmotes) {
-        filter = emote[0];
-        html = `<img src="${emote[1]}" title="${filter}" ` +
+        const filter = emote[0];
+        const html = `<img src="${emote[1]}" title="${filter}" ` +
             `style="width:${emote[2]}px; ` +
             `height:${emote[3]}px; cursor:pointer" ` +
-            `onclick="insertText('${filter}')" />`;
-        re = new RegExp(filter, 'g');
-        _div = _div.replace(re, html);
+            `onclick="cydj.insertText('${filter}')" />`;
+        _div = _div.replace(new RegExp(filter, 'g'), html);
       }
       div.html(_div);
     }
     if (UI_IndependentFilters) {
-      _div = div.html();
+      let _div = div.html();
       for (const filt of IndependentFilters) {
         _div = _div.replace(filt.before, filt.after);
       }
@@ -5017,44 +4284,13 @@ if (ALTERCHATFORMAT) {
     }
 
     return div;
-  }
+  };
 }
-
-// client-side chat buffer for playing sounds
-_chatBuffer = addChatMessage;
-addChatMessage = (data) => {
-  if (UI_SoundFilters && VOICES &&
-      (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
-    for (i in SoundFilters_Array) {
-      if (data.msg.includes(i)) {
-        aud = new Audio(SoundFilters_Array[i]);
-        aud.volume = SOUNDSVALUES[SOUNDSLVL];
-        aud.play();
-      }
-    }
-  }
-  if (UI_ChatSpeak && VOICES &&
-      (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
-    msg = getText(data.msg);
-    if (msg.includes('!mow ')) {
-      str = msg.split('!mow ');
-      aud = new Audio(`${SPEAKLINK}?lang=polish&text=${encodeURI(str[1])}`);
-      aud.volume = SOUNDSVALUES[SOUNDSLVL];
-      aud.play();
-    } else if (msg.includes('!say ')) {
-      str = msg.split('!say ');
-      aud = new Audio(`${SPEAKLINK}?lang=english&text=${encodeURI(str[1])}`);
-      aud.volume = SOUNDSVALUES[SOUNDSLVL];
-      aud.play();
-    }
-  }
-  _chatBuffer(data);
-};
 
 // fix formatting and sending chat messages
 // DEV NOTE: this are extended events from CyTube "util.js" file
 
-$('#chatline, #chatbtn').unbind();
+$('#chatline, #chatbtn').off();
 
 let /** @type {string} */ unsentMsg = null;
 
@@ -5063,11 +4299,11 @@ $('#chatline').on('keydown', (ev) => {
     if (CHATTHROTTLE) {
       return;
     }
-    _msg = $('#chatline').val();
-    msg = $('#chatline').val();
+    const _msg = $('#chatline').val();
+    let msg = $('#chatline').val();
     if (msg.trim()) {
       msg = prepareMessage(msg.trim());
-      meta = {};
+      const meta = {};
       if (COMMAND) {
         socket.emit('chatMsg', {msg: _msg});
         msg = `➥ ${msg}`;
@@ -5121,8 +4357,8 @@ $('#chatline').on('keydown', (ev) => {
 });
 
 $('#chatbtn').on('click', () => {
-  _msg = $('#chatline').val();
-  msg = $('#chatline').val();
+  const _msg = $('#chatline').val();
+  let msg = $('#chatline').val();
   if (msg.trim()) {
     msg = prepareMessage(msg.trim());
     if (COMMAND) {
@@ -5173,31 +4409,6 @@ socket.on('setUserMeta', clearMessagesOfMutedUser);
  * @property {string} meta.ip User's obfuscated IP
  */
 
-// /**
-//  * For a userlist event, if someone is muted, clear their messages.
-//  *
-//  * userlist is only fired when the page is initially loaded.
-//  *
-//  * note: this doesn't actually work in practice because the userlist event
-//  * is received before this script is loaded Sadge
-//  *
-//  * @param {!Array<UserListUser>} users
-//  */
-// function clearMessagesOfMutedUserListUsers(users) {
-//   console.log('users', users);
-//   for (const user of users) {
-//     if (!user.meta.muted) {
-//       console.log(`not muting user ${user.name}`);
-//       continue;
-//     }
-//     console.log(`muting user ${user.name}`);
-//     deleteMsgByUsername(user.name);
-//   }
-// }
-
-// socket.on('userlist', clearMessagesOfMutedUserListUsers);
-// socket.emit('userlist');
-
 /**
  * @typedef {Object} ChatMsgEvent
  * @property {string} username Name of the user
@@ -5247,8 +4458,9 @@ function fixSayMsg(event) {
 
 socket.on('chatMsg', fixSayMsg);
 
-// fix layout behaviour after resizing
 /**
+ * Fix layout behaviour after resizing.
+ *
  * DEV NOTE: this is extended function from CyTube "util.js" file
  */
 function resizeStuff() {
@@ -5261,8 +4473,7 @@ function resizeStuff() {
   $('#userlist').height(h);
 
   if (UI_DisplayModeSel) {
-    m = modesel.val();
-    console.log('channel mode is : ', m);
+    const m = modesel.val();
     // patches for various display modes
     if (m === 'chMode' || m === 'rMode') {
       if (WEBKIT) {
@@ -5279,31 +4490,25 @@ function resizeStuff() {
 }
 
 // bind new resizing function
-
 $(window).off('resize', '**');
 $(window).on('resize', resizeStuff);
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // setting global sockets
-
 socket.on('channelOpts', setUserCSS);
 socket.on('channelCSSJS', setUserCSS);
-
 socket.on('login', patchWrap);
 socket.on('rank', toggleAdvancedPl);
 
 // setting final layout after loading
-
 setLayout();
 scrollChat();
 scrollQueue();
 
 if (FLUID) {
   $('.container').removeClass('container').addClass('container-fluid');
-  $('footer .container-fluid')
-      .removeClass('container-fluid')
-      .addClass('container');
+  $('footer .container-fluid').removeClass('container-fluid').addClass('container');
   $('#fluid-layout').prop('checked', 'true');
   $('#fontspanel, #emotespanel').addClass('fluidpanel');
 }
@@ -5326,13 +4531,7 @@ m.parentNode.insertBefore(a, m);
 ga('create', 'UA-53755606-1', 'auto');
 ga('send', 'pageview');
 
-// adding external script file and music stuff
-
-if (UI_ExternalScript && ExternalScript_URL != '') {
-  $.getScript(ExternalScript_URL);
-}
-
-if (UI_Snow && Snow_URL != '') {
+if (UI_Snow && Snow_URL !== '') {
   $.getScript(Snow_URL);
 }
 
@@ -5355,8 +4554,7 @@ const USERLIST_COLORS = {
 
 for (const [name, color] of Object.entries(USERLIST_COLORS)) {
   const userType = color.usertype ? `.userlist_${color.usertype}` : '';
-  $(`div.userlist_item span${userType}:contains("${name}")`)
-      .css('cssText', color.css);
+  $(`div.userlist_item span${userType}:contains("${name}")`).css('cssText', color.css);
 }
 
 const ODD_MESSAGE_CLASS = 'odd-message';
@@ -5368,24 +4566,21 @@ if (!CHAT_INIT) {
   CHAT_INIT = true;
   socket.on('chatMsg', (obj) => {
     const mb = document.getElementById('messagebuffer');
-    if (mb && mb.lastChild &&
-        $(mb.lastChild).attr('class').startsWith('chat-msg-') &&
+    if (mb && mb.lastChild && $(mb.lastChild).attr('class').startsWith('chat-msg-') &&
         !obj.meta.shadow) {
-      mb.lastChild.classList.add(
-          lastMessageOdd ? ODD_MESSAGE_CLASS : EVEN_MESSAGE_CLASS);
+      mb.lastChild.classList.add(lastMessageOdd ? ODD_MESSAGE_CLASS : EVEN_MESSAGE_CLASS);
       lastMessageOdd = !lastMessageOdd;
     }
     setTimeout(() => {
       const mb = document.getElementById('messagebuffer');
-      if (mb !== null &&
-          mb.scrollHeight - (mb.clientHeight + mb.scrollTop) < 50) {
+      if (mb !== null && mb.scrollHeight - (mb.clientHeight + mb.scrollTop) < 50) {
         mb.scrollTop = mb.scrollHeight - mb.clientHeight;
       }
     }, 250);
     emoteHoverAll();
     if (CLIENT.name && obj.username !== CLIENT.name &&
-        obj.msg.toLowerCase().includes(CLIENT.name.toLowerCase()) &&
-        !obj.meta.shadow && obj.username !== '[server]') {
+        obj.msg.toLowerCase().includes(CLIENT.name.toLowerCase()) && !obj.meta.shadow &&
+        obj.username !== '[server]') {
       audioFeedback();
     }
     if (obj.msg.startsWith('!poof') || obj.msg.includes('do poof')) {
@@ -5420,10 +4615,8 @@ if (!CHAT_INIT) {
     const mbDiv = $('#messagebuffer div');
     let line;
     for (let i = 0; i < mbDiv.length; i++) {
-      if (mbDiv && (line = $(mbDiv[i]))[0] &&
-          line.attr('class').startsWith('chat-msg-')) {
-        mbDiv[i].classList.add(
-            lastMessageOdd ? ODD_MESSAGE_CLASS : EVEN_MESSAGE_CLASS);
+      if (mbDiv && (line = $(mbDiv[i]))[0] && line.attr('class').startsWith('chat-msg-')) {
+        mbDiv[i].classList.add(lastMessageOdd ? ODD_MESSAGE_CLASS : EVEN_MESSAGE_CLASS);
         lastMessageOdd = !lastMessageOdd;
       }
     }
@@ -5433,8 +4626,7 @@ if (!CHAT_INIT) {
       name: $('#guestname').val(),
     });
   };
-  document.querySelector('#guestlogin span').style =
-      'top:92%!important;left:84%!important;';
+  document.querySelector('#guestlogin span').style = 'top:92%!important;left:84%!important;';
 }
 
 let CSS_INIT = false;
@@ -5482,17 +4674,17 @@ function chatTabComplete() {
   const usersWithCap = Array.prototype.slice.call($('#userlist').children())
                            .map((elem) => elem.children[1].innerHTML);
   if (currentWithCap === TabCompletion.last) {
-    TabCompletion.last = current = TabCompletion.matches[(TabCompletion.matches.indexOf(currentWithCap) + 1) % TabCompletion.matches.length];
+    TabCompletion.last = current =
+        TabCompletion
+            .matches[(TabCompletion.matches.indexOf(currentWithCap) + 1) % TabCompletion.matches.length];
     current += ' ';
     words[words.length - 1] = current;
     $('#chatline').val(words.join(' '));
     return;
   }
-  let matches = TabCompletionEmotes.filter(
-      (str) => str.toLowerCase().startsWith(current));
-  matches = matches.concat(
-      usersWithCap.filter((str) => str.toLowerCase().startsWith(current))
-          .map((str) => words.length === 1 ? str + ':' : str));
+  const matches = TabCompletionEmotes.filter((str) => str.toLowerCase().startsWith(current))
+                      .concat(usersWithCap.filter((str) => str.toLowerCase().startsWith(current))
+                                  .map((str) => words.length === 1 ? str + ':' : str));
   if (matches.length === 0) {
     return;
   }
@@ -5562,23 +4754,14 @@ let userlistSizeToggleInner;
 function userlistSizeToggleFn() {
   $('#userlist').toggleClass('userlist-large', !!cookie.userlistLarge);
   $('#messagebuffer')
-      .toggleClass(
-          'userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
-  $('#chatline')
-      .toggleClass(
-          'userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
+      .toggleClass('userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
+  $('#chatline').toggleClass('userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
   $('#leftcontrols')
-      .toggleClass(
-          'userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
-  $('#videowrap')
-      .toggleClass(
-          'userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
+      .toggleClass('userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
+  $('#videowrap').toggleClass('userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
   $('#rightcontrols')
-      .toggleClass(
-          'userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
-  $('#rightpane')
-      .toggleClass(
-          'userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
+      .toggleClass('userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
+  $('#rightpane').toggleClass('userlist-hidden', !!cookie.userlistHidden || !!cookie.userlistLarge);
   userlistSizeToggleInner.style.width = !!cookie.userlistLarge ? '100%' : '50%';
 }
 let cookie;
@@ -5611,8 +4794,7 @@ function cookieLoad() {
     userlistToggle.click();
   }
   audioFeedbackToggleFn();
-  cookie.playlistStyle =
-      typeof cookie.playlistStyle === 'number' ? cookie.playlistStyle : 0;
+  cookie.playlistStyle = typeof cookie.playlistStyle === 'number' ? cookie.playlistStyle : 0;
   playlistStyleToggleFn();
   compactToggleFn();
   titleToggleFn();
@@ -5641,8 +4823,7 @@ function cookieUserlistSizeToggle() {
 }
 userlistToggle.onclick = cookieUserlistToggle;
 
-const audioFeedbackSound =
-    new Audio('https://cdn.betterttv.net/assets/sounds/ts-tink.ogg');
+const audioFeedbackSound = new Audio('https://cdn.betterttv.net/assets/sounds/ts-tink.ogg');
 function audioFeedback() {
   if (cookie.audioFeedback) {
     audioFeedbackSound.pause();
@@ -5658,8 +4839,7 @@ function audioFeedbackToggle() {
 }
 
 function audioFeedbackToggleFn() {
-  $('#audiofeedbacktoggle')
-      .toggleClass('audio-feedback-on', !!cookie.audioFeedback);
+  $('#audiofeedbacktoggle').toggleClass('audio-feedback-on', !!cookie.audioFeedback);
 }
 
 function playlistStyleToggle() {
@@ -5677,8 +4857,7 @@ function compactToggle() {
 let compactToggleBtn;
 let compactToggleCss;
 function compactToggleFn() {
-  compactToggleBtn.style.backgroundColor =
-      !!cookie.compact ? '#CCFFCC' : '#FFCCCC';
+  compactToggleBtn.style.backgroundColor = !!cookie.compact ? '#CCFFCC' : '#FFCCCC';
   compactToggleCss.innerHTML = !!cookie.compact ? togglesCSS_Compact : '';
 }
 
@@ -5694,15 +4873,13 @@ let titleToggleCss;
 function titleToggleFn() {
   titleToggleBtn.style.backgroundColor = !!cookie.title ? '#CCFFCC' : '#FFCCCC';
   titleToggleCss.innerHTML = !!cookie.title ? togglesCSS_Title : '';
-  mainpage.setAttribute(
-      'style', !!cookie.title ? 'padding-top: 45px !important;' : '');
+  mainpage.setAttribute('style', !!cookie.title ? 'padding-top: 45px !important;' : '');
 }
 
 function playlistStyleToggleFn() {
   $('#queue').toggleClass('playlist-style-1', cookie.playlistStyle === 1);
   $('#queue').toggleClass('playlist-style-2', cookie.playlistStyle === 2);
-  document.querySelector('#playliststyletoggle').innerHTML =
-      cookie.playlistStyle || '';
+  document.querySelector('#playliststyletoggle').innerHTML = cookie.playlistStyle || '';
 }
 
 function timestampToggle() {
@@ -5723,69 +4900,57 @@ if (!COOKIE_INIT) {
   setHover(document.querySelector('#userlisttoggle'));
   const userlistSizeToggle = document.createElement('i');
   userlistSizeToggle.id = 'userlistsizetoggle';
-  userlistSizeToggle.setAttribute(
-      'class', 'glyphicon pull-left pointer unselectable');
+  userlistSizeToggle.setAttribute('class', 'glyphicon pull-left pointer unselectable');
   userlistSizeToggle.setAttribute('title', 'Toggle Userlist Size');
   userlistSizeToggle.innerHTML = '<div id="userlistsizetoggle-inner"></div>';
   document.querySelector('#usercount')
-      .parentNode.insertBefore(
-          userlistSizeToggle, document.querySelector('#usercount'));
+      .parentNode.insertBefore(userlistSizeToggle, document.querySelector('#usercount'));
   userlistSizeToggle.onclick = cookieUserlistSizeToggle;
   setHover(userlistSizeToggle);
   userlistSizeToggleInner = document.querySelector('#userlistsizetoggle-inner');
   const audioFeedbackToggleBtn = document.createElement('i');
   audioFeedbackToggleBtn.id = 'audiofeedbacktoggle';
-  audioFeedbackToggleBtn.setAttribute(
-      'class', 'glyphicon pull-left pointer unselectable');
+  audioFeedbackToggleBtn.setAttribute('class', 'glyphicon pull-left pointer unselectable');
   audioFeedbackToggleBtn.setAttribute('title', 'Toggle Audio Feedback');
   audioFeedbackToggleBtn.innerHTML = '\uD83D\uDCE2';
   document.querySelector('#usercount')
-      .parentNode.insertBefore(
-          audioFeedbackToggleBtn, document.querySelector('#usercount'));
+      .parentNode.insertBefore(audioFeedbackToggleBtn, document.querySelector('#usercount'));
   audioFeedbackToggleBtn.onclick = audioFeedbackToggle;
   setHover(audioFeedbackToggleBtn);
   const playlistStyleToggleBtn = document.createElement('i');
   playlistStyleToggleBtn.id = 'playliststyletoggle';
-  playlistStyleToggleBtn.setAttribute(
-      'class', 'glyphicon pull-right pointer unselectable');
+  playlistStyleToggleBtn.setAttribute('class', 'glyphicon pull-right pointer unselectable');
   playlistStyleToggleBtn.setAttribute('title', 'Toggle Playlist Style');
   playlistStyleToggleBtn.innerHTML = '';
   document.querySelector('#usercount')
-      .parentNode.insertBefore(
-          playlistStyleToggleBtn, document.querySelector('#usercount'));
+      .parentNode.insertBefore(playlistStyleToggleBtn, document.querySelector('#usercount'));
   playlistStyleToggleBtn.onclick = playlistStyleToggle;
   setHover(playlistStyleToggleBtn);
   compactToggleBtn = document.createElement('i');
   compactToggleBtn.id = 'compacttoggle';
-  compactToggleBtn.setAttribute(
-      'class', 'glyphicon pull-right pointer unselectable');
+  compactToggleBtn.setAttribute('class', 'glyphicon pull-right pointer unselectable');
   compactToggleBtn.setAttribute('title', 'Toggle Compact Layout');
   compactToggleBtn.innerHTML = 'C';
   document.querySelector('#usercount')
-      .parentNode.insertBefore(
-          compactToggleBtn, document.querySelector('#usercount'));
+      .parentNode.insertBefore(compactToggleBtn, document.querySelector('#usercount'));
   compactToggleBtn.onclick = compactToggle;
   setHover(compactToggleBtn);
   titleToggleBtn = document.createElement('i');
   titleToggleBtn.id = 'titletoggle';
-  titleToggleBtn.setAttribute(
-      'class', 'glyphicon pull-right pointer unselectable');
+  titleToggleBtn.setAttribute('class', 'glyphicon pull-right pointer unselectable');
   titleToggleBtn.setAttribute('title', 'Toggle Video Title');
   titleToggleBtn.innerHTML = 'T';
   document.querySelector('#usercount')
-      .parentNode.insertBefore(
-          titleToggleBtn, document.querySelector('#usercount'));
+      .parentNode.insertBefore(titleToggleBtn, document.querySelector('#usercount'));
   titleToggleBtn.onclick = titleToggle;
   setHover(titleToggleBtn);
   const timestampToggleBtn = document.createElement('i');
   timestampToggleBtn.id = 'timestamptoggle';
-  timestampToggleBtn.setAttribute(
-      'class', 'glyphicon pull-right pointer unselectable');
+  timestampToggleBtn.setAttribute('class', 'glyphicon pull-right pointer unselectable');
   timestampToggleBtn.setAttribute('title', 'Toggle Timestamp');
   timestampToggleBtn.innerHTML = '\uD83D\uDD51';
   document.querySelector('#usercount')
-      .parentNode.insertBefore(
-          timestampToggleBtn, document.querySelector('#usercount'));
+      .parentNode.insertBefore(timestampToggleBtn, document.querySelector('#usercount'));
   timestampToggleBtn.onclick = timestampToggle;
   setHover(timestampToggleBtn);
   compactToggleCss = document.createElement('style');
@@ -5809,8 +4974,7 @@ const messagebuffer = document.querySelector('#messagebuffer');
  *     class="chat-msg-{username}"
  */
 function deleteMsg(messageDiv) {
-  const secondToLastChild =
-      messageDiv.children.item(messageDiv.children.length - 2);
+  const secondToLastChild = messageDiv.children.item(messageDiv.children.length - 2);
   if (!secondToLastChild.classList.contains('timestamp') &&
       secondToLastChild.style.display === 'none') {
     // Message is already deleted.
@@ -5841,41 +5005,6 @@ function deleteMsgByUsername(username) {
   }
 }
 
-function evalMotd() {
-  const motd = document.getElementById('motd');
-  if (motd === null || motd.innerHTML.length === 0) {
-    return false;
-  }
-  const MOTD_JS = decodeURIComponent(motd.innerHTML.replace('&amp;', '&'));
-  try {
-    eval(MOTD_JS);
-  } catch (e) {
-    console.error(e);
-  }
-  return true;
-}
-
-if (!evalMotd()) {
-  const MOTD_TIMER_START = Date.now();
-  const MOTD_TIMER = setInterval(() => {
-    if (evalMotd() || Date.now() - MOTD_TIMER_START > 1 * 60 * 1000) {
-      clearInterval(MOTD_TIMER);
-    }
-  }, 250);
-}
-let MOTD_INIT = false;
-if (!MOTD_INIT) {
-  MOTD_INIT = true;
-  socket.on('setMotd', (str) => {
-    const MOTD_JS = decodeURIComponent(str);
-    try {
-      eval(MOTD_JS);
-    } catch (e) {
-      console.error(e);
-    }
-  });
-}
-
 /**
  * Fix raw video controls being hidden.
  *
@@ -5887,8 +5016,7 @@ if (!MOTD_INIT) {
  * a couple seconds after. Just in case it takes a bit to load.
  */
 function fixRawVideoControls() {
-  const spinner =
-      document.getElementsByClassName('vjs-loading-spinner').item(0);
+  const spinner = document.getElementsByClassName('vjs-loading-spinner').item(0);
   const controlBar = document.getElementsByClassName('vjs-control-bar').item(0);
 
   for (const elem of [spinner, controlBar]) {
@@ -5903,10 +5031,4 @@ socket.on('mediaUpdate', fixRawVideoControls);
 
 document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
-
-setInterval(() => {
-  resizeStuff();
-}, 1000);  // this resizes stuff after 1 second
-
-// Xaekai was here (john too)
-$.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
+setInterval(() => resizeStuff(), 1000);

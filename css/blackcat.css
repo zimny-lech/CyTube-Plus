@@ -1,15 +1,11 @@
-/* UUFO by John, using light theme as base lol */
-/* Credit to Camellia and various others for the colors, ideas and images!! */
+/* Black Cat by Shelly, using UUFO theme as base */
+/* Credit to various CyDJ programmers */
 
 body {
-  background: linear-gradient(to bottom, #3b4ba0, #891787 50%, #ebb345)!important;
+  background: linear-gradient(to bottom, #142664 70%, #141414 , #ff2e93, #ffe5b3)!important;
   color:white;
   overflow-x:hidden;
   background-repeat: no-repeat;
-}
-
-.qe_title {
-  color: white!important;
 }
 
 html, body {
@@ -20,22 +16,29 @@ html, body {
   padding: 10px;
   border-color: white;
   box-shadow: none;
-  background-color: #78be864d;
+  background-color: #01e6b326;
+}
+
+#currenttitle {
+  background-image: url(https://cdn.7tv.app/emote/60bfb67aa2610d253072f14a/2x)!important;
+  background-repeat: no-repeat!important;
+  background-position: left center!important;
 }
 
 #wrap {
-  background-image: url(https://cametek.jp/uufo/img/bg-intro.jpg);
-  background-repeat: no-repeat;
-  background-position: 100% 0%;
-  background-size: auto;
-  min-height: 100%;
+  background-image: url(https://cdn.discordapp.com/attachments/782344759456825406/941492721577766970/catpeg_waifu2x_art_noise2_scale_tta_1.png);
+  background-repeat: repeat-y;
+  background-position: 100% 10%;
+  background-size: inherit;
+  min-height: 80%;
   height: auto;
   margin: 0 auto -60px;
   padding: 0 0 60px;
+  background-blend-mode: soft-light;
 }
 
 .alert-info {
-  background-color: #3b4ba0;
+  background-color: #b9266c;
   border-color: #3b4ba09e;
   color: #fff;
 }
@@ -62,15 +65,15 @@ html, body {
 }
 
 #chatheader, #videowrap-header, #userlist, #messagebuffer, #plmeta {
-  background-color: #891787;
+  background-color: #1c1e22;
 }
 
-footer {
-  background-color: #3b4ba0 !important;
+#footer {
+    background: radial-gradient(#141414, #141d40);
 }
 
 .text-muted, .text-primary {
-  color: #78be86;
+  color: #ffffff;
 }
 
 .profile-box, .user-dropdown {
@@ -96,7 +99,7 @@ footer {
 }
 
 #userlist, #messagebuffer {
-  border: 1px solid #aaaaaa;
+  border: 1px solid #00e6b3;
 }
 
 #chatheader, #videowrap-header {
@@ -108,13 +111,13 @@ footer {
 }
 
 .queue_entry {
-  border-color: #f4bb1b;
-  background-color: #890727bb;
+  border-color: #00e6b3;
+  background-color: #141414;
 }
 
 .queue_entry.queue_active {
   background-color: #891787;
-  background-image: linear-gradient(#3b4ba0, #3b4ba0, #3b4ba0);
+  background-image: linear-gradient(#142664, #142664, #3b4ba00d);
   background-repeat:no-repeat;
 }
 
@@ -123,34 +126,26 @@ footer {
 }
 
 .btn-default {
-  background-image: linear-gradient(#f4bb1b, #f4bb1b 60%, #f4bb1b)!important;
+  background-image: linear-gradient(#ff1887ad, #00e6b3 100%, #ccc);
   font-weight: 500;
-  color: #000000;
-}
-
-.btn {
-  border-color: #000!important;
-}
-
-.well {
-  background-color:#6700c51c!important;
+  color: #fffefe;
 }
 
 .dark-theme > .odd-message {
-  background-color: #890727bb;
+  background-color: #10111285;
 }
 
 .modal-body {
   padding: 30px;
-  background-color: #3b4ba0!important;
+  background-color: #972d61!important;
 }
 
 .modal-header {
-  background-color: #3b4ba0;
+  background-color: #1e1e1e;
 }
 
 .modal-footer {
-  background-color: #3b4ba0;
+  background-color: #1e1e1e;
 }
 
 .emote-preview-container {
@@ -163,7 +158,7 @@ footer {
 
 #titlerow-outer {
   letter-spacing:2px;
-  background-color: #890b41;
+  background-color: #142664;
 }
 
 .qe_title {
@@ -171,13 +166,13 @@ footer {
   letter-spacing: .6px;
 }
 
-::-webkit-scrollbar{min-height:10px;width:6px;background:transparent}
+::-webkit-scrollbar{min-height:10px;width:6px;background:transparent;}
 ::-webkit-scrollbar-thumb {
-  background: rgb(59 75 160);
+  background: #ff2e93;
   opacity: 7;
   border-radius: 1ex;
 }
-::-webkit-scrollbar-corner{background:rgb(255, 255, 255)}
+::-webkit-scrollbar-corner{background: rgb(255 255 255 / 15%);}
 
 div.userlist_item > span:not(.userlist_op):not(.userlist_owner) {
   color: #ffffff;
