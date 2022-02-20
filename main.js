@@ -1202,9 +1202,9 @@ function updateChatStats(msg) {
  * @return {string}
  */
 function createSquavatar(str) {
-  for (i = 0, hash = 0; i < str.length; hash = str.charCodeAt(i++) + ((hash << 5) - hash))
+  for (let i = 0, hash = 0; i < str.length; hash = str.charCodeAt(i++) + ((hash << 5) - hash))
     ;
-  for (i = 0, col = ''; i < 3; col += ('00' + ((hash >> i++ * 8) & 0xFF).toString(16)).slice(-2))
+  for (let i = 0, col = ''; i < 3; col += ('00' + ((hash >> i++ * 8) & 0xFF).toString(16)).slice(-2))
     ;
   r = parseInt(col.substring(0, 2), 16);
   g = parseInt(col.substring(2, 4), 16);
@@ -1572,7 +1572,7 @@ function toggleAdvancedPl() {
 function formatRawList() {
   const len = $('#queue .queue_entry').length + 1;
   const list = [];
-  for (i = 1; i < len; i++) {
+  for (let i = 1; i < len; i++) {
     const item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
     list.push(formatURL(item));
   }
@@ -1582,7 +1582,7 @@ function formatRawList() {
 function formatPlainTextList() {
   const len = $('#queue .queue_entry').length + 1;
   const list = [];
-  for (i = 1; i < len; i++) {
+  for (let i = 1; i < len; i++) {
     const item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
     list.push(`${i}. ${formatURL(item)} // ${item.title} [${item.duration}]`);
   }
@@ -1592,7 +1592,7 @@ function formatPlainTextList() {
 function formatHTMLList() {
   const len = $('#queue .queue_entry').length + 1;
   const list = [];
-  for (i = 1; i < len; i++) {
+  for (let i = 1; i < len; i++) {
     const item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
     const {title, duration} = item;
     const link = formatURL(item);
@@ -1606,7 +1606,7 @@ function formatHTMLList() {
 function formatOrderedList() {
   const len = $('#queue .queue_entry').length + 1;
   const list = [];
-  for (i = 1; i < len; i++) {
+  for (let i = 1; i < len; i++) {
     const item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
     const link = formatURL(item);
     list.push(`${item.title} ■■ ${link} ■■ [${item.duration}]`);
@@ -1618,7 +1618,7 @@ function formatOrderedList() {
 function formatDBList() {
   const len = $('#queue .queue_entry').length + 1;
   const list = [];
-  for (i = 1; i < len; i++) {
+  for (let i = 1; i < len; i++) {
     const item = $(`#queue .queue_entry:nth-child(${i})`).data('media');
     const re1 = new RegExp('\\\\', 'g');
     const re2 = new RegExp('\'', 'g');
@@ -1918,7 +1918,7 @@ function showEmotes() {
     const gr = Math.ceil(CHANNEL.emotes.length / GroupEmotes_Number);
     let html = '';
 
-    for (i = 0; i < len; i++) {
+    for (let i = 0; i < len; i++) {
       html += `<img src="${CHANNEL.emotes[i].image}" ` +
           `onclick="cydj.insertText(\'${CHANNEL.emotes[i].name} \')" />`;
       if (i % GroupEmotes_Number === stopAt) {
@@ -1930,7 +1930,7 @@ function showEmotes() {
       arr.push(html);
     }
 
-    for (i = 0; i < gr; i++) {
+    for (let i = 0; i < gr; i++) {
       div = $(`<div id="emotes-${i}" class="groupemotes" style="display:none" />`)
                 .html(arr[i])
                 .appendTo(emotespanel);
@@ -1940,7 +1940,7 @@ function showEmotes() {
     emotesbtnwrap = $('<div id="emotesbtnwrap" />').appendTo(emotespanel);
     emotesbtngroup = $('<div id="emotescontrols" class="btn-group">').appendTo(emotesbtnwrap);
 
-    for (i = 0; i < gr; i++) {
+    for (let i = 0; i < gr; i++) {
       $(`<button class="btn btn-sm btn-default emotesbtn" group="${i}">` +
         `${i + 1}</button>`)
           .appendTo(emotesbtngroup)
@@ -2067,7 +2067,7 @@ function showSoundsPanel() {
 
   const lvlgroup = $('<div id="lvlgroup" class="btn-group"></div>').appendTo('#sounds-dropdown');
 
-  for (i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 5; i++) {
     $(`<button class="btn btn-xs btn-default" id="lvlvol${i}" ` +
       `level="${i}" />`)
         .html(i)
