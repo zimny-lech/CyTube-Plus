@@ -8,6 +8,10 @@ body {
   background-repeat: no-repeat;
 }
 
+.qe_title {
+  color: white!important;
+}
+
 html, body {
   height: unset;
 }
@@ -125,7 +129,7 @@ footer {
 }
 
 .btn {
-  border: color #000;
+  border-color: #000!important;
 }
 
 .well {
