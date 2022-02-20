@@ -21,6 +21,10 @@ b, strong {
 	font-weight: bold!important;
 }
 
+.poll-notify {
+    font-weight: bold;
+}
+
 	/* -- buttons -- */
 
 .btn {text-shadow:none}
