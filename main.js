@@ -420,11 +420,11 @@ const ThemesCSS = [
     'https://dl.dropboxusercontent.com/s/iwarwhhph1ti2ek/celadon.css',
   ],
   [
-    'Classic FBI',
+    'Classic',
     'https://papertek.github.io/CyDJ/deploy/beta/css/twitchclassic.css',
   ],
   [
-    'Classic DJ',
+    'Pre DJ',
     'https://papertek.github.io/CyDJ/deploy/beta/css/DJDefault.css',
   ],
   [
