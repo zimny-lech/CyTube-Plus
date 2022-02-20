@@ -46,6 +46,11 @@ html, body {
 .glyphicon {
   font-weight: 500;
 }
+
+a {
+  color: #353a3e;
+}
+
 /*#mainpage{
   background-image: url(https://cametek.jp/uufo/img/bg-intro.jpg);
   background-repeat: no-repeat;
@@ -64,7 +69,7 @@ html, body {
   background-color: #000000;
 }
 
-#chatheader, #videowrap-header, #userlist, #messagebuffer, #plmeta {
+#chatheader, #videowrap-header, #userlist, #messagebuffer, #plmeta, .well {
   background-color: #8ed3a0b3;
 }
 
