@@ -429,7 +429,8 @@ const ThemesCSS = [
   ],
   [
     'Spring',
-    'https://papertek.github.io/CyDJ/deploy/beta/css/spring.css',
+//    'https://papertek.github.io/CyDJ/deploy/beta/css/spring.css',
+      'https://dl.dropboxusercontent.com/s/dntv1rzmvarbull/Spring.css',
   ],
   [
     'Black Cat',
