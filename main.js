@@ -1802,9 +1802,17 @@ function setUserCSS() {
   messageBuffer.classList.add(newThemeType);
   messageBuffer.classList.remove(oldThemeType);
   if (USERTHEME === '/css/themes/slate.css') {
-    $('head').append(`<style id="green-update" type="text/css">${greencss}</style>`);
+    if (document.getElementById('green-update') === undefined) {
+      const style = document.createElement('style');
+      style.id = 'green-update';
+      style.type = 'text/css';
+      style.textContent = greencss;
+      document.getElementsByTagName('head')[0].appendChild(style);
+    }
   } else {
-    $('#green-update').remove();
+    if (document.getElementById('green-update') === undefined) {
+      document.getElementById('green-update').remove();
+    }
   }
 }
 
