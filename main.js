@@ -3205,8 +3205,6 @@ let fontspanel;
 // adding chat fonts button
 if (UI_FontsBtn) {
   $('<button id="fonts-btn" class="btn btn-sm btn-default" title="Display fonts panel" />')
-      // .html('<span class="material-icons">text_format</span>')
-      // .html('<i class="fa-solid fa-font"></i>')
       .html('<i class="glyphicon glyphicon-font"></i>')
       .appendTo(chatcontrols)
       .on('click', () => toggleDiv(fontspanel));
@@ -3229,13 +3227,11 @@ if (UI_EmotesBtn) {
 if (UI_SpecialEmoteBtn) {
   $('#emotelistbtn').appendTo(chatcontrols);
   $('#emotelistbtn').html('<i title="Open emote menu" class="glyphicon glyphicon-picture"></i>');
-  //      .html('<i title="Open emote menu"</i> <span class="material-icons">face</span>');
 }
 
 // adding chat commands button
 if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
   $('<button id="chathelp-btn" class="btn btn-sm btn-default" title="Show chat commands"/>')
-      //      .html('<span class="material-icons">help_outline</span>')
       .html('<i class="glyphicon glyphicon-question-sign"></i>')
       .appendTo(chatcontrols)
       .on('click', () => showChatHelp());
@@ -4291,37 +4287,6 @@ if (ALTERCHATFORMAT) {
   };
 }
 
-// client-side chat buffer for playing sounds
-// _chatBuffer = addChatMessage;
-// addChatMessage = (data) => {
-//   if (UI_SoundFilters && VOICES &&
-//       (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
-//     for (i in SoundFilters_Array) {
-//       if (data.msg.includes(i)) {
-//         aud = new Audio(SoundFilters_Array[i]);
-//         aud.volume = SOUNDSVALUES[SOUNDSLVL];
-//         aud.play();
-//       }
-//     }
-//   }
-//   if (UI_ChatSpeak && VOICES &&
-//       (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
-//     msg = getText(data.msg);
-//     if (msg.includes('!mow ')) {
-//       str = msg.split('!mow ');
-//       aud = new Audio(`${SPEAKLINK}?lang=polish&text=${encodeURI(str[1])}`);
-//       aud.volume = SOUNDSVALUES[SOUNDSLVL];
-//       aud.play();
-//     } else if (msg.includes('!say ')) {
-//       str = msg.split('!say ');
-//       aud = new Audio(`${SPEAKLINK}?lang=english&text=${encodeURI(str[1])}`);
-//       aud.volume = SOUNDSVALUES[SOUNDSLVL];
-//       aud.play();
-//     }
-//   }
-//   _chatBuffer(data);
-// };
-
 // fix formatting and sending chat messages
 // DEV NOTE: this are extended events from CyTube "util.js" file
 
@@ -5064,29 +5029,6 @@ function fixRawVideoControls() {
 socket.on('changeMedia', fixRawVideoControls);
 socket.on('mediaUpdate', fixRawVideoControls);
 
-// resize stuff loop
 document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
 setInterval(() => resizeStuff(), 1000);
-
-(() => {
-  const head = document.getElementsByTagName('head')[0];
-
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = 'https://fonts.googleapis.com/icon?family=Material+Icons';
-  head.appendChild(link);
-
-  const style = document.createElement('style');
-  style.innerHTML = `
-      .material-icons.md-14 { font-size: 14px; }
-      .material-icons.md-16 { font-size: 16px; }
-      .material-icons.md-18 { font-size: 18px; }
-      .material-icons.md-24 { font-size: 24px; }
-      .material-icons.md-36 { font-size: 36px; }
-      .material-icons.md-48 { font-size: 48px; }
-    `;
-  head.appendChild(style);
-})();
-
-// john was here
