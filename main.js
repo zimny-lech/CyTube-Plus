@@ -1783,7 +1783,7 @@ function setUserCSS() {
   }`;
 
   $('head').append(`<style id="chanexternalcss-fix" type="text/css">${cssfix}</style>`);
-  $('head').append(`<style id="chanexternalcss-update" type="text/css">${greencss}</style>`);
+  // $('head').append(`<style id="green-update" type="text/css">${greencss}</style>`);
   $('#usertheme').attr('href', '/css/themes/slate.css');
   $('#usertheme-fix').remove();
   if (USERTHEME.includes('/css/themes/')) {
@@ -1801,39 +1801,11 @@ function setUserCSS() {
   const messageBuffer = document.getElementById('messagebuffer');
   messageBuffer.classList.add(newThemeType);
   messageBuffer.classList.remove(oldThemeType);
-/*  if (USERTHEME === '/css/themes/slate.css') {
-    $('body').css('background-color', '#141414');
-    $('a').css('color', '#94d1bd');
-    $('a:hover, a:focus').css('color', '#b8e0d3');
-    $('.qe_title').css('color', '#ff66ab!important');
-    $('.queue_entry').css('background-color', '#293d36bd');
-    $('.dropdown-menu').css('background-color', '#383E40');
-//    $('.btn').css({'background-image': 'linear-gradient(#4c333e00,#4c333e00 60%,#4c333e00)!important', 'border-color': '#4cb290!important', 'border-color': '#3a3f4400!important'});
-    $('.btn-default:hover').css('background-color', '#4cb290');
-    $('.modal-body').css('background-color', '#293d36');
-    $('.modal-header').css('background-color', '#293d36');
-    $('.modal-footer').css('background-color', '#293d36');
-    $('.modal-content').css('background-color', '#293d36');
-    $('#motd').css('background-color', '#fff0');
-    $('#motdwrap').css('background-color', '#293d36bd');
-    $('#userlist').css('background-color', '#222a27');
+  if (USERTHEME === '/css/themes/slate.css') {
+    $('head').append(`<style id="green-update" type="text/css">${greencss}</style>`);
   } else {
-    $('body').css('background-color', '');
-    $('a').css('color', '');
-    $('a:hover, a:focus').css('color', '');
-    $('.qe_title').css('color', '');
-    $('.queue_entry').css('background-color', '');
-    $('.dropdown-menu').css('background-color', '');
- //   $('.btn').css({'background-image': '', 'border-color': '', 'border-color': ''});
-    $('.btn-default:hover').css('background-color', '');
-    $('.modal-body').css('background-color', '');
-    $('.modal-header').css('background-color', '');
-    $('.modal-footer').css('background-color', '');
-    $('.modal-content').css('background-color', '');
-    $('#motd').css('background-color', '');
-    $('#motdwrap').css('background-color', '');
-   $('#userlist').css('background-color', '');*
-  } */
+    $('#green-update').remove();
+  }
 }
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////
