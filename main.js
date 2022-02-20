@@ -1802,14 +1802,14 @@ function setUserCSS() {
   messageBuffer.classList.add(newThemeType);
   messageBuffer.classList.remove(oldThemeType);
   if (document.getElementById('usertheme').getAttribute('href') === '/css/themes/slate.css') {
-    if (document.getElementById('green-update') === undefined) {
+    if (document.getElementById('green-update') == null) {
       const style = document.createElement('style');
       style.id = 'green-update';
       style.textContent = greencss;
       document.getElementsByTagName('head')[0].appendChild(style);
     }
   } else {
-    if (document.getElementById('green-update') !== null) {
+    if (document.getElementById('green-update') !== undefined) {
       document.getElementById('green-update').remove();
     }
   }
