@@ -3186,13 +3186,15 @@ if (UI_EmotesBtn) {
 if (UI_SpecialEmoteBtn) {
   $('#emotelistbtn').appendTo(chatcontrols);
   $('#emotelistbtn')
-      .html('<i title="Open emote menu"</i> <span class="material-icons">face</span>');
+      .html('<i title="Open emote menu" class="glyphicon glyphicon-picture"></i>');
+//      .html('<i title="Open emote menu"</i> <span class="material-icons">face</span>');
 }
 
 // adding chat commands button
 if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
   $('<button id="chathelp-btn" class="btn btn-sm btn-default" title="Show chat commands"/>')
-      .html('<span class="material-icons">help_outline</span>')
+//      .html('<span class="material-icons">help_outline</span>')
+      .html('<i class="glyphicon glyphicon-question-sign"></i>')
       .appendTo(chatcontrols)
       .on('click', () => showChatHelp());
 }
