@@ -3,9 +3,15 @@
 
 body {
   background: linear-gradient(to bottom, #9fc5e8 70%, #b9e0c6 90%, #f48b94, #ffe5b3)!important;
-  color:white;
+  color: white;
   overflow-x:hidden;
   background-repeat: no-repeat;
+}
+
+#currenttitle {
+  background-image: url(https://cdn.7tv.app/emote/61901429b1eb03daac7d9bfd/2x)!important;
+  background-repeat: no-repeat!important;
+  background-position: left center!important;
 }
 
 html, body {
@@ -22,7 +28,7 @@ html, body {
 #wrap {
   background-image: url(https://cdn.discordapp.com/attachments/939718499419431002/941150288964882452/spring_3.png);
   background-repeat: space;
-  background-position: 100% 50%;
+  background-position: 100% 90%;
   background-size: auto;
   min-height: 100%;
   height: auto;
@@ -32,8 +38,8 @@ html, body {
 }
 
 .alert-info {
-  background-color: #3b4ba0;
-  border-color: #3b4ba09e;
+  background-color: #f8cf61;
+  border-color: #d6e322;
   color: #fff;
 }
 
@@ -59,7 +65,7 @@ html, body {
 }
 
 #chatheader, #videowrap-header, #userlist, #messagebuffer, #plmeta {
-  background-color: #8ed3a06b;
+  background-color: #8ed3a0b3;
 }
 
 #footer {
@@ -111,7 +117,7 @@ html, body {
 
 .queue_entry.queue_active {
   background-color: #891787;
-  background-image: linear-gradient(#3b4ba0, #3b4ba0, #3b4ba0);
+  background-image: linear-gradient(#f8cf61, #f190a8, #f75c83);
   background-repeat:no-repeat;
 }
 
@@ -126,20 +132,20 @@ html, body {
 }
 
 .dark-theme > .odd-message {
-  background-color: #ff2e939e;
+  background-color: #79bf95d6;
 }
 
 .modal-body {
   padding: 30px;
-  background-color: #3b4ba0!important;
+  background-color: #f8cf61de!important;
 }
 
 .modal-header {
-  background-color: #3b4ba0;
+  background-color: #debb5b;
 }
 
 .modal-footer {
-  background-color: #3b4ba0;
+  background-color: #debb5b;
 }
 
 .emote-preview-container {
