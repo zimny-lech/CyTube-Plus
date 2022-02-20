@@ -1250,7 +1250,7 @@ function prepareMessage(msg) {
       if (AskAnswers_Array.length < 1) {
         AskAnswers_Array = ['yes', 'no'];
       }
-      const rnd = a = Math.round(Math.random() * (AskAnswers_Array.length - 1));
+      const rnd = Math.round(Math.random() * (AskAnswers_Array.length - 1));
       msg = AskAnswers_Array[rnd];
     } else if (msg.startsWith('!time')) {
       let h = new Date().getHours();
