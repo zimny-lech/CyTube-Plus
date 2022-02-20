@@ -16,6 +16,10 @@ b, strong {
 	font-weight: bold!important;
 }
 
+.poll-notify {
+  font-weight: bold;
+}
+
 .fluid {
   overflow-x: hidden
 }
