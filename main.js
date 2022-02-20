@@ -21,19 +21,17 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-import {icon, library} from '@fortawesome/fontawesome-svg-core';
+import {config, icon, library} from '@fortawesome/fontawesome-svg-core';
 import {faCamera} from '@fortawesome/free-solid-svg-icons';
 
-import {Badge, USER_BADGES} from './lib/badges';
+import {formatBadgeToHtml, USER_BADGES} from './lib/badges';
 import {CHANNEL_DATABASE} from './lib/database';
 import {LOGOS} from './lib/logos';
 
-library.add(faCamera);
+config.autoA11y = true;
 
 export const camera = icon({prefix: 'fas', iconName: 'camera'});
-
-import {config} from '@fortawesome/fontawesome-svg-core';
-config.autoA11y = true;
+library.add(faCamera);
 
 /* ----- STARTING CONFIGURATION - USER INTERFACE (UI) ----- */
 
@@ -697,7 +695,9 @@ function refreshPlayer() {
 function addToPlaylist(link, stand) {
   const parsed = parseMediaLink(link);
   if (parsed['id'] != null) {
-    socket.emit('queue', {id: parsed['id'], pos: stand, type: parsed['type'], temp: $('.add-temp').prop('checked')});
+    socket.emit(
+        'queue',
+        {id: parsed['id'], pos: stand, type: parsed['type'], temp: $('.add-temp').prop('checked')});
   }
 }
 
@@ -1204,7 +1204,8 @@ function updateChatStats(msg) {
 function createSquavatar(str) {
   for (let i = 0, hash = 0; i < str.length; hash = str.charCodeAt(i++) + ((hash << 5) - hash))
     ;
-  for (let i = 0, col = ''; i < 3; col += ('00' + ((hash >> i++ * 8) & 0xFF).toString(16)).slice(-2))
+  for (let i = 0, col = ''; i < 3;
+       col += ('00' + ((hash >> i++ * 8) & 0xFF).toString(16)).slice(-2))
     ;
   r = parseInt(col.substring(0, 2), 16);
   g = parseInt(col.substring(2, 4), 16);
@@ -1724,66 +1725,65 @@ function setUserCSS() {
     body {
       background-color: #141414
   }
-  
+
   a {
       color: #94d1bd
   }
-  
+
   a:hover, a:focus {
       color: #b8e0d3
   }
-  
+
   .qe_title {
       color: #ff66ab
   }
-  
+
   .queue_entry {
       background-color: #293d36bd;
   }
-  
+
   .dropdown-menu {
       background-color: #383E40;
   }
-  
+
   .btn {
       background-image: linear-gradient(#4c333e00,#4c333e00 60%,#4c333e00)!important;
       border-color: #4cb290!important
   }
-  
+
   .btn-default:hover {
       background-color: #4cb290
   }
-  
+
   .modal-body {
       background-color: #293d36
   }
-  
+
   .modal-header {
       background-color: #293d36
   }
-  
+
   .modal-footer {
       background-color: #293d36
   }
-  
+
   .modal-content {
       background-color: #293d36
   }
-  
+
   #motd {
       background-color: #fff0
   }
-  
+
   #motdwrap {
       background-color: #293d36bd
   }
-  
+
   #userlist {
       background-color: #222a27
   }`;
 
   $('head').append(`<style id="chanexternalcss-fix" type="text/css">${cssfix}</style>`);
-//  $('head').append(`<style id="green-update" type="text/css">${greencss}</style>`);
   $('#usertheme').attr('href', '/css/themes/slate.css');
   $('#usertheme-fix').remove();
   if (USERTHEME.includes('/css/themes/')) {
@@ -3228,15 +3228,14 @@ if (UI_EmotesBtn) {
 // moving emote button attempt
 if (UI_SpecialEmoteBtn) {
   $('#emotelistbtn').appendTo(chatcontrols);
-  $('#emotelistbtn')
-      .html('<i title="Open emote menu" class="glyphicon glyphicon-picture"></i>');
-//      .html('<i title="Open emote menu"</i> <span class="material-icons">face</span>');
+  $('#emotelistbtn').html('<i title="Open emote menu" class="glyphicon glyphicon-picture"></i>');
+  //      .html('<i title="Open emote menu"</i> <span class="material-icons">face</span>');
 }
 
 // adding chat commands button
 if (UI_CommandsBtn && (UI_UserCommands || UI_FontsBtn || UI_ChatSpeak)) {
   $('<button id="chathelp-btn" class="btn btn-sm btn-default" title="Show chat commands"/>')
-//      .html('<span class="material-icons">help_outline</span>')
+      //      .html('<span class="material-icons">help_outline</span>')
       .html('<i class="glyphicon glyphicon-question-sign"></i>')
       .appendTo(chatcontrols)
       .on('click', () => showChatHelp());
@@ -4164,7 +4163,7 @@ if (ALTERCHATFORMAT) {
 
     if (UI_UserMarks && !UI_Squavatars) {
       if (!!USER_BADGES[data.username]) {
-        const badges = USER_BADGES[data.username].map((url) => Badge.formatToHtml(url)).join('');
+        const badges = USER_BADGES[data.username].map((url) => formatBadgeToHtml(url)).join('');
         div.html(div.html() + badges);
       }
     }
