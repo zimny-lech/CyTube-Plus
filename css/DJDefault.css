@@ -3,9 +3,9 @@
 
 	/* -- body -- */
 
-/*body {
+body {
     background-color: #141414;
-}*/
+}
 
 body {
     letter-spacing: .3px;
@@ -419,7 +419,7 @@ display:none;
     background-color: #6700c51c;
 }
 
-/*#userlist {
+#userlist {
     background-color: #272b30;
 }
 
@@ -430,29 +430,29 @@ display:none;
 #motdwrap {
     background-color: #272b30;
     border-color: #484e55;
-}*/
+}
 
-.alert-info {
+/*.alert-info {
     background-color: #00c5ff33;
     border-color: #45f3ff;
     color: #fff;
-}
-
-/*.btn-default {
-  background-image: linear-gradient(#3a3f44,#3a3f44 60%,#313539);
 }*/
+
+.btn-default {
+  background-image: linear-gradient(#3a3f44,#3a3f44 60%,#313539);
+}
 
 #nav-collapsible {
 background-image: linear-gradient(#343434,#3a3f44 60%,#313539)
 }
 
-/*.dropdown-menu {
+.dropdown-menu {
     background-color: #383E40;
 }
 
 .queue_entry {
     background-color: #3a3f44;
-}*/
+}
 
 .server-whisper {
     color: #62c462;
