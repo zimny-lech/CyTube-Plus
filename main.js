@@ -1783,7 +1783,7 @@ function setUserCSS() {
   }`;
 
   $('head').append(`<style id="chanexternalcss-fix" type="text/css">${cssfix}</style>`);
-  $('head').append(`<style id="green-update" type="text/css">${greencss}</style>`);
+//  $('head').append(`<style id="green-update" type="text/css">${greencss}</style>`);
   $('#usertheme').attr('href', '/css/themes/slate.css');
   $('#usertheme-fix').remove();
   if (USERTHEME.includes('/css/themes/')) {
