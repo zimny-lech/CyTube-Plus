@@ -119,9 +119,17 @@ footer {
 }
 
 .btn-default {
-  background-image: linear-gradient(#f4bb1b, #f4bb1b 60%, #f4bb1b);
+  background-image: linear-gradient(#f4bb1b, #f4bb1b 60%, #f4bb1b)!important;
   font-weight: 500;
   color: #000000;
+}
+
+.btn {
+  border: color #000;
+}
+
+.well {
+  background-color:#6700c51c!important;
 }
 
 .dark-theme > .odd-message {
