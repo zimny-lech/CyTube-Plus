@@ -1720,7 +1720,70 @@ function setUserCSS() {
       }
     `;
 
+  const greencss = `
+    body {
+      background-color: #141414
+  }
+  
+  a {
+      color: #94d1bd
+  }
+  
+  a:hover, a:focus {
+      color: #b8e0d3
+  }
+  
+  .qe_title {
+      color: #ff66ab
+  }
+  
+  .queue_entry {
+      background-color: #293d36bd;
+  }
+  
+  .dropdown-menu {
+      background-color: #383E40;
+  }
+  
+  .btn {
+      background-image: linear-gradient(#4c333e00,#4c333e00 60%,#4c333e00)!important;
+      border-color: #4cb290!important
+  }
+  
+  .btn-default:hover {
+      background-color: #4cb290
+  }
+  
+  .modal-body {
+      background-color: #293d36
+  }
+  
+  .modal-header {
+      background-color: #293d36
+  }
+  
+  .modal-footer {
+      background-color: #293d36
+  }
+  
+  .modal-content {
+      background-color: #293d36
+  }
+  
+  #motd {
+      background-color: #fff0
+  }
+  
+  #motdwrap {
+      background-color: #293d36bd
+  }
+  
+  #userlist {
+      background-color: #222a27
+  }`;
+
   $('head').append(`<style id="chanexternalcss-fix" type="text/css">${cssfix}</style>`);
+  $('head').append(`<style id="chanexternalcss-update" type="text/css">${greencss}</style>`);
   $('#usertheme').attr('href', '/css/themes/slate.css');
   $('#usertheme-fix').remove();
   if (USERTHEME.includes('/css/themes/')) {
@@ -1738,7 +1801,7 @@ function setUserCSS() {
   const messageBuffer = document.getElementById('messagebuffer');
   messageBuffer.classList.add(newThemeType);
   messageBuffer.classList.remove(oldThemeType);
-  if (USERTHEME === '/css/themes/slate.css') {
+/*  if (USERTHEME === '/css/themes/slate.css') {
     $('body').css('background-color', '#141414');
     $('a').css('color', '#94d1bd');
     $('a:hover, a:focus').css('color', '#b8e0d3');
@@ -1769,8 +1832,8 @@ function setUserCSS() {
     $('.modal-content').css('background-color', '');
     $('#motd').css('background-color', '');
     $('#motdwrap').css('background-color', '');
-    $('#userlist').css('background-color', '');
-  }
+   $('#userlist').css('background-color', '');*
+  } */
 }
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////
