@@ -316,6 +316,7 @@ table {
 .btn-default {
   color: #fff;
   background-color: #3a3f44;
+  border-color: black!important;
   border: 1px solid transparent;
   background-image: -webkit-linear-gradient(#484e55, #3a3f44 60%, #313539);
   background-image: -o-linear-gradient(#484e55, #3a3f44 60%, #313539);
@@ -337,6 +338,7 @@ table {
 .btn {
   color: #fff;
   background-color: #3a3f44!important;
+  border-color: black!important
 }
 .alert-info {
   background-color: #383E40;
