@@ -681,8 +681,8 @@ function toggleDiv(div) {
  * Refresh player.
  */
 function refreshPlayer() {
-  PLAYER.type = '';
-  PLAYER.id = '';
+  PLAYER.mediaType = '';
+  PLAYER.mediaId = '';
   socket.emit('playerReady');
 }
 
