@@ -3278,12 +3278,11 @@ function showDebugging() {
   createModal('Debug stuff');
   if (UI_DEBUG) {
     modalBody.append('<strong>wowwww</strong><br /><br />');
-    const resizecaca = $('button class="btn btn-default btn-success" />')
-                           .text('resizeStuff();')
-                           .appendTo(modalBody);
-    resizecaca.on('click', () => {
-      resizeStuff();
-    });
+    $('button class="btn btn-default btn-success" />')
+        .text('resizeStuff();')
+        .appendTo(modalBody)
+        .on('click'),
+        () => resizeStuff();
   }
 }
 
