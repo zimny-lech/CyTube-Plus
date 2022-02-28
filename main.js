@@ -3247,7 +3247,7 @@ if (UI_ContextMenu) {
       .appendTo(chatcontrols)
       .on('click', () => showContextMenu());
 }
-
+// adds the button
 if (UI_DEBUG) {
   $('<button id="debug-btn" class="btn btn-sm btn-default" title="for the debug" />')
       .html('<i class="glyphicon glyphicon-cog"></i>')
@@ -3273,7 +3273,7 @@ function showContextMenu() {
     $('<ul />').html(html).appendTo(modalBody);
   }
 }
-
+// adds debugging, can be added upon later
 function showDebugging() {
   createModal('Debug stuff');
   if (UI_DEBUG) {
