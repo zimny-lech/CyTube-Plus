@@ -3278,10 +3278,10 @@ function showDebugging() {
   createModal('Debug stuff');
   if (UI_DEBUG) {
     modalBody.append('<strong>wowwww</strong><br /><br />');
-    $('button class="btn btn-default btn-success" />')
-        .text('setUserCSS();')
-        .appendTo(modalBody)
-        .on('click', () => setUserCSS());
+    const bootan1 = $('button class="btn btn-default btn-success" />')
+                        .text('setUserCSS();')
+                        .appendTo(modalBody);
+    bootan1.on('click', () => setUserCSS());
   }
 }
 
