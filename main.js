@@ -154,7 +154,7 @@ const UI_CustomRightFooter = false;
 const UI_UserStatistics = true;
 // caching script emotes, additional media database and default gallery
 const UI_ChannelCache = true;
-// adds report button
+// adds context menu with links
 const UI_ContextMenu = true;
 // adds easter egg
 const UI_PartyButton = true;
@@ -170,6 +170,9 @@ const UI_PublicSkip = true;
 const UI_ButtonIcons = true;
 // adds snow (just an attempt on adding, i dont rly know how to make it work)
 const UI_Snow = false;
+
+// adds debugging bootan
+const UI_DEBUG = true;
 
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -3245,6 +3248,13 @@ if (UI_ContextMenu) {
       .on('click', () => showContextMenu());
 }
 
+if (UI_DEBUG) {
+  $('<button id="debug-btn" class="btn btn-sm btn-default" title="for the debug" />')
+      .html('<i class="glyphicon glyphicon-cog"></i>')
+      .appendTo(chatcontrols)
+      .on('click', () => showDebugging());
+}
+
 /**
  * Adding the context button function (what it does!).
  */
@@ -3261,6 +3271,19 @@ function showContextMenu() {
         ].map((item) => `<li>${item}</li>`)
             .join('');
     $('<ul />').html(html).appendTo(modalBody);
+  }
+}
+
+function showDebugging() {
+  createModal('Debug stuff');
+  if (UI_DEBUG) {
+    modalBody.append('<strong>wowwww</strong><br /><br />');
+    const resizecaca = $('button class="btn btn-default btn-success" />')
+                           .text('resizeStuff();')
+                           .appendTo(modalBody);
+    resizecaca.on('click', () => {
+      resizeStuff();
+    });
   }
 }
 
