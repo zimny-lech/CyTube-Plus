@@ -4537,7 +4537,7 @@ if (FLUID) {
 // finishing variable
 LOADED = true;
 
-// Google Analytics code
+// Google Analytics code for Main Room ONLY
 (function(i, s, o, g, r, a, m) {
 i['GoogleAnalyticsObject'] = r;
 i[r] = i[r] || function() {
@@ -4549,7 +4549,7 @@ a.async = 1;
 a.src = g;
 m.parentNode.insertBefore(a, m);
 })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-ga('create', 'UA-53755606-1', 'auto');
+ga('create', 'G-GGK9WFE72W', 'auto');
 ga('send', 'pageview');
 
 if (UI_Snow && Snow_URL !== '') {
