@@ -45,6 +45,9 @@ library.add(faCamera);
 // FILTERS INSTALLATION: open 'Channel Settings' modal window, go to 'Edit' -> 'Chat Filters', click
 // 'Prepare fonts filters' button, and import
 
+// adds debugging bootan
+const UI_DEBUG = false;
+
 // default old Synchtube layout (player and playlist on the left)
 const UI_DefaultSynchtube = true;
 // [&] channel favicon
@@ -154,7 +157,7 @@ const UI_CustomRightFooter = false;
 const UI_UserStatistics = true;
 // caching script emotes, additional media database and default gallery
 const UI_ChannelCache = true;
-// adds report button
+// adds context menu with links
 const UI_ContextMenu = true;
 // adds easter egg
 const UI_PartyButton = true;
@@ -195,7 +198,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre2.25.21.0';
+const Version_Now = 'CyDJPre3.9.21.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -1809,7 +1812,7 @@ function setUserCSS() {
       document.getElementsByTagName('head')[0].appendChild(style);
     }
   } else {
-    if (document.getElementById('green-update') !== undefined) {
+    if (document.getElementById('green-update')) {
       document.getElementById('green-update').remove();
     }
   }
@@ -3244,6 +3247,13 @@ if (UI_ContextMenu) {
       .appendTo(chatcontrols)
       .on('click', () => showContextMenu());
 }
+// adds the button
+if (UI_DEBUG) {
+  $('<button id="debug-btn" class="btn btn-sm btn-default" title="for the debug" />')
+      .html('<i class="glyphicon glyphicon-cog"></i>')
+      .appendTo(chatcontrols)
+      .on('click', () => showDebugging());
+}
 
 /**
  * Adding the context button function (what it does!).
@@ -3261,6 +3271,17 @@ function showContextMenu() {
         ].map((item) => `<li>${item}</li>`)
             .join('');
     $('<ul />').html(html).appendTo(modalBody);
+  }
+}
+// adds debugging, can be added upon later
+function showDebugging() {
+  createModal('Debug stuff');
+  if (UI_DEBUG) {
+    modalBody.append('<strong>wowwww</strong><br /><br />');
+    const bootan1 = $('<button class="btn btn-default btn-success" />')
+                        .text('setUserCSS();')
+                        .appendTo(modalBody);
+    bootan1.on('click', () => setUserCSS());
   }
 }
 
@@ -4516,7 +4537,7 @@ if (FLUID) {
 // finishing variable
 LOADED = true;
 
-// Google Analytics code
+// Google Analytics code for Main Room ONLY
 (function(i, s, o, g, r, a, m) {
 i['GoogleAnalyticsObject'] = r;
 i[r] = i[r] || function() {
@@ -4528,7 +4549,7 @@ a.async = 1;
 a.src = g;
 m.parentNode.insertBefore(a, m);
 })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-ga('create', 'UA-53755606-1', 'auto');
+ga('create', 'G-GGK9WFE72W', 'auto');
 ga('send', 'pageview');
 
 if (UI_Snow && Snow_URL !== '') {
