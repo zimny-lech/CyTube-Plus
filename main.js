@@ -4556,6 +4556,70 @@ if (UI_Snow && Snow_URL !== '') {
   $.getScript(Snow_URL);
 }
 
+// Hey hey hey xqcPeepo here, I'm adding this emote format here just incase we want to inject emotes
+// ourselves or add them programmatically
+
+function pushEmoteToWindow(emoteName, emoteImage) {
+  window.Callbacks.updateEmote(
+      {
+        name: emoteName,
+        image: emoteImage,
+      },
+  );
+}
+function getTwEmojiImageFromEmoticode(textEmoticode) {
+  const tempDiv = document.createElement('div');
+  let twEmojiImageURL = null;
+  tempDiv.textContent = `${textEmoticode}`;
+  document.body.appendChild(tempDiv);
+  twemoji.parse(tempDiv);
+  twEmojiImageURL = tempDiv.querySelector('img');
+  twEmojiImageURL.parentNode ===
+      tempDiv;  // idk why exactly this is needed but its there in the wiki 🤷‍♀️ : xqcPeepo
+  twEmojiImageURL = twEmojiImageURL.src;
+  setTimeout(tempDiv.remove(), 1000);
+  return twEmojiImageURL;
+}
+
+twemojiEnabled = false;
+$.getScript('https://twemoji.maxcdn.com/v/latest/twemoji.min.js', (successCallback) => {
+  // xqcPeepo here, loading the twemojis so I don't have to manually add the emojis into r/cydj
+  tweEmojiList = $.getJSON('https://unpkg.com/emoji.json/emoji.json', (successCallback) => {
+    console.log(tweEmojiList);
+    tweEmojiList.responseJSON.forEach((index) => {
+      /* the first index returns something like, {codes: "1F600", char: "😀", name:
+                       'grinning face', category: 'Smileys & Emotion (face-smiling)', group:
+                       'Smileys & Emotion', subgroup: 'face-smiling'} */
+      const localemoteName = ':' + index.name.replace(' ', '-') + ':';
+      const localemoteImage = getTwEmojiImageFromEmoticode(index.char);
+      pushEmoteToWindow(localemoteName, localemoteImage);
+    });
+  });
+  const newLocal = '!!Loaded twemoji.js!!';
+  console.log(newLocal);
+  twemojiEnabled = true;
+  // to get fix previous chat messages that didn't have the emote parsed I will grab them now :
+  // xqcPeepo
+  const messagebufferlocal = document.getElementById('messagebuffer');
+  for (let child = messagebufferlocal.firstElementChild; child !== null;
+       child = child.nextElementSibling) {
+    child.querySelectorAll('span:not([class])')
+        .forEach((childElement) => {  // this is assuming we don't have any other classes for chat
+                                      // messages, which might change in the future but I'll
+                                      // update the code to reflect that as well
+          if (childElement !== null) {
+            twemoji.parse(childElement);  // xqcPeepo was here
+          }
+        });
+  }
+});
+/*
+  https://github.com/twitter/twemoji#api
+  in short : just use twemoji.parse(...), should place string or node in the first parameter and
+  that should be good to go
+
+*/
+
 /* ----- END OF LIBRARY ----- */
 
 /* -----CONFIG----- */
@@ -4591,6 +4655,14 @@ if (!CHAT_INIT) {
         !obj.meta.shadow) {
       mb.lastChild.classList.add(lastMessageOdd ? ODD_MESSAGE_CLASS : EVEN_MESSAGE_CLASS);
       lastMessageOdd = !lastMessageOdd;
+      if (twemojiEnabled) {
+        console.log('should\'ve parsed emoji!');
+        twemoji.parse(
+            obj.msg.meta);  // trying to see if obj.msg contains the element added : xqcPeepo
+        // mb.lastElementChild.querySelectorAll("span:not([class])").forEach((childElement)=>{
+        //     twemoji.parse(obj.msg);
+        // });
+      }
     }
     setTimeout(() => {
       const mb = document.getElementById('messagebuffer');
@@ -4655,6 +4727,14 @@ const CSS_RAW = '';
 if (!CSS_INIT) {
   CSS_INIT = true;
   $('head').append(`<style id="chancss2" type="text/css">${CSS_RAW}</style>`);
+  $('head').append(`<style id="twemojicss1" type="text/css">img.emoji{
+    height: 28px;
+    width: 28px;
+    /*margin: 0 .05em 0 .1em;*/
+    /*vertical-align: -0.1em;*/
+    max-width: 200px;
+    max-height: 200px;
+    }</style>`);
 } else {
   $('head #chancss2').html(CSS_RAW);
 }
