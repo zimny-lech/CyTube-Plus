@@ -45,6 +45,9 @@ library.add(faCamera);
 // FILTERS INSTALLATION: open 'Channel Settings' modal window, go to 'Edit' -> 'Chat Filters', click
 // 'Prepare fonts filters' button, and import
 
+// adds debugging bootan
+const UI_DEBUG = false;
+
 // default old Synchtube layout (player and playlist on the left)
 const UI_DefaultSynchtube = true;
 // [&] channel favicon
@@ -170,9 +173,6 @@ const UI_PublicSkip = true;
 const UI_ButtonIcons = true;
 // adds snow (just an attempt on adding, i dont rly know how to make it work)
 const UI_Snow = false;
-
-// adds debugging bootan
-const UI_DEBUG = true;
 
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////
