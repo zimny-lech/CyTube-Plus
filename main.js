@@ -4657,14 +4657,14 @@ if (!CHAT_INIT) {
         !obj.meta.shadow) {
       mb.lastChild.classList.add(lastMessageOdd ? ODD_MESSAGE_CLASS : EVEN_MESSAGE_CLASS);
       lastMessageOdd = !lastMessageOdd;
-      if (twemojiEnabled) {
+      /* if (twemojiEnabled) {
         console.log('should\'ve parsed emoji!');
         twemoji.parse(
             obj.msg.meta);  // trying to see if obj.msg contains the element added : xqcPeepo
         // mb.lastElementChild.querySelectorAll("span:not([class])").forEach((childElement)=>{
         //     twemoji.parse(obj.msg);
         // });
-      }
+      }*/
     }
     setTimeout(() => {
       const mb = document.getElementById('messagebuffer');
