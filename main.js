@@ -4564,7 +4564,6 @@ if (twemojiEnabled) {
   $.getScript('https://twemoji.maxcdn.com/v/latest/twemoji.min.js', (successCallback) => {
     // loading the twemojis so I don't have to manually add the emojis into r/cydj
     tweEmojiList = $.getJSON('https://unpkg.com/emoji.json/emoji.json', (successCallback) => {
-      console.log(tweEmojiList);
       tweEmojiList.responseJSON.forEach((index) => {
         /* the first index returns something like, {codes: "1F600", char: "😀", name:
                          'grinning face', category: 'Smileys & Emotion (face-smiling)', group:
