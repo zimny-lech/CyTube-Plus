@@ -4561,6 +4561,29 @@ if (UI_Snow && Snow_URL !== '') {
 // I'm adding this emote format here just incase we want to inject emotes
 
 if (twemojiEnabled) {
+  function pushEmoteToWindow(emoteName, emoteImage) {
+    window.Callbacks.updateEmote(
+        {
+          name: emoteName,
+          image: emoteImage,
+        },
+    );
+  }
+
+  function getTwEmojiImageFromEmoticode(textEmoticode) {
+    const tempDiv = document.createElement('div');
+    let twEmojiImageURL = null;
+    tempDiv.textContent = `${textEmoticode}`;
+    document.body.appendChild(tempDiv);
+    twemoji.parse(tempDiv);
+    twEmojiImageURL = tempDiv.querySelector('img');
+    twEmojiImageURL.parentNode === tempDiv;  // idk why exactly this is needed but its there in the
+                                             // wiki 🤷‍♀️ : xqcPeepo
+    twEmojiImageURL = twEmojiImageURL.src;
+    setTimeout(tempDiv.remove(), 1000);
+    return twEmojiImageURL;
+  }
+
   $.getScript('https://twemoji.maxcdn.com/v/latest/twemoji.min.js', (successCallback) => {
     // loading the twemojis so I don't have to manually add the emojis into r/cydj
     const tweEmojiList = $.getJSON('https://unpkg.com/emoji.json/emoji.json', (successCallback) => {
@@ -4590,28 +4613,6 @@ if (twemojiEnabled) {
           });
     }
   });
-}
-
-function pushEmoteToWindow(emoteName, emoteImage) {
-  window.Callbacks.updateEmote(
-      {
-        name: emoteName,
-        image: emoteImage,
-      },
-  );
-}
-function getTwEmojiImageFromEmoticode(textEmoticode) {
-  const tempDiv = document.createElement('div');
-  let twEmojiImageURL = null;
-  tempDiv.textContent = `${textEmoticode}`;
-  document.body.appendChild(tempDiv);
-  twemoji.parse(tempDiv);
-  twEmojiImageURL = tempDiv.querySelector('img');
-  twEmojiImageURL.parentNode ===
-      tempDiv;  // idk why exactly this is needed but its there in the wiki 🤷‍♀️ : xqcPeepo
-  twEmojiImageURL = twEmojiImageURL.src;
-  setTimeout(tempDiv.remove(), 1000);
-  return twEmojiImageURL;
 }
 
 /*
