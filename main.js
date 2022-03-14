@@ -4663,14 +4663,6 @@ const CSS_RAW = '';
 if (!CSS_INIT) {
   CSS_INIT = true;
   $('head').append(`<style id="chancss2" type="text/css">${CSS_RAW}</style>`);
-  $('head').append(`<style id="twemojicss1" type="text/css">img.emoji{
-    height: 28px;
-    width: 28px;
-    /*margin: 0 .05em 0 .1em;*/
-    /*vertical-align: -0.1em;*/
-    max-width: 200px;
-    max-height: 200px;
-    }</style>`);
 } else {
   $('head #chancss2').html(CSS_RAW);
 }
