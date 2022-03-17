@@ -413,7 +413,7 @@ display:none;
 
 .btn, .btn-default, .btn-group .btn+.btn, .btn-group .btn+.btn-group, .btn-group .btn-group+.btn, .btn-group .btn-group+.btn-group {
     transition: all 0.3s;
-    border-radius:10px;
+    border-radius:4px;
 }
 
 .well {
