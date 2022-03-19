@@ -175,7 +175,7 @@ const UI_ButtonIcons = true;
 // adds snow (just an attempt on adding, i dont rly know how to make it work)
 const UI_Snow = false;
 // adds emoji to chat
-const twemojiEnabled = true;
+const twemojiEnabled = false;
 
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////
