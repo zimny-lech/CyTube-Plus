@@ -26,7 +26,7 @@ html, body {
 }
 
 #wrap {
-  background-image: url(https://cdn.discordapp.com/attachments/782344759456825406/941492721577766970/catpeg_waifu2x_art_noise2_scale_tta_1.png);
+  background-image: url(https://cdn.discordapp.com/attachments/939718499419431002/953686644408606720/yoo.png);
   background-repeat: repeat-y;
   background-position: 100% 10%;
   background-size: inherit;
@@ -46,19 +46,6 @@ html, body {
 .glyphicon {
   font-weight: 500;
 }
-/*#mainpage{
-  background-image: url(https://cametek.jp/uufo/img/bg-intro.jpg);
-  background-repeat: no-repeat;
-  background-position: 100% 0%;
-  background-size: auto;
-}
-
-#azukirow{
-  background-image: url(https://cametek.jp/uufo/img/bg-intro.jpg);
-  background-repeat: no-repeat;
-  background-position: 100% 0%;
-  background-size: auto;
-}*/
 
 #ytapiplayer {
   background-color: #000000;

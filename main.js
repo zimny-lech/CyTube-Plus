@@ -27,6 +27,7 @@ import {faCamera} from '@fortawesome/free-solid-svg-icons';
 import {formatBadgeToHtml, USER_BADGES} from './lib/badges';
 import {CHANNEL_DATABASE} from './lib/database';
 import {LOGOS} from './lib/logos';
+import {initTwemoji} from './lib/twemoji';
 
 config.autoA11y = true;
 
@@ -173,6 +174,8 @@ const UI_PublicSkip = true;
 const UI_ButtonIcons = true;
 // adds snow (just an attempt on adding, i dont rly know how to make it work)
 const UI_Snow = false;
+// adds emoji to chat
+const twemojiEnabled = false;
 
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -198,7 +201,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre3.9.21.0';
+const Version_Now = 'CyDJPre3.19.21.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -393,10 +396,10 @@ const RulesBtn_HTML =
     '<ol><li>You want to write on the chat? Enter temporary nickname into <b>Guest Login</b> input and click enter.</li><li>You want to register a nick? Click <b>Account -> Profile</b> on the top of the channel, and fill the registration form. You don\'t need an email to register.</li><li>Troll skipping = immediate kick.</li><li>Don\'t be annoying.</li><li>Do not one man spam.</li><li>Do not encourage chat wars or harass/target people.</li><li>Queueing blatant NSFW videos such as porn/hentai/gore is strictly not allowed, doing so will result in an ip ban.</li><li>Queuing the same video but in different link variants is not allowed.</li><li>Mods have the right to skip a video if its overplayed.</li><li><b>These rules are subject to common sense.</b></li></ol>';
 
 const ChannelAnnouncement_HTML =
-    'Welcome chatters to CyDJ! We are finally getting close to the real deal! But this is only a pre-release, many enhancements and bug fixes are to be resolved. The main agenda are new fonts, updated logo, and code cleanup.';
+    'Welcome chatters to CyDJ! We are finally getting close to the real deal! But this is only a pre-release. Most bugs are expected to be resolved before releasing 1.0, please report any bugs on GitHub.';
 
 const EmbeddingMedia_Images =
-    'a[href$=".jpg"], a[href$=".jpg:large"], a[href$=".jpeg"], a[href$=".JPG"], a[href$=".png"], a[href$=".tiff"], a[href$=".gif"]';
+    'a[href$=".jpg"], a[href$=".jpg:large"], a[href$=".jpeg"], a[href$=".JPG"], a[href$=".png"] ,a[href$=".PNG"], a[href$=".tiff"], a[href$=".gif"]';
 
 const EmbeddingMedia_Videos =
     'a[href$=".webm"], a[href$=".mp4"], a[href$=".MP4"], a[href$=".mov"], a[href$=".MOV"], a[href$=".mp3"], a[href$=".MP3"], a[href$=".wav"], a[href$=".WAV"], a[href$=".ogg"], a[href$=".OGG"], a[href$=".m4a"], a[href$=".M4A"]';
@@ -4585,6 +4588,11 @@ let lastMessageOdd = false;
 let CHAT_INIT = false;
 if (!CHAT_INIT) {
   CHAT_INIT = true;
+
+  if (twemojiEnabled) {
+    initTwemoji();
+  }
+
   socket.on('chatMsg', (obj) => {
     const mb = document.getElementById('messagebuffer');
     if (mb && mb.lastChild && $(mb.lastChild).attr('class').startsWith('chat-msg-') &&
