@@ -47,7 +47,7 @@ library.add(faCamera);
 // 'Prepare fonts filters' button, and import
 
 // adds debugging bootan
-const UI_DEBUG = false;
+const UI_DEBUG = true;
 
 // default old Synchtube layout (player and playlist on the left)
 const UI_DefaultSynchtube = true;
@@ -618,7 +618,7 @@ let GALLERY = false;
 // channel galleries have been viewed by user
 let GALLVIS = false;
 // using altered 'formatChatMessage' built-in function
-let ALTERCHATFORMAT = true;
+let ALTERCHATFORMAT = false;
 
 // previous read of a current item time for the progress bar
 let PREVTIME = 0;
@@ -3285,6 +3285,10 @@ function showDebugging() {
                         .text('setUserCSS();')
                         .appendTo(modalBody);
     bootan1.on('click', () => setUserCSS());
+    const bootan2 = $('<button class="btn btn-default btn-success" />')
+                        .text('chatflair.show();')
+                        .appendTo(modalBody);
+    bootan2.on('click', () => chatflair.show());
   }
 }
 
