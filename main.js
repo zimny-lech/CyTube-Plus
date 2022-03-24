@@ -2251,12 +2251,12 @@ function coverPlayer() {
     PlayerHiding_URL = 'https://dl.dropboxusercontent.com/s/xz2o99scw5i7aai/stop.png';
   }
   $('#videowrap').addClass('relative');
-  const w = $('#ytapiplayer').css('width');
-  const h = $('#videowrap').css('height').replace('px', '') - 31;
+  //  const w = $('#ytapiplayer').css('width');
+  //  const h = $('#videowrap').css('height').replace('px', '') - 31;
   coverpl = $('<div id="coverpl" />')
                 .css({
-                  'width': w,
-                  'height': h + 'px',
+                  'width': 'auto',
+                  'height': 'auto',
                   'background-image': `url(${PlayerHiding_URL})`,
                 })
                 .appendTo($('#videowrap'));
