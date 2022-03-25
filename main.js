@@ -240,7 +240,7 @@ const HeaderDropMenu_Array = [
   ['CyDJ Rooms', ''],
   ['Main Room', 'https://cytu.be/r/cydj'],
   ['Second Room', 'https://cytu.be/r/secretfbimeeting'],
-  ['Watch Party', 'https://beta.synchtube.me/r/SecretTwitchRoom'],
+  //  ['Watch Party', 'https://beta.synchtube.me/r/SecretTwitchRoom'],
   ['Test Room', 'https://cytu.be/r/testplacelilroc'],
   ['Test Room 2', 'https://cytu.be/r/emptyroomtestplace'],
   ['Test Room 3', 'https://cytu.be/r/xqcPeepo'],
