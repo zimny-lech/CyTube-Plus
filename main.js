@@ -47,7 +47,7 @@ library.add(faCamera);
 // 'Prepare fonts filters' button, and import
 
 // adds debugging bootan
-const UI_DEBUG = true;
+const UI_DEBUG = false;
 
 // default old Synchtube layout (player and playlist on the left)
 const UI_DefaultSynchtube = true;
