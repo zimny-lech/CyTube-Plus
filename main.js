@@ -46,7 +46,7 @@ library.add(faCamera);
 // FILTERS INSTALLATION: open 'Channel Settings' modal window, go to 'Edit' -> 'Chat Filters', click
 // 'Prepare fonts filters' button, and import
 
-// adds debugging bootan
+// adds debugging bootan debug1
 const UI_DEBUG = false;
 
 // default old Synchtube layout (player and playlist on the left)
@@ -201,7 +201,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre3.19.21.0';
+const Version_Now = 'CyDJPre3.25.21.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -240,7 +240,7 @@ const HeaderDropMenu_Array = [
   ['CyDJ Rooms', ''],
   ['Main Room', 'https://cytu.be/r/cydj'],
   ['Second Room', 'https://cytu.be/r/secretfbimeeting'],
-  ['Watch Party', 'https://beta.synchtube.me/r/SecretTwitchRoom'],
+  //  ['Watch Party', 'https://beta.synchtube.me/r/SecretTwitchRoom'],
   ['Test Room', 'https://cytu.be/r/testplacelilroc'],
   ['Test Room 2', 'https://cytu.be/r/emptyroomtestplace'],
   ['Test Room 3', 'https://cytu.be/r/xqcPeepo'],
@@ -1820,6 +1820,8 @@ function setUserCSS() {
     }
   }
 }
+// attempt a fix on css
+window.onload = setUserCSS();
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -3280,11 +3282,19 @@ function showContextMenu() {
 function showDebugging() {
   createModal('Debug stuff');
   if (UI_DEBUG) {
-    modalBody.append('<strong>wowwww</strong><br /><br />');
+    modalBody.append('<strong>Buttons that do stuff</strong><br /><br />');
     const bootan1 = $('<button class="btn btn-default btn-success" />')
                         .text('setUserCSS();')
                         .appendTo(modalBody);
     bootan1.on('click', () => setUserCSS());
+    const bootan2 = $('<button class="btn btn-default btn-success" />')
+                        .text('chatflair.show();')
+                        .appendTo(modalBody);
+    bootan2.on('click', () => chatflair.show());
+    const bootan3 = $('<button class="btn btn-default btn-success" />')
+                        .text('location.reload();')
+                        .appendTo(modalBody);
+    bootan3.on('click', () => location.reload());
   }
 }
 
@@ -4087,7 +4097,7 @@ dismissButton.addEventListener('click', () => {
 
 // rearranging footer
 $('.credit').append(
-    '<br />CyTube Plus 4.5 · Copyright &copy; 2013-2014 Zimny Lech, Modified by CyDJ staff · ' +
+    '<br />Built off CyTube Plus 4.5 · Copyright &copy; 2013-2014 Zimny Lech, Modified by CyDJ staff · ' +
     'Free source on <a href="http://github.com/papertek/CyDJ" target="_blank">GitHub</a>');
 
 if (UI_CustomRightFooter) {
