@@ -46,8 +46,8 @@ library.add(faCamera);
 // FILTERS INSTALLATION: open 'Channel Settings' modal window, go to 'Edit' -> 'Chat Filters', click
 // 'Prepare fonts filters' button, and import
 
-// adds debugging bootan
-const UI_DEBUG = false;
+// adds debugging bootan debug1
+const UI_DEBUG = true;
 
 // default old Synchtube layout (player and playlist on the left)
 const UI_DefaultSynchtube = true;
@@ -3291,6 +3291,10 @@ function showDebugging() {
                         .text('chatflair.show();')
                         .appendTo(modalBody);
     bootan2.on('click', () => chatflair.show());
+    const bootan3 = $('<button class="btn btn-default btn-success" />')
+                        .text('location.reload();')
+                        .appendTo(modalBody);
+    bootan3.on('click', () => location.reload());
   }
 }
 
