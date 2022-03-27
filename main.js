@@ -3164,6 +3164,17 @@ if (UI_PublicSkip) {
   });
 }
 
+const votehey = function(data) {
+  const icon = $('#hey-btn').find('.glyphicon').remove();
+  if (data.count > 0) {
+    $('#hey-btn').text(' (' + data.count + ')');
+  } else {
+    $('#hey-btn').text('');
+  }
+
+  icon.prependTo($('#hey-btn'));
+};
+
 // additional chat functions
 const chatflair =
     $('<span id="chatflair" class="label label-success pull-right pointer">Func</span>')
@@ -3393,6 +3404,7 @@ if (UI_RateButtons) {
         socket.emit('chatMsg', {msg: '/afk'});
         socket.emit('chatMsg', {msg: '[lime]Woot![/] PepePls'});
         heySound();
+        votehey();
       });
   $('<button id="nay-btn" class="btn btn-sm btn-default" title="Meh.. (Voteskip)" />')
       .html('<i class="glyphicon glyphicon-thumbs-down"></i>')
