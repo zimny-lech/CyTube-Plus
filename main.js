@@ -2988,7 +2988,7 @@ if (UI_Version) {
     Version_Now = 'Menu';
   }
   const headerdrop = $('<li id="headerdrop" class="dropdown" />').insertAfter('#channelset-link');
-  $('<a class="dropdown-toggle" data-toggle="dropdown" href="#" />')
+  $('<a class="dropdown-toggle" data-toggle="dropdown" href="https://github.com/papertek/CyDJ" />')
       .html(`${Version_Now}`)
       .appendTo(headerdrop);
 }
