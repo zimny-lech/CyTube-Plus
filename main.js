@@ -3123,9 +3123,9 @@ function inba() {
  */
 function dropthebeat() {
   //  const body = document.getElementsByTagName('body')[0];
-  const titlerowouter = document.getElementById('titlerow-outer');
+  const userlistthing = document.getElementById('userlist');
   //  const mainPage = document.getElementById('mainpage');
-  const elems = [titlerowouter];
+  const elems = [userlistthing];
 
   elems.forEach((elem) => elem.style.backgroundImage = 'none');
   DROPBGCHANGE++;
