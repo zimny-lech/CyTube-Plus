@@ -3122,16 +3122,16 @@ function inba() {
  * Dropit easter egg.
  */
 function dropthebeat() {
-  const body = document.getElementsByTagName('body')[0];
-  const wrap = document.getElementById('wrap');
-  const mainPage = document.getElementById('mainpage');
-  const elems = [body, wrap, mainPage];
+  //  const body = document.getElementsByTagName('body')[0];
+  const titlerowouter = document.getElementById('titlerow-outer');
+  //  const mainPage = document.getElementById('mainpage');
+  const elems = [titlerowouter];
 
   elems.forEach((elem) => elem.style.backgroundImage = 'none');
   DROPBGCHANGE++;
 
   const newColor = DROPBGCHANGE % 2 === 0 ? 'red' : 'black';
-  elems.forEach((elem) => elem.style.color = newColor);
+  elems.forEach((elem) => elem.style.backgroundColor = newColor);
 }
 
 // Fastest Crash easter egg bg changes
