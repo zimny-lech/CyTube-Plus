@@ -1097,7 +1097,9 @@ function changeMOTD() {
 
 function rulesmodal() {
   createModal('Rules Panel');
-  $('<div id="rulespanel" style="display:none" />').html(RulesBtn_HTML).appendTo(modalBody);
+  if (UI_RulesBtn) {
+    $('<div id="rulespanel" style="display:none" />').html(RulesBtn_HTML).appendTo(modalBody);
+  }
 }
 
 /**
