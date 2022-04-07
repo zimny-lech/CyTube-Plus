@@ -634,6 +634,8 @@ let BGCHANGE = 1;
 let DROPBGCHANGE = 1;
 // number of background changes for fastest crash
 let FASTESTBGCHANGE = 1;
+// number of bg changes for glue gun command
+let GLUEGUNBGCHANGE = 1;
 
 // list of users with muted chat sounds by user
 const MUTEDVOICES = [];
@@ -647,6 +649,7 @@ const WEBKIT = 'webkitRequestAnimationFrame' in window;
 const IMBA = new Audio('https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg');
 const DROPIT = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/dropit.wav');
 const FASTEST = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/fastestcrashegg.wav');
+const GGUN = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/gluegun.wav');
 const HEY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/hey.wav');
 const NAY = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/nay.wav');
 CHATSOUND.volume = 0.4;
@@ -1344,6 +1347,9 @@ function prepareMessage(msg) {
     } else if (msg.startsWith('!crash')) {
       msg = '[mqr] GOOOOOOO xqcTECHNO FEELSWAYTOOGOOD xqcDisco [/mqr]';
       fastestCrash();
+    } else if (msg.startsWith('!gluegun')) {
+      msg = '[mqr] GOOOOOOO xqcTechno FEELSWAYTOOGOOD AlienPls3 [/mqr]';
+      glueGun();
     } else if (msg.startsWith('!inba')) {
       IMBA.volume = 0.6;
       IMBA.play();
@@ -3140,6 +3146,18 @@ function dropthefast() {
   elems.forEach((elem) => elem.style.backgroundColor = newColor);
 }
 
+// glue gun easter egg bg changes
+function droptheglue() {
+  const userlistthing = document.getElementById('userlist');
+  const elems = [userlistthing];
+
+  elems.forEach((elem) => elem.style.backgroundImage = 'none');
+  GLUEGUNBGCHANGE++;
+
+  const newColor = GLUEGUNBGCHANGE % 2 === 0 ? 'blue' : 'limegreen';
+  elems.forEach((elem) => elem.style.backgroundColor = newColor);
+}
+
 // customizing chat notifications sound
 if (UI_CustomPingSound && CustomPingSound_URL !== '') {
   CHATSOUND = new Audio(CustomPingSound_URL);
@@ -3339,6 +3357,25 @@ function fastestCrash() {
   setTimeout(() => {
     FASTESTBGCHANGE = 100;
     clearInterval(fastestFlash);
+
+    const userlistthing = document.getElementById('userlist');
+    const elems = [userlistthing];
+
+    elems.forEach((elem) => elem.style.backgroundImage = '');
+    elems.forEach((elem) => elem.style.backgroundColor = '');
+
+    setUserCSS();
+  }, 12000);
+}
+
+// glue gun function
+function glueGun() {
+  GGUN.volume = 0.5;
+  GGUN.play();
+  const glueFlash = setInterval(() => droptheglue(), 100);
+  setTimeout(() => {
+    GLUEGUNBGCHANGE = 100;
+    clearInterval(glueFlash);
 
     const userlistthing = document.getElementById('userlist');
     const elems = [userlistthing];
