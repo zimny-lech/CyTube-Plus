@@ -1097,12 +1097,7 @@ function changeMOTD() {
 
 function rulesModal() {
   createModal('Rules Panel');
-  const rulespanelouter = $('<div id="rulespanel-outer" />').appendTo('.modal-body');
-  const rulespanel = $('<div id="rulespanel" style="display:none" />')
-                         .html(RulesBtn_HTML)
-                         .appendTo(rulespanelouter);
-  toggleDiv(rulespanel)();
-  // modalBody.append(RulesBtn_HTML);
+  modalBody.append(RulesBtn_HTML);
 }
 
 /**
