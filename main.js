@@ -1101,7 +1101,7 @@ function rulesModal() {
   const rulespanel = $('<div id="rulespanel" style="display:none" />')
                          .html(RulesBtn_HTML)
                          .appendTo(rulespanelouter);
-  rulespanel();
+  toggleDiv(rulespanel)();
   // modalBody.append(RulesBtn_HTML);
 }
 
