@@ -1354,10 +1354,8 @@ function prepareMessage(msg) {
         BGCHANGE = 0;
         clearInterval(inbaFlash);
 
-        const body = document.getElementsByTagName('body')[0];
-        const wrap = document.getElementById('wrap');
-        const mainPage = document.getElementById('mainpage');
-        const elems = [body, wrap, mainPage];
+        const userlistthing = document.getElementById('userlist');
+        const elems = [userlistthing];
 
         elems.forEach((elem) => elem.style.backgroundImage = '');
         elems.forEach((elem) => elem.style.backgroundColor = '');
@@ -3106,10 +3104,8 @@ if (UI_TitleBarDescription) {
  * Easter egg.
  */
 function inba() {
-  const body = document.getElementsByTagName('body')[0];
-  const wrap = document.getElementById('wrap');
-  const mainPage = document.getElementById('mainpage');
-  const elems = [body, wrap, mainPage];
+  const userlistthing = document.getElementById('userlist');
+  const elems = [userlistthing];
 
   elems.forEach((elem) => elem.style.backgroundImage = 'none');
   BGCHANGE++;
@@ -3122,9 +3118,7 @@ function inba() {
  * Dropit easter egg.
  */
 function dropthebeat() {
-  //  const body = document.getElementsByTagName('body')[0];
   const userlistthing = document.getElementById('userlist');
-  //  const mainPage = document.getElementById('mainpage');
   const elems = [userlistthing];
 
   elems.forEach((elem) => elem.style.backgroundImage = 'none');
@@ -3136,10 +3130,8 @@ function dropthebeat() {
 
 // Fastest Crash easter egg bg changes
 function dropthefast() {
-  const body = document.getElementsByTagName('body')[0];
-  const wrap = document.getElementById('wrap');
-  const mainPage = document.getElementById('mainpage');
-  const elems = [body, wrap, mainPage];
+  const userlistthing = document.getElementById('userlist');
+  const elems = [userlistthing];
 
   elems.forEach((elem) => elem.style.backgroundImage = 'none');
   FASTESTBGCHANGE++;
@@ -3328,9 +3320,6 @@ function showDrop() {
     DROPBGCHANGE = 0;
     clearInterval(partyFlash);
 
-    /*    const body = document.getElementsByTagName('body')[0];
-        const wrap = document.getElementById('wrap');
-        const mainPage = document.getElementById('mainpage'); */
     const userlistthing = document.getElementById('userlist');
     const elems = [userlistthing];
 
@@ -3351,10 +3340,8 @@ function fastestCrash() {
     FASTESTBGCHANGE = 100;
     clearInterval(fastestFlash);
 
-    const body = document.getElementsByTagName('body')[0];
-    const wrap = document.getElementById('wrap');
-    const mainPage = document.getElementById('mainpage');
-    const elems = [body, wrap, mainPage];
+    const userlistthing = document.getElementById('userlist');
+    const elems = [userlistthing];
 
     elems.forEach((elem) => elem.style.backgroundImage = '');
     elems.forEach((elem) => elem.style.backgroundColor = '');
