@@ -3384,7 +3384,7 @@ function glueGun() {
     elems.forEach((elem) => elem.style.backgroundColor = '');
 
     setUserCSS();
-  }, 12000);
+  }, 9000);
 }
 
 // adding chat sounds toggle button and control panel
