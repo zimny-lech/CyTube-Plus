@@ -2994,10 +2994,10 @@ if (UI_HeaderDropMenu) {
 // adding version to the tab
 if (UI_Version) {
   if (Version_Now === '') {
-    Version_Now = 'Menu';
+    Version_Now = '???';
   }
   const headerdrop = $('<li id="headerdrop" class="dropdown" />').insertAfter('#channelset-link');
-  $('<a class="dropdown-toggle" data-toggle="dropdown" href="https://github.com/papertek/CyDJ" />')
+  $('<a class="dropdown-toggle disabled" href="https://github.com/papertek/CyDJ" />')
       .html(`${Version_Now}`)
       .appendTo(headerdrop);
 }
