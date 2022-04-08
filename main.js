@@ -3838,7 +3838,7 @@ $('<input type="checkbox" id="hide-hf" value="no" />')
     .after(' H&F');
 
 // adding embedding options
-if (UI_EmbeddingMedia /* && (EmbeddingMedia_Images !== '' || EmbeddingMedia_Videos !== '')*/) {
+if (UI_EmbeddingMedia && (EmbeddingMedia_Images !== '' || EmbeddingMedia_Videos !== '')) {
   const embedform = $('<div id="embedform" class="form-group" />').appendTo(configwell);
   $('<div class="col-lg-5 col-md-5 conf-cap">Embeds <span id="embed-help">[?]</span></div>')
       .appendTo(embedform);
