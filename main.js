@@ -2235,7 +2235,7 @@ function showInfo() {
       text += ' // END OF QUEUE //';
     }
     if (arr.length > 7) {
-      text += ' // PLUS MORE! //';
+      text += ' // PLUS MORE //';
     }
     mediainfo.html(`<marquee scrollamount="7.5">${text}</marquee>`);
   } else {
