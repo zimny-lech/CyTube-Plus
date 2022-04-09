@@ -666,6 +666,7 @@ function preloadAudio() {
 }
 
 document.body.addEventListener('load', preloadAudio, true);
+window.onload = preloadAudio();
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
