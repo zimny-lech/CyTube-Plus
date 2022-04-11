@@ -175,7 +175,7 @@ const UI_ButtonIcons = true;
 // adds snow (just an attempt on adding, i dont rly know how to make it work)
 const UI_Snow = false;
 // adds emoji to chat
-const twemojiEnabled = false;
+const twemojiStuff = true;
 
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -4603,7 +4603,7 @@ let CHAT_INIT = false;
 if (!CHAT_INIT) {
   CHAT_INIT = true;
 
-  if (twemojiEnabled) {
+  if (twemojiStuff) {
     initTwemoji();
   }
 
