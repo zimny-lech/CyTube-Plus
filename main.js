@@ -99,7 +99,7 @@ const UI_MessagesSuffix = false;
 // [&] custom sound for chat notifications
 const UI_CustomPingSound = true;
 // [&] chat sounds played after sending certain words
-const UI_SoundFilters = false;
+const UI_SoundFilters = true;
 // text speaking after '!say' and '!mow' commands (english and polish)
 const UI_ChatSpeak = false;
 // [&] additional settings-independent emotes
@@ -175,7 +175,7 @@ const UI_ButtonIcons = true;
 // adds snow (just an attempt on adding, i dont rly know how to make it work)
 const UI_Snow = false;
 // adds emoji to chat
-const twemojiStuff = true;
+const twemojiStuff = false;
 
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -306,9 +306,9 @@ const AskAnswers_Array = [
   'what',
 ];
 
-// const SoundFilters_Array = {
-//   'oh no our table': 'https://github.com/papertek/CyDJ/raw/beta/misc/ohnoourtable.wav',
-// };
+const SoundFilters_Array = {
+  'oh no our table': 'https://github.com/papertek/CyDJ/raw/beta/misc/ohnoourtable.wav',
+};
 
 const ModPanel_Array = [
   [
@@ -4324,6 +4324,38 @@ if (ALTERCHATFORMAT) {
     return div;
   };
 }
+
+// client-side chat buffer for playing sounds
+
+_chatBuffer = addChatMessage;
+addChatMessage = function(data) {
+  if (UI_SoundFilters == '1' && VOICES &&
+      (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
+    for (i in SoundFilters_Array) {
+      if (data.msg.indexOf(i) > -1) {
+        aud = new Audio(SoundFilters_Array[i]);
+        aud.volume = SOUNDSVALUES[SOUNDSLVL];
+        aud.play();
+      }
+    }
+  }
+  if (UI_ChatSpeak == '1' && VOICES &&
+      (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
+    msg = getText(data.msg);
+    if (msg.indexOf('!mow ') >= 0) {
+      str = msg.split('!mow ');
+      aud = new Audio(SPEAKLINK + '?lang=polish&text=' + encodeURI(str[1]));
+      aud.volume = SOUNDSVALUES[SOUNDSLVL];
+      aud.play();
+    } else if (msg.indexOf('!say ') >= 0) {
+      str = msg.split('!say ');
+      aud = new Audio(SPEAKLINK + '?lang=english&text=' + encodeURI(str[1]));
+      aud.volume = SOUNDSVALUES[SOUNDSLVL];
+      aud.play();
+    }
+  }
+  _chatBuffer(data);
+};
 
 // fix formatting and sending chat messages
 // DEV NOTE: this are extended events from CyTube "util.js" file
