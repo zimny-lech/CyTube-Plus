@@ -4327,12 +4327,11 @@ if (ALTERCHATFORMAT) {
 }
 
 // client-side chat buffer for playing sounds
-
 const _chatBuffer = addChatMessage;
 addChatMessage = function(data) {
   if (UI_SoundFilters == '1' && VOICES &&
       (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
-    for (i in SoundFilters_Array) {
+    for (let i = 1; i < SoundFilters_Array; i++) {
       if (data.msg.indexOf(i) > -1) {
         aud = new Audio(SoundFilters_Array[i]);
         aud.volume = SOUNDSVALUES[SOUNDSLVL];
