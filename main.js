@@ -308,6 +308,7 @@ const AskAnswers_Array = [
 
 const SoundFilters_Array = {
   'oh no our table': 'https://github.com/papertek/CyDJ/raw/beta/misc/ohnoourtable.wav',
+  'our table': 'https://github.com/papertek/CyDJ/raw/beta/misc/ohnoourtable.wav',
 };
 
 const ModPanel_Array = [
