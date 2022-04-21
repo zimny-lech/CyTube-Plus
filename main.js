@@ -4329,7 +4329,7 @@ if (ALTERCHATFORMAT) {
 
 // client-side chat buffer for playing sounds
 const _chatBuffer = addChatMessage;
-addChatMessage = function(data) {
+function addChatMessage(data) {
   if (UI_SoundFilters == '1' && VOICES &&
       (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
     for (let i = 1; i < SoundFilters_Array; i++) {
@@ -4356,7 +4356,7 @@ addChatMessage = function(data) {
     }
   }
   _chatBuffer(data);
-};
+}
 
 // fix formatting and sending chat messages
 // DEV NOTE: this are extended events from CyTube "util.js" file
