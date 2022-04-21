@@ -4342,15 +4342,15 @@ addChatMessage = function(data) {
   }
   if (UI_ChatSpeak == '1' && VOICES &&
       (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
-    msg = getText(data.msg);
+    const msg = getText(data.msg);
     if (msg.indexOf('!mow ') >= 0) {
-      str = msg.split('!mow ');
-      aud = new Audio(SPEAKLINK + '?lang=polish&text=' + encodeURI(str[1]));
+      const str = msg.split('!mow ');
+      const aud = new Audio(SPEAKLINK + '?lang=polish&text=' + encodeURI(str[1]));
       aud.volume = SOUNDSVALUES[SOUNDSLVL];
       aud.play();
     } else if (msg.indexOf('!say ') >= 0) {
-      str = msg.split('!say ');
-      aud = new Audio(SPEAKLINK + '?lang=english&text=' + encodeURI(str[1]));
+      const str = msg.split('!say ');
+      const aud = new Audio(SPEAKLINK + '?lang=english&text=' + encodeURI(str[1]));
       aud.volume = SOUNDSVALUES[SOUNDSLVL];
       aud.play();
     }
