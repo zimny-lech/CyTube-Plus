@@ -175,7 +175,7 @@ const UI_ButtonIcons = true;
 // adds snow (just an attempt on adding, i dont rly know how to make it work)
 const UI_Snow = false;
 // adds emoji to chat
-const twemojiEnabled = false;
+const twemojiStuff = false;
 
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -201,7 +201,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre4.8.21.0';
+const Version_Now = 'CyDJPre4.21.21.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -306,9 +306,10 @@ const AskAnswers_Array = [
   'what',
 ];
 
-// const SoundFilters_Array = {
-//   'oh no our table': 'https://github.com/papertek/CyDJ/raw/beta/misc/ohnoourtable.wav',
-// };
+const SoundFilters_Array = {
+  'oh no our table': 'https://github.com/papertek/CyDJ/raw/beta/misc/ohnoourtable.wav',
+  'our table': 'https://github.com/papertek/CyDJ/raw/beta/misc/ohnoourtable.wav',
+};
 
 const ModPanel_Array = [
   [
@@ -644,8 +645,8 @@ const MUTEDVOICES = [];
 const ADDEDLINKS = [];
 
 const WEBKIT = 'webkitRequestAnimationFrame' in window;
-// const SOUNDSVALUES = [0, 0.1, 0.2, 0.4, 0.7, 1];
-// const SPEAKLINK = 'http://webanywhere.cs.washington.edu/cgi-bin/espeak/getsound.pl';
+const SOUNDSVALUES = [0, 0.1, 0.2, 0.4, 0.7, 1];
+const SPEAKLINK = 'http://webanywhere.cs.washington.edu/cgi-bin/espeak/getsound.pl';
 const IMBA = new Audio('https://dl.dropboxusercontent.com/s/xdnpynq643ziq9o/inba.ogg');
 const DROPIT = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/dropit.wav');
 const FASTEST = new Audio('https://github.com/papertek/CyDJ/raw/beta/misc/fastestcrashegg.wav');
@@ -1132,10 +1133,10 @@ function progressBar() {
  * @param {string} div
  */
 function setPanelProperties(div) {
-  bgcolor = $('body').css('background-color');
-  color = $('body').css('color');
-  height = $('#userlist').height();
-  width = $('#userlist').width();
+  const bgcolor = $('body').css('background-color');
+  const color = $('body').css('color');
+  const height = $('#userlist').height();
+  const width = $('#userlist').width();
   $(div).css({
     'background-color': bgcolor,
     'color': color,
@@ -1343,6 +1344,14 @@ function prepareMessage(msg) {
       msg = 'https://discord.gg/g8tCGSc2bx';
     } else if (msg.startsWith('!link')) {
       msg = 'https://tinyurl.com/jamcydj';
+    } else if (msg.startsWith('!guide')) {
+      msg = 'https://tinyurl.com/CyDJguide';
+    } else if (msg.startsWith('!script')) {
+      msg = 'http://github.com/papertek/CyDJ';
+    } else if (msg.startsWith('!media')) {
+      const item = $(`.queue_active`).data('media');
+      msg = 'Heres the link: ' +
+          `${formatURL(item)}`;
     } else if (msg.startsWith('!crash')) {
       msg = '[mqr] GOOOOOOO xqcTECHNO FEELSWAYTOOGOOD xqcDisco [/mqr]';
       fastestCrash();
@@ -1374,7 +1383,6 @@ function prepareMessage(msg) {
   }
   return msg;
 }
-
 
 /**
  * Insert code into chatline.
@@ -2041,6 +2049,7 @@ function showChatHelp() {
       'roll': 'rolling 3-digit number (<i>!roll</i>)',
       'time': 'displaying current time (<i>!time</i>)',
       'np': 'displaying current playing title (<i>!np</i>)',
+      'media': 'links current media in the playlist (<i>!media</i>)',
       'skip': 'skip current item (<i>!skip</i>)',
       'add': 'adding a link to the end of playlist ' +
           '(e.g. <i>!add https://www.youtube.com/watch?v=29FFHC2D12Q</i>)',
@@ -2080,6 +2089,7 @@ function showChatHelp() {
 /**
  * Show chat sounds panel.
  */
+let voicesbtn;
 function showSoundsPanel() {
   $('#userlist').append('<div id="sounds-dropdown" />');
   setPanelProperties('#sounds-dropdown');
@@ -4325,6 +4335,37 @@ if (ALTERCHATFORMAT) {
   };
 }
 
+// client-side chat buffer for playing sounds
+const _chatBuffer = addChatMessage;
+addChatMessage = function(data) {
+  if (UI_SoundFilters && VOICES &&
+      (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
+    for (let i = 1; i < SoundFilters_Array; i++) {
+      if (data.msg.indexOf(i) > -1) {
+        const aud = new Audio(SoundFilters_Array[i]);
+        aud.volume = SOUNDSVALUES[SOUNDSLVL];
+        aud.play();
+      }
+    }
+  }
+  if (UI_ChatSpeak == '1' && VOICES &&
+      (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
+    const msg = getText(data.msg);
+    if (msg.indexOf('!mow ') >= 0) {
+      const str = msg.split('!mow ');
+      const aud = new Audio(SPEAKLINK + '?lang=polish&text=' + encodeURI(str[1]));
+      aud.volume = SOUNDSVALUES[SOUNDSLVL];
+      aud.play();
+    } else if (msg.indexOf('!say ') >= 0) {
+      const str = msg.split('!say ');
+      const aud = new Audio(SPEAKLINK + '?lang=english&text=' + encodeURI(str[1]));
+      aud.volume = SOUNDSVALUES[SOUNDSLVL];
+      aud.play();
+    }
+  }
+  _chatBuffer(data);
+};
+
 // fix formatting and sending chat messages
 // DEV NOTE: this are extended events from CyTube "util.js" file
 
@@ -4603,7 +4644,7 @@ let CHAT_INIT = false;
 if (!CHAT_INIT) {
   CHAT_INIT = true;
 
-  if (twemojiEnabled) {
+  if (twemojiStuff) {
     initTwemoji();
   }
 
