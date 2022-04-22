@@ -99,7 +99,7 @@ const UI_MessagesSuffix = false;
 // [&] custom sound for chat notifications
 const UI_CustomPingSound = true;
 // [&] chat sounds played after sending certain words
-const UI_SoundFilters = true;
+const UI_SoundFilters = false;
 // text speaking after '!say' and '!mow' commands (english and polish)
 const UI_ChatSpeak = false;
 // [&] additional settings-independent emotes
@@ -1342,13 +1342,13 @@ function prepareMessage(msg) {
       msg = 'Now playing: ' + $('.queue_active a').html();
     } else if (msg.startsWith('!discord')) {
       msg = 'https://discord.gg/g8tCGSc2bx';
-    } else if (msg.startsWith('!link')) {
+    } else if (msg.startsWith('!jamlink')) {
       msg = 'https://tinyurl.com/jamcydj';
     } else if (msg.startsWith('!guide')) {
       msg = 'https://tinyurl.com/CyDJguide';
     } else if (msg.startsWith('!script')) {
       msg = 'http://github.com/papertek/CyDJ';
-    } else if (msg.startsWith('!music')) {
+    } else if (msg.startsWith('!link')) {
       const item = $(`.queue_active`).data('media');
       msg = 'Heres the link: ' +
           `${formatURL(item)}`;
