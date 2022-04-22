@@ -1344,6 +1344,10 @@ function prepareMessage(msg) {
       msg = 'https://discord.gg/g8tCGSc2bx';
     } else if (msg.startsWith('!link')) {
       msg = 'https://tinyurl.com/jamcydj';
+    } else if (msg.startsWith('!guide')) {
+      msg = 'https://tinyurl.com/CyDJguide';
+    } else if (msg.startsWith('!script')) {
+      msg = 'http://github.com/papertek/CyDJ';
     } else if (msg.startsWith('!crash')) {
       msg = '[mqr] GOOOOOOO xqcTECHNO FEELSWAYTOOGOOD xqcDisco [/mqr]';
       fastestCrash();
