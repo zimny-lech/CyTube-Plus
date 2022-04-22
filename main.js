@@ -99,7 +99,7 @@ const UI_MessagesSuffix = false;
 // [&] custom sound for chat notifications
 const UI_CustomPingSound = true;
 // [&] chat sounds played after sending certain words
-const UI_SoundFilters = true;
+const UI_SoundFilters = false;
 // text speaking after '!say' and '!mow' commands (english and polish)
 const UI_ChatSpeak = false;
 // [&] additional settings-independent emotes
