@@ -2049,7 +2049,7 @@ function showChatHelp() {
       'roll': 'rolling 3-digit number (<i>!roll</i>)',
       'time': 'displaying current time (<i>!time</i>)',
       'np': 'displaying current playing title (<i>!np</i>)',
-      'media': 'displaying current media in the playlist (<i>!media</i>)',
+      'media': 'links current media in the playlist (<i>!media</i>)',
       'skip': 'skip current item (<i>!skip</i>)',
       'add': 'adding a link to the end of playlist ' +
           '(e.g. <i>!add https://www.youtube.com/watch?v=29FFHC2D12Q</i>)',
