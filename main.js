@@ -1349,8 +1349,9 @@ function prepareMessage(msg) {
     } else if (msg.startsWith('!script')) {
       msg = 'http://github.com/papertek/CyDJ';
     } else if (msg.startsWith('!music')) {
-      msg = null;
-      linkMediaInChat();
+      const item = $(`#queue .queue_entry`).data('media');
+      msg = 'Heres the link: ' +
+          `${formatURL(item)}`;
     } else if (msg.startsWith('!crash')) {
       msg = '[mqr] GOOOOOOO xqcTECHNO FEELSWAYTOOGOOD xqcDisco [/mqr]';
       fastestCrash();
@@ -1382,12 +1383,6 @@ function prepareMessage(msg) {
   }
   return msg;
 }
-
-function linkMediaInChat() {
-  const item = $(`#queue .queue_entry`).data('media');
-  socket.emit('chatMsg', {msg: `${formatURL(item)}`});
-}
-
 
 /**
  * Insert code into chatline.
