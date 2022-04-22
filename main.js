@@ -99,7 +99,7 @@ const UI_MessagesSuffix = false;
 // [&] custom sound for chat notifications
 const UI_CustomPingSound = true;
 // [&] chat sounds played after sending certain words
-const UI_SoundFilters = false;
+const UI_SoundFilters = true;
 // text speaking after '!say' and '!mow' commands (english and polish)
 const UI_ChatSpeak = false;
 // [&] additional settings-independent emotes
@@ -4330,7 +4330,7 @@ if (ALTERCHATFORMAT) {
 // client-side chat buffer for playing sounds
 const _chatBuffer = addChatMessage;
 addChatMessage = function(data) {
-  if (UI_SoundFilters == '1' && VOICES &&
+  if (UI_SoundFilters && VOICES &&
       (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
     for (let i = 1; i < SoundFilters_Array; i++) {
       if (data.msg.indexOf(i) > -1) {
