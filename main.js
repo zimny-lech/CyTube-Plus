@@ -93,7 +93,7 @@ const UI_UserMarks = true;
 const UI_Squavatars = false;
 // [&] custom mark after username (default ":")
 // [ REQUIRE: UI_UserMarks enabled ]
-const UI_UsernameMark = false;
+const UI_UsernameMark = true;
 // [&] text added to random chat messages
 const UI_MessagesSuffix = false;
 // [&] custom sound for chat notifications
@@ -201,7 +201,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre4.21.21.0';
+const Version_Now = 'CyDJPre4.29.21.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -222,7 +222,7 @@ const TitleBarDescription_Caption = 'Now Playing:';
 
 const JoinText_Message = 'hello!';
 
-const UsernameMark_Char = '>';
+const UsernameMark_Char = '‎';
 
 const MessagesSuffix_Text = '~xD';
 
