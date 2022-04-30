@@ -52,6 +52,7 @@ const UI_DEBUG = false;
 // default old Synchtube layout (player and playlist on the left)
 // const UI_DefaultSynchtube = true;
 
+const chatcontrols = $('<div id="chatcontrols" class="btn-group" />').appendTo('#chatwrap');
 
 // adds the button
 if (UI_DEBUG) {
