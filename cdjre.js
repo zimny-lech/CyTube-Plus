@@ -53,6 +53,7 @@ const UI_DEBUG = false;
 // const UI_DefaultSynchtube = true;
 
 const chatcontrols = $('<div id="chatcontrols" class="btn-group" />').appendTo('#chatwrap');
+let modalBody;
 
 // adds the button
 if (UI_DEBUG) {
