@@ -53,7 +53,29 @@ const UI_DEBUG = false;
 // const UI_DefaultSynchtube = true;
 
 const chatcontrols = $('<div id="chatcontrols" class="btn-group" />').appendTo('#chatwrap');
-let modalBody;
+const modalOuter = $('<div class="modal fade" />').appendTo($('body'));
+const modalDialog = $('<div class="modal-dialog" />').appendTo(modalOuter);
+const modalContent = $('<div class="modal-content" />').appendTo(modalDialog);
+const modalHead = $('<div class="modal-header" />').appendTo(modalContent);
+const modalBody = $('<div class="modal-body" />').appendTo(modalContent);
+// const modalFooter = $('<div class="modal-footer" />').appendTo(modalContent);
+
+/**
+ * Create modal window.
+ *
+ * @param {string} title
+ */
+function createModal(title) {
+  $('<button class="close" data-dismiss="modal" aria-hidden="true" />')
+      .html('&times;')
+      .appendTo(modalHead);
+  $('<h3 />').text(title).appendTo(modalHead);
+  modalOuter.on('hidden', () => {
+    outer.remove();
+    unhidePlayer();
+  });
+  modalOuter.modal();
+}
 
 // adds the button
 if (UI_DEBUG) {
