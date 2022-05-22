@@ -113,9 +113,9 @@ const UI_FontsBtn = true;
 const UI_UnicodeChars = false;
 // button displaying box with clickable chat emotes
 // [ REQUIRE: UI_FontsBtn enabled ]
-const UI_EmotesBtn = true;
+const UI_EmotesBtn = false;
 // [&] emotes panel pagination, display limited number of emotes at one time
-const UI_GroupEmotes = true;
+const UI_GroupEmotes = false;
 // button displaying modal window with chat commands help
 // [ REQUIRE: UI_EmotesBtn enabled ]
 const UI_CommandsBtn = true;
@@ -619,7 +619,7 @@ let GALLERY = false;
 // channel galleries have been viewed by user
 let GALLVIS = false;
 // using altered 'formatChatMessage' built-in function
-let ALTERCHATFORMAT = true;
+let ALTERCHATFORMAT = false;
 
 // previous read of a current item time for the progress bar
 let PREVTIME = 0;
