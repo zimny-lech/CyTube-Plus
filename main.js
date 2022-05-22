@@ -113,9 +113,9 @@ const UI_FontsBtn = true;
 const UI_UnicodeChars = false;
 // button displaying box with clickable chat emotes
 // [ REQUIRE: UI_FontsBtn enabled ]
-const UI_EmotesBtn = false;
+const UI_EmotesBtn = true;
 // [&] emotes panel pagination, display limited number of emotes at one time
-const UI_GroupEmotes = false;
+const UI_GroupEmotes = true;
 // button displaying modal window with chat commands help
 // [ REQUIRE: UI_EmotesBtn enabled ]
 const UI_CommandsBtn = true;
