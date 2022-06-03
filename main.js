@@ -3651,8 +3651,7 @@ if (UI_ChannelGalleries) {
 }
 
 // adding layout configuration well
-const configwrap =
-    $('<div id="configwrap" class="col-lg-12 col-md-12" />').appendTo('#leftpane-inner');
+const configwrap = $('<div id="configwrap" class="col-lg-12 col-md-12" />').appendTo('#leftpane');
 const configwell = $('<div id="config-well" class="well form-horizontal" />').appendTo(configwrap);
 
 if (!LAYOUTBOX) {
