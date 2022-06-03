@@ -1325,8 +1325,8 @@ function prepareMessage(msg) {
       socket.emit('moveMedia', {from: uid, after: PL_CURRENT}, $('.add-temp').prop('checked'));
       msg = `last item bumped as next: ${title}`;
     } else if (msg.startsWith('!add ') && hasPermission('playlistadd')) {
-      //      const parsed = parseMediaLink(msg.split('!add ')[1]);
-      if (msg['id'] === null) {
+      const parsed = parseMediaLink(msg.split('!add ')[1]);
+      if (parsed['id'] === null) {
         msg = 'error: invalid link, item has not been added';
       } else {
         socket.emit('queue', {
