@@ -1325,8 +1325,8 @@ function prepareMessage(msg) {
       socket.emit('moveMedia', {from: uid, after: PL_CURRENT}, $('.add-temp').prop('checked'));
       msg = `last item bumped as next: ${title}`;
     } else if (msg.startsWith('!add ') && hasPermission('playlistadd')) {
-      const parsed = parseMediaLink(msg.split('!add ')[1]);
-      if (parsed['id'] === null) {
+      //      const parsed = parseMediaLink(msg.split('!add ')[1]);
+      if (msg['id'] === null) {
         msg = 'error: invalid link, item has not been added';
       } else {
         socket.emit('queue', {
@@ -3651,7 +3651,8 @@ if (UI_ChannelGalleries) {
 }
 
 // adding layout configuration well
-const configwrap = $('<div id="configwrap" class="col-lg-12 col-md-12" />').appendTo('#leftpane');
+const configwrap =
+    $('<div id="configwrap" class="col-lg-12 col-md-12" />').appendTo('#leftpane-inner');
 const configwell = $('<div id="config-well" class="well form-horizontal" />').appendTo(configwrap);
 
 if (!LAYOUTBOX) {
