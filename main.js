@@ -399,7 +399,7 @@ const RulesBtn_HTML =
 const ChannelAnnouncement_HTML = 'Welcome chatters to CyDJ!';
 
 const EmbeddingMedia_Images =
-    'a[href$=".jpg"], a[href$=".jpg:large"], a[href$=".jpeg"], a[href$=".JPG"], a[href$=".png"] ,a[href$=".PNG"], a[href$=".tiff"], a[href$=".gif"]';
+    'a[href$=".jpg"], a[href$=".jpg:large"], a[href$=".jpeg"], a[href$=".JPEG"], a[href$=".JPG"], a[href$=".png"], a[href$=".PNG"], a[href$=".tiff"], a[href$=".TIFF"], a[href$=".webp"], a[href$=".WEBP"], a[href$=".gif"], a[href$=".GIF"]';
 
 const EmbeddingMedia_Videos =
     'a[href$=".webm"], a[href$=".mp4"], a[href$=".MP4"], a[href$=".mov"], a[href$=".MOV"], a[href$=".mp3"], a[href$=".MP3"], a[href$=".wav"], a[href$=".WAV"], a[href$=".ogg"], a[href$=".OGG"], a[href$=".m4a"], a[href$=".M4A"]';
