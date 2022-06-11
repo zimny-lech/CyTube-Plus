@@ -1347,6 +1347,10 @@ function prepareMessage(msg) {
       msg = 'https://tinyurl.com/CyDJguideV2';
     } else if (msg.startsWith('!script')) {
       msg = 'http://github.com/papertek/CyDJ';
+    } else if (msg.startsWith('!report')) {
+      msg = 'https://tinyurl.com/CDJReport';
+    } else if (msg.startsWith('!version')) {
+      msg = 'Running: ' `${Version_Now}`;
     } else if (msg.startsWith('!media')) {
       const item = $(`.queue_active`).data('media');
       msg = 'Heres the link: ' +
