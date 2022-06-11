@@ -2020,6 +2020,9 @@ function showEmotes() {
  */
 function showChatHelp() {
   createModal('Chat Commands');
+  $('<button class ="btn btn-default" type="button" data-dismiss="modal"/>')
+      .text('Close')
+      .appendTo(modalFooter);
 
   if (UI_FontsBtn) {
     modalBody.append('<strong>Fonts commands</strong><br /><br />');
