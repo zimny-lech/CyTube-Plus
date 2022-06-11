@@ -2041,7 +2041,7 @@ function showChatHelp() {
           '<code>!!</code> - beginning and end of fastest bounce text scrolling!',
         ].map((line) => `<li>${line}</li>`)
             .join('') +
-        'For a quick CyDJ guide check out this Google Doc <a href="https://docs.google.com/document/d/1X2TdR9hc2KK0WEBLjY06CZaY30QyKxsI_7CQ1qbSz0g/edit" target="_blank">here</a>.';
+        'For a quick CyDJ guide check out this Google Doc <a href="https://tinyurl.com/CyDJguideV2" target="_blank">here</a>.';
     $('<ul />').html(html).appendTo(modalBody);
   }
   if (UI_UserCommands) {
