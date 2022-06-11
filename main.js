@@ -1349,6 +1349,8 @@ function prepareMessage(msg) {
       msg = 'http://github.com/papertek/CyDJ';
     } else if (msg.startsWith('!report')) {
       msg = 'https://tinyurl.com/CDJReport';
+    } else if (msg.startsWith('!botcommands')) {
+      msg = 'https://github.com/airforce270/cytubebot#commands';
     } else if (msg.startsWith('!version')) {
       msg = 'Running: ' `${Version_Now}`;
     } else if (msg.startsWith('!media')) {
