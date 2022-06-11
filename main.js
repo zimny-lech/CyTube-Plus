@@ -1352,7 +1352,7 @@ function prepareMessage(msg) {
     } else if (msg.startsWith('!botcommands')) {
       msg = 'https://github.com/airforce270/cytubebot#commands';
     } else if (msg.startsWith('!version')) {
-      msg = 'Running: ' `${msg(Version_Now)}`;
+      msg = 'Running: ' `${(Version_Now)}`;
     } else if (msg.startsWith('!media')) {
       const item = $(`.queue_active`).data('media');
       msg = 'Heres the link: ' +
