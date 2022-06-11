@@ -313,8 +313,10 @@ const SoundFilters_Array = {
 
 const ModPanel_Array = [
   [
-    '',
-    '<strong>Access to user reports <em><a href="https://docs.google.com/spreadsheets/d/1oZ6pNneah7VpkYyZ6JEPCdWH-RW9toImmMNU0002ab4/edit#gid=1081291779" target="_blank">here</a>.</em></strong>',
+    '<h4>Access to user reports <em><a href="https://docs.google.com/spreadsheets/d/1oZ6pNneah7VpkYyZ6JEPCdWH-RW9toImmMNU0002ab4/edit#gid=1081291779" target="_blank">here</a>.</em></h4>',
+  ],
+  [
+    '<h4>Access to bot commands<em><a href="https://docs.google.com/spreadsheets/d/1oZ6pNneah7VpkYyZ6JEPCdWH-RW9toImmMNU0002ab4/edit#gid=1081291779" target="_blank">here</a>.</em></h4>',
   ],
   ['', 'To ban someone type <code>/ban (user)</code>'],
   ['', 'To kick someone type <code>/kick (user)</code>'],
@@ -329,7 +331,6 @@ const ModPanel_Array = [
   ['', 'To mute someone type <code>/mute (user)</code>'],
   ['', 'To unmute someone type <code>/unmute (user)</code>'],
   ['', 'To clear chat type <code>/clear</code>'],
-  ['', '<strong>--ADVANCED COMMANDS</strong>'],
   ['', 'To remove a users queue type <code>/clean (user)</code>'],
   [
     '',
@@ -347,7 +348,6 @@ const ModPanel_Array = [
     '',
     'The same as above but an even more wider area of ips <code>/ipban (user) wrange (reason)</code>',
   ],
-  ['', '<strong>--FUN COMMANDS</strong>'],
   [
     '',
     'Drinks! <code>/d (message)</code> ~ Drinks are just an asthetic for you or other people',
