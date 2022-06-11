@@ -2179,7 +2179,9 @@ function showSoundsPanel() {
  */
 function showModPanel() {
   createModal('Moderators panel');
-
+  $('<button class ="btn btn-default" type="button" data-dismiss="modal"/>')
+      .text('Close')
+      .appendTo(modalFooter);
   let html = '';
   for (const panel of ModPanel_Array) {
     const name = panel[0];
