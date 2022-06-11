@@ -313,10 +313,10 @@ const SoundFilters_Array = {
 
 const ModPanel_Array = [
   [
-    '<h4>Access to user reports <em><a href="https://docs.google.com/spreadsheets/d/1oZ6pNneah7VpkYyZ6JEPCdWH-RW9toImmMNU0002ab4/edit#gid=1081291779" target="_blank">here</a>.</em></h4>',
+    'Access to user reports <em><a href="https://docs.google.com/spreadsheets/d/1oZ6pNneah7VpkYyZ6JEPCdWH-RW9toImmMNU0002ab4/edit#gid=1081291779" target="_blank">here</a>.</em>',
   ],
   [
-    '<h4>Access to bot commands<em><a href="https://github.com/airforce270/cytubebot#commands" target="_blank">here</a>.</em></h4>',
+    'Access to bot commands<em><a href="https://github.com/airforce270/cytubebot#commands" target="_blank">here</a>.</em>',
   ],
   ['', 'To ban someone type <code>/ban (user)</code>'],
   ['', 'To kick someone type <code>/kick (user)</code>'],
