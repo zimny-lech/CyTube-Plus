@@ -3298,6 +3298,9 @@ if (UI_DEBUG) {
  */
 function showContextMenu() {
   createModal('Context Menu');
+  $('<button class ="btn btn-default" type="button" data-dismiss="modal"/>')
+      .text('Close')
+      .appendTo(modalFooter);
   if (UI_ContextMenu) {
     modalBody.append('<strong>Useful links</strong><br /><br />');
     const html =
