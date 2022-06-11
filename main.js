@@ -2060,6 +2060,10 @@ function showChatHelp() {
       'add': 'adding a link to the end of playlist ' +
           '(e.g. <i>!add https://www.youtube.com/watch?v=29FFHC2D12Q</i>)',
       'stat': 'displaying user chat statistics in current session (<i>!stat</i>)',
+      'version': 'displays current script version (<i>!version</i>)',
+      'report': 'links a report fourm for reporting a user (<i>!report</i>)',
+      'guide': 'links the CyDJ guide (<i>!guide</i>)',
+      'botcommands': 'link to bot commands (<i>!guide</i>)',
       'discord': 'link to the CyDJ discord (<i>!discord</i>)',
       'link': 'post a TinyURL link for this room (<i>!link</i>)',
       'randomemote': 'displays a random emote from the emote list (<i>!randomemote</i>)',
