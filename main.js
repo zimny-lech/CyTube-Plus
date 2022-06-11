@@ -2934,6 +2934,11 @@ $('#us-theme').hide();
 $('#us-theme').parent().append(`<p class="text-danger">${text1}${text3}</p>`);
 $('#us-layout').hide();
 $('#us-layout').parent().append(`<p class="text-danger">${text2}${text3}</p>`);
+$('#emotelist')
+    .parent()
+    .append('<button class ="btn btn-default" type="button" data-dismiss="modal"/>')
+    .text('Close')
+    .appendTo(modalFooter);
 
 // creating channel settings filters preparation button
 $('<button id="cs-fonts-import" class="btn btn-default pull-right">Prepare fonts filters</button>')
