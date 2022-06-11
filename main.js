@@ -201,7 +201,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre5.22.22.0';
+const Version_Now = 'CyDJPre6.11.22.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -314,7 +314,11 @@ const SoundFilters_Array = {
 const ModPanel_Array = [
   [
     '',
-    '<strong>Access to user reports <em><a href="https://docs.google.com/spreadsheets/d/1oZ6pNneah7VpkYyZ6JEPCdWH-RW9toImmMNU0002ab4/edit#gid=1081291779" target="_blank">here</a>.</em></strong>',
+    '<h4>Access to user reports <em><a href="https://docs.google.com/spreadsheets/d/1oZ6pNneah7VpkYyZ6JEPCdWH-RW9toImmMNU0002ab4/edit#gid=1081291779" target="_blank">here</a>.</em></h4>',
+  ],
+  [
+    '',
+    '<h4>Access to bot commands <em><a href="https://github.com/airforce270/cytubebot#commands" target="_blank">here</a>.</em></h4>',
   ],
   ['', 'To ban someone type <code>/ban (user)</code>'],
   ['', 'To kick someone type <code>/kick (user)</code>'],
@@ -329,7 +333,6 @@ const ModPanel_Array = [
   ['', 'To mute someone type <code>/mute (user)</code>'],
   ['', 'To unmute someone type <code>/unmute (user)</code>'],
   ['', 'To clear chat type <code>/clear</code>'],
-  ['', '<strong>--ADVANCED COMMANDS</strong>'],
   ['', 'To remove a users queue type <code>/clean (user)</code>'],
   [
     '',
@@ -347,7 +350,6 @@ const ModPanel_Array = [
     '',
     'The same as above but an even more wider area of ips <code>/ipban (user) wrange (reason)</code>',
   ],
-  ['', '<strong>--FUN COMMANDS</strong>'],
   [
     '',
     'Drinks! <code>/d (message)</code> ~ Drinks are just an asthetic for you or other people',
@@ -399,7 +401,7 @@ const RulesBtn_HTML =
 const ChannelAnnouncement_HTML = 'Welcome chatters to CyDJ!';
 
 const EmbeddingMedia_Images =
-    'a[href$=".jpg"], a[href$=".jpg:large"], a[href$=".jpeg"], a[href$=".JPG"], a[href$=".png"] ,a[href$=".PNG"], a[href$=".tiff"], a[href$=".gif"]';
+    'a[href$=".jpg"], a[href$=".jpg:large"], a[href$=".jpeg"], a[href$=".JPEG"], a[href$=".JPG"], a[href$=".png"], a[href$=".PNG"], a[href$=".tiff"], a[href$=".TIFF"], a[href$=".webp"], a[href$=".WEBP"], a[href$=".gif"], a[href$=".GIF"]';
 
 const EmbeddingMedia_Videos =
     'a[href$=".webm"], a[href$=".mp4"], a[href$=".MP4"], a[href$=".mov"], a[href$=".MOV"], a[href$=".mp3"], a[href$=".MP3"], a[href$=".wav"], a[href$=".WAV"], a[href$=".ogg"], a[href$=".OGG"], a[href$=".m4a"], a[href$=".M4A"]';
@@ -1317,7 +1319,7 @@ function prepareMessage(msg) {
       msg = 'current item has been voteskipped';
     } else if (msg.startsWith('!next') && hasPermission('playlistjump')) {
       socket.emit('playNext');
-      msg = 'start playing next item';
+      msg = 'started playing next item';
     } else if (msg.startsWith('!bump') && hasPermission('playlistmove')) {
       const last = $('#queue').children().length;
       const uid = $(`#queue .queue_entry:nth-child(${last})`).data('uid');
@@ -1344,13 +1346,18 @@ function prepareMessage(msg) {
     } else if (msg.startsWith('!link')) {
       msg = 'https://tinyurl.com/jamcydj';
     } else if (msg.startsWith('!guide')) {
-      msg = 'https://tinyurl.com/CyDJguide';
+      msg = 'https://tinyurl.com/CyDJguideV2';
     } else if (msg.startsWith('!script')) {
       msg = 'http://github.com/papertek/CyDJ';
+    } else if (msg.startsWith('!report')) {
+      msg = 'https://tinyurl.com/CDJReport';
+    } else if (msg.startsWith('!botcommands')) {
+      msg = 'https://github.com/airforce270/cytubebot#commands';
+    } else if (msg.startsWith('!version')) {
+      msg = `Running: ${Version_Now}`;
     } else if (msg.startsWith('!media')) {
       const item = $(`.queue_active`).data('media');
-      msg = 'Heres the link: ' +
-          `${formatURL(item)}`;
+      msg = `Heres the link: ${formatURL(item)}`;
     } else if (msg.startsWith('!crash')) {
       msg = '[mqr] GOOOOOOO xqcTECHNO FEELSWAYTOOGOOD xqcDisco [/mqr]';
       fastestCrash();
@@ -3163,7 +3170,8 @@ if (UI_PublicSkip) {
   $('#voteskip').on('click', function() {
     socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
     $('#voteskip').attr('disabled', true);
-    naySound();
+    NAY.volume = 0.4;
+    NAY.play();
   });
 }
 // RARE JOHN NOTE!! define data.count later, i think its defined somewhere in cytube side
@@ -3421,7 +3429,8 @@ if (UI_RateButtons) {
       .on('click', () => {
         socket.emit('chatMsg', {msg: '/afk'});
         socket.emit('chatMsg', {msg: '[lime]Woot![/] PepePls'});
-        heySound();
+        HEY.volume = 0.4;
+        HEY.play();
         // votehey();
       });
   $('<button id="nay-btn" class="btn btn-sm btn-default" title="Meh.. (Voteskip)" />')
@@ -3430,21 +3439,9 @@ if (UI_RateButtons) {
       .on('click', () => {
         socket.emit('chatMsg', {msg: '[red]Meh..[/] ResidentSleeper'});
         socket.emit('voteskip');
-        naySound();
+        NAY.volume = 0.4;
+        NAY.play();
       });
-}
-
-/**
- * Add hey and nay sound.
- */
-function heySound() {
-  HEY.volume = 0.4;
-  HEY.play();
-}
-
-function naySound() {
-  NAY.volume = 0.4;
-  NAY.play();
 }
 
 // adding player control buttons
