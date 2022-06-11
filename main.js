@@ -318,7 +318,7 @@ const ModPanel_Array = [
   ],
   [
     '',
-    '<h4>Access to bot commands<em><a href="https://github.com/airforce270/cytubebot#commands" target="_blank">here</a>.</em></h4>',
+    '<h4>Access to bot commands <em><a href="https://github.com/airforce270/cytubebot#commands" target="_blank">here</a>.</em></h4>',
   ],
   ['', 'To ban someone type <code>/ban (user)</code>'],
   ['', 'To kick someone type <code>/kick (user)</code>'],
