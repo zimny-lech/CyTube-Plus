@@ -201,7 +201,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre6.11.22.0';
+const Version_Now = 'CyDJPre6.12.22.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -1094,6 +1094,9 @@ function changeMOTD() {
 function rulesModal() {
   createModal('Rules Panel');
   modalBody.append(RulesBtn_HTML);
+  $('<button class ="btn btn-default" type="button" data-dismiss="modal"/>')
+      .text('Close')
+      .appendTo(modalFooter);
 }
 
 /**
@@ -2017,6 +2020,9 @@ function showEmotes() {
  */
 function showChatHelp() {
   createModal('Chat Commands');
+  $('<button class ="btn btn-default" type="button" data-dismiss="modal"/>')
+      .text('Close')
+      .appendTo(modalFooter);
 
   if (UI_FontsBtn) {
     modalBody.append('<strong>Fonts commands</strong><br /><br />');
@@ -2041,7 +2047,7 @@ function showChatHelp() {
           '<code>!!</code> - beginning and end of fastest bounce text scrolling!',
         ].map((line) => `<li>${line}</li>`)
             .join('') +
-        'For a quick CyDJ guide check out this Google Doc <a href="https://docs.google.com/document/d/1X2TdR9hc2KK0WEBLjY06CZaY30QyKxsI_7CQ1qbSz0g/edit" target="_blank">here</a>.';
+        'For a quick CyDJ guide check out this Google Doc <a href="https://tinyurl.com/CyDJguideV2" target="_blank">here</a>.';
     $('<ul />').html(html).appendTo(modalBody);
   }
   if (UI_UserCommands) {
@@ -2060,6 +2066,11 @@ function showChatHelp() {
       'add': 'adding a link to the end of playlist ' +
           '(e.g. <i>!add https://www.youtube.com/watch?v=29FFHC2D12Q</i>)',
       'stat': 'displaying user chat statistics in current session (<i>!stat</i>)',
+      'version': 'displays current script version (<i>!version</i>)',
+      'report': 'links a report fourm for reporting a user (<i>!report</i>)',
+      'guide': 'links the CyDJ guide (<i>!guide</i>)',
+      'script': 'links the CyDJ GitHub (<i>!script</i>)',
+      'botcommands': 'link to bot commands (<i>!botcommands</i>)',
       'discord': 'link to the CyDJ discord (<i>!discord</i>)',
       'link': 'post a TinyURL link for this room (<i>!link</i>)',
       'randomemote': 'displays a random emote from the emote list (<i>!randomemote</i>)',
@@ -2168,7 +2179,9 @@ function showSoundsPanel() {
  */
 function showModPanel() {
   createModal('Moderators panel');
-
+  $('<button class ="btn btn-default" type="button" data-dismiss="modal"/>')
+      .text('Close')
+      .appendTo(modalFooter);
   let html = '';
   for (const panel of ModPanel_Array) {
     const name = panel[0];
@@ -3287,6 +3300,9 @@ if (UI_DEBUG) {
  */
 function showContextMenu() {
   createModal('Context Menu');
+  $('<button class ="btn btn-default" type="button" data-dismiss="modal"/>')
+      .text('Close')
+      .appendTo(modalFooter);
   if (UI_ContextMenu) {
     modalBody.append('<strong>Useful links</strong><br /><br />');
     const html =
@@ -5113,3 +5129,26 @@ socket.on('mediaUpdate', fixRawVideoControls);
 document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
 setInterval(() => resizeStuff(), 1000);
+
+/* const element = document.getElementById('well');
+const resizer = document.createElement('div');
+resizer.className = 'resizer';
+resizer.style.position = 'absolute';
+resizer.style.right = 0;
+resizer.style.bottom = 0;
+resizer.style.cursor = 'se-resize';
+element.appendChild(resizer);
+resizer.addEventListener('mousedown', initResize, false);
+
+function initResize(e) {
+  window.addEventListener('mousemove', Resize, false);
+  window.addEventListener('mouseup', stopResize, false);
+}
+function Resize(e) {
+  element.style.width = (e.clientX - element.offsetLeft) + 'px';
+  element.style.height = (e.clientY - element.offsetTop) + 'px';
+}
+function stopResize(e) {
+  window.removeEventListener('mousemove', Resize, false);
+  window.removeEventListener('mouseup', stopResize, false);
+} */
