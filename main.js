@@ -5131,7 +5131,7 @@ socket.on('changeMedia', resizeStuff);
 setInterval(() => resizeStuff(), 1000);
 
 const element = document.getElementById('config-well');
-const resizer = document.createElement('resizable');
+const resizer = document.createElement('div');
 resizer.className = 'resizer';
 resizer.style.position = 'absolute';
 resizer.style.right = 0;
