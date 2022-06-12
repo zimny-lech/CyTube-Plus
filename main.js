@@ -5130,7 +5130,7 @@ document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
 setInterval(() => resizeStuff(), 1000);
 
-const element = document.getElementById('well');
+/* const element = document.getElementById('well');
 const resizer = document.createElement('div');
 resizer.className = 'resizer';
 resizer.style.position = 'absolute';
@@ -5151,4 +5151,4 @@ function Resize(e) {
 function stopResize(e) {
   window.removeEventListener('mousemove', Resize, false);
   window.removeEventListener('mouseup', stopResize, false);
-}
+} */
