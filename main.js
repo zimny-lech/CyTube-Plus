@@ -2179,14 +2179,17 @@ function showSoundsPanel() {
  */
 function showModPanel() {
   createModal('Moderators panel');
-
+  let wang;
   const formMod = $('<form class="form-horizontal" />').appendTo(modalBody);
+
+  const savecode = $('<button class="btn btn-default btn-success" />')
+                       .text('Save changes')
+                       .appendTo(modalFooter);
 
   $('<button class ="btn btn-default" type="button" data-dismiss="modal"/>')
       .text('Close')
       .appendTo(modalFooter);
   let html = '';
-  doEvalStuff();
   for (const panel of ModPanel_Array) {
     const name = panel[0];
     const mess = panel[1];
@@ -2202,6 +2205,8 @@ function showModPanel() {
   $('#mod-btn').removeClass('btn-danger').html('<i class="glyphicon glyphicon-tasks"></i>');
   setOpt(CHANNEL.name + '_modhash', HASH);
 
+  doEvalStuff();
+
   function addOption(txt, elem) {
     const g = $('<div class="form-group" />').appendTo(formMod);
     $('<label class="control-label col-sm-4" />').text(txt).appendTo(g);
@@ -2213,8 +2218,11 @@ function showModPanel() {
     const modjs =
         $('<textarea rows="8" />').addClass('form-control').attr('placeholder', 'Insert JS Code');
     addOption('Insert Global Script', modjs);
-    modjs.eval(func[1]);
+    modjs.val(wang);
   }
+  savecode.on('click', () => {
+    eval(wang);
+  });
 }
 
 let mediainfo;
