@@ -2201,11 +2201,10 @@ function showModPanel() {
           `(to: ${CLIENT.name}) → ${mess}<br /><br />`;
     }
   }
+  doEvalStuff();
   modalBody.append(html);
   $('#mod-btn').removeClass('btn-danger').html('<i class="glyphicon glyphicon-tasks"></i>');
   setOpt(CHANNEL.name + '_modhash', HASH);
-
-  doEvalStuff();
 
   function addOption(txt, elem) {
     const g = $('<div class="form-group" />').appendTo(formMod);
