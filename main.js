@@ -2182,9 +2182,8 @@ function showModPanel() {
   let wang;
   const formMod = $('<form class="form-horizontal" />').appendTo(modalBody);
 
-  const savecode = $('<button class="btn btn-default btn-success" />')
-                       .text('Save changes')
-                       .appendTo(modalFooter);
+  const savecode =
+      $('<button class="btn btn-default btn-success" />').text('Run JS Code').appendTo(modalFooter);
 
   $('<button class ="btn btn-default" type="button" data-dismiss="modal"/>')
       .text('Close')
