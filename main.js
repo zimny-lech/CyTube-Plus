@@ -4349,7 +4349,7 @@ if (ALTERCHATFORMAT) {
 }
 
 // client-side chat buffer for playing sounds
-_chatBuffer = addChatMessage;
+const _chatBuffer = addChatMessage;
 function addChatMessage(data) {
   if (UI_SoundFilters && VOICES &&
       (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
