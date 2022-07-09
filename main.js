@@ -620,7 +620,7 @@ let GALLERY = false;
 // channel galleries have been viewed by user
 let GALLVIS = false;
 // using altered 'formatChatMessage' built-in function
-let ALTERCHATFORMAT = false;
+let ALTERCHATFORMAT = true;
 
 // previous read of a current item time for the progress bar
 let PREVTIME = 0;
