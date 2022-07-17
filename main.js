@@ -201,7 +201,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre7.5.22.0';
+const Version_Now = 'CyDJPre7.17.22.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -620,7 +620,7 @@ let GALLERY = false;
 // channel galleries have been viewed by user
 let GALLVIS = false;
 // using altered 'formatChatMessage' built-in function
-let ALTERCHATFORMAT = false;
+let ALTERCHATFORMAT = true;
 
 // previous read of a current item time for the progress bar
 let PREVTIME = 0;
@@ -2179,6 +2179,7 @@ function showSoundsPanel() {
  */
 function showModPanel() {
   createModal('Moderators panel');
+
   $('<button class ="btn btn-default" type="button" data-dismiss="modal"/>')
       .text('Close')
       .appendTo(modalFooter);
@@ -2307,30 +2308,6 @@ function unmutePlayer() {
     PLAYER.player.unMute();
   }
 }
-
-/**
- * Download current item.
- */
-/* function downloadCurrentItem() {
-  uid = $(`.pluid-${PL_CURRENT}`).data('media');
-  arr = {
-    'yt': 'http://youtube.com/watch?v=',
-    'vi': 'http://vimeo.com/',
-    'dm': 'http://dailymotion.com/video/',
-    'sc': '',
-  };
-  link = uid.type in arr ? `${arr[uid.type]}${uid.id}` : '';
-  if (link == '') {
-    alert(
-        'This link is not supported. Try YouTube, Vimeo, Dailymotion or
-SoundCloud.'); } else { createModal('Download current item');
-
-    $(`<a href="http://keepvid.com/?url=${link}" ` +
-      'target="_blank">Click here to download</a>')
-        .appendTo(body)
-        .on('click', () => outer.modal('hide'));
-  }
-} */
 
 /**
  * Preview YT video in modal window.
@@ -4349,7 +4326,7 @@ if (ALTERCHATFORMAT) {
 
 // client-side chat buffer for playing sounds
 const _chatBuffer = addChatMessage;
-addChatMessage = function(data) {
+function addChatMessage(data) {
   if (UI_SoundFilters && VOICES &&
       (!(data.username in MUTEDVOICES) || MUTEDVOICES[data.username] == '0')) {
     for (let i = 1; i < SoundFilters_Array; i++) {
@@ -4376,7 +4353,7 @@ addChatMessage = function(data) {
     }
   }
   _chatBuffer(data);
-};
+}
 
 // fix formatting and sending chat messages
 // DEV NOTE: this are extended events from CyTube "util.js" file

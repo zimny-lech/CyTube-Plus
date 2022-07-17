@@ -8,12 +8,13 @@ body {
   line-height: 1.42857143
 }
 
-b, strong {
-	font-weight: 700;
+b,
+strong {
+  font-weight: 700;
 }
 
 .userlist_owner {
-	font-weight: bold!important;
+  font-weight: bold !important;
 }
 
 .poll-notify {
@@ -131,7 +132,7 @@ b, strong {
 /* USER OPTIONS */
 .modal-body {
   padding: 30px;
-  background-color: #282828!important;
+  background-color: #282828 !important;
 }
 
 .modal-header {
@@ -153,7 +154,8 @@ b, strong {
   color: #999;
 }
 
-.pm-panel, .pm-panel-placeholder {
+.pm-panel,
+.pm-panel-placeholder {
   width: 20%;
   min-width: 200px;
 }
@@ -191,7 +193,10 @@ textarea.form-control {
   margin-right: 0px;
 }
 
-input.form-control[type="text"], input.form-control[type="password"], input.form-control[type="email"], textarea.form-control {
+input.form-control[type="text"],
+input.form-control[type="password"],
+input.form-control[type="email"],
+textarea.form-control {
   background-color: #141414 !important;
   border: solid 1px rgb(238, 238, 238) !important
 }
@@ -201,7 +206,7 @@ input.form-control[type="text"], input.form-control[type="password"], input.form
 }
 
 .channel-emote {
-  background-color: transparent!important;
+  background-color: transparent !important;
 }
 
 .nick-hover {
@@ -248,7 +253,8 @@ input.form-control[type="text"], input.form-control[type="password"], input.form
   border: 0 solid
 }
 
-select[multiple], select[size] {
+select[multiple],
+select[size] {
   margin: 0 !important
 }
 
@@ -276,7 +282,8 @@ table {
   background-color: #377BBF
 }
 
-.pm-panel, .pm-panel-placeholder {
+.pm-panel,
+.pm-panel-placeholder {
   width: 300px
 }
 
@@ -316,37 +323,41 @@ table {
 .btn-default {
   color: #fff;
   background-color: #3a3f44;
-  border-color: black!important;
+  border-color: black !important;
   border: 1px solid transparent;
   background-image: -webkit-linear-gradient(#484e55, #3a3f44 60%, #313539);
   background-image: -o-linear-gradient(#484e55, #3a3f44 60%, #313539);
   background-image: webkit-gradient(linear, left top, left bottom, from(#484e55), color-stop(60%, #3a3f44), to(#313539));
-  background-image: linear-gradient(#6441a5, #6441a5 60%, #6441a5)!important;
+  background-image: linear-gradient(#6441a5, #6441a5 60%, #6441a5) !important;
   background-repeat: no-repeat;
   -webkit-filter: none;
   filter: none
 }
 
 .well {
-  background-color: #6700c51c!important;
+  background-color: #6700c51c !important;
+  border-color: #312851 !important;
 }
 
 #titlerow-outer {
-  background-color:#383E40!important;
+  background-color: #383E40 !important;
 }
 
 .btn {
   color: #fff;
   background-color: #3a3f44;
-  border-color: black!important
+  border-color: black !important
 }
+
 .alert-info {
   background-color: #383E40;
   border-color: #3F4344;
   color: #fff
 }
 
-.glyphicon-star-empty, .glyphicon-time, .glyphicon-volume-off {
+.glyphicon-star-empty,
+.glyphicon-time,
+.glyphicon-volume-off {
   display: inline
 }
 
@@ -427,10 +438,10 @@ table {
   text-shadow: 0 0 2px #fefcc9, 1px -1px 3px #feec85, -2px -2px 4px #ffae34, 2px -4px 5px #ec760c
 }
 
-span:not(.userlist_op):not(.userlist_owner) > strong.username {
-  color: #6A5ACD!important;
+span:not(.userlist_op):not(.userlist_owner)>strong.username {
+  color: #6A5ACD !important;
 }
 
-div.userlist_item > span:not(.userlist_op):not(.userlist_owner) {
-  color: #6A5ACD!important;
+div.userlist_item>span:not(.userlist_op):not(.userlist_owner) {
+  color: #6A5ACD !important;
 }
