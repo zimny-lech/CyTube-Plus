@@ -201,7 +201,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre7.18.22.0';
+const Version_Now = 'CyDJPre7.19.22.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -2274,7 +2274,7 @@ function coverPlayer() {
   }
   $('#videowrap').addClass('relative');
   const w = $('#ytapiplayer').css('width');
-  const h = $('#videowrap').css('height').replace('px', '') - 31;
+  const h = $('#videowrap').css('height').replace('px', '') - 30;
   coverpl = $('<div id="coverpl" />')
                 .css({
                   'width': w,
