@@ -24,7 +24,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 import {config, icon, library} from '@fortawesome/fontawesome-svg-core';
 import {faCamera} from '@fortawesome/free-solid-svg-icons';
 
-import {ANALYTICS} from './lib/analytics';
+import {intAnal} from './lib/analytics';
 import {formatBadgeToHtml, USER_BADGES} from './lib/badges';
 import {CHANNEL_DATABASE} from './lib/database';
 import {LOGOS} from './lib/logos';
@@ -51,7 +51,7 @@ library.add(faCamera);
 const UI_DEBUG = false;
 
 // adds google analytics and cookies
-const ANALYTICS = false;
+const GAnalytics = false;
 
 // default old Synchtube layout (player and playlist on the left)
 const UI_DefaultSynchtube = true;
@@ -4594,6 +4594,10 @@ if (FLUID) {
 
 // finishing variable
 LOADED = true;
+
+if (GAnalytics) {
+  intAnal();
+}
 
 /* Google Analytics code for Main Room ONLY
 (function(i, s, o, g, r, a, m) {
