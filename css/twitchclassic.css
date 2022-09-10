@@ -8,6 +8,10 @@ body {
   line-height: 1.42857143
 }
 
+.qe_title {
+  color: #fff;
+}
+
 b,
 strong {
   font-weight: 700;
