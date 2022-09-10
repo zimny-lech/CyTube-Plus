@@ -670,8 +670,6 @@ div[id="leftfooter"] {
 
 #messagebuffer div.nick-hover {
     border-left: #FF0000 solid 1px;
-    /* padding-left: 4px; */
-    transition: 0.3s;
 }
 
 .form-group {
