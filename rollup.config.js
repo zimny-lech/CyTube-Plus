@@ -7,5 +7,11 @@ export default {
     format: 'iife',
     name: 'cydj',
   },
+  input: 'mainv2.js',
+  output: {
+    file: 'build/mainv2.js',
+    format: 'iife',
+    name: 'cydjv2',
+  },
   plugins: [nodeResolve()],
 };
