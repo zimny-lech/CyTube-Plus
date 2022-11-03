@@ -48,7 +48,7 @@ library.add(faCamera);
 // 'Prepare fonts filters' button, and import
 
 // adds debugging bootan debug1
-const UI_DEBUG = false;
+const UI_DEBUG = true;
 
 // adds google analytics and cookies
 const GAnalytics = false;
