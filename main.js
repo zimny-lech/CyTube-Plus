@@ -262,7 +262,7 @@ const HeaderDropMenu_Array = [
 ];
 
 const MOTDAutoLogo_Array = [
-  'https://github.com/papertek/CyDJ/raw/beta/images/cydjhallo.jpg',
+  'https://github.com/papertek/CyDJ/raw/beta/images/cydjnormal.jpg',
 ];
 
 const MOTDTabs_Array = [
