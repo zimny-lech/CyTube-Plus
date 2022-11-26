@@ -48,7 +48,7 @@ library.add(faCamera);
 // 'Prepare fonts filters' button, and import
 
 // adds debugging bootan debug1
-const UI_DEBUG = false;
+const UI_DEBUG = true;
 
 // adds google analytics and cookies
 const GAnalytics = false;
@@ -3309,20 +3309,15 @@ function showDebugging() {
   createModal('Debug stuff');
   if (UI_DEBUG) {
     modalBody.append('<strong>Buttons that do stuff</strong><br /><br />');
-    const bootan1 = $('<button class="btn btn-default btn-success" />')
-                        .text('setUserCSS();')
-                        .appendTo(modalBody);
+    const debugbotan = $('<button class="btn btn-default btn-success" />');
+
+    const bootan1 = debugbotan.text('setUserCSS();').appendTo(modalBody);
     bootan1.on('click', () => setUserCSS());
-    const bootan2 = $('<button class="btn btn-default btn-success" />')
-                        .text('chatflair.show();')
-                        .appendTo(modalBody);
+    const bootan2 = debugbotan.text('chatflair.show();').appendTo(modalBody);
     bootan2.on('click', () => chatflair.show());
-    const bootan3 = $('<button class="btn btn-default btn-success" />')
-                        .text('location.reload();')
-                        .appendTo(modalBody);
+    const bootan3 = debugbotan.text('location.reload();').appendTo(modalBody);
     bootan3.on('click', () => location.reload());
-    const bootan4 =
-        $('<button class="btn btn-default btn-success" />').text('showDrop();').appendTo(modalBody);
+    const bootan4 = debugbotan.text('showDrop();').appendTo(modalBody);
     bootan4.on('click', () => showDrop());
   }
 }
