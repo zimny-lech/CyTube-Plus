@@ -3309,7 +3309,7 @@ function showDebugging() {
   createModal('Debug stuff');
   if (UI_DEBUG) {
     modalBody.append('<strong>Buttons that do stuff</strong><br /><br />');
-    const debugbotan = document.getElementsByClassName('btn btn-default btn-success');
+    const debugbotan = $('<button class="btn btn-default btn-success"><br />');
 
     function createBotans() {
       const bootan1 = debugbotan.text('setUserCSS();').appendTo(modalBody);
