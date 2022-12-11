@@ -48,7 +48,7 @@ library.add(faCamera);
 // 'Prepare fonts filters' button, and import
 
 // adds debugging bootan debug1
-const UI_DEBUG = true;
+const UI_DEBUG = false;
 
 // adds google analytics and cookies
 const GAnalytics = false;
@@ -3309,6 +3309,25 @@ function showDebugging() {
   createModal('Debug stuff');
   if (UI_DEBUG) {
     modalBody.append('<strong>Buttons that do stuff</strong><br /><br />');
+    const bootan1 = $('<button class="btn btn-default btn-success" />')
+                        .text('setUserCSS();')
+                        .appendTo(modalBody);
+    bootan1.on('click', () => setUserCSS());
+    const bootan2 = $('<button class="btn btn-default btn-success" />')
+                        .text('chatflair.show();')
+                        .appendTo(modalBody);
+    bootan2.on('click', () => chatflair.show());
+    const bootan3 = $('<button class="btn btn-default btn-success" />')
+                        .text('location.reload();')
+                        .appendTo(modalBody);
+    bootan3.on('click', () => location.reload());
+  }
+}
+/*
+function showDebugging() {
+  createModal('Debug stuff');
+  if (UI_DEBUG) {
+    modalBody.append('<strong>Buttons that do stuff</strong><br /><br />');
     for (let i = 0; i < 4; i++) {
       const debugbotan =
           $('<button class="btn btn-default btn-success"><br />').appendTo(modalBody);
@@ -3316,7 +3335,7 @@ function showDebugging() {
     }
   }
 }
-
+*/
 // adding easter egg button
 if (UI_PartyButton) {
   $('<button id="party-btn" class="btn btn-sm btn-default" title="Party! DO NOT USE IF YOU ARE SUBJECT TO EPILEPSY!!!" />')
