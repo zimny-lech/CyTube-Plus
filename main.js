@@ -435,7 +435,7 @@ const ThemesCSS = [
     'https://papertek.github.io/CyDJ/deploy/beta/css/twitchclassic.css',
   ],
   [
-    'Pre DJ',
+    'Old DJ',
     'https://papertek.github.io/CyDJ/deploy/beta/css/DJDefault.css',
   ],
   [
@@ -445,6 +445,10 @@ const ThemesCSS = [
   [
     'Black Cat',
     'https://papertek.github.io/CyDJ/deploy/beta/css/blackcat.css',
+  ],
+  [
+    'Peachy Theme',
+    'https://papertek.github.io/CyDJ/deploy/beta/css/peachy.css',
   ],
   [
     'U.U.F.O',

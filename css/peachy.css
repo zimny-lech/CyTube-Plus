@@ -1,0 +1,193 @@
+/* Peachy Theme by Peachy, using UUFO theme as base  */
+
+body {
+  background: linear-gradient(to bottom, #dd817a, #b8a36d)!important;
+  color:rgb(255, 255, 255);
+  overflow-x:hidden;
+  background-repeat: no-repeat;
+}
+
+#currenttitle {
+  background-image: url(https://cdn.betterttv.net/emote/62ed94b0ecbd418154237a71/2x)!important;
+  background-repeat: no-repeat!important;
+  background-position: left center!important;
+}
+
+.qe_title {
+  color: white!important;
+}
+
+html, body {
+  height: unset;
+}
+
+#motdwrap {
+  padding: 10px;
+  border-color: white;
+  box-shadow: none;
+  background-color: #ffffff4d;
+}
+
+#wrap {
+  background-image: url();
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+  background-size: auto;
+  min-height: 100%;
+  height: auto;
+  margin: 0 auto -60px;
+  padding: 0 0 60px;
+}
+
+.alert-info {
+  background-color: #dd817a;
+  border-color: #ddc27d;
+  color: #fff;
+}
+
+.glyphicon {
+  font-weight: 500;
+}
+/*#mainpage{
+  background-image: url(https://cametek.jp/uufo/img/bg-intro.jpg);
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+  background-size: auto;
+}
+
+#azukirow{
+  background-image: url(https://cametek.jp/uufo/img/bg-intro.jpg);
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+  background-size: auto;
+}*/
+
+#ytapiplayer {
+  background-color: #000000;
+}
+
+#chatheader, #videowrap-header, #userlist, #messagebuffer, #plmeta {
+  background-color: #bb5f73;
+}
+
+footer {
+  background-color: #c576c1 !important;
+}
+
+.text-muted, .text-primary {
+  color: #78be86;
+}
+
+.profile-box, .user-dropdown {
+  background-color: #F6B092;
+  color:white;
+}
+
+.chat-shadow {
+  color: #c2c0c0;
+}
+
+.drink {
+  border: 2px solid #F6B092;
+}
+
+#drinkcount {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+#plmeta {
+  border: 1px solid #aaaaaa;
+}
+
+#userlist, #messagebuffer {
+  border: 1px solid #aaaaaa;
+}
+
+#chatheader, #videowrap-header {
+  border: 1px solid #cccccc;
+  border-bottom-width: 0;
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.queue_entry {
+  border-color: #dd817a;
+  background-color: #ac745d;
+}
+
+.queue_entry.queue_active {
+  background-color: #ca896d;
+  background-image: linear-gradient(#bb5f73, #bb627d);
+  background-repeat:no-repeat;
+}
+
+.navbar-inverse .navbar-text-nofloat {
+  color: #9d9d9d;
+}
+
+.btn-default {
+  background-image: linear-gradient(#e283a0, #e7859a)!important;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.btn {
+  border-color: #000!important;
+}
+
+.well {
+  background-color:#b37257!important;
+}
+
+.dark-theme > .odd-message {
+  background-color: #bb627d;
+}
+
+.modal-body {
+  padding: 30px;
+  background-color: #d8967a!important;
+}
+
+.modal-header {
+  background-color: #e08a7b;
+}
+
+.modal-footer {
+  background-color: #e08a7b;
+}
+
+.emote-preview-container {
+  margin: 3px
+}
+
+.emotelist-table td {
+  background-color: #b16c60;
+}
+
+#titlerow-outer {
+  letter-spacing:2px;
+  background-color: #d48b7e;
+}
+
+.qe_title {
+  margin-left: 4px;
+  letter-spacing: .6px;
+}
+
+::-webkit-scrollbar{min-height:10px;width:6px;background:transparent}
+::-webkit-scrollbar-thumb {
+  background: rgb(100, 160, 179);
+  opacity: 7;
+  border-radius: 1ex;
+}
+::-webkit-scrollbar-corner{background:rgb(255, 255, 255)}
+
+div.userlist_item > span:not(.userlist_op):not(.userlist_owner) {
+  color: #ffffff;
+}
+
+span:not(.userlist_op):not(.userlist_owner) > strong.username {
+  color: #ffffff;
+}
