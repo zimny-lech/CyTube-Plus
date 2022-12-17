@@ -447,6 +447,10 @@ const ThemesCSS = [
     'https://papertek.github.io/CyDJ/deploy/beta/css/peachy.css',
   ],
   [
+    'Alien',
+    'https://papertek.github.io/CyDJ/deploy/beta/css/alien.css',
+  ],
+  [
     'Black Cat',
     'https://papertek.github.io/CyDJ/deploy/beta/css/blackcat.css',
   ],

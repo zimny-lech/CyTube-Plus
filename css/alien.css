@@ -1,0 +1,170 @@
+/* Black Cat by Shelly, using UUFO theme as base */
+/* Credit to various CyDJ programmers */
+
+body {
+  background: linear-gradient(to bottom, #b9c2e3 70%, #141414 , #ff2e93, #ffe5b3)!important;
+  color:white;
+  overflow-x:hidden;
+  background-repeat: no-repeat;
+}
+
+html, body {
+  height: unset;
+}
+
+#motdwrap {
+  padding: 10px;
+  border-color: white;
+  box-shadow: none;
+  background-color: #829b0e40;
+}
+
+#currenttitle {
+  background-image: url(https://cdn.7tv.app/emote/639573f931831325f5765528/1x.webp)!important;
+  background-repeat: no-repeat!important;
+  background-position: left center!important;
+}
+
+#wrap {
+  background-image: url(https://64.media.tumblr.com/7b03a0802517c32df5c22b2799d6be8f/193cd7053c37d359-50/s540x810/7380028ee423c4f7c8ae6d7e5ab3a49b3a2a7d34.gif);
+  background-repeat: repeat;
+  background-position: 70% 6%;
+  background-size: inherit;
+  min-height: 79%;
+  height: auto;
+  margin: 0 auto -60px;
+  padding: 0 0 60px;
+  background-blend-mode: soft-light;
+}
+
+.alert-info {
+  background-color: #fb0001;
+  border-color: #3b4ba09e;
+  color: #fff;
+}
+
+.glyphicon {
+  font-weight: 500;
+}
+
+#ytapiplayer {
+  background-color: #000000;
+}
+
+#chatheader, #videowrap-header, #userlist, #messagebuffer, #plmeta {
+  background-color: #000000e6;
+}
+
+#footer {
+    background: radial-gradient(#00000069, #000000);
+}
+
+.text-muted, .text-primary {
+  color: #ffffff;
+}
+
+.profile-box, .user-dropdown {
+  background-color: #f4bb1b;
+  color:white;
+}
+
+.chat-shadow {
+  color: #aaaaaa;
+}
+
+.drink {
+  border: 2px solid #0000cc;
+}
+
+#drinkcount {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+#plmeta {
+  border: 1px solid #aaaaaa;
+}
+
+#userlist, #messagebuffer {
+  border: 1px solid #22fe00;
+}
+
+#chatheader, #videowrap-header {
+  border: 1px solid #cccccc;
+  border-bottom-width: 0;
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.queue_entry {
+  border-color: #202124;
+  background-color: #141414;
+}
+
+.queue_entry.queue_active {
+  /* background-color: #d854a6; */
+  background-image: linear-gradient(#7a59ddc7, #ada3d5, #b3eb02);
+  background-repeat:no-repeat;
+}
+
+.navbar-inverse .navbar-text-nofloat {
+  color: #9d9d9d;
+}
+
+.btn-default {
+  background-image: linear-gradient(#ff1887ad, #75529b 100%, #8f6cbf);
+  font-weight: 500;
+  color: #fffefe;
+}
+
+.dark-theme > .odd-message {
+  background-color: #10111285;
+}
+
+.modal-body {
+  padding: 30px;
+  background-color: #d53bd0!important;
+}
+
+.modal-header {
+  background-color: #1e1e1e;
+}
+
+.modal-footer {
+  background-color: #1e1e1e;
+}
+
+.emote-preview-container {
+  margin: 3px
+}
+
+.emotelist-table td {
+  background-color: #161a20;
+}
+
+#titlerow-outer {
+  letter-spacing:2px;
+  background-color: #202605e0;
+}
+
+.qe_title {
+  margin-left: 4px;
+  letter-spacing: .6px;
+}
+
+::-webkit-scrollbar{min-height:10px;width:6px;background:transparent;}
+::-webkit-scrollbar-thumb {
+  background: #f837ca;
+  opacity: 7;
+  border-radius: 1ex;
+}
+::-webkit-scrollbar-corner{background: rgb(129 21 21 / 8%);}
+
+div.userlist_item > span:not(.userlist_op):not(.userlist_owner) {
+  color: #ffffff;
+}
+
+span:not(.userlist_op):not(.userlist_owner) > strong.username {
+  color: #ffffff;
+}
