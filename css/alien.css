@@ -1,14 +1,15 @@
-/* Black Cat by Shelly, using UUFO theme as base */
+/* Alien by Shelly, using Black Cat theme as base */
 /* Credit to various CyDJ programmers */
 
 body {
-  background: linear-gradient(to bottom, #b9c2e3 70%, #141414 , #ff2e93, #ffe5b3)!important;
-  color:white;
-  overflow-x:hidden;
+  background: linear-gradient(to bottom, #b9c2e3 70%, #141414, #ff2e93, #ffe5b3) !important;
+  color: white;
+  overflow-x: hidden;
   background-repeat: no-repeat;
 }
 
-html, body {
+html,
+body {
   height: unset;
 }
 
@@ -20,9 +21,9 @@ html, body {
 }
 
 #currenttitle {
-  background-image: url(https://cdn.7tv.app/emote/639573f931831325f5765528/1x.webp)!important;
-  background-repeat: no-repeat!important;
-  background-position: left center!important;
+  background-image: url(https://cdn.7tv.app/emote/639573f931831325f5765528/1x.webp) !important;
+  background-repeat: no-repeat !important;
+  background-position: left center !important;
 }
 
 #wrap {
@@ -51,21 +52,27 @@ html, body {
   background-color: #000000;
 }
 
-#chatheader, #videowrap-header, #userlist, #messagebuffer, #plmeta {
+#chatheader,
+#videowrap-header,
+#userlist,
+#messagebuffer,
+#plmeta {
   background-color: #000000e6;
 }
 
 #footer {
-    background: radial-gradient(#00000069, #000000);
+  background: radial-gradient(#00000069, #000000);
 }
 
-.text-muted, .text-primary {
+.text-muted,
+.text-primary {
   color: #ffffff;
 }
 
-.profile-box, .user-dropdown {
+.profile-box,
+.user-dropdown {
   background-color: #f4bb1b;
-  color:white;
+  color: white;
 }
 
 .chat-shadow {
@@ -85,11 +92,13 @@ html, body {
   border: 1px solid #aaaaaa;
 }
 
-#userlist, #messagebuffer {
+#userlist,
+#messagebuffer {
   border: 1px solid #22fe00;
 }
 
-#chatheader, #videowrap-header {
+#chatheader,
+#videowrap-header {
   border: 1px solid #cccccc;
   border-bottom-width: 0;
   border-radius: 5px;
@@ -105,7 +114,7 @@ html, body {
 .queue_entry.queue_active {
   /* background-color: #d854a6; */
   background-image: linear-gradient(#7a59ddc7, #ada3d5, #b3eb02);
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
 }
 
 .navbar-inverse .navbar-text-nofloat {
@@ -118,13 +127,13 @@ html, body {
   color: #fffefe;
 }
 
-.dark-theme > .odd-message {
+.dark-theme>.odd-message {
   background-color: #10111285;
 }
 
 .modal-body {
   padding: 30px;
-  background-color: #d53bd0!important;
+  background-color: #d53bd0 !important;
 }
 
 .modal-header {
@@ -144,7 +153,7 @@ html, body {
 }
 
 #titlerow-outer {
-  letter-spacing:2px;
+  letter-spacing: 2px;
   background-color: #202605e0;
 }
 
@@ -153,18 +162,26 @@ html, body {
   letter-spacing: .6px;
 }
 
-::-webkit-scrollbar{min-height:10px;width:6px;background:transparent;}
+::-webkit-scrollbar {
+  min-height: 10px;
+  width: 6px;
+  background: transparent;
+}
+
 ::-webkit-scrollbar-thumb {
   background: #f837ca;
   opacity: 7;
   border-radius: 1ex;
 }
-::-webkit-scrollbar-corner{background: rgb(129 21 21 / 8%);}
 
-div.userlist_item > span:not(.userlist_op):not(.userlist_owner) {
+::-webkit-scrollbar-corner {
+  background: rgb(129 21 21 / 8%);
+}
+
+div.userlist_item>span:not(.userlist_op):not(.userlist_owner) {
   color: #ffffff;
 }
 
-span:not(.userlist_op):not(.userlist_owner) > strong.username {
+span:not(.userlist_op):not(.userlist_owner)>strong.username {
   color: #ffffff;
 }
