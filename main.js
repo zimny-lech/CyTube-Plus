@@ -26,7 +26,7 @@ import {faCamera} from '@fortawesome/free-solid-svg-icons';
 
 import {intAnal} from './lib/analytics';
 import {formatBadgeToHtml, USER_BADGES} from './lib/badges';
-import {doMessageCommands} from './lib/commands';
+import {prepareMessage} from './lib/commands';
 import {CHANNEL_DATABASE} from './lib/database';
 import {LOGOS} from './lib/logos';
 import {initTwemoji} from './lib/twemoji';
@@ -605,8 +605,6 @@ let ALTERCHATFORMAT = true;
 let PREVTIME = 0;
 // timestamp of the last adding random item from the channel database
 let LASTADD = 1;
-// ID of previous video queued (so !random doesn't add it again)
-let LAST_VIDEO_ID_QUEUED = 'some-bogus-dont-leave-empty';
 // user minutes online
 let USERONLINE = 0;
 // number of background changes for the drop it
@@ -1219,27 +1217,7 @@ if (UI_MessagesSuffix) {
 }
 
 if (UI_UserCommands) {
-  doMessageCommands;
-}
-
-if (UI_ChannelDatabase && UI_UserCommands) {
-  if (msg.startsWith('!random') && hasPermission('playlistadd')) {
-    let link = '';
-    let title = '';
-    while (link === '' || link.includes(LAST_VIDEO_ID_QUEUED)) {
-      const rnd = Math.round(Math.random() * (CHANNEL_DATABASE.length - 1));
-      link = CHANNEL_DATABASE[rnd][0];
-      title = CHANNEL_DATABASE[rnd][1];
-    }
-    const parsed = parseMediaLink(link);
-    socket.emit('queue', {
-      id: parsed['id'],
-      pos: 'end',
-      type: parsed['type'],
-      temp: $('.add-temp').prop('checked'),
-    });
-    msg = `random media added! - ${title}`;
-  }
+  prepareMessage;
 }
 
 /**
@@ -2618,12 +2596,12 @@ function getPlaylistURLs() {
 }
 
 /**
- * Add random item from channel database.
+ * Add random item from channel database. Original is 120000 for 2 minutes.
  */
 function addRandomItem() {
   const time = (new Date()).getTime();
-  if ((time - LASTADD) < 120000) {
-    alert('You can add random video every 2 minutes.');
+  if ((time - LASTADD) < 1000) {
+    alert('Please wait 30 seconds before adding a random video!');
   } else {
     let link = '';
     while (link === '') {
@@ -2634,8 +2612,6 @@ function addRandomItem() {
     LASTADD = time;
   }
 }
-
-socket.on('queue', (data) => LAST_VIDEO_ID_QUEUED = data.item.media.id);
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
