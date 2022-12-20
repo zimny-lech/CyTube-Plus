@@ -206,7 +206,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre12.17.22.0';
+const Version_Now = 'CyDJPre12.20.22.0';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -2792,7 +2792,7 @@ if (UI_HeaderDropMenu) {
 // adding version to the tab
 if (UI_Version) {
   if (Version_Now === '') {
-    Version_Now = '???';
+    Version_Now = 'UNDEF';
   }
   const headerdrop = $('<li id="headerdrop" class="dropdown" />').insertAfter('#channelset-link');
   $('<a class="dropdown-toggle disabled" href="https://github.com/papertek/CyDJ" />')
