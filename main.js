@@ -1158,7 +1158,7 @@ class ChatStats {
  *
  * @return {!ChatStats} The chat stats.
  */
-function getChatStats() {
+export function getChatStats() {
   return ChatStats.fromJsonString(window.localStorage[ChatStats.getLocalStorageKey()]);
 }
 
@@ -4121,11 +4121,6 @@ $('#chatline').on('keydown', (ev) => {
     if (msg.trim()) {
       msg = prepareMessage(msg.trim());
       const meta = {};
-      /* if (COMMAND) {
-        socket.emit('chatMsg', {msg: _msg});
-        msg = `➥ ${msg}`;
-        COMMAND = false;
-      } */
       if (USEROPTS.adminhat && CLIENT.rank >= 255) {
         msg = `/a ${msg}`;
       } else if (USEROPTS.modhat && CLIENT.rank >= Rank.Moderator) {
