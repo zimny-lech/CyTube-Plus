@@ -574,7 +574,7 @@ let USERVISITS = getOrDefault(CHANNEL.name + '_visits', 0);
 let DEFDESCR = true;
 // admin chat functions panel visibility
 let CHATFUNC = true;
-// aditional command occuring in the chat message
+// additional command occuring in the chat message
 let COMMAND = false;
 // chat sounds not disabled by user
 let VOICES = false;
