@@ -1217,6 +1217,9 @@ if (UI_MessagesSuffix) {
 }
 
 if (UI_UserCommands) {
+  if (msg.startsWith('!')) {
+    COMMAND = true;
+  }
   prepareMessage;
 }
 
