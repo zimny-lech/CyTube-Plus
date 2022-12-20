@@ -1167,7 +1167,7 @@ export function getChatStats() {
  *
  * @param {string} msg Message that was sent.
  */
-function updateChatStats(msg) {
+export function updateChatStats(msg) {
   const chatStats = getChatStats();
 
   chatStats.numberOfMessages++;
