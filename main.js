@@ -4109,11 +4109,7 @@ function addChatMessage(data) {
 
 $('#chatline, #chatbtn').off();
 
-/*
-
-let /** @type {string} */    // unsentMsg = null;
-
-/*
+let /** @type {string} */ unsentMsg = null;
 
 $('#chatline').on('keydown', (ev) => {
   if (ev.key === 'Enter') {
@@ -4172,7 +4168,6 @@ $('#chatline').on('keydown', (ev) => {
   }
 });
 
-*/
 
 // TODO: Check what this does, I don't know what it does.
 // #chatbtn is a button thats disabled? Maybe? If I remember correctly.
@@ -4490,7 +4485,7 @@ socket.on('emoteList', tabCompletionRefresh);
 socket.on('updateEmote', tabCompletionRefresh);
 socket.on('removeEmote', tabCompletionRefresh);
 
-export function chatTabComplete() {
+function chatTabComplete() {
   const match = /(.*?) *$/.exec($('#chatline').val());
   if (match === null || match[1] === '') {
     return;
