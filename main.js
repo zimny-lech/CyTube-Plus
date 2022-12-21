@@ -1207,6 +1207,8 @@ function createSquavatar(str) {
  */
 
 
+// TODO: Fix this and move to file, maybe?
+// All the values are being used earlier in the script.
 if (UI_MessagesSuffix) {
   if ((typeof MessagesSuffix_Percentage !== 'number') || MessagesSuffix_Percentage < 0) {
     MessagesSuffix_Percentage = '10';
@@ -1215,6 +1217,8 @@ if (UI_MessagesSuffix) {
     msg += ' ' + MessagesSuffix_Text;
   }
 }
+
+// Imports commands from the command file.
 
 if (UI_UserCommands) {
   prepareMessage;
