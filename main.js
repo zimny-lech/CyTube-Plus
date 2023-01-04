@@ -26,7 +26,7 @@ import {faCamera} from '@fortawesome/free-solid-svg-icons';
 
 import {intAnal} from './lib/analytics';
 import {formatBadgeToHtml, USER_BADGES} from './lib/badges';
-import {prepareMessage} from './lib/commands';
+import {COMMAND, prepareMessage} from './lib/commands';
 import {CHANNEL_DATABASE} from './lib/database';
 import {LOGOS} from './lib/logos';
 import {initTwemoji} from './lib/twemoji';
@@ -575,7 +575,7 @@ let DEFDESCR = true;
 // admin chat functions panel visibility
 let CHATFUNC = true;
 // additional command occuring in the chat message
-let COMMAND = false;
+// let COMMAND = false;
 // chat sounds not disabled by user
 let VOICES = false;
 // emotes have been loaded into emotes panel
