@@ -26,7 +26,7 @@ import {faCamera} from '@fortawesome/free-solid-svg-icons';
 
 import {intAnal} from './lib/analytics';
 import {formatBadgeToHtml, USER_BADGES} from './lib/badges';
-import {COMMAND, prepareMessage} from './lib/commands';
+import {prepareMessage} from './lib/commands';
 import {CHANNEL_DATABASE} from './lib/database';
 import {LOGOS} from './lib/logos';
 import {initTwemoji} from './lib/twemoji';
