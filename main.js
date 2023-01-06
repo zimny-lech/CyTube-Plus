@@ -4198,7 +4198,7 @@ export function utilShit() {
   });
 }
 
-utilShit();
+document.body.addEventListener('load', utilShit, true);
 
 /**
  * @typedef {Object} SetUserMetaEvent
