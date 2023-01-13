@@ -1,0 +1,186 @@
+/* Star Theme by ItMePeachy, using UUFO theme as base  */
+
+body {
+    background: linear-gradient(to bottom, #0e0e47, #010114, rgb(54, 8, 95))!important;
+    color:rgb(255, 255, 255);
+    overflow-x:hidden;
+    background-repeat: no-repeat;
+  }
+  
+  #currenttitle {
+    background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1063346242572259358/moon.gif)!important;
+    background-repeat: no-repeat!important;
+    background-position: left center!important;
+  }
+  
+  .qe_title {
+    color: white!important;
+  }
+  
+  html, body {
+    height: unset;
+  }
+  
+  #motdwrap {
+    padding: 10px;
+    border-color: white;
+    box-shadow: none;
+    background-color: #a277d180;
+  }
+  
+  #wrap {
+    background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1063346243088166942/stars.png);
+    background-repeat: repeat;
+    background-position: 100% 0%;
+    background-size: 40%;
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+  }
+  
+  .alert-info {
+    background-color: #6c25bd;
+    border-color: #4d1dc79e;
+    color: #fff;
+  }
+  
+  .glyphicon {
+    font-weight: 500;
+  }
+  
+  #ytapiplayer {
+    background-color: #000000;
+  }
+  
+  #chatheader, #videowrap-header, #userlist, #messagebuffer, #plmeta {
+    background-color: #2c1476;
+  }
+  
+  footer {
+    background-color: #3b4ba0 !important;
+  }
+  
+  .text-muted, .text-primary {
+    color: #76b0d1;
+  }
+  
+  .profile-box, .user-dropdown {
+    background-color: #a55ed1;
+    color:white;
+  }
+  
+  .chat-shadow {
+    color: #c2c0c0;
+  }
+  
+  #coverpl{
+    background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1063350244529676369/Totoro.gif)!important;
+    background-color: #000000!important;
+  }
+  
+  .drink {
+    border: 2px solid #9200cc;
+  }
+  
+  #drinkcount {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  #plmeta {
+    border: 1px solid #aaaaaa;
+  }
+  
+  #userlist, #messagebuffer {
+    border: 1px solid #aaaaaa;
+  }
+  
+  #chatheader, #videowrap-header {
+    border: 1px solid #cccccc;
+    border-bottom-width: 0;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+  .queue_entry {
+    border-color: #671e9b;
+    background-color: #282a9bbb;
+  }
+  
+  .queue_entry.queue_active {
+    background-color: #891787;
+    background-image: linear-gradient(#660b8d, #2f1083bb);
+    background-repeat:no-repeat;
+  }
+  
+  .navbar-inverse .navbar-text-nofloat {
+    color: #9d9d9d;
+  }
+  
+  .btn-default {
+    background-image: linear-gradient(#a978dc, #a978dc)!important;
+    font-weight: 500;
+    color: #000000;
+  }
+  
+  .btn {
+    border-color: #000!important;
+  }
+  
+  .well {
+    background-color:#6700c51c!important;
+  }
+  
+  .dark-theme > .odd-message {
+    background-color: #25023ccf;
+  }
+  
+  .modal-body {
+    padding: 30px;
+    background-color: #3a0c70!important;
+  }
+  
+  .modal-header {
+    background-color: #3a0c70;
+  }
+  
+  .modal-footer {
+    background-color: #3a0c70;
+  }
+  
+  .emote-preview-container {
+    margin: 3px
+  }
+  
+  .emotelist-table td {
+    background-color: #5a348e;
+  }
+  
+  #titlerow-outer {
+    letter-spacing:2px;
+    color: #e3b3ff!important;
+    background-color: #220e59;
+  }
+    
+  .qe_title {
+    margin-left: 4px;
+    letter-spacing: .6px;
+  }
+  
+  ::-webkit-scrollbar{min-height:10px;width:6px;background:transparent}
+  ::-webkit-scrollbar-thumb {
+    background: rgb(152, 70, 219);
+    opacity: 7;
+    border-radius: 1ex;
+  }
+  ::-webkit-scrollbar-corner{background:rgb(255, 255, 255)}
+  
+  div.userlist_item > span:not(.userlist_op):not(.userlist_owner) {
+    color: #ffffff;
+  }
+  
+  span:not(.userlist_op):not(.userlist_owner) > strong.username {
+    color: #ffffff;
+  }
