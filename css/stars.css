@@ -1,33 +1,113 @@
-/* Star Theme by ItMePeachy  */
+/* Star Theme by ItMePeachy */
+
+span:not(.userlist_op):not(.userlist_owner) > strong.username {
+      color: #c96cf5!important; 
+}
 
 body {
-    background: linear-gradient(to bottom, #0e0e47, #010114, rgb(54, 8, 95))!important;
+    background: linear-gradient(to bottom, #070733 , #05020e, #23053b)!important;
     color:rgb(255, 255, 255);
     overflow-x:hidden;
     background-repeat: no-repeat;
   }
   
+  .userlist_owner {
+    color: #3bd1ff!important;
+}
+.userlist_op {
+    color: #ffaef6!important;
+}
+
+div.userlist_item > span:not(.userlist_op):not(.userlist_owner):not(.userlist_guest) {
+    color: #c96cf5!important;
+}
+
+a {
+    color: #f5c1ff!important;
+}
+
+  #drinkcount {
+    background-color: #3e25ad;
+    color: #ffffff;
+    border: 2px solid #1f9ad3!important;
+    font-weight: lighter;
+    font-style: italic;
+    background-image: url()!important;
+    background-size: contain!important;
+    background: scroll;
+    border-radius: 10px;
+}
+
   #currenttitle {
     background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1063346242572259358/moon.gif)!important;
     background-repeat: no-repeat!important;
     background-position: left center!important;
   }
   
+  input.form-control[type="text"], input.form-control[type="password"], input.form-control[type="email"], textarea.form-control {
+    background-color: #130a2e !important;
+    border-radius: 10px;
+}
+
+  .pm-panel > .panel-body > .pm-buffer {
+    background-color: #160124cf;
+}
+  
+  .panel-default>.panel-heading {
+    background-color: #483585!important;
+    color: #ffffff!important;
+    border-radius: 10px!important;
+}
+
   .qe_title {
     color: white!important;
   }
   
+  .panel-primary>.panel-heading {
+    background-color: #dc7afa;
+    border: 2px solid #dc7afa!important;
+    border-radius: 10px!important;
+    color: #fff;
+    background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1064248330198188042/ezgif-3-4324ad53e1.gif)!important;
+    background-size: contain!important;
+    background: scroll;
+    text-shadow: 0px 0px 10px #000000, 0px 0px 10px #000 !important;
+}
+
   html, body {
     height: unset;
   }
   
+  ::selection {
+    color: #a7dddd!important;
+    background-color: #6643f461!important;
+}
+
   #motdwrap {
     padding: 10px;
     border-color: white;
     box-shadow: none;
     background-color: #a277d180;
   }
-  
+
+  #motdlogo {
+    border-color: #b09cc7cc;
+}
+
+  #nav-collapsible {
+    background-image: linear-gradient(#402c6b, #343674)!important;
+    }
+
+  .navbar-header {
+    background-image: linear-gradient(#402c6b, #343674)!important;
+    }
+
+    #footer {
+        background-color: #11011e!important;
+    }
+    
+    
+
   #wrap {
     background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1063346243088166942/stars.png);
     background-repeat: repeat;
@@ -39,9 +119,16 @@ body {
     padding: 0 0 60px;
   }
   
+  .form-control {
+    color: #c8c8c8;
+    width: 100%;
+    border-top: 0;
+    background-color: #130a2e !important;
+    border: solid 1px #ccc;
+}
   .alert-info {
-    background-color: #6c25bd;
-    border-color: #4d1dc79e;
+    background-color: #483585;
+    border-color: #483585;
     color: #fff;
   }
   
@@ -54,7 +141,7 @@ body {
   }
   
   #chatheader, #videowrap-header, #userlist, #messagebuffer, #plmeta {
-    background-color: #2c1476;
+    background-color: #240a44;
   }
   
   footer {
@@ -120,7 +207,7 @@ body {
   }
   
   .btn-default {
-    background-image: linear-gradient(#a978dc, #a978dc)!important;
+    background-image: linear-gradient(#a069db, #a069db)!important;
     font-weight: 500;
     color: #000000;
   }
@@ -131,31 +218,36 @@ body {
   
   .well {
     background-color:#6700c51c!important;
+    border-color: #4c4b9f!important;
   }
   
   .dark-theme > .odd-message {
-    background-color: #25023ccf;
+    background-color: #160124cf;
   }
-  
+  /*230b49*/
   .modal-body {
     padding: 30px;
-    background-color: #3a0c70!important;
+    background-color: #160124!important;
   }
   
   .modal-header {
-    background-color: #3a0c70;
+    background-color: #160124;
   }
   
   .modal-footer {
-    background-color: #3a0c70;
+    background-color: #160124;
   }
+
+  .modal-content {
+    background-color: #160124;
+}
   
   .emote-preview-container {
     margin: 3px
   }
   
   .emotelist-table td {
-    background-color: #5a348e;
+    background-color: #22093a;
   }
   
   #titlerow-outer {
@@ -176,11 +268,4 @@ body {
     border-radius: 1ex;
   }
   ::-webkit-scrollbar-corner{background:rgb(255, 255, 255)}
-  
-  div.userlist_item > span:not(.userlist_op):not(.userlist_owner) {
-    color: #ffffff;
-  }
-  
-  span:not(.userlist_op):not(.userlist_owner) > strong.username {
-    color: #ffffff;
-  }
+
