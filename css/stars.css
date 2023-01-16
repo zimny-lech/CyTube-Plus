@@ -1,271 +1,297 @@
 /* Star Theme by ItMePeachy */
 
 span:not(.userlist_op):not(.userlist_owner) > strong.username {
-      color: #c96cf5!important; 
+  color: #c96cf5!important; 
 }
 
 body {
-    background: linear-gradient(to bottom, #070733 , #05020e, #23053b)!important;
-    color:rgb(255, 255, 255);
-    overflow-x:hidden;
-    background-repeat: no-repeat;
-  }
-  
-  .userlist_owner {
-    color: #3bd1ff!important;
+background: linear-gradient(to bottom, #070733 , #05020e, #23053b)!important;
+color:rgb(255, 255, 255);
+overflow-x:hidden;
+background-repeat: no-repeat;
+}
+
+.userlist_owner {
+color: #3bd1ff!important;
 }
 .userlist_op {
-    color: #ffaef6!important;
+color: #ff8383!important;
 }
 
 div.userlist_item > span:not(.userlist_op):not(.userlist_owner):not(.userlist_guest) {
-    color: #c96cf5!important;
+color: #c96cf5!important;
 }
 
 a {
-    color: #f5c1ff!important;
+color: #f5c1ff!important;
+}
+.server-msg-disconnect {
+  font-family: 'Quicksand', sans-serif;
+  border: 3px solid #f97896!important;
+  background-color: #88384b!important;
+  background-image: url()!important;
+  background-size: contain!important;
+  background: scroll;
+  color: #fff;
+  border-radius: 15px;
+  font-size: 18px;
+  font-style: italic;
+  text-align: center;
+  text-shadow: 10px 0px 10px #000000, 10px 0px 10px #000000 !important;
+  transition: all .7s!important;
 }
 
-  #drinkcount {
-    background-color: #3e25ad;
-    color: #ffffff;
-    border: 2px solid #1f9ad3!important;
-    font-weight: lighter;
-    font-style: italic;
-    background-image: url()!important;
-    background-size: contain!important;
-    background: scroll;
-    border-radius: 10px;
+.server-msg-reconnect {
+  font-family: 'Quicksand', sans-serif;
+  border: 3px solid #95c9ff!important;
+  background-color: #557aa1!important;
+  background-image: url()!important;
+  background-size: contain!important;
+  background: scroll;
+  color: #fff;
+  border-radius: 15px;
+  font-size: 18px;
+  font-style: italic;
+  text-align: center;
+  text-shadow: 10px 0px 10px #000000, 10px 0px 10px #000000 !important;
+  transition: all .7s!important;
+  text-align: center;
 }
 
-  #currenttitle {
-    background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1063346242572259358/moon.gif)!important;
-    background-repeat: no-repeat!important;
-    background-position: left center!important;
-  }
-  
-  input.form-control[type="text"], input.form-control[type="password"], input.form-control[type="email"], textarea.form-control {
-    background-color: #130a2e !important;
-    border-radius: 10px;
+#drinkcount {
+background-color: #5a2297!important;
+color: #ffffff;
+border: 2px solid #b48be1!important;
+font-weight: lighter;
+font-style: italic;
+background-image: url()!important;
+background-size: contain!important;
+background: scroll;
+border-radius: 10px;
 }
 
-  .pm-panel > .panel-body > .pm-buffer {
-    background-color: #160124cf;
-}
-  
-  .panel-default>.panel-heading {
-    background-color: #483585!important;
-    color: #ffffff!important;
-    border-radius: 10px!important;
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  background-color: #513185!important;
+  border-width: 3px;
 }
 
-  .qe_title {
-    color: white!important;
-  }
-  
-  .panel-primary>.panel-heading {
-    background-color: #dc7afa;
-    border: 2px solid #dc7afa!important;
-    border-radius: 10px!important;
-    color: #fff;
-    background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1064248330198188042/ezgif-3-4324ad53e1.gif)!important;
-    background-size: contain!important;
-    background: scroll;
-    text-shadow: 0px 0px 10px #000000, 0px 0px 10px #000 !important;
+#currenttitle {
+background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1063346242572259358/moon.gif)!important;
+background-repeat: no-repeat!important;
+background-position: left center!important;
 }
 
-  html, body {
-    height: unset;
-  }
-  
-  ::selection {
-    color: #a7dddd!important;
-    background-color: #6643f461!important;
+input.form-control[type="text"], input.form-control[type="password"], input.form-control[type="email"], textarea.form-control {
+background-color: #130a2e !important;
+border-radius: 10px;
 }
 
-  #motdwrap {
-    padding: 10px;
-    border-color: white;
-    box-shadow: none;
-    background-color: #a277d180;
-  }
-
-  #motdlogo {
-    border-color: #b09cc7cc;
+.pm-panel > .panel-body > .pm-buffer {
+background-color: #160124cf;
 }
 
-  #nav-collapsible {
-    background-image: linear-gradient(#402c6b, #343674)!important;
-    }
-
-  .navbar-header {
-    background-image: linear-gradient(#402c6b, #343674)!important;
-    }
-
-    #footer {
-        background-color: #11011e!important;
-    }
-    
-    
-
-  #wrap {
-    background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1063346243088166942/stars.png);
-    background-repeat: repeat;
-    background-position: 100% 0%;
-    background-size: 40%;
-    min-height: 100%;
-    height: auto;
-    margin: 0 auto -60px;
-    padding: 0 0 60px;
-  }
-  
-  .form-control {
-    color: #c8c8c8;
-    width: 100%;
-    border-top: 0;
-    background-color: #130a2e !important;
-    border: solid 1px #ccc;
+.panel-default>.panel-heading {
+background-color: #483585!important;
+color: #ffffff!important;
+border-radius: 10px!important;
 }
-  .alert-info {
-    background-color: #483585;
-    border-color: #483585;
-    color: #fff;
-  }
-  
-  .glyphicon {
-    font-weight: 500;
-  }
-  
-  #ytapiplayer {
-    background-color: #000000;
-  }
-  
-  #chatheader, #videowrap-header, #userlist, #messagebuffer, #plmeta {
-    background-color: #240a44;
-  }
-  
-  footer {
-    background-color: #3b4ba0 !important;
-  }
-  
-  .text-muted, .text-primary {
-    color: #76b0d1;
-  }
-  
-  .profile-box, .user-dropdown {
-    background-color: #a55ed1;
-    color:white;
-  }
-  
-  .chat-shadow {
-    color: #c2c0c0;
-  }
-  
-  #coverpl{
-    background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1063350244529676369/Totoro.gif)!important;
-    background-color: #000000!important;
-  }
-  
-  .drink {
-    border: 2px solid #9200cc;
-  }
-  
-  #drinkcount {
-    background-color: #000000;
-    color: #ffffff;
-  }
-  
-  #plmeta {
-    border: 1px solid #aaaaaa;
-  }
-  
-  #userlist, #messagebuffer {
-    border: 1px solid #aaaaaa;
-  }
-  
-  #chatheader, #videowrap-header {
-    border: 1px solid #cccccc;
-    border-bottom-width: 0;
-    border-radius: 5px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  
-  .queue_entry {
-    border-color: #671e9b;
-    background-color: #282a9bbb;
-  }
-  
-  .queue_entry.queue_active {
-    background-color: #891787;
-    background-image: linear-gradient(#660b8d, #2f1083bb);
-    background-repeat:no-repeat;
-  }
-  
-  .navbar-inverse .navbar-text-nofloat {
-    color: #9d9d9d;
-  }
-  
-  .btn-default {
-    background-image: linear-gradient(#a069db, #a069db)!important;
-    font-weight: 500;
-    color: #000000;
-  }
-  
-  .btn {
-    border-color: #000!important;
-  }
-  
-  .well {
-    background-color:#6700c51c!important;
-    border-color: #4c4b9f!important;
-  }
-  
-  .dark-theme > .odd-message {
-    background-color: #160124cf;
-  }
-  /*230b49*/
-  .modal-body {
-    padding: 30px;
-    background-color: #160124!important;
-  }
-  
-  .modal-header {
-    background-color: #160124;
-  }
-  
-  .modal-footer {
-    background-color: #160124;
-  }
 
-  .modal-content {
-    background-color: #160124;
+.qe_title {
+color: white!important;
 }
-  
-  .emote-preview-container {
-    margin: 3px
-  }
-  
-  .emotelist-table td {
-    background-color: #22093a;
-  }
-  
-  #titlerow-outer {
-    letter-spacing:2px;
-    color: #e3b3ff!important;
-    background-color: #220e59;
-  }
-    
-  .qe_title {
-    margin-left: 4px;
-    letter-spacing: .6px;
-  }
-  
-  ::-webkit-scrollbar{min-height:10px;width:6px;background:transparent}
-  ::-webkit-scrollbar-thumb {
-    background: rgb(152, 70, 219);
-    opacity: 7;
-    border-radius: 1ex;
-  }
-  ::-webkit-scrollbar-corner{background:rgb(255, 255, 255)}
 
+.panel-primary>.panel-heading {
+background-color: #dc7afa;
+border: 2px solid #dc7afa!important;
+border-radius: 10px!important;
+color: #fff;
+background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1064248330198188042/ezgif-3-4324ad53e1.gif)!important;
+background-size: contain!important;
+background: scroll;
+text-shadow: 0px 0px 10px #000000, 0px 0px 10px #000 !important;
+}
+
+html, body {
+height: unset;
+}
+
+::selection {
+color: #a7dddd!important;
+background-color: #6643f461!important;
+}
+
+#motdwrap {
+padding: 10px;
+border-color: white;
+box-shadow: none;
+background-color: #a277d180;
+}
+
+#motdlogo {
+border-color: #b09cc7cc;
+}
+
+#nav-collapsible {
+background-image: linear-gradient(#402c6b, #343674)!important;
+}
+
+.navbar-header {
+background-image: linear-gradient(#402c6b, #343674)!important;
+}
+
+#footer {
+    background-color: #11011e!important;
+}
+
+#wrap {
+background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1063346243088166942/stars.png);
+background-repeat: repeat;
+background-position: 100% 0%;
+background-size: 40%;
+min-height: 100%;
+height: auto;
+margin: 0 auto -60px;
+padding: 0 0 60px;
+}
+
+.form-control {
+color: #c8c8c8;
+width: 100%;
+border-top: 0;
+background-color: #130a2e !important;
+border: solid 1px #ccc;
+}
+.alert-info {
+background-color: #483585;
+border-color: #483585;
+color: #fff;
+}
+
+.glyphicon {
+font-weight: 500;
+}
+
+#ytapiplayer {
+background-color: #000000;
+}
+
+#chatheader, #videowrap-header, #userlist, #messagebuffer, #plmeta {
+background-color: #240a44;
+}
+
+footer {
+background-color: #3b4ba0 !important;
+}
+
+.text-muted, .text-primary {
+color: #76b0d1;
+}
+
+.profile-box, .user-dropdown {
+background-color: #a55ed1;
+color:white;
+}
+
+.chat-shadow {
+color: #c2c0c0;
+}
+
+#coverpl{
+background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1063350244529676369/Totoro.gif)!important;
+background-color: #000000!important;
+}
+
+
+#plmeta {
+border: 1px solid #aaaaaa;
+}
+
+#userlist, #messagebuffer {
+border: 1px solid #aaaaaa;
+}
+
+#chatheader, #videowrap-header {
+border: 1px solid #cccccc;
+border-bottom-width: 0;
+border-radius: 5px;
+border-bottom-left-radius: 0;
+border-bottom-right-radius: 0;
+}
+
+.queue_entry {
+border-color: #671e9b;
+background-color: #282a9bbb;
+}
+
+.queue_entry.queue_active {
+background-color: #891787;
+background-image: linear-gradient(#660b8d, #2f1083bb);
+background-repeat:no-repeat;
+}
+
+.navbar-inverse .navbar-text-nofloat {
+color: #9d9d9d;
+}
+
+.btn-default {
+background-image: linear-gradient(#a069db, #a069db)!important;
+font-weight: 500;
+color: #000000;
+}
+
+.btn {
+border-color: #000!important;
+}
+
+.well {
+background-color:#6700c51c!important;
+border-color: #4c4b9f!important;
+}
+
+.dark-theme > .odd-message {
+background-color: #160124cf;
+}
+/*230b49*/
+.modal-body {
+padding: 30px;
+background-color: #140730!important;
+}
+
+.modal-header {
+background-color: #140730;
+}
+
+.modal-footer {
+background-color: #140730;
+}
+
+.modal-content {
+background-color: #140730;
+}
+
+.emote-preview-container {
+margin: 3px
+}
+
+.emotelist-table td {
+background-color: #22093a;
+}
+
+#titlerow-outer {
+letter-spacing:2px;
+color: #e3b3ff!important;
+background-color: #220e59;
+}
+
+.qe_title {
+margin-left: 4px;
+letter-spacing: .6px;
+}
+
+::-webkit-scrollbar{min-height:10px;width:6px;background:transparent}
+::-webkit-scrollbar-thumb {
+background: rgb(152, 70, 219);
+opacity: 7;
+border-radius: 1ex;
+}
+::-webkit-scrollbar-corner{background:rgb(255, 255, 255)}
