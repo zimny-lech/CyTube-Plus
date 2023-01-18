@@ -133,7 +133,7 @@ const UI_PlayerOptions = true;
 // player transformation buttons
 const UI_TransformationBtns = false;
 // [&] box with embed additional media database
-const UI_ChannelDatabase = true;
+export const UI_ChannelDatabase = true;
 // [&] box with embed galleries
 const UI_ChannelGalleries = false;
 // selector with player display modes
