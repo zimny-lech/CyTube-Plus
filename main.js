@@ -27,6 +27,7 @@ import {faCamera} from '@fortawesome/free-solid-svg-icons';
 import {intAnal} from './lib/analytics';
 import {formatBadgeToHtml, USER_BADGES} from './lib/badges';
 import {prepareMessage} from './lib/commands';
+import {getChatCommands} from './lib/commandsV2';
 import {CHANNEL_DATABASE} from './lib/database';
 import {LOGOS} from './lib/logos';
 import {initTwemoji} from './lib/twemoji';
@@ -1224,6 +1225,10 @@ if (UI_MessagesSuffix) {
 
 if (UI_UserCommands) {
   prepareMessage;
+}
+
+if (UI_UserCommands) {
+  getChatCommands;
 }
 
 /**
