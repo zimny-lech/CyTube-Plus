@@ -27,6 +27,7 @@ a {
   color: #f5c1ff !important;
 }
 
+
 .server-msg-disconnect {
   font-family: 'Quicksand', sans-serif;
   border: 3px solid #f97896 !important;
@@ -91,6 +92,23 @@ input.form-control[type="email"],
 textarea.form-control {
   background-color: #130a2e !important;
   border-radius: 10px;
+}
+
+.action {
+    font-style: italic;
+    font-size: medium;
+    border: 0px solid;
+    color: #ffa2af;
+    text-shadow: 1px 0 10px #ffa2af;
+}
+
+.dropdown-menu {
+    background-color: #25184a!important;
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+    background-color: #25184a;
+    color: #fff;
 }
 
 .pm-panel>.panel-body>.pm-buffer {
@@ -246,9 +264,6 @@ footer {
   background-repeat: no-repeat;
 }
 
-.navbar-inverse .navbar-text-nofloat {
-  color: #9d9d9d;
-}
 
 .btn-default {
   background-image: linear-gradient(#a069db, #a069db) !important;
