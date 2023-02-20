@@ -1,338 +1,343 @@
-/* Star Theme by ItMePeachy */
+    /* Star Theme by ItMePeachy */
 
-span:not(.userlist_op):not(.userlist_owner)>strong.username {
-  color: #c96cf5 !important;
-}
+    span:not(.userlist_op):not(.userlist_owner)>strong.username {
+    color: #c96cf5 !important;
+    }
 
-body {
-  background: linear-gradient(to bottom, #070733, #05020e, #23053b) !important;
-  color: rgb(255, 255, 255);
-  overflow-x: hidden;
-  background-repeat: no-repeat;
-}
+    body {
+    background: linear-gradient(to bottom, #070733, #05020e, #23053b) !important;
+    color: rgb(255, 255, 255);
+    overflow-x: hidden;
+    background-repeat: no-repeat;
+    }
 
-.userlist_owner {
-  color: #3bd1ff !important;
-}
+    .chat-msg-Xsogon .userlist_owner {
+        color: #00FFFF!important;
+        text-shadow: 1px 0 10px #00FFFF;
+    }
 
-.userlist_op {
-  color: #ff8383 !important;
-}
+    .userlist_owner {
+    color: #ff6e6e !important;
+    }
 
-div.userlist_item>span:not(.userlist_op):not(.userlist_owner):not(.userlist_guest) {
-  color: #c96cf5 !important;
-}
+    .userlist_op {
+    color: #53baff !important;
+    }
 
-a {
-  color: #f5c1ff !important;
-}
+    div.userlist_item>span:not(.userlist_op):not(.userlist_owner):not(.userlist_guest) {
+    color: #c96cf5 !important;
+    }
+
+    a {
+    color: #f5c1ff !important;
+    }
 
 
-.server-msg-disconnect {
-  font-family: 'Quicksand', sans-serif;
-  border: 3px solid #f97896 !important;
-  background-color: #88384b !important;
-  background-image: url() !important;
-  background-size: contain !important;
-  background: scroll;
-  color: #fff;
-  border-radius: 15px;
-  font-size: 18px;
-  font-style: italic;
-  text-align: center;
-  text-shadow: 10px 0px 10px #000000, 10px 0px 10px #000000 !important;
-  transition: all .7s !important;
-}
-
-.server-msg-reconnect {
-  font-family: 'Quicksand', sans-serif;
-  border: 3px solid #95c9ff !important;
-  background-color: #557aa1 !important;
-  background-image: url() !important;
-  background-size: contain !important;
-  background: scroll;
-  color: #fff;
-  border-radius: 15px;
-  font-size: 18px;
-  font-style: italic;
-  text-align: center;
-  text-shadow: 10px 0px 10px #000000, 10px 0px 10px #000000 !important;
-  transition: all .7s !important;
-  text-align: center;
-}
-
-#drinkcount {
-  background-color: #5a2297 !important;
-  color: #ffffff;
-  border: 2px solid #b48be1 !important;
-  font-weight: lighter;
-  font-style: italic;
-  background-image: url() !important;
-  background-size: contain !important;
-  background: scroll;
-  border-radius: 10px;
-}
-
-.nav-tabs>li.active>a,
-.nav-tabs>li.active>a:focus,
-.nav-tabs>li.active>a:hover {
-  background-color: #513185 !important;
-  border-width: 3px;
-}
-
-#currenttitle {
-  background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1063346242572259358/moon.gif) !important;
-  background-repeat: no-repeat !important;
-  background-position: left center !important;
-}
-
-input.form-control[type="text"],
-input.form-control[type="password"],
-input.form-control[type="email"],
-textarea.form-control {
-  background-color: #130a2e !important;
-  border-radius: 10px;
-}
-
-.action {
-    font-style: italic;
-    font-size: medium;
-    border: 0px solid;
-    color: #ffa2af;
-    text-shadow: 1px 0 10px #ffa2af;
-}
-
-.dropdown-menu {
-    background-color: #25184a!important;
-}
-
-.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
-    background-color: #25184a;
+    .server-msg-disconnect {
+    font-family: 'Quicksand', sans-serif;
+    border: 3px solid #f97896 !important;
+    background-color: #88384b !important;
+    background-image: url() !important;
+    background-size: contain !important;
+    background: scroll;
     color: #fff;
-}
+    border-radius: 15px;
+    font-size: 18px;
+    font-style: italic;
+    text-align: center;
+    text-shadow: 10px 0px 10px #000000, 10px 0px 10px #000000 !important;
+    transition: all .7s !important;
+    }
 
-.pm-panel>.panel-body>.pm-buffer {
-  background-color: #160124cf;
-}
+    .server-msg-reconnect {
+    font-family: 'Quicksand', sans-serif;
+    border: 3px solid #95c9ff !important;
+    background-color: #557aa1 !important;
+    background-image: url() !important;
+    background-size: contain !important;
+    background: scroll;
+    color: #fff;
+    border-radius: 15px;
+    font-size: 18px;
+    font-style: italic;
+    text-align: center;
+    text-shadow: 10px 0px 10px #000000, 10px 0px 10px #000000 !important;
+    transition: all .7s !important;
+    text-align: center;
+    }
 
-.panel-default>.panel-heading {
-  background-color: #483585 !important;
-  color: #ffffff !important;
-  border-radius: 10px !important;
-}
+    #drinkcount {
+    background-color: #5a2297 !important;
+    color: #ffffff;
+    border: 2px solid #b48be1 !important;
+    font-weight: lighter;
+    font-style: italic;
+    background-image: url() !important;
+    background-size: contain !important;
+    background: scroll;
+    border-radius: 10px;
+    }
 
-.qe_title {
-  color: white !important;
-}
+    .nav-tabs>li.active>a,
+    .nav-tabs>li.active>a:focus,
+    .nav-tabs>li.active>a:hover {
+    background-color: #513185 !important;
+    border-width: 3px;
+    }
 
-.panel-primary>.panel-heading {
-  background-color: #dc7afa;
-  border: 2px solid #dc7afa !important;
-  border-radius: 10px !important;
-  color: #fff;
-  background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1064248330198188042/ezgif-3-4324ad53e1.gif) !important;
-  background-size: contain !important;
-  background: scroll;
-  text-shadow: 0px 0px 10px #000000, 0px 0px 10px #000 !important;
-}
+    #currenttitle {
+    background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1063346242572259358/moon.gif) !important;
+    background-repeat: no-repeat !important;
+    background-position: left center !important;
+    }
 
-html,
-body {
-  height: unset;
-}
+    input.form-control[type="text"],
+    input.form-control[type="password"],
+    input.form-control[type="email"],
+    textarea.form-control {
+    background-color: #130a2e !important;
+    border-radius: 10px;
+    }
 
-::selection {
-  color: #a7dddd !important;
-  background-color: #6643f461 !important;
-}
+    .action {
+        font-style: italic;
+        font-size: medium;
+        border: 0px solid;
+        color: #ffa2af;
+        text-shadow: 1px 0 10px #ffa2af;
+    }
 
-#motdwrap {
-  padding: 10px;
-  border-color: white;
-  box-shadow: none;
-  background-color: #a277d180;
-}
+    .dropdown-menu {
+        background-color: #25184a!important;
+    }
 
-#motdlogo {
-  border-color: #b09cc7cc;
-}
+    .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+        background-color: #25184a;
+        color: #fff;
+    }
 
-#nav-collapsible {
-  background-image: linear-gradient(#402c6b, #343674) !important;
-}
+    .pm-panel>.panel-body>.pm-buffer {
+    background-color: #160124cf;
+    }
 
-.navbar-header {
-  background-image: linear-gradient(#402c6b, #343674) !important;
-}
+    .panel-default>.panel-heading {
+    background-color: #483585 !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    }
 
-#footer {
-  background-color: #11011e !important;
-}
+    .qe_title {
+    color: white !important;
+    }
 
-#wrap {
-  background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1063346243088166942/stars.png);
-  background-repeat: repeat;
-  background-position: 100% 0%;
-  background-size: 40%;
-  min-height: 100%;
-  height: auto;
-  margin: 0 auto -60px;
-  padding: 0 0 60px;
-}
+    .panel-primary>.panel-heading {
+    background-color: #dc7afa;
+    border: 2px solid #dc7afa !important;
+    border-radius: 10px !important;
+    color: #fff;
+    background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1064248330198188042/ezgif-3-4324ad53e1.gif) !important;
+    background-size: contain !important;
+    background: scroll;
+    text-shadow: 0px 0px 10px #000000, 0px 0px 10px #000 !important;
+    }
 
-.form-control {
-  color: #c8c8c8;
-  width: 100%;
-  border-top: 0;
-  background-color: #130a2e !important;
-  border: solid 1px #ccc;
-}
+    html,
+    body {
+    height: unset;
+    }
 
-.alert-info {
-  background-color: #483585;
-  border-color: #483585;
-  color: #fff;
-}
+    ::selection {
+    color: #a7dddd !important;
+    background-color: #6643f461 !important;
+    }
 
-.glyphicon {
-  font-weight: 500;
-}
+    #motdwrap {
+    padding: 10px;
+    border-color: white;
+    box-shadow: none;
+    background-color: #a277d180;
+    }
 
-#ytapiplayer {
-  background-color: #000000;
-}
+    #motdlogo {
+    border-color: #b09cc7cc;
+    }
 
-#chatheader,
-#videowrap-header,
-#userlist,
-#messagebuffer,
-#plmeta {
-  background-color: #240a44;
-}
+    #nav-collapsible {
+    background-image: linear-gradient(#402c6b, #343674) !important;
+    }
 
-footer {
-  background-color: #3b4ba0 !important;
-}
+    .navbar-header {
+    background-image: linear-gradient(#402c6b, #343674) !important;
+    }
 
-.text-muted,
-.text-primary {
-  color: #76b0d1;
-}
+    #footer {
+    background-color: #11011e !important;
+    }
 
-.profile-box,
-.user-dropdown {
-  background-color: #a55ed1;
-  color: white;
-}
+    #wrap {
+    background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1063346243088166942/stars.png);
+    background-repeat: repeat;
+    background-position: 100% 0%;
+    background-size: 40%;
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+    }
 
-.chat-shadow {
-  color: #c2c0c0;
-}
+    .form-control {
+    color: #c8c8c8;
+    width: 100%;
+    border-top: 0;
+    background-color: #130a2e !important;
+    border: solid 1px #ccc;
+    }
 
-#coverpl {
-  background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1063350244529676369/Totoro.gif) !important;
-  background-color: #000000 !important;
-}
+    .alert-info {
+    background-color: #483585;
+    border-color: #483585;
+    color: #fff;
+    }
+
+    .glyphicon {
+    font-weight: 500;
+    }
+
+    #ytapiplayer {
+    background-color: #000000;
+    }
+
+    #chatheader,
+    #videowrap-header,
+    #userlist,
+    #messagebuffer,
+    #plmeta {
+    background-color: #240a44;
+    }
+
+    footer {
+    background-color: #3b4ba0 !important;
+    }
+
+    .text-muted,
+    .text-primary {
+    color: #76b0d1;
+    }
+
+    .profile-box,
+    .user-dropdown {
+    background-color: #a55ed1;
+    color: white;
+    }
+
+    .chat-shadow {
+    color: #c2c0c0;
+    }
+
+    #coverpl {
+    background-image: url(https://cdn.discordapp.com/attachments/986926739190063114/1063350244529676369/Totoro.gif) !important;
+    background-color: #000000 !important;
+    }
 
 
-#plmeta {
-  border: 1px solid #aaaaaa;
-}
+    #plmeta {
+    border: 1px solid #aaaaaa;
+    }
 
-#userlist,
-#messagebuffer {
-  border: 1px solid #aaaaaa;
-}
+    #userlist,
+    #messagebuffer {
+    border: 1px solid #aaaaaa;
+    }
 
-#chatheader,
-#videowrap-header {
-  border: 1px solid #cccccc;
-  border-bottom-width: 0;
-  border-radius: 5px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
+    #chatheader,
+    #videowrap-header {
+    border: 1px solid #cccccc;
+    border-bottom-width: 0;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    }
 
-.queue_entry {
-  border-color: #671e9b;
-  background-color: #282a9bbb;
-}
+    .queue_entry {
+    border-color: #671e9b;
+    background-color: #282a9bbb;
+    }
 
-.queue_entry.queue_active {
-  background-color: #891787;
-  background-image: linear-gradient(#660b8d, #2f1083bb);
-  background-repeat: no-repeat;
-}
+    .queue_entry.queue_active {
+    background-color: #891787;
+    background-image: linear-gradient(#660b8d, #2f1083bb);
+    background-repeat: no-repeat;
+    }
 
 
-.btn-default {
-  background-image: linear-gradient(#a069db, #a069db) !important;
-  font-weight: 500;
-  color: #000000;
-}
+    .btn-default {
+    background-image: linear-gradient(#a069db, #a069db) !important;
+    font-weight: 500;
+    color: #000000;
+    }
 
-.btn {
-  border-color: #000 !important;
-}
+    .btn {
+    border-color: #000 !important;
+    }
 
-.well {
-  background-color: #6700c51c !important;
-  border-color: #4c4b9f !important;
-}
+    .well {
+    background-color: #6700c51c !important;
+    border-color: #4c4b9f !important;
+    }
 
-.dark-theme>.odd-message {
-  background-color: #160124cf;
-}
+    .dark-theme>.odd-message {
+    background-color: #160124cf;
+    }
 
-/*230b49*/
-.modal-body {
-  padding: 30px;
-  background-color: #140730 !important;
-}
+    /*230b49*/
+    .modal-body {
+    padding: 30px;
+    background-color: #140730 !important;
+    }
 
-.modal-header {
-  background-color: #140730;
-}
+    .modal-header {
+    background-color: #140730;
+    }
 
-.modal-footer {
-  background-color: #140730;
-}
+    .modal-footer {
+    background-color: #140730;
+    }
 
-.modal-content {
-  background-color: #140730;
-}
+    .modal-content {
+    background-color: #140730;
+    }
 
-.emote-preview-container {
-  margin: 3px
-}
+    .emote-preview-container {
+    margin: 3px
+    }
 
-.emotelist-table td {
-  background-color: #22093a;
-}
+    .emotelist-table td {
+    background-color: #22093a;
+    }
 
-#titlerow-outer {
-  letter-spacing: 2px;
-  color: #e3b3ff !important;
-  background-color: #220e59;
-}
+    #titlerow-outer {
+    letter-spacing: 2px;
+    color: #e3b3ff !important;
+    background-color: #220e59;
+    }
 
-.qe_title {
-  margin-left: 4px;
-  letter-spacing: .6px;
-}
+    .qe_title {
+    margin-left: 4px;
+    letter-spacing: .6px;
+    }
 
-::-webkit-scrollbar {
-  min-height: 10px;
-  width: 6px;
-  background: transparent
-}
+    ::-webkit-scrollbar {
+    min-height: 10px;
+    width: 6px;
+    background: transparent
+    }
 
-::-webkit-scrollbar-thumb {
-  background: rgb(152, 70, 219);
-  opacity: 7;
-  border-radius: 1ex;
-}
+    ::-webkit-scrollbar-thumb {
+    background: rgb(152, 70, 219);
+    opacity: 7;
+    border-radius: 1ex;
+    }
 
-::-webkit-scrollbar-corner {
-  background: rgb(255, 255, 255)
-}
+    ::-webkit-scrollbar-corner {
+    background: rgb(255, 255, 255)
+    }
