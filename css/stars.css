@@ -11,11 +11,6 @@
     background-repeat: no-repeat;
     }
 
-    .chat-msg-Xsogon .userlist_owner {
-        color: #00FFFF!important;
-        text-shadow: 1px 0 10px #00FFFF;
-    }
-
     .userlist_owner {
     color: #ff6e6e !important;
     }
@@ -239,6 +234,30 @@
     background-color: #000000 !important;
     }
 
+    .chat-msg-Xsogon .userlist_owner {
+        color: #00FFFF!important;
+        text-shadow: 1px 0 10px #00FFFF;
+    }
+
+    .chat-msg-PeachyBot .userlist_op {
+        color: #ffb7f9!important;
+        text-shadow: 1px 0 10px #ffb7f9;
+    }
+
+    .chat-msg-ItMePeachy .userlist_op {
+        background: linear-gradient(to right, #ff70f8, #ff68f7, #cb76ff, #b682ff, #a28bff, #8f93ff, #7d99ff, #6f9fff, #65a3ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 1px 0 10px #ffffff9d!important;
+    }
+
+
+    .chat-msg-RottenSpaceMan .userlist_op {
+        background: linear-gradient(to right, #ff5451, #ff9267, #ffe868, #93ff7d, #48ebff, #484bff, #8441ff, #df3fff, #ff3ef5);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 1px 0 10px #ffffff9d!important;
+    }
 
     #plmeta {
     border: 1px solid #aaaaaa;
