@@ -680,3 +680,9 @@ div[id="leftfooter"] {
 	border-color: #45f3ff;
 	color: #fff;
 }
+
+/* ItMePeachy was here :tf: */
+    .chat-msg-Xsogon .userlist_owner {
+        color: #00FFFF!important;
+        text-shadow: 1px 0 10px #00FFFF;
+    }
